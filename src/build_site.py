@@ -347,7 +347,9 @@ def render_dictionary_index(
                 f'<span class="alpha-count">{count:,}</span></a>'
             )
 
-    # Per-letter sections with 3-letter-prefix sub-buckets
+    # Per-letter sections with 3-letter-prefix sub-buckets. Each letter is a
+    # collapsible <details> so the index doesn't dump thousands of prefixes
+    # on screen at once.
     sections = []
     for letter in alphabet:
         if not letter_counts.get(letter):
@@ -359,11 +361,15 @@ def render_dictionary_index(
             f'<span class="prefix-count">{count:,}</span></a>'
             for prefix, count, file in prefixes
         )
+        count = letter_counts.get(letter, 0)
         sections.append(
-            f'<section class="letter-section" id="letter-{url_quote(letter)}">'
-            f'<h3 class="letter-section-h">{esc(letter)}</h3>'
+            f'<details class="letter-section" id="letter-{url_quote(letter)}">'
+            f'<summary class="letter-section-h">'
+            f'<span class="letter-section-name">{esc(letter)}</span>'
+            f'<span class="letter-section-count">{count:,}</span>'
+            f'</summary>'
             f'<div class="prefix-grid">{prefix_links}</div>'
-            f'</section>'
+            f'</details>'
         )
 
     documents_links = ""
@@ -476,32 +482,57 @@ def render_prefix_page(
             f'<span class="paging-label">страницы:</span>{page_links}</nav>'
         )
 
-    prev_link = (
-        f'<a class="page-nav prev" href="{esc(prev_page)}">← назад</a>'
-        if prev_page
-        else '<span class="page-nav-stub"></span>'
+    prev_link_compact = (
+        f'<a class="page-nav-arrow" href="{esc(prev_page)}" title="Предыдущий фрагмент" aria-label="назад">←</a>'
+        if prev_page else '<span class="page-nav-arrow stub" aria-hidden="true">←</span>'
     )
-    next_link = (
+    next_link_compact = (
+        f'<a class="page-nav-arrow" href="{esc(next_page)}" title="Следующий фрагмент" aria-label="вперёд">→</a>'
+        if next_page else '<span class="page-nav-arrow stub" aria-hidden="true">→</span>'
+    )
+
+    prev_link_bottom = (
+        f'<a class="page-nav prev" href="{esc(prev_page)}">← назад</a>'
+        if prev_page else '<span class="page-nav-stub"></span>'
+    )
+    next_link_bottom = (
         f'<a class="page-nav next" href="{esc(next_page)}">вперёд →</a>'
-        if next_page
-        else '<span class="page-nav-stub"></span>'
+        if next_page else '<span class="page-nav-stub"></span>'
     )
 
     return f"""{page_head(title, description, asset_prefix='../')}
 <header class="letter-header">
   <div class="letter-header-inner">
-    <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(src['id'])}</a></p>
-    <h1 class="letter-h1">{esc(prefix)}<span class="letter-h1-suffix">{esc(page_suffix)}</span></h1>
-    <p class="letter-count">{bucket_total:,} статей{(' · ' + str(len(page_entries)) + ' на странице') if page_count > 1 else ''}</p>
-    <nav class="alphabet-mini" aria-label="Алфавит">{alphabet_nav}</nav>
-    <nav class="prefix-bar" aria-label="Фрагменты внутри «{esc(letter)}»">{sibling_nav}</nav>
+    <div class="letter-bar">
+      {prev_link_compact}
+      <div class="letter-bar-title">
+        <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(src['id'])}</a></p>
+        <h1 class="letter-h1">{esc(prefix)}<span class="letter-h1-suffix">{esc(page_suffix)}</span></h1>
+        <p class="letter-count">{bucket_total:,} статей{(' · ' + str(len(page_entries)) + ' на странице') if page_count > 1 else ''}</p>
+      </div>
+      {next_link_compact}
+    </div>
     {page_pagination}
+    <details class="nav-details">
+      <summary>Навигация по словарю</summary>
+      <div class="nav-details-body">
+        <div class="nav-group">
+          <p class="nav-group-h">Алфавит</p>
+          <nav class="alphabet-mini" aria-label="Алфавит">{alphabet_nav}</nav>
+        </div>
+        <div class="nav-group">
+          <p class="nav-group-h">Фрагменты буквы «{esc(letter)}»</p>
+          <nav class="prefix-bar" aria-label="Фрагменты внутри «{esc(letter)}»">{sibling_nav}</nav>
+        </div>
+        <p class="nav-group-h"><a href="index.html#letter-{url_quote(letter)}">→ к указателю</a></p>
+      </div>
+    </details>
   </div>
 </header>
 
 <main class="container">
-  <details class="toc" {"" if len(page_entries) > 60 else "open"}>
-    <summary>Оглавление ({len(page_entries):,})</summary>
+  <details class="toc">
+    <summary>Оглавление страницы ({len(page_entries):,})</summary>
     <ul class="toc-list">{toc_html}</ul>
   </details>
 
@@ -510,9 +541,9 @@ def render_prefix_page(
   </div>
 
   <nav class="page-nav-bar">
-    {prev_link}
+    {prev_link_bottom}
     <a class="page-nav up" href="index.html#letter-{url_quote(letter)}">к указателю</a>
-    {next_link}
+    {next_link_bottom}
   </nav>
 </main>
 

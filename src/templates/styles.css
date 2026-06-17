@@ -263,17 +263,48 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 
 .letter-toc { margin-top: 1rem; }
 .letter-section {
-  margin: 2rem 0 1rem;
-  scroll-margin-top: 1rem;
+  margin: 0.5rem 0;
+  scroll-margin-top: 0.5rem;
+  padding: 0.5rem 0.85rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.letter-section[open] {
+  background: var(--bg-card-hover);
 }
 .letter-section-h {
-  margin: 0 0 0.6rem;
+  cursor: pointer;
+  list-style: none;
+  display: flex; align-items: baseline; gap: 0.6rem;
   font-family: var(--font-serif);
-  font-size: 1.6rem;
+  font-size: 1.4rem;
   font-weight: 600;
   color: var(--accent);
-  border-bottom: 1px dashed var(--border);
-  padding-bottom: 0.25rem;
+  user-select: none;
+}
+.letter-section-h::-webkit-details-marker { display: none; }
+.letter-section-h::before {
+  content: "▸";
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  transition: transform 0.15s ease;
+  flex-shrink: 0;
+  position: relative;
+  top: -0.15rem;
+}
+.letter-section[open] .letter-section-h::before { transform: rotate(90deg); }
+.letter-section-name { font-family: var(--font-serif); }
+.letter-section-count {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+.letter-section[open] .prefix-grid {
+  margin-top: 0.7rem;
+  padding-top: 0.6rem;
+  border-top: 1px dashed var(--border);
 }
 .prefix-grid {
   display: grid;
@@ -308,23 +339,27 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
   font-family: var(--font-mono);
 }
 
-/* ---------- Letter page ---------- */
+/* ---------- Letter page (top bar) ---------- */
 
 .letter-header {
-  position: sticky; top: 0; z-index: 10;
-  background: rgba(244, 241, 234, 0.92);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: var(--bg-soft);
   border-bottom: 1px solid var(--border);
 }
 .letter-header-inner {
   max-width: 52rem; margin: 0 auto;
-  padding: 0.85rem 1.5rem;
-  display: grid; gap: 0.25rem;
+  padding: 0.65rem 1.5rem 0.8rem;
+}
+.letter-bar {
+  display: flex; align-items: center; gap: 0.75rem;
+}
+.letter-bar-title {
+  flex: 1 1 auto;
+  text-align: center;
+  display: grid; gap: 0.05rem;
 }
 .letter-tag {
   margin: 0;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   letter-spacing: 0.08em;
   color: var(--accent);
   text-transform: uppercase;
@@ -333,17 +368,75 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 .letter-h1 {
   margin: 0;
   font-family: var(--font-serif);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: 600;
+  line-height: 1.1;
 }
 .letter-count {
   margin: 0;
-  font-size: 0.85rem;
+  font-size: 0.78rem;
   color: var(--text-muted);
 }
+.page-nav-arrow {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 999px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1;
+  text-decoration: none;
+  flex-shrink: 0;
+  transition: background 0.12s ease, border-color 0.12s ease, color 0.12s ease;
+}
+.page-nav-arrow:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  text-decoration: none;
+}
+.page-nav-arrow.stub { opacity: 0.25; pointer-events: none; }
+
+.nav-details {
+  margin-top: 0.6rem;
+  padding: 0.35rem 0.7rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+}
+.nav-details > summary {
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--accent);
+  user-select: none;
+  list-style: none;
+  display: flex; align-items: center; gap: 0.4rem;
+}
+.nav-details > summary::-webkit-details-marker { display: none; }
+.nav-details > summary::before {
+  content: "▸";
+  font-size: 0.75rem;
+  transition: transform 0.15s ease;
+}
+.nav-details[open] > summary::before { transform: rotate(90deg); }
+.nav-details-body {
+  margin-top: 0.6rem;
+  display: grid;
+  gap: 0.7rem;
+}
+.nav-group-h {
+  margin: 0 0 0.25rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
 .alphabet-mini {
   display: flex; flex-wrap: wrap; gap: 0.15rem;
-  margin-top: 0.4rem;
   font-family: var(--font-serif);
 }
 .alpha-mini {
