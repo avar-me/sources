@@ -2,10 +2,15 @@
   "title": "sources.avar.me",
   "tagline": "Исходные данные для проектов avar.me",
   "description": "Реестр и хранилище исходников: словари, книги, текстовые корпусы. Источник правды для всех остальных сайтов и инструментов экосистемы avar.me.",
+  "chat": {
+    "title": "@avarme_chat",
+    "url": "https://t.me/avarme_chat",
+    "purpose": "Сообщайте об ошибках и неточностях в данных. Обсуждение правок."
+  },
   "channel": {
     "title": "@avarlangme",
     "url": "https://t.me/avarlangme",
-    "purpose": "Сообщайте об ошибках и неточностях в данных. Здесь же обсуждаются правки."
+    "purpose": "Канал проекта: новости и анонсы."
   },
   "repo": "https://github.com/avar-me/sources",
   "sources": [
@@ -23,6 +28,13 @@
       "language_to": "ru",
       "based_on": "М.-С. М. Магомедов и др. Аварско-русский словарь. Махачкала, 2006 (PDF, ~1521 стр.). Извлечение и нормализация — проект avar.me.",
       "license": "CC BY-SA 4.0",
+      "documents": [
+        {
+          "title": "Оригинальный PDF (Гимбатов и др., Махачкала, 2006)",
+          "kind": "pdf",
+          "path": "books/Full-Avar-Urus-dictionary.pdf"
+        }
+      ],
       "consumers": [
         "avar.me",
         "dev.avar.me",
@@ -43,8 +55,15 @@
       "site_path": "ru-av/",
       "language_from": "ru",
       "language_to": "av",
-      "based_on": "Источники различные, текущая версия — на базе словаря Саидова (Махачкала, 1967) и поздних дополнений. Извлечение и нормализация — проект avar.me.",
+      "based_on": "С. З. Алиханов. Русско-аварский словарь. Махачкала. Извлечение и нормализация — проект avar.me.",
       "license": "CC BY-SA 4.0",
+      "documents": [
+        {
+          "title": "Оригинальный PDF (Алиханов, Русско-аварский словарь)",
+          "kind": "pdf",
+          "path": "books/Alikhanov_Russko-Avarsky_Slovar.pdf"
+        }
+      ],
       "consumers": [
         "avar.me",
         "dev.avar.me",

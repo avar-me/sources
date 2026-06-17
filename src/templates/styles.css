@@ -226,12 +226,13 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 }
 .alpha-cell {
   display: flex; flex-direction: column; align-items: center; justify-content: center;
-  padding: 0.7rem 0.5rem;
+  padding: 0.6rem 0.4rem;
   background: var(--bg-card);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
   text-decoration: none;
+  min-height: 3.5rem;
 }
 .alpha-cell:hover {
   background: var(--accent-soft);
@@ -239,15 +240,69 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
   transform: translateY(-1px);
   text-decoration: none;
 }
+.alpha-cell.empty {
+  opacity: 0.3;
+  pointer-events: none;
+}
 .alpha-char {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   font-weight: 600;
   color: var(--text);
   line-height: 1;
+  white-space: nowrap;
 }
 .alpha-count {
   margin-top: 0.25rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* ---------- Per-letter prefix index ---------- */
+
+.letter-toc { margin-top: 1rem; }
+.letter-section {
+  margin: 2rem 0 1rem;
+  scroll-margin-top: 1rem;
+}
+.letter-section-h {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--accent);
+  border-bottom: 1px dashed var(--border);
+  padding-bottom: 0.25rem;
+}
+.prefix-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+  gap: 0.35rem;
+}
+.prefix-cell {
+  display: flex; flex-direction: column; align-items: center;
+  padding: 0.45rem 0.35rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.12s ease, border-color 0.12s ease;
+}
+.prefix-cell:hover {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  text-decoration: none;
+}
+.prefix-text {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  color: var(--text);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.prefix-count {
+  margin-top: 0.15rem;
   font-size: 0.7rem;
   color: var(--text-muted);
   font-family: var(--font-mono);
@@ -304,6 +359,45 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
   color: #fff;
   font-weight: 600;
 }
+.alpha-mini.empty {
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+.prefix-bar {
+  display: flex; flex-wrap: wrap; gap: 0.2rem;
+  margin-top: 0.5rem;
+  font-family: var(--font-serif);
+}
+.prefix-mini {
+  padding: 0.15rem 0.5rem;
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  border-radius: 4px;
+  text-decoration: none;
+  background: var(--bg-soft);
+  border: 1px solid transparent;
+}
+.prefix-mini:hover { background: var(--accent-soft); color: var(--accent); text-decoration: none; }
+.prefix-mini.current {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+}
+
+.letter-h1-suffix {
+  font-size: 0.7em;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-left: 0.4rem;
+}
+
+.card-docs {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+.card-docs a { font-family: var(--font-mono); font-size: 0.85em; }
 
 .letter-paging {
   display: flex; flex-wrap: wrap; gap: 0.25rem;
