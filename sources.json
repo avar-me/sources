@@ -71,6 +71,24 @@
       ]
     },
     {
+      "id": "en-av",
+      "title": "Англо-аварский словарь",
+      "subtitle": "en → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Англо-аварский словарь, около 3 000 статей. Сгенерирован моделью Google Gemini, перевод и значения не вычитывались — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/en-av.jsonl",
+      "site_path": "en-av/",
+      "language_from": "en",
+      "language_to": "av",
+      "based_on": "Машинная генерация: Google Gemini (одиночные пары английское слово → аварский перевод). Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "en.avar.me"
+      ]
+    },
+    {
       "id": "taras-bulba",
       "title": "Тарас Бульба",
       "subtitle": "ru ↔ av · повесть",

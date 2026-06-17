@@ -90,6 +90,7 @@ AVAR_ALPHABET = [
 ]
 
 RUSSIAN_ALPHABET = list("абвгдеёжзийклмнопрстуфхцчшщъыьэюя")
+ENGLISH_ALPHABET = list("abcdefghijklmnopqrstuvwxyz")
 
 
 def normalize_palochka(text: str) -> str:
@@ -110,6 +111,8 @@ def normalize_palochka(text: str) -> str:
 def make_alphabet(language: str) -> list[str]:
     if language == "av":
         return AVAR_ALPHABET
+    if language == "en":
+        return ENGLISH_ALPHABET
     return RUSSIAN_ALPHABET
 
 
