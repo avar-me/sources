@@ -69,6 +69,25 @@
         "dev.avar.me",
         "@ruavarme_bot"
       ]
+    },
+    {
+      "id": "taras-bulba",
+      "title": "Тарас Бульба",
+      "subtitle": "ru ↔ av · повесть",
+      "kind": "corpus",
+      "status": "stable",
+      "description": "Повесть Н. В. Гоголя «Тарас Бульба» с параллельным переводом на аварский. 12 глав, 1 784 предложения.",
+      "format": "json",
+      "data_path": "data/taras_bulba.json",
+      "site_path": "taras-bulba/",
+      "language_from": "ru",
+      "language_to": "av",
+      "based_on": "Н. В. Гоголь. Тарас Бульба, 1842. Параллельный перевод на аварский — материалы проекта avar.me.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "ml.avar.me",
+        "corpus.avar.me"
+      ]
     }
   ],
   "schema": {

@@ -55,6 +55,28 @@ REPORT_TEMPLATE = (
     "Должно быть: ..."
 )
 
+REPORT_CORPUS_TEMPLATE = (
+    "Здравствуйте! Заметил неточность в корпусе {src_id}, глава {chapter}, "
+    "предложение {sentence}:\n"
+    "ссылка: https://sources.avar.me/{src_id}/{page_file}#s-{anchor}\n\n"
+    "Должно быть: ..."
+)
+
+ROMAN_NUMERALS_TABLE = [
+    (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
+    (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
+    (10, "X"), (9, "IX"), (5, "V"), (4, "IV"), (1, "I"),
+]
+
+
+def to_roman(n: int) -> str:
+    out: list[str] = []
+    for value, symbol in ROMAN_NUMERALS_TABLE:
+        while n >= value:
+            out.append(symbol)
+            n -= value
+    return "".join(out)
+
 
 # ---------- Alphabet ----------
 
@@ -238,6 +260,7 @@ def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
         sid = src["id"]
         s = stats.get(sid, {})
         entry_count = s.get("entry_count", 0)
+        unit = s.get("unit", "статей")
         documents_links = ""
         if src.get("documents"):
             doc_links_html = " · ".join(
@@ -252,7 +275,7 @@ def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
     <h2><a href="{esc(src['site_path'])}">{esc(src['title'])}</a></h2>
     <span class="badge badge-{esc(src.get('status', 'stable'))}">{esc(src.get('status', 'stable'))}</span>
   </header>
-  <p class="card-sub">{esc(src.get('subtitle', ''))} · {entry_count:,} статей · {esc(src.get('format', 'jsonl'))}</p>
+  <p class="card-sub">{esc(src.get('subtitle', ''))} · {entry_count:,} {esc(unit)} · {esc(src.get('format', 'jsonl'))}</p>
   <p class="card-desc">{esc(src['description'])}</p>
   <p class="card-source"><span class="muted">источник:</span> {esc(src.get('based_on', ''))}</p>
   {documents_links}
@@ -551,6 +574,222 @@ def render_prefix_page(
 """
 
 
+# ---------- Corpus rendering ----------
+
+def render_corpus_index(src: dict, chapters: list[tuple[int, int]], total: int) -> str:
+    """Landing page for a corpus source: chapter list + downloads."""
+    title = f"{src['title']} — sources.avar.me"
+
+    chapter_cards = "".join(
+        f'<a class="chapter-cell" href="{ch}.html">'
+        f'<span class="chapter-num">Глава {esc(to_roman(ch))}</span>'
+        f'<span class="chapter-count">{count:,} предл.</span>'
+        f'</a>'
+        for ch, count in chapters
+    )
+
+    documents_links = ""
+    if src.get("documents"):
+        for doc in src["documents"]:
+            documents_links += (
+                f'<a class="btn btn-ghost" href="../{esc(doc["path"])}" target="_blank" rel="noopener">'
+                f'оригинал ({esc(doc.get("kind", "PDF").upper())})</a>'
+            )
+
+    return f"""{page_head(title, src['description'], asset_prefix='../')}
+<header class="hero hero-dict">
+  <div class="hero-inner">
+    <p class="hero-tag"><a href="../">sources.avar.me</a> / {esc(src['id'])}</p>
+    <h1>{esc(src['title'])}</h1>
+    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} предложений · {len(chapters)} глав</p>
+    <p class="hero-source">{esc(src.get('based_on', ''))}</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost" href="../{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
+      {documents_links}
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="dict-intro">
+    <p>Параллельный текст: на каждой странице — одна глава с предложениями
+    по-русски и по-аварски бок о бок. Заметили неточность в переводе?
+    Под каждым предложением — ссылка «сообщить», открывает чат
+    <a href="{TELEGRAM_CHAT}">@avarme_chat</a> с готовым сообщением.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Главы</h2>
+    <div class="chapter-grid">{chapter_cards}</div>
+  </section>
+</main>
+
+{footer_html()}
+"""
+
+
+def render_corpus_chapter(
+    src: dict,
+    chapter: int,
+    sentences: list[dict],
+    chapter_list: list[tuple[int, int]],
+    prev_page: str | None,
+    next_page: str | None,
+    page_file: str,
+) -> str:
+    sid = src["id"]
+    roman = to_roman(chapter)
+    title = f"Глава {roman} — {src['title']} — sources.avar.me"
+    description = f"Глава {roman} повести «{src['title']}»: {len(sentences):,} предложений"
+
+    sentence_items: list[str] = []
+    for s in sentences:
+        snum = s.get("SentenceNumber") or s.get("sentence") or 0
+        anchor = str(snum)
+        report_text = REPORT_CORPUS_TEMPLATE.format(
+            src_id=sid,
+            chapter=chapter,
+            sentence=snum,
+            page_file=page_file,
+            anchor=anchor,
+        )
+        report_href = f"{TELEGRAM_CHAT}?text={url_quote(report_text)}"
+        ru = esc(s.get("ru", ""))
+        av = esc(s.get("av", ""))
+        sentence_items.append(
+            f'<li class="sentence" id="s-{esc(anchor)}">'
+            f'<a class="s-num" href="#s-{esc(anchor)}" title="Ссылка на предложение {esc(anchor)}">{esc(anchor)}</a>'
+            f'<div class="s-pair">'
+            f'<p class="s-ru">{ru}</p>'
+            f'<p class="s-av">{av}</p>'
+            f'</div>'
+            f'<a class="s-report report-link" href="{report_href}" target="_blank" rel="noopener" '
+            f'title="Сообщить о неточности">сообщить</a>'
+            f'</li>'
+        )
+    sentences_html = "".join(sentence_items)
+
+    chapter_nav_items = "".join(
+        f'<a class="chapter-mini{" current" if ch == chapter else ""}" '
+        f'href="{ch}.html" title="Глава {esc(to_roman(ch))}, {count:,} предл.">'
+        f'{esc(to_roman(ch))}</a>'
+        for ch, count in chapter_list
+    )
+
+    prev_link_compact = (
+        f'<a class="page-nav-arrow" href="{esc(prev_page)}" title="Предыдущая глава" aria-label="назад">←</a>'
+        if prev_page else '<span class="page-nav-arrow stub" aria-hidden="true">←</span>'
+    )
+    next_link_compact = (
+        f'<a class="page-nav-arrow" href="{esc(next_page)}" title="Следующая глава" aria-label="вперёд">→</a>'
+        if next_page else '<span class="page-nav-arrow stub" aria-hidden="true">→</span>'
+    )
+
+    prev_link_bottom = (
+        f'<a class="page-nav prev" href="{esc(prev_page)}">← предыдущая</a>'
+        if prev_page else '<span class="page-nav-stub"></span>'
+    )
+    next_link_bottom = (
+        f'<a class="page-nav next" href="{esc(next_page)}">следующая →</a>'
+        if next_page else '<span class="page-nav-stub"></span>'
+    )
+
+    return f"""{page_head(title, description, asset_prefix='../')}
+<header class="letter-header">
+  <div class="letter-header-inner">
+    <div class="letter-bar">
+      {prev_link_compact}
+      <div class="letter-bar-title">
+        <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(sid)}</a></p>
+        <h1 class="letter-h1">Глава {esc(roman)}</h1>
+        <p class="letter-count">{len(sentences):,} предложений</p>
+      </div>
+      {next_link_compact}
+    </div>
+    <details class="nav-details">
+      <summary>Все главы</summary>
+      <div class="nav-details-body">
+        <nav class="chapter-bar" aria-label="Главы">{chapter_nav_items}</nav>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main class="container container-corpus">
+  <ol class="sentences">
+    {sentences_html}
+  </ol>
+
+  <nav class="page-nav-bar">
+    {prev_link_bottom}
+    <a class="page-nav up" href="index.html">к оглавлению</a>
+    {next_link_bottom}
+  </nav>
+</main>
+
+{footer_html()}
+"""
+
+
+def build_corpus(src: dict) -> dict:
+    sid = src["id"]
+    data = json.loads((ROOT / src["data_path"]).read_text(encoding="utf-8"))
+    if not isinstance(data, list):
+        raise ValueError(f"{src['data_path']} expected to be a JSON array")
+
+    by_chapter: dict[int, list[dict]] = defaultdict(list)
+    for item in data:
+        ch = item.get("chapter")
+        if ch is None:
+            continue
+        by_chapter[ch].append(item)
+
+    for ch in by_chapter:
+        by_chapter[ch].sort(key=lambda s: s.get("SentenceNumber") or 0)
+
+    chapters_sorted = sorted(by_chapter.keys())
+    chapter_list = [(ch, len(by_chapter[ch])) for ch in chapters_sorted]
+
+    print(f"    loaded {len(data):,} sentences across {len(chapter_list)} chapters")
+
+    dict_dir = DOCS / sid
+    dict_dir.mkdir(parents=True, exist_ok=True)
+
+    (dict_dir / "index.html").write_text(
+        render_corpus_index(src, chapter_list, len(data)),
+        encoding="utf-8",
+    )
+
+    chapter_files = {ch: f"{ch}.html" for ch in chapters_sorted}
+
+    pages_written = 0
+    for i, ch in enumerate(chapters_sorted):
+        prev_page = chapter_files[chapters_sorted[i - 1]] if i > 0 else None
+        next_page = (
+            chapter_files[chapters_sorted[i + 1]] if i < len(chapters_sorted) - 1 else None
+        )
+        (dict_dir / chapter_files[ch]).write_text(
+            render_corpus_chapter(
+                src,
+                ch,
+                by_chapter[ch],
+                chapter_list,
+                prev_page,
+                next_page,
+                chapter_files[ch],
+            ),
+            encoding="utf-8",
+        )
+        pages_written += 1
+
+    return {
+        "entry_count": len(data),
+        "chapter_count": len(chapter_list),
+        "page_count": pages_written + 1,  # include landing
+        "unit": "предложений",
+    }
+
+
 # ---------- Build ----------
 
 def build_dictionary(src: dict) -> dict:
@@ -742,11 +981,16 @@ def build() -> None:
             dst_doc.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src_doc, dst_doc)
 
-    # Dictionaries
+    # Per-source build (dictionary or corpus)
     stats: dict[str, dict] = {}
     for src in catalog["sources"]:
         print(f"--- {src['id']} ({src['title']}) ---")
-        stats[src["id"]] = build_dictionary(src)
+        kind = src.get("kind", "dictionary")
+        if kind == "corpus":
+            stats[src["id"]] = build_corpus(src)
+        else:
+            stats[src["id"]] = build_dictionary(src)
+        stats[src["id"]].setdefault("unit", "статей")
 
     # Catalog landing page
     (DOCS / "index.html").write_text(render_catalog(catalog, stats), encoding="utf-8")
