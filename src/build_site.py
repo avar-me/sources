@@ -167,112 +167,14 @@ def load_jsonl(path: Path) -> list[dict]:
 
 # ---------- HTML rendering ----------
 
-def render_labels(labels) -> str:
-    if not labels:
-        return ""
-    chips = "".join(f'<span class="label">{esc(lab)}</span>' for lab in labels if lab)
-    return f'<span class="labels">{chips}</span>' if chips else ""
+def render_entry(entry: dict, anchor: str, dict_id: str, page_file: str) -> str:
+    """Render an entry as its raw JSON (pretty-printed) under the word heading.
 
-
-def render_examples(examples) -> str:
-    if not examples:
-        return ""
-    items = []
-    for ex in examples:
-        av = esc(ex.get("av", ""))
-        ru = esc(ex.get("ru", ""))
-        labels = render_labels(ex.get("labels"))
-        comment = ex.get("comment")
-        comment_html = f' <span class="ex-comment">({esc(comment)})</span>' if comment else ""
-        items.append(
-            '<li class="example">'
-            f'<span class="ex-av">{av}</span>'
-            f'<span class="ex-sep"> — </span>'
-            f'<span class="ex-ru">{ru}</span>'
-            f'{comment_html}{labels}'
-            '</li>'
-        )
-    return f'<ul class="examples">{"".join(items)}</ul>'
-
-
-def render_see_also(see_also, word_to_page: dict[str, str]) -> str:
-    if not see_also:
-        return ""
-    kind_label = {"see": "см.", "from": "от", "syn": "синоним"}
-    items = []
-    for ref in see_also:
-        if isinstance(ref, str):
-            target, kind = ref, "see"
-        else:
-            target = ref.get("target") or ref.get("ref") or ""
-            kind = ref.get("kind") or "see"
-        if not target:
-            continue
-        page_file = word_to_page.get(target)
-        if page_file:
-            href = f'{page_file}#word-{url_quote(target)}'
-            link = f'<a href="{href}">{esc(target)}</a>'
-        else:
-            link = esc(target)
-        label = kind_label.get(kind, kind)
-        items.append(f'<li><span class="see-kind">{esc(label)}</span> {link}</li>')
-    if not items:
-        return ""
-    return f'<aside class="see-also"><ul>{"".join(items)}</ul></aside>'
-
-
-def render_sense(sense: dict, idx: int, total: int) -> str:
-    text = sense.get("text") or ""
-    comment = sense.get("comment") or ""
-    labels = sense.get("labels") or []
-    examples = sense.get("examples") or []
-    masdarfrom = sense.get("masdarfrom")
-    forceto = sense.get("forceto")
-
-    parts = ['<li class="sense">' if total > 1 else '<div class="sense">']
-    if total > 1:
-        parts.append(f'<span class="sense-num">{idx}.</span>')
-
-    if labels:
-        parts.append(f'<span class="sense-meta">{render_labels(labels)}</span>')
-
-    if text:
-        parts.append(f'<span class="sense-text">{esc(text)}</span>')
-    if comment:
-        parts.append(f' <span class="sense-comment">({esc(comment)})</span>')
-
-    if masdarfrom:
-        parts.append(f' <span class="sense-ref">→ масдар от <em>{esc(masdarfrom)}</em></span>')
-    if forceto:
-        parts.append(f' <span class="sense-ref">→ понуд. от <em>{esc(forceto)}</em></span>')
-
-    parts.append(render_examples(examples))
-    parts.append("</li>" if total > 1 else "</div>")
-    return "".join(parts)
-
-
-def render_entry(entry: dict, anchor: str, word_to_page: dict[str, str], dict_id: str, page_file: str) -> str:
+    The site is meant for spotting errors in the source data — showing the
+    original JSON is more honest than any interpreted layout.
+    """
     word = entry.get("word", "")
-    forms = entry.get("forms") or []
-    senses = entry.get("senses") or []
-    see_also = entry.get("see_also")
-
-    extra_forms = [f for f in forms if f and f != word]
-    forms_html = (
-        f'<p class="entry-forms">{esc(", ".join(extra_forms))}</p>' if extra_forms else ""
-    )
-
-    senses_html_inner = "".join(
-        render_sense(s, i + 1, len(senses)) for i, s in enumerate(senses)
-    )
-    if len(senses) > 1:
-        senses_html = f'<ol class="senses">{senses_html_inner}</ol>'
-    elif senses_html_inner:
-        senses_html = f'<div class="senses">{senses_html_inner}</div>'
-    else:
-        senses_html = ""
-
-    see_also_html = render_see_also(see_also, word_to_page)
+    json_text = json.dumps(entry, ensure_ascii=False, indent=2, sort_keys=False)
 
     report_text = REPORT_TEMPLATE.format(
         dict_id=dict_id,
@@ -286,14 +188,10 @@ def render_entry(entry: dict, anchor: str, word_to_page: dict[str, str], dict_id
         f'<article class="entry" id="word-{esc(anchor)}">'
         f'<header class="entry-head">'
         f'<h2 class="entry-word">{esc(word)}</h2>'
-        f'{forms_html}'
-        f'</header>'
-        f'{senses_html}'
-        f'{see_also_html}'
-        f'<footer class="entry-foot">'
         f'<a class="report-link" href="{report_href}" target="_blank" rel="noopener" '
         f'title="Сообщить об ошибке в @avarme_chat">сообщить о неточности</a>'
-        f'</footer>'
+        f'</header>'
+        f'<pre class="entry-json"><code>{esc(json_text)}</code></pre>'
         f'</article>'
     )
 
@@ -525,7 +423,6 @@ def render_prefix_page(
     bucket_total: int,
     alphabet: list[str],
     letter_counts: dict[str, int],
-    word_to_page: dict[str, str],
     sibling_prefixes_in_letter: list[tuple[str, int, str]],
     prev_page: str | None,
     next_page: str | None,
@@ -541,7 +438,7 @@ def render_prefix_page(
     for entry in page_entries:
         anchor = anchor_for(entry.get("word", ""), seen_anchors)
         entries_html_parts.append(
-            render_entry(entry, anchor, word_to_page, src["id"], page_file)
+            render_entry(entry, anchor, src["id"], page_file)
         )
         toc_parts.append(
             f'<li><a href="#word-{url_quote(anchor)}">{esc(entry.get("word", ""))}</a></li>'
@@ -692,14 +589,6 @@ def build_dictionary(src: dict) -> dict:
             pages.append((file_name, chunk))
         prefix_pages[prefix] = pages
 
-    # word → page-file map for see_also linking (first occurrence wins)
-    word_to_page: dict[str, str] = {}
-    for letter in letters_in_order:
-        for prefix in letter_to_prefixes[letter]:
-            for file_name, chunk in prefix_pages[prefix]:
-                for entry in chunk:
-                    word_to_page.setdefault(entry.get("word", ""), file_name)
-
     # Linear page order for prev/next nav
     linear_pages: list[tuple[str, str, int, int, list[dict], int]] = []
     for letter in letters_in_order:
@@ -761,7 +650,6 @@ def build_dictionary(src: dict) -> dict:
             bucket_total,
             letters_in_order,
             letter_counts,
-            word_to_page,
             letter_prefixes_for_index[letter],
             prev_file,
             next_file,
