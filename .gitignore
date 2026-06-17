@@ -1,0 +1,12 @@
+__pycache__/
+*.pyc
+.venv/
+.env
+.DS_Store
+node_modules/
+
+# Артефакты сборки — собираются Actions и публикуются на Pages, в репозиторий не коммитим
+docs/
+
+# Локальный pre-build кэш (если появится)
+.cache/

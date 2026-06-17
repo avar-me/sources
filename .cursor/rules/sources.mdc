@@ -1,0 +1,15 @@
+---
+description: Conventions for editing sources.avar.me — source of truth for avar.me data
+alwaysApply: true
+---
+
+См. [CLAUDE.md](../../CLAUDE.md) — полные правила.
+
+Краткая выжимка:
+
+- `data/*.jsonl` — единственный источник правды. Не плодить копии.
+- `docs/` — артефакт сборки. Не редактировать вручную.
+- Правки шаблонов — в `src/templates/`, логика рендера — в `src/build_site.py`.
+- Деплой автоматический через `.github/workflows/deploy.yml` (на `git push` в `main`).
+- Стиль сайта — в линии с [index.avar.me](https://index.avar.me): кремовый фон, акцент `#9a7b1a`, шрифты Onest + Literata.
+- Никаких эмодзи в шаблонах и текстах.
