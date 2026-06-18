@@ -122,6 +122,13 @@
       "language_to": "av",
       "based_on": "Газета «ХӀакъикъат». Извлечение из DOCX, очистка разметки, сегментация на предложения и нормализация палочки — проект avar.me.",
       "license": "CC BY-SA 4.0",
+      "documents": [
+        {
+          "title": "Оригинальный DOCX (вычитанный номер газеты «ХӀакъикъат»)",
+          "kind": "docx",
+          "path": "books/ihdal.docx"
+        }
+      ],
       "consumers": [
         "ml.avar.me",
         "corpus.avar.me"
