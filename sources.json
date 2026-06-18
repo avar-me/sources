@@ -126,6 +126,26 @@
         "ml.avar.me",
         "corpus.avar.me"
       ]
+    },
+    {
+      "id": "hakikat",
+      "title": "«ХӀакъикъат» — статьи (hakikat.info)",
+      "subtitle": "av · онлайн-архив",
+      "kind": "articles",
+      "status": "stable",
+      "monolingual": true,
+      "description": "Монолингвальный аварский корпус: статьи рубрики «На родном» с сайта газеты «ХӀакъикъат» (hakikat.info). 2632 статьи за 2017–2026 годы, сгруппированы по годам. Разметка снята, палочка нормализована, русские и латинские материалы отсеяны.",
+      "format": "jsonl",
+      "data_path": "data/hakikat.jsonl",
+      "site_path": "hakikat/",
+      "language_from": "av",
+      "language_to": "av",
+      "based_on": "Статьи рубрики «На родном» (post_type=nationals) сайта hakikat.info. Извлечение, очистка разметки и нормализация палочки — проект avar.me.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "ml.avar.me",
+        "corpus.avar.me"
+      ]
     }
   ],
   "schema": {

@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import html
 import json
+import re
 import shutil
 import sys
 from collections import defaultdict
@@ -66,6 +67,12 @@ REPORT_CORPUS_MONO_TEMPLATE = (
     "Здравствуйте! Заметил неточность в корпусе {src_id}, материал {chapter}, "
     "предложение {sentence}:\n"
     "ссылка: https://sources.avar.me/{src_id}/{page_file}#s-{anchor}\n\n"
+    "Должно быть: ..."
+)
+
+REPORT_ARTICLE_TEMPLATE = (
+    "Здравствуйте! Заметил неточность в источнике {src_id}, статья «{title}»:\n"
+    "ссылка: https://sources.avar.me/{src_id}/a/{fname}.html\n\n"
     "Должно быть: ..."
 )
 
@@ -881,6 +888,257 @@ def build_corpus(src: dict) -> dict:
     }
 
 
+# ---------- Articles archive (jsonl, one object per article) ----------
+
+def article_filename(slug: str, used: set[str]) -> str:
+    """A unique ascii filename for an article (slugs may contain palochka)."""
+    base = re.sub(r"[^a-z0-9]+", "-", (slug or "").lower()).strip("-") or "article"
+    fn, i = base, 2
+    while fn in used:
+        fn = f"{base}-{i}"
+        i += 1
+    used.add(fn)
+    return fn
+
+
+def render_articles_index(
+    src: dict, years: list[tuple[str, int]], total: int, date_min: str, date_max: str
+) -> str:
+    title = f"{src['title']} — sources.avar.me"
+    year_cards = "".join(
+        f'<a class="chapter-cell" href="{esc(y)}.html">'
+        f'<span class="chapter-num">{esc(y)}</span>'
+        f'<span class="chapter-count">{c:,} ст.</span>'
+        f'</a>'
+        for y, c in years
+    )
+    span = f" · {esc(date_min)} … {esc(date_max)}" if date_min else ""
+    return f"""{page_head(title, src['description'], asset_prefix='../')}
+<header class="hero hero-dict">
+  <div class="hero-inner">
+    <p class="hero-tag"><a href="../">sources.avar.me</a> / {esc(src['id'])}</p>
+    <h1>{esc(src['title'])}</h1>
+    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} статей · {len(years)} лет{span}</p>
+    <p class="hero-source">{esc(src.get('based_on', ''))}</p>
+    <div class="hero-actions">
+      <a class="btn btn-ghost" href="../{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="dict-intro">
+    <p>Монолингвальный аварский корпус: статьи рубрики «На родном» с сайта
+    <a href="https://hakikat.info" target="_blank" rel="noopener">hakikat.info</a>,
+    сгруппированы по годам. Палочка нормализована, разметка снята. Заметили
+    опечатку или ошибку? На странице статьи — ссылка «сообщить», открывает чат
+    <a href="{TELEGRAM_CHAT}">@avarme_chat</a> с готовым сообщением.</p>
+  </section>
+
+  <section>
+    <h2 class="section-title">Архив по годам</h2>
+    <div class="chapter-grid">{year_cards}</div>
+  </section>
+</main>
+
+{footer_html()}
+"""
+
+
+def render_year_nav(years: list[tuple[str, int]], current: str) -> str:
+    return "".join(
+        f'<a class="chapter-mini{" current" if y == current else ""}" '
+        f'href="{esc(y)}.html" title="{c:,} ст.">{esc(y)}</a>'
+        for y, c in years
+    )
+
+
+def render_articles_year(
+    src: dict,
+    year: str,
+    arts: list[dict],
+    years: list[tuple[str, int]],
+    prev_year: str | None,
+    next_year: str | None,
+) -> str:
+    sid = src["id"]
+    title = f"{year} — {src['title']} — sources.avar.me"
+    rows = "".join(
+        f'<li class="article-row">'
+        f'<a class="article-link" href="a/{esc(a["fname"])}.html">{esc(a["title"])}</a>'
+        f'<span class="article-date">{esc((a.get("date") or "")[:10])}</span>'
+        f'</li>'
+        for a in arts
+    )
+    prev_compact = (
+        f'<a class="page-nav-arrow" href="{esc(prev_year)}.html" title="{esc(prev_year)}" aria-label="назад">←</a>'
+        if prev_year else '<span class="page-nav-arrow stub" aria-hidden="true">←</span>'
+    )
+    next_compact = (
+        f'<a class="page-nav-arrow" href="{esc(next_year)}.html" title="{esc(next_year)}" aria-label="вперёд">→</a>'
+        if next_year else '<span class="page-nav-arrow stub" aria-hidden="true">→</span>'
+    )
+    prev_bottom = (
+        f'<a class="page-nav prev" href="{esc(prev_year)}.html">← {esc(prev_year)}</a>'
+        if prev_year else '<span class="page-nav-stub"></span>'
+    )
+    next_bottom = (
+        f'<a class="page-nav next" href="{esc(next_year)}.html">{esc(next_year)} →</a>'
+        if next_year else '<span class="page-nav-stub"></span>'
+    )
+    return f"""{page_head(title, f'Статьи {year} года', asset_prefix='../')}
+<header class="letter-header">
+  <div class="letter-header-inner">
+    <div class="letter-bar">
+      {prev_compact}
+      <div class="letter-bar-title">
+        <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(sid)}</a></p>
+        <h1 class="letter-h1">{esc(year)}</h1>
+        <p class="letter-count">{len(arts):,} статей</p>
+      </div>
+      {next_compact}
+    </div>
+    <details class="nav-details">
+      <summary>Все годы</summary>
+      <div class="nav-details-body">
+        <nav class="chapter-bar" aria-label="Годы">{render_year_nav(years, year)}</nav>
+      </div>
+    </details>
+  </div>
+</header>
+
+<main class="container">
+  <ol class="article-list">
+    {rows}
+  </ol>
+
+  <nav class="page-nav-bar">
+    {prev_bottom}
+    <a class="page-nav up" href="index.html">к оглавлению</a>
+    {next_bottom}
+  </nav>
+</main>
+
+{footer_html()}
+"""
+
+
+def render_article_page(
+    src: dict, art: dict, prev_art: dict | None, next_art: dict | None
+) -> str:
+    sid = src["id"]
+    year = (art.get("date") or "")[:4]
+    title = f"{art['title']} — {src['title']} — sources.avar.me"
+    description = (art["text"][:160] + "…") if len(art["text"]) > 160 else art["text"]
+
+    paragraphs = "".join(
+        f"<p>{esc(p)}</p>" for p in art["text"].split("\n") if p.strip()
+    )
+    tags = "".join(
+        f'<span class="tag">{esc(c)}</span>' for c in art.get("categories", [])
+    )
+    tags_html = f'<span class="article-tags">{tags}</span>' if tags else ""
+    origin = (
+        f'<a href="{esc(art["url"])}" target="_blank" rel="noopener">оригинал на hakikat.info</a>'
+        if art.get("url") else ""
+    )
+
+    report_text = REPORT_ARTICLE_TEMPLATE.format(
+        src_id=sid, title=art["title"], fname=art["fname"]
+    )
+    report_href = f"{TELEGRAM_CHAT}?text={url_quote(report_text)}"
+
+    prev_bottom = (
+        f'<a class="page-nav prev" href="{esc(prev_art["fname"])}.html">← новее</a>'
+        if prev_art else '<span class="page-nav-stub"></span>'
+    )
+    next_bottom = (
+        f'<a class="page-nav next" href="{esc(next_art["fname"])}.html">старее →</a>'
+        if next_art else '<span class="page-nav-stub"></span>'
+    )
+
+    return f"""{page_head(title, description, asset_prefix='../../')}
+<main class="container container-article">
+  <p class="letter-tag"><a href="../../">sources.avar.me</a> /
+     <a href="../index.html">{esc(sid)}</a> /
+     <a href="../{esc(year)}.html">{esc(year)}</a></p>
+
+  <article>
+    <h1 class="article-title">{esc(art['title'])}</h1>
+    <div class="article-meta">
+      <span class="article-date">{esc((art.get('date') or '')[:10])}</span>
+      {tags_html}
+      {origin}
+      <a class="report-link" href="{report_href}" target="_blank" rel="noopener">сообщить о неточности</a>
+    </div>
+    <div class="article-body">{paragraphs}</div>
+  </article>
+
+  <nav class="page-nav-bar">
+    {prev_bottom}
+    <a class="page-nav up" href="../{esc(year)}.html">к статьям {esc(year)}</a>
+    {next_bottom}
+  </nav>
+</main>
+
+{footer_html()}
+"""
+
+
+def build_articles(src: dict) -> dict:
+    sid = src["id"]
+    lines = (ROOT / src["data_path"]).read_text(encoding="utf-8").splitlines()
+    data = [json.loads(l) for l in lines if l.strip()]
+
+    # newest first; assign stable ascii filenames
+    data.sort(key=lambda a: (a.get("date", ""), a.get("slug", "")), reverse=True)
+    used: set[str] = set()
+    for a in data:
+        a["fname"] = article_filename(a.get("slug", ""), used)
+
+    by_year: dict[str, list[dict]] = defaultdict(list)
+    for a in data:
+        by_year[(a.get("date") or "—")[:4]].append(a)
+    years_sorted = sorted(by_year.keys(), reverse=True)
+    year_list = [(y, len(by_year[y])) for y in years_sorted]
+
+    dates = [a["date"][:10] for a in data if a.get("date")]
+    date_min, date_max = (min(dates), max(dates)) if dates else ("", "")
+
+    print(f"    loaded {len(data):,} articles across {len(years_sorted)} years")
+
+    dict_dir = DOCS / sid
+    (dict_dir / "a").mkdir(parents=True, exist_ok=True)
+
+    (dict_dir / "index.html").write_text(
+        render_articles_index(src, year_list, len(data), date_min, date_max),
+        encoding="utf-8",
+    )
+
+    for i, y in enumerate(years_sorted):
+        prev_y = years_sorted[i - 1] if i > 0 else None
+        next_y = years_sorted[i + 1] if i < len(years_sorted) - 1 else None
+        (dict_dir / f"{y}.html").write_text(
+            render_articles_year(src, y, by_year[y], year_list, prev_y, next_y),
+            encoding="utf-8",
+        )
+
+    for idx, a in enumerate(data):
+        prev_a = data[idx - 1] if idx > 0 else None      # newer
+        next_a = data[idx + 1] if idx < len(data) - 1 else None  # older
+        (dict_dir / "a" / f"{a['fname']}.html").write_text(
+            render_article_page(src, a, prev_a, next_a),
+            encoding="utf-8",
+        )
+
+    return {
+        "entry_count": len(data),
+        "year_count": len(years_sorted),
+        "page_count": len(data) + len(years_sorted) + 1,
+        "unit": "статей",
+    }
+
+
 # ---------- Build ----------
 
 def build_dictionary(src: dict) -> dict:
@@ -1079,6 +1337,8 @@ def build() -> None:
         kind = src.get("kind", "dictionary")
         if kind == "corpus":
             stats[src["id"]] = build_corpus(src)
+        elif kind == "articles":
+            stats[src["id"]] = build_articles(src)
         else:
             stats[src["id"]] = build_dictionary(src)
         stats[src["id"]].setdefault("unit", "статей")
