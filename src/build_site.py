@@ -62,6 +62,13 @@ REPORT_CORPUS_TEMPLATE = (
     "Должно быть: ..."
 )
 
+REPORT_CORPUS_MONO_TEMPLATE = (
+    "Здравствуйте! Заметил неточность в корпусе {src_id}, материал {chapter}, "
+    "предложение {sentence}:\n"
+    "ссылка: https://sources.avar.me/{src_id}/{page_file}#s-{anchor}\n\n"
+    "Должно быть: ..."
+)
+
 ROMAN_NUMERALS_TABLE = [
     (1000, "M"), (900, "CM"), (500, "D"), (400, "CD"),
     (100, "C"), (90, "XC"), (50, "L"), (40, "XL"),
@@ -76,6 +83,11 @@ def to_roman(n: int) -> str:
             out.append(symbol)
             n -= value
     return "".join(out)
+
+
+def is_monolingual(src: dict) -> bool:
+    """A corpus is monolingual when it has no parallel translation column."""
+    return bool(src.get("monolingual")) or src.get("language_from") == src.get("language_to")
 
 
 # ---------- Alphabet ----------
@@ -579,17 +591,59 @@ def render_prefix_page(
 
 # ---------- Corpus rendering ----------
 
-def render_corpus_index(src: dict, chapters: list[tuple[int, int]], total: int) -> str:
+def render_corpus_index(
+    src: dict,
+    chapters: list[tuple[int, int]],
+    total: int,
+    titles: dict[int, str],
+    authors: dict[int, str | None],
+    mono: bool,
+) -> str:
     """Landing page for a corpus source: chapter list + downloads."""
     title = f"{src['title']} — sources.avar.me"
 
-    chapter_cards = "".join(
-        f'<a class="chapter-cell" href="{ch}.html">'
-        f'<span class="chapter-num">Глава {esc(to_roman(ch))}</span>'
-        f'<span class="chapter-count">{count:,} предл.</span>'
-        f'</a>'
-        for ch, count in chapters
-    )
+    if mono:
+        unit_word = "материалов"
+        cards = []
+        for ch, count in chapters:
+            author = authors.get(ch)
+            author_html = (
+                f'<span class="chapter-author">{esc(author)}</span>' if author else ""
+            )
+            cards.append(
+                f'<a class="chapter-cell titled" href="{ch}.html">'
+                f'<span class="chapter-num">{esc(titles.get(ch, str(ch)))}</span>'
+                f'{author_html}'
+                f'<span class="chapter-count">{count:,} предл.</span>'
+                f'</a>'
+            )
+        chapter_cards = "".join(cards)
+        grid_class = "chapter-grid titled"
+        section_title = "Материалы"
+        intro = (
+            f"<p>Монолингвальный аварский корпус: каждый материал номера — "
+            f"на отдельной странице, разбит на предложения. Заметили опечатку "
+            f"или ошибку в тексте? Под каждым предложением — ссылка «сообщить», "
+            f"открывает чат <a href=\"{TELEGRAM_CHAT}\">@avarme_chat</a> "
+            f"с готовым сообщением.</p>"
+        )
+    else:
+        unit_word = "глав"
+        chapter_cards = "".join(
+            f'<a class="chapter-cell" href="{ch}.html">'
+            f'<span class="chapter-num">Глава {esc(to_roman(ch))}</span>'
+            f'<span class="chapter-count">{count:,} предл.</span>'
+            f'</a>'
+            for ch, count in chapters
+        )
+        grid_class = "chapter-grid"
+        section_title = "Главы"
+        intro = (
+            f"<p>Параллельный текст: на каждой странице — одна глава с предложениями "
+            f"по-русски и по-аварски бок о бок. Заметили неточность в переводе? "
+            f"Под каждым предложением — ссылка «сообщить», открывает чат "
+            f"<a href=\"{TELEGRAM_CHAT}\">@avarme_chat</a> с готовым сообщением.</p>"
+        )
 
     documents_links = ""
     if src.get("documents"):
@@ -604,7 +658,7 @@ def render_corpus_index(src: dict, chapters: list[tuple[int, int]], total: int) 
   <div class="hero-inner">
     <p class="hero-tag"><a href="../">sources.avar.me</a> / {esc(src['id'])}</p>
     <h1>{esc(src['title'])}</h1>
-    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} предложений · {len(chapters)} глав</p>
+    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} предложений · {len(chapters)} {unit_word}</p>
     <p class="hero-source">{esc(src.get('based_on', ''))}</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="../{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
@@ -615,15 +669,12 @@ def render_corpus_index(src: dict, chapters: list[tuple[int, int]], total: int) 
 
 <main class="container">
   <section class="dict-intro">
-    <p>Параллельный текст: на каждой странице — одна глава с предложениями
-    по-русски и по-аварски бок о бок. Заметили неточность в переводе?
-    Под каждым предложением — ссылка «сообщить», открывает чат
-    <a href="{TELEGRAM_CHAT}">@avarme_chat</a> с готовым сообщением.</p>
+    {intro}
   </section>
 
   <section>
-    <h2 class="section-title">Главы</h2>
-    <div class="chapter-grid">{chapter_cards}</div>
+    <h2 class="section-title">{section_title}</h2>
+    <div class="{grid_class}">{chapter_cards}</div>
   </section>
 </main>
 
@@ -639,17 +690,34 @@ def render_corpus_chapter(
     prev_page: str | None,
     next_page: str | None,
     page_file: str,
+    titles: dict[int, str],
+    authors: dict[int, str | None],
+    mono: bool,
 ) -> str:
     sid = src["id"]
-    roman = to_roman(chapter)
-    title = f"Глава {roman} — {src['title']} — sources.avar.me"
-    description = f"Глава {roman} повести «{src['title']}»: {len(sentences):,} предложений"
+    if mono:
+        heading = titles.get(chapter, str(chapter))
+        author = authors.get(chapter)
+        title = f"{heading} — {src['title']} — sources.avar.me"
+        description = f"{heading}: {len(sentences):,} предложений"
+        report_tmpl = REPORT_CORPUS_MONO_TEMPLATE
+        nav_summary = "Все материалы"
+        prev_title, next_title = "Предыдущий материал", "Следующий материал"
+    else:
+        roman = to_roman(chapter)
+        heading = f"Глава {roman}"
+        author = None
+        title = f"Глава {roman} — {src['title']} — sources.avar.me"
+        description = f"Глава {roman} повести «{src['title']}»: {len(sentences):,} предложений"
+        report_tmpl = REPORT_CORPUS_TEMPLATE
+        nav_summary = "Все главы"
+        prev_title, next_title = "Предыдущая глава", "Следующая глава"
 
     sentence_items: list[str] = []
     for s in sentences:
         snum = s.get("SentenceNumber") or s.get("sentence") or 0
         anchor = str(snum)
-        report_text = REPORT_CORPUS_TEMPLATE.format(
+        report_text = report_tmpl.format(
             src_id=sid,
             chapter=chapter,
             sentence=snum,
@@ -657,34 +725,45 @@ def render_corpus_chapter(
             anchor=anchor,
         )
         report_href = f"{TELEGRAM_CHAT}?text={url_quote(report_text)}"
-        ru = esc(s.get("ru", ""))
         av = esc(s.get("av", ""))
+        if mono:
+            li_class = "sentence mono"
+            pair = f'<p class="s-av">{av}</p>'
+        else:
+            li_class = "sentence"
+            ru = esc(s.get("ru", ""))
+            pair = f'<p class="s-ru">{ru}</p><p class="s-av">{av}</p>'
         sentence_items.append(
-            f'<li class="sentence" id="s-{esc(anchor)}">'
+            f'<li class="{li_class}" id="s-{esc(anchor)}">'
             f'<a class="s-num" href="#s-{esc(anchor)}" title="Ссылка на предложение {esc(anchor)}">{esc(anchor)}</a>'
-            f'<div class="s-pair">'
-            f'<p class="s-ru">{ru}</p>'
-            f'<p class="s-av">{av}</p>'
-            f'</div>'
+            f'<div class="s-pair">{pair}</div>'
             f'<a class="s-report report-link" href="{report_href}" target="_blank" rel="noopener" '
             f'title="Сообщить о неточности">сообщить</a>'
             f'</li>'
         )
     sentences_html = "".join(sentence_items)
 
-    chapter_nav_items = "".join(
-        f'<a class="chapter-mini{" current" if ch == chapter else ""}" '
-        f'href="{ch}.html" title="Глава {esc(to_roman(ch))}, {count:,} предл.">'
-        f'{esc(to_roman(ch))}</a>'
-        for ch, count in chapter_list
-    )
+    if mono:
+        chapter_nav_items = "".join(
+            f'<a class="chapter-mini{" current" if ch == chapter else ""}" '
+            f'href="{ch}.html" title="{esc(titles.get(ch, str(ch)))} ({count:,} предл.)">'
+            f'{ch}</a>'
+            for ch, count in chapter_list
+        )
+    else:
+        chapter_nav_items = "".join(
+            f'<a class="chapter-mini{" current" if ch == chapter else ""}" '
+            f'href="{ch}.html" title="Глава {esc(to_roman(ch))}, {count:,} предл.">'
+            f'{esc(to_roman(ch))}</a>'
+            for ch, count in chapter_list
+        )
 
     prev_link_compact = (
-        f'<a class="page-nav-arrow" href="{esc(prev_page)}" title="Предыдущая глава" aria-label="назад">←</a>'
+        f'<a class="page-nav-arrow" href="{esc(prev_page)}" title="{prev_title}" aria-label="назад">←</a>'
         if prev_page else '<span class="page-nav-arrow stub" aria-hidden="true">←</span>'
     )
     next_link_compact = (
-        f'<a class="page-nav-arrow" href="{esc(next_page)}" title="Следующая глава" aria-label="вперёд">→</a>'
+        f'<a class="page-nav-arrow" href="{esc(next_page)}" title="{next_title}" aria-label="вперёд">→</a>'
         if next_page else '<span class="page-nav-arrow stub" aria-hidden="true">→</span>'
     )
 
@@ -704,13 +783,14 @@ def render_corpus_chapter(
       {prev_link_compact}
       <div class="letter-bar-title">
         <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(sid)}</a></p>
-        <h1 class="letter-h1">Глава {esc(roman)}</h1>
+        <h1 class="letter-h1">{esc(heading)}</h1>
+        {f'<p class="letter-author">{esc(author)}</p>' if author else ''}
         <p class="letter-count">{len(sentences):,} предложений</p>
       </div>
       {next_link_compact}
     </div>
     <details class="nav-details">
-      <summary>Все главы</summary>
+      <summary>{nav_summary}</summary>
       <div class="nav-details-body">
         <nav class="chapter-bar" aria-label="Главы">{chapter_nav_items}</nav>
       </div>
@@ -753,13 +833,18 @@ def build_corpus(src: dict) -> dict:
     chapters_sorted = sorted(by_chapter.keys())
     chapter_list = [(ch, len(by_chapter[ch])) for ch in chapters_sorted]
 
-    print(f"    loaded {len(data):,} sentences across {len(chapter_list)} chapters")
+    mono = is_monolingual(src)
+    titles = {ch: by_chapter[ch][0].get("title", to_roman(ch)) for ch in chapters_sorted}
+    authors = {ch: by_chapter[ch][0].get("author") for ch in chapters_sorted}
+
+    print(f"    loaded {len(data):,} sentences across {len(chapter_list)} chapters"
+          f"{' (monolingual)' if mono else ''}")
 
     dict_dir = DOCS / sid
     dict_dir.mkdir(parents=True, exist_ok=True)
 
     (dict_dir / "index.html").write_text(
-        render_corpus_index(src, chapter_list, len(data)),
+        render_corpus_index(src, chapter_list, len(data), titles, authors, mono),
         encoding="utf-8",
     )
 
@@ -780,6 +865,9 @@ def build_corpus(src: dict) -> dict:
                 prev_page,
                 next_page,
                 chapter_files[ch],
+                titles,
+                authors,
+                mono,
             ),
             encoding="utf-8",
         )

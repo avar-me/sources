@@ -106,6 +106,26 @@
         "ml.avar.me",
         "corpus.avar.me"
       ]
+    },
+    {
+      "id": "ihdal",
+      "title": "Газета «ХӀакъикъат»",
+      "subtitle": "av · номер газеты",
+      "kind": "corpus",
+      "status": "stable",
+      "monolingual": true,
+      "description": "Монолингвальный аварский корпус: один номер газеты «ХӀакъикъат» — статьи, интервью, очерки, басня, кицаби и махсараби. 11 материалов, 769 предложений. Текст вычитан носителями.",
+      "format": "json",
+      "data_path": "data/ihdal.json",
+      "site_path": "ihdal/",
+      "language_from": "av",
+      "language_to": "av",
+      "based_on": "Газета «ХӀакъикъат». Извлечение из DOCX, очистка разметки, сегментация на предложения и нормализация палочки — проект avar.me.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "ml.avar.me",
+        "corpus.avar.me"
+      ]
     }
   ],
   "schema": {

@@ -643,6 +643,27 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
   font-family: var(--font-mono);
 }
 
+/* Titled chapter cards (monolingual corpus: a material per card) */
+.chapter-grid.titled {
+  grid-template-columns: repeat(auto-fill, minmax(18rem, 1fr));
+}
+.chapter-cell.titled {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 0.25rem;
+}
+.chapter-cell.titled .chapter-num {
+  font-size: 1.02rem;
+  line-height: 1.3;
+}
+.chapter-cell.titled .chapter-count { margin-top: auto; }
+.chapter-author {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
+
 .chapter-bar {
   display: flex; flex-wrap: wrap; gap: 0.25rem;
 }
@@ -698,6 +719,14 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 }
 .s-ru { color: var(--text); }
 .s-av { color: var(--text-muted); }
+/* Monolingual corpus: the Avar line is the primary text */
+.sentence.mono .s-av { color: var(--text); }
+.letter-author {
+  margin: 0.15rem 0 0;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+}
 .s-report {
   font-size: 0.72rem;
   align-self: start;
