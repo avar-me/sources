@@ -198,6 +198,15 @@ def anchor_for(word: str, seen: dict[str, int]) -> str:
     return base if seen[base] == 1 else f"{base}-{seen[base]}"
 
 
+def headword(entry: dict) -> str:
+    """Headword of a dictionary entry.
+
+    Word-list dictionaries (av-ru, ru-av, en-av) key on `word`; the
+    phraseological dictionary keys on `phrase`. They never coexist.
+    """
+    return entry.get("word") or entry.get("phrase") or ""
+
+
 def load_jsonl(path: Path) -> list[dict]:
     entries: list[dict] = []
     with path.open(encoding="utf-8") as f:
@@ -217,7 +226,7 @@ def render_entry(entry: dict, anchor: str, dict_id: str, page_file: str) -> str:
     The site is meant for spotting errors in the source data — showing the
     original JSON is more honest than any interpreted layout.
     """
-    word = entry.get("word", "")
+    word = headword(entry)
     json_text = json.dumps(entry, ensure_ascii=False, indent=2, sort_keys=False)
 
     report_text = REPORT_TEMPLATE.format(
@@ -430,7 +439,7 @@ def render_dictionary_index(
   <div class="hero-inner">
     <p class="hero-tag"><a href="../">sources.avar.me</a> / {esc(src['id'])}</p>
     <h1>{esc(src['title'])}</h1>
-    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} статей</p>
+    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} {esc(src.get('unit', 'статей'))}</p>
     <p class="hero-source">{esc(src.get('based_on', ''))}</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="../{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
@@ -487,12 +496,12 @@ def render_prefix_page(
     entries_html_parts: list[str] = []
     toc_parts: list[str] = []
     for entry in page_entries:
-        anchor = anchor_for(entry.get("word", ""), seen_anchors)
+        anchor = anchor_for(headword(entry), seen_anchors)
         entries_html_parts.append(
             render_entry(entry, anchor, src["id"], page_file)
         )
         toc_parts.append(
-            f'<li><a href="#word-{url_quote(anchor)}">{esc(entry.get("word", ""))}</a></li>'
+            f'<li><a href="#word-{url_quote(anchor)}">{esc(headword(entry))}</a></li>'
         )
     entries_html = "\n".join(entries_html_parts)
     toc_html = "".join(toc_parts)
@@ -553,7 +562,7 @@ def render_prefix_page(
       <div class="letter-bar-title">
         <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(src['id'])}</a></p>
         <h1 class="letter-h1">{esc(prefix)}<span class="letter-h1-suffix">{esc(page_suffix)}</span></h1>
-        <p class="letter-count">{bucket_total:,} статей{(' · ' + str(len(page_entries)) + ' на странице') if page_count > 1 else ''}</p>
+        <p class="letter-count">{bucket_total:,} {esc(src.get('unit', 'статей'))}{(' · ' + str(len(page_entries)) + ' на странице') if page_count > 1 else ''}</p>
       </div>
       {next_link_compact}
     </div>
@@ -1166,12 +1175,12 @@ def build_dictionary(src: dict) -> dict:
     # Bucket by 3-letter prefix
     prefix_buckets: dict[str, list[dict]] = defaultdict(list)
     for entry in entries:
-        word = entry.get("word", "")
+        word = headword(entry)
         prefix_buckets[prefix_of(word)].append(entry)
 
     # Sort entries inside each bucket
     for prefix in prefix_buckets:
-        prefix_buckets[prefix].sort(key=lambda e: sort_key(e.get("word", "")))
+        prefix_buckets[prefix].sort(key=lambda e: sort_key(headword(e)))
 
     # Group prefixes by their letter
     letter_to_prefixes: dict[str, list[str]] = defaultdict(list)
@@ -1341,7 +1350,7 @@ def build() -> None:
             stats[src["id"]] = build_articles(src)
         else:
             stats[src["id"]] = build_dictionary(src)
-        stats[src["id"]].setdefault("unit", "статей")
+        stats[src["id"]].setdefault("unit", src.get("unit", "статей"))
 
     # Catalog landing page
     (DOCS / "index.html").write_text(render_catalog(catalog, stats), encoding="utf-8")
