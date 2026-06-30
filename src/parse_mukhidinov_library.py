@@ -25,13 +25,71 @@ BOOKS = ROOT / "books"
 DATA = ROOT / "data" / "mukhidinov-library.jsonl"
 
 
-# Latin / vertical / lowercase-l "palochka" glyphs -> canonical U+04CF (ӏ).
-# Matches normalize_palochka() in build_site.py.
-PALOCHKA_MAP = str.maketrans({"I": "ӏ", "i": "ӏ", "Ӏ": "ӏ", "|": "ӏ", "ǀ": "ӏ", "l": "ӏ"})
+# Palochka normalization. See rules in CLAUDE.md (раздел «Аварская графика»).
+# Палочка допускается только внутри диграфа (после т/г/к/х/ц/ч).
+# Регистр палочки совпадает с регистром базовой буквы:
+#   строчная ӏ (U+04CF) после строчной базы,
+#   заглавная Ӏ (U+04C0) после заглавной базы.
+# Палочка-глиф вне диграфа → цифра «1» (годы, нумерация и т. п.).
+# Латиница I/i/l внутри диграфа → палочка; вне диграфа около цифры → «1»,
+# иначе оставляем как есть (может быть осмысленной латиницей).
+PALOCHKA_GLYPHS = set("Ӏӏ|ǀ")
+LATIN_LOOKALIKES = set("Iil")
+DIGRAPH_BASE_UP = set("ТГКХЦЧ")
+DIGRAPH_BASE_LO = set("тгкхцч")
 
 
 def normalize_palochka(text: str) -> str:
-    return text.translate(PALOCHKA_MAP)
+    chars = list(text)
+    n = len(chars)
+    out: list[str] = []
+    idx = 0
+    while idx < n:
+        ch = chars[idx]
+        if ch in PALOCHKA_GLYPHS or ch in LATIN_LOOKALIKES or ch == "1":
+            prev_ch = chars[idx - 1] if idx > 0 else ""
+            if prev_ch in DIGRAPH_BASE_UP:
+                out.append("\u04C0")
+                idx += 1
+                while idx < n and (
+                    chars[idx] in PALOCHKA_GLYPHS
+                    or chars[idx] in LATIN_LOOKALIKES
+                    or chars[idx] == "1"
+                ):
+                    idx += 1
+                continue
+            if prev_ch in DIGRAPH_BASE_LO:
+                out.append("\u04CF")
+                idx += 1
+                while idx < n and (
+                    chars[idx] in PALOCHKA_GLYPHS
+                    or chars[idx] in LATIN_LOOKALIKES
+                    or chars[idx] == "1"
+                ):
+                    idx += 1
+                continue
+            if ch == "1":
+                out.append("1")
+                idx += 1
+                continue
+            if ch in PALOCHKA_GLYPHS:
+                out.append("1")
+                idx += 1
+                continue
+            run_start = idx
+            while idx < n and chars[idx] in LATIN_LOOKALIKES:
+                idx += 1
+            after_ch = chars[idx] if idx < n else ""
+            if (prev_ch.isascii() and prev_ch.isalpha()) or (
+                after_ch.isascii() and after_ch.isalpha()
+            ):
+                out.extend(chars[run_start:idx])
+            else:
+                out.extend(["1"] * (idx - run_start))
+        else:
+            out.append(ch)
+            idx += 1
+    return "".join(out)
 
 
 def collapse_blank_lines(text: str) -> str:
