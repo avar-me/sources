@@ -914,10 +914,11 @@ def render_articles_index(
     src: dict, years: list[tuple[str, int]], total: int, date_min: str, date_max: str
 ) -> str:
     title = f"{src['title']} — sources.avar.me"
+    unit = src.get("unit", "статей")
     year_cards = "".join(
         f'<a class="chapter-cell" href="{esc(y)}.html">'
         f'<span class="chapter-num">{esc(y)}</span>'
-        f'<span class="chapter-count">{c:,} ст.</span>'
+        f'<span class="chapter-count">{c:,} шт.</span>'
         f'</a>'
         for y, c in years
     )
@@ -927,7 +928,7 @@ def render_articles_index(
   <div class="hero-inner">
     <p class="hero-tag"><a href="../">sources.avar.me</a> / {esc(src['id'])}</p>
     <h1>{esc(src['title'])}</h1>
-    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} статей · {len(years)} лет{span}</p>
+    <p class="hero-lead">{esc(src['subtitle'])} · {total:,} {esc(unit)} · {len(years)} лет{span}</p>
     <p class="hero-source">{esc(src.get('based_on', ''))}</p>
     <div class="hero-actions">
       <a class="btn btn-ghost" href="../{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
@@ -937,11 +938,8 @@ def render_articles_index(
 
 <main class="container">
   <section class="dict-intro">
-    <p>Монолингвальный аварский корпус: статьи рубрики «На родном» с сайта
-    <a href="https://hakikat.info" target="_blank" rel="noopener">hakikat.info</a>,
-    сгруппированы по годам. Палочка нормализована, разметка снята. Заметили
-    опечатку или ошибку? На странице статьи — ссылка «сообщить», открывает чат
-    <a href="{TELEGRAM_CHAT}">@avarme_chat</a> с готовым сообщением.</p>
+    <p>{esc(src['description'])}</p>
+    <p>Заметили опечатку или ошибку? На странице каждой записи — ссылка «сообщить», открывает чат <a href="{TELEGRAM_CHAT}">@avarme_chat</a> с готовым сообщением.</p>
   </section>
 
   <section>
@@ -971,6 +969,7 @@ def render_articles_year(
     next_year: str | None,
 ) -> str:
     sid = src["id"]
+    unit = src.get("unit", "статей")
     title = f"{year} — {src['title']} — sources.avar.me"
     rows = "".join(
         f'<li class="article-row">'
@@ -1003,7 +1002,7 @@ def render_articles_year(
       <div class="letter-bar-title">
         <p class="letter-tag"><a href="../">sources.avar.me</a> / <a href="index.html">{esc(sid)}</a></p>
         <h1 class="letter-h1">{esc(year)}</h1>
-        <p class="letter-count">{len(arts):,} статей</p>
+        <p class="letter-count">{len(arts):,} {esc(unit)}</p>
       </div>
       {next_compact}
     </div>
@@ -1026,6 +1025,8 @@ def render_articles_year(
     <a class="page-nav up" href="index.html">к оглавлению</a>
     {next_bottom}
   </nav>
+
+  <p class="article-list-foot" style="text-align:center;margin-top:1.5em;color:var(--muted);font-size:0.85em;">{len(arts):,} {esc(unit)} в {esc(year)} году</p>
 </main>
 
 {footer_html()}
@@ -1047,10 +1048,16 @@ def render_article_page(
         f'<span class="tag">{esc(c)}</span>' for c in art.get("categories", [])
     )
     tags_html = f'<span class="article-tags">{tags}</span>' if tags else ""
-    origin = (
-        f'<a href="{esc(art["url"])}" target="_blank" rel="noopener">оригинал на hakikat.info</a>'
-        if art.get("url") else ""
+    author_html = (
+        f'<span class="article-author">{esc(art["author"])}</span>'
+        if art.get("author") else ""
     )
+    if art.get("url"):
+        origin = f'<a href="{esc(art["url"])}" target="_blank" rel="noopener">оригинал</a>'
+    elif art.get("book_path"):
+        origin = f'<a href="../../{esc(art["book_path"])}" download>скачать оригинал</a>'
+    else:
+        origin = ""
 
     report_text = REPORT_ARTICLE_TEMPLATE.format(
         src_id=sid, title=art["title"], fname=art["fname"]
@@ -1076,6 +1083,7 @@ def render_article_page(
     <h1 class="article-title">{esc(art['title'])}</h1>
     <div class="article-meta">
       <span class="article-date">{esc((art.get('date') or '')[:10])}</span>
+      {author_html}
       {tags_html}
       {origin}
       <a class="report-link" href="{report_href}" target="_blank" rel="noopener">сообщить о неточности</a>
