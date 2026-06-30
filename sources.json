@@ -180,6 +180,59 @@
         "ml.avar.me",
         "corpus.avar.me"
       ]
+    },
+    {
+      "id": "mukhidinov-library",
+      "title": "Библиотека МухӀидиновых",
+      "subtitle": "av · современные книги",
+      "kind": "articles",
+      "status": "stable",
+      "monolingual": true,
+      "unit": "книг",
+      "description": "Монолингвальный аварский корпус: шесть современных книг, предоставленных Шамилем и Баху МухӀидиновыми. Авторские книги Шамиля МухӀидинова (басни, эссе-литературоведение), поэзия БакьагьечӀиса Даци, проза и публицистика ГъазимухӀамада ГъалбацӀова, сборник докладов 2-го форума учителей аварского языка (2017). Текст извлечён из исходных DOCX/DOC, палочка приведена к каноническому виду.",
+      "format": "jsonl",
+      "data_path": "data/mukhidinov-library.jsonl",
+      "site_path": "mukhidinov-library/",
+      "language_from": "av",
+      "language_to": "av",
+      "based_on": "Книги предоставлены Шамилем и Баху МухӀидиновыми (Махачкала, 2013–2024). Извлечение текста из DOCX/DOC и нормализация — проект avar.me.",
+      "license": "CC BY-SA 4.0",
+      "documents": [
+        {
+          "title": "Шамил МухӀидинов. ТӀохал… тӀохал… тӀохал… (Махачкала, 2024)",
+          "kind": "docx",
+          "path": "books/Mukhidinov_Tohal_2024.docx"
+        },
+        {
+          "title": "Шамил МухӀидинов. Сахаватаб гӀанхваро. Басняби (Махачкала, 2022)",
+          "kind": "docx",
+          "path": "books/Mukhidinov_Sakhavatab-ganhvaro_2022.docx"
+        },
+        {
+          "title": "Аваразул пашманлъи — авар мацӀ лъачӀел лъимал. Сборник докладов 2-го форума учителей авар. яз. (Махачкала, 2017)",
+          "kind": "docx",
+          "path": "books/Avar-teachers-forum-2_2017.docx"
+        },
+        {
+          "title": "ГъазимухӀамад ГъалбацӀов. Тирулеб сверулеб гьобоги буго… Публицистика (Махачкала, 2015)",
+          "kind": "docx",
+          "path": "books/Galbatsov_Tirulev-sverulev_2015.docx"
+        },
+        {
+          "title": "БакьагьечӀиса Даци. Мой ХӀукумат. КучӀдул (Махачкала, 2013)",
+          "kind": "docx",
+          "path": "books/Daci_Moi-Hukumat_2013.docx"
+        },
+        {
+          "title": "ГъазимухӀамад ГъалбацӀов. Къалъелалде хъварал харбал",
+          "kind": "doc",
+          "path": "books/Galbatsov_Kalelalde-hvaral-harbal.doc"
+        }
+      ],
+      "consumers": [
+        "ml.avar.me",
+        "corpus.avar.me"
+      ]
     }
   ],
   "schema": {
