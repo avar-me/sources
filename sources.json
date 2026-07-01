@@ -254,17 +254,19 @@
         {
           "title": "АхӀмад МуртазагӀалиев. Машгьурав хатӏат МахӏМуд Жалалуддин ад-Дагъистани",
           "kind": "docx",
-          "path": "new_source/Jalaluddin ad-Daghestani.docx"
+          "path": "books/Murtazagaliev_Jalaluddin-ad-Daghestani.docx",
+          "pdf": "books/Murtazagaliev_Jalaluddin-ad-Daghestani.pdf"
         },
         {
           "title": "АхӀмад МуртазагӀалиев. Ханжар-балагь (эссе + хабар)",
           "kind": "docx",
-          "path": "new_source/Ханжар-балагь.docx"
+          "path": "books/Murtazagaliev_Khanzhar-balah.docx"
         },
         {
           "title": "АхӀмад МуртазагӀалиев. Церехъабазул кучӏдул / Песни предводителей (МахӀачхъала: ИД «МавраевЪ», 2013)",
           "kind": "docx",
-          "path": "new_source/Церехъабазул кучIдул.docx"
+          "path": "books/Murtazagaliev_Tserehabi-Kuchdulu_2013.docx",
+          "pdf": "books/Murtazagaliev_Tserehabi-Kuchdulu_2013.pdf"
         }
       ],
       "consumers": [
