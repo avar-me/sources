@@ -174,7 +174,7 @@
 {"word": "artistic", "pos": "adj", "metadata": {}, "avar": "гьунарияб"}
 {"word": "as", "pos": "prep", "metadata": {}, "avar": "гІадин"}
 {"word": "Asian", "pos": "adj", "metadata": {}, "avar": "азиялъул"}
-{"word": "aside", "pos": "adv", "metadata": {}, "avar": "байа-рахъалде"}
+{"word": "aside", "pos": "adv", "metadata": {}, "avar": "баиа-рахъалде"}
 {"word": "ask", "pos": "verb", "metadata": {}, "avar": "гьикъизе, тІалаб гьабизе"}
 {"word": "asleep", "pos": "adj", "metadata": {}, "avar": "кьижарав"}
 {"word": "aspect", "pos": "noun", "metadata": {}, "avar": "рахъ"}
@@ -221,7 +221,7 @@
 {"word": "awful", "pos": "adj", "metadata": {}, "avar": "квешаб"}
 {"word": "baby", "pos": "noun", "metadata": {}, "avar": "лъимер"}
 {"word": "back", "pos": "noun", "metadata": {}, "avar": "мугъ"}
-{"word": "background", "pos": "noun", "metadata": {}, "avar": "нахъа-фон/нахъа-бахъ"}
+{"word": "background", "pos": "noun", "metadata": {}, "avar": "нахъа-фон / нахъа-бахъ"}
 {"word": "bad", "pos": "adj", "metadata": {}, "avar": "квешаб"}
 {"word": "badly", "pos": "adv", "metadata": {}, "avar": "квешго"}
 {"word": "bag", "pos": "noun", "metadata": {}, "avar": "къали"}
@@ -2956,7 +2956,7 @@
 {"word": "wise", "pos": "adj", "metadata": {}, "avar": "гІакълу бугеб"}
 {"word": "wish", "pos": "verb", "metadata": {}, "avar": "бокьизе"}
 {"word": "with", "pos": "prep", "metadata": {}, "avar": "–гун"}
-{"word": "withdraw", "pos": "verb", "metadata": {}, "avar": "наhасан босизе"}
+{"word": "withdraw", "pos": "verb", "metadata": {}, "avar": "нахасан босизе"}
 {"word": "within", "pos": "prep", "metadata": {}, "avar": "жаниб"}
 {"word": "without", "pos": "prep", "metadata": {}, "avar": "гьечІого"}
 {"word": "witness", "pos": "noun", "metadata": {}, "avar": "нугІ"}
