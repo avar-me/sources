@@ -711,14 +711,16 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 }
 .s-num:hover { color: var(--accent); text-decoration: none; }
 .s-pair { display: grid; gap: 0.3rem; }
-.s-ru, .s-av {
+.s-ru, .s-av, .s-lang {
   margin: 0;
   font-family: var(--font-serif);
   font-size: 1rem;
   line-height: 1.45;
+  color: var(--text-muted);
 }
 .s-ru { color: var(--text); }
-.s-av { color: var(--text-muted); }
+/* Multilingual corpus (3+ languages): the first present line is the primary text */
+.s-lang:first-of-type { color: var(--text); }
 /* Monolingual corpus: the Avar line is the primary text */
 .sentence.mono .s-av { color: var(--text); }
 .letter-author {
