@@ -10,3 +10,6 @@ docs/
 
 # Локальный pre-build кэш (если появится)
 .cache/
+
+# Рабочий срез открытых RFI из multilang.avar.me (см. CLAUDE.md → RFI) — не источник правды
+issues.*.jsonl

@@ -67,6 +67,25 @@ data/*.jsonl  ──►  src/build_site.py  ──►  docs/  ──►  GitHub 
 
 Служебные правки (сайт, шаблоны, CI, `docs/`) в changelog не заносим.
 
+## RFI (Request For Improvement) от multilang.avar.me
+
+`multilang.avar.me` — репозиторий локализации; его инструменты (LLM-ревью, `tools/expert_review.py` и др.) в фоне прогоняют русский текст `data/av-ru.jsonl` и копят замечания в `reports/request-for-improvement.jsonl` (со статусами `open`/`fixed`/`ignored`).
+
+Чтобы затащить сюда непросмотренные замечания (запускается из `multilang.avar.me`):
+
+```bash
+cat reports/request-for-improvement.jsonl | grep -v '"status": "fixed"' | grep -v '"status": "ignored"' > ../sources/issues.av-ru.jsonl
+```
+
+`issues.av-ru.jsonl` — рабочий срез для текущего раунда разбора, не коммитится (не источник правды, не хранит историю). Можно удалять и перегенерировать заново перед каждым новым раундом.
+
+Порядок разбора каждой записи:
+
+1. Смотрим поле/слово/текст замечания, сверяем с `data/av-ru.jsonl` (и, если есть, с оригиналом словаря).
+2. Реальная ошибка (опечатка, потерянная метка, структурный баг) — правим статью в `data/<source>.jsonl`, фиксируем раунд в [`CHANGELOG.md`](CHANGELOG.md).
+3. Ложное срабатывание инструмента (законная лексика/грамматика, аварская графика, сравнение слова с собой и т. п.) — данные не трогаем, а добавляем короткое объяснение в [`expert-review-av-ru-issues-2026-07-12-rejected.md`](expert-review-av-ru-issues-2026-07-12-rejected.md) (новый раунд), чтобы инструмент не поднимал его снова и мы не переразбирали то же самое.
+4. Статус в `request-for-improvement.jsonl` руками не трогаем — `multilang.avar.me` сам увидит обновлённый `av-ru.jsonl` и закроет (`status: fixed`) починенные RFI при своей следующей синхронизации (`tools/workspace.py`).
+
 ## Виды источников (`kind`)
 
 В `sources.json` у каждого источника есть поле `kind`:
