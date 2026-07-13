@@ -134,6 +134,14 @@ _PALOCHKA_GLYPHS = set("\u04C0\u04CF|\u01C0")  # Ӏ ӏ | ǀ
 _LATIN_LOOKALIKES = set("Iil")
 _DIGRAPH_BASE_UP = set("ТГКХЦЧ")
 _DIGRAPH_BASE_LO = set("тгкхцч")
+# «Х» — единственная диграф-основа, чей глиф совпадает с римской цифрой (X),
+# поэтому только для неё бывает конфликт «диграф хӏ» vs «римское число» (ХIХ, ХII).
+_ROMAN_BASE = set("Х")
+_ROMAN_ALLOWED = _ROMAN_BASE | _PALOCHKA_GLYPHS | _LATIN_LOOKALIKES | {"1"}
+
+
+def _is_wordish(ch: str) -> bool:
+    return ch.isalnum() or ch in _PALOCHKA_GLYPHS
 
 
 def normalize_palochka(text: str) -> str:
@@ -143,12 +151,38 @@ def normalize_palochka(text: str) -> str:
     2. Регистр палочки = регистр базы (строчная ӏ U+04CF / заглавная Ӏ U+04C0).
     Палочка-глиф вне диграфа → цифра «1». Латиница I/i/l внутри диграфа → палочка;
     вне диграфа около цифры → «1»; иначе остаётся как есть.
+    3. Римские числа (ХIХ, ХII, ...) — отдельная категория: если целое «слово»
+    (кроме отделяющих пробелов/пунктуации) состоит только из «Х» и
+    палочка-подобных символов, это не диграф, а римское число — «единицы»
+    внутри него становятся латинской «I» («римская палочка»), а не аварской
+    палочкой и не цифрой; «Х» не трогаем.
     """
     chars = list(text)
     n = len(chars)
+
+    token_end_from_start: dict[int, int] = {}
+    token_start: int | None = None
+    for i, ch in enumerate(chars):
+        if _is_wordish(ch):
+            if token_start is None:
+                token_start = i
+        else:
+            if token_start is not None:
+                token_end_from_start[token_start] = i
+                token_start = None
+    if token_start is not None:
+        token_end_from_start[token_start] = n
+
     out: list[str] = []
     idx = 0
     while idx < n:
+        end = token_end_from_start.get(idx)
+        if end is not None:
+            token = chars[idx:end]
+            if len(token) >= 2 and "Х" in token and all(c in _ROMAN_ALLOWED for c in token):
+                out.extend("Х" if c == "Х" else "I" for c in token)
+                idx = end
+                continue
         ch = chars[idx]
         if ch in _PALOCHKA_GLYPHS or ch in _LATIN_LOOKALIKES or ch == "1":
             prev_ch = chars[idx - 1] if idx > 0 else ""
@@ -184,12 +218,14 @@ def normalize_palochka(text: str) -> str:
             while idx < n and chars[idx] in _LATIN_LOOKALIKES:
                 idx += 1
             after_ch = chars[idx] if idx < n else ""
-            if (prev_ch.isascii() and prev_ch.isalpha()) or (
-                after_ch.isascii() and after_ch.isalpha()
-            ):
-                out.extend(chars[run_start:idx])
-            else:
+            if prev_ch.isdigit() or after_ch.isdigit():
+                # Приклеено к цифре (199I → 1991) — это ошибка типиста, не римское число.
                 out.extend(["1"] * (idx - run_start))
+            else:
+                # Латиница среди кириллицы/пунктуации без цифр рядом — либо
+                # иноязычное слово, либо римское число (том I, глава II, Осман I).
+                # В обоих случаях букву не трогаем, а не заменяем на «1».
+                out.extend(chars[run_start:idx])
         else:
             out.append(ch)
             idx += 1
