@@ -51,6 +51,15 @@ sense-формы не совпадают с буквой в `precomment`, нет
 `examples[].ru` → `examples[].en`; pos/form/labels — через glossary. Статус `test`
 (черновик, без вычитки носителями). Запись в [`sources.json`](sources.json).
 
+## 2026-07-16 — av-ru: RFI-раунд 12
+
+Разбор 47 открытых RFI. Опечатки (`парковая`, `программа`, `совок`,
+`телефонограмма`, …), `comment_lang: av`, склейка senses у `лъоба`,
+структура `гъоркьегӏан` + отклонённые false positives.
+
+Подробности: [`changelog/2026-07-16-av-ru-rfi-round12.md`](changelog/2026-07-16-av-ru-rfi-round12.md);
+rejects — `expert-review-av-ru-issues-2026-07-12-rejected.md`, раунд 12.
+
 ## 2026-07-15 — av-ru: гъезе — senses по источнику
 
 Разделены диал. «сажать» / «наступать»; помета о наречиях — только `comment`;
