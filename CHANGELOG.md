@@ -1,3 +1,10 @@
+## 2026-07-15 — новый источник av-en (аварско-английский, ~22 800 статей)
+
+Добавлен `data/av-en.jsonl`: построчный машинный перевод `av-ru` на английский
+(multilang.avar.me). Структура 1:1 с `av-ru` (слова, forms, senses, examples.av);
+`examples[].ru` → `examples[].en`; pos/form/labels — через glossary. Статус `test`
+(черновик, без вычитки носителями). Запись в [`sources.json`](sources.json).
+
 ## 2026-07-15 — av-ru: гъезе — senses по источнику
 
 Разделены диал. «сажать» / «наступать»; помета о наречиях — только `comment`;

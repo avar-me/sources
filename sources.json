@@ -71,6 +71,25 @@
       ]
     },
     {
+      "id": "av-en",
+      "title": "Аварско-английский словарь",
+      "subtitle": "av → en",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-английский словарь: машинный перевод статей av-ru на английский. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-en.jsonl",
+      "site_path": "av-en/",
+      "language_from": "av",
+      "language_to": "en",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на английский через multilang.avar.me (Translation Memory + glossary). Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "en.avar.me",
+        "multilang.avar.me"
+      ]
+    },
+    {
       "id": "en-av",
       "title": "Англо-аварский словарь",
       "subtitle": "en → av",
@@ -213,7 +232,8 @@
     },
     "example": {
       "av": "string — аварская фраза",
-      "ru": "string — русский перевод",
+      "ru": "string — русский перевод (av-ru, ru-av, phrase-av-ru); в переводах словаря (av-en и др.) ключ переименовывается в код целевого языка, напр. en",
+      "en": "string — английский перевод примера (av-en); взаимоисключающе с ru",
       "labels": "string[] — пометы уровня примера, необязательно",
       "comment": "string — комментарий, необязательно"
     },
