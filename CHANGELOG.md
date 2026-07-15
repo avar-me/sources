@@ -1,3 +1,7 @@
+## 2026-07-15 — av-ru: поляк — comment «танец»
+
+examples[0].comment: «); танец» → «танец».
+
 ## 2026-07-15 — av-ru: авиабаза — comment_lang av
 
 senses[0].comment «самолётазул база» + `comment_lang: av`.
