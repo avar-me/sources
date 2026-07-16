@@ -51,6 +51,11 @@ sense-формы не совпадают с буквой в `precomment`, нет
 `examples[].ru` → `examples[].en`; pos/form/labels — через glossary. Статус `test`
 (черновик, без вычитки носителями). Запись в [`sources.json`](sources.json).
 
+## 2026-07-16 — av-ru/av-en: хадуб — с местным падежом (2)
+
+Второй comment «с местный падеж» → «с местным падежом» (sense «после
+чего-либо»); в `av-en` — «with the locative case».
+
 ## 2026-07-16 — av-en: синхронизация с av-ru (~631 статей)
 
 Обновлён `data/av-en.jsonl` (multilang): подтянуты правки `av-ru` последних
