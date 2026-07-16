@@ -51,6 +51,16 @@ sense-формы не совпадают с буквой в `precomment`, нет
 `examples[].ru` → `examples[].en`; pos/form/labels — через glossary. Статус `test`
 (черновик, без вычитки носителями). Запись в [`sources.json`](sources.json).
 
+## 2026-07-16 — av-ru: maintainer-RFI (dial-eval, буква А)
+
+Разбор 82 замечаний из `av-ru-maintainer-rfi.jsonl` (gemini dial-eval).
+Опечатки, comment числительных, POS/форма, `pos «выражение» → существительное`
+для явных существительных, глоссы (`абад`, `ах`, `абго`), фактические числа
+(`анлъ` = 6), слияние дубля `анлънусабго`. Отклонены false positives
+(`comment_lang: av`, формо-/вариант-заглушки).
+
+Подробности: [`changelog/2026-07-16-av-ru-maintainer-rfi.md`](changelog/2026-07-16-av-ru-maintainer-rfi.md).
+
 ## 2026-07-16 — av-ru/av-en: хадуб — с местным падежом (2)
 
 Второй comment «с местный падеж» → «с местным падежом» (sense «после
