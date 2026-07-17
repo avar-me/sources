@@ -1,3 +1,23 @@
+## 2026-07-18 — av-en: вычитка переводов (~380 статей)
+
+Обновлён `data/av-en.jsonl` (multilang). По сути:
+
+- **Глоссы (`text`, ~140):** уточнены и разведены омографы/ошибки модели —
+  `ахта` merino→gelding; `ахакьчӏикӏ` scum→lickspittle/sycophant; `ахиризе`
+  mint (coinage)→top (grapevine); ботаника (`ахътерек` silver/white poplar,
+  `марена` madder, `poppy` без hemp и т.п.); убраны лишние синонимы
+  (`bud; kidney`→`kidney`, `around; surrounding`→`around`).
+- **Примеры (`examples[].en`, ~150):** исправлены смысловые сбои перевода
+  (ахада defend→leave off; ахакь shepherds→sheepdogs; ахираб last light→afterlife;
+  инфинитивы с to-; призыв к взаимопомощи и др.).
+- **Комментарии (~220 вместе с примерами):** `masculine proper noun` →
+  `male given name` (~104); управления/уточнения — `of anything; of something`→
+  `something`/`to something`, `on the spot`→`from the spot`, `by anyone`→
+  `with someone`, `cloth; fabric`→`fabric`.
+- **POS/form** у ряда статей выровнены с морфологией (базине, бай, бакътӏерхьул…).
+- **Синхрон с av-ru:** `багӏарикӏкӏбагӏаррикӏкӏ` → `багӏарикӏкӏ` (forms оба
+  варианта); добавлен указатель `рицӏ` → `рицӏцӏ`.
+
 ## 2026-07-18 — av-ru: барантик — comment
 
 comment: «разновидность тика» → «разновидность тика, восточная ткань».
