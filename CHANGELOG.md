@@ -1,3 +1,18 @@
+## 2026-07-18 — av-en: вычитка (~665 статей)
+
+Обновлён `data/av-en.jsonl` (multilang). По сути:
+
+- **Имена:** `male given name` / `Proper noun (feminine)` →
+  `masculine`/`feminine proper noun` (~153); `precomment` `'A' capital letter` →
+  `capital letter "A"` (у диграфов — аварская буква: `"ГӀ"`, `"ХӀ"`, …).
+- **Глоссы (`text`, ~167):** убраны лишние синонимы и уточнены омографы
+  (`below; downstairs`→`below`, `wife; spouse`→`wife`, `boza; mash` и т.п.).
+- **Комментарии примеров (~277):** `someone; anyone`→`someone`,
+  `something`→`of something`, `whom/what`→`someone or something`, сокращения
+  `i.e.` и т.п.
+- **Синхрон с av-ru:** у 11 тканей `comment: "ххам"` + `comment_lang: "av"`
+  (было `fabric`).
+
 ## 2026-07-18 — av-ru/av-en: остатки «прописная буква» / аббр. имён
 
 - `дибир`: `comment: "'Д' прописная буква; имя собств. муж"` → `precomment` +
