@@ -1,3 +1,11 @@
+## 2026-07-18 — av-ru: maintainer-RFI (dial-eval, Б продолжение)
+
+Разбор 31 открытого RFI: русские опечатки (~22), POS/форма (6), одна av
+(`беццаб`). Отклонены 3 false positive (`багь-багьараб`, `багьизе`, `берзул`).
+Зеркально POS/точечные правки в `av-en`.
+
+Подробности: [`changelog/2026-07-18-av-ru-maintainer-rfi-2.md`](changelog/2026-07-18-av-ru-maintainer-rfi-2.md).
+
 ## 2026-07-18 — av-en: вычитка (~412 статей)
 
 Обновлён `data/av-en.jsonl` (multilang). По сути:
