@@ -1,3 +1,18 @@
+## 2026-07-18 — av-en: вычитка (~412 статей)
+
+Обновлён `data/av-en.jsonl` (multilang). По сути:
+
+- **Глоссы (`text`, ~172):** уточнены омографы и ошибки модели (`баси`/`басико`
+  calf vs castrated; `басма` indigo dye; `бахиллъизе` stingy; `батӏрикъ`
+  patrician; ботаника `багӏарикӏкӏ` и т.п.).
+- **Примеры (`examples[].en`, ~177):** правки смысла и формулировок
+  (баси/басра/багӏар…).
+- **Labels (~141):** `colloquial / vernacular`→`vernacular`,
+  `diminutive / affectionate`→`diminutive`, `figurative word`→`figurative`;
+  `grammatical class Ⅰ|Ⅱ|Ⅲ`→`I|II|III` (латиница).
+- **Комментарии (~16):** мелкие уточнения (`in parts`→`into parts`,
+  dough/test, reported speech).
+
 ## 2026-07-18 — av-ru/av-en: «грамматический класс Ⅰ/Ⅱ/Ⅲ» → labels
 
 У ~45 senses фраза `грамматический класс Ⅰ|Ⅱ|Ⅲ` (en: `grammatical class …`)
