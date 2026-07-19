@@ -14,3 +14,4 @@ alwaysApply: true
 - Деплой автоматический через `.github/workflows/deploy.yml` (на `git push` в `main`).
 - Стиль сайта — в линии с [index.avar.me](https://index.avar.me): кремовый фон, акцент `#9a7b1a`, шрифты Onest + Literata.
 - Никаких эмодзи в шаблонах и текстах.
+- Maintainer-RFI (dial-eval): Canvas по [`maintainer-rfi-canvas-protocol.md`](../../maintainer-rfi-canvas-protocol.md); только `av-ru`, не `av-en`.
