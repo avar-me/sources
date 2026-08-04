@@ -1,0 +1,34 @@
+---
+description: How to write data/*.jsonl — spaced JSON, no compact dumps, line-local edits
+globs: data/**/*.jsonl
+alwaysApply: true
+---
+
+# Формат `data/*.jsonl`
+
+## Сериализация
+
+Писать только так:
+
+```python
+json.dumps(obj, ensure_ascii=False)
+# → {"word": "а", "forms": [...]}   пробелы после : и ,
+```
+
+**Запрещено** `separators=(',', ':')` и любой compact JSON:
+
+```python
+# ❌ перетирает весь файл, дифф на 20k+ строк без смысла
+json.dumps(obj, ensure_ascii=False, separators=(',', ':'))
+# → {"word":"а","forms":[...]}
+```
+
+Перед коммитом: в диффе `data/*.jsonl` должны быть **только изменённые статьи** (строки), не весь файл.
+
+## Правки
+
+- Одна строка файла = один JSON-объект (статья).
+- Менять **только** нужные строки; не перезаписывать весь jsonl «для удобства».
+- Если без полной перезаписи не обойтись — каждая строка всё равно через `json.dumps(..., ensure_ascii=False)` (spaced); после записи сверить `git diff --stat`: не должно быть ~N insertions / ~N deletions на весь файл.
+- Порядок ключей в `sense`: `text → precomment → labels → forms → comment → comment_lang → examples` (см. CLAUDE.md).
+- Файл заканчивается одним `\n` после последней строки.
