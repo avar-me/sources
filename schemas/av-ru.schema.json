@@ -1,0 +1,231 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sources.avar.me/schemas/av-ru.schema.json",
+  "title": "Статья аварско-русского словаря av-ru",
+  "description": "Схема одного JSON-объекта (одной строки data/av-ru.jsonl). Правила содержания, которые нельзя выразить стандартным JSON Schema, перечислены в x-content-rules и schemas/av-ru.md.",
+  "$ref": "#/$defs/entry",
+  "x-content-rules": [
+    "Язык text и ru — русский; язык av, word, stem, forms и целей морфологических ссылок — аварский.",
+    "Язык comment по умолчанию русский. Если весь comment написан по-аварски, рядом обязательно comment_lang: av.",
+    "Отдельное аварское слово в кавычках внутри русского comment не требует comment_lang: av.",
+    "Буквальный перевод хранится в comment с префиксом 'букв. ', а не в text/ru и не отдельной меткой.",
+    "Маркер 'букв.' всегда относится к следующей за ним непустой буквальной формулировке. Голые comment 'букв.' и 'буквально' недопустимы.",
+    "Если comment объединяет разные пояснения, они разделяются точкой с запятой; буквальная часть оформляется как отдельная часть 'букв. ...'.",
+    "comment_lang относится только к соседнему comment на том же уровне объекта."
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/nonEmptyString"
+      }
+    },
+    "commentLanguage": {
+      "const": "av",
+      "description": "Язык соседнего поля comment. Сейчас допустим только аварский код av."
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["word"],
+      "properties": {
+        "word": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Заглавное аварское слово."
+        },
+        "stress": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Позиция ударной гласной, начиная с 1."
+        },
+        "homonym": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Номер омонима."
+        },
+        "stem": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Аварская основа для образования или раскрытия форм."
+        },
+        "forms": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Раскрытые словоформы статьи."
+        },
+        "gender_forms": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Формы по грамматическим классам/родам."
+        },
+        "labels": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Пометы, относящиеся ко всей статье."
+        },
+        "precomment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Пояснение перед значениями, относящееся ко всей статье."
+        },
+        "exclamation": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Форма междометного восклицания."
+        },
+        "senses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/sense"
+          },
+          "description": "Значения и грамматические отсылки статьи. Может отсутствовать у чистой статьи-отсылки."
+        },
+        "see_also": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/seeAlso"
+          }
+        },
+        "pos": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Часть речи статьи по-русски."
+        },
+        "form": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Грамматическая форма статьи по-русски; '—', если отдельная форма не указана."
+        }
+      }
+    },
+    "sense": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Основной русский перевод или толкование."
+        },
+        "precomment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русское пояснение, которое показывается перед основным переводом."
+        },
+        "labels": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Грамматические, стилистические, отраслевые и иные пометы значения."
+        },
+        "forms": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Формы, относящиеся только к этому значению."
+        },
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "not": {
+            "enum": ["букв.", "буквально"]
+          },
+          "description": "Комментарий к значению. По умолчанию русский; аварский требует comment_lang: av. Голая помета букв. или буквально недопустима."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
+        },
+        "examples": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/example"
+          }
+        },
+        "masdarfrom": {"$ref": "#/$defs/nonEmptyString"},
+        "masdarforceto": {"$ref": "#/$defs/nonEmptyString"},
+        "genitivefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "pluralfor": {"$ref": "#/$defs/nonEmptyString"},
+        "pluralfrom": {"$ref": "#/$defs/nonEmptyString"},
+        "forceto": {"$ref": "#/$defs/nonEmptyString"},
+        "participlefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "deverbfrom": {"$ref": "#/$defs/nonEmptyString"},
+        "locativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "ergativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "dativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "ablativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "casefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "refwordnum": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Номер или номера значения целевой статьи в исходной нумерации."
+        },
+        "link_helper": {
+          "type": "object",
+          "minProperties": 1,
+          "additionalProperties": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "description": "Служебная морфологическая ссылка для разрешения нестандартной цели."
+        }
+      },
+      "dependentRequired": {
+        "comment_lang": ["comment"]
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["av", "ru"],
+      "properties": {
+        "av": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Аварская фраза."
+        },
+        "ru": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русский перевод аварской фразы."
+        },
+        "labels": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "not": {
+            "enum": ["букв.", "буквально"]
+          },
+          "description": "Комментарий к примеру. По умолчанию русский; аварский требует comment_lang: av. Голая помета букв. или буквально недопустима."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
+        }
+      },
+      "dependentRequired": {
+        "comment_lang": ["comment"]
+      }
+    },
+    "seeAlso": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "kind"],
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Заглавное слово целевой статьи."
+        },
+        "kind": {
+          "enum": ["see", "from"],
+          "description": "see — «см. также»; from — форма или производное от target."
+        },
+        "refwordnum": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Аварский контекст или выражение, уточняющее область действия ссылки; требует comment_lang: av."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
+        },
+        "link_helper": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      },
+      "dependentRequired": {
+        "comment_lang": ["comment"]
+      }
+    }
+  }
+}
