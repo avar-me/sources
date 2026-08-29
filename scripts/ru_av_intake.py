@@ -77,12 +77,16 @@ def reject_unknown(obj: dict[str, Any], allowed: set[str], path: str, errors: li
         errors.append(f"{path}.{key}: unknown field")
 
 
-def validate_example(example: Any, path: str, errors: list[str]) -> None:
+def validate_example(example: Any, path: str, errors: list[str], *, require_both_sides: bool = True) -> None:
     if not isinstance(example, dict) or not example:
         errors.append(f"{path}: expected a non-empty object")
         return
     reject_unknown(example, EXAMPLE_KEYS, path, errors)
-    if "av" not in example and "ru" not in example:
+    if require_both_sides:
+        for key in ("av", "ru"):
+            if key not in example:
+                errors.append(f"{path}.{key}: required field is missing")
+    elif "av" not in example and "ru" not in example:
         errors.append(f"{path}: at least one of av or ru is required")
     for key in ("av", "ru", "comment"):
         if key in example and not nonempty_string(example[key]):
@@ -92,7 +96,7 @@ def validate_example(example: Any, path: str, errors: list[str]) -> None:
     validate_comment_language(example, path, errors)
 
 
-def validate_sense(sense: Any, path: str, errors: list[str]) -> None:
+def validate_sense(sense: Any, path: str, errors: list[str], *, require_both_example_sides: bool = True) -> None:
     if not isinstance(sense, dict) or not sense:
         errors.append(f"{path}: expected a non-empty object")
         return
@@ -109,7 +113,12 @@ def validate_sense(sense: Any, path: str, errors: list[str]) -> None:
             errors.append(f"{path}.examples: expected a non-empty array")
         elif isinstance(examples, list):
             for index, example in enumerate(examples):
-                validate_example(example, f"{path}.examples[{index}]", errors)
+                validate_example(
+                    example,
+                    f"{path}.examples[{index}]",
+                    errors,
+                    require_both_sides=require_both_example_sides,
+                )
     validate_comment_language(sense, path, errors)
 
 
@@ -138,7 +147,14 @@ def validate_comment_language(obj: dict[str, Any], path: str, errors: list[str])
         errors.append(f"{path}.comment_lang: expected ru")
 
 
-def validate_entry(entry: dict[str, Any], line_number: int, errors: list[str], warnings: list[str]) -> None:
+def validate_entry(
+    entry: dict[str, Any],
+    line_number: int,
+    errors: list[str],
+    warnings: list[str],
+    *,
+    require_both_example_sides: bool = True,
+) -> None:
     path = f"line {line_number}"
     reject_unknown(entry, ENTRY_KEYS, path, errors)
     for key in ("word", "forms"):
@@ -174,14 +190,33 @@ def validate_entry(entry: dict[str, Any], line_number: int, errors: list[str], w
             errors.append(f"{path}.{key}: expected a non-empty array")
             continue
         for index, value in enumerate(values):
-            validator(value, f"{path}.{key}[{index}]", errors)
+            if key == "senses":
+                validator(
+                    value,
+                    f"{path}.{key}[{index}]",
+                    errors,
+                    require_both_example_sides=require_both_example_sides,
+                )
+            else:
+                validator(value, f"{path}.{key}[{index}]", errors)
 
 
-def validate_rows(rows: list[dict[str, Any]], parse_errors: Iterable[str] = ()) -> tuple[list[str], list[str]]:
+def validate_rows(
+    rows: list[dict[str, Any]],
+    parse_errors: Iterable[str] = (),
+    *,
+    require_both_example_sides: bool = True,
+) -> tuple[list[str], list[str]]:
     errors = list(parse_errors)
     warnings: list[str] = []
     for line_number, entry in enumerate(rows, 1):
-        validate_entry(entry, line_number, errors, warnings)
+        validate_entry(
+            entry,
+            line_number,
+            errors,
+            warnings,
+            require_both_example_sides=require_both_example_sides,
+        )
     return errors, warnings
 
 
@@ -196,7 +231,9 @@ def count_nested(rows: list[dict[str, Any]], key: str) -> int:
 
 
 def metrics(rows: list[dict[str, Any]], path: Path) -> dict[str, Any]:
-    key_counts = collections.Counter((entry["word"], entry.get("homonym")) for entry in rows)
+    # Stress is part of the identity for unnumbered Russian homographs such as
+    # прови́дение / провиде́ние and су́жу / сужу́.
+    key_counts = collections.Counter((entry["word"], entry.get("homonym"), entry.get("stress")) for entry in rows)
     example_rows = [example for entry in rows for sense in entry.get("senses", []) for example in sense.get("examples", [])]
     invalid_stress = 0
     for entry in rows:
@@ -211,8 +248,8 @@ def metrics(rows: list[dict[str, Any]], path: Path) -> dict[str, Any]:
         "entries": len(rows),
         "senses": count_nested(rows, "senses"),
         "examples": len(example_rows),
-        "examples_without_av": sum("av" not in example for example in example_rows),
-        "examples_without_ru": sum("ru" not in example for example in example_rows),
+        "examples_without_av": sum(not nonempty_string(example.get("av")) for example in example_rows),
+        "examples_without_ru": sum(not nonempty_string(example.get("ru")) for example in example_rows),
         "invalid_stress": invalid_stress,
         "see_also": count_nested(rows, "see_also"),
         "entries_without_senses_or_links": sum(not entry.get("senses") and not entry.get("see_also") for entry in rows),
@@ -321,7 +358,9 @@ def compare_command(args: argparse.Namespace) -> int:
     old_path, new_path = Path(args.old), Path(args.new)
     old_rows, old_parse = load_jsonl(old_path)
     new_rows, new_parse = load_jsonl(new_path)
-    old_errors, old_warnings = validate_rows(old_rows, old_parse)
+    # A legacy baseline may contain one-sided extraction fragments. The new
+    # revision is still validated against the current, stricter contract.
+    old_errors, old_warnings = validate_rows(old_rows, old_parse, require_both_example_sides=False)
     new_errors, new_warnings = validate_rows(new_rows, new_parse)
     if old_errors or new_errors:
         if old_errors:
