@@ -44,7 +44,17 @@ curl -fsSL https://sources.avar.me/data/av-ru.jsonl > av-ru.jsonl
 
 ## Формат данных (jsonl)
 
-Полная схема аварско-русского словаря, включая языки полей, `comment_lang`, морфологические ссылки и правила буквальных переводов: [`schemas/av-ru.md`](schemas/av-ru.md). Машиночитаемая JSON Schema одной статьи: [`schemas/av-ru.schema.json`](schemas/av-ru.schema.json).
+Полные схемы словарей:
+
+- `av-ru`: [`schemas/av-ru.md`](schemas/av-ru.md), JSON Schema [`schemas/av-ru.schema.json`](schemas/av-ru.schema.json);
+- `ru-av`: [`schemas/ru-av.md`](schemas/ru-av.md), JSON Schema [`schemas/ru-av.schema.json`](schemas/ru-av.schema.json).
+
+Проверка текущего `ru-av` и сравнение с подготовленной новой редакцией:
+
+```bash
+python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
+python3 scripts/ru_av_intake.py compare data/ru-av.jsonl incoming/ru-av.jsonl
+```
 
 Одна строка = одна статья словаря. Пример:
 

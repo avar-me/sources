@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sources.avar.me/schemas/ru-av.schema.json",
+  "title": "Статья русско-аварского словаря ru-av",
+  "description": "Схема одной строки data/ru-av.jsonl. Языковые и межстрочные правила описаны в x-content-rules и schemas/ru-av.md.",
+  "$ref": "#/$defs/entry",
+  "x-content-rules": [
+    "Язык word, stem, forms и see_also.target — русский.",
+    "Язык senses[].text и examples[].av — аварский; язык examples[].ru — русский.",
+    "labels — русские словарные пометы.",
+    "precomment и comment сохраняют язык исходного словаря: обычно аварский, но встречаются русские и смешанные грамматические пояснения.",
+    "Идентификатор (word, homonym) не уникален: повторяющиеся статьи нельзя терять или склеивать при сравнении и импорте.",
+    "stress — 1-based позиция ударной гласной в русском word.",
+    "Каждая статья занимает одну строку JSONL и сериализуется с ensure_ascii=False и обычными пробелами после разделителей."
+  ],
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "stringArray": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "entry": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["word", "forms"],
+      "properties": {
+        "word": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русское заглавное слово."
+        },
+        "stress": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "1-based позиция ударной гласной в word."
+        },
+        "homonym": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Номер омонима, если он явно дан источником."
+        },
+        "stem": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русская основа; в текущих данных часто записана прописными буквами."
+        },
+        "forms": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Русские словоформы; текущий формат требует хотя бы одну форму."
+        },
+        "labels": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Русские пометы всей статьи."
+        },
+        "precomment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Предварительное пояснение всей статьи в языке исходного словаря."
+        },
+        "exclamation": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Форма междометного восклицания."
+        },
+        "senses": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/sense"},
+          "description": "Аварские переводы, пояснения и грамматические отсылки."
+        },
+        "see_also": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/seeAlso"}
+        }
+      }
+    },
+    "sense": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "text": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Аварский перевод или толкование русского заголовка."
+        },
+        "precomment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Пояснение перед переводом; язык сохраняется по источнику."
+        },
+        "labels": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Русские грамматические, стилистические и отраслевые пометы."
+        },
+        "forms": {
+          "$ref": "#/$defs/stringArray",
+          "description": "Формы, относящиеся только к значению."
+        },
+        "genitivefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "dativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "locativefrom": {"$ref": "#/$defs/nonEmptyString"},
+        "pluralfor": {"$ref": "#/$defs/nonEmptyString"},
+        "refwordnum": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Номер значения целевой русской статьи в исходной нумерации."
+        },
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Пояснение из исходного словаря: аварское, русское либо смешанное."
+        },
+        "examples": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/example"}
+        }
+      }
+    },
+    "example": {
+      "type": "object",
+      "additionalProperties": false,
+      "minProperties": 1,
+      "properties": {
+        "av": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Аварский пример или перевод."
+        },
+        "ru": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русская исходная фраза или перевод."
+        },
+        "labels": {"$ref": "#/$defs/stringArray"},
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Пояснение в языке исходного словаря."
+        }
+      },
+      "anyOf": [
+        {"required": ["av"]},
+        {"required": ["ru"]}
+      ]
+    },
+    "seeAlso": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["target", "kind"],
+      "properties": {
+        "target": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русское заглавное слово целевой статьи."
+        },
+        "kind": {
+          "enum": ["see", "from"],
+          "description": "see — «см. также»; from — форма или производное от target."
+        },
+        "refwordnum": {"$ref": "#/$defs/nonEmptyString"},
+        "comment": {
+          "$ref": "#/$defs/nonEmptyString",
+          "description": "Русский контекст, ограничивающий область действия ссылки."
+        }
+      }
+    }
+  }
+}
