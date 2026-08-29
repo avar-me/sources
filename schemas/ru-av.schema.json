@@ -8,7 +8,8 @@
     "Язык word, stem, forms и see_also.target — русский.",
     "Язык senses[].text и examples[].av — аварский; язык examples[].ru — русский.",
     "labels — русские словарные пометы.",
-    "precomment и comment сохраняют язык исходного словаря: обычно аварский, но встречаются русские и смешанные грамматические пояснения.",
+    "Язык comment по умолчанию аварский. Если весь comment написан по-русски, рядом обязательно comment_lang: ru.",
+    "Отдельное русское слово внутри аварского comment не требует comment_lang: ru; смешанные комментарии требуют ручного разбора.",
     "Идентификатор (word, homonym) не уникален: повторяющиеся статьи нельзя терять или склеивать при сравнении и импорте.",
     "stress — 1-based позиция ударной гласной в русском word.",
     "Каждая статья занимает одну строку JSONL и сериализуется с ensure_ascii=False и обычными пробелами после разделителей."
@@ -22,6 +23,10 @@
       "type": "array",
       "minItems": 1,
       "items": {"$ref": "#/$defs/nonEmptyString"}
+    },
+    "commentLanguage": {
+      "const": "ru",
+      "description": "Язык соседнего comment. Для ru-av аварский является языком по умолчанию, поэтому явно отмечается только полностью русский comment."
     },
     "entry": {
       "type": "object",
@@ -106,13 +111,19 @@
         },
         "comment": {
           "$ref": "#/$defs/nonEmptyString",
-          "description": "Пояснение из исходного словаря: аварское, русское либо смешанное."
+          "description": "Пояснение к значению. По умолчанию аварское; полностью русский текст требует comment_lang: ru."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
         },
         "examples": {
           "type": "array",
           "minItems": 1,
           "items": {"$ref": "#/$defs/example"}
         }
+      },
+      "dependentRequired": {
+        "comment_lang": ["comment"]
       }
     },
     "example": {
@@ -131,13 +142,19 @@
         "labels": {"$ref": "#/$defs/stringArray"},
         "comment": {
           "$ref": "#/$defs/nonEmptyString",
-          "description": "Пояснение в языке исходного словаря."
+          "description": "Пояснение к примеру. По умолчанию аварское; полностью русский текст требует comment_lang: ru."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
         }
       },
       "anyOf": [
         {"required": ["av"]},
         {"required": ["ru"]}
-      ]
+      ],
+      "dependentRequired": {
+        "comment_lang": ["comment"]
+      }
     },
     "seeAlso": {
       "type": "object",
@@ -155,8 +172,14 @@
         "refwordnum": {"$ref": "#/$defs/nonEmptyString"},
         "comment": {
           "$ref": "#/$defs/nonEmptyString",
-          "description": "Русский контекст, ограничивающий область действия ссылки."
+          "description": "Контекст ссылки. По умолчанию аварский; полностью русский текст требует comment_lang: ru."
+        },
+        "comment_lang": {
+          "$ref": "#/$defs/commentLanguage"
         }
+      },
+      "dependentRequired": {
+        "comment_lang": ["comment"]
       }
     }
   }

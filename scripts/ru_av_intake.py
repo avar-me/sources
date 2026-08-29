@@ -18,10 +18,10 @@ ENTRY_KEYS = {
 }
 SENSE_KEYS = {
     "text", "precomment", "labels", "forms", "genitivefrom", "dativefrom",
-    "locativefrom", "pluralfor", "refwordnum", "comment", "examples",
+    "locativefrom", "pluralfor", "refwordnum", "comment", "comment_lang", "examples",
 }
-EXAMPLE_KEYS = {"av", "ru", "labels", "comment"}
-SEE_ALSO_KEYS = {"target", "kind", "refwordnum", "comment"}
+EXAMPLE_KEYS = {"av", "ru", "labels", "comment", "comment_lang"}
+SEE_ALSO_KEYS = {"target", "kind", "refwordnum", "comment", "comment_lang"}
 STRING_ARRAY_KEYS = {"forms", "labels"}
 REFERENCE_KEYS = {"genitivefrom", "dativefrom", "locativefrom", "pluralfor"}
 RUSSIAN_VOWELS = set("аеёиоуыэюяАЕЁИОУЫЭЮЯ")
@@ -89,6 +89,7 @@ def validate_example(example: Any, path: str, errors: list[str]) -> None:
             errors.append(f"{path}.{key}: expected a non-empty string")
     if "labels" in example:
         validate_string_array(example["labels"], f"{path}.labels", errors)
+    validate_comment_language(example, path, errors)
 
 
 def validate_sense(sense: Any, path: str, errors: list[str]) -> None:
@@ -109,6 +110,7 @@ def validate_sense(sense: Any, path: str, errors: list[str]) -> None:
         elif isinstance(examples, list):
             for index, example in enumerate(examples):
                 validate_example(example, f"{path}.examples[{index}]", errors)
+    validate_comment_language(sense, path, errors)
 
 
 def validate_see_also(link: Any, path: str, errors: list[str]) -> None:
@@ -124,6 +126,16 @@ def validate_see_also(link: Any, path: str, errors: list[str]) -> None:
             errors.append(f"{path}.{key}: expected a non-empty string")
     if link.get("kind") not in {"see", "from"}:
         errors.append(f"{path}.kind: expected see or from")
+    validate_comment_language(link, path, errors)
+
+
+def validate_comment_language(obj: dict[str, Any], path: str, errors: list[str]) -> None:
+    if "comment_lang" not in obj:
+        return
+    if "comment" not in obj:
+        errors.append(f"{path}.comment_lang: comment is required")
+    if obj["comment_lang"] != "ru":
+        errors.append(f"{path}.comment_lang: expected ru")
 
 
 def validate_entry(entry: dict[str, Any], line_number: int, errors: list[str], warnings: list[str]) -> None:

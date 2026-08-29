@@ -20,9 +20,17 @@ python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
 | `senses[].examples[].av` | аварский пример или перевод | аварский |
 | `labels[]` | грамматические, стилистические и отраслевые пометы | русский |
 | морфологические ссылки, `see_also[].target` | целевое заглавное слово | русский |
-| `see_also[].comment` | русский контекст ссылки | русский |
+| `comment` без `comment_lang` | пояснение | аварский по умолчанию |
+| `comment` + `comment_lang: "ru"` | полностью русское пояснение | русский |
 
-`precomment` и `comment` — наследованные пояснения исходного словаря. В текущих данных они обычно аварские, но встречаются русские грамматические пометы и смешанные строки. Поля `comment_lang` в текущем формате нет: при обновлении язык этих пояснений нельзя массово угадывать или менять без отдельного решения.
+`precomment` и `comment` — наследованные пояснения исходного словаря. Для `comment` действует зеркальное относительно `av-ru` правило:
+
+- аварский `comment` — значение по умолчанию, `comment_lang` не нужен;
+- полностью русский `comment` — обязательно `comment_lang: "ru"` в том же объекте сразу после `comment`;
+- отдельное русское слово внутри аварского пояснения не меняет язык всего комментария;
+- смешанную строку нельзя автоматически объявлять русской: её нужно разобрать вручную либо сохранить как наследованный текст до отдельного решения.
+
+В текущем старом файле `comment_lang` ещё не проставлен. Это допустимое наследие на время миграции; новый файл и последующие содержательные правки должны соблюдать правило выше.
 
 ## Статья
 
@@ -50,7 +58,7 @@ python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
 - `precomment` — пояснение перед переводом;
 - `labels[]` — русские пометы;
 - `forms[]` — формы конкретного значения;
-- `comment` — пояснение в языке источника;
+- `comment` / `comment_lang` — пояснение; аварский по умолчанию, полностью русский текст помечается `comment_lang: "ru"`;
 - `examples[]` — примеры;
 - `genitivefrom`, `dativefrom`, `locativefrom`, `pluralfor` — типизированные ссылки на русскую базовую статью;
 - `refwordnum` — номер значения целевой статьи.
@@ -64,7 +72,7 @@ python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
 - `av` — аварская сторона примера;
 - `ru` — русская сторона;
 - `labels[]` — русские пометы;
-- `comment` — пояснение.
+- `comment` / `comment_lang` — пояснение с тем же правилом языка.
 
 Исторические данные содержат односторонние примеры, поэтому схема требует хотя бы одно из `av` или `ru`, но не требует оба одновременно. Отсутствие одной стороны должно отдельно попадать в отчёт качества и сравнение редакций.
 
@@ -74,7 +82,7 @@ python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
 - `kind: "see"` — «см. также»;
 - `kind: "from"` — форма или производное от цели;
 - `refwordnum` — номер значения цели;
-- `comment` — русский контекст, к которому относится ссылка.
+- `comment` / `comment_lang` — контекст ссылки; полностью русский текст требует `comment_lang: "ru"`.
 
 ## Идентичность и повторяющиеся статьи
 
@@ -92,9 +100,9 @@ python3 scripts/ru_av_intake.py validate data/ru-av.jsonl
 Рекомендуемый порядок для читаемых диффов:
 
 - статья: `word → stress → homonym → stem → forms → labels → precomment → exclamation → senses → see_also`;
-- значение: `text → precomment → labels → forms → морфологические ссылки → refwordnum → comment → examples`;
-- пример: `av → ru → labels → comment`;
-- связь: `target → kind → refwordnum → comment`.
+- значение: `text → precomment → labels → forms → морфологические ссылки → refwordnum → comment → comment_lang → examples`;
+- пример: `av → ru → labels → comment → comment_lang`;
+- связь: `target → kind → refwordnum → comment → comment_lang`.
 
 ## Приёмка новой редакции
 
@@ -113,4 +121,3 @@ python3 scripts/ru_av_intake.py compare data/ru-av.jsonl incoming/ru-av.jsonl
 4. односторонним примерам;
 5. изменению `stress`, `homonym`, `forms` и `see_also`;
 6. сохранению всех строк при полной замене.
-
