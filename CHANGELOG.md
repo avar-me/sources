@@ -1,3 +1,13 @@
+## 2026-09-08 — новые источники av-de, av-fr, av-tr, av-uk, av-be (~22 800 статей каждый)
+
+Добавлены `data/av-de.jsonl`, `data/av-fr.jsonl`, `data/av-tr.jsonl`,
+`data/av-uk.jsonl`, `data/av-be.jsonl`: построчный машинный перевод `av-ru`
+на немецкий, французский, турецкий, украинский и белорусский языки (Google
+Gemini). Структура 1:1 с `av-ru`/`av-en` (слова, forms, senses, examples.av);
+`examples[].ru` → `examples[].de`/`fr`/`tr`/`uk`/`be`; pos/form — переведены.
+Статус `test` (черновик, без вычитки носителями). Записи в
+[`sources.json`](sources.json).
+
 ## 2026-09-08 — av-ru: восстановлена структура статьи `къадако` (1 статья)
 
 У существительного `къадако` («воробей») скобочные формы из PDF

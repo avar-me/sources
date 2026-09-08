@@ -108,6 +108,96 @@
       ]
     },
     {
+      "id": "av-de",
+      "title": "Аварско-немецкий словарь",
+      "subtitle": "av → de",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-немецкий словарь: машинный перевод статей av-ru на немецкий. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-de.jsonl",
+      "site_path": "av-de/",
+      "language_from": "av",
+      "language_to": "de",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на немецкий через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "de.avar.me"
+      ]
+    },
+    {
+      "id": "av-fr",
+      "title": "Аварско-французский словарь",
+      "subtitle": "av → fr",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-французский словарь: машинный перевод статей av-ru на французский. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-fr.jsonl",
+      "site_path": "av-fr/",
+      "language_from": "av",
+      "language_to": "fr",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на французский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "fr.avar.me"
+      ]
+    },
+    {
+      "id": "av-tr",
+      "title": "Аварско-турецкий словарь",
+      "subtitle": "av → tr",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-турецкий словарь: машинный перевод статей av-ru на турецкий. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-tr.jsonl",
+      "site_path": "av-tr/",
+      "language_from": "av",
+      "language_to": "tr",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на турецкий через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "tr.avar.me"
+      ]
+    },
+    {
+      "id": "av-uk",
+      "title": "Аварско-украинский словарь",
+      "subtitle": "av → uk",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-украинский словарь: машинный перевод статей av-ru на украинский. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-uk.jsonl",
+      "site_path": "av-uk/",
+      "language_from": "av",
+      "language_to": "uk",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на украинский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "uk.avar.me"
+      ]
+    },
+    {
+      "id": "av-be",
+      "title": "Аварско-белорусский словарь",
+      "subtitle": "av → be",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Аварско-белорусский словарь: машинный перевод статей av-ru на белорусский. Около 22 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/av-be.jsonl",
+      "site_path": "av-be/",
+      "language_from": "av",
+      "language_to": "be",
+      "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на белорусский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "be.avar.me"
+      ]
+    },
+    {
       "id": "phrase-av-ru",
       "title": "Аварско-русский фразеологический словарь",
       "subtitle": "av → ru · фразеология",
