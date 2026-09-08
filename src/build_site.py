@@ -297,6 +297,19 @@ def url_quote(text: str) -> str:
     return quote(text, safe="")
 
 
+_UNSAFE_FILENAME_CHARS = re.compile(r'[\\/:*?"<>|\x00-\x1f]')
+
+
+def safe_filename(prefix: str) -> str:
+    """Sanitize a bucket prefix for use as a filesystem/URL path segment.
+
+    Non-av tokenizers split words char-by-char, so a translated headword
+    like '@/égoïsme' can produce a prefix containing '/' — unsafe both as a
+    filename and as a URL path segment.
+    """
+    return _UNSAFE_FILENAME_CHARS.sub("_", prefix) or "_"
+
+
 def anchor_for(word: str, seen: dict[str, int]) -> str:
     base = word.replace(" ", "_").replace("/", "_") or "_"
     seen[base] += 1
@@ -1339,7 +1352,8 @@ def build_dictionary(src: dict) -> dict:
         chunks = [ents[i : i + PAGE_SIZE] for i in range(0, len(ents), PAGE_SIZE)] or [[]]
         pages: list[tuple[str, list[dict]]] = []
         for idx, chunk in enumerate(chunks):
-            file_name = f"{prefix}.html" if idx == 0 else f"{prefix}-{idx + 1}.html"
+            safe_prefix = safe_filename(prefix)
+            file_name = f"{safe_prefix}.html" if idx == 0 else f"{safe_prefix}-{idx + 1}.html"
             pages.append((file_name, chunk))
         prefix_pages[prefix] = pages
 

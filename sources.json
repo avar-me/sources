@@ -95,13 +95,13 @@
       "subtitle": "en → av",
       "kind": "dictionary",
       "status": "test",
-      "description": "Англо-аварский словарь, около 3 000 статей. Сгенерирован моделью Google Gemini, перевод и значения не вычитывались — статус «черновик».",
+      "description": "Англо-аварский словарь: машинный перевод статей ru-av на английский. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
       "format": "jsonl",
       "data_path": "data/en-av.jsonl",
       "site_path": "en-av/",
       "language_from": "en",
       "language_to": "av",
-      "based_on": "Машинная генерация: Google Gemini (одиночные пары английское слово → аварский перевод). Источник нуждается в проверке носителями языка.",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на английский через Google Gemini. Источник нуждается в проверке носителями языка.",
       "license": "CC BY-SA 4.0",
       "consumers": [
         "en.avar.me"
@@ -192,6 +192,96 @@
       "language_from": "av",
       "language_to": "be",
       "based_on": "Перевод аварско-русского словаря (М.-С. М. Магомедов и др., Махачкала, 2006) на белорусский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "be.avar.me"
+      ]
+    },
+    {
+      "id": "de-av",
+      "title": "Немецко-аварский словарь",
+      "subtitle": "de → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Немецко-аварский словарь: машинный перевод статей ru-av на немецкий. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/de-av.jsonl",
+      "site_path": "de-av/",
+      "language_from": "de",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на немецкий через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "de.avar.me"
+      ]
+    },
+    {
+      "id": "fr-av",
+      "title": "Французско-аварский словарь",
+      "subtitle": "fr → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Французско-аварский словарь: машинный перевод статей ru-av на французский. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/fr-av.jsonl",
+      "site_path": "fr-av/",
+      "language_from": "fr",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на французский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "fr.avar.me"
+      ]
+    },
+    {
+      "id": "tr-av",
+      "title": "Турецко-аварский словарь",
+      "subtitle": "tr → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Турецко-аварский словарь: машинный перевод статей ru-av на турецкий. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/tr-av.jsonl",
+      "site_path": "tr-av/",
+      "language_from": "tr",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на турецкий через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "tr.avar.me"
+      ]
+    },
+    {
+      "id": "uk-av",
+      "title": "Украинско-аварский словарь",
+      "subtitle": "uk → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Украинско-аварский словарь: машинный перевод статей ru-av на украинский. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/uk-av.jsonl",
+      "site_path": "uk-av/",
+      "language_from": "uk",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на украинский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "uk.avar.me"
+      ]
+    },
+    {
+      "id": "be-av",
+      "title": "Белорусско-аварский словарь",
+      "subtitle": "be → av",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Белорусско-аварский словарь: машинный перевод статей ru-av на белорусский. Около 38 800 статей. Перевод и пометы не вычитывались носителями — статус «черновик».",
+      "format": "jsonl",
+      "data_path": "data/be-av.jsonl",
+      "site_path": "be-av/",
+      "language_from": "be",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на белорусский через Google Gemini. Источник нуждается в проверке носителями языка.",
       "license": "CC BY-SA 4.0",
       "consumers": [
         "be.avar.me"
