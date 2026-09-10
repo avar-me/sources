@@ -146,6 +146,7 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 .badge-stable { background: rgba(56, 142, 60, 0.12); color: #2e7d32; }
 .badge-dev { background: rgba(94, 140, 180, 0.14); color: #1a5f8a; }
 .badge-test { background: rgba(154, 123, 26, 0.16); color: var(--accent); }
+.badge-experimental { background: rgba(183, 75, 75, 0.14); color: #9b3434; }
 .badge-plan { background: rgba(120, 120, 120, 0.14); color: var(--text-muted); }
 
 /* ---------- Catalog ---------- */
