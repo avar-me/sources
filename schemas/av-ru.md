@@ -49,7 +49,8 @@
 - `senses[]` — значения и грамматические отсылки;
 - `see_also[]` — связи с другими статьями;
 - `pos` — часть речи;
-- `form` — грамматическая форма или `—`.
+- `form` — грамматическая форма или `—`;
+- `source` — идентификатор дополнительного источника или редакционной реконструкции статьи, необязательно; `avar.me.2026` отмечает статьи, добавленные или реконструированные проектом avar.me в 2026 году вне прямого распознавания отдельной статьи основного PDF.
 
 ## Значение (`senses[]`)
 
@@ -141,7 +142,7 @@
 
 JSON Schema не учитывает порядок ключей, но в репозитории он нормирован ради читаемых диффов:
 
-- статья: `word → stress → homonym → stem → forms → gender_forms → labels → precomment → exclamation → senses → see_also → pos → form`;
+- статья: `word → stress → homonym → stem → forms → gender_forms → labels → precomment → exclamation → senses → see_also → pos → form → source`;
 - значение: `text → precomment → labels → forms → морфологические ссылки → comment → comment_lang → examples`;
 - пример: `av → ru → labels → comment → comment_lang`;
 - `comment_lang` всегда сразу после `comment`.
