@@ -85,6 +85,8 @@ python3 scripts/ru_av_intake.py compare data/ru-av.jsonl incoming/ru-av.jsonl
 | `stress` | Позиция ударной гласной (1-based) или отсутствует. |
 | `stem` | Основа для раскрытия форм. |
 | `forms` | Раскрытые словоформы. |
+| `gender_forms` | Формы по грамматическим классам/родам (`av-ru`). |
+| `spelling_forms` | Варианты написания одной лексемы; включает текущее `word` первым (`av-ru`). |
 | `senses[]` | Значения. У каждого: `text`, `comment`, `labels[]`, `examples[]`. |
 | `senses[].examples[]` | `{av, ru, labels?}` — примеры с переводом. |
 | `see_also[]` | Ссылки «см.» / «от …»: `{target, kind}`. |
