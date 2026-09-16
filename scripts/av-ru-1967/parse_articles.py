@@ -30,6 +30,7 @@ from segment_entries import (  # noqa: E402
     NUMBERED_SENSE_RE,
     REFERENCE_LIST_RE,
     ROMAN_RE,
+    RUSSIAN_FUNCTION_WORDS,
     TERMINATOR_RE,
     bold_is_reliable,
     is_label_token,
@@ -256,9 +257,27 @@ def normalize_labels(labels_raw: list[str]) -> list[str]:
     return out
 
 
+def demote_stray_function_words(tokens: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """A bold-not-italic token that's an isolated Russian pronoun/adverb
+    (found on otherwise-normal pages, e.g. p.294's "его" mid-sentence in
+    "я заставлю его") is never a real Avar example — treat it as plain text by
+    clearing its bold flag, so it neither starts a bogus example nor cuts
+    a real one short while its ru-side is still being collected."""
+    out = []
+    for tok in tokens:
+        if (
+            tok["bold"]
+            and not tok["italic"]
+            and tok["norm"].strip(",.;:!?").lower() in RUSSIAN_FUNCTION_WORDS
+        ):
+            tok = {**tok, "bold": False}
+        out.append(tok)
+    return out
+
+
 def parse_article(span: dict[str, Any], bold_reliable: bool = True) -> dict[str, Any]:
     cand = span["candidate"]
-    tokens = span["tokens"]
+    tokens = demote_stray_function_words(span["tokens"])
     raw_text = " ".join(t["text"] for t in tokens)
 
     pos = 1  # skip the headword token itself
