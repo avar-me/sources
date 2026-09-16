@@ -24,9 +24,37 @@ sys.path.insert(0, str(Path(__file__).parent))
 from extract_geometry import DEFAULT_PDF, extract_page  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
-from build_site import AVAR_ALPHABET, make_rank, make_sort_key, make_tokenizer  # noqa: E402
+from build_site import (  # noqa: E402
+    AVAR_ALPHABET,
+    make_rank,
+    make_sort_key,
+    make_tokenizer,
+    normalize_palochka,
+)
 
 _AVAR_SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
+
+# 'о' misread as digit '6' by OCR in some bold runs (found on pages 138, 217,
+# ...: *в6рхалъи for *ворхалъи). Not part of the project's normalize_palochka
+# contract (that's only for the palochka glyph itself), so handled locally
+# and only as a segmentation-matching aid — never treated as verified text.
+DIGIT_GLYPH_RE = re.compile(r"[6]")
+
+
+def normalize_token(text: str) -> tuple[str, bool]:
+    """Return (normalized-for-matching text, digit_glyph_suspect).
+
+    Applies the project's palochka normalization (fixes e.g. 'ч1' -> 'чӏ',
+    common since palochka OCRs as digit '1') and flags embedded '6' digits
+    likely standing in for 'о'. Only used to decide segmentation boundaries;
+    the original OCR text is preserved separately for human review.
+    """
+    normalized = normalize_palochka(text)
+    suspect = bool(DIGIT_GLYPH_RE.search(normalized))
+    if suspect:
+        normalized = DIGIT_GLYPH_RE.sub("о", normalized)
+    return normalized, suspect
+
 
 # A single dictionary word-token: optional leading '*' (classifier marker),
 # Avar/Cyrillic letters incl. palochka (Ӏ/ӏ) and internal hyphens, optional
@@ -43,9 +71,12 @@ TERMINATOR_RE = re.compile(r"[.?!]$")
 REFERENCE_LIST_RE = re.compile(r"^(ср|см)[.,]*$", re.IGNORECASE)
 BARE_FROM_RE = re.compile(r"^от$", re.IGNORECASE)
 ROMAN_RE = re.compile(r"^(I{1,3}|IV|V)$")
-# Bare-lookup thresholds: pages with fewer than this many bold body words are
-# treated as "bold metadata lost" (cf. handoff doc: 69/597 pages, e.g. p.400).
-LOW_BOLD_WORD_COUNT = 5
+# Bare-lookup threshold: pages with fewer than this many bold-not-italic body
+# words are treated as "bold metadata lost" (cf. handoff doc: 69/597 pages,
+# e.g. p.400). Kept above a handful, since a few incidental bold cross-
+# reference targets can appear even on pages where headwords aren't bold at
+# all (e.g. p.221: 5 stray bold "ср." targets, headwords all plain).
+LOW_BOLD_WORD_COUNT = 10
 
 # Grammatical/stylistic abbreviations from the handoff doc's normalization
 # table (schemas/av-ru.md labels) plus case markers seen right after a
@@ -96,9 +127,12 @@ def page_word_stream(data: dict[str, Any]) -> list[dict[str, Any]]:
     for column in ("left", "right"):
         for line_index, line in enumerate(data[column]):
             for word in line["words"]:
+                norm, digit_suspect = normalize_token(word["text"])
                 stream.append(
                     {
                         **word,
+                        "norm": norm,
+                        "digit_suspect": digit_suspect,
                         "page": data["page"],
                         "column": column,
                         "line_index": line_index,
@@ -108,7 +142,14 @@ def page_word_stream(data: dict[str, Any]) -> list[dict[str, Any]]:
 
 
 def bold_word_count(stream: list[dict[str, Any]]) -> int:
-    return sum(1 for w in stream if w["bold"])
+    """Count words plausibly bold-as-headword/Avar-text (bold, not italic).
+
+    Some pages (e.g. 217) use a bold *italic* font only for grammatical
+    labels and leave headwords in plain regular font — counting all bold
+    words there would wrongly report "bold available" and disable the
+    label/known-word fallback that is actually needed.
+    """
+    return sum(1 for w in stream if w["bold"] and not w["italic"])
 
 
 # "1." / "2)" etc right after a headword split grammatically distinct groups
@@ -123,15 +164,15 @@ def label_follows(stream: list[dict[str, Any]], i: int) -> bool:
     position i, before the next terminator, or a numbered-sense marker is
     the immediate next token. Bold-independent alternative to the primary
     bold signal, for pages where bold metadata is missing."""
-    if i + 1 < len(stream) and NUMBERED_SENSE_RE.match(stream[i + 1]["text"]):
+    if i + 1 < len(stream) and NUMBERED_SENSE_RE.match(stream[i + 1]["norm"]):
         return True
     steps = 0
     j = i + 1
     while j < len(stream) and steps < LABEL_LOOKAHEAD_WINDOW:
         tok = stream[j]
-        if tok["italic"] and tok["text"].rstrip(",") in LABEL_SET:
+        if tok["italic"] and tok["norm"].rstrip(",") in LABEL_SET:
             return True
-        if TERMINATOR_RE.search(tok["text"]):
+        if TERMINATOR_RE.search(tok["norm"]):
             break
         j += 1
         steps += 1
@@ -153,7 +194,7 @@ def segment_stream(
     in_brackets = False  # forms list "[род. п. X; мн. Y]" — never a headword
 
     for i, word in enumerate(stream):
-        text = word["text"]
+        text = word["norm"]
         stripped = text.strip(",.")
 
         if in_brackets:
@@ -205,7 +246,7 @@ def segment_stream(
             continue
         skip_next_bold = False
 
-        at_boundary = prev is None or bool(TERMINATOR_RE.search(prev["text"]))
+        at_boundary = prev is None or bool(TERMINATOR_RE.search(prev["norm"]))
         if not at_boundary:
             prev = word
             continue
@@ -234,18 +275,22 @@ def segment_stream(
 
         # Roman-numeral homonym marker directly after the headword.
         homonym = None
-        if i + 1 < len(stream) and ROMAN_RE.match(stream[i + 1]["text"]):
+        if i + 1 < len(stream) and ROMAN_RE.match(stream[i + 1]["norm"]):
             nxt = stream[i + 1]
             if nxt["bold"] == word["bold"]:
                 homonym = stream[i + 1]["text"]
                 reasons.append("homonym-roman-numeral")
+
+        if word["digit_suspect"]:
+            reasons.append("digit-glyph-suspect")
+            confidence = "low"
 
         candidates.append(
             {
                 "page": word["page"],
                 "column": word["column"],
                 "top": word["top"],
-                "raw": text,
+                "raw": word["text"],
                 "word_guess": base,
                 "homonym": homonym,
                 "star": text.lstrip().startswith("*"),
