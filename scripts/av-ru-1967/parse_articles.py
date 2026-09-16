@@ -43,6 +43,10 @@ from segment_entries import (  # noqa: E402
 # explicitly excluded), a numbered sense marker legitimately follows ';'.
 SENSE_BOUNDARY_RE = re.compile(r"[.;?!]$")
 
+# "масд. глагола X" (masdar of verb X) is a second from-reference marker
+# alongside bare "от" (cf. handoff doc: "масдар от инфинитива... формула масд. глагола X").
+MASDAR_FROM_RE = re.compile(r"^глагола$", re.IGNORECASE)
+
 # Doc's normalization table (av-ru-1967-parsing-handoff.md, "Нормализация
 # сокращений и labels") for abbreviations safe to turn directly into a
 # labels[] entry. Deliberately excludes мест./числ./межд./нареч./гл. — those
@@ -158,6 +162,7 @@ def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
     examples: list[dict[str, str]] = []
     reference_targets: list[str] = []
     from_targets: list[str] = []
+    masdar_targets: list[str] = []
 
     i = pos
     n = len(tokens)
@@ -175,6 +180,11 @@ def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
                     i += 1
                     break
                 i += 1
+            continue
+
+        if MASDAR_FROM_RE.match(stripped) and i + 1 < n and not tokens[i + 1]["italic"] and HEADWORD_RE.match(tokens[i + 1]["norm"]):
+            masdar_targets.append(strip_word(tokens[i + 1]["norm"]))
+            i += 2
             continue
 
         if BARE_FROM_RE.match(stripped) and i + 1 < n and not tokens[i + 1]["italic"] and HEADWORD_RE.match(tokens[i + 1]["norm"]):
@@ -225,6 +235,8 @@ def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
         sense["reference_targets"] = reference_targets
     if from_targets:
         sense["from_targets"] = from_targets
+    if masdar_targets:
+        sense["masdar_targets"] = masdar_targets
     return sense
 
 
@@ -270,6 +282,8 @@ def parse_article(span: dict[str, Any]) -> dict[str, Any]:
     }
     if cand["homonym"]:
         article["homonym"] = cand["homonym"]
+    if cand.get("spelling_variants"):
+        article["spelling_variants"] = cand["spelling_variants"]
     if labels_raw:
         article["labels_raw"] = labels_raw
         normalized = normalize_labels(labels_raw)

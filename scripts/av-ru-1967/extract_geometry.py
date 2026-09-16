@@ -78,6 +78,44 @@ def cluster_lines(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
     return result
 
 
+# Line-final hyphen (soft U+00AD or a plain '-') that continues into the
+# next line's first word, e.g. "абади-" + "ялъ" -> "абадиялъ". An optional
+# leading bracket/quote (e.g. "(от-") is kept as a prefix rather than
+# blocking the match, and internal hyphens are allowed so compound words
+# like "светло-корич-" + "невый" still match on their final, wrap-only
+# hyphen. Only merged when the next word starts lower-case, to avoid
+# swallowing a genuine new sentence/proper noun after a coincidental
+# line-end hyphen.
+TRAILING_HYPHEN_RE = re.compile(r"^([(\[«]?)([А-Яа-яЁёӀӏ]+(?:-[А-Яа-яЁёӀӏ]+)*)[-\u00ad]$")
+CONTINUATION_START_RE = re.compile(r"^[а-яёӏ]")
+
+
+def dehyphenate_column(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Rejoin words split by a line-wrap hyphen within one column's lines."""
+    lines = [dict(line, words=list(line["words"])) for line in lines]
+    i = 0
+    while i < len(lines) - 1:
+        words = lines[i]["words"]
+        next_words = lines[i + 1]["words"]
+        if not words or not next_words:
+            i += 1
+            continue
+        match = TRAILING_HYPHEN_RE.match(words[-1]["text"])
+        if not match or not CONTINUATION_START_RE.match(next_words[0]["text"]):
+            i += 1
+            continue
+        merged = dict(words[-1], text=match.group(1) + match.group(2) + next_words[0]["text"], x1=next_words[0]["x1"])
+        words[-1] = merged
+        next_words.pop(0)
+        lines[i]["text"] = " ".join(w["text"] for w in words)
+        if not next_words:
+            del lines[i + 1]
+            continue  # re-check lines[i] against its new next neighbour
+        lines[i + 1]["text"] = " ".join(w["text"] for w in next_words)
+        i += 1
+    return lines
+
+
 def extract_page(page, page_number: int) -> dict[str, Any]:
     raw_words = page.extract_words(
         use_text_flow=False,
@@ -116,8 +154,8 @@ def extract_page(page, page_number: int) -> dict[str, Any]:
         "header_text": header_text,
         "header_recognized": header_recognized,
         "column_split_x": round(split_x, 2),
-        "left": cluster_lines(left_words),
-        "right": cluster_lines(right_words),
+        "left": dehyphenate_column(cluster_lines(left_words)),
+        "right": dehyphenate_column(cluster_lines(right_words)),
     }
 
 

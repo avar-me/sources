@@ -21,7 +21,12 @@ from typing import Any
 import pdfplumber
 
 sys.path.insert(0, str(Path(__file__).parent))
-from extract_geometry import DEFAULT_PDF, extract_page  # noqa: E402
+from extract_geometry import (  # noqa: E402
+    CONTINUATION_START_RE,
+    DEFAULT_PDF,
+    TRAILING_HYPHEN_RE,
+    extract_page,
+)
 
 sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
 from build_site import (  # noqa: E402
@@ -48,7 +53,15 @@ def normalize_token(text: str) -> tuple[str, bool]:
     common since palochka OCRs as digit '1') and flags embedded '6' digits
     likely standing in for 'о'. Only used to decide segmentation boundaries;
     the original OCR text is preserved separately for human review.
+
+    Skips palochka normalization entirely for a literal '||' spelling
+    variant: normalize_palochka() treats a lone '|' as a palochka-glyph
+    candidate and rewrites it to '1' when not preceded by a digraph base
+    letter (e.g. "айги||айгияли" -> "айги11айгияли"), which would destroy
+    the '||' before SPELLING_VARIANT_RE ever sees it.
     """
+    if "||" in text:
+        return text, False
     normalized = normalize_palochka(text)
     suspect = bool(DIGIT_GLYPH_RE.search(normalized))
     if suspect:
@@ -61,6 +74,14 @@ def normalize_token(text: str) -> tuple[str, bool]:
 # trailing punctuation carried over from OCR word splitting.
 HEADWORD_RE = re.compile(
     r"^\*?[А-Яа-яЁёӀӏ]+(?:-[А-Яа-яЁёӀӏ]+)*[.,;:!?)\u00ad]*$"
+)
+# "||" spelling variant (cf. handoff doc: "мажикь||мажбикь"). This is always
+# its own headword, even when the previous token ends only with a comma
+# (seen embedded mid-sentence in a ср.-list, e.g. p.29 "*айги||айгияли") —
+# '|' can never appear inside HEADWORD_RE, so without this the whole token
+# was invisible to segmentation, not just failing the boundary check.
+SPELLING_VARIANT_RE = re.compile(
+    r"^(\*?)([А-Яа-яЁёӀӏ]+)\|\|([А-Яа-яЁёӀӏ]+)([.,;:!?)]*)$"
 )
 # Only sentence-ending punctuation closes an article; ';' and ')' merely
 # separate senses/parentheticals *within* the same article (verified against
@@ -77,6 +98,7 @@ ROMAN_RE = re.compile(r"^(I{1,3}|IV|V)$")
 # reference targets can appear even on pages where headwords aren't bold at
 # all (e.g. p.221: 5 stray bold "ср." targets, headwords all plain).
 LOW_BOLD_WORD_COUNT = 10
+
 
 # Grammatical/stylistic abbreviations from the handoff doc's normalization
 # table (schemas/av-ru.md labels) plus case markers seen right after a
@@ -146,7 +168,36 @@ def page_word_stream(data: dict[str, Any]) -> list[dict[str, Any]]:
                         "line_index": line_index,
                     }
                 )
-    return stream
+    return dehyphenate_stream(stream)
+
+
+def dehyphenate_stream(stream: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Rejoin a line-wrap hyphen split across the left/right column boundary.
+
+    extract_geometry.dehyphenate_column() already handles the common
+    within-column case; this catches the left-column's last line ending in a
+    hyphen that continues on the right column's first line (both are
+    adjacent in this flattened reading order already).
+    """
+    merged: list[dict[str, Any]] = []
+    i = 0
+    n = len(stream)
+    while i < n:
+        cur = stream[i]
+        if i + 1 < n:
+            match = TRAILING_HYPHEN_RE.match(cur["text"])
+            nxt = stream[i + 1]
+            if match and CONTINUATION_START_RE.match(nxt["text"]):
+                text = match.group(1) + match.group(2) + nxt["text"]
+                norm, digit_suspect = normalize_token(text)
+                merged.append(
+                    {**cur, "text": text, "norm": norm, "digit_suspect": digit_suspect, "x1": nxt["x1"]}
+                )
+                i += 2
+                continue
+        merged.append(cur)
+        i += 1
+    return merged
 
 
 def bold_word_count(stream: list[dict[str, Any]]) -> int:
@@ -204,6 +255,42 @@ def segment_stream(
     for i, word in enumerate(stream):
         text = word["norm"]
         stripped = text.strip(",.")
+
+        variant_match = SPELLING_VARIANT_RE.match(text) if word["bold"] and not word["italic"] else None
+        if variant_match:
+            # Always a new headword, even mid-sentence after a comma or
+            # inside a still-open ср.-list (cf. p.29 "*айги||айгияли"
+            # embedded inside "ай"'s ср.-list) — the '||' pattern is
+            # unambiguous on its own, so it interrupts any other state.
+            in_reference_list = False
+            in_brackets = False
+            star, first, second, _trail = variant_match.groups()
+            base = first.lower()
+            sort_key = _AVAR_SORT_KEY(base)
+            reasons = ["bold", "spelling-variant-pipe"]
+            confidence = "high"
+            if last_sort_key is not None and sort_key < last_sort_key:
+                reasons.append("alphabet-regression")
+                confidence = "low"
+            candidates.append(
+                {
+                    "page": word["page"],
+                    "column": word["column"],
+                    "top": word["top"],
+                    "index": i,
+                    "raw": word["text"],
+                    "word_guess": base,
+                    "homonym": None,
+                    "star": bool(star),
+                    "confidence": confidence,
+                    "reasons": reasons,
+                    "spelling_variants": [base, second.lower()],
+                }
+            )
+            last_headword = base
+            last_sort_key = sort_key
+            prev = word
+            continue
 
         if in_brackets:
             if "]" in text:
