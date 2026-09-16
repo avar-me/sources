@@ -248,11 +248,9 @@ def main() -> int:
 
     known_words = load_known_words(Path(args.av_ru))
     stats: dict[str, int] = {}
-    count = 0
+    entries: list[dict[str, Any]] = []
     seen_lines: set[str] = set()
-    with Path(args.articles).open("r", encoding="utf-8") as fh, Path(args.out).open(
-        "w", encoding="utf-8"
-    ) as out_fh:
+    with Path(args.articles).open("r", encoding="utf-8") as fh:
         for line in fh:
             article = json.loads(line)
             entry = build_entry(article, known_words, stats)
@@ -268,11 +266,30 @@ def main() -> int:
                 # meaningful for a dictionary.
                 continue
             seen_lines.add(serialized)
-            out_fh.write(serialized + "\n")
-            count += 1
-    print(f"wrote {count} entries to {args.out}")
+            entries.append(entry)
+
+    # A bare {"word": X} stub next to another entry with the same word that
+    # DOES have content is always redundant segmentation noise (a stray
+    # token that produced no body before the next real headword) — drop it,
+    # never the other way around, and never touch a bare stub that has no
+    # such sibling (that might be a legitimate reference-only article).
+    words_with_content = {
+        e["word"] for e in entries if set(e.keys()) != {"word"}
+    }
+    filtered = [
+        e for e in entries if not (set(e.keys()) == {"word"} and e["word"] in words_with_content)
+    ]
+    stats["dropped_bare_duplicates"] = len(entries) - len(filtered)
+
+    with Path(args.out).open("w", encoding="utf-8") as out_fh:
+        for entry in filtered:
+            out_fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    print(f"wrote {len(filtered)} entries to {args.out}")
     if stats.get("rescued"):
         print(f"rescued {stats['rescued']} word(s) via known-word б/6->о correction")
+    if stats.get("dropped_bare_duplicates"):
+        print(f"dropped {stats['dropped_bare_duplicates']} bare-stub duplicate(s)")
     return 0
 
 
