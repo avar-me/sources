@@ -25,6 +25,7 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parent))
 from extract_geometry import DEFAULT_PDF  # noqa: E402
 from segment_entries import (  # noqa: E402
+    AVAR_DIGRAPHS,
     BARE_FROM_RE,
     HEADWORD_RE,
     NUMBERED_SENSE_RE,
@@ -40,6 +41,11 @@ from segment_entries import (  # noqa: E402
     segment_stream,
     strip_word,
 )
+
+
+def has_avar_signal(word: str) -> bool:
+    lowered = word.lower()
+    return any(d in lowered for d in AVAR_DIGRAPHS) or "ӏ" in word
 
 # Unlike segment_entries.TERMINATOR_RE (headword boundaries, where ';' is
 # explicitly excluded), a numbered sense marker legitimately follows ';'.
@@ -207,6 +213,14 @@ def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dic
             run = [norm]
             j = i + 1
             while j < n and tokens[j]["bold"] and not tokens[j]["italic"]:
+                run.append(tokens[j]["norm"])
+                j += 1
+            # A single word right after the bold run sometimes lost its own
+            # bold in OCR (opposite of the stray-bold-Russian-word case,
+            # e.g. p.538's "гьедин" — still clearly Avar since it contains a
+            # digraph, but not bold). Reclaim just that one word for `av`
+            # rather than leaving it to leak into `ru`.
+            if j < n and not tokens[j]["italic"] and has_avar_signal(tokens[j]["norm"]):
                 run.append(tokens[j]["norm"])
                 j += 1
             av = " ".join(run)
