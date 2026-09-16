@@ -25,8 +25,12 @@ import argparse
 import json
 import re
 import statistics
+import sys
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).parent))
+from segment_entries import load_known_words  # noqa: E402
 
 RUSSIAN_GRAMMAR_RE = re.compile(
     r"(ться|ть|ий|ая|ое|ые|ение|ание|ность)$"
@@ -44,11 +48,11 @@ def has_avar_signal(text: str) -> bool:
     return any(d in lowered for d in AVAR_DIGRAPHS) or any(p in text for p in PALOCHKA)
 
 
-def looks_russian_only(text: str) -> bool:
+def looks_russian_only(text: str, known_words: set[str]) -> bool:
     words = re.findall(r"[а-яё]+", text.lower())
     if not words:
         return False
-    hits = sum(1 for w in words if w in RUSSIAN_FUNCTION_WORDS)
+    hits = sum(1 for w in words if w in RUSSIAN_FUNCTION_WORDS and w not in known_words)
     return hits >= 1 and not has_avar_signal(text)
 
 
@@ -59,6 +63,7 @@ def main() -> int:
     args = parser.parse_args()
 
     entries = [json.loads(line) for line in Path(args.source).open("r", encoding="utf-8")]
+    known_words = load_known_words(Path("data/av-ru.jsonl"))
     lengths = [len(e["word"]) for e in entries]
     mean_len = statistics.mean(lengths)
     stdev_len = statistics.pstdev(lengths)
@@ -69,7 +74,7 @@ def main() -> int:
     for e in entries:
         word = e["word"]
 
-        if RUSSIAN_GRAMMAR_RE.search(word) and not has_avar_signal(word):
+        if RUSSIAN_GRAMMAR_RE.search(word) and not has_avar_signal(word) and word not in known_words:
             findings.append({"kind": "russian-word-as-headword", "word": word})
 
         if len(word) > length_cutoff:
@@ -82,7 +87,7 @@ def main() -> int:
                     findings.append(
                         {"kind": "avar-leaked-into-ru", "word": word, "av": av, "ru": ru}
                     )
-                if looks_russian_only(av):
+                if looks_russian_only(av, known_words):
                     findings.append(
                         {"kind": "russian-leaked-into-av", "word": word, "av": av, "ru": ru}
                     )
