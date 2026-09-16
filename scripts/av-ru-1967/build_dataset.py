@@ -22,8 +22,33 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent))
 from parse_articles import LABEL_NORMALIZE  # noqa: E402
+from segment_entries import load_known_words  # noqa: E402
 
 ROMAN_TO_INT = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
+
+# 'о' misread as bold 'б' is a second OCR glyph confusion distinct from the
+# already-handled digit '6' (cf. segment_entries.DIGIT_GLYPH_RE): confirmed
+# by internal cross-checks such as p.464's "*сбкІкІин масд. глагола
+# сокІкІинабизе." — same root, spelled with 'о' two words later in the same
+# entry. Too risky to blindly substitute everywhere ('б' is a common real
+# letter), so this only fires when the original word fails to resolve
+# against the modern dictionary AND exactly one single-position 'б'->'о'
+# substitution does resolve.
+CONFUSABLE_GLYPHS = {"6": "о", "б": "о"}
+
+
+def rescue_word(word: str, known_words: set[str]) -> str:
+    if not word or word in known_words:
+        return word
+    candidates = set()
+    for i, ch in enumerate(word):
+        replacement = CONFUSABLE_GLYPHS.get(ch)
+        if replacement:
+            candidates.add(word[:i] + replacement + word[i + 1 :])
+    matches = [c for c in candidates if c in known_words]
+    if len(matches) == 1:
+        return matches[0]
+    return word
 
 # Case-marker abbreviations that map onto a schema-named "*from" field, with
 # the Russian case name used to phrase the accompanying comment (matching
@@ -133,10 +158,14 @@ def convert_sense(draft_sense: dict[str, Any], article_labels_raw: list[str]) ->
     return out, see_also
 
 
-def build_entry(article: dict[str, Any]) -> dict[str, Any] | None:
+def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str, int]) -> dict[str, Any] | None:
     word = (article.get("word") or "").strip()
     if not word:
         return None
+    rescued = rescue_word(word, known_words)
+    if rescued != word:
+        stats["rescued"] = stats.get("rescued", 0) + 1
+        word = rescued
 
     entry: dict[str, Any] = {"word": word}
 
@@ -146,7 +175,7 @@ def build_entry(article: dict[str, Any]) -> dict[str, Any] | None:
 
     forms_raw = article.get("forms_raw")
     if forms_raw:
-        values = parse_forms_raw(forms_raw)
+        values = [rescue_word(v, known_words) for v in parse_forms_raw(forms_raw)]
         if values:
             seen = {word}
             forms = [word]
@@ -182,13 +211,14 @@ def build_entry(article: dict[str, Any]) -> dict[str, Any] | None:
         seen_pairs = set()
         deduped = []
         for sa in see_also_all:
-            if not sa["target"] or sa["target"] == word:
+            target = rescue_word(sa["target"], known_words)
+            if not target or target == word:
                 continue
-            key = (sa["target"], sa["kind"])
+            key = (target, sa["kind"])
             if key in seen_pairs:
                 continue
             seen_pairs.add(key)
-            deduped.append(sa)
+            deduped.append({**sa, "target": target})
         if deduped:
             entry["see_also"] = deduped
 
@@ -213,8 +243,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--articles", default="tmp/av-ru.1967/draft_articles.jsonl")
     parser.add_argument("--out", default="data/av-ru.1967.jsonl")
+    parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     args = parser.parse_args()
 
+    known_words = load_known_words(Path(args.av_ru))
+    stats: dict[str, int] = {}
     count = 0
     seen_lines: set[str] = set()
     with Path(args.articles).open("r", encoding="utf-8") as fh, Path(args.out).open(
@@ -222,7 +255,7 @@ def main() -> int:
     ) as out_fh:
         for line in fh:
             article = json.loads(line)
-            entry = build_entry(article)
+            entry = build_entry(article, known_words, stats)
             if entry is None:
                 continue
             entry = strip_soft_hyphens(entry)
@@ -238,8 +271,11 @@ def main() -> int:
             out_fh.write(serialized + "\n")
             count += 1
     print(f"wrote {count} entries to {args.out}")
+    if stats.get("rescued"):
+        print(f"rescued {stats['rescued']} word(s) via known-word б/6->о correction")
     return 0
 
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
