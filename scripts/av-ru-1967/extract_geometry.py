@@ -25,6 +25,10 @@ DEFAULT_COLUMN_SPLIT = 136.0  # fallback gap between columns, in points
 # to be considered a genuine competitor for the "closest to default" tie-
 # break, rather than obviously-narrower noise (see find_column_split).
 NEAR_WIDEST_RATIO = 0.85
+# Normal body text is ~7.5-8pt; large section-divider letters (e.g. a big
+# "Д" starting a new alphabet section) run ~17pt. Excluded from the column-
+# split gap search (see extract_page) since they aren't real column content.
+MAX_BODY_FONT_SIZE_FOR_SPLIT = 10.0
 
 # Running head looks like "abu — 24 — ava" (left-page-word, page number, right-page-word).
 HEADER_PATTERN = re.compile(r"^\S+\s+—\s+\d+\s+—\s+\S+$")
@@ -188,7 +192,18 @@ def extract_page(page, page_number: int) -> dict[str, Any]:
     header_text = " ".join(w["text"] for w in sorted(header_words, key=lambda w: w["x0"]))
     header_recognized = bool(HEADER_PATTERN.match(header_text)) if header_text else False
 
-    split_x = find_column_split([w["x0"] for w in body_words]) if body_words else DEFAULT_COLUMN_SPLIT
+    # Large section-divider letters (e.g. a big "Д" starting the D section,
+    # ~17pt vs the usual ~7.5-8pt body text) sit in the middle of the page
+    # and can land right inside the true column gap, fragmenting it into
+    # several smaller gaps and confusing find_column_split (cf. p.206).
+    # Exclude them from the split computation; they stay in body_words for
+    # actual content/line reconstruction.
+    split_candidates = [w for w in body_words if w["size"] <= MAX_BODY_FONT_SIZE_FOR_SPLIT]
+    split_x = (
+        find_column_split([w["x0"] for w in split_candidates])
+        if split_candidates
+        else DEFAULT_COLUMN_SPLIT
+    )
     left_words = [w for w in body_words if w["x0"] < split_x]
     right_words = [w for w in body_words if w["x0"] >= split_x]
 
