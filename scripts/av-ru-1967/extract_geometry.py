@@ -21,6 +21,10 @@ DEFAULT_PDF = "books/saidov_m_avarskorusskii_slovar.pdf"
 HEADER_TOP_LIMIT = 20.0  # points from page top; running head + page number live here
 LINE_CLUSTER_TOLERANCE = 2.5  # points; words within this "top" delta join one line
 DEFAULT_COLUMN_SPLIT = 136.0  # fallback gap between columns, in points
+# How close a gap's width must be to the single widest gap (as a fraction)
+# to be considered a genuine competitor for the "closest to default" tie-
+# break, rather than obviously-narrower noise (see find_column_split).
+NEAR_WIDEST_RATIO = 0.85
 
 # Running head looks like "abu — 24 — ava" (left-page-word, page number, right-page-word).
 HEADER_PATTERN = re.compile(r"^\S+\s+—\s+\d+\s+—\s+\S+$")
@@ -37,20 +41,29 @@ def is_italic(fontname: str) -> bool:
 
 def find_column_split(xs: list[float]) -> float:
     """Find the column boundary among word x0 values in the plausible middle
-    band. Picks the gap closest to DEFAULT_COLUMN_SPLIT rather than the
-    single widest gap: on some pages (e.g. 551) a stray mid-line word start
-    creates a slightly wider but wrong gap a few points further right, while
-    the true column margin (a tight cluster of line-initial words) sits in a
-    narrower gap right next to the book's normal gutter position.
+    band.
+
+    Prefers the widest gap (the true column margin is usually a clear,
+    dominant gap), but when multiple gaps are close in width to each other
+    (within NEAR_WIDEST_RATIO), picks whichever of *those* is closest to
+    DEFAULT_COLUMN_SPLIT as a tie-breaker. Plain "always widest" fails on
+    pages like 551, where a stray mid-line word start creates a slightly
+    wider but wrong gap a few points off the true (near-default) margin.
+    Plain "always closest to default" fails on pages like 165, where the
+    true margin is a clearly dominant gap sitting far from the default
+    136pt — picking the closer-to-default but much narrower gap there
+    scrambles two columns' worth of a paragraph's continuation lines.
     """
     xs = sorted(xs)
     candidates = [
-        (a, b) for a, b in zip(xs, xs[1:]) if 60.0 < a < 200.0 and (b - a) > 4.0
+        (b - a, a, b) for a, b in zip(xs, xs[1:]) if 60.0 < a < 200.0 and (b - a) > 4.0
     ]
     if not candidates:
         return DEFAULT_COLUMN_SPLIT
-    best_a, best_b = min(
-        candidates, key=lambda pair: abs((pair[0] + pair[1]) / 2 - DEFAULT_COLUMN_SPLIT)
+    widest_gap = max(width for width, _, _ in candidates)
+    near_widest = [c for c in candidates if c[0] >= widest_gap * NEAR_WIDEST_RATIO]
+    _, best_a, best_b = min(
+        near_widest, key=lambda c: abs((c[1] + c[2]) / 2 - DEFAULT_COLUMN_SPLIT)
     )
     return (best_a + best_b) / 2
 
