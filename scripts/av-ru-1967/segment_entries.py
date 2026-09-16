@@ -47,6 +47,21 @@ ROMAN_RE = re.compile(r"^(I{1,3}|IV|V)$")
 # treated as "bold metadata lost" (cf. handoff doc: 69/597 pages, e.g. p.400).
 LOW_BOLD_WORD_COUNT = 5
 
+# Grammatical/stylistic abbreviations from the handoff doc's normalization
+# table (schemas/av-ru.md labels) plus case markers seen right after a
+# headword (e.g. p.31 "эрг. п.", "род. п."). Italic tagging survives even on
+# pages where bold metadata is lost, so "headword candidate immediately
+# followed by one of these" is a bold-independent segmentation signal.
+LABEL_SET = {
+    "масд.", "понуд.", "учащ.", "нареч.", "мест.", "числ.", "межд.",
+    "повел.", "уст.", "разг.", "перен.", "погов.", "посл.", "анат.",
+    "биол.", "бот.", "бран.", "вет.", "грам.", "диал.", "зоол.", "ирон.",
+    "ист.", "ласк.", "лит.", "мат.", "мед.", "рел.", "собир.", "фольк.",
+    "гл.", "букв.", "род.", "дат.", "местн.", "эрг.", "им.", "твор.",
+    "направ.", "ед.", "мн.", "скл.", "обращ.", "п.", "ср.", "см.",
+}
+LABEL_LOOKAHEAD_WINDOW = 4
+
 
 def load_known_words(av_ru_path: Path) -> set[str]:
     """Word forms from the modern av-ru.jsonl, used only as a segmentation
@@ -96,6 +111,33 @@ def bold_word_count(stream: list[dict[str, Any]]) -> int:
     return sum(1 for w in stream if w["bold"])
 
 
+# "1." / "2)" etc right after a headword split grammatically distinct groups
+# (cf. handoff doc: "категории и переводы даются под отдельными полужирными
+# цифрами"). This marker carries no distinct font on low-bold pages, so it
+# is checked regardless of italic/bold.
+NUMBERED_SENSE_RE = re.compile(r"^\d[.)]$")
+
+
+def label_follows(stream: list[dict[str, Any]], i: int) -> bool:
+    """True if an italic grammatical label appears within a few tokens after
+    position i, before the next terminator, or a numbered-sense marker is
+    the immediate next token. Bold-independent alternative to the primary
+    bold signal, for pages where bold metadata is missing."""
+    if i + 1 < len(stream) and NUMBERED_SENSE_RE.match(stream[i + 1]["text"]):
+        return True
+    steps = 0
+    j = i + 1
+    while j < len(stream) and steps < LABEL_LOOKAHEAD_WINDOW:
+        tok = stream[j]
+        if tok["italic"] and tok["text"].rstrip(",") in LABEL_SET:
+            return True
+        if TERMINATOR_RE.search(tok["text"]):
+            break
+        j += 1
+        steps += 1
+    return False
+
+
 def segment_stream(
     stream: list[dict[str, Any]], known_words: set[str]
 ) -> list[dict[str, Any]]:
@@ -108,10 +150,22 @@ def segment_stream(
     # are bold Avar words too, but they are reference targets, not headwords.
     in_reference_list = False
     skip_next_bold = False  # one-shot suppression right after a bare "от"
+    in_brackets = False  # forms list "[род. п. X; мн. Y]" — never a headword
 
     for i, word in enumerate(stream):
         text = word["text"]
         stripped = text.strip(",.")
+
+        if in_brackets:
+            if "]" in text:
+                in_brackets = False
+            prev = word
+            continue
+
+        if "[" in text:
+            in_brackets = "]" not in text
+            prev = word
+            continue
 
         if in_reference_list:
             if TERMINATOR_RE.search(text):
@@ -128,6 +182,11 @@ def segment_stream(
 
         if not word["bold"] and not word["italic"] and BARE_FROM_RE.match(stripped):
             skip_next_bold = True
+            prev = word
+            continue
+
+        if word["italic"]:
+            # A grammatical/stylistic label, never a headword itself.
             prev = word
             continue
 
@@ -157,12 +216,16 @@ def segment_stream(
         if word["bold"] and not word["italic"]:
             reasons.append("bold")
             confidence = "high"
-        elif not bold_available and base in known_words:
-            reasons.append("known-word-fallback")
-            confidence = "medium"
         else:
-            prev = word
-            continue
+            if not bold_available and base in known_words:
+                reasons.append("known-word-fallback")
+                confidence = "medium"
+            if not bold_available and label_follows(stream, i):
+                reasons.append("label-lookahead")
+                confidence = "medium"
+            if not reasons:
+                prev = word
+                continue
 
         sort_key = _AVAR_SORT_KEY(base)
         if last_sort_key is not None and sort_key < last_sort_key:
