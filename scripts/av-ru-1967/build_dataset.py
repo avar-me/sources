@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 from pathlib import Path
 from typing import Any
@@ -25,6 +26,25 @@ from parse_articles import LABEL_NORMALIZE  # noqa: E402
 from segment_entries import load_known_words  # noqa: E402
 
 ROMAN_TO_INT = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
+
+# handoff doc: "||" spelling variants ("авадан||аваданго") are sometimes OCR'd
+# with ц/Ц instead of "||" (е.г. "аваданцаваданго" for exactly that doc example).
+# segment_entries.SPELLING_VARIANT_RE only catches the literal "||" form, so
+# this survives as one bogus merged headword. Only split when the second
+# half starts with the first (the doc's own examples are all "X" + "X" or
+# "X" + "X"+suffix) — confirmed against 29 real cases in the corpus, all
+# looking like genuine phonetic/orthographic variant pairs, not coincidence.
+PIPE_CORRUPTION_RE = re.compile(r"^([а-яёӏ]{3,})[цЦ]([а-яёӏ]+)$")
+
+
+def split_pipe_corruption(word: str) -> tuple[str, list[str] | None]:
+    match = PIPE_CORRUPTION_RE.match(word)
+    if match:
+        first, second = match.group(1), match.group(2)
+        if second.startswith(first):
+            return first, [first, second]
+    return word, None
+
 
 # 'о' misread as bold 'б' is a second OCR glyph confusion distinct from the
 # already-handled digit '6' (cf. segment_entries.DIGIT_GLYPH_RE): confirmed
@@ -162,6 +182,9 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
     word = (article.get("word") or "").strip()
     if not word:
         return None
+    word, pipe_spelling_forms = split_pipe_corruption(word)
+    if pipe_spelling_forms:
+        stats["pipe_corruption_split"] = stats.get("pipe_corruption_split", 0) + 1
     rescued = rescue_word(word, known_words)
     if rescued != word:
         stats["rescued"] = stats.get("rescued", 0) + 1
@@ -185,7 +208,7 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
                     forms.append(v)
             entry["forms"] = forms
 
-    spelling_variants = article.get("spelling_variants")
+    spelling_variants = article.get("spelling_variants") or pipe_spelling_forms
     if spelling_variants and len(set(spelling_variants)) >= 2:
         entry["spelling_forms"] = spelling_variants
 
@@ -288,6 +311,8 @@ def main() -> int:
     print(f"wrote {len(filtered)} entries to {args.out}")
     if stats.get("rescued"):
         print(f"rescued {stats['rescued']} word(s) via known-word б/6->о correction")
+    if stats.get("pipe_corruption_split"):
+        print(f"split {stats['pipe_corruption_split']} ц/Ц-as-'||' word(s) into spelling_forms")
     if stats.get("dropped_bare_duplicates"):
         print(f"dropped {stats['dropped_bare_duplicates']} bare-stub duplicate(s)")
     return 0
