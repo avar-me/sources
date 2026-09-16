@@ -31,6 +31,7 @@ from segment_entries import (  # noqa: E402
     REFERENCE_LIST_RE,
     ROMAN_RE,
     TERMINATOR_RE,
+    bold_is_reliable,
     is_label_token,
     load_known_words,
     load_or_extract,
@@ -150,7 +151,7 @@ def split_senses(tokens: list[dict[str, Any]], pos: int) -> list[list[dict[str, 
     return [tokens[a:b] for a, b in zip(boundaries, boundaries[1:]) if tokens[a:b]]
 
 
-def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
+def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dict[str, Any]:
     marker = None
     pos = 0
     if tokens and NUMBERED_SENSE_RE.match(tokens[0]["norm"]):
@@ -196,8 +197,12 @@ def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
             i += 2
             continue
 
-        if tok["bold"] and not tok["italic"]:
-            # Contiguous bold run = one Avar example phrase.
+        if bold_reliable and tok["bold"] and not tok["italic"]:
+            # Contiguous bold run = one Avar example phrase. Only trusted
+            # on pages where bold reliably marks Avar text — on a
+            # font-inverted page (bold_reliable=False) this would swap av
+            # and ru (bold there tags the *Russian* translation instead),
+            # so such tokens fall through to plain `text` below instead.
             run = [norm]
             j = i + 1
             while j < n and tokens[j]["bold"] and not tokens[j]["italic"]:
@@ -251,7 +256,7 @@ def normalize_labels(labels_raw: list[str]) -> list[str]:
     return out
 
 
-def parse_article(span: dict[str, Any]) -> dict[str, Any]:
+def parse_article(span: dict[str, Any], bold_reliable: bool = True) -> dict[str, Any]:
     cand = span["candidate"]
     tokens = span["tokens"]
     raw_text = " ".join(t["text"] for t in tokens)
@@ -270,7 +275,7 @@ def parse_article(span: dict[str, Any]) -> dict[str, Any]:
 
     body_tokens = tokens[pos:diamond_at] if diamond_at is not None else tokens[pos:]
     sense_spans = split_senses(body_tokens, 0)
-    senses = [parse_sense(s) for s in sense_spans]
+    senses = [parse_sense(s, bold_reliable) for s in sense_spans]
     senses = [s for s in senses if s]
 
     article: dict[str, Any] = {
@@ -294,7 +299,7 @@ def parse_article(span: dict[str, Any]) -> dict[str, Any]:
     if senses:
         article["senses"] = senses
     if diamond_at is not None:
-        diamond_sense = parse_sense(tokens[diamond_at + 1 :])
+        diamond_sense = parse_sense(tokens[diamond_at + 1 :], bold_reliable)
         if diamond_sense:
             article["diamond_sense"] = diamond_sense
     if span["continues_next_page"]:
@@ -323,8 +328,9 @@ def main() -> int:
         data = load_or_extract(args.pdf, page_number, geometry_dir)
         stream = page_word_stream(data)
         candidates = segment_stream(stream, known_words)
+        bold_reliable = bold_is_reliable(stream)
         spans = build_article_spans(stream, candidates)
-        page_articles = [parse_article(span) for span in spans]
+        page_articles = [parse_article(span, bold_reliable) for span in spans]
         articles.extend(page_articles)
         print(f"page {page_number}: {len(page_articles)} draft articles")
 

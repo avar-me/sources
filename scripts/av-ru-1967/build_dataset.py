@@ -118,10 +118,25 @@ def ordered(d: dict[str, Any], order: list[str]) -> dict[str, Any]:
     return {k: d[k] for k in order if k in d}
 
 
+AVAR_DIGRAPHS = ("гъ", "гь", "гӏ", "къ", "кь", "кӏ", "лъ", "тӏ", "хъ", "хь", "хӏ", "цӏ", "чӏ")
+
+
+def has_avar_signal(text: str) -> bool:
+    lowered = text.lower()
+    return any(d in lowered for d in AVAR_DIGRAPHS) or "ӏ" in text
+
+
 def convert_example(example: dict[str, Any]) -> dict[str, Any] | None:
     av = (example.get("av") or "").strip()
     ru = (example.get("ru") or "").strip()
     if not av or not ru:
+        return None
+    if has_avar_signal(ru) and not has_avar_signal(av):
+        # The av/ru split is almost certainly wrong here (Avar-looking text
+        # ended up on the Russian side) — likely stray column/line
+        # reconstruction noise on a handful of scattered pages, found via
+        # quality_scan.py. Can't safely tell which way to swap it, so drop
+        # rather than ship a known-wrong pair.
         return None
     return {"av": av, "ru": ru}
 
