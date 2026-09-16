@@ -36,15 +36,23 @@ def is_italic(fontname: str) -> bool:
 
 
 def find_column_split(xs: list[float]) -> float:
-    """Find the widest gap between word x0 values in the plausible middle band."""
+    """Find the column boundary among word x0 values in the plausible middle
+    band. Picks the gap closest to DEFAULT_COLUMN_SPLIT rather than the
+    single widest gap: on some pages (e.g. 551) a stray mid-line word start
+    creates a slightly wider but wrong gap a few points further right, while
+    the true column margin (a tight cluster of line-initial words) sits in a
+    narrower gap right next to the book's normal gutter position.
+    """
     xs = sorted(xs)
-    best_gap = 0.0
-    best_mid = DEFAULT_COLUMN_SPLIT
-    for a, b in zip(xs, xs[1:]):
-        if 60.0 < a < 200.0 and (b - a) > best_gap:
-            best_gap = b - a
-            best_mid = (a + b) / 2
-    return best_mid if best_gap > 4.0 else DEFAULT_COLUMN_SPLIT
+    candidates = [
+        (a, b) for a, b in zip(xs, xs[1:]) if 60.0 < a < 200.0 and (b - a) > 4.0
+    ]
+    if not candidates:
+        return DEFAULT_COLUMN_SPLIT
+    best_a, best_b = min(
+        candidates, key=lambda pair: abs((pair[0] + pair[1]) / 2 - DEFAULT_COLUMN_SPLIT)
+    )
+    return (best_a + best_b) / 2
 
 
 def cluster_lines(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
