@@ -91,7 +91,15 @@ LABEL_SET = {
     "гл.", "букв.", "род.", "дат.", "местн.", "эрг.", "им.", "твор.",
     "направ.", "ед.", "мн.", "скл.", "обращ.", "п.", "ср.", "см.",
 }
+# The book sometimes prints a label immediately followed by a comma instead
+# of its own period (e.g. "повел," rather than "повел."), so comparisons
+# strip both before matching against this period-less form of LABEL_SET.
+LABEL_SET_BARE = {label.rstrip(".") for label in LABEL_SET}
 LABEL_LOOKAHEAD_WINDOW = 4
+
+
+def is_label_token(token: str) -> bool:
+    return token.strip(",.") in LABEL_SET_BARE
 
 
 def load_known_words(av_ru_path: Path) -> set[str]:
@@ -170,7 +178,7 @@ def label_follows(stream: list[dict[str, Any]], i: int) -> bool:
     j = i + 1
     while j < len(stream) and steps < LABEL_LOOKAHEAD_WINDOW:
         tok = stream[j]
-        if tok["italic"] and tok["norm"].rstrip(",") in LABEL_SET:
+        if tok["italic"] and is_label_token(tok["norm"]):
             return True
         if TERMINATOR_RE.search(tok["norm"]):
             break
@@ -290,6 +298,7 @@ def segment_stream(
                 "page": word["page"],
                 "column": word["column"],
                 "top": word["top"],
+                "index": i,
                 "raw": word["text"],
                 "word_guess": base,
                 "homonym": homonym,

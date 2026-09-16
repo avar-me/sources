@@ -1,0 +1,325 @@
+#!/usr/bin/env python3
+"""Draft lexical parsing of segmented 1967 dictionary articles.
+
+Step 4 of av-ru-1967-parsing-handoff.md: turn each headword span found by
+segment_entries.py into a draft article (labels/forms/senses/examples).
+
+This is explicitly a DRAFT/pilot output for human review, not the final
+data/av-ru.1967.jsonl. It deliberately keeps raw abbreviation strings
+(`labels_raw`, `forms_raw`) instead of committing to final schema label
+names or pos/form values — the handoff doc warns against guessing those
+without cross-checking data/av-ru.jsonl's accepted vocabulary, and see_also
+targets can't be resolved until the whole dictionary has been parsed (step
+5, "второй проход"). Requires pdfplumber (see scripts/av-ru-1967/README.md).
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+import re
+import sys
+from pathlib import Path
+from typing import Any
+
+sys.path.insert(0, str(Path(__file__).parent))
+from extract_geometry import DEFAULT_PDF  # noqa: E402
+from segment_entries import (  # noqa: E402
+    BARE_FROM_RE,
+    HEADWORD_RE,
+    NUMBERED_SENSE_RE,
+    REFERENCE_LIST_RE,
+    ROMAN_RE,
+    TERMINATOR_RE,
+    is_label_token,
+    load_known_words,
+    load_or_extract,
+    page_word_stream,
+    segment_stream,
+    strip_word,
+)
+
+# Unlike segment_entries.TERMINATOR_RE (headword boundaries, where ';' is
+# explicitly excluded), a numbered sense marker legitimately follows ';'.
+SENSE_BOUNDARY_RE = re.compile(r"[.;?!]$")
+
+# Doc's normalization table (av-ru-1967-parsing-handoff.md, "Нормализация
+# сокращений и labels") for abbreviations safe to turn directly into a
+# labels[] entry. Deliberately excludes мест./числ./межд./нареч./гл. — those
+# read as `pos`, which the doc says must not be guessed from a bare
+# abbreviation without corroborating structure.
+LABEL_NORMALIZE: dict[str, list[str]] = {
+    "анат": ["анатомия"],
+    "биол": ["биология"],
+    "бот": ["ботаника"],
+    "бран": ["бранное слово", "выражение"],
+    "вет": ["ветеринария"],
+    "грам": ["грамматика"],
+    "диал": ["диалектизм"],
+    "зоол": ["зоология"],
+    "ирон": ["в ироническом смысле"],
+    "ист": ["исторический термин"],
+    "ласк": ["ласкательная форма"],
+    "лит": ["литература, литературоведение"],
+    "мат": ["математика"],
+    "мед": ["медицина"],
+    "перен": ["в переносном значении"],
+    "погов": ["поговорка"],
+    "понуд": ["понудительная форма"],
+    "посл": ["пословица"],
+    "поэт": ["поэтическое слово"],
+    "разг": ["разговорное слово", "выражение"],
+    "рел": ["религия"],
+    "собир": ["собирательное существительное"],
+    "уст": ["устаревшее слово"],
+    "учащ": ["учащательная форма"],
+    "фольк": ["фольклор"],
+}
+
+DIAMOND_RE_CHARS = set("<>◊❖♦")
+
+
+def is_diamond(token: str) -> bool:
+    return bool(token) and all(c in DIAMOND_RE_CHARS for c in token)
+
+
+def build_article_spans(stream: list[dict[str, Any]], candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Slice a page's word stream into one span per detected headword.
+
+    The last candidate's span runs to the end of the page and is marked
+    `continues_next_page` if it doesn't end on a real terminator — cross-page
+    article stitching is out of scope for this draft (handoff doc step 5).
+    """
+    spans = []
+    for idx, cand in enumerate(candidates):
+        start = cand["index"]
+        end = candidates[idx + 1]["index"] if idx + 1 < len(candidates) else len(stream)
+        tokens = stream[start:end]
+        continues = bool(tokens) and not TERMINATOR_RE.search(tokens[-1]["norm"])
+        spans.append({"candidate": cand, "tokens": tokens, "continues_next_page": continues})
+    return spans
+
+
+def consume_header(tokens: list[dict[str, Any]], pos: int) -> tuple[list[str], str | None, int]:
+    """After the headword (and optional homonym numeral), consume immediate
+    italic labels and a single `[...]` forms bracket, in either order."""
+    labels_raw: list[str] = []
+    forms_raw: str | None = None
+    n = len(tokens)
+    while pos < n:
+        tok = tokens[pos]
+        norm = tok["norm"]
+        if tok["italic"] and is_label_token(norm):
+            labels_raw.append(norm)
+            pos += 1
+            continue
+        if norm.startswith("["):
+            bracket: list[str] = []
+            while pos < n:
+                cur = tokens[pos]["norm"]
+                bracket.append(cur.lstrip("["))
+                pos += 1
+                if "]" in cur:
+                    break
+            forms_raw = " ".join(bracket).rstrip("]")
+            continue
+        break
+    return labels_raw, forms_raw, pos
+
+
+def split_senses(tokens: list[dict[str, Any]], pos: int) -> list[list[dict[str, Any]]]:
+    """Split the remaining body on numbered-sense markers (1)/2./etc). Unlike
+    headword boundaries, a ';' *does* separate senses here (cf. handoff doc:
+    "аби 1) высказывание; ...; 2) помолвка; ..." — sense 1 ends on ';', not
+    on a full stop)."""
+    n = len(tokens)
+    boundaries = [pos]
+    i = pos
+    while i < n:
+        if NUMBERED_SENSE_RE.match(tokens[i]["norm"]) and (
+            i == pos or SENSE_BOUNDARY_RE.search(tokens[i - 1]["norm"])
+        ):
+            boundaries.append(i)
+        i += 1
+    boundaries.append(n)
+    boundaries = sorted(set(boundaries))
+    return [tokens[a:b] for a, b in zip(boundaries, boundaries[1:]) if tokens[a:b]]
+
+
+def parse_sense(tokens: list[dict[str, Any]]) -> dict[str, Any]:
+    marker = None
+    pos = 0
+    if tokens and NUMBERED_SENSE_RE.match(tokens[0]["norm"]):
+        marker = tokens[0]["norm"]
+        pos = 1
+    labels_raw, _forms, pos = consume_header(tokens, pos)
+
+    text_parts: list[str] = []
+    examples: list[dict[str, str]] = []
+    reference_targets: list[str] = []
+    from_targets: list[str] = []
+
+    i = pos
+    n = len(tokens)
+    while i < n:
+        tok = tokens[i]
+        norm = tok["norm"]
+        stripped = norm.strip(",.")
+
+        if tok["italic"] and REFERENCE_LIST_RE.match(stripped):
+            i += 1
+            while i < n:
+                if HEADWORD_RE.match(tokens[i]["norm"]) and not tokens[i]["italic"]:
+                    reference_targets.append(strip_word(tokens[i]["norm"]))
+                if TERMINATOR_RE.search(tokens[i]["norm"]):
+                    i += 1
+                    break
+                i += 1
+            continue
+
+        if BARE_FROM_RE.match(stripped) and i + 1 < n and not tokens[i + 1]["italic"] and HEADWORD_RE.match(tokens[i + 1]["norm"]):
+            # "от X" morphological reference — accept regardless of the
+            # marker's own font (seen both plain and italic), but only when
+            # the next token looks like an actual headword-shaped target,
+            # not a government label like "кого-чего-л." (always italic).
+            from_targets.append(strip_word(tokens[i + 1]["norm"]))
+            i += 2
+            continue
+
+        if tok["bold"] and not tok["italic"]:
+            # Contiguous bold run = one Avar example phrase.
+            run = [norm]
+            j = i + 1
+            while j < n and tokens[j]["bold"] and not tokens[j]["italic"]:
+                run.append(tokens[j]["norm"])
+                j += 1
+            av = " ".join(run)
+            # Everything up to the next example-separating ';' (or end) is
+            # this example's Russian translation.
+            ru_tokens = []
+            k = j
+            while k < n and not (tokens[k]["bold"] and not tokens[k]["italic"]):
+                ru_tokens.append(tokens[k]["norm"])
+                if norm_ends_segment(tokens[k]["norm"]):
+                    k += 1
+                    break
+                k += 1
+            examples.append({"av": av, "ru": " ".join(ru_tokens).strip()})
+            i = k
+            continue
+
+        text_parts.append(norm)
+        i += 1
+
+    sense: dict[str, Any] = {}
+    if marker:
+        sense["marker"] = marker
+    if labels_raw:
+        sense["labels_raw"] = labels_raw
+    text = " ".join(text_parts).strip()
+    if text:
+        sense["text"] = text
+    if examples:
+        sense["examples"] = examples
+    if reference_targets:
+        sense["reference_targets"] = reference_targets
+    if from_targets:
+        sense["from_targets"] = from_targets
+    return sense
+
+
+def norm_ends_segment(token: str) -> bool:
+    return token.endswith(";") or bool(TERMINATOR_RE.search(token))
+
+
+def normalize_labels(labels_raw: list[str]) -> list[str]:
+    out: list[str] = []
+    for raw in labels_raw:
+        out.extend(LABEL_NORMALIZE.get(raw.strip(",."), []))
+    return out
+
+
+def parse_article(span: dict[str, Any]) -> dict[str, Any]:
+    cand = span["candidate"]
+    tokens = span["tokens"]
+    raw_text = " ".join(t["text"] for t in tokens)
+
+    pos = 1  # skip the headword token itself
+    if cand["homonym"] and pos < len(tokens) and ROMAN_RE.match(tokens[pos]["norm"]):
+        pos += 1
+
+    labels_raw, forms_raw, pos = consume_header(tokens, pos)
+
+    diamond_at = None
+    for i in range(pos, len(tokens)):
+        if is_diamond(tokens[i]["norm"]):
+            diamond_at = i
+            break
+
+    body_tokens = tokens[pos:diamond_at] if diamond_at is not None else tokens[pos:]
+    sense_spans = split_senses(body_tokens, 0)
+    senses = [parse_sense(s) for s in sense_spans]
+    senses = [s for s in senses if s]
+
+    article: dict[str, Any] = {
+        "page": cand["page"],
+        "word": cand["word_guess"],
+        "word_raw": cand["raw"],
+        "star": cand["star"],
+        "confidence": cand["confidence"],
+    }
+    if cand["homonym"]:
+        article["homonym"] = cand["homonym"]
+    if labels_raw:
+        article["labels_raw"] = labels_raw
+        normalized = normalize_labels(labels_raw)
+        if normalized:
+            article["labels"] = normalized
+    if forms_raw:
+        article["forms_raw"] = forms_raw
+    if senses:
+        article["senses"] = senses
+    if diamond_at is not None:
+        diamond_sense = parse_sense(tokens[diamond_at + 1 :])
+        if diamond_sense:
+            article["diamond_sense"] = diamond_sense
+    if span["continues_next_page"]:
+        article["continues_next_page"] = True
+    article["raw_text"] = raw_text
+    return article
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--pdf", default=DEFAULT_PDF)
+    parser.add_argument("--start", type=int, required=True)
+    parser.add_argument("--end", type=int, required=True)
+    parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
+    parser.add_argument("--av-ru", default="data/av-ru.jsonl")
+    parser.add_argument("--out", default="tmp/av-ru.1967/draft_articles.jsonl")
+    args = parser.parse_args()
+
+    known_words = load_known_words(Path(args.av_ru))
+    geometry_dir = Path(args.geometry_dir)
+    out_path = Path(args.out)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+
+    articles: list[dict[str, Any]] = []
+    for page_number in range(args.start, args.end + 1):
+        data = load_or_extract(args.pdf, page_number, geometry_dir)
+        stream = page_word_stream(data)
+        candidates = segment_stream(stream, known_words)
+        spans = build_article_spans(stream, candidates)
+        page_articles = [parse_article(span) for span in spans]
+        articles.extend(page_articles)
+        print(f"page {page_number}: {len(page_articles)} draft articles")
+
+    with out_path.open("w", encoding="utf-8") as fh:
+        for article in articles:
+            fh.write(json.dumps(article, ensure_ascii=False) + "\n")
+    print(f"wrote {len(articles)} draft articles to {out_path}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
