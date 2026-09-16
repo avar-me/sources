@@ -106,12 +106,29 @@ ROMAN_RE = re.compile(r"^(I{1,3}|IV|V)$")
 STRONG_RUSSIAN_ENDING_RE = re.compile(r"(ться|ть)$")
 WEAK_RUSSIAN_ENDING_RE = re.compile(r"(ий|ая|ое|ые|ение|ание|ность)$")
 AVAR_DIGRAPHS = ("гъ", "гь", "гӏ", "къ", "кь", "кӏ", "лъ", "тӏ", "хъ", "хь", "хӏ", "цӏ", "чӏ")
+# Closed-class Russian function words/pronouns: unlike nouns, a language
+# essentially never borrows another language's pronouns/adverbs/particles
+# wholesale, so any exact match here is never a genuine Avar headword.
+# Found via p.262, where a page-wide "bold marks everything, not just
+# Avar" pattern let "откуда" through as a bogus headword four times (it's
+# the *translation* of several real headwords like "кисан", "кисаго").
+RUSSIAN_FUNCTION_WORDS = {
+    "где", "куда", "откуда", "когда", "почему", "зачем", "что",
+    "кто", "чей", "какой", "который", "сколько", "здесь", "там", "туда",
+    "оттуда", "везде", "всюду", "нигде", "никуда", "ниоткуда", "никогда",
+    "вы", "мы", "он", "она", "оно", "они", "это", "нибудь", "либо",
+}
 
 
 def looks_like_bare_russian(word: str, known_words: set[str]) -> bool:
     lowered = word.lower()
     if any(d in lowered for d in AVAR_DIGRAPHS) or "ӏ" in word:
         return False
+    if lowered in RUSSIAN_FUNCTION_WORDS:
+        # Still deferred to known_words first — "как" (Arabic-derived
+        # "namaz") was found colliding with this exact class of word, so
+        # even closed-class Russian words aren't rejected blindly.
+        return word not in known_words
     if STRONG_RUSSIAN_ENDING_RE.search(word):
         return True
     return bool(WEAK_RUSSIAN_ENDING_RE.search(word)) and word not in known_words
