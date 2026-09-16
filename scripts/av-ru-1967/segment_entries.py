@@ -92,6 +92,31 @@ TERMINATOR_RE = re.compile(r"[.?!]$")
 REFERENCE_LIST_RE = re.compile(r"^(ср|см)[.,]*$", re.IGNORECASE)
 BARE_FROM_RE = re.compile(r"^от$", re.IGNORECASE)
 ROMAN_RE = re.compile(r"^(I{1,3}|IV|V)$")
+# A bare Russian grammatical form can never be a genuine Avar headword on
+# its own — found via quality_scan.py turning up ~100+ high-confidence
+# "headwords" like "закрывать"/"горячий" even on pages where the page-level
+# bold-reliability check (below) doesn't fire, because only ONE stray word
+# on an otherwise-fine page got bold. Token-level, so it catches this
+# regardless of which page it's on. Verb endings (ть/ться) are an
+# unambiguous 100%-Russian signal — Avar borrows Russian nouns as-is but
+# always re-verbalizes borrowed verbs with its own morphology, never keeps
+# a bare Russian infinitive as a lexeme. Noun-ish endings (ие/ая/ое/...) are
+# weaker (a genuine borrowed noun could end that way), so those only count
+# when the word ALSO fails to resolve against the modern dictionary.
+STRONG_RUSSIAN_ENDING_RE = re.compile(r"(ться|ть)$")
+WEAK_RUSSIAN_ENDING_RE = re.compile(r"(ий|ая|ое|ые|ение|ание|ность)$")
+AVAR_DIGRAPHS = ("гъ", "гь", "гӏ", "къ", "кь", "кӏ", "лъ", "тӏ", "хъ", "хь", "хӏ", "цӏ", "чӏ")
+
+
+def looks_like_bare_russian(word: str, known_words: set[str]) -> bool:
+    lowered = word.lower()
+    if any(d in lowered for d in AVAR_DIGRAPHS) or "ӏ" in word:
+        return False
+    if STRONG_RUSSIAN_ENDING_RE.search(word):
+        return True
+    return bool(WEAK_RUSSIAN_ENDING_RE.search(word)) and word not in known_words
+
+
 # Bare-lookup threshold: pages with fewer than this many bold-not-italic body
 # words are treated as "bold metadata lost" (cf. handoff doc: 69/597 pages,
 # e.g. p.400). Kept above a handful, since a few incidental bold cross-
@@ -211,6 +236,27 @@ def bold_word_count(stream: list[dict[str, Any]]) -> int:
     return sum(1 for w in stream if w["bold"] and not w["italic"])
 
 
+# Fraction of bold-not-italic words that need to look Avar-ish (contain a
+# digraph or palochka) before the primary bold signal is trusted. Found by
+# scanning all 597 pages: normal pages sit ~0.15-0.8 (many short Avar words
+# have no digraph, so it's never near 1.0), but a contiguous run of pages
+# (e.g. 93-123) sits at 0.0-0.13 — bold there is assigned to the *Russian*
+# translation instead of the Avar headword/example (page-97-style
+# inversion, distinct from p.217's bold-italic-labels-only pattern: here
+# there's plenty of bold-not-italic text, it's just the wrong language).
+MIN_AVAR_BOLD_FRACTION = 0.10
+
+
+def bold_is_reliable(stream: list[dict[str, Any]]) -> bool:
+    bold_words = [w["norm"] for w in stream if w["bold"] and not w["italic"]]
+    if len(bold_words) < LOW_BOLD_WORD_COUNT:
+        return False
+    avar_like = sum(
+        1 for w in bold_words if any(d in w.lower() for d in AVAR_DIGRAPHS) or "ӏ" in w
+    )
+    return (avar_like / len(bold_words)) >= MIN_AVAR_BOLD_FRACTION
+
+
 # "1." / "2)" etc right after a headword split grammatically distinct groups
 # (cf. handoff doc: "категории и переводы даются под отдельными полужирными
 # цифрами"). This marker carries no distinct font on low-bold pages, so it
@@ -245,7 +291,7 @@ def segment_stream(
     last_headword: str | None = None
     last_sort_key = None
     prev: dict[str, Any] | None = None
-    bold_available = bold_word_count(stream) >= LOW_BOLD_WORD_COUNT
+    bold_available = bold_is_reliable(stream)
     # True while inside a "ср./см. X, Y, Z." cross-reference list: those X/Y/Z
     # are bold Avar words too, but they are reference targets, not headwords.
     in_reference_list = False
@@ -335,6 +381,10 @@ def segment_stream(
             prev = word
             continue
 
+        if looks_like_bare_russian(base, known_words):
+            prev = word
+            continue
+
         if skip_next_bold and word["bold"]:
             skip_next_bold = False
             prev = word
@@ -349,7 +399,7 @@ def segment_stream(
         reasons = []
         confidence = "low"
 
-        if word["bold"] and not word["italic"]:
+        if bold_available and word["bold"] and not word["italic"]:
             reasons.append("bold")
             confidence = "high"
         else:
@@ -439,7 +489,7 @@ def main() -> int:
         stream = page_word_stream(data)
         candidates = segment_stream(stream, known_words)
         all_candidates.extend(candidates)
-        low_bold = bold_word_count(stream) < LOW_BOLD_WORD_COUNT
+        low_bold = not bold_is_reliable(stream)
         print(
             f"page {page_number}: {len(candidates)} candidates"
             + (" (bold metadata missing, used known-word fallback)" if low_bold else "")
