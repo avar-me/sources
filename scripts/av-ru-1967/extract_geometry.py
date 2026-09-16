@@ -67,6 +67,7 @@ def cluster_lines(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
     result = []
     for line in lines:
         line.sort(key=lambda w: w["x0"])
+        line = merge_split_letters(line)
         result.append(
             {
                 "top": round(min(w["top"] for w in line), 2),
@@ -75,6 +76,37 @@ def cluster_lines(words: list[dict[str, Any]]) -> list[dict[str, Any]]:
                 "words": line,
             }
         )
+    return result
+
+
+# Some long bold words have their trailing letters split into separate
+# single-character "words" by the OCR text layer (found p.107:
+# "*бук1кГурк1ах" + 'ъ' + 'д' + 'и' + 'з' + 'а' + 'б' + 'и', each its own
+# tightly-spaced token). Real single-letter Avar "words" essentially don't
+# occur in this corpus, so a single letter separated from the previous
+# token by less than a normal word-space (~5pt) is treated as a fragment of
+# it instead of a separate word.
+SINGLE_LETTER_RE = re.compile(r"^[а-яёӏӀ]$", re.IGNORECASE)
+LETTER_FRAGMENT_MAX_GAP = 4.6
+
+
+def merge_split_letters(line: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    if not line:
+        return line
+    result = [dict(line[0])]
+    for tok in line[1:]:
+        prev = result[-1]
+        gap = tok["x0"] - prev["x1"]
+        if (
+            SINGLE_LETTER_RE.match(tok["text"])
+            and 0 <= gap <= LETTER_FRAGMENT_MAX_GAP
+            and tok["bold"] == prev["bold"]
+            and tok["italic"] == prev["italic"]
+        ):
+            prev["text"] = prev["text"] + tok["text"]
+            prev["x1"] = tok["x1"]
+        else:
+            result.append(dict(tok))
     return result
 
 
