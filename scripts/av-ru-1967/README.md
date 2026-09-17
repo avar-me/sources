@@ -71,10 +71,14 @@ and will drift.
 
 4. **`build_dataset.py`** — converts the draft articles into schema-shaped
    entries, applying the known-word-gated OCR rescues (stress-glyph
-   б/6/й/ё, `||`-as-ц/Ц). Only `confidence: high` articles are written to
-   `data/av-ru.1967.jsonl` (the published file); `medium`/`low` go to
-   `tmp/av-ru.1967/needs_review.jsonl` instead (gitignored — a human review
-   queue, not published data).
+   б/6/й/ё, `||`-as-ц/Ц). An article is only published to
+   `data/av-ru.1967.jsonl` if BOTH hold: segmentation `confidence: high`
+   (the boundary itself is trusted) AND `detect_parse_issues()` finds
+   nothing wrong with the parsed content (no leftover raw structural
+   marker — `*`, `[`, `]`, `^`, `_`, `{`, `}`, `\` — and none of
+   quality_scan.py's own av/ru-leak or russian-word-as-headword checks
+   fire). Anything else goes to `tmp/av-ru.1967/needs_review.jsonl`
+   (gitignored review queue) tagged with `confidence` and `parse_issues`.
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```

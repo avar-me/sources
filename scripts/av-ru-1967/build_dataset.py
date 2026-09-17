@@ -23,6 +23,7 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent))
 from parse_articles import LABEL_NORMALIZE  # noqa: E402
+from quality_scan import RUSSIAN_GRAMMAR_RE, looks_russian_only  # noqa: E402
 from segment_entries import load_known_words  # noqa: E402
 
 ROMAN_TO_INT = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
@@ -129,6 +130,58 @@ AVAR_DIGRAPHS = ("гъ", "гь", "гӏ", "къ", "кь", "кӏ", "лъ", "тӏ",
 def has_avar_signal(text: str) -> bool:
     lowered = text.lower()
     return any(d in lowered for d in AVAR_DIGRAPHS) or "ӏ" in text
+
+
+# av-ru-1967-review-batch-2-2026-09-17.md, "P0. Пересмотреть смысл
+# confidence: high": bold detection alone (segment_entries' `confidence`,
+# aka boundary confidence) doesn't prove the article's CONTENT parsed
+# cleanly — a bogus headword or a merged/garbled article can still have
+# high boundary confidence. These are the raw structural OCR-noise
+# characters the review explicitly named (found live in accepted entries:
+# "*рёт!и", "1и_[ро(3.", "гЫкълу", "бородавкӏ^") — any of them surviving
+# into a final entry means something upstream didn't parse cleanly, so the
+# entry needs a human look rather than automatic publication.
+RAW_MARKER_CHARS = ("*", "[", "]", "^", "_", "{", "}", "\\")
+
+
+def _strings_in(value: Any) -> list[str]:
+    if isinstance(value, str):
+        return [value]
+    if isinstance(value, list):
+        out: list[str] = []
+        for v in value:
+            out.extend(_strings_in(v))
+        return out
+    if isinstance(value, dict):
+        out = []
+        for v in value.values():
+            out.extend(_strings_in(v))
+        return out
+    return []
+
+
+def detect_parse_issues(entry: dict[str, Any], known_words: set[str]) -> list[str]:
+    """Content-level defects that boundary confidence alone can't see —
+    returns an empty list for a clean entry. Non-empty means `parse_confidence`
+    is "low" (see main()). Reuses quality_scan.py's own leak-detection
+    heuristics so "accepted" and "0 quality_scan findings" mean the same
+    thing (av-ru-1967-review-batch-2-2026-09-17.md criterion #9), instead of
+    maintaining a second, driftable copy of the same checks."""
+    issues: list[str] = []
+    for s in _strings_in(entry):
+        for ch in RAW_MARKER_CHARS:
+            if ch in s:
+                issues.append(f"raw-marker:{ch}")
+    if RUSSIAN_GRAMMAR_RE.search(entry.get("word", "")) and not has_avar_signal(entry.get("word", "")) and entry["word"] not in known_words:
+        issues.append("russian-word-as-headword")
+    for sense in entry.get("senses", []):
+        for ex in sense.get("examples", []):
+            av, ru = ex.get("av", ""), ex.get("ru", "")
+            if has_avar_signal(ru):
+                issues.append("avar-leaked-into-ru")
+            if looks_russian_only(av, known_words):
+                issues.append("russian-leaked-into-av")
+    return sorted(set(issues))
 
 
 def convert_example(example: dict[str, Any]) -> dict[str, Any] | None:
@@ -332,13 +385,24 @@ def main() -> int:
         # spelling-variant-pipe case) goes to data/av-ru.1967.jsonl;
         # `medium`/`low` go to a separate review queue instead, tagged
         # with the reason so a human can triage without re-deriving it.
-        if article.get("confidence") == "high":
+        #
+        # av-ru-1967-review-batch-2-2026-09-17.md, "P0. Пересмотреть смысл
+        # confidence: high": boundary confidence (bold detection) alone
+        # doesn't prove the CONTENT parsed cleanly. A `high` article whose
+        # final entry still contains a raw structural marker (leftover "*",
+        # unmatched "[al ]", "^", "_", etc.) or av/ru cross-contamination
+        # gets demoted to the review queue instead of published, with the
+        # concrete `parse_issues` list attached so a reviewer doesn't have
+        # to re-derive why it was flagged.
+        parse_issues = detect_parse_issues(entry, known_words)
+        if article.get("confidence") == "high" and not parse_issues:
             entries.append(entry)
         else:
             needs_review.append(
                 {
                     "page": article.get("page"),
                     "confidence": article.get("confidence"),
+                    "parse_issues": parse_issues,
                     "word_raw": article.get("word_raw"),
                     "raw_text": article.get("raw_text"),
                     "entry": entry,
@@ -370,6 +434,9 @@ def main() -> int:
 
     print(f"wrote {len(filtered)} entries to {args.out}")
     print(f"wrote {len(needs_review)} medium/low-confidence entries to {review_path} (not published)")
+    demoted_by_issues = sum(1 for r in needs_review if r.get("confidence") == "high" and r.get("parse_issues"))
+    if demoted_by_issues:
+        print(f"of those, {demoted_by_issues} were boundary-high but demoted for parse_issues (raw markers / av-ru contamination)")
     if stats.get("rescued"):
         print(f"rescued {stats['rescued']} word(s) via known-word б/6/й/ё stress-glyph correction")
     if stats.get("stress_recorded"):
