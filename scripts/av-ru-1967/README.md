@@ -128,6 +128,20 @@ and will drift.
   construction). Four metrics tracked in `baselines.json`:
   `check_accepted.order_regressions`, `check_accepted.suspicious_headwords`,
   `check_accepted.oversized_spans`, `check_accepted.links_missing`.
+- **`build_page_ledger.py`** — per-page coverage ledger across all 597
+  physical pages (23-619), cross-referencing geometry/segments/draft
+  articles/accepted/review counts, first/last headword, carry-in/out,
+  max span length, unclosed brackets, and order regressions touching that
+  page. Writes the committed `data/av-ru.1967.page_ledger.jsonl` (597 rows).
+  Hard gate: every page must be present, and every zero-draft-article page
+  must have an explanation in `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently
+  just page 551 — confirmed via rendered page scans to be entirely a
+  continuation of the p.550 "цебё" postposition mega-entry, not a bug).
+  `unexplained token/article drops` (segment candidates that never became
+  a draft article) is tracked as a baseline
+  (`page_ledger.unexplained_drops`), not yet a hard 0, because the current
+  count-difference can't distinguish a real drop from expected
+  candidate-to-article reduction (homonym/bracket consumption, stitching).
 - **`check_order.py`** (baseline gate, draft-only) — flags any two consecutive articles
   whose Avar sort keys go backwards (the whole book is one continuous A-Z
   listing across pages 23-619). Rescues stress-glyph/`||` OCR artifacts the
@@ -154,9 +168,9 @@ and will drift.
 ### `baselines.json` / `baseline.py`
 
 Shared helper (`scripts/av-ru-1967/baseline.py`) used by `check_accepted.py`,
-`check_order.py` and `resolve_references.py`. `baselines.json` records the
-current acceptable ceiling for each metric; `check_metric()` prints
-`[baseline] ok` or `FAIL` and the script's `main()` turns any `FAIL` into a
-non-zero exit. When fixing article-boundary/reference bugs, update the
-relevant number in `baselines.json` downward in the same commit as the fix
-so the gate can't regress back up unnoticed.
+`check_order.py`, `resolve_references.py` and `build_page_ledger.py`.
+`baselines.json` records the current acceptable ceiling for each metric;
+`check_metric()` prints `[baseline] ok` or `FAIL` and the script's `main()`
+turns any `FAIL` into a non-zero exit. When fixing article-boundary/
+reference bugs, update the relevant number in `baselines.json` downward in
+the same commit as the fix so the gate can't regress back up unnoticed.
