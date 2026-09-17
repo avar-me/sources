@@ -1,0 +1,6 @@
+# Pinned dependencies for the av-ru.1967 parsing pipeline (Python 3.14.3).
+# Install into the dedicated venv (see README.md "Environment"):
+#   pip install -r scripts/av-ru-1967/requirements.txt
+pdfplumber==0.11.10
+rapidfuzz==3.14.6
+jsonschema==4.26.0
