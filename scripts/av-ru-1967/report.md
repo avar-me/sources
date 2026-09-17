@@ -63,24 +63,36 @@ verified progress but the item's own acceptance criteria aren't all met yet.
    hardcoded list) with a content signal (`_is_bare_or_fragment` — bare
    stubs/truncated fragments only) to avoid flagging legitimate
    directly-borrowed Avar loanwords (амбар, авантюра). Cut false positives
-   132 → 27 (manually verified 0 remaining false positives). Still not the
-   full layout/font/indent structural classifier the review asks for.
+   132 → 27 (manually verified 0 remaining false positives). A genuine
+   layout-based signal ("is this word the first word on its printed
+   line", via the new `geometry_lookup.py`) was tested at scale and
+   **rejected**: 19% of all accepted entries aren't line-initial for
+   entirely legitimate reasons (multiple short headwords sharing one
+   line), far more than the ~27 real false headwords — confirmed the
+   real fix needs the segment `index` threaded through
+   `parse_articles.py` (not done this round). Still not the full
+   layout/font/indent structural classifier the review asks for.
 
 ## Batch-3 P1 — status
 
 7. **Сохранить полную provenance duplicate groups** — **Partial**.
    `data/av-ru.1967.provenance.jsonl` records `selection_rule`,
-   `duplicate_group_spans_differ`, and each duplicate-group member's
-   page/column/top/confidence/reasons/`raw_text_preview`. Missing: bbox
-   and full raw text for non-winning members.
+   `duplicate_group_spans_differ`, a real `bbox` (via `geometry_lookup.py`,
+   9854/9858 populated) for both the winner and every duplicate-group
+   member, plus each member's page/column/top/confidence/reasons/
+   `raw_text_preview`. Missing: full raw text (only a 100-char preview)
+   for non-winning members.
 8. **Построить HTML review queue** — **Partial**. New
    `build_review_html.py` (not wired into `build_all.sh`, ~20min cold
    render of 570 page images, cached after). Generates a priority-ordered
    (boundary-high-demoted → carry → oversized-span → touches-regression →
-   medium → low) local site with per-item page image, raw OCR, proposed
-   entry, reasons, decision-ledger status, and a progress counter. None of
-   the 3632 items have actually been triaged through it yet — that's a
-   separate, much larger manual-review effort.
+   medium → low) local site with a per-item CROP of the item's own
+   printed line (via `geometry_lookup.py`'s bbox, cheaply cropped with PIL
+   from the cached full page — 3623/3632 crops generated) plus the full
+   page image, raw OCR, proposed entry, reasons, decision-ledger status,
+   and a progress counter. None of the 3632 items have actually been
+   triaged through it yet — that's a separate, much larger manual-review
+   effort.
 9. **Разделить links для accepted и полного draft** — **Done**.
    `check_accepted.py` categorizes `see_also` targets by BOTH origin
    (accepted/review) and destination (accepted/review/missing/
@@ -90,13 +102,14 @@ verified progress but the item's own acceptance criteria aren't all met yet.
     separate from `confirmed_category` (only from a hash-valid ledger
     decision) — 13/900 currently confirmed.
 
-## Current metrics (as of commit `cbbcfa6`)
+## Current metrics (as of commit `7a3038b`)
 
 - `data/av-ru.1967.jsonl`: 9858 entries, sha256
   `c44b4d54cd04d82bd8c8cf87a354d709832b85cd64a9ed99d8f0e991bc4eaa84`,
   byte-reproducible across repeated `build_all.sh` runs. 0 schema
   violations, 0 `quality_scan` findings.
-- `data/av-ru.1967.provenance.jsonl`: 9858 rows (1:1 with accepted).
+- `data/av-ru.1967.provenance.jsonl`: 9858 rows (1:1 with accepted),
+  9854/9858 with a real `bbox`.
 - `data/av-ru.1967.page_ledger.jsonl`: 597 rows (23-619), 0 unexplained
   zero-candidate pages, 105 unexplained drops (baseline, not yet 0).
 - `data/av-ru.1967.decisions.jsonl`: 21 rows (13 order-regression triages,
@@ -114,12 +127,11 @@ verified progress but the item's own acceptance criteria aren't all met yet.
 
 ## Not started / explicitly out of scope for this round
 
-- Per-item bbox crops for the HTML review queue and duplicate-group
-  provenance (both currently use the full page image / no bbox at all) —
-  needs geometry/font-run integration at the accepted-check and
-  review-html stages.
-- The full layout/font-based structural false-headword classifier (indent,
-  font run, neighbor gap) — current signal is content/dictionary-based.
+- Full raw text (only a preview) for non-winning duplicate-group members.
+- The full layout/font-based structural false-headword classifier —
+  investigated (line-initial-word signal), empirically rejected (19%
+  false-positive rate), real fix needs segment `index` threading through
+  `parse_articles.py` (identified, not implemented).
 - Actually triaging the 3632-item review queue, the 12 demoted long spans,
   or the ~900/408 order regressions down to zero — all currently measured
   and gated against regressions, not yet driven to the review's ultimate
