@@ -412,6 +412,29 @@ def segment_stream(
         skip_next_bold = False
 
         at_boundary = prev is None or bool(TERMINATOR_RE.search(prev["norm"]))
+        if not at_boundary and prev is not None and prev["norm"].rstrip().endswith(","):
+            # A sentence-ending period is sometimes OCR'd as a comma (found
+            # via p.262 "...помощи," and p.358 "...благодатный,", both
+            # should read "."), silently swallowing the next real headword
+            # into the previous entry. Narrow fallback: only accept it when
+            # the very NEXT token immediately confirms a genuine headword
+            # header shape — an italic label, a "[forms]" bracket, or a
+            # roman-numeral homonym marker — not just "some bold word
+            # anywhere nearby", which fired far too often (1409 hits
+            # book-wide) when tried with a wider lookahead window.
+            nxt = stream[i + 1] if i + 1 < len(stream) else None
+            if (
+                word["bold"]
+                and not word["italic"]
+                and base in known_words
+                and nxt is not None
+                and (
+                    (nxt["italic"] and is_label_token(nxt["norm"]))
+                    or nxt["norm"].startswith("[")
+                    or ROMAN_RE.match(nxt["norm"])
+                )
+            ):
+                at_boundary = True
         if not at_boundary:
             prev = word
             continue

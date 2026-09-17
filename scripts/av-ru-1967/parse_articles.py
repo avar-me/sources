@@ -23,7 +23,11 @@ from pathlib import Path
 from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent))
-from extract_geometry import DEFAULT_PDF  # noqa: E402
+from extract_geometry import (  # noqa: E402
+    CONTINUATION_START_RE,
+    DEFAULT_PDF,
+    TRAILING_HYPHEN_RE,
+)
 from segment_entries import (  # noqa: E402
     AVAR_DIGRAPHS,
     BARE_FROM_RE,
@@ -37,6 +41,7 @@ from segment_entries import (  # noqa: E402
     is_label_token,
     load_known_words,
     load_or_extract,
+    normalize_token,
     page_word_stream,
     segment_stream,
     strip_word,
@@ -107,8 +112,9 @@ def build_article_spans(stream: list[dict[str, Any]], candidates: list[dict[str,
     """Slice a page's word stream into one span per detected headword.
 
     The last candidate's span runs to the end of the page and is marked
-    `continues_next_page` if it doesn't end on a real terminator — cross-page
-    article stitching is out of scope for this draft (handoff doc step 5).
+    `continues_next_page` if it doesn't end on a real terminator — see
+    `stitch_carry()` in main() for how the continuation is picked back up
+    on the next page.
     """
     spans = []
     for idx, cand in enumerate(candidates):
@@ -118,6 +124,28 @@ def build_article_spans(stream: list[dict[str, Any]], candidates: list[dict[str,
         continues = bool(tokens) and not TERMINATOR_RE.search(tokens[-1]["norm"])
         spans.append({"candidate": cand, "tokens": tokens, "continues_next_page": continues})
     return spans
+
+
+def stitch_tokens(prev_tokens: list[dict[str, Any]], next_tokens: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Join a page's dangling last tokens with the next page's leading
+    tokens, rejoining a line-wrap hyphen split across the page boundary
+    itself (extract_geometry.dehyphenate_column/segment_entries.dehyphenate_stream
+    only handle within-page splits — found via p.358/359's "ниж...ни-" +
+    "жеца" -> "нижеца")."""
+    if prev_tokens and next_tokens:
+        match = TRAILING_HYPHEN_RE.match(prev_tokens[-1]["text"])
+        if match and CONTINUATION_START_RE.match(next_tokens[0]["text"]):
+            text = match.group(1) + match.group(2) + next_tokens[0]["text"]
+            norm, digit_suspect = normalize_token(text)
+            merged_last = {
+                **prev_tokens[-1],
+                "text": text,
+                "norm": norm,
+                "digit_suspect": digit_suspect,
+                "x1": next_tokens[0].get("x1", prev_tokens[-1].get("x1")),
+            }
+            return prev_tokens[:-1] + [merged_last] + next_tokens[1:]
+    return prev_tokens + next_tokens
 
 
 def consume_header(tokens: list[dict[str, Any]], pos: int) -> tuple[list[str], str | None, int]:
@@ -423,14 +451,47 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     articles: list[dict[str, Any]] = []
+    # Carries an unterminated last span across a page boundary: {"candidate":
+    # ..., "tokens": [...]} for the previous page's dangling last article, to
+    # be re-parsed together with whatever continues at the top of the next
+    # page (see stitch_tokens() and the "suspect first candidate" check
+    # below — found via p.358/359's "ниж" entry, whose "ни-" continuation
+    # "жеца" was otherwise mis-detected as a brand-new bold headword).
+    carry: dict[str, Any] | None = None
     for page_number in range(args.start, args.end + 1):
         data = load_or_extract(args.pdf, page_number, geometry_dir)
         stream = page_word_stream(data)
         candidates = segment_stream(stream, known_words)
         bold_reliable = bold_is_reliable(stream)
         spans = build_article_spans(stream, candidates)
+
+        if carry is not None:
+            if spans and spans[0]["candidate"]["index"] == 0:
+                # The page's very first token was independently detected as
+                # a new headword candidate. Since the previous entry didn't
+                # end on a real terminator, this is almost certainly still
+                # that entry's own continuation (a stray bold word, not a
+                # genuine new headword) — swallow the whole span into the
+                # continuation rather than trusting it.
+                continuation_tokens = spans[0]["tokens"]
+                spans = spans[1:]
+            else:
+                first_idx = spans[0]["candidate"]["index"] if spans else len(stream)
+                continuation_tokens = stream[:first_idx]
+            merged_tokens = stitch_tokens(carry["tokens"], continuation_tokens)
+            merged_continues = bool(merged_tokens) and not TERMINATOR_RE.search(merged_tokens[-1]["norm"])
+            merged_span = {
+                "candidate": carry["candidate"],
+                "tokens": merged_tokens,
+                "continues_next_page": merged_continues,
+            }
+            articles[-1] = parse_article(merged_span, bold_reliable)
+            carry = {"candidate": carry["candidate"], "tokens": merged_tokens} if merged_continues else None
+
         page_articles = [parse_article(span, bold_reliable) for span in spans]
         articles.extend(page_articles)
+        if spans and spans[-1]["continues_next_page"]:
+            carry = {"candidate": spans[-1]["candidate"], "tokens": spans[-1]["tokens"]}
         print(f"page {page_number}: {len(page_articles)} draft articles")
 
     with out_path.open("w", encoding="utf-8") as fh:
