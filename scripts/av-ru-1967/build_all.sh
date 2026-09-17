@@ -4,12 +4,17 @@
 #
 # Regenerates data/av-ru.1967.jsonl from books/saidov_m_avarskorusskii_slovar.pdf
 # and runs every diagnostic script, failing fast (set -e) on the first
-# hard error. Per av-ru-1967-review-batch-2-2026-09-17.md's "P1. Исправить
-# декларацию полного pipeline": validate_schema.py and quality_scan.py are
-# unconditional hard gates (0 tolerance); check_order.py and
-# resolve_references.py are BASELINE gates (scripts/av-ru-1967/baselines.json)
-# — they fail the build if their metrics get WORSE than the last committed
-# baseline, but don't yet require perfection (see baseline.py's docstring).
+# hard error. Per av-ru-1967-review-batch-3-2026-09-17.md's "P0. Реализовать
+# независимые gates для accepted/review/draft": check_accepted.py checks
+# ONLY the published file (data/av-ru.1967.jsonl, in its own file order —
+# order/false-headword/span-size/provenance/link gates); check_order.py and
+# resolve_references.py check the FULL draft (every candidate the
+# segmenter found, published or not) for source-recognition quality.
+# validate_schema.py and quality_scan.py are unconditional hard gates (0
+# tolerance); check_accepted.py, check_order.py and resolve_references.py
+# are BASELINE gates (scripts/av-ru-1967/baselines.json) — they fail the
+# build if their metrics get WORSE than the last committed baseline, but
+# don't yet require perfection (see baseline.py's docstring).
 # compare_with_av_ru.py is a separate, genuinely optional spot-check
 # (fuzzy-match diagnostic) that does not gate the build.
 #
@@ -40,10 +45,13 @@ python3 "$SCRIPTS_DIR/build_dataset.py" --out "$OUT"
 echo "=== validate_schema (hard gate) ==="
 python3 "$SCRIPTS_DIR/validate_schema.py" --input "$OUT"
 
-echo "=== check_order (baseline gate) ==="
+echo "=== check_accepted (baseline gate, accepted-only) ==="
+python3 "$SCRIPTS_DIR/check_accepted.py"
+
+echo "=== check_order (baseline gate, draft-only) ==="
 python3 "$SCRIPTS_DIR/check_order.py"
 
-echo "=== resolve_references (baseline gate) ==="
+echo "=== resolve_references (baseline gate, draft-only) ==="
 python3 "$SCRIPTS_DIR/resolve_references.py"
 
 echo "=== quality_scan (hard gate) ==="

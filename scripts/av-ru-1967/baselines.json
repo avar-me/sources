@@ -3,5 +3,9 @@
   "order_check.high_high": 131,
   "order_check.unclassified": 439,
   "order_check.unclassified_high_high": 13,
-  "resolve_references.unresolved": 1204
+  "resolve_references.unresolved": 1204,
+  "check_accepted.order_regressions": 408,
+  "check_accepted.suspicious_headwords": 132,
+  "check_accepted.oversized_spans": 7,
+  "check_accepted.links_missing": 495
 }

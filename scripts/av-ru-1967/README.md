@@ -30,13 +30,22 @@ diagnostic script, failing fast (`set -e`) on the first non-zero exit.
 `validate_schema.py` and `quality_scan.py` are unconditional hard gates (0
 tolerance: any schema violation, duplicate line, stray soft hyphen, empty
 `av`/`ru` example, `see_also` self-loop, or av/ru-contamination finding
-fails the build). `check_order.py` and `resolve_references.py` are
-**baseline gates** (`scripts/av-ru-1967/baselines.json`, via the shared
-`baseline.py` helper): the build fails if their metrics regress past the
-last committed baseline, but the baseline itself is allowed to be > 0 while
-the remaining article-boundary/reference bugs are worked through (see the
-review doc's "Этап 1"/"P0" sections). When a fix genuinely lowers one of
-these counts, lower the corresponding value in `baselines.json` in the same
+fails the build). `check_accepted.py`, `check_order.py` and
+`resolve_references.py` are **baseline gates**
+(`scripts/av-ru-1967/baselines.json`, via the shared `baseline.py` helper):
+the build fails if their metrics regress past the last committed baseline,
+but the baseline itself is allowed to be > 0 while the remaining
+article-boundary/reference bugs are worked through (see the review docs'
+"P0" sections). `check_accepted.py` checks ONLY the published file (its own
+order/headword-language/span-size/provenance/link-target shape);
+`check_order.py` and `resolve_references.py` check the full draft (every
+candidate the segmenter found, published or not) — av-ru-1967-review-batch-
+3-2026-09-17.md's "P0. Реализовать независимые gates для
+accepted/review/draft" asked for exactly this draft-vs-accepted split,
+since a clean draft-level number doesn't prove the *published* file's own
+order/headwords are sound (batch-3 measured 900 draft-level order
+regressions vs 408 accepted-only). When a fix genuinely lowers one of these
+counts, lower the corresponding value in `baselines.json` in the same
 commit so the gate keeps ratcheting toward zero instead of silently
 tolerating the old, worse number forever. `compare_with_av_ru.py` is a
 genuinely optional spot-check and never fails the build.
@@ -86,6 +95,13 @@ and will drift.
    quality_scan.py's own av/ru-leak or russian-word-as-headword checks
    fire). Anything else goes to `tmp/av-ru.1967/needs_review.jsonl`
    (gitignored review queue) tagged with `confidence` and `parse_issues`.
+   Also writes `data/av-ru.1967.provenance.jsonl` — one committed row per
+   accepted entry, 1:1 with `data/av-ru.1967.jsonl` in the same order
+   (page/column/top/confidence/reasons/raw_text_length, plus every
+   duplicate-group candidate that was merged into it, not just the
+   winner) — av-ru-1967-review-batch-3-2026-09-17.md, "P0 (accepted
+   entries without source provenance: 0)" and "P1 (duplicate-group
+   provenance)".
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
@@ -98,7 +114,21 @@ and will drift.
 
 ## Diagnostic scripts and gates
 
-- **`check_order.py`** (baseline gate) — flags any two consecutive articles
+- **`check_accepted.py`** (baseline gate, accepted-only) — the only script
+  that checks the PUBLISHED file's own file order/content, independent of
+  the heuristics that built it. Checks: alphabetical order regressions in
+  `data/av-ru.1967.jsonl`'s own order (no stress-glyph rescue — accepted is
+  supposed to be final already); suspicious-language headwords (extends
+  the old grammar-suffix/function-word check with an exact-match lookup
+  against `data/ru-av.jsonl`'s real Russian lexicon, still dictionary-based
+  rather than the full layout/font-based classifier batch-3 ultimately
+  wants); oversized spans (`raw_text_length` from the provenance file);
+  `see_also` link targets split into accepted/review/missing; provenance
+  completeness (hard 0 — every accepted entry must have a provenance row by
+  construction). Four metrics tracked in `baselines.json`:
+  `check_accepted.order_regressions`, `check_accepted.suspicious_headwords`,
+  `check_accepted.oversized_spans`, `check_accepted.links_missing`.
+- **`check_order.py`** (baseline gate, draft-only) — flags any two consecutive articles
   whose Avar sort keys go backwards (the whole book is one continuous A-Z
   listing across pages 23-619). Rescues stress-glyph/`||` OCR artifacts the
   same way `build_dataset.py` does before comparing, so remaining
@@ -123,10 +153,10 @@ and will drift.
 
 ### `baselines.json` / `baseline.py`
 
-Shared helper (`scripts/av-ru-1967/baseline.py`) used by `check_order.py`
-and `resolve_references.py`. `baselines.json` records the current
-acceptable ceiling for each metric; `check_metric()` prints `[baseline] ok`
-or `FAIL` and the script's `main()` turns any `FAIL` into a non-zero exit.
-When fixing article-boundary/reference bugs, update the relevant number in
-`baselines.json` downward in the same commit as the fix so the gate can't
-regress back up unnoticed.
+Shared helper (`scripts/av-ru-1967/baseline.py`) used by `check_accepted.py`,
+`check_order.py` and `resolve_references.py`. `baselines.json` records the
+current acceptable ceiling for each metric; `check_metric()` prints
+`[baseline] ok` or `FAIL` and the script's `main()` turns any `FAIL` into a
+non-zero exit. When fixing article-boundary/reference bugs, update the
+relevant number in `baselines.json` downward in the same commit as the fix
+so the gate can't regress back up unnoticed.

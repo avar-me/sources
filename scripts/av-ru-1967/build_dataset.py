@@ -411,6 +411,7 @@ def main() -> int:
     parser.add_argument("--articles", default="tmp/av-ru.1967/draft_articles.jsonl")
     parser.add_argument("--out", default="data/av-ru.1967.jsonl")
     parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
+    parser.add_argument("--provenance", default="data/av-ru.1967.provenance.jsonl")
     parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     args = parser.parse_args()
 
@@ -425,11 +426,17 @@ def main() -> int:
     # review). Two-pass fix: first collect every (confidence, entry)
     # candidate per unique serialized entry, then keep only the
     # highest-confidence representative of each duplicate group.
+    #
+    # av-ru-1967-review-batch-3-2026-09-17.md, "P1. Сохранить полную
+    # provenance duplicate groups": collect EVERY candidate per group (not
+    # just the eventual winner) so data/av-ru.1967.provenance.jsonl can
+    # record where every merged duplicate came from, not only the one that
+    # got published.
     CONF_RANK = {"high": 2, "medium": 1, "low": 0}
     with Path(args.articles).open("r", encoding="utf-8") as fh:
         articles = [json.loads(line) for line in fh]
 
-    candidates: dict[str, tuple[int, dict[str, Any], dict[str, Any]]] = {}
+    candidates: dict[str, list[tuple[int, dict[str, Any], dict[str, Any]]]] = {}
     for i, article in enumerate(articles):
         entry = build_entry(article, known_words, stats)
         if entry is None:
@@ -437,7 +444,6 @@ def main() -> int:
         entry = strip_soft_hyphens(entry)
         serialized = json.dumps(entry, ensure_ascii=False)
         rank = CONF_RANK.get(article.get("confidence"), -1)
-        existing = candidates.get(serialized)
         # av-ru-1967-review-batch-2-2026-09-17.md, "P0. Не терять
         # provenance в review queue": book-neighbor headwords (the
         # articles immediately before/after in reading order) let a
@@ -448,12 +454,18 @@ def main() -> int:
             "prev_word": articles[i - 1]["word"] if i > 0 else None,
             "next_word": articles[i + 1]["word"] if i + 1 < len(articles) else None,
         }
-        if existing is None or rank > existing[0]:
-            candidates[serialized] = (rank, {**article, **neighbors}, entry)
+        candidates.setdefault(serialized, []).append((rank, {**article, **neighbors}, entry))
 
     entries: list[dict[str, Any]] = []
     needs_review: list[dict[str, Any]] = []
-    for _rank, article, entry in candidates.values():
+    provenance: list[dict[str, Any]] = []
+    for members in candidates.values():
+        # First member with the highest rank wins — same tie-break as the
+        # old `rank > existing[0]` single-pass comparison (first-seen among
+        # equal ranks), just computed over the full group instead of
+        # incrementally.
+        best_rank = max(m[0] for m in members)
+        _rank, article, entry = next(m for m in members if m[0] == best_rank)
         # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
         # попадают в основной JSONL": the docstring above claimed
         # low-confidence articles were excluded, but build_entry() never
@@ -475,6 +487,36 @@ def main() -> int:
         parse_issues = detect_parse_issues(entry, known_words)
         if article.get("confidence") == "high" and not parse_issues:
             entries.append(entry)
+            # av-ru-1967-review-batch-3-2026-09-17.md, "P0. Реализовать
+            # независимые gates для accepted/review/draft" (accepted
+            # entries without source provenance: 0) + "P1. Сохранить
+            # полную provenance duplicate groups": one committed row per
+            # accepted entry, in the same order as data/av-ru.1967.jsonl,
+            # recording where it came from and every duplicate candidate
+            # that was merged into it (not just the winner).
+            provenance.append(
+                {
+                    "word": entry.get("word"),
+                    "page": article.get("page"),
+                    "column": article.get("column"),
+                    "top": article.get("top"),
+                    "confidence": article.get("confidence"),
+                    "reasons": article.get("reasons", []),
+                    "raw_text_length": len(article.get("raw_text") or ""),
+                    "duplicate_group": [
+                        {
+                            "page": m[1].get("page"),
+                            "column": m[1].get("column"),
+                            "top": m[1].get("top"),
+                            "confidence": m[1].get("confidence"),
+                            "reasons": m[1].get("reasons", []),
+                        }
+                        for m in members
+                    ]
+                    if len(members) > 1
+                    else [],
+                }
+            )
         else:
             needs_review.append(
                 {
@@ -501,14 +543,21 @@ def main() -> int:
     words_with_content = {
         e["word"] for e in entries if set(e.keys()) != {"word"}
     }
-    filtered = [
-        e for e in entries if not (set(e.keys()) == {"word"} and e["word"] in words_with_content)
+    keep = [
+        not (set(e.keys()) == {"word"} and e["word"] in words_with_content) for e in entries
     ]
+    filtered = [e for e, k in zip(entries, keep) if k]
+    filtered_provenance = [p for p, k in zip(provenance, keep) if k]
     stats["dropped_bare_duplicates"] = len(entries) - len(filtered)
 
     with Path(args.out).open("w", encoding="utf-8") as out_fh:
         for entry in filtered:
             out_fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
+
+    provenance_path = Path(args.provenance)
+    with provenance_path.open("w", encoding="utf-8") as prov_fh:
+        for row in filtered_provenance:
+            prov_fh.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     review_path = Path(args.needs_review)
     review_path.parent.mkdir(parents=True, exist_ok=True)
@@ -517,6 +566,7 @@ def main() -> int:
             review_fh.write(json.dumps(row, ensure_ascii=False) + "\n")
 
     print(f"wrote {len(filtered)} entries to {args.out}")
+    print(f"wrote {len(filtered_provenance)} provenance rows to {provenance_path}")
     print(f"wrote {len(needs_review)} medium/low-confidence entries to {review_path} (not published)")
     demoted_by_issues = sum(1 for r in needs_review if r.get("confidence") == "high" and r.get("parse_issues"))
     if demoted_by_issues:
