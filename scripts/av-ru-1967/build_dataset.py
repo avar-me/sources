@@ -46,29 +46,34 @@ def split_pipe_corruption(word: str) -> tuple[str, list[str] | None]:
     return word, None
 
 
-# 'о' misread as bold 'б' is a second OCR glyph confusion distinct from the
-# already-handled digit '6' (cf. segment_entries.DIGIT_GLYPH_RE): confirmed
-# by internal cross-checks such as p.464's "*сбкІкІин масд. глагола
-# сокІкІинабизе." — same root, spelled with 'о' two words later in the same
-# entry. Too risky to blindly substitute everywhere ('б' is a common real
-# letter), so this only fires when the original word fails to resolve
-# against the modern dictionary AND exactly one single-position 'б'->'о'
-# substitution does resolve.
-CONFUSABLE_GLYPHS = {"6": "о", "б": "о"}
+# 'о' misread as bold 'б' (and digit '6', cf. segment_entries.DIGIT_GLYPH_RE)
+# turned out to be the same underlying phenomenon as the printed stress
+# accent over a headword's stressed vowel (see av-ru-1967-parsing-handoff.md,
+# "Ударение"): the accented glyph gets exported as a visually-similar but
+# wrong letter — о́->б, и́->й, е́->ё — confirmed e.g. by p.262's "кирй [род.
+# п. кирйдул]" resolving only once "й" is read back as the stressed "и"
+# ("кири", matching data/av-ru.jsonl's "кисан", stress: 4 for the same
+# family). Too risky to blindly substitute everywhere (б, й, ё are all
+# common real letters too), so this only fires when the original word fails
+# to resolve against the modern dictionary AND exactly one single-position
+# substitution does resolve. The resolved position becomes the entry's
+# `stress` (1-based, matches schema) since all four substitutions are for
+# stressed vowels.
+STRESS_GLYPHS = {"6": "о", "б": "о", "й": "и", "ё": "е"}
 
 
-def rescue_word(word: str, known_words: set[str]) -> str:
+def rescue_word(word: str, known_words: set[str]) -> tuple[str, int | None]:
     if not word or word in known_words:
-        return word
-    candidates = set()
+        return word, None
+    candidates: dict[str, int] = {}
     for i, ch in enumerate(word):
-        replacement = CONFUSABLE_GLYPHS.get(ch)
+        replacement = STRESS_GLYPHS.get(ch)
         if replacement:
-            candidates.add(word[:i] + replacement + word[i + 1 :])
+            candidates[word[:i] + replacement + word[i + 1 :]] = i + 1
     matches = [c for c in candidates if c in known_words]
     if len(matches) == 1:
-        return matches[0]
-    return word
+        return matches[0], candidates[matches[0]]
+    return word, None
 
 # Case-marker abbreviations that map onto a schema-named "*from" field, with
 # the Russian case name used to phrase the accompanying comment (matching
@@ -200,12 +205,16 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
     word, pipe_spelling_forms = split_pipe_corruption(word)
     if pipe_spelling_forms:
         stats["pipe_corruption_split"] = stats.get("pipe_corruption_split", 0) + 1
-    rescued = rescue_word(word, known_words)
+    rescued, stress_pos = rescue_word(word, known_words)
     if rescued != word:
         stats["rescued"] = stats.get("rescued", 0) + 1
         word = rescued
+    if stress_pos:
+        stats["stress_recorded"] = stats.get("stress_recorded", 0) + 1
 
     entry: dict[str, Any] = {"word": word}
+    if stress_pos:
+        entry["stress"] = stress_pos
 
     homonym_int = ROMAN_TO_INT.get(article.get("homonym") or "")
     if homonym_int:
@@ -213,7 +222,7 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
 
     forms_raw = article.get("forms_raw")
     if forms_raw:
-        values = [rescue_word(v, known_words) for v in parse_forms_raw(forms_raw)]
+        values = [rescue_word(v, known_words)[0] for v in parse_forms_raw(forms_raw)]
         if values:
             seen = {word}
             forms = [word]
@@ -249,7 +258,7 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
         seen_pairs = set()
         deduped = []
         for sa in see_also_all:
-            target = rescue_word(sa["target"], known_words)
+            target = rescue_word(sa["target"], known_words)[0]
             if not target or target == word:
                 continue
             key = (target, sa["kind"])
@@ -325,7 +334,9 @@ def main() -> int:
 
     print(f"wrote {len(filtered)} entries to {args.out}")
     if stats.get("rescued"):
-        print(f"rescued {stats['rescued']} word(s) via known-word б/6->о correction")
+        print(f"rescued {stats['rescued']} word(s) via known-word б/6/й/ё stress-glyph correction")
+    if stats.get("stress_recorded"):
+        print(f"recorded stress position for {stats['stress_recorded']} of those word(s)")
     if stats.get("pipe_corruption_split"):
         print(f"split {stats['pipe_corruption_split']} ц/Ц-as-'||' word(s) into spelling_forms")
     if stats.get("dropped_bare_duplicates"):
