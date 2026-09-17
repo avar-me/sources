@@ -7,10 +7,10 @@ way for a human reviewer to see the scanned page next to the proposed
 JSON, no priority ordering, no link to the persistent decision ledger, no
 progress report. This generates a self-contained local HTML site (one page
 per priority-ordered review item, cross-linked, each with a rendered
-page-image crop-equivalent — the FULL page image, since per-item bbox
-crops would need font/geometry integration not yet wired here — plus the
-raw OCR text, proposed entry JSON, reasons/parse_issues, neighbor
-headwords, stable id/source hash, and current decision-ledger status).
+page image PLUS a cropped close-up of the item's own printed line
+(via geometry_lookup.py's bbox, when available), the raw OCR text,
+proposed entry JSON, reasons/parse_issues, neighbor headwords, stable
+id/source hash, and current decision-ledger status).
 
 This is intentionally NOT part of build_all.sh's default run: rendering
 one image per distinct review-queue page (570+ pages) is slow on a cold
@@ -34,6 +34,9 @@ from typing import Any
 
 sys.path.insert(0, str(Path(__file__).parent))
 from decision_ledger import load_decisions, review_item_hash, review_item_id  # noqa: E402
+from geometry_lookup import bbox_for  # noqa: E402
+
+CROP_PAD_POINTS = 20  # extra margin around the matched line's bbox, in PDF points
 
 PRIORITY_LABELS = [
     "boundary-high-demoted",
@@ -66,15 +69,45 @@ def classify_priority(row: dict[str, Any], regression_pages: set[int]) -> tuple[
     return 5, PRIORITY_LABELS[5]
 
 
+PAGE_RESOLUTION = 150
+
+
 def render_page_image(pdf, page_num: int, out_dir: Path, force: bool) -> str:
     out_path = out_dir / f"page-{page_num:04d}.png"
     if force or not out_path.exists():
-        image = pdf.pages[page_num - 1].to_image(resolution=150)
+        image = pdf.pages[page_num - 1].to_image(resolution=PAGE_RESOLUTION)
         image.save(str(out_path))
     return out_path.name
 
 
-def item_html(row: dict[str, Any], item_id: str, decision_row: dict[str, Any] | None, page_image: str | None) -> str:
+def crop_item_image(page_png_path: Path, bbox: tuple[float, float, float, float], crops_dir: Path, name: str, force: bool) -> str | None:
+    """Crop a close-up of one item's printed line out of the already-
+    rendered full-page PNG (cheap — no extra PDF render needed)."""
+    out_path = crops_dir / f"{name}.png"
+    if not force and out_path.exists():
+        return out_path.name
+    from PIL import Image
+
+    scale = PAGE_RESOLUTION / 72.0
+    x0, top, x1, bottom = bbox
+    x0 -= CROP_PAD_POINTS
+    x1 += CROP_PAD_POINTS
+    top -= CROP_PAD_POINTS * 2
+    bottom += CROP_PAD_POINTS * 2
+    with Image.open(page_png_path) as img:
+        w, h = img.size
+        left = max(0, int(x0 * scale))
+        right = min(w, int(x1 * scale))
+        upper = max(0, int(top * scale))
+        lower = min(h, int(bottom * scale))
+        if right <= left or lower <= upper:
+            return None
+        crop = img.crop((left, upper, right, lower))
+        crop.save(str(out_path))
+    return out_path.name
+
+
+def item_html(row: dict[str, Any], item_id: str, decision_row: dict[str, Any] | None, page_image: str | None, crop_image: str | None) -> str:
     entry = row.get("entry", {})
     decision_html = (
         f"<p class='decision'>Decision: <b>{html.escape(decision_row['decision'])}</b> "
@@ -83,6 +116,11 @@ def item_html(row: dict[str, Any], item_id: str, decision_row: dict[str, Any] | 
         else "<p class='decision pending'>Decision: none yet</p>"
     )
     page_num = row.get("page")
+    crop_html = (
+        f"<img src='crops/{crop_image}' alt='crop for {html.escape(str(page_num))}' class='crop'>"
+        if crop_image
+        else "<p><i>no bbox available for this item (see geometry_lookup.py)</i></p>"
+    )
     image_html = (
         f"<img src='pages/{page_image}' alt='page {page_num}' loading='lazy'>"
         if page_image
@@ -101,7 +139,9 @@ continues_next_page: {row.get('continues_next_page')}</p>
 <p class="reasons">reasons: {html.escape(', '.join(row.get('reasons') or []))} ·
 parse_issues: {html.escape(', '.join(row.get('parse_issues') or []))}</p>
 {decision_html}
-<h2>Scan</h2>
+<h2>Close-up</h2>
+{crop_html}
+<h2>Full page</h2>
 {image_html}
 <h2>Raw OCR</h2>
 <pre>{html.escape(row.get('raw_text') or '')}</pre>
@@ -116,6 +156,7 @@ def main() -> int:
     parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
     parser.add_argument("--order-check", default="tmp/av-ru.1967/order_check.jsonl")
     parser.add_argument("--pdf", default="books/saidov_m_avarskorusskii_slovar.pdf")
+    parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
     parser.add_argument("--out-dir", default="tmp/av-ru.1967/review_html")
     parser.add_argument("--force-images", action="store_true")
     parser.add_argument("--skip-images", action="store_true", help="Skip rendering page images (fast, for iterating on HTML/layout).")
@@ -133,6 +174,9 @@ def main() -> int:
     out_dir = Path(args.out_dir)
     pages_dir = out_dir / "pages"
     pages_dir.mkdir(parents=True, exist_ok=True)
+    crops_dir = out_dir / "crops"
+    crops_dir.mkdir(parents=True, exist_ok=True)
+    geometry_dir = Path(args.geometry_dir)
 
     items = []
     for row in rows:
@@ -150,6 +194,7 @@ def main() -> int:
     (out_dir / "style.css").write_text(
         "body{font-family:sans-serif;max-width:900px;margin:2em auto;padding:0 1em}"
         "img{max-width:100%;border:1px solid #ccc}"
+        "img.crop{border:2px solid #060}"
         "pre{background:#f5f5f5;padding:1em;overflow-x:auto;white-space:pre-wrap}"
         ".pending{color:#a00}.decision{color:#060}"
         "table{border-collapse:collapse;width:100%}"
@@ -179,8 +224,15 @@ def main() -> int:
                 rendered_pages[page] = render_page_image(pdf, page, pages_dir, args.force_images)
             page_image = rendered_pages[page]
 
+        crop_image = None
+        bbox = row.get("bbox") or bbox_for(geometry_dir, page, column, top)
+        if page_image and bbox:
+            crop_image = crop_item_image(
+                pages_dir / page_image, tuple(bbox), crops_dir, f"item-{len(index_rows):05d}", args.force_images
+            )
+
         filename = f"item-{len(index_rows):05d}.html"
-        (out_dir / filename).write_text(item_html(row, item_id, decision_row, page_image), encoding="utf-8")
+        (out_dir / filename).write_text(item_html(row, item_id, decision_row, page_image, crop_image), encoding="utf-8")
         index_rows.append((priority_label, word, page, filename, decision_row is not None))
 
     by_priority: dict[str, int] = {}

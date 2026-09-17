@@ -97,13 +97,14 @@ and will drift.
    (gitignored review queue) tagged with `confidence` and `parse_issues`.
    Also writes `data/av-ru.1967.provenance.jsonl` — one committed row per
    accepted entry, 1:1 with `data/av-ru.1967.jsonl` in the same order
-   (page/column/top/confidence/reasons/raw_text_length, `selection_rule`
-   — `"unique"` or `"highest-confidence-first-seen"` — plus
-   `duplicate_group_spans_differ` and every OTHER duplicate-group
+   (page/column/top/confidence/reasons/raw_text_length/`bbox` — via
+   `geometry_lookup.py`, cross-referencing `tmp/av-ru.1967/geometry/` —
+   `selection_rule` — `"unique"` or `"highest-confidence-first-seen"` —
+   plus `duplicate_group_spans_differ` and every OTHER duplicate-group
    candidate that was merged into it: page/column/top/confidence/reasons/
-   `raw_text_preview`) — av-ru-1967-review-batch-3-2026-09-17.md, "P0
+   `raw_text_preview`/`bbox`) — av-ru-1967-review-batch-3-2026-09-17.md, "P0
    (accepted entries without source provenance: 0)" and "P1 (duplicate-
-   group provenance)".
+   group provenance)". `needs_review.jsonl` rows also get a `bbox`.
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
@@ -184,8 +185,10 @@ and will drift.
 - **`build_review_html.py`** (optional, NOT part of `build_all.sh`) —
   generates a local static HTML review site from
   `tmp/av-ru.1967/needs_review.jsonl` (av-ru-1967-review-batch-3-2026-09-17.md,
-  "P1. Построить HTML review queue"): one page per review item (rendered
-  page image, raw OCR, proposed entry JSON, reasons/parse_issues,
+  "P1. Построить HTML review queue"): one page per review item (a cropped
+  close-up of the item's own printed line via `geometry_lookup.py`'s bbox,
+  cropped cheaply from the already-rendered full page with PIL — plus the
+  full page image, raw OCR, proposed entry JSON, reasons/parse_issues,
   neighbor headwords, stable id/source hash, current decision-ledger
   status if any) plus a priority-ordered index (boundary-high-demoted >
   page-boundary-carry > oversized-span > touches-order-regression >
@@ -193,11 +196,19 @@ and will drift.
   count. NOT wired into `build_all.sh` because rendering ~570 distinct
   page images from the PDF takes ~20+ minutes on a cold cache (page
   images are cached by filename under `tmp/av-ru.1967/review_html/pages/`,
-  so repeat runs are fast — use `--force-images` to bust the cache,
-  `--skip-images` to iterate on HTML/layout without waiting on renders).
+  crops under `.../crops/`, so repeat runs are fast — use `--force-images`
+  to bust the cache, `--skip-images` to iterate on HTML/layout without
+  waiting on renders).
   ```bash
   python3 scripts/av-ru-1967/build_review_html.py
   ```
+- **`geometry_lookup.py`** — shared helper cross-referencing an article's
+  (page, column, top) against `tmp/av-ru.1967/geometry/` to get an actual
+  bounding box for its printed line (`bbox_for()`). Used by
+  `build_dataset.py` (adds `bbox` to `data/av-ru.1967.provenance.jsonl` and
+  each `needs_review.jsonl` row) and `build_review_html.py` (per-item crop
+  images).
+
 
 ### `data/av-ru.1967.decisions.jsonl` / `decision_ledger.py`
 

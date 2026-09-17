@@ -25,6 +25,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from parse_articles import LABEL_NORMALIZE  # noqa: E402
 from quality_scan import RUSSIAN_GRAMMAR_RE, looks_russian_only  # noqa: E402
 from segment_entries import load_known_words  # noqa: E402
+from geometry_lookup import bbox_for  # noqa: E402
 
 ROMAN_TO_INT = {"I": 1, "II": 2, "III": 3, "IV": 4, "V": 5}
 
@@ -412,10 +413,12 @@ def main() -> int:
     parser.add_argument("--out", default="data/av-ru.1967.jsonl")
     parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
     parser.add_argument("--provenance", default="data/av-ru.1967.provenance.jsonl")
+    parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
     parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     args = parser.parse_args()
 
     known_words = load_known_words(Path(args.av_ru))
+    geometry_dir = Path(args.geometry_dir)
     stats: dict[str, int] = {}
     # av-ru-1967-review-batch-2-2026-09-17.md, "P0. Исправить дедупликацию
     # до confidence-гейта": the old single-pass loop added every serialized
@@ -515,6 +518,7 @@ def main() -> int:
                     "confidence": article.get("confidence"),
                     "reasons": article.get("reasons", []),
                     "raw_text_length": len(article.get("raw_text") or ""),
+                    "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
                     "selection_rule": "highest-confidence-first-seen" if other_members else "unique",
                     "duplicate_group_spans_differ": spans_differ,
                     "duplicate_group": [
@@ -525,6 +529,7 @@ def main() -> int:
                             "confidence": m[1].get("confidence"),
                             "reasons": m[1].get("reasons", []),
                             "raw_text_preview": (m[1].get("raw_text") or "")[:100],
+                            "bbox": bbox_for(geometry_dir, m[1].get("page"), m[1].get("column"), m[1].get("top")),
                         }
                         for m in other_members
                     ],
@@ -544,6 +549,7 @@ def main() -> int:
                     "continues_next_page": article.get("continues_next_page", False),
                     "word_raw": article.get("word_raw"),
                     "raw_text": article.get("raw_text"),
+                    "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
                     "entry": entry,
                 }
             )
