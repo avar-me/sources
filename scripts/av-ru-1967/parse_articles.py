@@ -258,17 +258,25 @@ def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dic
             # so such tokens fall through to plain `text` below instead.
             run = [norm]
             j = i + 1
-            while j < n and tokens[j]["bold"] and not tokens[j]["italic"]:
-                run.append(tokens[j]["norm"])
-                j += 1
-            # A single word right after the bold run sometimes lost its own
-            # bold in OCR (opposite of the stray-bold-Russian-word case,
-            # e.g. p.538's "гьедин" — still clearly Avar since it contains a
-            # digraph, but not bold). Reclaim just that one word for `av`
-            # rather than leaving it to leak into `ru`.
-            if j < n and not tokens[j]["italic"] and has_avar_signal(tokens[j]["norm"]):
-                run.append(tokens[j]["norm"])
-                j += 1
+            while j < n:
+                if tokens[j]["bold"] and not tokens[j]["italic"]:
+                    run.append(tokens[j]["norm"])
+                    j += 1
+                    continue
+                # A word in the middle of (or right after) the bold run
+                # sometimes lost its own bold in OCR (opposite of the
+                # stray-bold-Russian-word case, e.g. p.538's "гьедин" —
+                # still clearly Avar since it contains a digraph, but not
+                # bold, with the bold run resuming right after it on
+                # "лъимаде"). Absorb it into `av` either way — whether bold
+                # resumes after or this is genuinely the last av word
+                # before `ru` begins — rather than treating it as an
+                # example boundary and leaving a stray empty-`ru` example.
+                if not tokens[j]["italic"] and has_avar_signal(tokens[j]["norm"]):
+                    run.append(tokens[j]["norm"])
+                    j += 1
+                    continue
+                break
             av = " ".join(run)
             # Everything up to the next example-separating ';' (or end) is
             # this example's Russian translation.
