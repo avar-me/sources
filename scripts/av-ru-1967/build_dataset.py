@@ -296,9 +296,17 @@ def main() -> int:
 
     known_words = load_known_words(Path(args.av_ru))
     stats: dict[str, int] = {}
-    entries: list[dict[str, Any]] = []
-    needs_review: list[dict[str, Any]] = []
-    seen_lines: set[str] = set()
+    # av-ru-1967-review-batch-2-2026-09-17.md, "P0. Исправить дедупликацию
+    # до confidence-гейта": the old single-pass loop added every serialized
+    # entry to one global `seen_lines` set BEFORE splitting by confidence —
+    # if a low/medium duplicate of some entry happened to appear earlier in
+    # the file than an identical high-confidence one, the high copy was
+    # silently dropped entirely (never published, never queued for
+    # review). Two-pass fix: first collect every (confidence, entry)
+    # candidate per unique serialized entry, then keep only the
+    # highest-confidence representative of each duplicate group.
+    CONF_RANK = {"high": 2, "medium": 1, "low": 0}
+    candidates: dict[str, tuple[int, dict[str, Any], dict[str, Any]]] = {}
     with Path(args.articles).open("r", encoding="utf-8") as fh:
         for line in fh:
             article = json.loads(line)
@@ -307,35 +315,35 @@ def main() -> int:
                 continue
             entry = strip_soft_hyphens(entry)
             serialized = json.dumps(entry, ensure_ascii=False)
-            if serialized in seen_lines:
-                # Byte-identical entries are always segmentation noise
-                # (e.g. a stray bold word repeatedly misread as a bare
-                # headword stub) — dropping the repeat loses nothing, since
-                # keeping N copies of the exact same object is never
-                # meaningful for a dictionary.
-                continue
-            seen_lines.add(serialized)
-            # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
-            # попадают в основной JSONL": the docstring above claimed
-            # low-confidence articles were excluded, but build_entry() never
-            # actually checked `confidence` — every article, regardless of
-            # segmentation confidence, ended up in the published file. Only
-            # `high` (a real bold headword match, or the equally strict
-            # spelling-variant-pipe case) goes to data/av-ru.1967.jsonl;
-            # `medium`/`low` go to a separate review queue instead, tagged
-            # with the reason so a human can triage without re-deriving it.
-            if article.get("confidence") == "high":
-                entries.append(entry)
-            else:
-                needs_review.append(
-                    {
-                        "page": article.get("page"),
-                        "confidence": article.get("confidence"),
-                        "word_raw": article.get("word_raw"),
-                        "raw_text": article.get("raw_text"),
-                        "entry": entry,
-                    }
-                )
+            rank = CONF_RANK.get(article.get("confidence"), -1)
+            existing = candidates.get(serialized)
+            if existing is None or rank > existing[0]:
+                candidates[serialized] = (rank, article, entry)
+
+    entries: list[dict[str, Any]] = []
+    needs_review: list[dict[str, Any]] = []
+    for _rank, article, entry in candidates.values():
+        # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
+        # попадают в основной JSONL": the docstring above claimed
+        # low-confidence articles were excluded, but build_entry() never
+        # actually checked `confidence` — every article, regardless of
+        # segmentation confidence, ended up in the published file. Only
+        # `high` (a real bold headword match, or the equally strict
+        # spelling-variant-pipe case) goes to data/av-ru.1967.jsonl;
+        # `medium`/`low` go to a separate review queue instead, tagged
+        # with the reason so a human can triage without re-deriving it.
+        if article.get("confidence") == "high":
+            entries.append(entry)
+        else:
+            needs_review.append(
+                {
+                    "page": article.get("page"),
+                    "confidence": article.get("confidence"),
+                    "word_raw": article.get("word_raw"),
+                    "raw_text": article.get("raw_text"),
+                    "entry": entry,
+                }
+            )
 
     # A bare {"word": X} stub next to another entry with the same word that
     # DOES have content is always redundant segmentation noise (a stray
