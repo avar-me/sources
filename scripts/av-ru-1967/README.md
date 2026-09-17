@@ -118,11 +118,14 @@ and will drift.
   that checks the PUBLISHED file's own file order/content, independent of
   the heuristics that built it. Checks: alphabetical order regressions in
   `data/av-ru.1967.jsonl`'s own order (no stress-glyph rescue — accepted is
-  supposed to be final already); suspicious-language headwords (extends
-  the old grammar-suffix/function-word check with an exact-match lookup
-  against `data/ru-av.jsonl`'s real Russian lexicon, still dictionary-based
-  rather than the full layout/font-based classifier batch-3 ultimately
-  wants); oversized spans (`raw_text_length` from the provenance file);
+  supposed to be final already); suspicious-language headwords (a
+  Russian-lexicon match against `data/ru-av.jsonl` is only a HINT — it
+  fires as a finding only combined with `_is_bare_or_fragment()`, i.e. the
+  entry ALSO has no substantive gloss content, since a genuine
+  directly-borrowed Avar loanword like "амбар"/"авантюра" always has a
+  real gloss/example and shouldn't be flagged just for looking Russian;
+  still not the full layout/font-based structural classifier batch-3
+  ultimately wants); oversized spans (`raw_text_length` from the provenance file);
   `see_also` link targets split into accepted/review/missing; provenance
   completeness (hard 0 — every accepted entry must have a provenance row by
   construction). Four metrics tracked in `baselines.json`:

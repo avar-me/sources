@@ -47,7 +47,31 @@ _SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
 LONG_SPAN_CHARS = 1000
 
 
-def suspicious_headword_reason(word: str, known_words: set[str], russian_lexicon: set[str]) -> str | None:
+def _is_bare_or_fragment(entry: dict[str, Any]) -> bool:
+    """True if the entry has no substantive gloss content at all — either
+    a bare `{"word": ...}` stub, or every sense's `text`/examples are tiny
+    fragments (a single stray preposition, an abbreviated cross-reference
+    like 'ср.', a mid-sentence scrap). A genuine directly-borrowed Avar
+    loanword entry (e.g. 'амбар', 'авантюра' — Step 29's self-gloss
+    loanword pattern) always has at least a clean single-word gloss or a
+    real example sentence; a segmentation artifact (a Russian gloss word
+    that got mis-bolded into becoming its own headword) typically doesn't,
+    because there was never a real Avar article there to begin with."""
+    if set(entry.keys()) == {"word"}:
+        return True
+    for sense in entry.get("senses", []):
+        text = (sense.get("text") or "").strip(" ,.;:")
+        if len(text) > 2:
+            return False
+        for ex in sense.get("examples", []):
+            av = (ex.get("av") or "").strip()
+            ru = (ex.get("ru") or "").strip()
+            if len(av) > 4 and len(ru) > 4:
+                return False
+    return True
+
+
+def suspicious_headword_reason(word: str, entry: dict[str, Any], known_words: set[str], russian_lexicon: set[str]) -> str | None:
     """av-ru-1967-review-batch-3-2026-09-17.md, "P0. Исправить
     false-headword detection без бесконечного blacklist": the old check
     (RUSSIAN_GRAMMAR_RE suffix + a dozen hand-picked function words) misses
@@ -61,8 +85,8 @@ def suspicious_headword_reason(word: str, known_words: set[str], russian_lexicon
     lowered = word.strip(",.;:!?").lower()
     if RUSSIAN_GRAMMAR_RE.search(word) or lowered in RUSSIAN_FUNCTION_WORDS:
         return "russian-grammar-or-function-word"
-    if lowered in russian_lexicon:
-        return "matches-russian-lexicon"
+    if lowered in russian_lexicon and _is_bare_or_fragment(entry):
+        return "matches-russian-lexicon-and-lacks-content"
     return None
 
 
@@ -126,7 +150,7 @@ def main() -> int:
 
     # --- suspicious headword language ---
     for e, p in zip(accepted, provenance):
-        reason = suspicious_headword_reason(e["word"], known_words, russian_lexicon)
+        reason = suspicious_headword_reason(e["word"], e, known_words, russian_lexicon)
         if reason:
             findings["suspicious_headword"].append(
                 {"word": e["word"], "page": p.get("page"), "reason": reason}
