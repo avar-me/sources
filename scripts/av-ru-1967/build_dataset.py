@@ -107,13 +107,61 @@ def normalize_labels(labels_raw: list[str]) -> list[str]:
     return out
 
 
-def parse_forms_raw(forms_raw: str) -> list[str]:
-    """Extract just the form values from a bracket like "род. п. алъул;
-    мн. ал" — drop the case-label words (they end in '.'), keep the rest."""
+# av-ru-1967-review-batch-2-2026-09-17.md, "P1. Довести forms до
+# семантически корректной структуры": the printed `[forms_raw]` bracket
+# mixes real inflected-form values with case/mood/declension-class
+# grammar labels ("род. п.", "повел.", "1-го скл.", "2-го скл.", "мн.") and
+# stray separator punctuation (typist commas between clauses). Neither
+# belongs in forms[] — only the actual form values should survive.
+FORM_GRAMMAR_MARKERS = {
+    # case names (падеж)
+    "род", "дат", "местн", "эрг",
+    # generic grammar words that appear standalone in forms_raw brackets
+    "п", "скл", "мн", "ед", "повел",
+}
+# "1-го скл.", "2-го скл." (declension class), OCR'd with a '-' or '~'
+# between the digit and "го"/"й" (e.g. "2~го" for "2-го").
+_ORDINAL_MARKER_RE = re.compile(r"^\d+[-~]?(го|й)$")
+# Punctuation/marker characters a cleaned form value should never start or
+# end with — plain separator noise from the printed bracket, not part of
+# the word itself.
+_FORM_STRIP_CHARS = ".,;:^_*[]{}\\~"
+
+
+def _is_form_grammar_marker(bare: str) -> bool:
+    if not bare or bare.isdigit():
+        return True
+    if _ORDINAL_MARKER_RE.match(bare):
+        return True
+    return bare.lower() in FORM_GRAMMAR_MARKERS
+
+
+def parse_forms_raw(forms_raw: str, known_words: set[str] | None = None) -> list[str]:
+    """Extract just the form values from a bracket like "род. п. 1-го скл.
+    авторасул, 2-го скл. авторалъул" or "повел, бабаде" — drop case/mood/
+    declension-class grammar markers and any leftover separator
+    punctuation, keeping only the printed inflected-form values (multiple
+    explicitly printed forms, e.g. per declension class, are kept as
+    separate list entries)."""
+    known_words = known_words or set()
     forms: list[str] = []
-    for chunk in forms_raw.split(";"):
-        tokens = chunk.strip().split()
-        forms.extend(t for t in tokens if t and not t.endswith("."))
+    for raw_token in forms_raw.replace(",", " ").split():
+        bare = raw_token.strip(_FORM_STRIP_CHARS)
+        if _is_form_grammar_marker(bare):
+            continue
+        if any(ch.isdigit() for ch in bare):
+            # A real Avar form with a stray OCR digit glued on (e.g. a
+            # misread superscript reference), not a case/declension marker
+            # itself (those are filtered above) — strip the digit(s) rather
+            # than dropping the whole value.
+            bare = "".join(ch for ch in bare if not ch.isdigit())
+        if not bare:
+            continue
+        if looks_russian_only(bare, known_words) and not has_avar_signal(bare):
+            # Plain Russian text leaking into the forms bracket (not an
+            # Avar inflected form at all) — never belongs in forms[].
+            continue
+        forms.append(bare)
     return forms
 
 
@@ -160,6 +208,22 @@ def _strings_in(value: Any) -> list[str]:
     return []
 
 
+# av-ru-1967-review-batch-2-2026-09-17.md, "P1. Довести forms до
+# семантически корректной структуры", requirement 4 ("проверять аварский
+# допустимый алфавит формы"): a mid-word uppercase letter in a cleaned
+# forms[] value is essentially never a real spelling (this book's headwords
+# and forms are lowercase) — it's almost always a mis-OCR'd separator, e.g.
+# "дурцалЦдурцаби" for "дурцал; дурцаби" or "мухьлулН" for a garbled case
+# ending. parse_forms_raw() only strips grammar markers/punctuation at
+# token *boundaries*, so this kind of mid-token corruption needs its own
+# check rather than silently publishing a malformed form value.
+_VALID_FORM_RE = re.compile(r"[а-яёӏ]+(-[а-яёӏ]+)*")
+
+
+def _looks_like_valid_form(value: str) -> bool:
+    return bool(_VALID_FORM_RE.fullmatch(value))
+
+
 def detect_parse_issues(entry: dict[str, Any], known_words: set[str]) -> list[str]:
     """Content-level defects that boundary confidence alone can't see —
     returns an empty list for a clean entry. Non-empty means `parse_confidence`
@@ -174,6 +238,9 @@ def detect_parse_issues(entry: dict[str, Any], known_words: set[str]) -> list[st
                 issues.append(f"raw-marker:{ch}")
     if RUSSIAN_GRAMMAR_RE.search(entry.get("word", "")) and not has_avar_signal(entry.get("word", "")) and entry["word"] not in known_words:
         issues.append("russian-word-as-headword")
+    for f in entry.get("forms", []):
+        if not _looks_like_valid_form(f):
+            issues.append("malformed-form-value")
     for sense in entry.get("senses", []):
         for ex in sense.get("examples", []):
             av, ru = ex.get("av", ""), ex.get("ru", "")
@@ -275,7 +342,7 @@ def build_entry(article: dict[str, Any], known_words: set[str], stats: dict[str,
 
     forms_raw = article.get("forms_raw")
     if forms_raw:
-        values = [rescue_word(v, known_words)[0] for v in parse_forms_raw(forms_raw)]
+        values = [rescue_word(v, known_words)[0] for v in parse_forms_raw(forms_raw, known_words)]
         if values:
             seen = {word}
             forms = [word]
