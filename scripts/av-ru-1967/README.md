@@ -191,8 +191,11 @@ spans.
 
 Shared helper (`scripts/av-ru-1967/baseline.py`) used by `check_accepted.py`,
 `check_order.py`, `resolve_references.py` and `build_page_ledger.py`.
-`baselines.json` records the current acceptable ceiling for each metric;
-`check_metric()` prints `[baseline] ok` or `FAIL` and the script's `main()`
-turns any `FAIL` into a non-zero exit. When fixing article-boundary/
-reference bugs, update the relevant number in `baselines.json` downward in
-the same commit as the fix so the gate can't regress back up unnoticed.
+`baselines.json` records the exact EXPECTED value for each metric —
+`check_metric()` requires the current value to match it precisely (a true
+monotonic ratchet, per av-ru-1967-review-batch-3-2026-09-17.md's "P0.
+Сделать реальный baseline ratchet"): a missing baseline entry is a
+failure, a regression is a failure, and an *improvement* is ALSO a
+failure until `baselines.json` is updated to the new, lower number in the
+same commit. This forced sync is what makes it a ratchet — the ceiling
+can only ever move because someone consciously edited the file.
