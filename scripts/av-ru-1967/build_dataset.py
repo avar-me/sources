@@ -359,19 +359,30 @@ def main() -> int:
     # candidate per unique serialized entry, then keep only the
     # highest-confidence representative of each duplicate group.
     CONF_RANK = {"high": 2, "medium": 1, "low": 0}
-    candidates: dict[str, tuple[int, dict[str, Any], dict[str, Any]]] = {}
     with Path(args.articles).open("r", encoding="utf-8") as fh:
-        for line in fh:
-            article = json.loads(line)
-            entry = build_entry(article, known_words, stats)
-            if entry is None:
-                continue
-            entry = strip_soft_hyphens(entry)
-            serialized = json.dumps(entry, ensure_ascii=False)
-            rank = CONF_RANK.get(article.get("confidence"), -1)
-            existing = candidates.get(serialized)
-            if existing is None or rank > existing[0]:
-                candidates[serialized] = (rank, article, entry)
+        articles = [json.loads(line) for line in fh]
+
+    candidates: dict[str, tuple[int, dict[str, Any], dict[str, Any]]] = {}
+    for i, article in enumerate(articles):
+        entry = build_entry(article, known_words, stats)
+        if entry is None:
+            continue
+        entry = strip_soft_hyphens(entry)
+        serialized = json.dumps(entry, ensure_ascii=False)
+        rank = CONF_RANK.get(article.get("confidence"), -1)
+        existing = candidates.get(serialized)
+        # av-ru-1967-review-batch-2-2026-09-17.md, "P0. Не терять
+        # provenance в review queue": book-neighbor headwords (the
+        # articles immediately before/after in reading order) let a
+        # reviewer place a needs_review candidate without reopening the
+        # PDF — cheap to attach here since draft_articles.jsonl is already
+        # in book reading order.
+        neighbors = {
+            "prev_word": articles[i - 1]["word"] if i > 0 else None,
+            "next_word": articles[i + 1]["word"] if i + 1 < len(articles) else None,
+        }
+        if existing is None or rank > existing[0]:
+            candidates[serialized] = (rank, {**article, **neighbors}, entry)
 
     entries: list[dict[str, Any]] = []
     needs_review: list[dict[str, Any]] = []
@@ -401,8 +412,14 @@ def main() -> int:
             needs_review.append(
                 {
                     "page": article.get("page"),
+                    "column": article.get("column"),
+                    "top": article.get("top"),
                     "confidence": article.get("confidence"),
+                    "reasons": article.get("reasons", []),
                     "parse_issues": parse_issues,
+                    "prev_word": article.get("prev_word"),
+                    "next_word": article.get("next_word"),
+                    "continues_next_page": article.get("continues_next_page", False),
                     "word_raw": article.get("word_raw"),
                     "raw_text": article.get("raw_text"),
                     "entry": entry,

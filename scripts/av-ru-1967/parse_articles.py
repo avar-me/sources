@@ -439,10 +439,13 @@ def parse_article(
 
     article: dict[str, Any] = {
         "page": cand["page"],
+        "column": cand.get("column"),
+        "top": cand.get("top"),
         "word": cand["word_guess"],
         "word_raw": cand["raw"],
         "star": cand["star"],
         "confidence": cand["confidence"],
+        "reasons": cand.get("reasons", []),
     }
     if cand["homonym"]:
         article["homonym"] = cand["homonym"]
