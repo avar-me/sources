@@ -105,6 +105,15 @@ def main() -> int:
     for kind, count in sorted(by_kind.items(), key=lambda kv: -kv[1]):
         print(f"  {kind}: {count}")
     print(f"wrote {out_path}")
+    # av-ru-1967-review-batch-2-2026-09-17.md acceptance criterion #9:
+    # "quality_scan accepted-набора возвращает 0 findings" — hard
+    # requirement (not a baseline like the other diagnostics), since
+    # build_dataset.py's parse_issues gate (Step 33) already enforces this
+    # at publish time; a non-zero count here means that gate itself
+    # regressed.
+    if findings:
+        print(f"HARD GATE FAILED: {len(findings)} quality_scan finding(s) in the published file (must be 0)")
+        return 1
     return 0
 
 

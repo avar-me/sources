@@ -29,6 +29,7 @@ sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
 from build_site import AVAR_ALPHABET, make_rank, make_sort_key, make_tokenizer  # noqa: E402
 
 sys.path.insert(0, str(Path(__file__).parent))
+from baseline import check_metric, load_baselines  # noqa: E402
 from build_dataset import rescue_word, split_pipe_corruption  # noqa: E402
 from quality_scan import RUSSIAN_GRAMMAR_RE  # noqa: E402
 from segment_entries import RUSSIAN_FUNCTION_WORDS, load_known_words  # noqa: E402
@@ -135,7 +136,23 @@ def main() -> int:
     for cat, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {cat}: {count} ({by_category_high_high.get(cat, 0)} high/high)")
     print(f"wrote {out_path}")
-    return 0
+
+    # av-ru-1967-review-batch-2-2026-09-17.md, "P1. Исправить декларацию полного
+    # pipeline": these are temporary, non-zero baselines (unlike
+    # quality_scan.py's hard 0) — the build fails if any of them get WORSE,
+    # but doesn't yet require perfection. Lower baselines.json as real fixes
+    # land (see check_metric's "improved" note).
+    baselines = load_baselines()
+    ok = True
+    ok &= check_metric("order_check.total_regressions", len(issues), baselines)
+    ok &= check_metric("order_check.high_high", both_high, baselines)
+    ok &= check_metric("order_check.unclassified", by_category.get("unclassified", 0), baselines)
+    ok &= check_metric(
+        "order_check.unclassified_high_high",
+        by_category_high_high.get("unclassified", 0),
+        baselines,
+    )
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

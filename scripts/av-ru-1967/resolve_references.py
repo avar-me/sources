@@ -23,6 +23,9 @@ from typing import Any
 sys.path.insert(0, str(Path(__file__).parents[2] / "src"))
 from build_site import normalize_palochka  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).parent))
+from baseline import check_metric, load_baselines  # noqa: E402
+
 
 def normalize(word: str) -> str:
     return normalize_palochka(word).lower().strip("*")
@@ -64,7 +67,10 @@ def main() -> int:
     total = resolved + len(unresolved)
     print(f"{total} see_also/from candidates: {resolved} resolved, {len(unresolved)} unresolved")
     print(f"wrote {out_path}")
-    return 0
+
+    baselines = load_baselines()
+    ok = check_metric("resolve_references.unresolved", len(unresolved), baselines)
+    return 0 if ok else 1
 
 
 if __name__ == "__main__":

@@ -4,12 +4,14 @@
 #
 # Regenerates data/av-ru.1967.jsonl from books/saidov_m_avarskorusskii_slovar.pdf
 # and runs every diagnostic script, failing fast (set -e) on the first
-# hard error. Diagnostic scripts that only *report* findings (check_order.py,
-# resolve_references.py, quality_scan.py) do not fail the build by
-# themselves yet — their counts are printed so a human decides whether the
-# current numbers are an acceptable baseline. validate_schema.py DOES fail
-# the build (schema violations, duplicate lines, soft hyphens, empty
-# examples, self-loops are never acceptable).
+# hard error. Per av-ru-1967-review-batch-2-2026-09-17.md's "P1. Исправить
+# декларацию полного pipeline": validate_schema.py and quality_scan.py are
+# unconditional hard gates (0 tolerance); check_order.py and
+# resolve_references.py are BASELINE gates (scripts/av-ru-1967/baselines.json)
+# — they fail the build if their metrics get WORSE than the last committed
+# baseline, but don't yet require perfection (see baseline.py's docstring).
+# compare_with_av_ru.py is a separate, genuinely optional spot-check
+# (fuzzy-match diagnostic) that does not gate the build.
 #
 # Usage (from repo root, inside the .venv-av-ru-1967 virtualenv):
 #   scripts/av-ru-1967/build_all.sh
@@ -38,14 +40,17 @@ python3 "$SCRIPTS_DIR/build_dataset.py" --out "$OUT"
 echo "=== validate_schema (hard gate) ==="
 python3 "$SCRIPTS_DIR/validate_schema.py" --input "$OUT"
 
-echo "=== check_order (report only) ==="
+echo "=== check_order (baseline gate) ==="
 python3 "$SCRIPTS_DIR/check_order.py"
 
-echo "=== resolve_references (report only) ==="
+echo "=== resolve_references (baseline gate) ==="
 python3 "$SCRIPTS_DIR/resolve_references.py"
 
-echo "=== quality_scan (report only) ==="
+echo "=== quality_scan (hard gate) ==="
 python3 "$SCRIPTS_DIR/quality_scan.py"
+
+echo "=== compare_with_av_ru (optional, does not gate the build) ==="
+python3 "$SCRIPTS_DIR/compare_with_av_ru.py" || echo "compare_with_av_ru.py failed/unavailable — not a build failure"
 
 echo "=== build complete: $OUT ==="
 wc -l "$OUT"
