@@ -448,11 +448,19 @@ def segment_stream(
             # should read "."), silently swallowing the next real headword
             # into the previous entry. Narrow fallback: only accept it when
             # the very NEXT token immediately confirms a genuine headword
-            # header shape — an italic label, a "[forms]" bracket, or a
-            # roman-numeral homonym marker — not just "some bold word
-            # anywhere nearby", which fired far too often (1409 hits
+            # header shape — an italic label, a "[forms]" bracket, a
+            # roman-numeral homonym marker, or (found via p.38's "ашбаз"
+            # swallowing "аэродром аэродром, аэроплан аэроплан, ...", 299
+            # occurrences book-wide) a direct Russian/Avar loanword whose
+            # own gloss just repeats the same word — not just "some bold
+            # word anywhere nearby", which fired far too often (1409 hits
             # book-wide) when tried with a wider lookahead window.
             nxt = stream[i + 1] if i + 1 < len(stream) else None
+            self_gloss = (
+                nxt is not None
+                and base in known_words
+                and nxt["norm"].strip(",.;").lower() == base.lower()
+            )
             if (
                 word["bold"]
                 and not word["italic"]
@@ -462,6 +470,7 @@ def segment_stream(
                     (nxt["italic"] and is_label_token(nxt["norm"]))
                     or nxt["norm"].startswith("[")
                     or ROMAN_RE.match(nxt["norm"])
+                    or self_gloss
                 )
             ):
                 at_boundary = True
