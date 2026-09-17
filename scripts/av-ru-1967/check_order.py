@@ -30,7 +30,8 @@ from build_site import AVAR_ALPHABET, make_rank, make_sort_key, make_tokenizer  
 
 sys.path.insert(0, str(Path(__file__).parent))
 from build_dataset import rescue_word, split_pipe_corruption  # noqa: E402
-from segment_entries import load_known_words  # noqa: E402
+from quality_scan import RUSSIAN_GRAMMAR_RE  # noqa: E402
+from segment_entries import RUSSIAN_FUNCTION_WORDS, load_known_words  # noqa: E402
 
 _SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
 
@@ -39,6 +40,40 @@ def rescued_word(word: str, known_words: set[str]) -> str:
     word, _ = split_pipe_corruption(word)
     word, _ = rescue_word(word, known_words)
     return word
+
+
+def _is_hyphen_reduplication(word: str) -> bool:
+    """"бакк-баккизе" vs "бакки" — a hyphenated reduplicated verb form and its
+    plain counterpart sort differently around the hyphen than a naïve
+    expectation, purely due to how the shared tokenizer handles "-" (not a
+    segmentation bug — spot-checked several of these pairs, both sides are
+    genuinely distinct, cleanly-parsed entries). Detected as: contains "-"
+    and one side of the hyphen is a prefix of the other."""
+    if "-" not in word:
+        return False
+    parts = word.split("-")
+    return any(
+        (a == b or a.startswith(b) or b.startswith(a))
+        for a, b in zip(parts, parts[1:])
+    )
+
+
+def classify(prev_word: str, next_word: str, known_words: set[str]) -> str:
+    """Best-effort root-cause bucket for a regression pair, per
+    av-ru-1967-review-batch-2-2026-09-17.md's "P0. Сделать корректность
+    границ hard gate" classification requirement. Checked in order of
+    confidence — a pair can match more than one heuristic, so the first,
+    most specific match wins."""
+    for w in (prev_word, next_word):
+        if ("й" in w or "ё" in w) and w not in known_words:
+            return "stress-glyph-unresolved"
+    if _is_hyphen_reduplication(prev_word) or _is_hyphen_reduplication(next_word):
+        return "hyphen-reduplication"
+    for w in (prev_word, next_word):
+        lowered = w.strip(",.;:!?").lower()
+        if lowered in RUSSIAN_FUNCTION_WORDS or RUSSIAN_GRAMMAR_RE.search(lowered):
+            return "false-headword"
+    return "unclassified"
 
 
 def main() -> int:
@@ -65,6 +100,7 @@ def main() -> int:
             if prev is not None and key < prev_key:
                 issues.append(
                     {
+                        "category": classify(prev["word_rescued"], word, known_words),
                         "prev": {
                             "page": prev["page"],
                             "word": prev["word_rescued"],
@@ -90,6 +126,14 @@ def main() -> int:
         1 for i in issues if i["prev"]["confidence"] == "high" and i["next"]["confidence"] == "high"
     )
     print(f"{total} articles, {len(issues)} order regressions ({both_high} both high-confidence)")
+    by_category: dict[str, int] = {}
+    by_category_high_high: dict[str, int] = {}
+    for i in issues:
+        by_category[i["category"]] = by_category.get(i["category"], 0) + 1
+        if i["prev"]["confidence"] == "high" and i["next"]["confidence"] == "high":
+            by_category_high_high[i["category"]] = by_category_high_high.get(i["category"], 0) + 1
+    for cat, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
+        print(f"  {cat}: {count} ({by_category_high_high.get(cat, 0)} high/high)")
     print(f"wrote {out_path}")
     return 0
 
