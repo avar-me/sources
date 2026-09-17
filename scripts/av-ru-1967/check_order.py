@@ -31,6 +31,12 @@ from build_site import AVAR_ALPHABET, make_rank, make_sort_key, make_tokenizer  
 sys.path.insert(0, str(Path(__file__).parent))
 from baseline import check_metric, load_baselines  # noqa: E402
 from build_dataset import rescue_word, split_pipe_corruption  # noqa: E402
+from decision_ledger import (  # noqa: E402
+    check_decision,
+    load_decisions,
+    order_regression_hash,
+    order_regression_id,
+)
 from quality_scan import RUSSIAN_GRAMMAR_RE  # noqa: E402
 from segment_entries import RUSSIAN_FUNCTION_WORDS, load_known_words  # noqa: E402
 
@@ -60,11 +66,14 @@ def _is_hyphen_reduplication(word: str) -> bool:
 
 
 def classify(prev_word: str, next_word: str, known_words: set[str]) -> str:
-    """Best-effort root-cause bucket for a regression pair, per
-    av-ru-1967-review-batch-2-2026-09-17.md's "P0. Сделать корректность
-    границ hard gate" classification requirement. Checked in order of
-    confidence — a pair can match more than one heuristic, so the first,
-    most specific match wins."""
+    """Best-effort, UNPROVEN root-cause guess for a regression pair — per
+    av-ru-1967-review-batch-3-2026-09-17.md's "P1. Сделать классификацию
+    regressions доказуемой", this is only ever a `suggested_category` — a
+    heuristic hypothesis, not a fact. It only becomes `confirmed_category`
+    once a human decision with scan evidence is recorded in
+    data/av-ru.1967.decisions.jsonl (see decision_ledger.py). Checked in
+    order of confidence — a pair can match more than one heuristic, so the
+    first, most specific match wins."""
     for w in (prev_word, next_word):
         if ("й" in w or "ё" in w) and w not in known_words:
             return "stress-glyph-unresolved"
@@ -87,11 +96,13 @@ def main() -> int:
     articles_path = Path(args.articles)
     out_path = Path(args.out)
     known_words = load_known_words(Path(args.known_words))
+    decisions = load_decisions()
 
     prev = None
     prev_key = None
     issues = []
     total = 0
+    ledger_conflicts = 0
     with articles_path.open("r", encoding="utf-8") as fh:
         for line in fh:
             article = json.loads(line)
@@ -99,12 +110,23 @@ def main() -> int:
             word = rescued_word(article["word"], known_words)
             key = _SORT_KEY(word)
             if prev is not None and key < prev_key:
+                prev_word = prev["word_rescued"]
+                suggested = classify(prev_word, word, known_words)
+                ledger_id = order_regression_id(prev_word, word)
+                ledger_key = order_regression_hash(prev_word, word, prev["page"], article["page"])
+                status, row = check_decision(decisions, ledger_id, ledger_key)
+                confirmed = row["category"] if status == "valid" else None
+                if status == "conflict":
+                    ledger_conflicts += 1
                 issues.append(
                     {
-                        "category": classify(prev["word_rescued"], word, known_words),
+                        "suggested_category": suggested,
+                        "confirmed_category": confirmed,
+                        "ledger_status": status,
+                        "category": confirmed or suggested,
                         "prev": {
                             "page": prev["page"],
-                            "word": prev["word_rescued"],
+                            "word": prev_word,
                             "confidence": prev["confidence"],
                             "raw_text": prev["raw_text"][:120],
                         },
@@ -136,6 +158,10 @@ def main() -> int:
     for cat, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {cat}: {count} ({by_category_high_high.get(cat, 0)} high/high)")
     print(f"wrote {out_path}")
+    confirmed_count = sum(1 for i in issues if i["ledger_status"] == "valid")
+    print(f"  {confirmed_count} of {len(issues)} regressions have a confirmed (ledger) category")
+    if ledger_conflicts:
+        print(f"  LEDGER CONFLICT: {ledger_conflicts} decision(s) no longer match their source facts — re-review needed")
 
     # av-ru-1967-review-batch-2-2026-09-17.md, "P1. Исправить декларацию полного
     # pipeline": these are temporary, non-zero baselines (unlike
@@ -152,6 +178,12 @@ def main() -> int:
         by_category_high_high.get("unclassified", 0),
         baselines,
     )
+    # av-ru-1967-review-batch-3-2026-09-17.md, "P0. Создать persistent decision
+    # ledger": a decision whose source facts no longer match what's in the
+    # ledger must NEVER be silently reused — hard 0, not a baseline.
+    if ledger_conflicts:
+        print(f"HARD GATE FAILED: {ledger_conflicts} decision_ledger conflict(s)")
+        ok = False
     return 0 if ok else 1
 
 
