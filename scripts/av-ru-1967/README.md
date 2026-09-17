@@ -130,9 +130,16 @@ and will drift.
   ultimately wants); oversized spans (`raw_text_length` from the provenance file);
   `see_also` link targets split into accepted/review/missing; provenance
   completeness (hard 0 — every accepted entry must have a provenance row by
-  construction). Four metrics tracked in `baselines.json`:
+  construction). Link targets are categorized by BOTH origin (accepted vs
+  review entries) and destination (accepted/review/missing/ocr-invalid — a
+  target string that's pure OCR noise, e.g. a leftover raw marker
+  character or no letters at all, is distinguished from a "missing" but
+  plausible word). Metrics tracked in `baselines.json`:
   `check_accepted.order_regressions`, `check_accepted.suspicious_headwords`,
-  `check_accepted.oversized_spans`, `check_accepted.links_missing`.
+  `check_accepted.oversized_spans`, `check_accepted.links_missing`,
+  `check_accepted.review_links_missing`,
+  `check_accepted.accepted_links_ocr_invalid`,
+  `check_accepted.review_links_ocr_invalid`.
 - **`build_page_ledger.py`** — per-page coverage ledger across all 597
   physical pages (23-619), cross-referencing geometry/segments/draft
   articles/accepted/review counts, first/last headword, carry-in/out,

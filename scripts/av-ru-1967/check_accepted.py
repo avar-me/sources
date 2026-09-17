@@ -35,8 +35,22 @@ from build_site import AVAR_ALPHABET, make_rank, make_sort_key, make_tokenizer  
 
 sys.path.insert(0, str(Path(__file__).parent))
 from baseline import check_metric, load_baselines  # noqa: E402
+from build_dataset import RAW_MARKER_CHARS  # noqa: E402
 from quality_scan import RUSSIAN_FUNCTION_WORDS, RUSSIAN_GRAMMAR_RE, has_avar_signal  # noqa: E402
 from segment_entries import load_known_words  # noqa: E402
+
+
+def _looks_ocr_invalid_target(target: str) -> bool:
+    """A see_also/from target string that can't possibly be a real
+    headword — a leftover raw structural marker character, or a bare
+    digit/punctuation-only scrap. Distinct from "missing" (a plausible
+    word that just isn't in accepted/review) — this is OCR noise that
+    should never have become a target string at all."""
+    if not target or not target.strip():
+        return True
+    if any(ch in target for ch in RAW_MARKER_CHARS):
+        return True
+    return not any(ch.isalpha() for ch in target)
 
 _SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
 
@@ -113,14 +127,18 @@ def main() -> int:
     russian_lexicon = load_known_words(Path(args.ru_av))
 
     review_words: set[str] = set()
+    review_see_also: list[tuple[str, dict[str, str]]] = []
     review_path = Path(args.needs_review)
     if review_path.exists():
         with review_path.open("r", encoding="utf-8") as fh:
             for line in fh:
                 row = json.loads(line)
-                w = row.get("entry", {}).get("word")
+                entry = row.get("entry", {})
+                w = entry.get("word")
                 if w:
                     review_words.add(w)
+                    for ref in entry.get("see_also", []):
+                        review_see_also.append((w, ref))
 
     accepted_words = {e["word"] for e in accepted}
 
@@ -169,20 +187,42 @@ def main() -> int:
         if p.get("page") is None or p.get("word") != e["word"]:
             findings["missing_provenance"].append({"word": e["word"]})
 
-    # --- see_also link targets: accepted -> accepted / review / missing ---
-    link_categories = {"accepted": 0, "review": 0, "missing": 0}
+    # --- see_also link targets, split by both origin (accepted/review)
+    # and destination (accepted/review/missing/ocr-invalid) — batch-3 P1
+    # "Разделить links для accepted и полного draft" ---
+    link_categories = {
+        "accepted_to_accepted": 0,
+        "accepted_to_review": 0,
+        "accepted_to_missing": 0,
+        "accepted_to_ocr_invalid": 0,
+        "review_to_accepted": 0,
+        "review_to_review": 0,
+        "review_to_missing": 0,
+        "review_to_ocr_invalid": 0,
+    }
+
+    def _categorize(origin: str, source_word: str, target: str) -> None:
+        if _looks_ocr_invalid_target(target):
+            link_categories[f"{origin}_to_ocr_invalid"] += 1
+            return
+        if target in accepted_words:
+            link_categories[f"{origin}_to_accepted"] += 1
+        elif target in review_words:
+            link_categories[f"{origin}_to_review"] += 1
+        else:
+            link_categories[f"{origin}_to_missing"] += 1
+            if origin == "accepted":
+                findings["link_to_missing"].append({"word": source_word, "target": target})
+
     for e in accepted:
         for ref in e.get("see_also", []):
             target = ref.get("target")
-            if not target:
-                continue
-            if target in accepted_words:
-                link_categories["accepted"] += 1
-            elif target in review_words:
-                link_categories["review"] += 1
-            else:
-                link_categories["missing"] += 1
-                findings["link_to_missing"].append({"word": e["word"], "target": target})
+            if target:
+                _categorize("accepted", e["word"], target)
+    for source_word, ref in review_see_also:
+        target = ref.get("target")
+        if target:
+            _categorize("review", source_word, target)
 
     out_path = Path(args.out)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -197,8 +237,14 @@ def main() -> int:
     print(f"  oversized spans (> {LONG_SPAN_CHARS} chars): {len(findings['oversized_span'])}")
     print(f"  entries missing provenance: {len(findings['missing_provenance'])}")
     print(
-        f"  see_also links: {link_categories['accepted']} accepted, "
-        f"{link_categories['review']} review, {link_categories['missing']} missing"
+        f"  see_also links (accepted origin): {link_categories['accepted_to_accepted']} accepted, "
+        f"{link_categories['accepted_to_review']} review, {link_categories['accepted_to_missing']} missing, "
+        f"{link_categories['accepted_to_ocr_invalid']} ocr-invalid"
+    )
+    print(
+        f"  see_also links (review origin): {link_categories['review_to_accepted']} accepted, "
+        f"{link_categories['review_to_review']} review, {link_categories['review_to_missing']} missing, "
+        f"{link_categories['review_to_ocr_invalid']} ocr-invalid"
     )
     print(f"wrote {out_path}")
 
@@ -213,7 +259,10 @@ def main() -> int:
     if findings["missing_provenance"]:
         print(f"HARD GATE FAILED: {len(findings['missing_provenance'])} accepted entries without provenance")
         ok = False
-    ok &= check_metric("check_accepted.links_missing", link_categories["missing"], baselines)
+    ok &= check_metric("check_accepted.links_missing", link_categories["accepted_to_missing"], baselines)
+    ok &= check_metric("check_accepted.review_links_missing", link_categories["review_to_missing"], baselines)
+    ok &= check_metric("check_accepted.accepted_links_ocr_invalid", link_categories["accepted_to_ocr_invalid"], baselines)
+    ok &= check_metric("check_accepted.review_links_ocr_invalid", link_categories["review_to_ocr_invalid"], baselines)
     return 0 if ok else 1
 
 
