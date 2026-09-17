@@ -32,6 +32,7 @@ from segment_entries import (  # noqa: E402
     AVAR_DIGRAPHS,
     BARE_FROM_RE,
     HEADWORD_RE,
+    MAX_BRACKET_TOKENS,
     NUMBERED_SENSE_RE,
     REFERENCE_LIST_RE,
     ROMAN_RE,
@@ -162,15 +163,36 @@ def consume_header(tokens: list[dict[str, Any]], pos: int) -> tuple[list[str], s
             pos += 1
             continue
         if norm.startswith("["):
+            # A real forms bracket ("[род. п. X; мн. Y]") never spans more
+            # than a handful of words — bound it the same way
+            # segment_entries.segment_stream's in_brackets is bounded
+            # (MAX_BRACKET_TOKENS), so an OCR-lost "]" can't swallow the
+            # rest of the article's senses/examples into `forms_raw`
+            # (found via "ахӏи" per av-ru-1967-review-2026-09-17.md's "P0.
+            # Незакрытая квадратная скобка"). If the bracket never closes
+            # within the bound, drop it entirely rather than guessing —
+            # the words fall through as ordinary sense text instead.
+            start = pos
             bracket: list[str] = []
-            while pos < n:
+            closed = False
+            while pos < n and pos - start <= MAX_BRACKET_TOKENS:
                 cur = tokens[pos]["norm"]
                 bracket.append(cur.lstrip("["))
                 pos += 1
                 if "]" in cur:
+                    closed = True
                     break
-            forms_raw = " ".join(bracket).rstrip("]")
-            continue
+                if TERMINATOR_RE.search(cur):
+                    break
+            if closed:
+                forms_raw = " ".join(bracket).rstrip("]")
+                continue
+            # Never closed within the bound — stop consuming the header
+            # here (don't loop on the same "[" token forever) and leave
+            # `pos` at the bracket's start so it falls through as ordinary
+            # sense/example text instead of being guessed at.
+            pos = start
+            break
         break
     return labels_raw, forms_raw, pos
 

@@ -87,6 +87,15 @@ SPELLING_VARIANT_RE = re.compile(
 # separate senses/parentheticals *within* the same article (verified against
 # page 23: multi-sense entries stay open across ';' and end on '.'/'?'/'!').
 TERMINATOR_RE = re.compile(r"[.?!]$")
+
+# A real forms bracket ("[род. п. X; мн. Y]") never spans more than a
+# handful of words. If OCR drops the closing "]", segment_stream's
+# `in_brackets` state used to stay True for the rest of the page, silently
+# suppressing every subsequent headword candidate (found via p.??'s "ахѳи",
+# whose `forms` swallowed dozens of following dictionary entries all the
+# way to "аят" per av-ru-1967-review-2026-09-17.md's "P0. Незакрытая
+# квадратная скобка"). Give up waiting past this many tokens.
+MAX_BRACKET_TOKENS = 15
 # 'ср.'/'см.' introduce a list of cross-reference targets (also set bold,
 # since they are Avar words) that must not be mistaken for new headwords.
 REFERENCE_LIST_RE = re.compile(r"^(ср|см)[.,]*$", re.IGNORECASE)
@@ -317,6 +326,7 @@ def segment_stream(
     in_reference_list = False
     skip_next_bold = False  # one-shot suppression right after a bare "от"
     in_brackets = False  # forms list "[род. п. X; мн. Y]" — never a headword
+    in_brackets_since = 0  # index where the bracket opened, for MAX_BRACKET_TOKENS
 
     for i, word in enumerate(stream):
         text = word["norm"]
@@ -361,11 +371,22 @@ def segment_stream(
         if in_brackets:
             if "]" in text:
                 in_brackets = False
-            prev = word
-            continue
+                prev = word
+                continue
+            if i - in_brackets_since > MAX_BRACKET_TOKENS or TERMINATOR_RE.search(text):
+                # Unclosed bracket — OCR lost the "]". Give up rather than
+                # suppressing headword detection indefinitely, and let THIS
+                # token (which triggered giving up) fall through to the
+                # normal candidate checks below instead of being silently
+                # skipped — it's often the real next headword.
+                in_brackets = False
+            else:
+                prev = word
+                continue
 
         if "[" in text:
             in_brackets = "]" not in text
+            in_brackets_since = i
             prev = word
             continue
 
