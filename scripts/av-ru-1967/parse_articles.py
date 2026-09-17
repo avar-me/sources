@@ -53,7 +53,15 @@ SENSE_BOUNDARY_RE = re.compile(r"[.;?!]$")
 
 # "масд. глагола X" (masdar of verb X) is a second from-reference marker
 # alongside bare "от" (cf. handoff doc: "масдар от инфинитива... формула масд. глагола X").
-MASDAR_FROM_RE = re.compile(r"^глагола$", re.IGNORECASE)
+# Plural "глаголов X I и II" (masdar shared by both homonym verbs, e.g.
+# p.284's "къин масд. глаголов къине I и II") uses the same marker shape.
+MASDAR_FROM_RE = re.compile(r"^глагол(а|ов)$", re.IGNORECASE)
+
+# "I и II" (or missing-space-OCR "Iи II") right after a headword/reference
+# target lists which homonyms a shared masdar/понуд. form applies to — see
+# consume_trailing_homonyms(). ROMAN_RE itself only matches a clean "I"/"II"
+# token; this covers the fused "Iи" OCR variant (found on p.284's "къин").
+HOMONYM_FUSED_RE = re.compile(r"^(I{1,3}|IV|V)и$")
 
 # Doc's normalization table (av-ru-1967-parsing-handoff.md, "Нормализация
 # сокращений и labels") for abbreviations safe to turn directly into a
@@ -158,6 +166,44 @@ def split_senses(tokens: list[dict[str, Any]], pos: int) -> list[list[dict[str, 
     return [tokens[a:b] for a, b in zip(boundaries, boundaries[1:]) if tokens[a:b]]
 
 
+def consume_trailing_homonyms(tokens: list[dict[str, Any]], i: int) -> int:
+    """Consume roman-numeral homonym decoration ("I", "I и II", or the
+    missing-space OCR variant "Iи II") right after a headword or reference
+    target ("...от бичизе I и II.") — decorative ("applies to both/all of
+    these homonyms"), not sense content. Found via p.93/284/418/469/493's
+    russian-leaked-into-av findings, all sharing this exact header shape."""
+    n = len(tokens)
+    if i >= n:
+        return i
+    text = tokens[i]["norm"].rstrip(".")
+    if ROMAN_RE.match(text):
+        i += 1
+        need_separator = True
+    elif HOMONYM_FUSED_RE.match(text):
+        # "Iи" == "I" + "и" glued together by OCR — the separator is
+        # already spent, so the next numeral follows directly, no "и".
+        i += 1
+        need_separator = False
+    else:
+        return i
+    while i < n:
+        if need_separator:
+            if (
+                i + 1 < n
+                and tokens[i]["norm"].lower() == "и"
+                and ROMAN_RE.match(tokens[i + 1]["norm"].rstrip("."))
+            ):
+                i += 2
+            else:
+                break
+        elif ROMAN_RE.match(tokens[i]["norm"].rstrip(".")):
+            i += 1
+            need_separator = True
+        else:
+            break
+    return i
+
+
 def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dict[str, Any]:
     marker = None
     pos = 0
@@ -192,7 +238,7 @@ def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dic
 
         if MASDAR_FROM_RE.match(stripped) and i + 1 < n and not tokens[i + 1]["italic"] and HEADWORD_RE.match(tokens[i + 1]["norm"]):
             masdar_targets.append(strip_word(tokens[i + 1]["norm"]))
-            i += 2
+            i = consume_trailing_homonyms(tokens, i + 2)
             continue
 
         if BARE_FROM_RE.match(stripped) and i + 1 < n and not tokens[i + 1]["italic"] and HEADWORD_RE.match(tokens[i + 1]["norm"]):
@@ -201,7 +247,7 @@ def parse_sense(tokens: list[dict[str, Any]], bold_reliable: bool = True) -> dic
             # the next token looks like an actual headword-shaped target,
             # not a government label like "кого-чего-л." (always italic).
             from_targets.append(strip_word(tokens[i + 1]["norm"]))
-            i += 2
+            i = consume_trailing_homonyms(tokens, i + 2)
             continue
 
         if bold_reliable and tok["bold"] and not tok["italic"]:
@@ -295,8 +341,10 @@ def parse_article(span: dict[str, Any], bold_reliable: bool = True) -> dict[str,
     raw_text = " ".join(t["text"] for t in tokens)
 
     pos = 1  # skip the headword token itself
-    if cand["homonym"] and pos < len(tokens) and ROMAN_RE.match(tokens[pos]["norm"]):
-        pos += 1
+    if pos < len(tokens) and (
+        ROMAN_RE.match(tokens[pos]["norm"]) or HOMONYM_FUSED_RE.match(tokens[pos]["norm"])
+    ):
+        pos = consume_trailing_homonyms(tokens, pos)
 
     labels_raw, forms_raw, pos = consume_header(tokens, pos)
 
