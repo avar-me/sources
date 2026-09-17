@@ -181,6 +181,23 @@ and will drift.
 - **`compare_with_av_ru.py`** (optional, never gates the build) —
   fuzzy-matches headwords against the modern `data/av-ru.jsonl` for
   spot-checking (uses `rapidfuzz`).
+- **`build_review_html.py`** (optional, NOT part of `build_all.sh`) —
+  generates a local static HTML review site from
+  `tmp/av-ru.1967/needs_review.jsonl` (av-ru-1967-review-batch-3-2026-09-17.md,
+  "P1. Построить HTML review queue"): one page per review item (rendered
+  page image, raw OCR, proposed entry JSON, reasons/parse_issues,
+  neighbor headwords, stable id/source hash, current decision-ledger
+  status if any) plus a priority-ordered index (boundary-high-demoted >
+  page-boundary-carry > oversized-span > touches-order-regression >
+  medium-confidence > low-confidence) and a reviewed/remaining progress
+  count. NOT wired into `build_all.sh` because rendering ~570 distinct
+  page images from the PDF takes ~20+ minutes on a cold cache (page
+  images are cached by filename under `tmp/av-ru.1967/review_html/pages/`,
+  so repeat runs are fast — use `--force-images` to bust the cache,
+  `--skip-images` to iterate on HTML/layout without waiting on renders).
+  ```bash
+  python3 scripts/av-ru-1967/build_review_html.py
+  ```
 
 ### `data/av-ru.1967.decisions.jsonl` / `decision_ledger.py`
 

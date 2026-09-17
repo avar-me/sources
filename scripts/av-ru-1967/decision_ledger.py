@@ -86,3 +86,11 @@ def order_regression_id(prev_word: str, next_word: str) -> str:
 
 def order_regression_hash(prev_word: str, next_word: str, prev_page: int, next_page: int) -> str:
     return source_hash(prev_word, next_word, str(prev_page), str(next_page))
+
+
+def review_item_id(word: str, page: int, column: str, top: float) -> str:
+    return f"review-item:{word}:{page}:{column}:{top}"
+
+
+def review_item_hash(word: str, page: int, column: str, top: float, raw_text: str) -> str:
+    return source_hash(word, str(page), str(column), str(top), raw_text)
