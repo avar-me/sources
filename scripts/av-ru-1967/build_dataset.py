@@ -290,12 +290,14 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--articles", default="tmp/av-ru.1967/draft_articles.jsonl")
     parser.add_argument("--out", default="data/av-ru.1967.jsonl")
+    parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
     parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     args = parser.parse_args()
 
     known_words = load_known_words(Path(args.av_ru))
     stats: dict[str, int] = {}
     entries: list[dict[str, Any]] = []
+    needs_review: list[dict[str, Any]] = []
     seen_lines: set[str] = set()
     with Path(args.articles).open("r", encoding="utf-8") as fh:
         for line in fh:
@@ -313,7 +315,27 @@ def main() -> int:
                 # meaningful for a dictionary.
                 continue
             seen_lines.add(serialized)
-            entries.append(entry)
+            # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
+            # попадают в основной JSONL": the docstring above claimed
+            # low-confidence articles were excluded, but build_entry() never
+            # actually checked `confidence` — every article, regardless of
+            # segmentation confidence, ended up in the published file. Only
+            # `high` (a real bold headword match, or the equally strict
+            # spelling-variant-pipe case) goes to data/av-ru.1967.jsonl;
+            # `medium`/`low` go to a separate review queue instead, tagged
+            # with the reason so a human can triage without re-deriving it.
+            if article.get("confidence") == "high":
+                entries.append(entry)
+            else:
+                needs_review.append(
+                    {
+                        "page": article.get("page"),
+                        "confidence": article.get("confidence"),
+                        "word_raw": article.get("word_raw"),
+                        "raw_text": article.get("raw_text"),
+                        "entry": entry,
+                    }
+                )
 
     # A bare {"word": X} stub next to another entry with the same word that
     # DOES have content is always redundant segmentation noise (a stray
@@ -332,7 +354,14 @@ def main() -> int:
         for entry in filtered:
             out_fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
+    review_path = Path(args.needs_review)
+    review_path.parent.mkdir(parents=True, exist_ok=True)
+    with review_path.open("w", encoding="utf-8") as review_fh:
+        for row in needs_review:
+            review_fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+
     print(f"wrote {len(filtered)} entries to {args.out}")
+    print(f"wrote {len(needs_review)} medium/low-confidence entries to {review_path} (not published)")
     if stats.get("rescued"):
         print(f"rescued {stats['rescued']} word(s) via known-word б/6/й/ё stress-glyph correction")
     if stats.get("stress_recorded"):

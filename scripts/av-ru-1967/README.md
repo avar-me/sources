@@ -70,8 +70,11 @@ and will drift.
    Writes `tmp/av-ru.1967/draft_articles.jsonl`.
 
 4. **`build_dataset.py`** — converts the draft articles into schema-shaped
-   entries (`data/av-ru.1967.jsonl`), applying the known-word-gated OCR
-   rescues (stress-glyph б/6/й/ё, `||`-as-ц/Ц).
+   entries, applying the known-word-gated OCR rescues (stress-glyph
+   б/6/й/ё, `||`-as-ц/Ц). Only `confidence: high` articles are written to
+   `data/av-ru.1967.jsonl` (the published file); `medium`/`low` go to
+   `tmp/av-ru.1967/needs_review.jsonl` instead (gitignored — a human review
+   queue, not published data).
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
