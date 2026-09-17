@@ -382,12 +382,19 @@ def segment_stream(
                 in_brackets = False
                 prev = word
                 continue
-            if i - in_brackets_since > MAX_BRACKET_TOKENS or TERMINATOR_RE.search(text):
+            if i - in_brackets_since > MAX_BRACKET_TOKENS:
                 # Unclosed bracket — OCR lost the "]". Give up rather than
                 # suppressing headword detection indefinitely, and let THIS
                 # token (which triggered giving up) fall through to the
                 # normal candidate checks below instead of being silently
-                # skipped — it's often the real next headword.
+                # skipped — it's often the real next headword. Bounded on
+                # token count alone, NOT on hitting a "." — abbreviations
+                # like "1-го скл." legitimately end in "." while still
+                # inside a real, longer multi-declension-class bracket
+                # (found via p.82's "библиотекарь [род. п. 1-го скл.
+                # библиотекарасул, 2-го скл. библиотекаралъул]" — bailing
+                # out at "скл." cut the bracket short and turned its own
+                # form into a bogus headword).
                 in_brackets = False
             else:
                 prev = word

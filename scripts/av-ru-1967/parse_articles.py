@@ -182,15 +182,18 @@ def consume_header(tokens: list[dict[str, Any]], pos: int) -> tuple[list[str], s
                 if "]" in cur:
                     closed = True
                     break
-                if TERMINATOR_RE.search(cur):
-                    break
             if closed:
                 forms_raw = " ".join(bracket).rstrip("]")
                 continue
             # Never closed within the bound — stop consuming the header
             # here (don't loop on the same "[" token forever) and leave
             # `pos` at the bracket's start so it falls through as ordinary
-            # sense/example text instead of being guessed at.
+            # sense/example text instead of being guessed at. Bounded on
+            # token count alone, NOT on hitting a "." — abbreviations like
+            # "1-го скл." legitimately end in "." inside a real, longer
+            # multi-declension-class bracket (found via p.82's
+            # "библиотекарь [род. п. 1-го скл. библиотекарасул, 2-го скл.
+            # библиотекаралъул]").
             pos = start
             break
         break
