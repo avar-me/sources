@@ -97,11 +97,13 @@ and will drift.
    (gitignored review queue) tagged with `confidence` and `parse_issues`.
    Also writes `data/av-ru.1967.provenance.jsonl` — one committed row per
    accepted entry, 1:1 with `data/av-ru.1967.jsonl` in the same order
-   (page/column/top/confidence/reasons/raw_text_length, plus every
-   duplicate-group candidate that was merged into it, not just the
-   winner) — av-ru-1967-review-batch-3-2026-09-17.md, "P0 (accepted
-   entries without source provenance: 0)" and "P1 (duplicate-group
-   provenance)".
+   (page/column/top/confidence/reasons/raw_text_length, `selection_rule`
+   — `"unique"` or `"highest-confidence-first-seen"` — plus
+   `duplicate_group_spans_differ` and every OTHER duplicate-group
+   candidate that was merged into it: page/column/top/confidence/reasons/
+   `raw_text_preview`) — av-ru-1967-review-batch-3-2026-09-17.md, "P0
+   (accepted entries without source provenance: 0)" and "P1 (duplicate-
+   group provenance)".
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```

@@ -465,7 +465,8 @@ def main() -> int:
         # equal ranks), just computed over the full group instead of
         # incrementally.
         best_rank = max(m[0] for m in members)
-        _rank, article, entry = next(m for m in members if m[0] == best_rank)
+        winner = next(m for m in members if m[0] == best_rank)
+        _rank, article, entry = winner
         # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
         # попадают в основной JSONL": the docstring above claimed
         # low-confidence articles were excluded, but build_entry() never
@@ -492,8 +493,19 @@ def main() -> int:
             # entries without source provenance: 0) + "P1. Сохранить
             # полную provenance duplicate groups": one committed row per
             # accepted entry, in the same order as data/av-ru.1967.jsonl,
-            # recording where it came from and every duplicate candidate
-            # that was merged into it (not just the winner).
+            # recording where it came from, the rule that picked it among
+            # its duplicate-group siblings, and every OTHER candidate that
+            # was merged into it (not just the winner) — including whether
+            # those candidates actually came from different source spans
+            # (different page/column/raw_text) despite producing an
+            # identical final entry, which the review specifically asked
+            # to surface rather than silently discard.
+            other_members = [m for m in members if m is not winner]
+            spans_differ = any(
+                (m[1].get("page"), m[1].get("column"), m[1].get("raw_text"))
+                != (article.get("page"), article.get("column"), article.get("raw_text"))
+                for m in other_members
+            )
             provenance.append(
                 {
                     "word": entry.get("word"),
@@ -503,6 +515,8 @@ def main() -> int:
                     "confidence": article.get("confidence"),
                     "reasons": article.get("reasons", []),
                     "raw_text_length": len(article.get("raw_text") or ""),
+                    "selection_rule": "highest-confidence-first-seen" if other_members else "unique",
+                    "duplicate_group_spans_differ": spans_differ,
                     "duplicate_group": [
                         {
                             "page": m[1].get("page"),
@@ -510,11 +524,10 @@ def main() -> int:
                             "top": m[1].get("top"),
                             "confidence": m[1].get("confidence"),
                             "reasons": m[1].get("reasons", []),
+                            "raw_text_preview": (m[1].get("raw_text") or "")[:100],
                         }
-                        for m in members
-                    ]
-                    if len(members) > 1
-                    else [],
+                        for m in other_members
+                    ],
                 }
             )
         else:
