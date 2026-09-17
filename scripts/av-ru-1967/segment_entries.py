@@ -128,7 +128,16 @@ RUSSIAN_FUNCTION_WORDS = {
     "вы", "мы", "он", "она", "оно", "они", "это", "нибудь", "либо",
     "его", "ему", "её", "ей", "их", "им", "ими", "меня", "мне", "мной",
     "тебя", "тебе", "тобой", "нас", "нам", "нами", "вас", "вам", "вами",
-    "себя", "себе", "собой", "на", "не", "и", "к",
+    "себя", "себе", "собой", "на", "не", "и", "к", "в", "чтоб", "отовсюду",
+    # Recurring Russian GLOSS words (not grammatically closed-class, but
+    # each showed up as a bogus headword multiple times across unrelated
+    # pages per av-ru-1967-review-2026-09-17.md's "P0. Русский текст
+    # становится заглавным словом" — a stray-bold first word of a
+    # translation continuation, never a genuine Avar headword. Unlike the
+    # pronouns/particles above, these are content nouns, so kept to a
+    # narrow, evidence-based list rather than trying to reject "any"
+    # Russian noun (that would risk real Avar loanwords).
+    "как", "занятие", "ймя", "имя", "сокрытие", "бытиё", "нагоняй", "укрытие",
 }
 
 

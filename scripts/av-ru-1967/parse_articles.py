@@ -375,21 +375,26 @@ def normalize_labels(labels_raw: list[str]) -> list[str]:
     return out
 
 
-def is_russian_function_word(text: str) -> bool:
+def is_russian_function_word(text: str, known_words: set[str]) -> bool:
     """RUSSIAN_FUNCTION_WORDS membership, also matching an indefinite-particle
     suffix glued onto a listed word ("какой-то", "какой-нибудь", "какой-либо"
     from "какой" — found via p.554's "цо" entry, where "какой-то;
-    какой-нибудь;" got stray-bold and split into a bogus example)."""
+    какой-нибудь;" got stray-bold and split into a bogus example). Gated on
+    known_words the same way looks_like_bare_russian is — "как" (Arabic-derived
+    "намаз") is both a listed Russian word AND a real Avar headword, so an
+    exact-text match alone isn't enough to safely demote its bold."""
     lowered = text.strip(",.;:!?").lower()
     if lowered in RUSSIAN_FUNCTION_WORDS:
-        return True
+        return lowered not in known_words
     for suffix in ("-то", "-нибудь", "-либо"):
         if lowered.endswith(suffix) and lowered[: -len(suffix)] in RUSSIAN_FUNCTION_WORDS:
             return True
     return False
 
 
-def demote_stray_function_words(tokens: list[dict[str, Any]]) -> list[dict[str, Any]]:
+def demote_stray_function_words(
+    tokens: list[dict[str, Any]], known_words: set[str]
+) -> list[dict[str, Any]]:
     """A bold-not-italic token that's an isolated Russian pronoun/adverb
     (found on otherwise-normal pages, e.g. p.294's "его" mid-sentence in
     "я заставлю его") is never a real Avar example — treat it as plain text by
@@ -397,15 +402,17 @@ def demote_stray_function_words(tokens: list[dict[str, Any]]) -> list[dict[str, 
     a real one short while its ru-side is still being collected."""
     out = []
     for tok in tokens:
-        if tok["bold"] and not tok["italic"] and is_russian_function_word(tok["norm"]):
+        if tok["bold"] and not tok["italic"] and is_russian_function_word(tok["norm"], known_words):
             tok = {**tok, "bold": False}
         out.append(tok)
     return out
 
 
-def parse_article(span: dict[str, Any], bold_reliable: bool = True) -> dict[str, Any]:
+def parse_article(
+    span: dict[str, Any], bold_reliable: bool = True, known_words: set[str] | None = None
+) -> dict[str, Any]:
     cand = span["candidate"]
-    tokens = demote_stray_function_words(span["tokens"])
+    tokens = demote_stray_function_words(span["tokens"], known_words or set())
     raw_text = " ".join(t["text"] for t in tokens)
 
     pos = 1  # skip the headword token itself
@@ -507,10 +514,10 @@ def main() -> int:
                 "tokens": merged_tokens,
                 "continues_next_page": merged_continues,
             }
-            articles[-1] = parse_article(merged_span, bold_reliable)
+            articles[-1] = parse_article(merged_span, bold_reliable, known_words)
             carry = {"candidate": carry["candidate"], "tokens": merged_tokens} if merged_continues else None
 
-        page_articles = [parse_article(span, bold_reliable) for span in spans]
+        page_articles = [parse_article(span, bold_reliable, known_words) for span in spans]
         articles.extend(page_articles)
         if spans and spans[-1]["continues_next_page"]:
             carry = {"candidate": spans[-1]["candidate"], "tokens": spans[-1]["tokens"]}
