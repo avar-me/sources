@@ -48,7 +48,7 @@ python3 "$SCRIPTS_DIR/validate_schema.py" --input "$OUT"
 echo "=== check_accepted (baseline gate, accepted-only) ==="
 python3 "$SCRIPTS_DIR/check_accepted.py"
 
-echo "=== build_page_ledger (hard gate: completeness/zero-candidates; baseline: drops) ==="
+echo "=== build_page_ledger (hard gate: completeness/zero-candidates/accounting) ==="
 python3 "$SCRIPTS_DIR/build_page_ledger.py"
 
 echo "=== check_order (baseline gate, draft-only) ==="

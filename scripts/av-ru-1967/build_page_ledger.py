@@ -23,12 +23,8 @@ from __future__ import annotations
 
 import argparse
 import json
-import sys
 from pathlib import Path
 from typing import Any
-
-sys.path.insert(0, str(Path(__file__).parent))
-from baseline import check_metric, load_baselines  # noqa: E402
 
 FIRST_PAGE = 23
 LAST_PAGE = 619
@@ -68,23 +64,36 @@ def _load_jsonl(path: Path) -> list[dict[str, Any]]:
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
-    parser.add_argument("--segments", default="tmp/av-ru.1967/segments.jsonl")
+    parser.add_argument("--candidate-outcomes", default="tmp/av-ru.1967/candidate_outcomes.jsonl")
     parser.add_argument("--articles", default="tmp/av-ru.1967/draft_articles.jsonl")
+    parser.add_argument("--draft-outcomes", default="tmp/av-ru.1967/draft_outcomes.jsonl")
     parser.add_argument("--provenance", default="data/av-ru.1967.provenance.jsonl")
     parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
     parser.add_argument("--order-check", default="tmp/av-ru.1967/order_check.jsonl")
     parser.add_argument("--out", default="data/av-ru.1967.page_ledger.jsonl")
     args = parser.parse_args()
 
-    segments = _load_jsonl(Path(args.segments))
+    candidate_outcomes = _load_jsonl(Path(args.candidate_outcomes))
     articles = _load_jsonl(Path(args.articles))
+    draft_outcomes = _load_jsonl(Path(args.draft_outcomes))
     provenance = _load_jsonl(Path(args.provenance))
     needs_review = _load_jsonl(Path(args.needs_review))
     order_issues = _load_jsonl(Path(args.order_check))
 
-    segments_by_page: dict[int, int] = {}
-    for s in segments:
-        segments_by_page[s["page"]] = segments_by_page.get(s["page"], 0) + 1
+    # av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate
+    # outcome ledger" + "4. Page ledger должен агрегировать outcome ledger,
+    # а не выводить drops разностью счётчиков": both parse_articles.py and
+    # build_dataset.py now emit a per-candidate / per-draft-article outcome
+    # ledger with zero tolerance for an unaccounted row — aggregate THOSE
+    # here instead of the old segment-count-minus-draft-count difference,
+    # which couldn't distinguish a real loss from expected consumption.
+    candidates_by_page: dict[int, list[dict[str, Any]]] = {}
+    for c in candidate_outcomes:
+        candidates_by_page.setdefault(c["page"], []).append(c)
+
+    draft_outcomes_by_page: dict[int, list[dict[str, Any]]] = {}
+    for d in draft_outcomes:
+        draft_outcomes_by_page.setdefault(d["page"], []).append(d)
 
     articles_by_page: dict[int, list[dict[str, Any]]] = {}
     for a in articles:
@@ -110,7 +119,8 @@ def main() -> int:
 
     rows: list[dict[str, Any]] = []
     unexplained_zero = 0
-    unexplained_drops = 0
+    unaccounted_candidates_total = 0
+    unaccounted_drafts_total = 0
     for page in range(FIRST_PAGE, LAST_PAGE + 1):
         geometry_path = geometry_dir / f"page-{page:04d}.json"
         geometry_lines = 0
@@ -124,8 +134,25 @@ def main() -> int:
 
         page_articles = articles_by_page.get(page, [])
         page_articles_sorted = sorted(page_articles, key=lambda a: (a.get("column", ""), a.get("top", 0)))
-        segment_candidates = segments_by_page.get(page, 0)
+        page_candidates = candidates_by_page.get(page, [])
+        segment_candidates = len(page_candidates)
+        candidates_own_article = sum(1 for c in page_candidates if c["outcome"] == "own-article")
+        candidates_merged_into = sum(1 for c in page_candidates if c["outcome"].startswith("merged-into:"))
+        unaccounted_candidates = segment_candidates - candidates_own_article - candidates_merged_into
+        unaccounted_candidates_total += unaccounted_candidates
+
         draft_count = len(page_articles)
+        page_draft_outcomes = draft_outcomes_by_page.get(page, [])
+        draft_accepted = sum(1 for d in page_draft_outcomes if d["outcome"] == "accepted")
+        draft_review = sum(1 for d in page_draft_outcomes if d["outcome"] == "review")
+        draft_duplicate_of = sum(1 for d in page_draft_outcomes if d["outcome"].startswith("duplicate-of:"))
+        draft_dropped_bare_stub = sum(1 for d in page_draft_outcomes if d["outcome"] == "dropped-bare-stub-duplicate")
+        draft_dropped_empty = sum(1 for d in page_draft_outcomes if d["outcome"] == "dropped-empty-word")
+        unaccounted_drafts = draft_count - (
+            draft_accepted + draft_review + draft_duplicate_of + draft_dropped_bare_stub + draft_dropped_empty
+        )
+        unaccounted_drafts_total += unaccounted_drafts
+
         accepted_count = accepted_by_page.get(page, 0)
         review_count = review_by_page.get(page, 0)
         # No rejection mechanism exists yet (see av-ru-1967-review-batch-3
@@ -144,7 +171,6 @@ def main() -> int:
         prev_sorted = sorted(prev_articles, key=lambda a: (a.get("column", ""), a.get("top", 0)))
         carry_in = bool(prev_sorted and prev_sorted[-1].get("continues_next_page"))
 
-        drop = segment_candidates - draft_count
         explanation = None
         if draft_count == 0:
             explanation = EXPLAINED_ZERO_CANDIDATE_PAGES.get(page)
@@ -162,25 +188,11 @@ def main() -> int:
                 else:
                     unexplained_zero += 1
 
-        if drop > 0 and explanation is None:
-            # A segment candidate that never produced a draft article is
-            # either absorbed into a stitched neighbor / consumed as a
-            # homonym marker or bracket metadata (all EXPECTED, normal
-            # candidate->article reduction — e.g. "I и II" homonym
-            # consumption turns 2 segment candidates into 1 draft article)
-            # or genuinely dropped (needs investigation). This naive
-            # per-page count-difference can't yet distinguish the two —
-            # tracking which candidate became which article (or was
-            # deliberately consumed as metadata) is future work. Recorded
-            # as a baseline measurement, not a hard 0 gate, until that
-            # finer-grained tracking exists.
-            unexplained_drops += drop
-
         status = "ok"
         if draft_count == 0:
             status = "zero-candidates-explained" if explanation else "zero-candidates-UNEXPLAINED"
-        elif drop > 0:
-            status = "candidate-drop"
+        elif unaccounted_candidates or unaccounted_drafts:
+            status = "accounting-mismatch"
         elif unclosed_brackets:
             status = "unclosed-brackets"
 
@@ -190,7 +202,16 @@ def main() -> int:
                 "geometry_lines": geometry_lines,
                 "geometry_words": geometry_words,
                 "segment_candidates": segment_candidates,
+                "candidates_own_article": candidates_own_article,
+                "candidates_merged_into": candidates_merged_into,
+                "unaccounted_candidates": unaccounted_candidates,
                 "draft_articles": draft_count,
+                "draft_accepted": draft_accepted,
+                "draft_review": draft_review,
+                "draft_duplicate_of": draft_duplicate_of,
+                "draft_dropped_bare_stub": draft_dropped_bare_stub,
+                "draft_dropped_empty": draft_dropped_empty,
+                "unaccounted_draft_articles": unaccounted_drafts,
                 "accepted": accepted_count,
                 "review": review_count,
                 "rejected": rejected_count,
@@ -201,7 +222,6 @@ def main() -> int:
                 "max_span_chars": max_span,
                 "order_regressions": regressions_by_page.get(page, 0),
                 "unclosed_brackets": unclosed_brackets,
-                "candidate_drop": drop,
                 "explanation": explanation,
                 "status": status,
             }
@@ -214,22 +234,28 @@ def main() -> int:
 
     print(f"ledger pages: {len(rows)}/{LAST_PAGE - FIRST_PAGE + 1}")
     print(f"unexplained zero-candidate pages: {unexplained_zero}")
-    print(f"unexplained token/article drops: {unexplained_drops}")
+    print(f"unaccounted candidates (all pages): {unaccounted_candidates_total}")
+    print(f"unaccounted draft articles (all pages): {unaccounted_drafts_total}")
     zero_pages = [r["page"] for r in rows if r["draft_articles"] == 0]
     print(f"zero-draft-article pages: {zero_pages}")
     print(f"wrote {out_path}")
 
-    baselines = load_baselines()
     ok = len(rows) == (LAST_PAGE - FIRST_PAGE + 1) and unexplained_zero == 0
     if not ok:
         print("HARD GATE FAILED: incomplete ledger or unexplained zero-candidate page(s)")
-    # av-ru-1967-review-batch-3-2026-09-17.md's acceptance criterion is
-    # "unexplained token/article drops: 0", but the naive count above
-    # currently conflates real drops with expected candidate->article
-    # reduction (see comment above) — tracked as a baseline for now rather
-    # than a hard gate until per-candidate outcome tracking exists to tell
-    # the two apart.
-    ok = check_metric("page_ledger.unexplained_drops", unexplained_drops, baselines) and ok
+    # av-ru-1967-review-batch-4-2026-09-17.md, "3. Draft outcome accounting
+    # сходится без остатка" / "4. Page ledger больше не использует naive
+    # count-difference как drops": both are now real per-candidate/
+    # per-draft-article outcome sums (see parse_articles.py /
+    # build_dataset.py), so "unaccounted" here means an actual bug in that
+    # accounting, not expected candidate->article consumption — hard 0,
+    # not a baseline.
+    if unaccounted_candidates_total:
+        print(f"HARD GATE FAILED: {unaccounted_candidates_total} unaccounted segment candidate(s)")
+        ok = False
+    if unaccounted_drafts_total:
+        print(f"HARD GATE FAILED: {unaccounted_drafts_total} unaccounted draft article(s)")
+        ok = False
     return 0 if ok else 1
 
 

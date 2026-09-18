@@ -79,7 +79,13 @@ and will drift.
 3. **`parse_articles.py`** — converts headword spans into draft article
    dicts with senses/examples/labels; stitches an article across a page
    boundary when the previous page's last span didn't end on a real
-   terminator.
+   terminator. Also writes `tmp/av-ru.1967/candidate_outcomes.jsonl` — one
+   row per `segment_stream()` candidate, outcome `own-article` or
+   `merged-into:<candidate_id>` (only when a cross-page carry swallows the
+   next page's first candidate instead of it starting its own article) —
+   av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate outcome
+   ledger". Hard gate: every candidate that becomes `own-article` must
+   equal the draft article count exactly (0 tolerance).
    ```bash
    python3 scripts/av-ru-1967/parse_articles.py --start 23 --end 619
    ```
@@ -104,7 +110,12 @@ and will drift.
    candidate that was merged into it: page/column/top/confidence/reasons/
    `raw_text_preview`/`bbox`) — av-ru-1967-review-batch-3-2026-09-17.md, "P0
    (accepted entries without source provenance: 0)" and "P1 (duplicate-
-   group provenance)". `needs_review.jsonl` rows also get a `bbox`.
+   group provenance)". `needs_review.jsonl` rows also get a `bbox`. Also
+   writes `tmp/av-ru.1967/draft_outcomes.jsonl` — one row per draft article
+   (1:1 with `draft_articles.jsonl`), outcome `accepted`/`review`/
+   `duplicate-of:<draft_index>`/`dropped-bare-stub-duplicate`/
+   `dropped-empty-word`. Hard gate: every draft article must get exactly
+   one outcome (0 unaccounted).
    ```bash
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
@@ -146,15 +157,21 @@ and will drift.
   articles/accepted/review counts, first/last headword, carry-in/out,
   max span length, unclosed brackets, and order regressions touching that
   page. Writes the committed `data/av-ru.1967.page_ledger.jsonl` (597 rows).
-  Hard gate: every page must be present, and every zero-draft-article page
+  Hard gate: every page must be present, every zero-draft-article page
   must have an explanation in `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently
   just page 551 — confirmed via rendered page scans to be entirely a
-  continuation of the p.550 "цебё" postposition mega-entry, not a bug).
-  `unexplained token/article drops` (segment candidates that never became
-  a draft article) is tracked as a baseline
-  (`page_ledger.unexplained_drops`), not yet a hard 0, because the current
-  count-difference can't distinguish a real drop from expected
-  candidate-to-article reduction (homonym/bracket consumption, stitching).
+  continuation of the p.550 "цебё" postposition mega-entry, not a bug),
+  AND every segment candidate / draft article must have exactly one
+  outcome — aggregated from `parse_articles.py`'s
+  `tmp/av-ru.1967/candidate_outcomes.jsonl` (`own-article` or
+  `merged-into:<candidate_id>`, the latter only for a cross-page carry
+  swallowing the next page's first candidate) and `build_dataset.py`'s
+  `tmp/av-ru.1967/draft_outcomes.jsonl` (`accepted`/`review`/
+  `duplicate-of:<draft_index>`/`dropped-bare-stub-duplicate`/
+  `dropped-empty-word`) — av-ru-1967-review-batch-4-2026-09-17.md, "1.
+  Ввести per-candidate outcome ledger": real accounting instead of a
+  segment-count-minus-draft-count difference that couldn't tell a genuine
+  loss from expected consumption.
 - **`check_order.py`** (baseline gate, draft-only) — flags any two consecutive articles
   whose Avar sort keys go backwards (the whole book is one continuous A-Z
   listing across pages 23-619). Rescues stress-glyph/`||` OCR artifacts the
@@ -230,7 +247,9 @@ spans.
 ### `baselines.json` / `baseline.py`
 
 Shared helper (`scripts/av-ru-1967/baseline.py`) used by `check_accepted.py`,
-`check_order.py`, `resolve_references.py` and `build_page_ledger.py`.
+`check_order.py` and `resolve_references.py` (`build_page_ledger.py` used
+to have a baseline for its old count-difference "drops" metric, but that's
+now a hard-gated exact-accounting invariant instead — see above).
 `baselines.json` records the exact EXPECTED value for each metric —
 `check_metric()` requires the current value to match it precisely (a true
 monotonic ratchet, per av-ru-1967-review-batch-3-2026-09-17.md's "P0.

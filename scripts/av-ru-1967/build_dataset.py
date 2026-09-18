@@ -413,6 +413,7 @@ def main() -> int:
     parser.add_argument("--out", default="data/av-ru.1967.jsonl")
     parser.add_argument("--needs-review", default="tmp/av-ru.1967/needs_review.jsonl")
     parser.add_argument("--provenance", default="data/av-ru.1967.provenance.jsonl")
+    parser.add_argument("--draft-outcomes", default="tmp/av-ru.1967/draft_outcomes.jsonl")
     parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
     parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     args = parser.parse_args()
@@ -439,10 +440,20 @@ def main() -> int:
     with Path(args.articles).open("r", encoding="utf-8") as fh:
         articles = [json.loads(line) for line in fh]
 
-    candidates: dict[str, list[tuple[int, dict[str, Any], dict[str, Any]]]] = {}
+    # av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate
+    # outcome ledger": every draft article (indexed by its position in
+    # draft_articles.jsonl) must end up with exactly one outcome —
+    # "accepted", "review", "dropped-empty-word" (build_entry found no
+    # usable word), "duplicate-of:<winning draft_index>", or
+    # "dropped-bare-stub-duplicate" — so accounting never loses articles
+    # to an implicit count-difference.
+    outcomes: list[str | None] = [None] * len(articles)
+
+    candidates: dict[str, list[tuple[int, int, dict[str, Any], dict[str, Any]]]] = {}
     for i, article in enumerate(articles):
         entry = build_entry(article, known_words, stats)
         if entry is None:
+            outcomes[i] = "dropped-empty-word"
             continue
         entry = strip_soft_hyphens(entry)
         serialized = json.dumps(entry, ensure_ascii=False)
@@ -457,11 +468,12 @@ def main() -> int:
             "prev_word": articles[i - 1]["word"] if i > 0 else None,
             "next_word": articles[i + 1]["word"] if i + 1 < len(articles) else None,
         }
-        candidates.setdefault(serialized, []).append((rank, {**article, **neighbors}, entry))
+        candidates.setdefault(serialized, []).append((rank, i, {**article, **neighbors}, entry))
 
     entries: list[dict[str, Any]] = []
     needs_review: list[dict[str, Any]] = []
     provenance: list[dict[str, Any]] = []
+    entries_draft_index: list[int] = []
     for members in candidates.values():
         # First member with the highest rank wins — same tie-break as the
         # old `rank > existing[0]` single-pass comparison (first-seen among
@@ -469,7 +481,10 @@ def main() -> int:
         # incrementally.
         best_rank = max(m[0] for m in members)
         winner = next(m for m in members if m[0] == best_rank)
-        _rank, article, entry = winner
+        _rank, winner_index, article, entry = winner
+        for m in members:
+            if m is not winner:
+                outcomes[m[1]] = f"duplicate-of:{winner_index}"
         # av-ru-1967-review-2026-09-17.md, "P0. Low-confidence статьи
         # попадают в основной JSONL": the docstring above claimed
         # low-confidence articles were excluded, but build_entry() never
@@ -491,6 +506,8 @@ def main() -> int:
         parse_issues = detect_parse_issues(entry, known_words)
         if article.get("confidence") == "high" and not parse_issues:
             entries.append(entry)
+            entries_draft_index.append(winner_index)
+            outcomes[winner_index] = "accepted"
             # av-ru-1967-review-batch-3-2026-09-17.md, "P0. Реализовать
             # независимые gates для accepted/review/draft" (accepted
             # entries without source provenance: 0) + "P1. Сохранить
@@ -505,7 +522,7 @@ def main() -> int:
             # to surface rather than silently discard.
             other_members = [m for m in members if m is not winner]
             spans_differ = any(
-                (m[1].get("page"), m[1].get("column"), m[1].get("raw_text"))
+                (m[2].get("page"), m[2].get("column"), m[2].get("raw_text"))
                 != (article.get("page"), article.get("column"), article.get("raw_text"))
                 for m in other_members
             )
@@ -523,19 +540,20 @@ def main() -> int:
                     "duplicate_group_spans_differ": spans_differ,
                     "duplicate_group": [
                         {
-                            "page": m[1].get("page"),
-                            "column": m[1].get("column"),
-                            "top": m[1].get("top"),
-                            "confidence": m[1].get("confidence"),
-                            "reasons": m[1].get("reasons", []),
-                            "raw_text_preview": (m[1].get("raw_text") or "")[:100],
-                            "bbox": bbox_for(geometry_dir, m[1].get("page"), m[1].get("column"), m[1].get("top")),
+                            "page": m[2].get("page"),
+                            "column": m[2].get("column"),
+                            "top": m[2].get("top"),
+                            "confidence": m[2].get("confidence"),
+                            "reasons": m[2].get("reasons", []),
+                            "raw_text_preview": (m[2].get("raw_text") or "")[:100],
+                            "bbox": bbox_for(geometry_dir, m[2].get("page"), m[2].get("column"), m[2].get("top")),
                         }
                         for m in other_members
                     ],
                 }
             )
         else:
+            outcomes[winner_index] = "review"
             needs_review.append(
                 {
                     "page": article.get("page"),
@@ -567,6 +585,9 @@ def main() -> int:
     ]
     filtered = [e for e, k in zip(entries, keep) if k]
     filtered_provenance = [p for p, k in zip(provenance, keep) if k]
+    for draft_index, k in zip(entries_draft_index, keep):
+        if not k:
+            outcomes[draft_index] = "dropped-bare-stub-duplicate"
     stats["dropped_bare_duplicates"] = len(entries) - len(filtered)
 
     with Path(args.out).open("w", encoding="utf-8") as out_fh:
@@ -584,6 +605,34 @@ def main() -> int:
         for row in needs_review:
             review_fh.write(json.dumps(row, ensure_ascii=False) + "\n")
 
+    # av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate
+    # outcome ledger": every draft article must have exactly one outcome by
+    # this point — the page ledger consumes this instead of a naive
+    # segment-vs-draft count difference.
+    outcomes_path = Path(args.draft_outcomes)
+    unaccounted = 0
+    with outcomes_path.open("w", encoding="utf-8") as outc_fh:
+        for i, article in enumerate(articles):
+            outcome = outcomes[i]
+            if outcome is None:
+                unaccounted += 1
+                outcome = "UNACCOUNTED"
+            outc_fh.write(
+                json.dumps(
+                    {
+                        "draft_index": i,
+                        "page": article.get("page"),
+                        "column": article.get("column"),
+                        "top": article.get("top"),
+                        "word": article.get("word"),
+                        "outcome": outcome,
+                    },
+                    ensure_ascii=False,
+                )
+                + "\n"
+            )
+    print(f"wrote {len(articles)} draft outcomes to {outcomes_path} ({unaccounted} unaccounted)")
+
     print(f"wrote {len(filtered)} entries to {args.out}")
     print(f"wrote {len(filtered_provenance)} provenance rows to {provenance_path}")
     print(f"wrote {len(needs_review)} medium/low-confidence entries to {review_path} (not published)")
@@ -598,6 +647,9 @@ def main() -> int:
         print(f"split {stats['pipe_corruption_split']} ц/Ц-as-'||' word(s) into spelling_forms")
     if stats.get("dropped_bare_duplicates"):
         print(f"dropped {stats['dropped_bare_duplicates']} bare-stub duplicate(s)")
+    if unaccounted:
+        print(f"HARD GATE FAILED: {unaccounted} draft article(s) have no outcome")
+        return 1
     return 0
 
 

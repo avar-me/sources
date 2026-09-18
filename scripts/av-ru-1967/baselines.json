@@ -10,6 +10,5 @@
   "check_accepted.links_missing": 495,
   "check_accepted.review_links_missing": 399,
   "check_accepted.accepted_links_ocr_invalid": 0,
-  "check_accepted.review_links_ocr_invalid": 0,
-  "page_ledger.unexplained_drops": 105
+  "check_accepted.review_links_ocr_invalid": 0
 }

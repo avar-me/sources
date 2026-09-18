@@ -127,6 +127,15 @@ def build_article_spans(stream: list[dict[str, Any]], candidates: list[dict[str,
     return spans
 
 
+def candidate_id(cand: dict[str, Any]) -> str:
+    """Stable id for a segment_stream() candidate — (page, column, index)
+    uniquely identifies its position in the page's word stream.
+    av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate
+    outcome ledger": every candidate must get exactly one outcome, so it
+    needs an id that survives independent of anything downstream."""
+    return f"candidate:{cand['page']}:{cand['column']}:{cand['index']}"
+
+
 def stitch_tokens(prev_tokens: list[dict[str, Any]], next_tokens: list[dict[str, Any]]) -> list[dict[str, Any]]:
     """Join a page's dangling last tokens with the next page's leading
     tokens, rejoining a line-wrap hyphen split across the page boundary
@@ -478,6 +487,7 @@ def main() -> int:
     parser.add_argument("--geometry-dir", default="tmp/av-ru.1967/geometry")
     parser.add_argument("--av-ru", default="data/av-ru.jsonl")
     parser.add_argument("--out", default="tmp/av-ru.1967/draft_articles.jsonl")
+    parser.add_argument("--outcomes", default="tmp/av-ru.1967/candidate_outcomes.jsonl")
     args = parser.parse_args()
 
     known_words = load_known_words(Path(args.av_ru))
@@ -486,6 +496,13 @@ def main() -> int:
     out_path.parent.mkdir(parents=True, exist_ok=True)
 
     articles: list[dict[str, Any]] = []
+    # av-ru-1967-review-batch-4-2026-09-17.md, "1. Ввести per-candidate
+    # outcome ledger": every segment_stream() candidate gets exactly one
+    # outcome here — "own-article" (it became its own draft article) or
+    # "merged-into:<candidate_id>" (its span got swallowed into a
+    # cross-page carry continuation instead, see the carry-handling block
+    # below — the only place a candidate DOESN'T produce its own span).
+    candidate_outcomes: list[dict[str, Any]] = []
     # Carries an unterminated last span across a page boundary: {"candidate":
     # ..., "tokens": [...]} for the previous page's dangling last article, to
     # be re-parsed together with whatever continues at the top of the next
@@ -509,6 +526,16 @@ def main() -> int:
                 # genuine new headword) — swallow the whole span into the
                 # continuation rather than trusting it.
                 continuation_tokens = spans[0]["tokens"]
+                candidate_outcomes.append(
+                    {
+                        "candidate_id": candidate_id(spans[0]["candidate"]),
+                        "page": spans[0]["candidate"]["page"],
+                        "column": spans[0]["candidate"]["column"],
+                        "index": spans[0]["candidate"]["index"],
+                        "word_guess": spans[0]["candidate"].get("word_guess"),
+                        "outcome": f"merged-into:{candidate_id(carry['candidate'])}",
+                    }
+                )
                 spans = spans[1:]
             else:
                 first_idx = spans[0]["candidate"]["index"] if spans else len(stream)
@@ -525,6 +552,17 @@ def main() -> int:
 
         page_articles = [parse_article(span, bold_reliable, known_words) for span in spans]
         articles.extend(page_articles)
+        for span in spans:
+            candidate_outcomes.append(
+                {
+                    "candidate_id": candidate_id(span["candidate"]),
+                    "page": span["candidate"]["page"],
+                    "column": span["candidate"]["column"],
+                    "index": span["candidate"]["index"],
+                    "word_guess": span["candidate"].get("word_guess"),
+                    "outcome": "own-article",
+                }
+            )
         if spans and spans[-1]["continues_next_page"]:
             carry = {"candidate": spans[-1]["candidate"], "tokens": spans[-1]["tokens"]}
         print(f"page {page_number}: {len(page_articles)} draft articles")
@@ -533,6 +571,22 @@ def main() -> int:
         for article in articles:
             fh.write(json.dumps(article, ensure_ascii=False) + "\n")
     print(f"wrote {len(articles)} draft articles to {out_path}")
+
+    outcomes_path = Path(args.outcomes)
+    with outcomes_path.open("w", encoding="utf-8") as fh:
+        for row in candidate_outcomes:
+            fh.write(json.dumps(row, ensure_ascii=False) + "\n")
+    own_article = sum(1 for r in candidate_outcomes if r["outcome"] == "own-article")
+    merged = len(candidate_outcomes) - own_article
+    print(
+        f"wrote {len(candidate_outcomes)} candidate outcomes to {outcomes_path} "
+        f"({own_article} own-article, {merged} merged-into-carry)"
+    )
+    if own_article != len(articles):
+        print(
+            f"ACCOUNTING MISMATCH: {own_article} own-article outcomes but {len(articles)} draft articles"
+        )
+        return 1
     return 0
 
 
