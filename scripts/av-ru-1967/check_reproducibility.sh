@@ -21,6 +21,7 @@ ARTIFACTS=(
   "data/av-ru.1967.provenance.jsonl"
   "data/av-ru.1967.page_ledger.jsonl"
   "data/av-ru.1967.bracket_anomalies.jsonl"
+  "data/av-ru.1967.missing_links_classification.jsonl"
 )
 
 hash_artifacts() {

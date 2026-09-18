@@ -78,6 +78,9 @@ python3 "$SCRIPTS_DIR/quality_scan.py"
 echo "=== classify_bracket_anomalies (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/classify_bracket_anomalies.py"
 
+echo "=== classify_missing_links (optional, does not gate the build) ==="
+python3 "$SCRIPTS_DIR/classify_missing_links.py"
+
 echo "=== compare_with_av_ru (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/compare_with_av_ru.py" || echo "compare_with_av_ru.py failed/unavailable — not a build failure"
 

@@ -113,12 +113,13 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "cc18e9d4b717ffd18a86abae348f176cd68fd24a",
+  "evaluated_commit": "ae82abac3d80f3a4a32ca13f247f8fe815edb69c",
   "artifact_hashes": {
     "data/av-ru.1967.jsonl": "da172651d0200a6f051ed073e8235cc6506bbd7ed2512f406f2ff2b033acc7fb",
     "data/av-ru.1967.provenance.jsonl": "ce7f7af1e9862221ba272a282eab06c19b47452b65e43176cd1f35526f623a93",
     "data/av-ru.1967.page_ledger.jsonl": "78d2423e9d6f9ccac924447c70a1bc5f8fdb89415991ae11534d0f11d2149eb9",
-    "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65"
+    "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65",
+    "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c"
   },
   "baselines_hash": "eacb1d96efee3f750e6a3f2f4984ef278b88b6196bce84214b0c2402b5516bac"
 }
@@ -237,21 +238,46 @@ P1s:
   as legitimate complete entries with only a single-glyph OCR defect
   (still correctly in review, not promoted this round). 6 flagged as
   genuinely too garbled for confident text-only reconstruction.
-  **Bigger finding from this investigation, not yet acted on**: 528
+  **Bigger finding from this investigation, refined further**: 528
   review items across 80 pages are stuck at `confidence: "medium"`
   purely because of `reasons: ["label-lookahead"]` (the bold-detection-
-  unreliable fallback heuristic) with ZERO other `parse_issues` — a
-  spot-check of a sample found them reading as completely correct,
-  coherent entries. This is a MUCH larger potential win than the 96
-  bracket anomalies, but promoting a heuristic's confidence tier without
-  validating its false-positive rate is exactly the mistake Step 48's
-  "validate before generalizing" caution exists to prevent — deferred to
-  a dedicated future round with a proper accuracy sample first, not
-  rushed here.
-- Remaining P1s (228 accepted-origin link classification, 100+
-  order-regression triage, multi-page `source_spans` evidence) — not
-  yet started this round; see `/memories/repo/av-ru-1967-parsing.md`
-  for current progress on each.
+  unreliable fallback heuristic) with ZERO other `parse_issues`. A
+  37-item stratified sample (not just the earlier single-page spot-
+  check) found this bucket is NOT uniformly safe: 1 bare false headword
+  (`прямоугольник`) and 3 more confirmed missed-gloss-continuation
+  splits (`ййгъи`/`распятие`, `мамлакат`/`страна`, `рёлъизари`/
+  `осмеяние`) — resolving to 4 confirmed split pairs out of 37 sampled
+  (~11%, the same order of magnitude as Step 48's rejected 19%-false-
+  positive heuristic, validating the original caution against blanket
+  promotion). **Not fixed this round**: all 4 pages involved (97, 243,
+  332, 417) have zero accepted entries at all (confirmed via
+  `page_ledger.jsonl`), so there is no nearby accepted anchor to insert
+  these corrections after without creating new, badly-out-of-order
+  `check_accepted.order_regressions` — fixing this properly requires
+  solving the underlying dead-zone/anchor problem first (e.g. promoting
+  a batch of the surrounding correct majority together, or an explicit
+  approved regression trade-off), not a quick correction.
+- **"228 accepted-origin link classification"** — **Done** (classified,
+  not all individually fixed — matches the bracket-anomaly precedent).
+  New `classify_missing_links.py`, committed as
+  `data/av-ru.1967.missing_links_classification.jsonl` (228 rows, stable
+  `item_id`, `review_decision` preserved across regeneration, wired into
+  `build_all.sh` as non-gating, covered by `check_reproducibility.sh`).
+  Buckets: 17 `valid-class-agreement-variant` (confirmed not a bug by
+  construction — normal Avar noun-class prefix cross-reference); 74
+  `ocr-target-fixable` (fuzzy match ≥88 against accepted/review vocab —
+  a CANDIDATE only, not verified); 104
+  `possible-ocr-target-needs-verification` (fuzzy match 75-88); 33
+  `no-plausible-match-found`. None of the fuzzy candidates were
+  auto-applied as corrections (similarity alone isn't proof of the
+  correct target). Caught and fixed a real reproducibility bug while
+  building this: `rapidfuzz.process.extractOne` breaks ties between
+  equally-scored candidates by input order, and Python's set iteration
+  order for strings depends on per-process hash randomization — fixed
+  by sorting the candidate word list deterministically before matching.
+- Remaining P1s (100+ order-regression triage, multi-page
+  `source_spans` evidence) — not yet started this round; see
+  `/memories/repo/av-ru-1967-parsing.md` for current progress on each.
 
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 
