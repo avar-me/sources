@@ -104,13 +104,24 @@ verified progress but the item's own acceptance criteria aren't all met yet.
 
 ## Batch-4 (av-ru-1967-review-batch-4-2026-09-17.md) — status
 
-`evaluated_commit: 1ad6898242a24d01d6f865e8b95a6435db9c6722`
-(the data/`baselines.json` state this section describes; a report update
-commit like this one never changes `data/av-ru.1967.*` or the pipeline
-scripts themselves, only documentation/CI, so it's honest to reference
-the immediately-preceding commit here rather than claim a self-referential
-hash no commit can literally contain — `check_ci_policy.py` verifies this
-field is a real ancestor of HEAD on every run).
+Machine-readable manifest (verified by `check_ci_policy.py`'s
+`check_report_freshness()` on every CI run — `evaluated_commit` must be
+HEAD or HEAD's immediate parent, and every hash below is recomputed from
+the files on disk and required to match exactly; a report whose manifest
+doesn't match the files it claims to describe fails CI, however
+plausible its commit reference looks):
+
+```json
+{
+  "evaluated_commit": "8b25db2d7739bb94c7620afa37166b2fa9abe957",
+  "artifact_hashes": {
+    "data/av-ru.1967.jsonl": "9b7571be858073563064b7f059af92438355b32bc4ca1eecc2011bae61df0c17",
+    "data/av-ru.1967.provenance.jsonl": "c35891fb9eccc80e7cf6047dc1b0ac18474cd9f80f3d6b6dbef9a270b6e7019f",
+    "data/av-ru.1967.page_ledger.jsonl": "6c8f97ee74b425bb5d8337036a325cb96c1c250e2d64a9795ba63ba7c05395ef"
+  },
+  "baselines_hash": "b2c2efc6ad1a704919f9f2b7adac8614f4e3c2345352de629bb62854c8e49e8b"
+}
+```
 
 1. **Per-candidate outcome ledger** — **Done**. `parse_articles.py`/
    `build_dataset.py` emit `candidate_outcomes.jsonl`/`draft_outcomes.jsonl`
@@ -150,17 +161,21 @@ field is a real ancestor of HEAD on every run).
     `check_accepted.links_missing`: 495 → 228.
     `check_accepted.review_links_missing`: 400 → 278.
     `resolve_references.unresolved`: 1204 → 464.
-11. **Monotonic baseline CI policy** — **Done**. New
-    `.github/workflows/av-ru-1967-ci.yml` + `check_ci_policy.py`: reruns
-    `build_all.sh` and fails if any baseline got worse vs. the PR's base
-    ref (or the previous commit on a direct push) without an explicit
-    `baseline-regression-approved: <reason>` commit-message trailer.
+11. **Monotonic baseline CI policy** — **Done**, then reworked again for
+    batch-5 (see below) after 3 real gaps were found in the first version.
 
-See `/memories/repo/av-ru-1967-parsing.md` (Steps 52-59) for the full
+See `/memories/repo/av-ru-1967-parsing.md` (Steps 52-60+) for the full
 per-item investigation detail, bugs found/fixed, and validation record —
 this section is a summary, not a replacement for that log.
 
-## Current metrics (as of commit `7a3038b`)
+## History: batch-2/3 metrics snapshot (superseded, kept for record only)
+
+**This section describes an OLD state (commit `7a3038b`) and is NOT the
+current status** — it predates all of batch-4/5's fixes below. Kept only
+so the historical arc of the project is visible; the manifest above (and
+`scripts/av-ru-1967/baselines.json`/`/memories/repo/av-ru-1967-parsing.md`)
+are the only current-state sources of truth. Do not read the numbers
+below as describing the present.
 
 - `data/av-ru.1967.jsonl`: 9858 entries, sha256
   `c44b4d54cd04d82bd8c8cf87a354d709832b85cd64a9ed99d8f0e991bc4eaa84`,
@@ -182,11 +197,6 @@ this section is a summary, not a replacement for that log.
 - `resolve_references.py` (draft-level): 1204 unresolved.
 - All baseline metrics are an exact-match ratchet (`baseline.py`) —
   missing or drifted (better or worse) fails the build.
-
-**Superseded by batch-4 (see section above for current numbers)**: this
-snapshot is left as-is (historical, batch-2/3 era) rather than rewritten
-in place — `baselines.json` and `/memories/repo/av-ru-1967-parsing.md`
-are the live source of truth for exact current values.
 
 ## Not started / explicitly out of scope for this round
 

@@ -1,0 +1,11 @@
+[
+  {
+    "metric": "page_ledger.unexplained_drops",
+    "removed_at_commit": "9ef7338e5f054b123e172d5605eb56bd8d996ed1",
+    "reason": "Replaced by exact per-candidate/draft-article outcome accounting hard gates (batch-4 item 1). The old metric (105) was a naive segment-count-minus-draft-count subtraction that could not distinguish a real loss from expected consumption (a cross-page carry swallowing the next candidate). build_page_ledger.py now aggregates a per-candidate/per-draft-article outcome ledger instead, hard-gated at exactly 0 on every build (not baseline-tracked, since it must always be 0 by construction).",
+    "replaced_by": [
+      "build_page_ledger.py hard gate: unaccounted_candidates == 0 (all pages)",
+      "build_page_ledger.py hard gate: unaccounted_draft_articles == 0 (all pages)"
+    ]
+  }
+]

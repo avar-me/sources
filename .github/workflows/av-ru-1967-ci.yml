@@ -1,16 +1,21 @@
 name: av-ru.1967 pipeline
 
 # av-ru-1967-review-batch-4-2026-09-17.md, "11. Добавить monotonic
-# baseline policy в CI": running build_all.sh's baseline.py exact-match
-# gates locally isn't enough on its own — nothing stops a commit from
-# "legitimately" raising a baseline (accepting a regression) since exact-
-# match only checks the metric against the CURRENT commit's own
-# baselines.json, never against what was previously committed. This
-# workflow reruns the full pipeline and then diffs baselines.json against
-# the PR's base branch (or the previous commit on a direct push), failing
-# on any regression that isn't explicitly approved via a
-# "baseline-regression-approved: <reason>" trailer in the HEAD commit
-# message (see scripts/av-ru-1967/check_ci_policy.py).
+# baseline policy в CI", reworked per av-ru-1967-review-batch-5-2026-09-18.md's
+# P0 "Переделать monotonic baseline CI policy": running build_all.sh's
+# baseline.py exact-match gates locally isn't enough on its own — nothing
+# stops a commit from "legitimately" raising a baseline (accepting a
+# regression) since exact-match only checks the metric against the
+# CURRENT commit's own baselines.json, never against what was previously
+# committed. This workflow reruns the full pipeline, verifies it didn't
+# silently change any committed generated artifact, and diffs
+# baselines.json against the nearest ancestor commit that has it (falling
+# back past the PR base branch if that branch has never had the file),
+# failing on any regression that isn't explicitly approved via a
+# per-metric "baseline-regression-approved: <metric> <old>-><new> reason:
+# <text>" trailer in the HEAD commit message, or documented as a
+# legitimate removal in scripts/av-ru-1967/baseline_migrations.json (see
+# scripts/av-ru-1967/check_ci_policy.py).
 
 on:
   pull_request:
@@ -42,8 +47,18 @@ jobs:
       - name: Install pipeline dependencies
         run: pip install -r scripts/av-ru-1967/requirements.txt
 
+      - name: Unit tests for the CI policy itself
+        run: python3 scripts/av-ru-1967/test_check_ci_policy.py -v
+
       - name: Run full pipeline (build_all.sh)
         run: bash scripts/av-ru-1967/build_all.sh
+
+      - name: Verify build did not silently change committed artifacts
+        run: |
+          git diff --exit-code -- \
+            data/av-ru.1967.jsonl \
+            data/av-ru.1967.provenance.jsonl \
+            data/av-ru.1967.page_ledger.jsonl
 
       - name: Determine base ref
         id: base

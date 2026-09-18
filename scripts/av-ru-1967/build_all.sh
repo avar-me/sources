@@ -29,8 +29,18 @@ OUT="data/av-ru.1967.jsonl"
 echo "=== compile check ==="
 python3 -m compileall -q "$SCRIPTS_DIR"
 
+# av-ru-1967-review-batch-5-2026-09-18.md, P0 "Исправить невоспроизводимый
+# page ledger": build_page_ledger.py reads tmp/av-ru.1967/order_check.jsonl
+# (check_order.py's own output) — any stale copy left over from a PREVIOUS
+# run (or its total absence in a clean worktree) silently changed the
+# committed ledger's order_regressions column depending on what happened
+# to be lying around in tmp/, not on this run's own data. Wipe the WHOLE
+# regenerable tmp dir up front (not just geometry/) so every run starts
+# from the same, empty slate — no script can accidentally read a leftover
+# file from a previous invocation.
+rm -rf tmp/av-ru.1967
+
 echo "=== step 1: extract_geometry ==="
-rm -rf tmp/av-ru.1967/geometry
 python3 "$SCRIPTS_DIR/extract_geometry.py" --start 23 --end 619
 
 echo "=== step 3: segment_entries ==="
@@ -51,14 +61,16 @@ python3 "$SCRIPTS_DIR/validate_schema.py" --input "$OUT"
 echo "=== check_accepted (baseline gate, accepted-only) ==="
 python3 "$SCRIPTS_DIR/check_accepted.py"
 
-echo "=== build_page_ledger (hard gate: completeness/zero-candidates/accounting) ==="
-python3 "$SCRIPTS_DIR/build_page_ledger.py"
-
 echo "=== check_order (baseline gate, draft-only) ==="
 python3 "$SCRIPTS_DIR/check_order.py"
 
 echo "=== resolve_references (baseline gate, draft-only) ==="
 python3 "$SCRIPTS_DIR/resolve_references.py"
+
+# Must run AFTER check_order.py — it reads that step's own
+# tmp/av-ru.1967/order_check.jsonl output (see the P0 note above).
+echo "=== build_page_ledger (hard gate: completeness/zero-candidates/accounting) ==="
+python3 "$SCRIPTS_DIR/build_page_ledger.py"
 
 echo "=== quality_scan (hard gate) ==="
 python3 "$SCRIPTS_DIR/quality_scan.py"

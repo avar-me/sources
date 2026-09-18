@@ -198,30 +198,6 @@ and will drift.
   `check_accepted.review_links_missing`,
   `check_accepted.accepted_links_ocr_invalid`,
   `check_accepted.review_links_ocr_invalid`.
-- **`build_page_ledger.py`** — per-page coverage ledger across all 597
-  physical pages (23-619), cross-referencing geometry/segments/draft
-  articles/accepted/review counts, first/last headword, carry-in/out,
-  max span length, unclosed brackets, and order regressions touching that
-  page. Writes the committed `data/av-ru.1967.page_ledger.jsonl` (597 rows).
-  Hard gate: every page must be present, every zero-draft-article page
-  must have an explanation — either STRUCTURAL (an `absorbed_by` index
-  built from every draft article's `source_pages`, see below: any page
-  besides an article's own starting page that its merged tokens came from
-  is linked back to that article automatically, e.g. page 551 -> `цебё`)
-  or, failing that, a manually-reviewed entry in
-  `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently empty — every known
-  zero-candidate page is now explained structurally) — AND every segment
-  candidate / draft article must have exactly one
-  outcome — aggregated from `parse_articles.py`'s
-  `tmp/av-ru.1967/candidate_outcomes.jsonl` (`own-article` or
-  `merged-into:<candidate_id>`, the latter only for a cross-page carry
-  swallowing the next page's first candidate) and `build_dataset.py`'s
-  `tmp/av-ru.1967/draft_outcomes.jsonl` (`accepted`/`review`/
-  `duplicate-of:<draft_index>`/`dropped-bare-stub-duplicate`/
-  `dropped-empty-word`) — av-ru-1967-review-batch-4-2026-09-17.md, "1.
-  Ввести per-candidate outcome ledger": real accounting instead of a
-  segment-count-minus-draft-count difference that couldn't tell a genuine
-  loss from expected consumption.
 - **`check_order.py`** (baseline gate, draft-only) — flags any two consecutive articles
   whose Avar sort keys go backwards (the whole book is one continuous A-Z
   listing across pages 23-619). Rescues stress-glyph/`||` OCR artifacts the
@@ -251,6 +227,38 @@ and will drift.
   normalized match fails and exactly one candidate resolves; batch-4 item
   10 found this alone accounts for 740 of the original 1204 unresolved
   draft-level candidates.
+- **`build_page_ledger.py`** — per-page coverage ledger across all 597
+  physical pages (23-619), cross-referencing geometry/segments/draft
+  articles/accepted/review counts, first/last headword, carry-in/out,
+  max span length, unclosed brackets, and order regressions touching that
+  page. Writes the committed `data/av-ru.1967.page_ledger.jsonl` (597 rows).
+  **Must run AFTER `check_order.py`** — it reads that step's own
+  `tmp/av-ru.1967/order_check.jsonl` output; running it earlier (as
+  `build_all.sh` used to) silently read a STALE copy from a previous
+  invocation, or none at all in a clean worktree, producing a
+  non-reproducible committed ledger (av-ru-1967-review-batch-5-2026-09-18.md's
+  P0 "Исправить невоспроизводимый page ledger" — fixed both by reordering
+  `build_all.sh` and by wiping the whole `tmp/av-ru.1967/` directory at
+  the start of every build, not just `geometry/`; see
+  `check_reproducibility.sh` below). Hard gate: every page must be
+  present, every zero-draft-article page must have an explanation —
+  either STRUCTURAL (an `absorbed_by` index built from every draft
+  article's `source_pages`, see above: any page besides an article's own
+  starting page that its merged tokens came from is linked back to that
+  article automatically, e.g. page 551 -> `цебё`) or, failing that, a
+  manually-reviewed entry in `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently
+  empty — every known zero-candidate page is now explained structurally)
+  — AND every segment candidate / draft article must have exactly one
+  outcome — aggregated from `parse_articles.py`'s
+  `tmp/av-ru.1967/candidate_outcomes.jsonl` (`own-article` or
+  `merged-into:<candidate_id>`, the latter only for a cross-page carry
+  swallowing the next page's first candidate) and `build_dataset.py`'s
+  `tmp/av-ru.1967/draft_outcomes.jsonl` (`accepted`/`review`/
+  `duplicate-of:<draft_index>`/`dropped-bare-stub-duplicate`/
+  `dropped-empty-word`) — av-ru-1967-review-batch-4-2026-09-17.md, "1.
+  Ввести per-candidate outcome ledger": real accounting instead of a
+  segment-count-minus-draft-count difference that couldn't tell a genuine
+  loss from expected consumption.
 - **`quality_scan.py`** (hard gate, 0 tolerance) — independent structural
   checks (Russian text leaking into `av`, Avar text leaking into `ru`,
   outlier-length `word`), gated on `known_words` to avoid flagging real
@@ -360,16 +368,65 @@ can only ever move because someone consciously edited the file.
 This exact-match check alone can't stop a commit from "legitimately"
 RAISING a baseline in that same commit (accepting a real regression) —
 nothing about it compares against what was PREVIOUSLY committed.
-`check_ci_policy.py` (batch-4 item 11) closes that gap: run after
-`build_all.sh` with `--base-ref <ref>` (the PR's base branch, or `HEAD~1`
-on a direct push), it diffs the current `baselines.json` against that ref
-and fails if any metric got worse, unless the HEAD commit message has a
-`baseline-regression-approved: <reason>` trailer. It also verifies
-`report.md`'s `evaluated_commit: <sha>` field is a real ancestor of HEAD
-(not a literal self-hash — no commit can contain its own resulting hash —
-just a check that the report isn't referencing a stale/foreign commit).
+`check_ci_policy.py` (batch-4 item 11, reworked for
+av-ru-1967-review-batch-5-2026-09-18.md's P0 after 3 real gaps were
+found) closes that gap: run after `build_all.sh` with `--base-ref <ref>`
+(the PR's base branch, or `HEAD~1` on a direct push), it compares the
+current `baselines.json` against the NEAREST ANCESTOR OF HEAD that has
+the file — falling back past `--base-ref` itself if that ref has never
+had it (e.g. the first PR merging this branch into `main`), so a
+first-time merge isn't silently unprotected. Any metric that got worse
+fails UNLESS the HEAD commit message has a per-metric, value-specific
+trailer: `baseline-regression-approved: <metric> <old>-><new> reason:
+<text>` — a trailer only approves the exact metric/transition it names,
+never every regressed metric in the commit at once. A metric that
+disappeared entirely is ALSO a failure unless
+`scripts/av-ru-1967/baseline_migrations.json` has a matching entry
+(a permanent, committed audit trail for legitimate removals — e.g. the
+old `page_ledger.unexplained_drops`, replaced by hard-gated exact
+accounting) — this makes it safe to compare against an arbitrarily old
+`--base-ref` without false-failing on already-documented migrations.
+`test_check_ci_policy.py` (stdlib `unittest`, no pytest dependency) covers
+all of this with negative tests, including a throwaway git repo for the
+history-walking fallback.
+
+It also verifies `report.md` carries a machine-readable manifest (a
+fenced ` ```json ` block with `evaluated_commit` + a sha256 for every
+committed generated artifact + `baselines.json`) via
+`check_report_freshness()`: `evaluated_commit` must be HEAD or HEAD's
+immediate parent (not just any ancestor, which never expires), AND every
+hash is recomputed from the files on disk right now and must match
+exactly — a report can't just claim a plausible-looking commit reference,
+its manifest has to actually match reality.
+
 Wired into `.github/workflows/av-ru-1967-ci.yml`, triggered on PRs and
-direct pushes touching `scripts/av-ru-1967/**`/`data/av-ru.1967.*`.
+direct pushes touching `scripts/av-ru-1967/**`/`data/av-ru.1967.*`, which
+also runs `test_check_ci_policy.py` and a `git diff --exit-code` check
+against the 3 committed generated artifacts right after `build_all.sh`
+(see `check_reproducibility.sh` below for the equivalent local check).
 ```bash
 python3 scripts/av-ru-1967/check_ci_policy.py --base-ref origin/main
+python3 scripts/av-ru-1967/test_check_ci_policy.py -v
+```
+
+### `check_reproducibility.sh`
+
+Runs `build_all.sh` twice from a completely clean `tmp/av-ru.1967/` state
+(batch-5's P0 "Исправить невоспроизводимый page ledger", requirement 3):
+fails if either run errors, if the two runs' committed-artifact hashes
+differ from each other, or if either run leaves the working tree dirty
+relative to git HEAD (`git diff --exit-code` on the 3 committed generated
+artifacts). This is what caught the original bug: `build_page_ledger.py`
+read `tmp/av-ru.1967/order_check.jsonl` — `check_order.py`'s own output —
+but ran BEFORE `check_order.py` in `build_all.sh`'s old step order, so a
+clean worktree (no leftover file) silently produced all-zero
+`order_regressions` in the committed ledger, while a developer's own
+working directory (with a stale file from a previous run) produced
+different, stale numbers. Fixed by reordering `build_all.sh` (`check_order.py`
+now runs before `build_page_ledger.py`) and wiping the WHOLE
+`tmp/av-ru.1967/` directory at the start of every build (not just
+`geometry/`), so no script can ever read a leftover file from a previous
+invocation.
+```bash
+scripts/av-ru-1967/check_reproducibility.sh
 ```
