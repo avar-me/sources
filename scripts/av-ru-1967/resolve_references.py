@@ -31,6 +31,22 @@ def normalize(word: str) -> str:
     return normalize_palochka(word).lower().strip("*")
 
 
+# av-ru-1967-review-batch-4-2026-09-17.md, item 10 "Разобрать accepted ->
+# missing links приоритетным batch": the same б/6/й/ё stress-mark notation
+# difference that closed 267 of check_accepted.py's accepted->missing
+# findings (a bold headword printed WITH a stress mark vs. the same word
+# referenced in running text WITHOUT one, or vice versa) accounts for 740
+# of these 1204 draft-level unresolved candidates too — checked here as a
+# second, explicit fallback (not folded into `normalize()` itself) so a
+# resolution report can still distinguish "exact/palochka match" from
+# "only matched after stress-mark normalization" if that's ever useful.
+_STRESS_NORMALIZE = str.maketrans({"б": "о", "6": "о", "й": "и", "ё": "е"})
+
+
+def stress_normalize(word: str) -> str:
+    return normalize(word).translate(_STRESS_NORMALIZE)
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--articles", default="tmp/av-ru.1967/draft_articles.jsonl")
@@ -39,6 +55,9 @@ def main() -> int:
 
     articles = [json.loads(line) for line in Path(args.articles).open("r", encoding="utf-8")]
     known = {normalize(a["word"]) for a in articles}
+    known_stress_norm: dict[str, list[str]] = {}
+    for a in articles:
+        known_stress_norm.setdefault(stress_normalize(a["word"]), []).append(a["word"])
 
     resolved = 0
     unresolved: list[dict[str, Any]] = []
@@ -48,16 +67,20 @@ def main() -> int:
                 for target in sense.get(key, []):
                     if normalize(target) in known:
                         resolved += 1
-                    else:
-                        unresolved.append(
-                            {
-                                "page": article["page"],
-                                "word": article["word"],
-                                "kind": kind,
-                                "target": target,
-                                "raw_text": article["raw_text"][:160],
-                            }
-                        )
+                        continue
+                    stress_matches = known_stress_norm.get(stress_normalize(target))
+                    if stress_matches and len(stress_matches) == 1:
+                        resolved += 1
+                        continue
+                    unresolved.append(
+                        {
+                            "page": article["page"],
+                            "word": article["word"],
+                            "kind": kind,
+                            "target": target,
+                            "raw_text": article["raw_text"][:160],
+                        }
+                    )
 
     out_path = Path(args.out)
     with out_path.open("w", encoding="utf-8") as fh:

@@ -52,6 +52,31 @@ def _looks_ocr_invalid_target(target: str) -> bool:
         return True
     return not any(ch.isalpha() for ch in target)
 
+
+# av-ru-1967-review-batch-4-2026-09-17.md, item 10 "Разобрать accepted ->
+# missing links приоритетным batch": 267 of the first 495 findings turned
+# out to be the SAME headword under a stress-mark notation difference
+# (б/6/й/ё mark stress on о/о/и/е respectively) — e.g. see_also target
+# "векеризавизе" for accepted headword "векёризавизе". This isn't OCR
+# noise to rewrite (build_dataset.py's rescue_word() already handles that,
+# one-directional); it's a legitimate typographic convention difference
+# between how a word is printed as a bold headword (stressed) vs. as a
+# plain cross-reference target in running text (often unstressed, or
+# vice versa) — so it's fixed here as a MATCHING normalization, not a
+# content mutation.
+_STRESS_NORMALIZE = str.maketrans({"б": "о", "6": "о", "й": "и", "ё": "е"})
+
+
+def _stress_normalize(word: str) -> str:
+    return word.translate(_STRESS_NORMALIZE)
+
+
+def _build_stress_norm_index(words: set[str]) -> dict[str, list[str]]:
+    index: dict[str, list[str]] = {}
+    for w in words:
+        index.setdefault(_stress_normalize(w), []).append(w)
+    return index
+
 _SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
 
 # Span-size threshold matches batch-3's own "spans > 1000 chars" framing
@@ -142,6 +167,15 @@ def main() -> int:
 
     accepted_words = {e["word"] for e in accepted}
 
+    accepted_words_norm = _build_stress_norm_index(accepted_words)
+    review_words_norm = _build_stress_norm_index(review_words)
+
+    def _resolves_to(target: str, words: set[str], words_norm: dict[str, list[str]]) -> bool:
+        if target in words:
+            return True
+        matches = words_norm.get(_stress_normalize(target))
+        return bool(matches) and len(matches) == 1
+
     findings: dict[str, list[dict[str, Any]]] = {
         "order_regression": [],
         "suspicious_headword": [],
@@ -214,9 +248,9 @@ def main() -> int:
         if _looks_ocr_invalid_target(target):
             link_categories[f"{origin}_to_ocr_invalid"] += 1
             return
-        if target in accepted_words:
+        if _resolves_to(target, accepted_words, accepted_words_norm):
             link_categories[f"{origin}_to_accepted"] += 1
-        elif target in review_words:
+        elif _resolves_to(target, review_words, review_words_norm):
             link_categories[f"{origin}_to_review"] += 1
         else:
             link_categories[f"{origin}_to_missing"] += 1

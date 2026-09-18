@@ -597,6 +597,32 @@ def main() -> int:
             outcomes[draft_index] = "dropped-bare-stub-duplicate"
     stats["dropped_bare_duplicates"] = len(entries) - len(filtered)
 
+    # av-ru-1967-review-batch-4-2026-09-17.md, item 10 "Разобрать accepted
+    # -> missing links приоритетным batch": build_entry() already rescues
+    # a see_also target's б/6/й/ё stress-glyph OCR noise, but only against
+    # the MODERN dictionary (known_words) — a 1967-only archaic/dialectal
+    # target that isn't in the modern dictionary silently keeps its typo.
+    # 267 of the first 495 accepted->missing findings turned out to be
+    # exactly this same substitution, just resolvable against THIS
+    # dataset's own final word set instead. Re-run the identical rescue
+    # (single-position б/6/й/ё substitution, only applied when it resolves
+    # to exactly one match) now that every accepted+review word is known,
+    # only touching targets still unresolved after the first pass.
+    all_dataset_words = {e["word"] for e in filtered} | {
+        r["entry"]["word"] for r in needs_review if r.get("entry", {}).get("word")
+    }
+    rescued_targets = 0
+    for entry_group in (filtered, [r["entry"] for r in needs_review if r.get("entry")]):
+        for e in entry_group:
+            for sa in e.get("see_also", []):
+                if sa["target"] in all_dataset_words:
+                    continue
+                new_target, _ = rescue_word(sa["target"], all_dataset_words)
+                if new_target != sa["target"]:
+                    sa["target"] = new_target
+                    rescued_targets += 1
+    stats["rescued_see_also_targets"] = rescued_targets
+
     with Path(args.out).open("w", encoding="utf-8") as out_fh:
         for entry in filtered:
             out_fh.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -652,6 +678,8 @@ def main() -> int:
         print(f"recorded stress position for {stats['stress_recorded']} of those word(s)")
     if stats.get("pipe_corruption_split"):
         print(f"split {stats['pipe_corruption_split']} ц/Ц-as-'||' word(s) into spelling_forms")
+    if stats.get("rescued_see_also_targets"):
+        print(f"rescued {stats['rescued_see_also_targets']} see_also target(s) via dataset-own б/6/й/ё stress-glyph correction")
     if stats.get("dropped_bare_duplicates"):
         print(f"dropped {stats['dropped_bare_duplicates']} bare-stub duplicate(s)")
     if unaccounted:

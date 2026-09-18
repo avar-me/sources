@@ -181,7 +181,16 @@ and will drift.
   character or no letters at all, is distinguished from a "missing" but
   plausible word); bbox completeness (batch-4 item 8 — page+word matching
   alone is too weak to catch a real provenance gap, since bbox is the
-  actual evidence a decision/review can point at). Metrics tracked in
+  actual evidence a decision/review can point at). Link resolution also
+  falls back to a stress-mark-insensitive match (`_stress_normalize()`/
+  `_resolves_to()`) when the exact match fails and exactly one candidate
+  resolves — batch-4 item 10 found 267 of 495 accepted->missing findings
+  (and 122 of 400 review->missing) were the SAME headword under a
+  legitimate stress-mark notation difference (б/6/й/ё mark stress on
+  о/о/и/е respectively; a bold headword is printed stressed, a plain
+  cross-reference target in running text often isn't, or vice versa) —
+  fixed as a matching normalization, not a content mutation, since the
+  stored target strings are left untouched. Metrics tracked in
   `baselines.json`:
   `check_accepted.order_regressions`, `check_accepted.suspicious_headwords`,
   `check_accepted.oversized_spans`, `check_accepted.missing_bbox`,
@@ -237,6 +246,11 @@ and will drift.
 - **`resolve_references.py`** (baseline gate) — tries to resolve every
   `see_also`/`from` target against `word`/`forms`/`spelling_forms` of other
   entries; checks `resolve_references.unresolved` against `baselines.json`.
+  Also falls back to a stress-mark-insensitive match (`stress_normalize()`
+  — see `check_accepted.py` below for why) when the exact/palochka-
+  normalized match fails and exactly one candidate resolves; batch-4 item
+  10 found this alone accounts for 740 of the original 1204 unresolved
+  draft-level candidates.
 - **`quality_scan.py`** (hard gate, 0 tolerance) — independent structural
   checks (Russian text leaking into `av`, Avar text leaking into `ru`,
   outlier-length `word`), gated on `known_words` to avoid flagging real
