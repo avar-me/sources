@@ -16,7 +16,8 @@ Row schema (one JSON object per line, `data/av-ru.1967.decisions.jsonl`):
       "source_hash": "short hash of the exact source facts the decision
           was based on — if those facts change, the hash won't match
           anymore and the decision is a CONFLICT, not silently reused",
-      "decision": "accepted | rejected | corrected | allowlisted",
+      "decision": "allowlisted | corrected | rejected | needs_manual_fix |
+          accepted_after_human_review",
       "category": "short machine-checkable label",
       "reason": "human-readable justification",
       "reviewer": "who/what made the decision",
@@ -24,6 +25,28 @@ Row schema (one JSON object per line, `data/av-ru.1967.decisions.jsonl`):
       "evidence": {...freeform, e.g. {"page": 551, "pages": [550, 551, 552]}},
       "expected_entry": {...} | null
     }
+
+av-ru-1967-review-batch-4-2026-09-17.md, "2. Исправить семантику decision
+ledger": `decision` values are NOT interchangeable —
+- `allowlisted`: the data IS correct; only a diagnostic heuristic fires on
+  it (a genuine sort-key/tokenizer artifact, a source formatting choice, a
+  verified-correct large entry or carry). Never use this for something
+  that's actually wrong.
+- `corrected`: the parser/data has ALREADY been fixed and `expected_entry`
+  records what changed.
+- `rejected`: the candidate isn't a real article at all (should not be
+  accepted/published).
+- `needs_manual_fix`: a real error is CONFIRMED but not yet fixed — this
+  must NOT be treated as a closed/resolved finding by any consumer (see
+  check_order.py's `confirmed_category` logic — a `needs_manual_fix` match
+  still counts as an open regression, just with the root cause already
+  diagnosed).
+- `accepted_after_human_review`: a genuine human (not this agent) reviewed
+  the scan and the resulting entry and signed off.
+
+Every row's `reviewer` must honestly reflect whether it was an automated
+agent or a real person — this project's decisions so far are all
+"automated-agent-review", never fabricated as human sign-off.
 
 `source_hash` is deliberately a hash of a handful of plain strings (not a
 whole entry blob) — cheap to recompute anywhere, and stable across runs.
@@ -37,6 +60,18 @@ from pathlib import Path
 from typing import Any
 
 DEFAULT_LEDGER_PATH = Path("data/av-ru.1967.decisions.jsonl")
+
+DECISION_VALUES = {
+    "allowlisted",
+    "corrected",
+    "rejected",
+    "needs_manual_fix",
+    "accepted_after_human_review",
+}
+# Decisions that mean "this is genuinely fine, treat the diagnostic finding
+# as resolved" — anything else (needs_manual_fix, rejected pending removal)
+# must stay visible as an open item, not silently subtracted from a count.
+RESOLVED_DECISIONS = {"allowlisted", "corrected", "accepted_after_human_review"}
 
 
 def source_hash(*parts: str) -> str:

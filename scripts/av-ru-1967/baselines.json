@@ -1,8 +1,8 @@
 {
   "order_check.total_regressions": 900,
   "order_check.high_high": 131,
-  "order_check.unclassified": 426,
-  "order_check.unclassified_high_high": 0,
+  "order_check.unclassified": 432,
+  "order_check.unclassified_high_high": 6,
   "resolve_references.unresolved": 1204,
   "check_accepted.order_regressions": 408,
   "check_accepted.suspicious_headwords": 27,

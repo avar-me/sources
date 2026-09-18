@@ -32,6 +32,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 from baseline import check_metric, load_baselines  # noqa: E402
 from build_dataset import rescue_word, split_pipe_corruption  # noqa: E402
 from decision_ledger import (  # noqa: E402
+    RESOLVED_DECISIONS,
     check_decision,
     load_decisions,
     order_regression_hash,
@@ -115,7 +116,17 @@ def main() -> int:
                 ledger_id = order_regression_id(prev_word, word)
                 ledger_key = order_regression_hash(prev_word, word, prev["page"], article["page"])
                 status, row = check_decision(decisions, ledger_id, ledger_key)
-                confirmed = row["category"] if status == "valid" else None
+                # av-ru-1967-review-batch-4-2026-09-17.md, "2. Исправить семантику
+                # decision ledger": a `needs_manual_fix` decision confirms
+                # the ROOT CAUSE but the regression is still an open bug —
+                # it must NOT be treated the same as `allowlisted`/
+                # `corrected`/`accepted_after_human_review` (genuinely
+                # resolved), or a real error would silently stop counting
+                # as unclassified/regression.
+                confirmed = (
+                    row["category"] if status == "valid" and row["decision"] in RESOLVED_DECISIONS else None
+                )
+                needs_manual_fix = status == "valid" and row["decision"] == "needs_manual_fix"
                 if status == "conflict":
                     ledger_conflicts += 1
                 issues.append(
@@ -123,6 +134,7 @@ def main() -> int:
                         "suggested_category": suggested,
                         "confirmed_category": confirmed,
                         "ledger_status": status,
+                        "needs_manual_fix": needs_manual_fix,
                         "category": confirmed or suggested,
                         "prev": {
                             "page": prev["page"],
@@ -158,8 +170,11 @@ def main() -> int:
     for cat, count in sorted(by_category.items(), key=lambda kv: -kv[1]):
         print(f"  {cat}: {count} ({by_category_high_high.get(cat, 0)} high/high)")
     print(f"wrote {out_path}")
-    confirmed_count = sum(1 for i in issues if i["ledger_status"] == "valid")
-    print(f"  {confirmed_count} of {len(issues)} regressions have a confirmed (ledger) category")
+    confirmed_count = sum(1 for i in issues if i["confirmed_category"] is not None)
+    manual_fix_count = sum(1 for i in issues if i["needs_manual_fix"])
+    print(f"  {confirmed_count} of {len(issues)} regressions are confirmed resolved (ledger)")
+    if manual_fix_count:
+        print(f"  {manual_fix_count} regressions have a diagnosed but NOT-yet-fixed error (needs_manual_fix)")
     if ledger_conflicts:
         print(f"  LEDGER CONFLICT: {ledger_conflicts} decision(s) no longer match their source facts — re-review needed")
 
