@@ -238,27 +238,35 @@ and will drift.
 Committed, persistent review-decision ledger (av-ru-1967-review-batch-3-
 2026-09-17.md, "P0. Создать persistent decision ledger") — replaces
 scattering triage results across `/memories`, `tmp/`, or chat history. Each
-row: `id` (stable string), `source_hash` (short hash of the exact facts the
-decision was based on), `decision`, `category`, `reason`, `reviewer`,
-`reviewed_at`, `evidence`, `expected_entry`. `decision` is one of exactly
-five values (av-ru-1967-review-batch-4-2026-09-17.md, "2. Исправить
-семантику decision ledger" — `DECISION_VALUES`/`RESOLVED_DECISIONS` in
-`decision_ledger.py`): `allowlisted` (data IS correct, only a diagnostic
-heuristic fires), `corrected` (already fixed, `expected_entry` records
-what changed), `rejected` (not a real article), `needs_manual_fix` (a real
-error is CONFIRMED but not yet fixed — must never be treated as resolved),
+row: `id` (stable string), `source_hash`, `decision`, `category`, `reason`,
+`reviewer`, `reviewer_type`, `reviewed_at`, `pdf_sha256`, `evidence`,
+`expected_entry`. `decision` is one of exactly five values
+(av-ru-1967-review-batch-4-2026-09-17.md, "2. Исправить семантику decision
+ledger" — `DECISION_VALUES`/`RESOLVED_DECISIONS` in `decision_ledger.py`):
+`allowlisted` (data IS correct, only a diagnostic heuristic fires),
+`corrected` (already fixed, `expected_entry` records what changed),
+`rejected` (not a real article), `needs_manual_fix` (a real error is
+CONFIRMED but not yet fixed — must never be treated as resolved),
 `accepted_after_human_review` (an actual human, not this agent, signed
-off). `reviewer` must honestly say `automated-agent-review` when no human
-verified it — never fabricate human sign-off. `scripts/av-ru-1967/
-decision_ledger.py` provides `load_decisions()`/`check_decision()`/hashing
-helpers; currently consumed by `check_order.py` (order-regression pairs) —
-if the underlying facts change since a decision was recorded (the hash no
-longer matches), that's a `conflict`, hard-gated (never silently reused).
-Seeded with the 13 previously `/memories`-only triaged high/high order
-regressions (6 of which are actually `needs_manual_fix` — confirmed real
-errors, not yet corrected — the rest genuinely `allowlisted`), the p.551
-carry-page decision, and the 7 confirmed-legitimate oversized accepted
-spans.
+off). `reviewer`/`reviewer_type` must honestly say `automated-agent-review`/
+`automated` when no human verified it — never fabricate human sign-off.
+Evidence is now reproducible (av-ru-1967-review-batch-4-2026-09-17.md, "3.
+Сделать evidence воспроизводимым"): `pdf_sha256` ties every decision to the
+exact source PDF (`decision_ledger.pdf_sha256()`), and each row's
+`evidence` carries a `raw_snippet`/`bbox` (via `geometry_lookup.py`) for
+the reviewed span(s) — for order-regression rows, `order_regression_hash()`
+now includes a 200-char raw-text snippet of both sides, not just word/page,
+so a decision is invalidated (conflict) if the underlying OCR content
+changes, not only if the word/page itself moves. `scripts/av-ru-1967/
+decision_ledger.py` provides `load_decisions()`/`check_decision()`/hashing/
+`pdf_sha256()` helpers; currently consumed by `check_order.py`
+(order-regression pairs) — if the underlying facts change since a decision
+was recorded (the hash no longer matches), that's a `conflict`, hard-gated
+(never silently reused). Seeded with the 13 previously `/memories`-only
+triaged high/high order regressions (6 of which are actually
+`needs_manual_fix` — confirmed real errors, not yet corrected — the rest
+genuinely `allowlisted`), the p.551 carry-page decision, and the 7
+confirmed-legitimate oversized accepted spans.
 
 ### `baselines.json` / `baseline.py`
 

@@ -114,7 +114,9 @@ def main() -> int:
                 prev_word = prev["word_rescued"]
                 suggested = classify(prev_word, word, known_words)
                 ledger_id = order_regression_id(prev_word, word)
-                ledger_key = order_regression_hash(prev_word, word, prev["page"], article["page"])
+                ledger_key = order_regression_hash(
+                    prev_word, word, prev["page"], article["page"], prev["raw_text"], article["raw_text"]
+                )
                 status, row = check_decision(decisions, ledger_id, ledger_key)
                 # av-ru-1967-review-batch-4-2026-09-17.md, "2. Исправить семантику
                 # decision ledger": a `needs_manual_fix` decision confirms

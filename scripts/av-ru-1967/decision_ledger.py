@@ -119,8 +119,39 @@ def order_regression_id(prev_word: str, next_word: str) -> str:
     return f"order-regression:{prev_word}->{next_word}"
 
 
-def order_regression_hash(prev_word: str, next_word: str, prev_page: int, next_page: int) -> str:
-    return source_hash(prev_word, next_word, str(prev_page), str(next_page))
+def order_regression_hash(
+    prev_word: str,
+    next_word: str,
+    prev_page: int,
+    next_page: int,
+    prev_raw: str = "",
+    next_raw: str = "",
+) -> str:
+    """av-ru-1967-review-batch-4-2026-09-17.md, "3. Сделать evidence
+    воспроизводимым": hashing only word/page meant a decision stayed "valid"
+    even if the underlying raw OCR text for that span changed (e.g. a
+    parser fix altered the article's content but not its word/page) —
+    include a snippet of the actual source fragment so re-parsing the same
+    span invalidates the decision if its content changed."""
+    return source_hash(prev_word, next_word, str(prev_page), str(next_page), prev_raw[:200], next_raw[:200])
+
+
+PDF_PATH = Path("books/saidov_m_avarskorusskii_slovar.pdf")
+
+
+def pdf_sha256(path: Path = PDF_PATH) -> str | None:
+    """Full SHA-256 of the source PDF, recorded in decision evidence so a
+    decision can be tied to the exact scanned document it was reviewed
+    against (av-ru-1967-review-batch-4-2026-09-17.md, "3. Сделать evidence
+    воспроизводимым": "PDF SHA-256"). Returns None if the PDF isn't present
+    (e.g. a checkout without books/ fetched) rather than failing."""
+    if not path.exists():
+        return None
+    h = hashlib.sha256()
+    with path.open("rb") as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b""):
+            h.update(chunk)
+    return h.hexdigest()
 
 
 def review_item_id(word: str, page: int, column: str, top: float) -> str:
