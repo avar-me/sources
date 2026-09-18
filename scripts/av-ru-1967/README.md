@@ -120,9 +120,9 @@ and will drift.
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
 
-5. **`apply_corrections.py`** — applies hand-verified, one-off data fixes
-   from the committed `data/av-ru.1967.corrections.jsonl` on top of
-   `build_dataset.py`'s automated output (av-ru-1967-review-batch-4-2026-
+5. **`apply_corrections.py`** — applies automated-agent-proposed, one-off
+   data fixes from the committed `data/av-ru.1967.corrections.jsonl` on
+   top of `build_dataset.py`'s automated output (av-ru-1967-review-batch-4-2026-
    09-17.md, "4. Исправить конкретные известные accepted errors"): mistakes
    too specific/non-generalizable for a parser rule (a mid-paragraph
    headword the segmenter missed, a false headword absorbed from a
@@ -149,6 +149,32 @@ and will drift.
    instead of getting synthesized "manual-correction" provenance with no
    bbox (batch-4 item 8) the way a genuine brand-new split-off entry
    (e.g. `рёхи` split from `рехсей`, anchored via `insert_after`) does.
+
+   **Review status honesty** (av-ru-1967-review-batch-5-2026-09-18.md,
+   P1 "Не называть automated corrections hand-verified" — every one of
+   the 33 current rows was proposed AND applied by an automated agent
+   with full evidence, but **no human has reviewed any of them**;
+   calling that "hand-verified" was simply false):
+   - `decision: "pending_human_signoff"` (applies the correction, same as
+     the old `"corrected"` — accepted for backward compatibility) means
+     exactly what it says: automated, not yet human-reviewed.
+     `decision: "human_verified"` is the value to use once a real person
+     has actually checked a row against the source scan — both values
+     are treated identically by `apply_corrections.py` (whether a
+     correction is APPLIED never depends on human review status; only
+     the label's honesty does).
+   - `risk_class` (one of `glyph-only-rename` / `punctuation-markup-repair`
+     / `headword-removal-merge` / `sense-example-reconstruction`, lowest
+     to highest editorial risk) lets a reviewer triage the riskiest rows
+     first — a semantic merge or reconstructed example needs more
+     scrutiny than a single-character stress-glyph rename.
+   - `before_entries` (the exact pre-correction entry/entries this row
+     read, reconstructed from a clean pre-corrections build) sits next to
+     `expected_entry` so a reviewer has a real before/after diff, not
+     just a page number and prose explanation.
+   - `human_signoff` is `null` until a real person reviews the row; set
+     it to `{"reviewer": "<name>", "date": "...", "verdict": "confirmed"
+     | "needs_revision", "notes": "..."}` once someone actually has.
    ```bash
    python3 scripts/av-ru-1967/apply_corrections.py
    ```
@@ -170,9 +196,15 @@ and will drift.
   fires as a finding only combined with `_is_bare_or_fragment()`, i.e. the
   entry ALSO has no substantive gloss content, since a genuine
   directly-borrowed Avar loanword like "амбар"/"авантюра" always has a
-  real gloss/example and shouldn't be flagged just for looking Russian;
-  still not the full layout/font-based structural classifier batch-3
-  ultimately wants); oversized spans (`raw_text_length` from the provenance file);
+  real gloss/example and shouldn't be flagged just for looking Russian —
+  `_is_bare_or_fragment()` also treats a legitimate see-only cross-
+  reference entry as substantive, not bare, if its `see_also` target
+  actually resolves to a real accepted/review headword (batch-5 P1
+  "Закрыть оставшиеся suspicious headwords до нуля" — verified this
+  doesn't mask any other case: only 1 accepted entry in the whole
+  dataset had the "see_also-only, no senses" shape); still not the full
+  layout/font-based structural classifier batch-3 ultimately wants);
+  oversized spans (`raw_text_length` from the provenance file);
   `see_also` link targets split into accepted/review/missing; provenance
   completeness (hard 0 — every accepted entry must have a provenance row by
   construction). Link targets are categorized by BOTH origin (accepted vs
@@ -269,16 +301,24 @@ and will drift.
   classifies every draft article whose `raw_text` has unbalanced `[`/`]`
   counts (batch-4 item 6's "96 unclosed-bracket signals"), cross-
   referencing `draft_outcomes.jsonl` to show which outcome each one
-  reached. Writes `tmp/av-ru.1967/bracket_anomalies.jsonl` (not
-  committed, regenerable). As of Step 56: 95/96 are already filtered to
-  the review queue by the existing confidence heuristics (never
-  published); the 1 that reached accepted (`шал` homonym 1) had real
-  content loss and was fixed via the corrections layer. The remaining 95
-  are single OCR glyph substitutions in otherwise-complete review-queue
-  entries — documented via a bulk `decision: "allowlisted"` row
-  (`bracket-anomalies:batch-4-item-6`) rather than a broad parser rule
-  (substitution characters are too heterogeneous for one safe general
-  fix, and these entries don't reach published data anyway).
+  reached. Writes the **committed** `data/av-ru.1967.bracket_anomalies.jsonl`
+  (96 rows, each with a stable `item_id` and a `review_decision` field —
+  `null` until a future individual review round fills it in; moved out of
+  gitignored `tmp/` in batch-5, since a bulk classification with no
+  durable per-item id couldn't support real follow-up triage). As of
+  Step 56: 95/96 are already filtered to the review queue by the existing
+  confidence heuristics (never published); the 1 that reached accepted
+  (`шал` homonym 1) had real content loss and was fixed via the
+  corrections layer. The remaining 95 are single OCR glyph substitutions
+  in otherwise-complete review-queue entries — documented via a bulk
+  `decision: "classified_pending_review"` row
+  (`bracket-anomalies:batch-4-item-6`) — NOT `"allowlisted"` (batch-5, P1
+  "Исправить семантику bracket decision": `allowlisted` means "data
+  confirmed correct", which is false for 95 still-unresolved review-queue
+  items — this only means "triaged in bulk, not yet individually
+  reviewed") — rather than a broad parser rule (substitution characters
+  are too heterogeneous for one safe general fix, and these entries don't
+  reach published data anyway).
 - **`compare_with_av_ru.py`** (optional, never gates the build) —
   fuzzy-matches headwords against the modern `data/av-ru.jsonl` for
   spot-checking (uses `rapidfuzz`).

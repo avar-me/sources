@@ -14,6 +14,17 @@ accepted — fixed via data/av-ru.1967.corrections.jsonl (see decisions).
 This is a non-gating diagnostic (like compare_with_av_ru.py): it doesn't
 fail the build, just writes a classification artifact for future review-
 queue triage (batch-4 item 9) and prints a summary.
+
+av-ru-1967-review-batch-5-2026-09-18.md, P1 "Исправить семантику bracket
+decision": the bulk `bracket-anomalies:batch-4-item-6` decision in
+data/av-ru.1967.decisions.jsonl used `decision: "allowlisted"` for 95
+items that are still UNRESOLVED in the review queue, which wrongly reads
+as "data confirmed correct" rather than "triaged, not yet individually
+reviewed". Fixed by (a) using `classified_pending_review` instead, and
+(b) committing this artifact (as data/av-ru.1967.bracket_anomalies.jsonl,
+not a gitignored tmp file) with a stable `item_id` and a `review_decision`
+field (`null` until a future individual review round fills it in) per
+row, so each of the 96 anomalies is durably trackable, not just a count.
 """
 
 from __future__ import annotations
@@ -49,7 +60,7 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--drafts", default="tmp/av-ru.1967/draft_articles.jsonl")
     parser.add_argument("--draft-outcomes", default="tmp/av-ru.1967/draft_outcomes.jsonl")
-    parser.add_argument("--out", default="tmp/av-ru.1967/bracket_anomalies.jsonl")
+    parser.add_argument("--out", default="data/av-ru.1967.bracket_anomalies.jsonl")
     args = parser.parse_args()
 
     drafts = _load_jsonl(Path(args.drafts))
@@ -62,12 +73,14 @@ def main() -> int:
             continue
         rows.append(
             {
+                "item_id": f"bracket-anomaly:p{d.get('page')}:{d.get('word')}:{i}",
                 "draft_index": i,
                 "page": d.get("page"),
                 "word": d.get("word"),
                 "outcome": outcomes.get(i, "?"),
                 "bucket": classify(raw_text),
                 "raw_text_preview": raw_text[:200],
+                "review_decision": None,
             }
         )
 

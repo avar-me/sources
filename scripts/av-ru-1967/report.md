@@ -113,13 +113,14 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "8b25db2d7739bb94c7620afa37166b2fa9abe957",
+  "evaluated_commit": "b8bffdf610238a804b6e95a98f48f173f4e114a2",
   "artifact_hashes": {
-    "data/av-ru.1967.jsonl": "9b7571be858073563064b7f059af92438355b32bc4ca1eecc2011bae61df0c17",
-    "data/av-ru.1967.provenance.jsonl": "c35891fb9eccc80e7cf6047dc1b0ac18474cd9f80f3d6b6dbef9a270b6e7019f",
-    "data/av-ru.1967.page_ledger.jsonl": "6c8f97ee74b425bb5d8337036a325cb96c1c250e2d64a9795ba63ba7c05395ef"
+    "data/av-ru.1967.jsonl": "ddd7d2827dcbc42c9ca32938ae8d9577657f7bed01bf86c2694e4469d7641d63",
+    "data/av-ru.1967.provenance.jsonl": "6cb4d068193f88b6295b382142e65032c2080df7fdf95ac8704d289b08aba512",
+    "data/av-ru.1967.page_ledger.jsonl": "27024ec6f6c9a06f92fca2706e7f96e874c59fde5fc101e979d54fb6b3871adf",
+    "data/av-ru.1967.bracket_anomalies.jsonl": "17f68e5b5effa01f5fe2d76d4a99e235d4e0fd6d8d4236acd28ff415031f7148"
   },
-  "baselines_hash": "b2c2efc6ad1a704919f9f2b7adac8614f4e3c2345352de629bb62854c8e49e8b"
+  "baselines_hash": "eacb1d96efee3f750e6a3f2f4984ef278b88b6196bce84214b0c2402b5516bac"
 }
 ```
 
@@ -133,10 +134,9 @@ plausible its commit reference looks):
    raw-text-snippet hashing.
 4. **Fix the 6 named known accepted errors** — **Done**. New
    `data/av-ru.1967.corrections.jsonl` + `apply_corrections.py`.
-5. **Close all 27 suspicious-headword findings** — **Done** (26/27 fixed
-   with real corrections; 1 — "во" — formally deferred via
-   `needs_manual_fix`, needs a deeper fix to `вйхьизе`'s own garbled
-   entry first). `check_accepted.suspicious_headwords`: 27 → 2.
+5. **Close all 27 suspicious-headword findings** — **Done, fully** (all
+   27 fixed with real corrections, including "во" — completed in
+   batch-5, see below). `check_accepted.suspicious_headwords`: 27 → 0.
 6. **Classify accounting gaps + 96 bracket anomalies** — **Done**. The 26
    accounting gap and 105 candidate drops were already closed by item 1;
    the 96 unclosed-bracket signals are now classified
@@ -168,10 +168,71 @@ See `/memories/repo/av-ru-1967-parsing.md` (Steps 52-60+) for the full
 per-item investigation detail, bugs found/fixed, and validation record —
 this section is a summary, not a replacement for that log.
 
+## Batch-5 (av-ru-1967-review-batch-5-2026-09-18.md) — status
+
+All 3 P0s: **Done**.
+
+- **P0 "Исправить невоспроизводимый page ledger"**: root cause confirmed
+  exactly as reported — `build_page_ledger.py` read
+  `tmp/av-ru.1967/order_check.jsonl` (`check_order.py`'s own output) but
+  ran BEFORE it in `build_all.sh`'s old step order. Fixed by reordering
+  and wiping the whole `tmp/av-ru.1967/` at the start of every build
+  (not just `geometry/`). New `check_reproducibility.sh` (2 clean runs +
+  `git diff --exit-code`), also wired into CI.
+- **P0 "Переделать monotonic baseline CI policy"**: all 3 named gaps
+  fixed — a base ref lacking `baselines.json` (e.g. `main`) now falls
+  back to the branch's own history instead of skipping; a metric's
+  removal is only valid with a matching `baseline_migrations.json`
+  entry (new file; documents the old `page_ledger.unexplained_drops`'s
+  removal); the approval trailer is now per-metric and value-specific.
+  New `test_check_ci_policy.py` (16 unit tests, stdlib `unittest`).
+- **P0 "Сделать freshness отчёта проверяемой"**: ancestor-only checking
+  never expires, so replaced with a machine-readable manifest (see
+  above) requiring `evaluated_commit` be HEAD or HEAD's immediate
+  parent EXACTLY, with every committed artifact's hash independently
+  recomputed and matched.
+
+P1s:
+
+- **"Не называть automated corrections hand-verified"** — **Done**.
+  `data/av-ru.1967.corrections.jsonl`'s `decision` renamed
+  `"corrected"` → `"pending_human_signoff"` (honest: proposed and
+  applied by an automated agent, not yet reviewed by a person; now 34
+  rows). Every row now carries `risk_class` (`glyph-only-rename` /
+  `punctuation-markup-repair` / `headword-removal-merge` /
+  `sense-example-reconstruction`) and `before_entries` (the exact
+  pre-correction entry/entries, reconstructed from a clean
+  pre-corrections build) alongside the existing `expected_entry`, so a
+  human reviewer has a real before/after diff to check, not just a
+  page number. `human_signoff` is `null` until an actual person
+  reviews a row (not yet done — 0/34 human-reviewed).
+- **"Исправить семантику bracket decision"** — **Done**. The bulk
+  `bracket-anomalies:batch-4-item-6` decision changed from `allowlisted`
+  (wrongly implying "data confirmed correct") to the new
+  `classified_pending_review` decision value (added to
+  `decision_ledger.py`'s `DECISION_VALUES`, deliberately excluded from
+  `RESOLVED_DECISIONS`). The classification artifact itself moved from a
+  gitignored `tmp/` file to committed `data/av-ru.1967.bracket_anomalies.jsonl`
+  (96 rows), each with a stable `item_id` and a `review_decision` field
+  (`null` until individually reviewed) so future triage can reference a
+  durable id, not just a count.
+- **"Закрыть оставшиеся suspicious headwords до нуля"** — **Done**.
+  `check_accepted.suspicious_headwords`: 2 → **0**. `сундук` fixed at
+  the CHECKER level (`_is_bare_or_fragment()` no longer treats a
+  legitimate see-only cross-reference as bare — verified only 1 accepted
+  entry in the whole dataset had this exact shape, so the fix can't mask
+  any other case). `во` actually fixed via a new correction:
+  `вйхьизе`'s own garbled entry (missing sense 1, swapped av/ru example
+  fields) reconstructed directly from raw_text, `во` removed.
+- Remaining P1s (200+ review-card triage, 228 accepted-origin link
+  classification, 100+ order-regression triage, multi-page
+  `source_spans` evidence) — not yet started this round; see
+  `/memories/repo/av-ru-1967-parsing.md` for current progress on each.
+
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 
 **This section describes an OLD state (commit `7a3038b`) and is NOT the
-current status** — it predates all of batch-4/5's fixes below. Kept only
+current status** — it predates all of batch-4/5's fixes above. Kept only
 so the historical arc of the project is visible; the manifest above (and
 `scripts/av-ru-1967/baselines.json`/`/memories/repo/av-ru-1967-parsing.md`)
 are the only current-state sources of truth. Do not read the numbers

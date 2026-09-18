@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Apply hand-verified data corrections from data/av-ru.1967.corrections.jsonl
-to build_dataset.py's automated output.
+"""Apply automated-agent-proposed data corrections from
+data/av-ru.1967.corrections.jsonl to build_dataset.py's automated output.
 
 av-ru-1967-review-batch-4-2026-09-17.md, "4. Исправить конкретные известные
 accepted errors": some accepted-file bugs are one-off, non-generalizable
@@ -8,15 +8,29 @@ mistakes (a mid-paragraph headword missed, an OCR "!"/palochka confusion
 inherited from a removed segmentation heuristic, a false headword absorbed
 from a neighboring gloss) that the automated pipeline can never safely fix
 with a general rule without risking new regressions elsewhere. This is the
-ONE place those specific, individually-verified corrections are applied.
+ONE place those specific, individually-authored corrections are applied.
 
-Each correction is a decision_ledger-shaped row (decision: "corrected")
-with a `source_hash` tying it to the EXACT accepted content it was based
-on (`target_word` + every `remove_words` entry, sorted and hashed) — if
-build_dataset.py's output changes upstream (a real pipeline fix altering
-the same words), the correction's hash no longer matches and it is NOT
-applied (reported as a conflict) rather than silently reapplying a stale
-patch on top of new content.
+av-ru-1967-review-batch-5-2026-09-18.md, P1 "Не называть automated
+corrections hand-verified": every row here was proposed AND applied by an
+automated agent, with full evidence (page, bbox, raw snippet,
+`before_entries`/`expected_entry`) but with **no human review** -
+`decision: "pending_human_signoff"` says exactly that, honestly, instead
+of the earlier `"corrected"` (which this file's own docstring used to
+call "hand-verified"/"individually-verified" - neither was true). Each
+row also carries a `risk_class` (`glyph-only-rename` /
+`punctuation-markup-repair` / `headword-removal-merge` /
+`sense-example-reconstruction`) so a human reviewer can triage the
+riskiest classes (semantic merges/reconstructions) first, and a
+`human_signoff` field (`null` until an actual human reviews it - see
+README.md for the intended review workflow).
+
+Each correction is a decision_ledger-shaped row with a `source_hash`
+tying it to the EXACT accepted content it was based on (`target_word` +
+every `remove_words` entry, sorted and hashed) — if build_dataset.py's
+output changes upstream (a real pipeline fix altering the same words),
+the correction's hash no longer matches and it is NOT applied (reported
+as a conflict) rather than silently reapplying a stale patch on top of
+new content.
 
 Runs as the LAST step of build_all.sh, after build_dataset.py.
 """
@@ -66,7 +80,13 @@ def main() -> int:
     provenance_path = Path(args.provenance)
     accepted = _load_jsonl(accepted_path)
     provenance = _load_jsonl(provenance_path)
-    corrections = [c for c in _load_jsonl(Path(args.corrections)) if c.get("decision") == "corrected"]
+    # "corrected" is accepted too for backward compatibility with any
+    # pre-batch-5 tooling/history that still uses the old name; new rows
+    # should use "pending_human_signoff" (not yet reviewed by a human) or
+    # "human_verified" (a real person has actually checked it) - both mean
+    # "apply this", the distinction is about honesty, not whether it runs.
+    APPLICABLE = {"pending_human_signoff", "human_verified", "corrected"}
+    corrections = [c for c in _load_jsonl(Path(args.corrections)) if c.get("decision") in APPLICABLE]
 
     if len(accepted) != len(provenance):
         print(f"FATAL: {len(accepted)} accepted entries but {len(provenance)} provenance rows")

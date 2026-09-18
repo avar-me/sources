@@ -86,7 +86,7 @@ _SORT_KEY = make_sort_key(make_rank(AVAR_ALPHABET), make_tokenizer("av"))
 LONG_SPAN_CHARS = 1000
 
 
-def _is_bare_or_fragment(entry: dict[str, Any]) -> bool:
+def _is_bare_or_fragment(entry: dict[str, Any], resolvable_words: set[str] | None = None) -> bool:
     """True if the entry has no substantive gloss content at all — either
     a bare `{"word": ...}` stub, or every sense's `text`/examples are tiny
     fragments (a single stray preposition, an abbreviated cross-reference
@@ -95,7 +95,22 @@ def _is_bare_or_fragment(entry: dict[str, Any]) -> bool:
     loanword pattern) always has at least a clean single-word gloss or a
     real example sentence; a segmentation artifact (a Russian gloss word
     that got mis-bolded into becoming its own headword) typically doesn't,
-    because there was never a real Avar article there to begin with."""
+    because there was never a real Avar article there to begin with.
+
+    av-ru-1967-review-batch-5-2026-09-18.md, P1 "Закрыть остающиеся
+    suspicious headwords до нуля": a legitimate see-only cross-reference
+    entry (e.g. `сундук` -> `сандукӏ`, a real loanword variant with no
+    gloss of its own by design) has NO `senses` at all, so the loop below
+    never runs and this used to fall through to `return True` — wrongly
+    flagging it as bare. A `see_also` whose target actually resolves to a
+    real headword elsewhere in the dataset is substantive content (the
+    entry's whole point is to point there), so it isn't bare/fragment.
+    `resolvable_words` (accepted ∪ review headwords) is what makes this
+    safe: a see_also to a NONEXISTENT word still doesn't save an entry
+    from being flagged, so this can't be gamed by a fake reference.
+    """
+    if resolvable_words and any(ref.get("target") in resolvable_words for ref in entry.get("see_also", [])):
+        return False
     if set(entry.keys()) == {"word"}:
         return True
     for sense in entry.get("senses", []):
@@ -110,7 +125,13 @@ def _is_bare_or_fragment(entry: dict[str, Any]) -> bool:
     return True
 
 
-def suspicious_headword_reason(word: str, entry: dict[str, Any], known_words: set[str], russian_lexicon: set[str]) -> str | None:
+def suspicious_headword_reason(
+    word: str,
+    entry: dict[str, Any],
+    known_words: set[str],
+    russian_lexicon: set[str],
+    resolvable_words: set[str] | None = None,
+) -> str | None:
     """av-ru-1967-review-batch-3-2026-09-17.md, "P0. Исправить
     false-headword detection без бесконечного blacklist": the old check
     (RUSSIAN_GRAMMAR_RE suffix + a dozen hand-picked function words) misses
@@ -124,7 +145,7 @@ def suspicious_headword_reason(word: str, entry: dict[str, Any], known_words: se
     lowered = word.strip(",.;:!?").lower()
     if RUSSIAN_GRAMMAR_RE.search(word) or lowered in RUSSIAN_FUNCTION_WORDS:
         return "russian-grammar-or-function-word"
-    if lowered in russian_lexicon and _is_bare_or_fragment(entry):
+    if lowered in russian_lexicon and _is_bare_or_fragment(entry, resolvable_words):
         return "matches-russian-lexicon-and-lacks-content"
     return None
 
@@ -202,8 +223,9 @@ def main() -> int:
         prev_word, prev_key = word, key
 
     # --- suspicious headword language ---
+    resolvable_words = accepted_words | review_words
     for e, p in zip(accepted, provenance):
-        reason = suspicious_headword_reason(e["word"], e, known_words, russian_lexicon)
+        reason = suspicious_headword_reason(e["word"], e, known_words, russian_lexicon, resolvable_words)
         if reason:
             findings["suspicious_headword"].append(
                 {"word": e["word"], "page": p.get("page"), "reason": reason}

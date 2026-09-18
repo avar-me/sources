@@ -20,6 +20,7 @@ ARTIFACTS=(
   "data/av-ru.1967.jsonl"
   "data/av-ru.1967.provenance.jsonl"
   "data/av-ru.1967.page_ledger.jsonl"
+  "data/av-ru.1967.bracket_anomalies.jsonl"
 )
 
 hash_artifacts() {

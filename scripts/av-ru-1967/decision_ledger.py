@@ -43,6 +43,14 @@ ledger": `decision` values are NOT interchangeable —
   diagnosed).
 - `accepted_after_human_review`: a genuine human (not this agent) reviewed
   the scan and the resulting entry and signed off.
+- `classified_pending_review` (av-ru-1967-review-batch-5-2026-09-18.md,
+  P1 "Исправить семантику bracket decision"): a BULK finding has been
+  automatically classified/triaged (e.g. "95 of these 96 flagged items are
+  already safely unpublished in the review queue") but the underlying
+  unpublished items themselves have NOT been individually reviewed yet.
+  Distinct from `allowlisted` (data confirmed correct) and
+  `needs_manual_fix` (a specific confirmed error) — this is "triaged, not
+  yet resolved", and must never be treated as closed.
 
 Every row's `reviewer` must honestly reflect whether it was an automated
 agent or a real person — this project's decisions so far are all
@@ -67,10 +75,12 @@ DECISION_VALUES = {
     "rejected",
     "needs_manual_fix",
     "accepted_after_human_review",
+    "classified_pending_review",
 }
 # Decisions that mean "this is genuinely fine, treat the diagnostic finding
-# as resolved" — anything else (needs_manual_fix, rejected pending removal)
-# must stay visible as an open item, not silently subtracted from a count.
+# as resolved" — anything else (needs_manual_fix, rejected pending removal,
+# classified_pending_review) must stay visible as an open item, not
+# silently subtracted from a count.
 RESOLVED_DECISIONS = {"allowlisted", "corrected", "accepted_after_human_review"}
 
 
