@@ -96,6 +96,7 @@ def main() -> int:
             continue
 
         remove_set = set(remove_words)
+        target_homonym = corr.get("target_homonym")
         target_index = None
         for i, pair in enumerate(pairs):
             if pair is None:
@@ -103,7 +104,11 @@ def main() -> int:
             e, _p = pair
             if e["word"] in remove_set:
                 pairs[i] = None
-            elif e["word"] == target_word and target_index is None:
+            elif (
+                e["word"] == target_word
+                and target_index is None
+                and (target_homonym is None or e.get("homonym") == target_homonym)
+            ):
                 target_index = i
 
         if expected_entry is None:

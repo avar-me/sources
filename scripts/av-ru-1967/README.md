@@ -134,7 +134,11 @@ and will drift.
    and it is **not applied** (hard-gate conflict) rather than silently
    reapplying a stale patch on new content. Corresponding
    `data/av-ru.1967.decisions.jsonl` rows for the same bugs are marked
-   `decision: "corrected"` with a `correction_refs` cross-reference.
+   `decision: "corrected"` with a `correction_refs` cross-reference. For
+   headwords with more than one homonym entry (e.g. "вйчи" homonym 1 vs
+   homonym 2), a correction row may set `target_homonym` (int) alongside
+   `target_word` so the matching entry — not just the first one with that
+   spelling — gets replaced; otherwise the first matching-word pair wins.
    ```bash
    python3 scripts/av-ru-1967/apply_corrections.py
    ```
