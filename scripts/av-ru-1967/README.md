@@ -135,10 +135,13 @@ and will drift.
    reapplying a stale patch on new content. Corresponding
    `data/av-ru.1967.decisions.jsonl` rows for the same bugs are marked
    `decision: "corrected"` with a `correction_refs` cross-reference. For
-   headwords with more than one homonym entry (e.g. "вйчи" homonym 1 vs
-   homonym 2), a correction row may set `target_homonym` (int) alongside
-   `target_word` so the matching entry — not just the first one with that
-   spelling — gets replaced; otherwise the first matching-word pair wins.
+   headwords with more than one accepted entry, a correction row may set
+   `target_homonym` (int, only useful when a `homonym` field is present)
+   or `target_content_hint` (a substring that must appear in the
+   entry's own JSON, for duplicate words with no `homonym` field at all)
+   alongside `target_word` so the matching entry — not just the first
+   one with that spelling — gets replaced; otherwise the first
+   matching-word pair wins.
    ```bash
    python3 scripts/av-ru-1967/apply_corrections.py
    ```

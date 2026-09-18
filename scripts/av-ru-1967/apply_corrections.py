@@ -97,6 +97,7 @@ def main() -> int:
 
         remove_set = set(remove_words)
         target_homonym = corr.get("target_homonym")
+        target_content_hint = corr.get("target_content_hint")
         target_index = None
         for i, pair in enumerate(pairs):
             if pair is None:
@@ -104,11 +105,11 @@ def main() -> int:
             e, _p = pair
             if e["word"] in remove_set:
                 pairs[i] = None
-            elif (
-                e["word"] == target_word
-                and target_index is None
-                and (target_homonym is None or e.get("homonym") == target_homonym)
-            ):
+            elif e["word"] == target_word and target_index is None:
+                if target_homonym is not None and e.get("homonym") != target_homonym:
+                    continue
+                if target_content_hint is not None and target_content_hint not in json.dumps(e, ensure_ascii=False):
+                    continue
                 target_index = i
 
         if expected_entry is None:
