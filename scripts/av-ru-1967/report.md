@@ -113,15 +113,15 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "ae82abac3d80f3a4a32ca13f247f8fe815edb69c",
+  "evaluated_commit": "647f511c48c3c76d789ee7669b47ff930e2aa414",
   "artifact_hashes": {
-    "data/av-ru.1967.jsonl": "da172651d0200a6f051ed073e8235cc6506bbd7ed2512f406f2ff2b033acc7fb",
-    "data/av-ru.1967.provenance.jsonl": "ce7f7af1e9862221ba272a282eab06c19b47452b65e43176cd1f35526f623a93",
-    "data/av-ru.1967.page_ledger.jsonl": "78d2423e9d6f9ccac924447c70a1bc5f8fdb89415991ae11534d0f11d2149eb9",
+    "data/av-ru.1967.jsonl": "d0ecbc6bbb3fac1f4c55c411aae7c5144c97d5da6fcc5077239e3ebed61a4813",
+    "data/av-ru.1967.provenance.jsonl": "cb96a123353eb9c54ca4ab8fd55f840d72555a0b1308708e8fc8a736698fba09",
+    "data/av-ru.1967.page_ledger.jsonl": "fc6aa9ca9dbcf84a3bac4e0a9d51448de3cb24002b19f98c328f19b4a604cfd2",
     "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65",
     "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c"
   },
-  "baselines_hash": "eacb1d96efee3f750e6a3f2f4984ef278b88b6196bce84214b0c2402b5516bac"
+  "baselines_hash": "59e9eb8d4e48c93bd6bacaae5cec15ff84d6857cae1e9b59fe2f3d7d3e547f10"
 }
 ```
 
@@ -278,6 +278,22 @@ P1s:
 - Remaining P1s (100+ order-regression triage, multi-page
   `source_spans` evidence) — not yet started this round; see
   `/memories/repo/av-ru-1967-parsing.md` for current progress on each.
+- **"100+ order-regression triage"** — **Started**. Found that 420/426
+  draft-level `unclassified` order regressions have a low/medium-
+  confidence `next` word (already quarantined in the review queue, not
+  published) — heterogeneous root causes on manual sampling (false
+  headwords, OCR noise, genuine pronoun-paradigm layout scrambles), so
+  NOT given a blanket suggested_category (would be cosmetic, not a real
+  diagnosis). Focused instead on the more consequential accepted-level
+  `check_accepted.order_regressions` (383 → **382**): found and fixed 1
+  real bug via direct geometry inspection — `у` was a false headword
+  (a Russian sentence-initial capital letter mis-detected as bold),
+  actually the orphaned Russian half of an example sentence belonging to
+  the accepted entry `аби` (homonym 2, sense "сказание, предание") whose
+  Avar half was already correctly captured with an empty `ru`. Merged
+  back in, `у` removed (`correction:у-orphaned-example-merged-into-аби`).
+  Remaining ~380 order regressions still need the same one-by-one
+  geometry-inspection triage — not a batch fix, genuinely slow going.
 
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 
