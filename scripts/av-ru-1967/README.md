@@ -228,6 +228,20 @@ and will drift.
   Avar/Russian homographs. Fails the build if any finding remains — this
   is enforced by construction in `build_dataset.py`'s `detect_parse_issues()`
   gate (stage 4), so this script's job is to confirm that guarantee holds.
+- **`classify_bracket_anomalies.py`** (optional, never gates the build) —
+  classifies every draft article whose `raw_text` has unbalanced `[`/`]`
+  counts (batch-4 item 6's "96 unclosed-bracket signals"), cross-
+  referencing `draft_outcomes.jsonl` to show which outcome each one
+  reached. Writes `tmp/av-ru.1967/bracket_anomalies.jsonl` (not
+  committed, regenerable). As of Step 56: 95/96 are already filtered to
+  the review queue by the existing confidence heuristics (never
+  published); the 1 that reached accepted (`шал` homonym 1) had real
+  content loss and was fixed via the corrections layer. The remaining 95
+  are single OCR glyph substitutions in otherwise-complete review-queue
+  entries — documented via a bulk `decision: "allowlisted"` row
+  (`bracket-anomalies:batch-4-item-6`) rather than a broad parser rule
+  (substitution characters are too heterogeneous for one safe general
+  fix, and these entries don't reach published data anyway).
 - **`compare_with_av_ru.py`** (optional, never gates the build) —
   fuzzy-matches headwords against the modern `data/av-ru.jsonl` for
   spot-checking (uses `rapidfuzz`).
