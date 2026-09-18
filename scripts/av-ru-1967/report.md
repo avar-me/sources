@@ -113,12 +113,12 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "b8bffdf610238a804b6e95a98f48f173f4e114a2",
+  "evaluated_commit": "cc18e9d4b717ffd18a86abae348f176cd68fd24a",
   "artifact_hashes": {
-    "data/av-ru.1967.jsonl": "ddd7d2827dcbc42c9ca32938ae8d9577657f7bed01bf86c2694e4469d7641d63",
-    "data/av-ru.1967.provenance.jsonl": "6cb4d068193f88b6295b382142e65032c2080df7fdf95ac8704d289b08aba512",
-    "data/av-ru.1967.page_ledger.jsonl": "27024ec6f6c9a06f92fca2706e7f96e874c59fde5fc101e979d54fb6b3871adf",
-    "data/av-ru.1967.bracket_anomalies.jsonl": "17f68e5b5effa01f5fe2d76d4a99e235d4e0fd6d8d4236acd28ff415031f7148"
+    "data/av-ru.1967.jsonl": "da172651d0200a6f051ed073e8235cc6506bbd7ed2512f406f2ff2b033acc7fb",
+    "data/av-ru.1967.provenance.jsonl": "ce7f7af1e9862221ba272a282eab06c19b47452b65e43176cd1f35526f623a93",
+    "data/av-ru.1967.page_ledger.jsonl": "78d2423e9d6f9ccac924447c70a1bc5f8fdb89415991ae11534d0f11d2149eb9",
+    "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65"
   },
   "baselines_hash": "eacb1d96efee3f750e6a3f2f4984ef278b88b6196bce84214b0c2402b5516bac"
 }
@@ -224,10 +224,34 @@ P1s:
   any other case). `во` actually fixed via a new correction:
   `вйхьизе`'s own garbled entry (missing sense 1, swapped av/ru example
   fields) reconstructed directly from raw_text, `во` removed.
-- Remaining P1s (200+ review-card triage, 228 accepted-origin link
-  classification, 100+ order-regression triage, multi-page
-  `source_spans` evidence) — not yet started this round; see
-  `/memories/repo/av-ru-1967-parsing.md` for current progress on each.
+- **"Начать настоящий review sprint"** — **Partial**. Individually
+  reviewed all 96 bracket-anomaly review cards (1 of batch-5's 5 named
+  priority groups) — every row now has a `review_decision` in
+  `data/av-ru.1967.bracket_anomalies.jsonl`. This surfaced a real,
+  previously-unnoticed bug class: 5 of the 96 (`новатор`/`профорг`/
+  `скульптор`/`стажёр`/`инспектор`) are genuine missed-mid-paragraph-
+  headword splits (a Russian-loanword genitive-declension bracket cut
+  short at "1-го скл." with the actual genitive value mis-detected as
+  its own bold headword), NOT cosmetic OCR noise like the rest — fixed
+  via 5 new corrections, all 5 promoted into accepted. 80/96 confirmed
+  as legitimate complete entries with only a single-glyph OCR defect
+  (still correctly in review, not promoted this round). 6 flagged as
+  genuinely too garbled for confident text-only reconstruction.
+  **Bigger finding from this investigation, not yet acted on**: 528
+  review items across 80 pages are stuck at `confidence: "medium"`
+  purely because of `reasons: ["label-lookahead"]` (the bold-detection-
+  unreliable fallback heuristic) with ZERO other `parse_issues` — a
+  spot-check of a sample found them reading as completely correct,
+  coherent entries. This is a MUCH larger potential win than the 96
+  bracket anomalies, but promoting a heuristic's confidence tier without
+  validating its false-positive rate is exactly the mistake Step 48's
+  "validate before generalizing" caution exists to prevent — deferred to
+  a dedicated future round with a proper accuracy sample first, not
+  rushed here.
+- Remaining P1s (228 accepted-origin link classification, 100+
+  order-regression triage, multi-page `source_spans` evidence) — not
+  yet started this round; see `/memories/repo/av-ru-1967-parsing.md`
+  for current progress on each.
 
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 

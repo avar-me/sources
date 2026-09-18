@@ -66,21 +66,32 @@ def main() -> int:
     drafts = _load_jsonl(Path(args.drafts))
     outcomes = {row["draft_index"]: row["outcome"] for row in _load_jsonl(Path(args.draft_outcomes))}
 
+    # A stable item_id survives regeneration (it's page+word+draft_index
+    # based, not a row position), so any review_decision already recorded
+    # by a human/agent review round in the previously committed file must
+    # be preserved here rather than reset to null on every rebuild.
+    previous_decisions = {
+        row["item_id"]: row.get("review_decision")
+        for row in _load_jsonl(Path(args.out))
+        if row.get("review_decision") is not None
+    }
+
     rows = []
     for i, d in enumerate(drafts):
         raw_text = d.get("raw_text", "")
         if raw_text.count("[") == raw_text.count("]"):
             continue
+        item_id = f"bracket-anomaly:p{d.get('page')}:{d.get('word')}:{i}"
         rows.append(
             {
-                "item_id": f"bracket-anomaly:p{d.get('page')}:{d.get('word')}:{i}",
+                "item_id": item_id,
                 "draft_index": i,
                 "page": d.get("page"),
                 "word": d.get("word"),
                 "outcome": outcomes.get(i, "?"),
                 "bucket": classify(raw_text),
                 "raw_text_preview": raw_text[:200],
-                "review_decision": None,
+                "review_decision": previous_decisions.get(item_id),
             }
         )
 
