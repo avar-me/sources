@@ -43,15 +43,19 @@ LAST_PAGE = 619
 # "цебётӏезе"-family headwords resume as fresh bold entries on page 552 —
 # i.e. the carry/stitch mechanism (parse_articles.py) already merged this
 # correctly. Zero NEW headwords starting on page 551 is the CORRECT
-# outcome for this page, not a bug — this is the only page in the book
-# with a genuine multi-page carry this long (Saidov 1967 gives "цебе" an
-# unusually large number of idiomatic verb-phrase senses).
-EXPLAINED_ZERO_CANDIDATE_PAGES = {
-    551: "entirely a continuation of the p.550 'цебё' postposition mega-entry "
-    "(3029-char span, ends on p.552 when 'цебётӏезе'-family fresh headwords "
-    "resume) — confirmed visually via tmp/av-ru.1967/page-0550.png and "
-    "page-0551.png, see comment above EXPLAINED_ZERO_CANDIDATE_PAGES",
-}
+# outcome for this page, not a bug.
+#
+# av-ru-1967-review-batch-4-2026-09-17.md, item 7 "Исправить multi-page
+# provenance": this used to be a hand-verified, hardcoded string with no
+# structural link back to цебё's own provenance. Now `absorbed_by` (built
+# below from every draft article's `source_pages`) explains page 551 — and
+# any future genuine multi-page carry — automatically, by construction,
+# not via a per-page manual note. EXPLAINED_ZERO_CANDIDATE_PAGES is kept
+# as a fallback for a genuinely different kind of zero-candidate page (a
+# real extraction gap that ISN'T a carry) the structural check can't
+# explain — currently empty, since every known case is a real carry.
+EXPLAINED_ZERO_CANDIDATE_PAGES: dict[int, str] = {}
+
 
 
 def _load_jsonl(path: Path) -> list[dict[str, Any]]:
@@ -98,6 +102,19 @@ def main() -> int:
     articles_by_page: dict[int, list[dict[str, Any]]] = {}
     for a in articles:
         articles_by_page.setdefault(a["page"], []).append(a)
+
+    # av-ru-1967-review-batch-4-2026-09-17.md, item 7 "Исправить multi-page
+    # provenance": parse_articles.py now records `source_pages` on any
+    # article whose merged carry drew tokens from more than one physical
+    # page. Index every OTHER page in that list (i.e. every page besides
+    # the article's own starting `page`) back to the absorbing article, so
+    # a zero-candidate page like 551 gets a STRUCTURAL explanation instead
+    # of a hardcoded string that can't be verified against the data.
+    absorbed_by: dict[int, list[dict[str, Any]]] = {}
+    for a in articles:
+        for p in a.get("source_pages", []):
+            if p != a["page"]:
+                absorbed_by.setdefault(p, []).append(a)
 
     accepted_by_page: dict[int, int] = {}
     for p in provenance:
@@ -172,8 +189,18 @@ def main() -> int:
         carry_in = bool(prev_sorted and prev_sorted[-1].get("continues_next_page"))
 
         explanation = None
+        absorbing_articles = absorbed_by.get(page)
         if draft_count == 0:
-            explanation = EXPLAINED_ZERO_CANDIDATE_PAGES.get(page)
+            if absorbing_articles:
+                refs = ", ".join(
+                    f"'{a['word']}' (p.{a['page']}, {a.get('column')}, top={a.get('top')})" for a in absorbing_articles
+                )
+                explanation = (
+                    f"structurally absorbed into {refs}'s multi-page carry "
+                    f"(source_pages includes {page} — see parse_articles.py's cross-page stitching)"
+                )
+            else:
+                explanation = EXPLAINED_ZERO_CANDIDATE_PAGES.get(page)
             if explanation is None:
                 # A page can legitimately have 0 draft articles for two
                 # reasons without needing a per-page explanation entry: it
@@ -219,6 +246,7 @@ def main() -> int:
                 "last_word": page_articles_sorted[-1]["word"] if page_articles_sorted else None,
                 "carry_in": carry_in,
                 "carry_out": carry_out,
+                "absorbed_by": [a["word"] for a in absorbing_articles] if absorbing_articles else [],
                 "max_span_chars": max_span,
                 "order_regressions": regressions_by_page.get(page, 0),
                 "unclosed_brackets": unclosed_brackets,

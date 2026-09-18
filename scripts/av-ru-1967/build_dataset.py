@@ -526,51 +526,58 @@ def main() -> int:
                 != (article.get("page"), article.get("column"), article.get("raw_text"))
                 for m in other_members
             )
-            provenance.append(
-                {
-                    "word": entry.get("word"),
-                    "page": article.get("page"),
-                    "column": article.get("column"),
-                    "top": article.get("top"),
-                    "confidence": article.get("confidence"),
-                    "reasons": article.get("reasons", []),
-                    "raw_text_length": len(article.get("raw_text") or ""),
-                    "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
-                    "selection_rule": "highest-confidence-first-seen" if other_members else "unique",
-                    "duplicate_group_spans_differ": spans_differ,
-                    "duplicate_group": [
-                        {
-                            "page": m[2].get("page"),
-                            "column": m[2].get("column"),
-                            "top": m[2].get("top"),
-                            "confidence": m[2].get("confidence"),
-                            "reasons": m[2].get("reasons", []),
-                            "raw_text_preview": (m[2].get("raw_text") or "")[:100],
-                            "bbox": bbox_for(geometry_dir, m[2].get("page"), m[2].get("column"), m[2].get("top")),
-                        }
-                        for m in other_members
-                    ],
-                }
-            )
+            prov_row = {
+                "word": entry.get("word"),
+                "page": article.get("page"),
+                "column": article.get("column"),
+                "top": article.get("top"),
+                "confidence": article.get("confidence"),
+                "reasons": article.get("reasons", []),
+                "raw_text_length": len(article.get("raw_text") or ""),
+                "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
+                "selection_rule": "highest-confidence-first-seen" if other_members else "unique",
+                "duplicate_group_spans_differ": spans_differ,
+                "duplicate_group": [
+                    {
+                        "page": m[2].get("page"),
+                        "column": m[2].get("column"),
+                        "top": m[2].get("top"),
+                        "confidence": m[2].get("confidence"),
+                        "reasons": m[2].get("reasons", []),
+                        "raw_text_preview": (m[2].get("raw_text") or "")[:100],
+                        "bbox": bbox_for(geometry_dir, m[2].get("page"), m[2].get("column"), m[2].get("top")),
+                    }
+                    for m in other_members
+                ],
+            }
+            # batch-4 item 7: a carry-stitched article's tokens can
+            # originate from more than one physical page (e.g. a whole
+            # zero-candidate intervening page fully absorbed) —
+            # parse_articles.py only sets source_pages when it's more
+            # than just article["page"], so keep it sparse here too.
+            if article.get("source_pages"):
+                prov_row["source_pages"] = article["source_pages"]
+            provenance.append(prov_row)
         else:
             outcomes[winner_index] = "review"
-            needs_review.append(
-                {
-                    "page": article.get("page"),
-                    "column": article.get("column"),
-                    "top": article.get("top"),
-                    "confidence": article.get("confidence"),
-                    "reasons": article.get("reasons", []),
-                    "parse_issues": parse_issues,
-                    "prev_word": article.get("prev_word"),
-                    "next_word": article.get("next_word"),
-                    "continues_next_page": article.get("continues_next_page", False),
-                    "word_raw": article.get("word_raw"),
-                    "raw_text": article.get("raw_text"),
-                    "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
-                    "entry": entry,
-                }
-            )
+            review_row = {
+                "page": article.get("page"),
+                "column": article.get("column"),
+                "top": article.get("top"),
+                "confidence": article.get("confidence"),
+                "reasons": article.get("reasons", []),
+                "parse_issues": parse_issues,
+                "prev_word": article.get("prev_word"),
+                "next_word": article.get("next_word"),
+                "continues_next_page": article.get("continues_next_page", False),
+                "word_raw": article.get("word_raw"),
+                "raw_text": article.get("raw_text"),
+                "bbox": bbox_for(geometry_dir, article.get("page"), article.get("column"), article.get("top")),
+                "entry": entry,
+            }
+            if article.get("source_pages"):
+                review_row["source_pages"] = article["source_pages"]
+            needs_review.append(review_row)
 
     # A bare {"word": X} stub next to another entry with the same word that
     # DOES have content is always redundant segmentation noise (a stray

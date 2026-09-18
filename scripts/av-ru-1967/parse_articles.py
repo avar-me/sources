@@ -475,6 +475,17 @@ def parse_article(
             article["diamond_sense"] = diamond_sense
     if span["continues_next_page"]:
         article["continues_next_page"] = True
+    # av-ru-1967-review-batch-4-2026-09-17.md, item 7 "Исправить multi-page
+    # provenance": a merged carry's tokens carry their own physical `page`
+    # (page_word_stream() tags every token before any cross-page stitching
+    # happens), so the SET of distinct pages among an article's own tokens
+    # is a real structural fact — not just the candidate's starting page —
+    # and lets an intervening zero-candidate page (e.g. p.551, entirely
+    # absorbed into p.550's "цебё") be linked back to its absorbing article
+    # instead of a hardcoded per-page explanation string.
+    source_pages = sorted({t["page"] for t in tokens if "page" in t})
+    if len(source_pages) > 1:
+        article["source_pages"] = source_pages
     article["raw_text"] = raw_text
     return article
 

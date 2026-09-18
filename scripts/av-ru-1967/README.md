@@ -184,10 +184,14 @@ and will drift.
   max span length, unclosed brackets, and order regressions touching that
   page. Writes the committed `data/av-ru.1967.page_ledger.jsonl` (597 rows).
   Hard gate: every page must be present, every zero-draft-article page
-  must have an explanation in `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently
-  just page 551 — confirmed via rendered page scans to be entirely a
-  continuation of the p.550 "цебё" postposition mega-entry, not a bug),
-  AND every segment candidate / draft article must have exactly one
+  must have an explanation — either STRUCTURAL (an `absorbed_by` index
+  built from every draft article's `source_pages`, see below: any page
+  besides an article's own starting page that its merged tokens came from
+  is linked back to that article automatically, e.g. page 551 -> `цебё`)
+  or, failing that, a manually-reviewed entry in
+  `EXPLAINED_ZERO_CANDIDATE_PAGES` (currently empty — every known
+  zero-candidate page is now explained structurally) — AND every segment
+  candidate / draft article must have exactly one
   outcome — aggregated from `parse_articles.py`'s
   `tmp/av-ru.1967/candidate_outcomes.jsonl` (`own-article` or
   `merged-into:<candidate_id>`, the latter only for a cross-page carry
