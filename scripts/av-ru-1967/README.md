@@ -120,7 +120,26 @@ and will drift.
    python3 scripts/av-ru-1967/build_dataset.py --out data/av-ru.1967.jsonl
    ```
 
-5. **`validate_schema.py`** — hard gate: schema validity, duplicate lines,
+5. **`apply_corrections.py`** — applies hand-verified, one-off data fixes
+   from the committed `data/av-ru.1967.corrections.jsonl` on top of
+   `build_dataset.py`'s automated output (av-ru-1967-review-batch-4-2026-
+   09-17.md, "4. Исправить конкретные известные accepted errors"): mistakes
+   too specific/non-generalizable for a parser rule (a mid-paragraph
+   headword the segmenter missed, a false headword absorbed from a
+   neighboring gloss, an OCR "!"/palochka or ъ/ь confusion, a stress-glyph
+   substitution the automated rescue couldn't reach). Each correction row
+   has a `source_hash` over every `remove_words` + `target_word` entry's
+   FULL current content — if `build_dataset.py`'s output for those exact
+   words ever changes upstream, the correction's hash no longer matches
+   and it is **not applied** (hard-gate conflict) rather than silently
+   reapplying a stale patch on new content. Corresponding
+   `data/av-ru.1967.decisions.jsonl` rows for the same bugs are marked
+   `decision: "corrected"` with a `correction_refs` cross-reference.
+   ```bash
+   python3 scripts/av-ru-1967/apply_corrections.py
+   ```
+
+6. **`validate_schema.py`** — hard gate: schema validity, duplicate lines,
    soft hyphens, empty av/ru examples, see_also self-loops.
    ```bash
    python3 scripts/av-ru-1967/validate_schema.py --input data/av-ru.1967.jsonl

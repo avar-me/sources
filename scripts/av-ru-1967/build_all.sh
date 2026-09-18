@@ -42,6 +42,9 @@ python3 "$SCRIPTS_DIR/parse_articles.py" --start 23 --end 619
 echo "=== step 6: build_dataset ==="
 python3 "$SCRIPTS_DIR/build_dataset.py" --out "$OUT"
 
+echo "=== step 7: apply_corrections (hard gate: no stale corrections) ==="
+python3 "$SCRIPTS_DIR/apply_corrections.py"
+
 echo "=== validate_schema (hard gate) ==="
 python3 "$SCRIPTS_DIR/validate_schema.py" --input "$OUT"
 
