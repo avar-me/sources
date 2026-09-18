@@ -356,3 +356,20 @@ failure, a regression is a failure, and an *improvement* is ALSO a
 failure until `baselines.json` is updated to the new, lower number in the
 same commit. This forced sync is what makes it a ratchet — the ceiling
 can only ever move because someone consciously edited the file.
+
+This exact-match check alone can't stop a commit from "legitimately"
+RAISING a baseline in that same commit (accepting a real regression) —
+nothing about it compares against what was PREVIOUSLY committed.
+`check_ci_policy.py` (batch-4 item 11) closes that gap: run after
+`build_all.sh` with `--base-ref <ref>` (the PR's base branch, or `HEAD~1`
+on a direct push), it diffs the current `baselines.json` against that ref
+and fails if any metric got worse, unless the HEAD commit message has a
+`baseline-regression-approved: <reason>` trailer. It also verifies
+`report.md`'s `evaluated_commit: <sha>` field is a real ancestor of HEAD
+(not a literal self-hash — no commit can contain its own resulting hash —
+just a check that the report isn't referencing a stale/foreign commit).
+Wired into `.github/workflows/av-ru-1967-ci.yml`, triggered on PRs and
+direct pushes touching `scripts/av-ru-1967/**`/`data/av-ru.1967.*`.
+```bash
+python3 scripts/av-ru-1967/check_ci_policy.py --base-ref origin/main
+```

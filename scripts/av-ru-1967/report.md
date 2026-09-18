@@ -102,6 +102,64 @@ verified progress but the item's own acceptance criteria aren't all met yet.
     separate from `confirmed_category` (only from a hash-valid ledger
     decision) — 13/900 currently confirmed.
 
+## Batch-4 (av-ru-1967-review-batch-4-2026-09-17.md) — status
+
+`evaluated_commit: 1ad6898242a24d01d6f865e8b95a6435db9c6722`
+(the data/`baselines.json` state this section describes; a report update
+commit like this one never changes `data/av-ru.1967.*` or the pipeline
+scripts themselves, only documentation/CI, so it's honest to reference
+the immediately-preceding commit here rather than claim a self-referential
+hash no commit can literally contain — `check_ci_policy.py` verifies this
+field is a real ancestor of HEAD on every run).
+
+1. **Per-candidate outcome ledger** — **Done**. `parse_articles.py`/
+   `build_dataset.py` emit `candidate_outcomes.jsonl`/`draft_outcomes.jsonl`
+   with exactly one outcome per candidate/draft article; 0 unaccounted.
+2. **Decision ledger semantics** — **Done**. `needs_manual_fix` +
+   `accepted_after_human_review` added; 6 misused `allowlisted` rows
+   reclassified.
+3. **Reproducible decision evidence** — **Done**. `pdf_sha256`, bbox,
+   raw-text-snippet hashing.
+4. **Fix the 6 named known accepted errors** — **Done**. New
+   `data/av-ru.1967.corrections.jsonl` + `apply_corrections.py`.
+5. **Close all 27 suspicious-headword findings** — **Done** (26/27 fixed
+   with real corrections; 1 — "во" — formally deferred via
+   `needs_manual_fix`, needs a deeper fix to `вйхьизе`'s own garbled
+   entry first). `check_accepted.suspicious_headwords`: 27 → 2.
+6. **Classify accounting gaps + 96 bracket anomalies** — **Done**. The 26
+   accounting gap and 105 candidate drops were already closed by item 1;
+   the 96 unclosed-bracket signals are now classified
+   (`classify_bracket_anomalies.py`) — 95/96 were already safely
+   quarantined in the review queue, the 1 accepted case (`шал` homonym 1)
+   had real content loss, fixed.
+7. **Multi-page provenance** — **Partial**. `source_pages` now
+   structurally links p.551 to `цебё`'s own carry instead of a hardcoded
+   exception; per-page bbox/token-range arrays for every source page not
+   implemented.
+8. **100% bbox coverage** — **Done**. 0/9836 accepted + 0/3632 review
+   entries missing bbox (root cause: `geometry_lookup.find_line()` only
+   matched a LINE's own aggregate top, missing bold words positioned
+   mid-line with their own slightly different top).
+9. **Real review-queue triage** — **Not started** this round beyond what
+   items 5/6 covered incidentally.
+10. **Accepted → missing links priority batch** — **Done**, and beyond
+    the "first 100" minimum: found the dominant systematic class (a
+    stress-mark notation difference, not OCR noise) and fixed it as a
+    MATCHING normalization (not a content mutation) in both
+    `check_accepted.py` and `resolve_references.py`.
+    `check_accepted.links_missing`: 495 → 228.
+    `check_accepted.review_links_missing`: 400 → 278.
+    `resolve_references.unresolved`: 1204 → 464.
+11. **Monotonic baseline CI policy** — **Done**. New
+    `.github/workflows/av-ru-1967-ci.yml` + `check_ci_policy.py`: reruns
+    `build_all.sh` and fails if any baseline got worse vs. the PR's base
+    ref (or the previous commit on a direct push) without an explicit
+    `baseline-regression-approved: <reason>` commit-message trailer.
+
+See `/memories/repo/av-ru-1967-parsing.md` (Steps 52-59) for the full
+per-item investigation detail, bugs found/fixed, and validation record —
+this section is a summary, not a replacement for that log.
+
 ## Current metrics (as of commit `7a3038b`)
 
 - `data/av-ru.1967.jsonl`: 9858 entries, sha256
@@ -124,6 +182,11 @@ verified progress but the item's own acceptance criteria aren't all met yet.
 - `resolve_references.py` (draft-level): 1204 unresolved.
 - All baseline metrics are an exact-match ratchet (`baseline.py`) —
   missing or drifted (better or worse) fails the build.
+
+**Superseded by batch-4 (see section above for current numbers)**: this
+snapshot is left as-is (historical, batch-2/3 era) rather than rewritten
+in place — `baselines.json` and `/memories/repo/av-ru-1967-parsing.md`
+are the live source of truth for exact current values.
 
 ## Not started / explicitly out of scope for this round
 

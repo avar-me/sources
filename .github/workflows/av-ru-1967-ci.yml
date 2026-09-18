@@ -1,0 +1,58 @@
+name: av-ru.1967 pipeline
+
+# av-ru-1967-review-batch-4-2026-09-17.md, "11. Добавить monotonic
+# baseline policy в CI": running build_all.sh's baseline.py exact-match
+# gates locally isn't enough on its own — nothing stops a commit from
+# "legitimately" raising a baseline (accepting a regression) since exact-
+# match only checks the metric against the CURRENT commit's own
+# baselines.json, never against what was previously committed. This
+# workflow reruns the full pipeline and then diffs baselines.json against
+# the PR's base branch (or the previous commit on a direct push), failing
+# on any regression that isn't explicitly approved via a
+# "baseline-regression-approved: <reason>" trailer in the HEAD commit
+# message (see scripts/av-ru-1967/check_ci_policy.py).
+
+on:
+  pull_request:
+    paths:
+      - "scripts/av-ru-1967/**"
+      - "data/av-ru.1967.*"
+      - "books/saidov_m_avarskorusskii_slovar.pdf"
+      - ".github/workflows/av-ru-1967-ci.yml"
+  push:
+    branches: [av-ru-1967-parsing]
+    paths:
+      - "scripts/av-ru-1967/**"
+      - "data/av-ru.1967.*"
+      - "books/saidov_m_avarskorusskii_slovar.pdf"
+      - ".github/workflows/av-ru-1967-ci.yml"
+
+jobs:
+  build-and-check-baselines:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install pipeline dependencies
+        run: pip install -r scripts/av-ru-1967/requirements.txt
+
+      - name: Run full pipeline (build_all.sh)
+        run: bash scripts/av-ru-1967/build_all.sh
+
+      - name: Determine base ref
+        id: base
+        run: |
+          if [ -n "${{ github.event.pull_request.base.sha }}" ]; then
+            echo "ref=${{ github.event.pull_request.base.sha }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=HEAD~1" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Monotonic baseline policy
+        run: python3 scripts/av-ru-1967/check_ci_policy.py --base-ref "${{ steps.base.outputs.ref }}"
