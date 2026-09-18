@@ -147,6 +147,7 @@ def main() -> int:
         "suspicious_headword": [],
         "oversized_span": [],
         "missing_provenance": [],
+        "missing_bbox": [],
         "link_to_missing": [],
     }
 
@@ -186,6 +187,14 @@ def main() -> int:
     for e, p in zip(accepted, provenance):
         if p.get("page") is None or p.get("word") != e["word"]:
             findings["missing_provenance"].append({"word": e["word"]})
+
+    # av-ru-1967-review-batch-4-2026-09-17.md, item 8 "Довести bbox до
+    # 100%": page+word matching (above) is too weak to catch a real
+    # provenance gap — bbox is the actual evidence a decision/review can
+    # point at, so track it as its own metric.
+    for e, p in zip(accepted, provenance):
+        if not p.get("bbox"):
+            findings["missing_bbox"].append({"word": e["word"], "page": p.get("page")})
 
     # --- see_also link targets, split by both origin (accepted/review)
     # and destination (accepted/review/missing/ocr-invalid) — batch-3 P1
@@ -236,6 +245,7 @@ def main() -> int:
     print(f"  suspicious headwords: {len(findings['suspicious_headword'])}")
     print(f"  oversized spans (> {LONG_SPAN_CHARS} chars): {len(findings['oversized_span'])}")
     print(f"  entries missing provenance: {len(findings['missing_provenance'])}")
+    print(f"  entries missing bbox: {len(findings['missing_bbox'])}")
     print(
         f"  see_also links (accepted origin): {link_categories['accepted_to_accepted']} accepted, "
         f"{link_categories['accepted_to_review']} review, {link_categories['accepted_to_missing']} missing, "
@@ -259,6 +269,7 @@ def main() -> int:
     if findings["missing_provenance"]:
         print(f"HARD GATE FAILED: {len(findings['missing_provenance'])} accepted entries without provenance")
         ok = False
+    ok &= check_metric("check_accepted.missing_bbox", len(findings["missing_bbox"]), baselines)
     ok &= check_metric("check_accepted.links_missing", link_categories["accepted_to_missing"], baselines)
     ok &= check_metric("check_accepted.review_links_missing", link_categories["review_to_missing"], baselines)
     ok &= check_metric("check_accepted.accepted_links_ocr_invalid", link_categories["accepted_to_ocr_invalid"], baselines)

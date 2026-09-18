@@ -33,6 +33,17 @@ def find_line(geometry: dict[str, Any] | None, column: str | None, top: float | 
     for line in geometry.get(column, []):
         if abs(line["top"] - top) < tolerance:
             return line
+    # Fallback: a bold headword mid-line (not the line's own first word) has
+    # its own per-word `top` that can differ from the line's aggregate
+    # `top` (the first word's) by a point or two — segment_entries.py's
+    # candidates record the WORD's own top, not the line's. Search each
+    # line's individual words before giving up (batch-4 item 8: this was
+    # the root cause for аспирантура/ассистентка/варислъи/махшел having no
+    # bbox at all despite a perfectly valid page/column/top).
+    for line in geometry.get(column, []):
+        for word in line.get("words") or []:
+            if abs(word["top"] - top) < tolerance:
+                return line
     return None
 
 

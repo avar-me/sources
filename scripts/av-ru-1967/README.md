@@ -141,7 +141,14 @@ and will drift.
    entry's own JSON, for duplicate words with no `homonym` field at all)
    alongside `target_word` so the matching entry — not just the first
    one with that spelling — gets replaced; otherwise the first
-   matching-word pair wins.
+   matching-word pair wins. A pure rename/OCR-fix correction (the
+   `target_word` doesn't exist yet, but it's the SAME physical headword
+   as a `remove_words` entry, just under a corrected spelling — e.g.
+   `богбгӏуж` -> `богогӏуж`) should set `inherit_provenance_from: <word>`
+   naming which removed word's real page/column/top/bbox to reuse,
+   instead of getting synthesized "manual-correction" provenance with no
+   bbox (batch-4 item 8) the way a genuine brand-new split-off entry
+   (e.g. `рёхи` split from `рехсей`, anchored via `insert_after`) does.
    ```bash
    python3 scripts/av-ru-1967/apply_corrections.py
    ```
@@ -172,9 +179,13 @@ and will drift.
   review entries) and destination (accepted/review/missing/ocr-invalid — a
   target string that's pure OCR noise, e.g. a leftover raw marker
   character or no letters at all, is distinguished from a "missing" but
-  plausible word). Metrics tracked in `baselines.json`:
+  plausible word); bbox completeness (batch-4 item 8 — page+word matching
+  alone is too weak to catch a real provenance gap, since bbox is the
+  actual evidence a decision/review can point at). Metrics tracked in
+  `baselines.json`:
   `check_accepted.order_regressions`, `check_accepted.suspicious_headwords`,
-  `check_accepted.oversized_spans`, `check_accepted.links_missing`,
+  `check_accepted.oversized_spans`, `check_accepted.missing_bbox`,
+  `check_accepted.links_missing`,
   `check_accepted.review_links_missing`,
   `check_accepted.accepted_links_ocr_invalid`,
   `check_accepted.review_links_ocr_invalid`.
@@ -274,7 +285,12 @@ and will drift.
   bounding box for its printed line (`bbox_for()`). Used by
   `build_dataset.py` (adds `bbox` to `data/av-ru.1967.provenance.jsonl` and
   each `needs_review.jsonl` row) and `build_review_html.py` (per-item crop
-  images).
+  images). `find_line()` first matches by the LINE's own aggregate `top`;
+  if a bold headword sits mid-line (not the line's first word), its own
+  per-word `top` can differ from the line's by a point or two, so it falls
+  back to searching each line's individual words (batch-4 item 8 — this
+  was the root cause of 4 accepted + 9 review entries having no bbox at
+  all despite a perfectly valid page/column/top).
 
 
 ### `data/av-ru.1967.decisions.jsonl` / `decision_ledger.py`

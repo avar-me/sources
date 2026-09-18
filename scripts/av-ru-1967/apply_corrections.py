@@ -99,11 +99,13 @@ def main() -> int:
         target_homonym = corr.get("target_homonym")
         target_content_hint = corr.get("target_content_hint")
         target_index = None
+        removed_provenance: dict[str, dict[str, Any]] = {}
         for i, pair in enumerate(pairs):
             if pair is None:
                 continue
-            e, _p = pair
+            e, p = pair
             if e["word"] in remove_set:
+                removed_provenance.setdefault(e["word"], p)
                 pairs[i] = None
             elif e["word"] == target_word and target_index is None:
                 if target_homonym is not None and e.get("homonym") != target_homonym:
@@ -122,6 +124,16 @@ def main() -> int:
             # queue an insertion right after its anchor; synthesize
             # provenance from the correction's own evidence since there's
             # no real segmentation position for it.
+            #
+            # A pure rename/OCR-fix (e.g. богбгӏуж -> богогӏуж) is NOT a
+            # new entry, though — it's the SAME physical headword under a
+            # corrected spelling, so it should inherit the removed
+            # article's own real geometry (page/column/top/bbox) rather
+            # than getting synthesized "manual-correction" provenance with
+            # no bbox. `inherit_provenance_from` names which removed word's
+            # provenance to reuse for this case.
+            inherit_from = corr.get("inherit_provenance_from")
+            inherited_prov = removed_provenance.get(inherit_from) if inherit_from else None
             anchor_word = corr.get("insert_after")
             anchor_index = len(pairs) - 1
             anchor_prov: dict[str, Any] = {}
@@ -131,19 +143,30 @@ def main() -> int:
                         anchor_index = i
                         anchor_prov = pair[1]
                         break
-            new_prov = {
-                "word": target_word,
-                "page": corr.get("evidence", {}).get("page", anchor_prov.get("page")),
-                "column": anchor_prov.get("column"),
-                "top": anchor_prov.get("top"),
-                "confidence": "manual-correction",
-                "reasons": ["manual-correction"],
-                "raw_text_length": None,
-                "bbox": corr.get("evidence", {}).get("bbox", anchor_prov.get("bbox")),
-                "selection_rule": "manual-correction",
-                "duplicate_group_spans_differ": False,
-                "duplicate_group": [],
-            }
+            if inherited_prov is not None:
+                new_prov = {
+                    **inherited_prov,
+                    "word": target_word,
+                    "confidence": "manual-correction",
+                    "reasons": ["manual-correction"],
+                    "selection_rule": "manual-correction",
+                    "duplicate_group_spans_differ": False,
+                    "duplicate_group": [],
+                }
+            else:
+                new_prov = {
+                    "word": target_word,
+                    "page": corr.get("evidence", {}).get("page", anchor_prov.get("page")),
+                    "column": anchor_prov.get("column"),
+                    "top": anchor_prov.get("top"),
+                    "confidence": "manual-correction",
+                    "reasons": ["manual-correction"],
+                    "raw_text_length": None,
+                    "bbox": corr.get("evidence", {}).get("bbox", anchor_prov.get("bbox")),
+                    "selection_rule": "manual-correction",
+                    "duplicate_group_spans_differ": False,
+                    "duplicate_group": [],
+                }
             insertions.append((anchor_index, expected_entry, new_prov))
         applied += 1
 
