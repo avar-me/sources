@@ -113,13 +113,14 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "647f511c48c3c76d789ee7669b47ff930e2aa414",
+  "evaluated_commit": "cdce2c9fc2e1293a9c0960245fa945aa746aee8b",
   "artifact_hashes": {
     "data/av-ru.1967.jsonl": "d0ecbc6bbb3fac1f4c55c411aae7c5144c97d5da6fcc5077239e3ebed61a4813",
     "data/av-ru.1967.provenance.jsonl": "cb96a123353eb9c54ca4ab8fd55f840d72555a0b1308708e8fc8a736698fba09",
     "data/av-ru.1967.page_ledger.jsonl": "fc6aa9ca9dbcf84a3bac4e0a9d51448de3cb24002b19f98c328f19b4a604cfd2",
     "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65",
-    "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c"
+    "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c",
+    "data/av-ru.1967.article_stream.jsonl": "92127fd0e04268aa7bc327bcc4f3be3cdf6518d837d29eec2e356296b7749029"
   },
   "baselines_hash": "59e9eb8d4e48c93bd6bacaae5cec15ff84d6857cae1e9b59fe2f3d7d3e547f10"
 }
@@ -294,6 +295,62 @@ P1s:
   back in, `у` removed (`correction:у-orphaned-example-merged-into-аби`).
   Remaining ~380 order regressions still need the same one-by-one
   geometry-inspection triage — not a batch fix, genuinely slow going.
+
+## Batch-6 (av-ru-1967-review-batch-6-segmentation-2026-09-19.md) — status
+
+The final infrastructure batch before Gemini review — scope is boundary
+detection only (where does each article start/end), not senses/examples/
+forms/links/stress. 14-item stop condition; this is the first step.
+
+1. **Единый выровненный поток статей** — **Done, v1**. New
+   `build_article_stream.py` writes `data/av-ru.1967.article_stream.jsonl`
+   (13516 rows, one per physical draft article — accepted, review,
+   dropped, and duplicate-outcome articles ALL included, in book reading
+   order). Stable, position-based `article_id` (`p{page}-{col}-{top*100}`,
+   survives text fixes since it never encodes a sequential index).
+   `current_entry`/`current_outcome` matched by physical (page, column,
+   top) key against provenance/needs_review — NOT by list order, since
+   `apply_corrections.py` mutates the accepted set in place, so a draft's
+   original position may no longer have a matching accepted row (a
+   removed false headword) even though the outcome ledger still says
+   "accepted" — those get `current_outcome: "removed-by-correction"`.
+   `source_spans` reuses the existing multi-page `source_pages` provenance
+   field where present. Wired into `build_all.sh` (non-gating) and
+   `check_reproducibility.sh`.
+2. **Правильный аварский sort key** — **Done** (the key itself already
+   existed in `src/build_site.py`, shared with the live site build — not
+   new code). New `test_avar_sort_key.py` (11 unit tests, stdlib
+   `unittest`): all 13 digraphs tokenize/sort correctly, homonyms compare
+   equal, hyphenated reduplication ordering is documented behavior (not a
+   bug), all 6 palochka Unicode glyph variants (Ӏ/ӏ/|/ǀ/I/i) rank
+   identically, stress-glyph rescue composes safely with the sort key.
+3. **Локальный алфавитный интервал** — **Done, v1**. For every article,
+   `build_article_stream.py` finds the nearest TRUSTED anchor (parse
+   `confidence == "high"`, regardless of accepted/review outcome — this
+   is what makes dead zones analyzable, see item 6) on each side and
+   classifies `alphabet_relation` as `in-order`/`equal`/`regression`/
+   `uncertain` against that widening window (not just the immediate
+   pair, unlike `check_order.py`). Result: 11511 in-order, 1674
+   regression, 324 equal, 7 uncertain (start/end of book only — a
+   trusted anchor was found on both sides for 13509/13516 articles).
+   `boundary_confidence` (high/medium/low) combines this with the
+   article's own parse confidence.
+4-14. **Not started this round** — false/missed-headword signal
+   detection beyond the raw `alphabet_relation` (item 4-5), the unified
+   boundary review queue (item 7-8), the segmentation sprint over
+   131 high/high + 382 accepted + 528 label-lookahead items (item 9),
+   the 20-page human gold set + precision/recall measurement (item 10),
+   and the Gemini exporter (item 11) are all open. **Notable finding
+   already surfaced by item 3's implementation**: querying which pages
+   have ZERO trusted (high-confidence) articles at all (not just zero
+   accepted) found 89 pages — including all 4 previously-identified
+   dead-zone pages (97, 243, 332, 417) from batch-5's Step 64 — meaning
+   even the review-queue content on those specific pages is uniformly
+   low/medium confidence, not just the accepted subset. This doesn't
+   change the plan (item 6's global-anchor approach already searches
+   past page boundaries for a trusted anchor, which the current
+   implementation does), but confirms those 4 pages need the wider,
+   cross-page window rather than same-page review-side anchors.
 
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 

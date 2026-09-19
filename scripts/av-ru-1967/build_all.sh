@@ -81,6 +81,9 @@ python3 "$SCRIPTS_DIR/classify_bracket_anomalies.py"
 echo "=== classify_missing_links (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/classify_missing_links.py"
 
+echo "=== build_article_stream (optional, does not gate the build) ==="
+python3 "$SCRIPTS_DIR/build_article_stream.py"
+
 echo "=== compare_with_av_ru (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/compare_with_av_ru.py" || echo "compare_with_av_ru.py failed/unavailable — not a build failure"
 
