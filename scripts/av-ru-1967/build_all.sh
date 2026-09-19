@@ -84,6 +84,9 @@ python3 "$SCRIPTS_DIR/classify_missing_links.py"
 echo "=== build_article_stream (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/build_article_stream.py"
 
+echo "=== build_boundary_queue (optional, does not gate the build) ==="
+python3 "$SCRIPTS_DIR/build_boundary_queue.py"
+
 echo "=== compare_with_av_ru (optional, does not gate the build) ==="
 python3 "$SCRIPTS_DIR/compare_with_av_ru.py" || echo "compare_with_av_ru.py failed/unavailable — not a build failure"
 

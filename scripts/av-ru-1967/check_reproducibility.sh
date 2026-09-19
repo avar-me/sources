@@ -23,6 +23,7 @@ ARTIFACTS=(
   "data/av-ru.1967.bracket_anomalies.jsonl"
   "data/av-ru.1967.missing_links_classification.jsonl"
   "data/av-ru.1967.article_stream.jsonl"
+  "data/av-ru.1967.boundary_queue.jsonl"
 )
 
 hash_artifacts() {

@@ -113,14 +113,15 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "079cdd853b3857f8bd9aba57e1f16264f82ced0a",
+  "evaluated_commit": "e3a9fed9f8fac33a642c33432834dadfcd2d3509",
   "artifact_hashes": {
     "data/av-ru.1967.jsonl": "9c5fbb6ff68e8ac1ef3aafe4c6fdab653f5fb52409cfccff6f717d586b23c980",
     "data/av-ru.1967.provenance.jsonl": "987a5bac60b2e0e6dd511a18d4c9e2c68270a20fa99977b7236917935cb03639",
     "data/av-ru.1967.page_ledger.jsonl": "c3d84fb6a06e344542b216a1a386f9f3d9ccb608a3cc84488520cefe0ee4b86d",
     "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65",
     "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c",
-    "data/av-ru.1967.article_stream.jsonl": "878b2394768649317b683269a23d67520cc883f9b2d94b1aed4a92a3ab0a269a"
+    "data/av-ru.1967.article_stream.jsonl": "878b2394768649317b683269a23d67520cc883f9b2d94b1aed4a92a3ab0a269a",
+    "data/av-ru.1967.boundary_queue.jsonl": "e29d1192ee19ddfd4cf60a1d975e7f65b13816710bf5731bf84634da376e875b"
   },
   "baselines_hash": "59e9eb8d4e48c93bd6bacaae5cec15ff84d6857cae1e9b59fe2f3d7d3e547f10"
 }
@@ -335,11 +336,41 @@ forms/links/stress. 14-item stop condition; this is the first step.
    trusted anchor was found on both sides for 13509/13516 articles).
    `boundary_confidence` (high/medium/low) combines this with the
    article's own parse confidence.
-4-14. **Not started this round** — false/missed-headword signal
-   detection beyond the raw `alphabet_relation` (item 4-5), the unified
-   boundary review queue (item 7-8), the 20-page human gold set +
-   precision/recall measurement (item 10), and the Gemini exporter
-   (item 11) are all open.
+4-5, 7-8. **Unified boundary review queue** — **Done, v1**. New
+   `build_boundary_queue.py` ranks all 1674 `article_stream.jsonl`
+   `regression` rows into the doc's category taxonomy: `source-order-
+   exception` (106 — either an existing resolved decision-ledger row, or
+   check_order.py's own documented-safe `hyphen-reduplication` pattern),
+   `ocr-headword-uncertain` (772 — the regression's own word is already
+   low/medium parse confidence), `probable-missed-headword` (9 — high-
+   confidence regression directly preceded by an oversized, likely-
+   truncated span), `unclassified-boundary-candidate` (787, an honest
+   7th bucket beyond the doc's named 6 — high-confidence regressions
+   with no positive signal either way, not force-fit into a category
+   without evidence). `probable-false-headword` needed its own bug fix
+   before use: `check_order.classify()`'s existing false-headword branch
+   has no known-word/Avar-signal gate, so a real Avar/Russian homograph
+   like `как` would get flagged on every regression pair it's involved in
+   purely because of a NEIGHBOR match; re-verified each suggestion
+   against check_accepted.py's own known_words/has_avar_signal gates
+   before accepting it (this dropped several false positives, e.g.
+   `как`, `пионервожатый`, `мягкий` — all real Avar words or legitimate
+   self-gloss loanwords, not false headwords). Each row has both
+   neighbors, a numeric `suspicion_score` for ranking, a
+   `resolved_note` cross-referencing the existing decision ledger where
+   applicable, and a `boundary_decision` slot preserved across
+   regeneration (same pattern as `classify_bracket_anomalies.py`/
+   `classify_missing_links.py`). Wired into `build_all.sh` and
+   `check_reproducibility.sh` (7th artifact).
+   **Not yet done**: mapping this queue back onto the SPECIFIC 131
+   high/high + 382 accepted + 528 label-lookahead buckets item 9's stop
+   condition names (this queue's 1674 regressions are article_stream's
+   own broader, cross-page-window metric, not identical in scope to
+   those three); items 5 (span-internal suppressed-candidate search)
+   and "probable-wrong-carry"/"probable-column-order-error" categories
+   have no signal implemented yet (no false positives found needing
+   them in this pass, but that's not the same as having a real detector
+   for them).
 9. **Fix the 4 known dead-zone split pairs** — **Done**
    (`ййгъи`/`распятие`, `мамлакат`/`страна`, `рёлъизари`/`осмеяние`,
    `бокӏонбитӏ`/`прямоугольник`, from batch-5's Step 64 — previously
@@ -369,8 +400,9 @@ forms/links/stress. 14-item stop condition; this is the first step.
    order for same-keyed rows, so first-in-first-out re-pairs them
    correctly) — verified against all 4 target words plus a 2-run
    reproducibility check.
-
-## History: batch-2/3 metrics snapshot (superseded, kept for record only)
+10-11. **Not started this round** — the 20-page human segmentation gold
+   set + precision/recall measurement (item 10) and the deterministic
+   50-articles-per-batch Gemini exporter (item 11) are both open.
 
 **This section describes an OLD state (commit `7a3038b`) and is NOT the
 current status** — it predates all of batch-4/5's fixes above. Kept only
