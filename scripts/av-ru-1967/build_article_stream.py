@@ -76,11 +76,30 @@ def main() -> int:
     # (page, column, top) may no longer have a matching accepted row (it was
     # a false headword that got removed) even though the outcome ledger
     # still says "accepted" (that ledger reflects the PRE-correction state).
-    current_by_key: dict[tuple[int, str, float], dict[str, Any]] = {}
+    #
+    # A missed-gloss-continuation pair (a bare headword immediately followed
+    # by its orphaned gloss, mis-detected as its own headword — the exact
+    # bug class fixed throughout this project) frequently gets the SAME
+    # (page, column, top): both fragments came from one physical bold run
+    # that segment_entries.py split into two candidates without separating
+    # their position metadata. 69 such collisions exist in needs_review.jsonl
+    # alone. A plain dict here would silently let the second one clobber the
+    # first (confirmed: this happened to `бокӏонбитӏ`/`прямоугольник`, both
+    # at page 97/right/343.32 — before this fix, draft row 1505's current_
+    # entry pointed at `прямоугольник`'s content, not its own). Use a FIFO
+    # list per key instead, popped in encounter order — draft_articles.jsonl
+    # and needs_review.jsonl/provenance.jsonl preserve the same relative
+    # order for same-keyed rows, so first-in-first-out correctly re-pairs
+    # them.
+    current_by_key: dict[tuple[int, str, float], list[dict[str, Any]]] = {}
     for entry, prov in zip(accepted, provenance):
-        current_by_key[_key3(prov)] = {"outcome": "accepted", "entry": entry, "bbox": prov.get("bbox"), "prov": prov}
+        current_by_key.setdefault(_key3(prov), []).append(
+            {"outcome": "accepted", "entry": entry, "bbox": prov.get("bbox"), "prov": prov}
+        )
     for row in review:
-        current_by_key[_key3(row)] = {"outcome": "review", "entry": row.get("entry", {}), "bbox": row.get("bbox")}
+        current_by_key.setdefault(_key3(row), []).append(
+            {"outcome": "review", "entry": row.get("entry", {}), "bbox": row.get("bbox")}
+        )
 
     # First pass: rescue words + sort keys for the WHOLE physical stream
     # (every draft article, regardless of outcome) — this is what makes
@@ -100,7 +119,8 @@ def main() -> int:
         outcome_row = outcomes[i]
         draft_outcome = outcome_row["outcome"]
         key3 = (d["page"], d["column"], round(d["top"], 2))
-        current = current_by_key.get(key3)
+        bucket = current_by_key.get(key3)
+        current = bucket.pop(0) if bucket else None
         if current is not None:
             current_outcome = current["outcome"]
             current_entry = current["entry"]
@@ -145,6 +165,44 @@ def main() -> int:
                 "boundary_decision": None,
             }
         )
+
+    # Reconciliation pass: a correction can INSERT an entry at a synthesized
+    # anchor position (apply_corrections.py's `insert_after`) that's
+    # different from the word's own original draft position — e.g. a
+    # dead-zone promotion (batch-6) anchored near a distant accepted
+    # neighbor. That accepted+provenance pair never matches ANY draft key
+    # above, so without this pass the entry's ORIGINAL draft row would be
+    # left showing its stale pre-promotion outcome ("review"), silently
+    # hiding that the word was actually promoted. Reconcile by word: any
+    # accepted row not consumed by the keyed pass (still sitting unpopped in
+    # a current_by_key bucket) gets attached to the first still-unresolved
+    # draft row with the same word (its own real physical position),
+    # overriding current_outcome/current_entry there.
+    unmatched = [
+        item
+        for bucket in current_by_key.values()
+        for item in bucket
+        if item["outcome"] == "accepted"
+    ]
+    rows_by_word: dict[str, list[int]] = {}
+    for i, r in enumerate(rows):
+        rows_by_word.setdefault(r["headword_raw"].lstrip("*"), []).append(i)
+        rows_by_word.setdefault(r["current_entry"].get("word", ""), []).append(i)
+    unattached_count = 0
+    for item in unmatched:
+        e = item["entry"]
+        candidates = [
+            i
+            for i in rows_by_word.get(e["word"], [])
+            if rows[i]["current_outcome"] not in ("accepted",)
+        ]
+        if not candidates:
+            unattached_count += 1
+            continue
+        i = candidates[0]
+        rows[i]["current_outcome"] = "accepted"
+        rows[i]["current_entry"] = e
+        rows[i]["source_spans"] = [{"page": rows[i]["page"], "bbox": item.get("bbox")}]
 
     # Second pass: physical neighbors + local-interval alphabet analysis
     # against the nearest TRUSTED anchor on each side (item 3/6).
@@ -199,6 +257,8 @@ def main() -> int:
     print("by current_outcome:", dict(Counter(r["current_outcome"].split(":")[0] for r in rows).most_common()))
     print("by alphabet_relation:", dict(Counter(r["alphabet_relation"] for r in rows).most_common()))
     print("by boundary_confidence:", dict(Counter(r["boundary_confidence"] for r in rows).most_common()))
+    if unattached_count:
+        print(f"accepted entries with NO matching draft position at all (pure synthesized insertions): {unattached_count}")
     zero_trusted_pages = sorted({rows[i]["page"] for i in range(n) if not trusted[i]} - {rows[i]["page"] for i in range(n) if trusted[i]})
     if zero_trusted_pages:
         print(f"pages with ZERO trusted (high-confidence) anchors at all: {zero_trusted_pages}")

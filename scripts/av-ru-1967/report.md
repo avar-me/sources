@@ -113,14 +113,14 @@ plausible its commit reference looks):
 
 ```json
 {
-  "evaluated_commit": "cdce2c9fc2e1293a9c0960245fa945aa746aee8b",
+  "evaluated_commit": "079cdd853b3857f8bd9aba57e1f16264f82ced0a",
   "artifact_hashes": {
-    "data/av-ru.1967.jsonl": "d0ecbc6bbb3fac1f4c55c411aae7c5144c97d5da6fcc5077239e3ebed61a4813",
-    "data/av-ru.1967.provenance.jsonl": "cb96a123353eb9c54ca4ab8fd55f840d72555a0b1308708e8fc8a736698fba09",
-    "data/av-ru.1967.page_ledger.jsonl": "fc6aa9ca9dbcf84a3bac4e0a9d51448de3cb24002b19f98c328f19b4a604cfd2",
+    "data/av-ru.1967.jsonl": "9c5fbb6ff68e8ac1ef3aafe4c6fdab653f5fb52409cfccff6f717d586b23c980",
+    "data/av-ru.1967.provenance.jsonl": "987a5bac60b2e0e6dd511a18d4c9e2c68270a20fa99977b7236917935cb03639",
+    "data/av-ru.1967.page_ledger.jsonl": "c3d84fb6a06e344542b216a1a386f9f3d9ccb608a3cc84488520cefe0ee4b86d",
     "data/av-ru.1967.bracket_anomalies.jsonl": "1db3db6eb590d1ea5af0d9576c425d6b4558237bacc987dee3f659bfc164fd65",
     "data/av-ru.1967.missing_links_classification.jsonl": "204b069b81d94b4e030e5862ea847e59c5a598bffb704b7ef551b59af0d5251c",
-    "data/av-ru.1967.article_stream.jsonl": "92127fd0e04268aa7bc327bcc4f3be3cdf6518d837d29eec2e356296b7749029"
+    "data/av-ru.1967.article_stream.jsonl": "878b2394768649317b683269a23d67520cc883f9b2d94b1aed4a92a3ab0a269a"
   },
   "baselines_hash": "59e9eb8d4e48c93bd6bacaae5cec15ff84d6857cae1e9b59fe2f3d7d3e547f10"
 }
@@ -337,20 +337,38 @@ forms/links/stress. 14-item stop condition; this is the first step.
    article's own parse confidence.
 4-14. **Not started this round** — false/missed-headword signal
    detection beyond the raw `alphabet_relation` (item 4-5), the unified
-   boundary review queue (item 7-8), the segmentation sprint over
-   131 high/high + 382 accepted + 528 label-lookahead items (item 9),
-   the 20-page human gold set + precision/recall measurement (item 10),
-   and the Gemini exporter (item 11) are all open. **Notable finding
-   already surfaced by item 3's implementation**: querying which pages
-   have ZERO trusted (high-confidence) articles at all (not just zero
-   accepted) found 89 pages — including all 4 previously-identified
-   dead-zone pages (97, 243, 332, 417) from batch-5's Step 64 — meaning
-   even the review-queue content on those specific pages is uniformly
-   low/medium confidence, not just the accepted subset. This doesn't
-   change the plan (item 6's global-anchor approach already searches
-   past page boundaries for a trusted anchor, which the current
-   implementation does), but confirms those 4 pages need the wider,
-   cross-page window rather than same-page review-side anchors.
+   boundary review queue (item 7-8), the 20-page human gold set +
+   precision/recall measurement (item 10), and the Gemini exporter
+   (item 11) are all open.
+9. **Fix the 4 known dead-zone split pairs** — **Done**
+   (`ййгъи`/`распятие`, `мамлакат`/`страна`, `рёлъизари`/`осмеяние`,
+   `бокӏонбитӏ`/`прямоугольник`, from batch-5's Step 64 — previously
+   blocked because their pages have 0 accepted anchors). Unblocked using
+   `article_stream.jsonl`'s TRUE physical-order neighbor lookup (the
+   earlier `page < target` filter-and-take-last approach silently
+   picked a far, wrongly-ordered anchor and was correctly abandoned as
+   unsafe — the real nearest accepted neighbors are much closer and
+   verified in-order via `check_order._SORT_KEY` before writing each
+   correction). All 4 applied as new corrections, 0 conflicts,
+   `check_accepted.order_regressions` stayed at 382 (no new regressions
+   introduced) and `links_missing` stayed at 228 (the 2 new unresolved
+   see_also targets — `вигъи`, `велъизави`, kept as documented in the
+   source text — apparently resolve via existing stress-normalization
+   matching, confirmed by direct query: neither appears in the current
+   missing-links list).
+   **Bug found and fixed while building the anchor-lookup itself**:
+   `build_article_stream.py`'s first version kept a single dict entry
+   per (page, column, top) key, silently overwritten on collision — 69
+   review-queue positions and 20 accepted positions share an EXACT
+   duplicate key (the classic missed-gloss-continuation shape: 2
+   fragments of one physical bold run recorded with identical
+   position metadata). This caused a real bug: `бокӏонбитӏ`'s draft row
+   showed `прямоугольник`'s content instead of its own. Fixed with a
+   FIFO list per key, popped in encounter order (draft_articles.jsonl
+   and needs_review.jsonl/provenance.jsonl preserve consistent relative
+   order for same-keyed rows, so first-in-first-out re-pairs them
+   correctly) — verified against all 4 target words plus a 2-run
+   reproducibility check.
 
 ## History: batch-2/3 metrics snapshot (superseded, kept for record only)
 
