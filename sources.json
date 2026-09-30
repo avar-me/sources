@@ -126,24 +126,6 @@
       ]
     },
     {
-      "id": "en-av",
-      "title": "Англо-аварский словарь",
-      "subtitle": "en → av",
-      "kind": "dictionary",
-      "status": "experimental",
-      "description": "Англо-аварский словарь: машинный перевод статей ru-av на английский. Около 38 800 статей. В словаре много ошибок, запланирована полная переработка — статус «экспериментальный».",
-      "format": "jsonl",
-      "data_path": "data/en-av.jsonl",
-      "site_path": "en-av/",
-      "language_from": "en",
-      "language_to": "av",
-      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на английский через Google Gemini. Источник нуждается в проверке носителями языка.",
-      "license": "CC BY-SA 4.0",
-      "consumers": [
-        "en.avar.me"
-      ]
-    },
-    {
       "id": "av-de",
       "title": "Аварско-немецкий словарь",
       "subtitle": "av → de",
@@ -231,6 +213,24 @@
       "license": "CC BY-SA 4.0",
       "consumers": [
         "be.avar.me"
+      ]
+    },
+    {
+      "id": "en-av",
+      "title": "Англо-аварский словарь",
+      "subtitle": "en → av",
+      "kind": "dictionary",
+      "status": "experimental",
+      "description": "Англо-аварский словарь: машинный перевод статей ru-av на английский. Около 38 800 статей. В словаре много ошибок, запланирована полная переработка — статус «экспериментальный».",
+      "format": "jsonl",
+      "data_path": "data/en-av.jsonl",
+      "site_path": "en-av/",
+      "language_from": "en",
+      "language_to": "av",
+      "based_on": "Перевод русско-аварского словаря (С. З. Алиханов) на английский через Google Gemini. Источник нуждается в проверке носителями языка.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "en.avar.me"
       ]
     },
     {
