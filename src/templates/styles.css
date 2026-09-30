@@ -154,49 +154,36 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 .intro { margin: 1.5rem 0; font-size: 1.02rem; }
 .intro p { color: var(--text); }
 
-.catalog-grid {
-  display: grid;
-  gap: 1rem;
+.container-catalog { max-width: 76rem; }
+.catalog-nav { display: flex; flex-wrap: wrap; gap: 0.6rem 1.5rem; margin: 1.5rem 0; }
+.catalog-nav a { font-size: 0.9rem; }
+.section-count { margin-left: 0.75rem; color: var(--text-muted); font: 0.85rem var(--font-sans); }
+.catalog-table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: var(--radius); background: var(--bg-card); }
+.catalog-table-wrap:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+.catalog-table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+.catalog-table thead { background: var(--bg-soft); }
+.catalog-table th, .catalog-table td { padding: 1rem; text-align: left; vertical-align: top; }
+.catalog-table thead th { font-weight: 600; color: var(--text-muted); white-space: nowrap; }
+.catalog-table tbody tr + tr { border-top: 1px solid var(--border); }
+.catalog-table tbody tr:hover { background: var(--bg-card-hover); }
+.catalog-table .source-name { width: 45%; min-width: 17rem; font-weight: 500; }
+.source-name > a { font-family: var(--font-serif); font-size: 1rem; color: var(--text); }
+.source-name > a:hover { color: var(--link); }
+.source-subtitle { display: block; margin-top: 0.3rem; font-size: 0.78rem; color: var(--text-muted); font-weight: 400; }
+.source-description { margin-top: 0.45rem; font-size: 0.8rem; font-weight: 400; }
+.source-description summary, .source-checksum summary { cursor: pointer; color: var(--link); }
+.source-description p { margin: 0.5rem 0; }
+.source-count { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.source-files { min-width: 6rem; }
+.source-checksum { min-width: 11rem; max-width: 16rem; }
+.full-checksum { display: block; overflow-wrap: anywhere; margin: 0.6rem 0; user-select: all; }
+.source-checksum a { font-size: 0.78rem; }
+.checksum-note { font-size: 0.85rem; color: var(--text-muted); margin: 1.5rem 0; }
+@media (max-width: 38rem) {
+  .container-catalog { padding-left: 1rem; padding-right: 1rem; }
+  .catalog-table th, .catalog-table td { padding: 0.75rem; }
+  .catalog-table .source-name { min-width: 13rem; }
 }
-@media (min-width: 38rem) {
-  .catalog-grid { grid-template-columns: 1fr 1fr; }
-}
-
-.catalog-card {
-  padding: 1.25rem 1.4rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  box-shadow: 0 1px 3px rgba(28, 34, 41, 0.04);
-  transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
-  display: flex; flex-direction: column;
-}
-.catalog-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-strong);
-  box-shadow: 0 4px 12px rgba(28, 34, 41, 0.06);
-}
-.card-top {
-  display: flex; justify-content: space-between; align-items: baseline;
-  gap: 0.5rem; margin-bottom: 0.35rem;
-}
-.card-top h2 {
-  margin: 0;
-  font-size: 1.15rem;
-  font-family: var(--font-serif);
-  font-weight: 600;
-}
-.card-top h2 a { color: var(--text); }
-.card-top h2 a:hover { color: var(--link); text-decoration: none; }
-.card-sub {
-  margin: 0 0 0.5rem;
-  font-size: 0.83rem;
-  color: var(--text-muted);
-  font-family: var(--font-mono);
-}
-.card-desc { margin: 0 0 0.65rem; font-size: 0.95rem; color: var(--text); }
-.card-source { margin: 0 0 1rem; font-size: 0.82rem; color: var(--text-dim); }
-.card-actions { display: flex; gap: 0.5rem; margin-top: auto; }
 
 .how-it-works .flow {
   margin: 0;
@@ -209,6 +196,7 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
 
 .downloads-list { list-style: none; padding: 0; margin: 0; }
 .downloads-list li {
+  overflow-wrap: anywhere;
   padding: 0.6rem 0.9rem;
   background: var(--bg-soft);
   border-radius: var(--radius-sm);

@@ -1,0 +1,11 @@
+{
+  "dictionaries": [
+    {
+      "output": "data/av-ru.jsonl",
+      "inputs": [
+        "data/av-ru.2006.jsonl",
+        "data/av-ru.avar.me.jsonl"
+      ]
+    }
+  ]
+}

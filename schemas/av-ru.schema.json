@@ -33,7 +33,7 @@
     "entry": {
       "type": "object",
       "additionalProperties": false,
-      "required": ["word"],
+      "required": ["word", "source"],
       "properties": {
         "word": {
           "$ref": "#/$defs/nonEmptyString",
@@ -104,7 +104,7 @@
         },
         "source": {
           "$ref": "#/$defs/nonEmptyString",
-          "description": "Идентификатор дополнительного источника или редакционной реконструкции статьи."
+          "description": "Источник статьи: av-ru.2006 — словарь 2006 года; avar.me.2026 — дополнения и реконструкции avar.me."
         }
       }
     },

@@ -20,13 +20,39 @@
       "subtitle": "av → ru",
       "kind": "dictionary",
       "status": "stable",
-      "description": "Корпус аварско-русского словаря: словарные статьи, словоформы, значения и примеры употребления. Около 22 800 статей.",
+      "description": "Сводный аварско-русский словарь: статьи словаря 2006 года и дополнения avar.me. При совпадении заглавного слова приоритет у словаря 2006 года.",
       "format": "jsonl",
       "data_path": "data/av-ru.jsonl",
       "site_path": "av-ru/",
       "language_from": "av",
       "language_to": "ru",
-      "based_on": "М.-С. М. Магомедов и др. Аварско-русский словарь. Махачкала, 2006 (PDF, ~1521 стр.). Извлечение и нормализация — проект avar.me.",
+      "based_on": "av-ru.2006 + av-ru.avar.me; приоритет av-ru.2006.",
+      "license": "CC BY-SA 4.0",
+      "consumers": [
+        "avar.me",
+        "dev.avar.me",
+        "@avarme_bot",
+        "forms",
+        "corrector"
+      ],
+      "derived_from": [
+        "av-ru.2006",
+        "av-ru.avar.me"
+      ]
+    },
+    {
+      "id": "av-ru.2006",
+      "title": "Аварско-русский словарь (под редакцией М. М. Гимбатова)",
+      "subtitle": "av → ru",
+      "kind": "dictionary",
+      "status": "stable",
+      "description": "Словарь 2006 года: 22,836 статей. Извлечение и нормализация — проект avar.me.",
+      "format": "jsonl",
+      "data_path": "data/av-ru.2006.jsonl",
+      "site_path": "av-ru.2006/",
+      "language_from": "av",
+      "language_to": "ru",
+      "based_on": "Аварско-русский словарь. Под редакцией М. М. Гимбатова. Махачкала, 2006.",
       "license": "CC BY-SA 4.0",
       "documents": [
         {
@@ -35,13 +61,23 @@
           "path": "books/Full-Avar-Urus-dictionary.pdf"
         }
       ],
-      "consumers": [
-        "avar.me",
-        "dev.avar.me",
-        "@avarme_bot",
-        "forms",
-        "corrector"
-      ]
+      "consumers": []
+    },
+    {
+      "id": "av-ru.avar.me",
+      "title": "Аварско-русский словарь avar.me",
+      "subtitle": "av → ru",
+      "kind": "dictionary",
+      "status": "stable",
+      "description": "Дополнения и редакционные реконструкции проекта avar.me: 35 статей.",
+      "format": "jsonl",
+      "data_path": "data/av-ru.avar.me.jsonl",
+      "site_path": "av-ru.avar.me/",
+      "language_from": "av",
+      "language_to": "ru",
+      "based_on": "Словарные статьи, добавленные или реконструированные проектом avar.me.",
+      "license": "CC BY-SA 4.0",
+      "consumers": []
     },
     {
       "id": "ru-av",
@@ -401,7 +437,7 @@
       "spelling_forms": "string[] — варианты написания одной лексемы; текущее word идёт первым, отдельная статья для каждого варианта не обязательна (av-ru), необязательно",
       "senses": "Sense[] — список значений",
       "see_also": "{target: string, kind: 'see'|'from'|'syn'}[] — ссылки на другие статьи, необязательно",
-      "source": "string — идентификатор дополнительного источника или редакционной реконструкции статьи, необязательно"
+      "source": "string — источник статьи: av-ru.2006 или существующая редакционная метка avar.me.2026"
     },
     "sense": {
       "text": "string — текст перевода",

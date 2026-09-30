@@ -27,6 +27,7 @@ Zero external deps (stdlib only). Run `./build.sh` from repo root.
 from __future__ import annotations
 
 import html
+import hashlib
 import json
 import re
 import shutil
@@ -404,37 +405,49 @@ def footer_html() -> str:
 # ---------- Catalog (root index.html) ----------
 
 def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
-    items = []
+    groups = {"dictionaries": [], "monolingual": [], "multilingual": []}
     for src in catalog["sources"]:
         sid = src["id"]
-        s = stats.get(sid, {})
-        entry_count = s.get("entry_count", 0)
-        unit = s.get("unit", "статей")
-        documents_links = ""
-        if src.get("documents"):
-            doc_links_html = " · ".join(
-                f'<a href="{esc(doc["path"])}" target="_blank" rel="noopener">{esc(doc.get("kind", "файл").upper())}</a>'
-                for doc in src["documents"]
-            )
-            documents_links = f'<p class="card-docs"><span class="muted">оригинал:</span> {doc_links_html}</p>'
+        info = stats.get(sid, {})
+        status = src.get("status", "stable")
+        documents = " · ".join(
+            f'<a href="{esc(doc["path"])}" title="{esc(doc.get("title", "Оригинал"))}">{esc(doc.get("kind", "файл").upper())}</a>'
+            for doc in src.get("documents", [])
+        )
+        digest = info["sha256"]
+        row = f"""<tr>
+  <th scope="row" class="source-name"><a href="{esc(src['site_path'])}">{esc(src['title'])}</a>
+    <span class="source-subtitle">{esc(src.get('subtitle', ''))}</span>
+    <details class="source-description"><summary>Об источнике</summary>
+      <p>{esc(src['description'])}</p><p class="muted">{esc(src.get('based_on', ''))}</p>
+    </details>
+  </th>
+  <td><span class="badge badge-{esc(status)}">{esc(status)}</span></td>
+  <td class="source-count">{info.get('entry_count', 0):,}<span class="source-subtitle">{esc(info.get('unit', 'статей'))}</span></td>
+  <td class="source-files"><a href="{esc(src['data_path'])}" download>{esc(src['format'].upper())}</a>
+    <span class="source-subtitle">{documents}</span></td>
+  <td class="source-checksum"><details><summary><code>{digest[:12]}…</code></summary>
+    <code class="full-checksum">{digest}</code>
+    <a href="{esc(src['data_path'])}.sha256" download>Скачать SHA-256</a>
+  </details></td>
+</tr>"""
+        group = "dictionaries" if src.get("kind", "dictionary") == "dictionary" else (
+            "monolingual" if is_monolingual(src) else "multilingual"
+        )
+        groups[group].append(row)
 
-        items.append(f"""
-<article class="catalog-card">
-  <header class="card-top">
-    <h2><a href="{esc(src['site_path'])}">{esc(src['title'])}</a></h2>
-    <span class="badge badge-{esc(src.get('status', 'stable'))}">{esc(src.get('status', 'stable'))}</span>
-  </header>
-  <p class="card-sub">{esc(src.get('subtitle', ''))} · {entry_count:,} {esc(unit)} · {esc(src.get('format', 'jsonl'))}</p>
-  <p class="card-desc">{esc(src['description'])}</p>
-  <p class="card-source"><span class="muted">источник:</span> {esc(src.get('based_on', ''))}</p>
-  {documents_links}
-  <div class="card-actions">
-    <a class="btn btn-primary" href="{esc(src['site_path'])}">читать</a>
-    <a class="btn btn-ghost" href="{esc(src['data_path'])}" download>скачать {esc(src['format'])}</a>
-  </div>
-</article>""")
-
-    sources_block = "\n".join(items)
+    sections = []
+    for group, title in [("dictionaries", "Словари"), ("monolingual", "Монолингвальные корпусы"), ("multilingual", "Мультилингвальные корпусы")]:
+        sections.append(f"""<section class="catalog" aria-labelledby="{group}">
+    <h2 class="section-title" id="{group}">{title}<span class="section-count">{len(groups[group])}</span></h2>
+    <div class="catalog-table-wrap" role="region" aria-label="{title}" tabindex="0">
+      <table class="catalog-table">
+        <thead><tr><th scope="col">Источник</th><th scope="col">Статус</th><th scope="col">Объём</th><th scope="col">Файлы</th><th scope="col">SHA-256</th></tr></thead>
+        <tbody>{''.join(groups[group])}</tbody>
+      </table>
+    </div>
+  </section>""")
+    sources_block = "\n".join(sections)
 
     all_downloads = []
     all_downloads.append('<li><a href="sources.json"><code>sources.json</code></a> — реестр всех источников</li>')
@@ -457,7 +470,7 @@ def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
   </div>
 </header>
 
-<main class="container">
+<main class="container container-catalog">
   <section class="intro">
     <p>Здесь живут <strong>исходные данные</strong> для всех проектов avar.me. Читайте,
     проверяйте, замечайте неточности — и пишите в чат
@@ -465,10 +478,12 @@ def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
     автоматически разойдутся по другим сайтам экосистемы.</p>
   </section>
 
-  <section class="catalog">
-    <h2 class="section-title">Источники</h2>
-    <div class="catalog-grid">{sources_block}</div>
-  </section>
+  <nav class="catalog-nav" aria-label="Категории источников">
+    <a href="#dictionaries">Словари</a><a href="#monolingual">Монолингвальные корпусы</a><a href="#multilingual">Мультилингвальные корпусы</a>
+  </nav>
+  {sources_block}
+  <p class="checksum-note">SHA-256 позволяет проверить целостность скачанного файла.
+    <a href="SHA256SUMS" download>Скачать контрольные суммы всех данных и оригиналов</a>.</p>
 
   <section class="how-it-works">
     <h2 class="section-title">Как работает</h2>
@@ -1443,6 +1458,9 @@ def build_dictionary(src: dict) -> dict:
 def build() -> None:
     print("=== sources.avar.me build ===")
 
+    from build_dictionaries import build_dictionaries
+
+    build_dictionaries(ROOT)
     catalog = json.loads(CATALOG.read_text(encoding="utf-8"))
 
     if DOCS.exists():
@@ -1479,6 +1497,22 @@ def build() -> None:
             dst_doc.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src_doc, dst_doc)
 
+    checksums: dict[str, str] = {}
+    files = {"sources.json"}
+    for src in catalog["sources"]:
+        files.add(src["data_path"])
+        files.update(doc["path"] for doc in src.get("documents", []) if (DOCS / doc["path"]).exists())
+    for name in sorted(files):
+        with (DOCS / name).open("rb") as stream:
+            checksums[name] = hashlib.file_digest(stream, "sha256").hexdigest()
+        # Sidecars work with `sha256sum -c` in the downloaded file's directory.
+        (DOCS / (name + ".sha256")).write_text(
+            f"{checksums[name]}  {Path(name).name}\n", encoding="utf-8"
+        )
+    (DOCS / "SHA256SUMS").write_text(
+        "".join(f"{digest}  {name}\n" for name, digest in checksums.items()), encoding="utf-8"
+    )
+
     # Per-source build (dictionary or corpus)
     stats: dict[str, dict] = {}
     for src in catalog["sources"]:
@@ -1491,6 +1525,7 @@ def build() -> None:
         else:
             stats[src["id"]] = build_dictionary(src)
         stats[src["id"]].setdefault("unit", src.get("unit", "статей"))
+        stats[src["id"]]["sha256"] = checksums[src["data_path"]]
 
     # Catalog landing page
     (DOCS / "index.html").write_text(render_catalog(catalog, stats), encoding="utf-8")
