@@ -784,6 +784,19 @@ code, .mono { font-family: var(--font-mono); font-size: 0.9em; }
   line-height: 1.65;
   margin: 0 0 1rem;
 }
+.article-lang-block + .article-lang-block {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px dashed var(--border);
+}
+.article-lang-label {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 0.6rem;
+}
 
 /* ---------- Page nav ---------- */
 

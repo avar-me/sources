@@ -426,6 +426,56 @@
         "ml.avar.me",
         "corpus.avar.me"
       ]
+    },
+    {
+      "id": "avar-telegram-articles",
+      "title": "Телеграм-канал @avar_language — грамматика и лексика",
+      "subtitle": "av · посты о грамматике",
+      "kind": "articles",
+      "status": "test",
+      "monolingual": true,
+      "description": "Статьи по грамматике, словообразованию, фонетике и лексике аварского языка из Telegram-канала @avar_language. Отфильтровано и размечено автоматически (LLM) из полного архива канала (3064 поста). 1005 статей.",
+      "format": "jsonl",
+      "data_path": "data/avar-telegram-articles.jsonl",
+      "site_path": "avar-telegram-articles/",
+      "language_from": "av",
+      "language_to": "av",
+      "based_on": "Посты Telegram-канала @avar_language (2022–2026), отфильтрованные и размеченные двухэтапной LLM-классификацией (Claude Haiku/Sonnet), без построчной вычитки носителем.",
+      "license": "Не определена — права на тексты канала с автором @avar_language не согласованы, статус источника временно «на проверке»",
+      "consumers": []
+    },
+    {
+      "id": "avar-telegram-monolingual",
+      "title": "Телеграм-канал @avar_language — фольклор (моно)",
+      "subtitle": "av · сказки, пословицы, песни",
+      "kind": "articles",
+      "status": "test",
+      "monolingual": true,
+      "description": "Народные тексты на аварском без перевода (сказки, легенды, песни, пословицы, поговорки, рассказы) из Telegram-канала @avar_language. 392 статьи.",
+      "format": "jsonl",
+      "data_path": "data/avar-telegram-monolingual.jsonl",
+      "site_path": "avar-telegram-monolingual/",
+      "language_from": "av",
+      "language_to": "av",
+      "based_on": "Посты Telegram-канала @avar_language (2022–2026), отфильтрованные и размеченные двухэтапной LLM-классификацией (Claude Haiku/Sonnet), без построчной вычитки носителем.",
+      "license": "Не определена — права на тексты канала с автором @avar_language не согласованы, статус источника временно «на проверке»",
+      "consumers": []
+    },
+    {
+      "id": "avar-telegram-parallel",
+      "title": "Телеграм-канал @avar_language — фольклор (параллельный)",
+      "subtitle": "av ↔ ru · сказки, пословицы, песни",
+      "kind": "articles",
+      "status": "test",
+      "description": "Народные тексты на аварском с русским переводом (сказки, легенды, песни, пословицы, поговорки, рассказы) из Telegram-канала @avar_language. Выравнивание на уровне поста, не предложения. 50 статей.",
+      "format": "jsonl",
+      "data_path": "data/avar-telegram-parallel.jsonl",
+      "site_path": "avar-telegram-parallel/",
+      "language_from": "av",
+      "language_to": "ru",
+      "based_on": "Посты Telegram-канала @avar_language (2022–2026), av/ru разделены LLM на уровне поста целиком (не предложения), без построчной вычитки носителем.",
+      "license": "Не определена — права на тексты канала с автором @avar_language не согласованы, статус источника временно «на проверке»",
+      "consumers": []
     }
   ],
   "schema": {

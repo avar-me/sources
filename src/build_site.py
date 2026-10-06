@@ -1179,17 +1179,52 @@ def render_articles_year(
 """
 
 
+_ARTICLE_LANG_LABELS = {"av": "Аварский", "ru": "Русский"}
+
+
+def render_article_body(art: dict) -> tuple[str, str]:
+    """Return (description, paragraphs_html) for an article.
+
+    Most sources have a single `text` field. Parallel-corpus-style sources
+    (e.g. avar-telegram-parallel) instead carry separate `av`/`ru` fields —
+    rendered as two labeled language blocks side by side with the sentence
+    corpora's `.s-lang` styling, not interleaved.
+    """
+    if "text" in art:
+        text = art["text"]
+        description = (text[:160] + "…") if len(text) > 160 else text
+        paragraphs = "".join(
+            f"<p>{esc(p)}</p>" for p in text.split("\n") if p.strip()
+        )
+        return description, paragraphs
+
+    lead_text = art.get("av") or art.get("ru") or ""
+    description = (lead_text[:160] + "…") if len(lead_text) > 160 else lead_text
+    blocks = []
+    for lang in ("av", "ru"):
+        lang_text = (art.get(lang) or "").strip()
+        if not lang_text:
+            continue
+        lang_paragraphs = "".join(
+            f"<p>{esc(p)}</p>" for p in lang_text.split("\n") if p.strip()
+        )
+        label = _ARTICLE_LANG_LABELS.get(lang, lang)
+        blocks.append(
+            f'<div class="article-lang-block">'
+            f'<p class="article-lang-label">{esc(label)}</p>'
+            f'{lang_paragraphs}'
+            f'</div>'
+        )
+    return description, "".join(blocks)
+
+
 def render_article_page(
     src: dict, art: dict, prev_art: dict | None, next_art: dict | None
 ) -> str:
     sid = src["id"]
     year = (art.get("date") or "")[:4]
     title = f"{art['title']} — {src['title']} — sources.avar.me"
-    description = (art["text"][:160] + "…") if len(art["text"]) > 160 else art["text"]
-
-    paragraphs = "".join(
-        f"<p>{esc(p)}</p>" for p in art["text"].split("\n") if p.strip()
-    )
+    description, paragraphs = render_article_body(art)
     tags = "".join(
         f'<span class="tag">{esc(c)}</span>' for c in art.get("categories", [])
     )
