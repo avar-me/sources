@@ -1,0 +1,1431 @@
+# Проверка обновления en-av — 2026-10-13
+
+## Итоговое состояние
+
+Приёмочная проверка принесённого обновления завершена. Рабочий en-av:
+35 114 статей, 51 060 значений, 33 337 примеров.
+SHA-256: `4c22e590f1f343a937e4767ac427eb5d710eda3ee40ded1c5125000aa5bebd0a`.
+Статус источника остаётся experimental: полная носительская проверка всех
+переводов и научных/специальных определений не заявляется.
+
+Пройдено: JSONL; spaced-сериализация; отсутствие русских forms/stem/stress
+и ссылок; отсутствие пустых статей и полных дублей; обе стороны примеров;
+отсутствие кириллицы в английских заголовках/примерах; допустимость палочки.
+Аварские римское XII и аббревиатура мтс не являются ошибками.
+Скрипт: `python3 scripts/en_av_validate.py` (0 ошибок).
+Самопроверка валидатора: 1 корректный случай и 12 отрицательных случаев.
+
+Первоначальные 277 кандидатов по примерам разобраны: 4 склеенных старых
+примера уже разделены, 8 неоднозначных пар не восстановлены; остальные
+сохранены/восстановлены по смыслу или с исправлением английской подписи.
+Проверены также 257 расхождений определений: 200 значений восстановлены;
+57 исходных строк не скопированы дословно (русская морфология, редакционные
+замены, неоднозначные значения). Полный исходный JSON и решения ниже.
+
+Из старого electron исключено неверное утверждение о «самой маленькой
+частице вещества»; оставлена исходная корректная часть атомалъул бутӏа.
+В chop восстановлена ч в бичӏизе по текущему ru-av.
+Описания ранних этапов ниже — исторические снимки, не текущее состояние.
+
+## Этап 8: проверка определений
+
+Из 257 кандидатов на расхождение определений восстановлено 200 лексических значений под 195 английскими заголовками. Остальные строки — русская морфология, заменённые/переформулированные значения или требующие экспертной сверки случаи. Старые английские примеры автоматически не возвращались: их отдельный разбор предшествовал этому этапу.
+
+Восстановленные значения:
+
+- {"candidate": 0, "old_word": "asp", "new_word": "asp", "original": {"text": "аспид", "comment": "загьруял борхьазул цо тайпа"}, "restored": {"text": "аспид", "comment": "загьруял борхьазул цо тайпа"}}
+- {"candidate": 1, "old_word": "asp", "new_word": "vicious person", "original": {"text": "ццидалав, ракӏ хъубав чи", "labels": ["swear word"]}, "restored": {"text": "ццидалав, ракӏ хъубав чи", "labels": ["swear word"]}}
+- {"candidate": 2, "old_word": "asp", "new_word": "slate", "original": {"text": "аспид", "comment": "гъатахараб минерал, грифелалъул хъарщал гьарулеб чӏегӏераб кьералъул сланец", "labels": ["mineralogy"]}, "restored": {"text": "аспид", "comment": "гъатахараб минерал, грифелалъул хъарщал гьарулеб чӏегӏераб кьералъул сланец", "labels": ["mineralogy"]}}
+- {"candidate": 3, "old_word": "blockhead", "new_word": "blockhead", "original": {"text": "ахӏмакъ, гӏакълугьечӏ, гӏантав чи", "labels": ["masculine gender", "feminine gender", "swear word"]}, "restored": {"text": "ахӏмакъ, гӏакълугьечӏ, гӏантав чи", "labels": ["swear word"]}}
+- {"candidate": 4, "old_word": "fugitive, fluent", "new_word": "fluent", "original": {"text": "хехаб, тирияб", "precomment": "fast", "examples": [{"en": "fluent reading", "av": "хехаб (дурун) цӏали"}]}, "restored": {"text": "хехаб, тирияб", "precomment": "fast"}}
+- {"candidate": 5, "old_word": "fugitive, fluent", "new_word": "fleeting", "original": {"text": "гӏедегӏараб, лъалхъичӏого унеб, рештӏинчӏого унеб", "precomment": "fleeting", "examples": [{"en": "fleeting glance", "av": "тохлъукьегояб берчӏвай"}]}, "restored": {"text": "гӏедегӏараб, лъалхъичӏого унеб, рештӏинчӏого унеб", "precomment": "fleeting"}}
+- {"candidate": 6, "old_word": "fugitive, fluent", "new_word": "alternating vowel", "original": {"text": "гьоркьоса тӏагӏунел рагьарал гьаркьал", "precomment": "fleeting vowels", "comment": "рагӏабазул формаби хисулаго, цин рилун, цин раккун рукӏунел рагьарал гьаркьал, мас. гамачӏ — ганчӏал, кесек — кескал", "labels": ["linguistics"]}, "restored": {"text": "гьоркьоса тӏагӏунел рагьарал гьаркьал", "precomment": "fleeting vowels", "comment": "рагӏабазул формаби хисулаго, цин рилун, цин раккун рукӏунел рагьарал гьаркьал, мас. гамачӏ — ганчӏал, кесек — кескал", "labels": ["linguistics"]}}
+- {"candidate": 7, "old_word": "headless", "new_word": "headless", "original": {"text": "бетӏер гьечӏев"}, "restored": {"text": "бетӏер гьечӏев"}}
+- {"candidate": 8, "old_word": "headless", "new_word": "stupid", "original": {"text": "гӏантав, ахӏмакъав", "precomment": "stupid", "labels": ["colloquial word"]}, "restored": {"text": "гӏантав, ахӏмакъав", "precomment": "stupid", "labels": ["colloquial word"]}}
+- {"candidate": 9, "old_word": "headless", "new_word": "absent-minded", "original": {"text": "цӏакъ палгъарав, ракӏалда жо кколарев (чӏоларев), хехго кӏочонев", "precomment": "forgetful, absent-minded", "labels": ["colloquial word"]}, "restored": {"text": "цӏакъ палгъарав, ракӏалда жо кколарев (чӏоларев), хехго кӏочонев", "precomment": "forgetful, absent-minded", "labels": ["colloquial word"]}}
+- {"candidate": 10, "old_word": "wolf; loner", "new_word": "loner", "original": {"text": "тӏурузав чи, гӏадамазда гьоркьове жуваларев чи, батӏа кӏанцӏун чӏарав чи", "labels": ["figuratively"]}, "restored": {"text": "тӏурузав чи, гӏадамазда гьоркьове жуваларев чи, батӏа кӏанцӏун чӏарав чи", "labels": ["figuratively"]}}
+- {"candidate": 11, "old_word": "young bull; cigarette butt", "new_word": "bull calf", "original": {"text": "баси", "precomment": "young bull"}, "restored": {"text": "баси", "precomment": "young bull"}}
+- {"candidate": 12, "old_word": "young bull; cigarette butt", "new_word": "endless story", "original": {"text": "лъугӏел гьечӏеб маргьа, цого жо чанцӏулго бицин, такрар гьаби", "precomment": "endless story"}, "restored": {"text": "лъугӏел гьечӏеб маргьа, цого жо чанцӏулго бицин, такрар гьаби", "precomment": "endless story"}}
+- {"candidate": 13, "old_word": "importantly; proudly", "new_word": "pompously", "original": {"text": "чӏухӏун, пахруго, гӏамал кӏодого", "precomment": "with an important air"}, "restored": {"text": "чӏухӏун, пахруго, гӏамал кӏодого", "precomment": "with an important air"}}
+- {"candidate": 17, "old_word": "Hungarian woman; prune", "new_word": "Hungarian dance", "original": {"text": "венгерка", "comment": "венгриязул(аб) кьурди ва гьелъул музыка"}, "restored": {"text": "венгерка", "comment": "венгриязул(аб) кьурди ва гьелъул музыка"}}
+- {"candidate": 18, "old_word": "Hungarian woman; prune", "new_word": "Hungarian jacket", "original": {"text": "венгерка", "comment": "къокъаб хъабарча, куртка", "labels": ["archaic word"]}, "restored": {"text": "венгерка", "comment": "къокъаб хъабарча, куртка", "labels": ["archaic word"]}}
+- {"candidate": 25, "old_word": "incubate", "new_word": "hatch", "original": {"text": "тӏанчӏи рахъизе", "precomment": "whom", "comment": "ханазда тӏад букӏун, къурщица"}, "restored": {"text": "тӏанчӏи рахъизе", "comment": "ханазда тӏад букӏун, къурщица"}}
+- {"candidate": 27, "old_word": "day off; holiday", "new_word": "worn on special occasions", "original": {"text": "хӏалтӏуларел къоязда (байрамазда) ретӏунеб", "comment": "праздничный, нарядный", "examples": [{"en": "best suit", "av": "байрам къоялъ ретӏунеб костюм"}]}, "restored": {"text": "хӏалтӏуларел къоязда (байрамазда) ретӏунеб", "comment": "festive; dressy", "comment_lang": "en"}}
+- {"candidate": 28, "old_word": "day off; holiday", "new_word": "person off duty", "original": {"text": "гӏодов вугев (гӏодобкъо бугев) чи", "precomment": "day off", "labels": ["used as a noun"]}, "restored": {"text": "гӏодов вугев (гӏодобкъо бугев) чи", "precomment": "day off", "labels": ["used as a noun"]}}
+- {"candidate": 29, "old_word": "day off; holiday", "new_word": "person off duty", "original": {"text": "гӏодой йигей (гӏодобкъо бугей) гӏадан", "precomment": "output f.", "labels": ["used as a noun"], "examples": [{"en": "I am off duty today, I have a day off today", "av": "дун жакъа гӏодой йиго, дир жакъа гӏодобкъо"}]}, "restored": {"text": "гӏодой йигей (гӏодобкъо бугей) гӏадан", "labels": ["used as a noun"]}}
+- {"candidate": 30, "old_word": "Hercules; oatmeal", "new_word": "strongman", "original": {"text": "геркулес, бергьун къуватав чи", "precomment": "strongman"}, "restored": {"text": "геркулес, бергьун къуватав чи", "precomment": "strongman"}}
+- {"candidate": 31, "old_word": "Hercules; oatmeal", "new_word": "rolled oats", "original": {"text": "геркулес", "precomment": "groats", "comment": "нехадул курпаялъул цо тайпа"}, "restored": {"text": "геркулес", "precomment": "groats", "comment": "нехадул курпаялъул цо тайпа"}}
+- {"candidate": 32, "old_word": "pebble", "new_word": "naked child", "original": {"text": "толохӏочораб лъимер", "labels": ["colloquial word"]}, "restored": {"text": "толохӏочораб лъимер", "labels": ["colloquial word"]}}
+- {"candidate": 33, "old_word": "hillock; mound", "new_word": "display cabinet", "original": {"text": "гьитӏинаб шкаф", "precomment": "small cabinet", "comment": "цӏарагӏ лъолеб"}, "restored": {"text": "гьитӏинаб шкаф", "precomment": "small cabinet", "comment": "цӏарагӏ лъолеб"}}
+- {"candidate": 35, "old_word": "hillock; mound", "new_word": "hump yard", "original": {"text": "горка", "comment": "маххул нухазул станциялда вагоназул сортировка гьабизе санагӏатаб гӏодорайги бугеб нухазул система"}, "restored": {"text": "горка", "comment": "маххул нухазул станциялда вагоназул сортировка гьабизе санагӏатаб гӏодорайги бугеб нухазул система"}}
+- {"candidate": 36, "old_word": "face; edge; verge", "new_word": "boundary", "original": {"text": "гӏурхъи, мицӏир", "labels": ["figuratively"], "examples": [{"en": "erasing the boundaries between physical and mental labor", "av": "физикияб ва гӏакълияб хӏалтӏабазда гьоркьоб гӏурхъи тӏагӏин"}, {"en": "to draw a line between ...", "av": "гӏурхъи чӏвазе … гьоркьоб"}, {"en": "to be on the verge of something", "av": "сундулниги гӏорхъоде щвезе"}]}, "restored": {"text": "гӏурхъи, мицӏир", "labels": ["figuratively"]}}
+- {"candidate": 37, "old_word": "face; edge; verge", "new_word": "on the verge of madness", "original": {"text": "гӏадаллъиялъул гӏорхъода, гӏантлъиялде гӏагарун", "precomment": "on the verge of madness"}, "restored": {"text": "гӏадаллъиялъул гӏорхъода, гӏантлъиялде гӏагарун", "precomment": "on the verge of madness"}}
+- {"candidate": 38, "old_word": "face; edge; verge", "new_word": "on the verge of war", "original": {"text": "рагъ ккеялда хӏинкъараб хӏалалда", "precomment": "on the verge of war"}, "restored": {"text": "рагъ ккеялда хӏинкъараб хӏалалда", "precomment": "on the verge of war"}}
+- {"candidate": 39, "old_word": "antiquity", "new_word": "remoteness in time", "original": {"text": "некӏого, цебего букӏин", "precomment": "remoteness", "examples": [{"en": "matter of twenty years ago", "av": "къоло щуго соналъ цебе букӏараб иш"}]}, "restored": {"text": "некӏого, цебего букӏин", "precomment": "remoteness"}}
+- {"candidate": 40, "old_word": "antiquity", "new_word": "duration", "original": {"text": "халат бахъин, заманалъул халалъи", "precomment": "duration", "examples": [{"en": "duration of friendship", "av": "гьудуллъиялъул халат бахъин (гӏемераб мехалъ букӏин)"}]}, "restored": {"text": "халат бахъин, заманалъул халалъи", "precomment": "duration"}}
+- {"candidate": 41, "old_word": "antiquity", "new_word": "statute of limitations", "original": {"text": "гӏемер мехин, басралъи", "labels": ["legal term"], "examples": [{"en": "the case was dismissed due to the statute of limitations", "av": "гӏемер мехиналда бан, дело къан (къотӏизабун) букӏана"}]}, "restored": {"text": "гӏемер мехин, басралъи", "labels": ["legal term"]}}
+- {"candidate": 42, "old_word": "brainchild", "new_word": "brainchild", "original": {"text": "жиндирго захӏматалдалъун гьабураб жо", "precomment": "creation", "labels": ["figuratively"]}, "restored": {"text": "жиндирго захӏматалдалъун гьабураб жо", "precomment": "creation", "labels": ["figuratively"]}}
+- {"candidate": 43, "old_word": "brainchild", "new_word": "unrealizable project", "original": {"precomment": "stillborn offspring", "text": "гӏумруялде бахъинабун бажарулареб жо"}, "restored": {"precomment": "stillborn offspring", "text": "гӏумруялде бахъинабун бажарулареб жо"}}
+- {"candidate": 44, "old_word": "prey; loot; extraction", "new_word": "loot", "original": {"text": "щвараб жо, давла", "precomment": "obtained; acquired", "examples": [{"en": "war loot", "av": "рагъда щвараб давла"}, {"en": "to go for prey; to go hunting", "av": "чанаве ине", "comment": "на охоту и т. п."}]}, "restored": {"text": "щвараб жо, давла", "precomment": "obtained; acquired"}}
+- {"candidate": 46, "old_word": "reach; drag", "new_word": "drag", "original": {"text": "кибениги щвезегӏан цӏазе, бехъерхъизе", "precomment": "someone/something up to what", "comment": "дотащить"}, "restored": {"text": "кибениги щвезегӏан цӏазе, бехъерхъизе", "comment": "drag to a destination", "comment_lang": "en"}}
+- {"candidate": 47, "old_word": "chewing gum", "new_word": "cud", "original": {"text": "рагӏбай", "comment": "хӏайваналъ"}, "restored": {"text": "рагӏбай", "comment": "хӏайваналъ"}}
+- {"candidate": 48, "old_word": "chewing gum", "new_word": "food", "original": {"text": "кваналеб жо, квен, кваназе жо", "precomment": "food"}, "restored": {"text": "кваналеб жо, квен, кваназе жо", "precomment": "food"}}
+- {"candidate": 49, "old_word": "chewing gum", "new_word": "chewing gum", "original": {"text": "пицӏ, сакъис", "precomment": "chew", "comment": "чӏамулеб", "labels": ["colloquial (vernacular) word"], "examples": [{"en": "chew gum", "av": "чӏамучӏаб (чӏалгӏараб) цого жо бицине"}]}, "restored": {"text": "пицӏ, сакъис", "precomment": "chew", "comment": "чӏамулеб", "labels": ["colloquial (vernacular) word"]}}
+- {"candidate": 54, "old_word": "fame, notoriety", "new_word": "fame", "original": {"text": "машгьурлъи, цӏар ин"}, "restored": {"text": "машгьурлъи, цӏар ин"}}
+- {"candidate": 55, "old_word": "fame, notoriety", "new_word": "inform", "original": {"text": "лъиданиги лъазабизе, лъиениги баян гьабизе", "precomment": "notify someone"}, "restored": {"text": "лъиданиги лъазабизе, лъиениги баян гьабизе", "precomment": "notify someone"}}
+- {"candidate": 58, "old_word": "stave; rivet", "new_word": "riveting", "original": {"text": "магӏ бай, кьегӏ гьаби, бухи, бекӏкӏи", "comment": "by the verb klepat'", "comment_lang": "ru"}, "restored": {"text": "магӏ бай, кьегӏ гьаби, бухи, бекӏкӏи"}}
+- {"candidate": 59, "old_word": "stave; rivet", "new_word": "stave", "original": {"text": "чирмадул хъарщи", "precomment": "stave"}, "restored": {"text": "чирмадул хъарщи", "precomment": "stave"}}
+- {"candidate": 60, "old_word": "cell", "new_word": "cell", "original": {"text": "клетка", "comment": "рухӏ бугебщинаб жо жиндасан гӏуцӏараб зарра", "labels": ["biology"], "examples": [{"en": "nerve cells", "av": "нервабазул зарраби"}]}, "restored": {"text": "клетка", "comment": "рухӏ бугебщинаб жо жиндасан гӏуцӏараб зарра", "labels": ["biology"]}}
+- {"candidate": 61, "old_word": "molt; shed; fade", "new_word": "fade", "original": {"text": "кьер хисизе, кьер хвезе, кьер ине", "precomment": "about fabric", "examples": [{"en": "chintz fades", "av": "читил кьер хола"}]}, "restored": {"text": "кьер хисизе, кьер хвезе, кьер ине", "precomment": "about fabric"}}
+- {"candidate": 62, "old_word": "molt; shed; fade", "new_word": "molt", "original": {"text": "цӏира гъине, цӏида бацӏцӏине", "precomment": "about animals"}, "restored": {"text": "цӏира гъине, цӏида бацӏцӏине", "precomment": "about animals"}}
+- {"candidate": 63, "old_word": "tray", "new_word": "hawker's tray", "original": {"text": "къватӏазда ричарулезул къайи лъолеб цӏулал ящикӏ", "comment": "рагьараб прилавок"}, "restored": {"text": "къватӏазда ричарулезул къайи лъолеб цӏулал ящикӏ", "comment": "рагьараб прилавок"}}
+- {"candidate": 64, "old_word": "tray", "new_word": "gutter", "original": {"text": "тротуаралда аскӏосан лъим унеб рахъ"}, "restored": {"text": "тротуаралда аскӏосан лъим унеб рахъ"}}
+- {"candidate": 65, "old_word": "terry; inveterate, dyed-in-the-wool", "new_word": "double-flowered", "original": {"text": "гӏемер тӏанчал ругеб, гӏемер тӏанчазулаб", "precomment": "about the flower", "comment": "тӏегь"}, "restored": {"text": "гӏемер тӏанчал ругеб, гӏемер тӏанчазулаб", "precomment": "about the flower", "comment": "тӏегь"}}
+- {"candidate": 66, "old_word": "terry; inveterate, dyed-in-the-wool", "new_word": "terry", "original": {"text": "тӏаде кӏичӏ бахъараб", "precomment": "about fabrics", "comment": "хамм"}, "restored": {"text": "тӏаде кӏичӏ бахъараб", "precomment": "about fabrics", "comment": "хамм"}}
+- {"candidate": 67, "old_word": "terry; inveterate, dyed-in-the-wool", "new_word": "reactionary", "original": {"text": "нахъегӏанав, цебетӏелъе тушманав", "labels": ["figuratively"]}, "restored": {"text": "нахъегӏанав, цебетӏелъе тушманав", "labels": ["figuratively"]}}
+- {"candidate": 68, "old_word": "mole; breakwater", "new_word": "reportedly", "original": {"text": "-ила, -дила, -унха", "examples": [{"en": "he, they say, didn't know this", "av": "гъосдадила гьеб лъалароанила"}]}, "restored": {"text": "-ила, -дила, -унха"}}
+- {"candidate": 69, "old_word": "torment", "new_word": "exterminate", "original": {"text": "загьруялъ тӏагӏинаризе, хвезаризе", "precomment": "someone-something (destroy)", "examples": [{"en": "to exterminate rats", "av": "чӏахӏагӏункӏкӏал хвезаризе"}]}, "restored": {"text": "загьруялъ тӏагӏинаризе, хвезаризе"}}
+- {"candidate": 70, "old_word": "torment", "new_word": "starve", "original": {"text": "гӏакъуба кьун, ракъи-къечалъ тату хвезабизе", "precomment": "sb/sth (to exhaust)", "labels": ["figuratively", "colloquial word"], "examples": [{"en": "starve", "av": "вакъиялъ тату хвезабизе"}]}, "restored": {"text": "гӏакъуба кьун, ракъи-къечалъ тату хвезабизе", "precomment": "sb/sth (to exhaust)", "labels": ["figuratively", "colloquial word"]}}
+- {"candidate": 72, "old_word": "us", "new_word": "by us", "original": {"text": "нилъеца, нижеца"}, "restored": {"text": "нилъеца, нижеца"}}
+- {"candidate": 74, "old_word": "to turn around", "new_word": "turn", "original": {"text": "цояб рахъалде руссине", "precomment": "to turn around", "examples": [{"en": "turn facing the window", "av": "гьумерги гордехун буссинабун, чӏезе"}]}, "restored": {"text": "цояб рахъалде руссине", "precomment": "to turn around"}}
+- {"candidate": 75, "old_word": "to turn around", "new_word": "return", "original": {"text": "тӏад вуссине", "labels": ["colloquial word"], "examples": [{"en": "you won't be back before an hour", "av": "цо сагӏтидаса цудун тӏад вуссун бажариларо"}]}, "restored": {"text": "тӏад вуссине", "labels": ["colloquial word"]}}
+- {"candidate": 76, "old_word": "to turn around", "new_word": "cope", "original": {"text": "тӏубазабизе кӏвезе", "precomment": "cope", "labels": ["colloquial word"], "examples": [{"en": "we'll manage with just one tractor", "av": "нижеда гьеб цо тракторалъги тӏубазабизе кӏвела"}]}, "restored": {"text": "тӏубазабизе кӏвезе", "precomment": "cope", "labels": ["colloquial word"]}}
+- {"candidate": 77, "old_word": "to turn around", "new_word": "turn out", "original": {"text": "батӏаяса ккезе, хисизе", "labels": ["figuratively"], "examples": [{"en": "things turned out well", "av": "ишал лъикӏ ккана"}]}, "restored": {"text": "батӏаяса ккезе, хисизе", "labels": ["figuratively"]}}
+- {"candidate": 78, "old_word": "to turn around", "new_word": "turn into", "original": {"text": "лъидениги сверизе", "precomment": "to turn into someone", "labels": ["folklore"], "examples": [{"en": "turn into a fair maiden", "av": "берцинай ясалде сверизе"}]}, "restored": {"text": "лъидениги сверизе", "precomment": "to turn into someone", "labels": ["folklore"]}}
+- {"candidate": 79, "old_word": "to turn around", "new_word": "wrap oneself in", "original": {"text": "жиндаго тӏад щибниги жемизе, живго сунданиги гъорлъ жемизе", "precomment": "to wrap oneself in something"}, "restored": {"text": "жиндаго тӏад щибниги жемизе, живго сунданиги гъорлъ жемизе", "precomment": "to wrap oneself in something"}}
+- {"candidate": 87, "old_word": "to deny; to refuse to admit", "new_word": "recant", "original": {"text": "инкар гьабизе, нагӏадала кквезе", "precomment": "refuse; decline", "labels": ["colloquial word"], "examples": [{"en": "recant one's words", "av": "цебе жинцаго бицаралдаса инкар гьабизе"}]}, "restored": {"text": "инкар гьабизе, нагӏадала кквезе", "precomment": "refuse; decline", "labels": ["colloquial word"]}}
+- {"candidate": 88, "old_word": "to sing a funeral service", "new_word": "stop singing", "original": {"text": "ахӏун бахъине", "precomment": "what (stop singing)", "examples": [{"en": "the roosters have stopped crowing", "av": "хӏелкал гӏегӏедун рахъана"}]}, "restored": {"text": "ахӏун бахъине", "precomment": "what (stop singing)"}}
+- {"candidate": 89, "old_word": "to sing a funeral service", "new_word": "conduct a funeral service", "original": {"text": "хварасдасан дугӏа цӏализе (христиан (насраниязул) диналда)", "precomment": "whom-what", "labels": ["ecclesiastical word"]}, "restored": {"text": "хварасдасан дугӏа цӏализе (христиан (насраниязул) диналда)", "labels": ["ecclesiastical word"]}}
+- {"candidate": 90, "old_word": "remote; outhouse", "new_word": "itinerant trade", "original": {"text": "заманаялъ къватӏиве ун, хӏалтӏи", "precomment": "trade, craft, industry"}, "restored": {"text": "заманаялъ къватӏиве ун, хӏалтӏи"}}
+- {"candidate": 92, "old_word": "cartridge; patron", "new_word": "chuck", "original": {"text": "харатӏалъул тӏагӏел гьабизе бугеб цӏул, махх кколеб алат, патрон"}, "restored": {"text": "харатӏалъул тӏагӏел гьабизе бугеб цӏул, махх кколеб алат, патрон"}}
+- {"candidate": 93, "old_word": "singing", "new_word": "chorister", "original": {"text": "килисаялда хоралда кечӏ ахӏулев чи", "labels": ["used as a noun"]}, "restored": {"text": "килисаялда хоралда кечӏ ахӏулев чи", "labels": ["used as a noun"]}}
+- {"candidate": 98, "old_word": "interrupt", "new_word": "kill", "original": {"text": "гъуризе, чӏвазе", "precomment": "someone, something; to kill many", "examples": [{"en": "kill enemies", "av": "тушбаби гъуризе"}]}, "restored": {"text": "гъуризе, чӏвазе", "precomment": "someone, something; to kill many"}}
+- {"candidate": 99, "old_word": "interrupt", "new_word": "smash", "original": {"text": "гъур-гъурун базе", "precomment": "something, to break many things", "examples": [{"en": "to smash crockery", "av": "цӏарагӏ гъурун базе"}]}, "restored": {"text": "гъур-гъурун базе", "precomment": "something, to break many things"}}
+- {"candidate": 100, "old_word": "interrupt", "new_word": "hammer", "original": {"text": "цоги бакӏалда кьабизе", "precomment": "something, to drive into another place", "examples": [{"en": "drive in a nail", "av": "магӏ цоги бакӏалда кьабизе"}]}, "restored": {"text": "цоги бакӏалда кьабизе", "precomment": "something, to drive into another place"}}
+- {"candidate": 101, "old_word": "interrupt", "new_word": "plump", "original": {"text": "цӏидасан кӏобокӏизе, бухизе", "precomment": "to whip up again", "examples": [{"en": "plump a pillow", "av": "къандалъо цӏидасан бухизе", "comment": "бухун тамах гьабизе"}]}, "restored": {"text": "цӏидасан кӏобокӏизе, бухизе", "precomment": "to whip up again"}}
+- {"candidate": 102, "old_word": "interrupt", "new_word": "reupholster", "original": {"text": "цӏидасан тӏад жо кквезе", "precomment": "re-upholster something", "examples": [{"en": "break all the furniture", "av": "кинабго мебелалда цӏидасан тӏад жо кквезе"}]}, "restored": {"text": "цӏидасан тӏад жо кквезе", "precomment": "re-upholster something"}}
+- {"candidate": 103, "old_word": "roll; riffle", "new_word": "peal", "original": {"text": "(гул) кьвагьа-гӏанхъи, халат бахъараб хъуй", "labels": ["plural"], "examples": [{"en": "rumbles of thunder", "av": "гъугъадиялъул халатаб дваргъи"}]}, "restored": {"text": "(гул) кьвагьа-гӏанхъи, халат бахъараб хъуй", "labels": ["plural"]}}
+- {"candidate": 104, "old_word": "roll; riffle", "new_word": "riffle", "original": {"text": "гӏор бакьулъ лъугьараб тӏадгояб бакӏ", "precomment": "on the river", "comment": "тӏалхияб бакӏ"}, "restored": {"text": "гӏор бакьулъ лъугьараб тӏадгояб бакӏ", "precomment": "on the river", "comment": "тӏалхияб бакӏ"}}
+- {"candidate": 107, "old_word": "to load; to immerse", "new_word": "immerse", "original": {"text": "сунданиги гъорлъе бичазе, бегьизе", "precomment": "someone-something, to dip into something", "examples": [{"en": "to sink feet into the sand", "av": "бохдул салулъе риччазе"}]}, "restored": {"text": "сунданиги гъорлъе бичазе, бегьизе", "precomment": "someone-something, to dip into something"}}
+- {"candidate": 108, "old_word": "to load; to immerse", "new_word": "load", "original": {"text": "тӏад лъезе, юк лъезе", "precomment": "goods, etc.", "examples": [{"en": "load sacks onto a car", "av": "хъапал машинаялда лъезе", "comment": "машинаялде рахинаризе"}]}, "restored": {"text": "тӏад лъезе, юк лъезе", "precomment": "goods, etc."}}
+- {"candidate": 109, "old_word": "have a walk; have fun", "new_word": "have fun", "original": {"text": "кеп-гӏоркь гьабизе", "precomment": "to have fun", "labels": ["colloquial word"]}, "restored": {"text": "кеп-гӏоркь гьабизе", "precomment": "to have fun", "labels": ["colloquial word"]}}
+- {"candidate": 111, "old_word": "line; instigate; shoot down", "new_word": "line with", "original": {"text": "гъоркь букъизе, гъоркь кквезе", "precomment": "what with what", "examples": [{"en": "line a fur coat with fur", "av": "хъабчида гъоркьан цӏоко (тахта) кквезе (лъезе)"}]}, "restored": {"text": "гъоркь букъизе, гъоркь кквезе"}}
+- {"candidate": 112, "old_word": "line; instigate; shoot down", "new_word": "incite", "original": {"text": "тӏамизе, гьусизе", "precomment": "whom-what to something and with infinitive (to incite)", "labels": ["colloquial word"]}, "restored": {"text": "тӏамизе, гьусизе", "precomment": "whom-what to something and with infinitive (to incite)", "labels": ["colloquial word"]}}
+- {"candidate": 113, "old_word": "to rake together", "new_word": "rake together", "original": {"text": "хача-кӏачан данде гьабизе, данде бакӏаризе", "precomment": "what"}, "restored": {"text": "хача-кӏачан данде гьабизе, данде бакӏаризе"}}
+- {"candidate": 114, "old_word": "to rake together", "new_word": "swim up", "original": {"text": "лъедон сунданиги аскӏове гӏагарлъизе; сундухъениги лъедезе", "precomment": "swim up"}, "restored": {"text": "лъедон сунданиги аскӏове гӏагарлъизе; сундухъениги лъедезе", "precomment": "swim up"}}
+- {"candidate": 115, "old_word": "go on; I suppose", "new_word": "perhaps", "original": {"text": "бегьула, балики", "precomment": "probably; perhaps", "labels": ["parenthetical word"]}, "restored": {"text": "бегьула, балики", "precomment": "probably; perhaps", "labels": ["parenthetical word"]}}
+- {"candidate": 117, "old_word": "undermine; sharpen slightly", "new_word": "gnaw", "original": {"text": "жанисан кваназе, ххине", "precomment": "what (to damage — of insects)", "examples": [{"en": "roll out a carpet", "av": "хӏутӏалъ тӏамах кванан буго"}]}, "restored": {"text": "жанисан кваназе, ххине", "precomment": "what (to damage — of insects)"}}
+- {"candidate": 118, "old_word": "undermine; sharpen slightly", "new_word": "erode", "original": {"text": "гъоркьан кваназе, биххизабизе", "precomment": "to destroy, to wash away", "comment": "чуризе", "labels": ["impersonal form"], "examples": [{"en": "water eroded the cliff", "av": "лъеца кванан кьуру гӏанлъун буго"}]}, "restored": {"text": "гъоркьан кваназе, биххизабизе", "precomment": "to destroy, to wash away", "comment": "чуризе", "labels": ["impersonal form"]}}
+- {"candidate": 119, "old_word": "undermine; sharpen slightly", "new_word": "weaken", "original": {"text": "загӏиплъизавизе", "precomment": "whom-what", "labels": ["figuratively"], "examples": [{"en": "illness undermined him", "av": "унтиялъ гьев загӏиплъизавуна, гӏодов чӏвазавуна"}]}, "restored": {"text": "загӏиплъизавизе", "labels": ["figuratively"]}}
+- {"candidate": 120, "old_word": "to carry away; to miscarry", "new_word": "take", "original": {"text": "босун ине, щвезабизе", "precomment": "whom-what", "examples": [{"en": "to take papers for signature", "av": "кагътал гъолбас гьабизе росун ине"}]}, "restored": {"text": "босун ине, щвезабизе"}}
+- {"candidate": 121, "old_word": "to carry away; to miscarry", "new_word": "urge on", "original": {"text": "дуризавизе, векеризавизе", "precomment": "whom-what", "comment": "помчать"}, "restored": {"text": "дуризавизе, векеризавизе", "comment": "urge on", "comment_lang": "en"}}
+- {"candidate": 122, "old_word": "to carry away; to miscarry", "new_word": "rush", "original": {"text": "рекеризе, дуризе", "comment": "помчаться", "examples": [{"en": "the horses bolted", "av": "чуял рекерун ана"}]}, "restored": {"text": "рекеризе, дуризе", "comment": "rush", "comment_lang": "en"}}
+- {"candidate": 123, "old_word": "to carry away; to miscarry", "new_word": "blow", "original": {"text": "пузе, гьогьен чӏвазе", "precomment": "impersonal verb, with what and without object", "comment": "повеять", "examples": [{"en": "a chill came from the window", "av": "гордухъан квач чӏвана"}]}, "restored": {"text": "пузе, гьогьен чӏвазе", "precomment": "impersonal verb, with what and without object", "comment": "blow", "comment_lang": "en"}}
+- {"candidate": 124, "old_word": "to carry away; to miscarry", "new_word": "endure", "original": {"text": "баччизе, босизе", "precomment": "whom-what", "comment": "some time", "comment_lang": "ru", "examples": [{"en": "let me carry the suitcase", "av": "дица босилин чемодан"}]}, "restored": {"text": "баччизе, босизе"}}
+- {"candidate": 126, "old_word": "hurry; add speed; start off", "new_word": "let approach", "original": {"text": "аскӏобе биччазе", "precomment": "to let someone approach someone", "examples": [{"en": "let the calf go to the cow", "av": "бече гӏакдада аскӏобе биччазе"}]}, "restored": {"text": "аскӏобе биччазе", "precomment": "to let someone approach someone"}}
+- {"candidate": 127, "old_word": "hurry; add speed; start off", "new_word": "spur", "original": {"text": "бекеризе тӏамизе, биччазе", "precomment": "whom (make run faster)", "labels": ["colloquial word"], "examples": [{"en": "spur the horse", "av": "чу бекеризе биччазе, бекеризе гьабизе"}]}, "restored": {"text": "бекеризе тӏамизе, биччазе", "precomment": "whom (make run faster)", "labels": ["colloquial word"]}}
+- {"candidate": 128, "old_word": "hurry; add speed; start off", "new_word": "run faster", "original": {"text": "хехго бекеризе", "precomment": "(to run faster)", "labels": ["colloquial word"]}, "restored": {"text": "хехго бекеризе", "precomment": "(to run faster)", "labels": ["colloquial word"]}}
+- {"candidate": 130, "old_word": "capital", "new_word": "for registration", "original": {"text": "пропискаялъе хӏажатаб"}, "restored": {"text": "пропискаялъе хӏажатаб"}}
+- {"candidate": 131, "old_word": "capital", "new_word": "obvious", "original": {"text": "киназдаго лъалеб, якъинаб", "comment": "общеизвестный", "examples": [{"en": "truism", "av": "якъинаб хӏакъикъат"}]}, "restored": {"text": "киназдаго лъалеб, якъинаб", "comment": "widely known", "comment_lang": "en"}}
+- {"candidate": 132, "old_word": "tread", "new_word": "protector", "original": {"text": "лъилниги рахъ кколев чи, лъиениги квербакъи гьабулев чи"}, "restored": {"text": "лъилниги рахъ кколев чи, лъиениги квербакъи гьабулев чи"}}
+- {"candidate": 133, "old_word": "tread", "new_word": "tread", "original": {"text": "машинаялъул покрышкадул бицатаб тӏад расенги бугеб бутӏа"}, "restored": {"text": "машинаялъул покрышкадул бицатаб тӏад расенги бугеб бутӏа"}}
+- {"candidate": 134, "old_word": "five-kopeck coin; snout", "new_word": "five-kopeck coin", "original": {"text": "шагьи", "precomment": "coin"}, "restored": {"text": "шагьи", "precomment": "coin"}}
+- {"candidate": 135, "old_word": "five-kopeck coin; snout", "new_word": "snout", "original": {"text": "болъонил хвенех", "precomment": "pig's snout"}, "restored": {"text": "болъонил хвенех", "precomment": "pig's snout"}}
+- {"candidate": 136, "old_word": "five-kopeck coin; snout", "new_word": "small square", "original": {"text": "гьитӏинаб майдан; ракьул тӏанкӏ", "precomment": "platform; site; playground"}, "restored": {"text": "гьитӏинаб майдан; ракьул тӏанкӏ", "precomment": "platform; site; playground"}}
+- {"candidate": 137, "old_word": "group of five, top mark", "new_word": "five", "original": {"text": "щуйил тарих", "precomment": "digit"}, "restored": {"text": "щуйил тарих", "precomment": "digit"}}
+- {"candidate": 138, "old_word": "group of five, top mark", "new_word": "five card", "original": {"text": "щуго очкоялъул хӏалеб кагъат", "labels": ["card-game term"]}, "restored": {"text": "щуго очкоялъул хӏалеб кагъат", "labels": ["card-game term"]}}
+- {"candidate": 139, "old_word": "group of five, top mark", "new_word": "five rubles", "original": {"text": "щуго гъурущ", "precomment": "five rubles"}, "restored": {"text": "щуго гъурущ", "precomment": "five rubles"}}
+- {"candidate": 140, "old_word": "divorce", "new_word": "distribution", "original": {"text": "жинди-жиндир бакӏалде ккезаби, бачин", "precomment": "action on the verb to breed"}, "restored": {"text": "жинди-жиндир бакӏалде ккезаби, бачин", "precomment": "action on the verb to breed"}}
+- {"candidate": 141, "old_word": "divorce", "new_word": "divorce", "original": {"text": "ратӏалъи (рос-лъади), ригьин биххи", "precomment": "dissolution of marriage"}, "restored": {"text": "ратӏалъи (рос-лъади), ригьин биххи", "precomment": "dissolution of marriage"}}
+- {"candidate": 142, "old_word": "tear apart", "new_word": "tear apart", "original": {"text": "бихъ-бихъизе, тӏутӏузе; бихъ-бихъун, тӏутӏун ине"}, "restored": {"text": "бихъ-бихъизе, тӏутӏузе; бихъ-бихъун, тӏутӏун ине"}}
+- {"candidate": 143, "old_word": "tear apart", "new_word": "fight", "original": {"text": "кутакалда рагъизе"}, "restored": {"text": "кутакалда рагъизе"}}
+- {"candidate": 145, "old_word": "disperse", "new_word": "disperse", "original": {"text": "тӏагӏине, щущан, рикь-рикьун, рихх-риххун ине", "precomment": "to disperse", "examples": [{"en": "the clouds dispersed", "av": "накӏкӏал рикь-рикьун ун тӏагӏана"}]}, "restored": {"text": "тӏагӏине, щущан, рикь-рикьун, рихх-риххун ине", "precomment": "to disperse"}}
+- {"candidate": 146, "old_word": "disperse", "new_word": "smooth out", "original": {"text": "тӏагӏине, ритӏа-ришун ине", "precomment": "smooth out; iron out", "examples": [{"en": "wrinkles smoothed out", "av": "рукӏкӏалаби тӏагӏана"}]}, "restored": {"text": "тӏагӏине, ритӏа-ришун ине", "precomment": "smooth out; iron out"}}
+- {"candidate": 147, "old_word": "disperse", "new_word": "miss each other", "original": {"text": "данде ккечӏого хутӏизе", "precomment": "miss each other", "comment": "цоцада данде унаго", "examples": [{"en": "we missed each other on the way", "av": "ниж нухда данде ккечӏо"}]}, "restored": {"text": "данде ккечӏого хутӏизе", "precomment": "miss each other", "comment": "цоцада данде унаго"}}
+- {"candidate": 148, "old_word": "disperse", "new_word": "separate", "original": {"text": "цоцадаса ратӏалъизе", "precomment": "part with", "comment": "рос-лъади"}, "restored": {"text": "цоцадаса ратӏалъизе", "precomment": "part with", "comment": "рос-лъади"}}
+- {"candidate": 149, "old_word": "disperse", "new_word": "disagree", "original": {"text": "пикраби, гӏакълу данде ккунгутӏизе", "precomment": "in opinions etc.", "labels": ["figuratively"]}, "restored": {"text": "пикраби, гӏакълу данде ккунгутӏизе", "precomment": "in opinions etc.", "labels": ["figuratively"]}}
+- {"candidate": 150, "old_word": "disperse", "new_word": "come apart", "original": {"text": "бичӏун, батӏалъун ине", "precomment": "to disconnect; to part", "examples": [{"en": "the boards have parted", "av": "хъарщал ричӏун ун руго"}]}, "restored": {"text": "бичӏун, батӏалъун ине", "precomment": "to disconnect; to part"}}
+- {"candidate": 151, "old_word": "disperse", "new_word": "sell out", "original": {"text": "бичун ине, тӏагӏине", "precomment": "to be sold out", "examples": [{"en": "the book is sold out", "av": "тӏехь бичун ана"}, {"en": "money ran out", "av": "гӏарац лъугӏана, тӏагӏана", "comment": "гьаб-доб босун лъугӏана"}]}, "restored": {"text": "бичун ине, тӏагӏине", "precomment": "to be sold out"}}
+- {"candidate": 152, "old_word": "disperse", "new_word": "intensify", "original": {"text": "цӏакъ кутаклъизе, гӏорхъолъа борчӏизе", "precomment": "rage", "examples": [{"en": "the rain set in", "av": "цӏад цӏакъ кутаклъана"}]}, "restored": {"text": "цӏакъ кутаклъизе, гӏорхъолъа борчӏизе", "precomment": "rage"}}
+- {"candidate": 154, "old_word": "siding", "new_word": "departure", "original": {"text": "рахъ-рахъалде, кколе-кколелъуре сунданиги рекӏун ин, риххун ин", "precomment": "departure", "examples": [{"en": "departure of delegates", "av": "делегатал рокъорокъоре ин"}, {"en": "departure of the audience from the theater", "av": "театралдаса халкъ биххун ин"}]}, "restored": {"text": "рахъ-рахъалде, кколе-кколелъуре сунданиги рекӏун ин, риххун ин", "precomment": "departure"}}
+- {"candidate": 155, "old_word": "siding", "new_word": "mounted patrol", "original": {"text": "разъезд", "comment": "рагъда разведкаялъе яги бухьеналъе битӏулеб рекӏаразул тӏинаб къукъа", "labels": ["military term"]}, "restored": {"text": "разъезд", "comment": "рагъда разведкаялъе яги бухьеналъе битӏулеб рекӏаразул тӏинаб къукъа", "labels": ["military term"]}}
+- {"candidate": 156, "old_word": "siding", "new_word": "travel", "original": {"text": "сунданиги рекӏун киве-кивениги ин, хьвади"}, "restored": {"text": "сунданиги рекӏун киве-кивениги ин, хьвади"}}
+- {"candidate": 157, "old_word": "siding", "new_word": "railway siding", "original": {"text": "разъезд", "comment": "маххул нух кӏибикьун ин; кӏибикьулеб бакӏ; гьениб бугеб гьитӏинаб станция", "labels": ["railway term"]}, "restored": {"text": "разъезд", "comment": "маххул нух кӏибикьун ин; кӏибикьулеб бакӏ; гьениб бугеб гьитӏинаб станция", "labels": ["railway term"]}}
+- {"candidate": 158, "old_word": "carving", "new_word": "carving", "original": {"text": "бикӏун накъищ бахъи", "precomment": "by the verb to cut"}, "restored": {"text": "бикӏун накъищ бахъи"}}
+- {"candidate": 159, "old_word": "carving", "new_word": "carving", "original": {"text": "къотӏун, бикӏун бахъараб сурат, накъищ", "precomment": "pattern, design"}, "restored": {"text": "къотӏун, бикӏун бахъараб сурат, накъищ", "precomment": "pattern, design"}}
+- {"candidate": 160, "old_word": "chasuble", "new_word": "chasuble", "original": {"text": "риза", "comment": "кашишас килисаялда дин гьабулаго ретӏунеб зарбабалъул халгӏат, тӏасан ретӏел"}, "restored": {"text": "риза", "comment": "кашишас килисаялда дин гьабулаго ретӏунеб зарбабалъул халгӏат, тӏасан ретӏел"}}
+- {"candidate": 161, "old_word": "chasuble", "new_word": "get dead drunk", "original": {"text": "лъавудаса инегӏан (гьекъезе), сунтӏ лъугьун (мехтизе)", "precomment": "to get dead drunk"}, "restored": {"text": "лъавудаса инегӏан (гьекъезе), сунтӏ лъугьун (мехтизе)", "precomment": "to get dead drunk"}}
+- {"candidate": 162, "old_word": "genus; family; gender", "new_word": "lineage", "original": {"text": "тайпа, наслу, тухум, кьибил"}, "restored": {"text": "тайпа, наслу, тухум, кьибил"}}
+- {"candidate": 163, "old_word": "genus; family; gender", "new_word": "grammatical gender", "original": {"text": "род, жинс", "labels": ["grammar"], "examples": [{"en": "people of various kinds", "av": "батӏи-батӏияб тайпаялъул гӏадамал"}, {"en": "masculine gender", "av": "бихьинал"}, {"en": "feminine gender", "av": "руччаби"}]}, "restored": {"text": "род, жинс", "labels": ["grammar"]}}
+- {"candidate": 164, "old_word": "genus; family; gender", "new_word": "humankind", "original": {"precomment": "human race", "text": "гӏадамал, инсаният"}, "restored": {"precomment": "human race", "text": "гӏадамал, инсаният"}}
+- {"candidate": 165, "old_word": "genus; family; gender", "new_word": "by birth", "original": {"precomment": "by birth", "text": "вижаралдаса, гьавуралдаса нахъе"}, "restored": {"precomment": "by birth", "text": "вижаралдаса, гьавуралдаса нахъе"}}
+- {"candidate": 166, "old_word": "genus; family; gender", "new_word": "rootless", "original": {"precomment": "rootless; homeless", "text": "тухум-тайпа лъаларев, табулди"}, "restored": {"precomment": "rootless; homeless", "text": "тухум-тайпа лъаларев, табулди"}}
+- {"candidate": 168, "old_word": "blows; assault", "new_word": "endorsement", "original": {"text": "жиндирго гъолбасалъ сундуениги нугӏлъи гьаби"}, "restored": {"text": "жиндирго гъолбасалъ сундуениги нугӏлъи гьаби"}}
+- {"candidate": 169, "old_word": "blows; assault", "new_word": "assault", "original": {"text": "кьаби, тунки (квераз), лъидениги квер борхи", "labels": ["colloquial word"]}, "restored": {"text": "кьаби, тунки (квераз), лъидениги квер борхи", "labels": ["colloquial word"]}}
+- {"candidate": 170, "old_word": "helmsman", "new_word": "steering", "original": {"text": "рулалъул", "examples": [{"en": "steering wheel", "av": "рулалъул гьоко", "comment": "гор"}]}, "restored": {"text": "рулалъул"}}
+- {"candidate": 171, "old_word": "helmsman", "new_word": "helmsman", "original": {"text": "рулевой, гамил руль кколев чи", "comment": "гама бачунев чи"}, "restored": {"text": "рулевой, гамил руль кколев чи", "comment": "гама бачунев чи"}}
+- {"candidate": 172, "old_word": "roulette", "new_word": "tape measure", "original": {"text": "рулетка", "comment": "халалъи борцине тӏад рикьалаби хъвараб гурараб чӏоло"}, "restored": {"text": "рулетка", "comment": "халалъи борцине тӏад рикьалаби хъвараб гурараб чӏоло"}}
+- {"candidate": 173, "old_word": "roulette", "new_word": "roulette", "original": {"text": "рулетка", "comment": "гӏарац бахине, бергьине хӏалел оюназул цояб"}, "restored": {"text": "рулетка", "comment": "гӏарац бахине, бергьине хӏалел оюназул цояб"}}
+- {"candidate": 174, "old_word": "native nugget; self-taught genius", "new_word": "native metal nugget", "original": {"text": "самородок", "comment": "бацӏцӏадаб кесек (металл)"}, "restored": {"text": "самородок", "comment": "бацӏцӏадаб кесек (металл)"}}
+- {"candidate": 175, "old_word": "native nugget; self-taught genius", "new_word": "self-taught genius", "original": {"text": "самородок", "comment": "лъай-цӏали гьечӏониги, кӏудияб гьунар-пагьмуялъул бетӏергьан", "labels": ["figuratively"]}, "restored": {"text": "самородок", "comment": "лъай-цӏали гьечӏониги, кӏудияб гьунар-пагьмуялъул бетӏергьан", "labels": ["figuratively"]}}
+- {"candidate": 177, "old_word": "crossbow, homemade gun", "new_word": "self-inflicted gunshot wound", "original": {"text": "рагъухъанас ургъунго жиндаго лъураб ругъун"}, "restored": {"text": "рагъухъанас ургъунго жиндаго лъураб ругъун"}}
+- {"candidate": 178, "old_word": "to run away; to escape", "new_word": "run down", "original": {"text": "тӏаса эхеве векеризе", "precomment": "from what (descend)", "examples": [{"en": "run down the mountain", "av": "магӏардаса гъоркье векеризе"}]}, "restored": {"text": "тӏаса эхеве векеризе", "precomment": "from what (descend)"}}
+- {"candidate": 179, "old_word": "to run away; to escape", "new_word": "run away", "original": {"text": "тӏурун ине, цебеса хьвазе, балъго тӏагӏине", "precomment": "(run away)", "examples": [{"en": "skip classes", "av": "дарсаздаса тӏуризе"}, {"en": "the dog ran away from its master", "av": "гьой бетӏергьанчиясдаса тӏурун ана"}]}, "restored": {"text": "тӏурун ине, цебеса хьвазе, балъго тӏагӏине", "precomment": "(run away)"}}
+- {"candidate": 180, "old_word": "to run away; to escape", "new_word": "boil over", "original": {"text": "тӏасан ине", "precomment": "(at boiling)", "labels": ["colloquial word"], "examples": [{"en": "the milk boiled over", "av": "рахь тӏасан ана"}]}, "restored": {"text": "тӏасан ине", "precomment": "(at boiling)", "labels": ["colloquial word"]}}
+- {"candidate": 183, "old_word": "boar", "new_word": "large boar", "original": {"text": "кӏудияб бихьинхъабан"}, "restored": {"text": "кӏудияб бихьинхъабан"}}
+- {"candidate": 184, "old_word": "testicle; seed-pod", "new_word": "seed plant", "original": {"text": "хьодуе тараб хер, бижараб жо"}, "restored": {"text": "хьодуе тараб хер, бижараб жо"}}
+- {"candidate": 185, "old_word": "testicle; seed-pod", "new_word": "seed plot", "original": {"text": "хьодуе бугеб тӏорщел бекьараб бакӏ, хур"}, "restored": {"text": "хьодуе бугеб тӏорщел бекьараб бакӏ, хур"}}
+- {"candidate": 186, "old_word": "testicle; seed-pod", "new_word": "seed pod", "original": {"text": "пихъил хьон бугеб бутӏа, пихъил хьон бугеб бакӏ"}, "restored": {"text": "пихъил хьон бугеб бутӏа, пихъил хьон бугеб бакӏ"}}
+- {"candidate": 187, "old_word": "testicle; seed-pod", "new_word": "testicle", "original": {"text": "бихьинлъул хьонтӏи лъугьунеб бакӏ", "comment": "железа", "labels": ["biology"]}, "restored": {"text": "бихьинлъул хьонтӏи лъугьунеб бакӏ", "comment": "gland", "labels": ["biology"], "comment_lang": "en"}}
+- {"candidate": 188, "old_word": "seven-year plan", "new_word": "seven-year-old", "original": {"text": "анкьго сон бараб лъимер"}, "restored": {"text": "анкьго сон бараб лъимер"}}
+- {"candidate": 189, "old_word": "seven-year plan", "new_word": "seven-year school", "original": {"text": "анкьго сонилаб школа"}, "restored": {"text": "анкьго сонилаб школа"}}
+- {"candidate": 190, "old_word": "heart patient", "new_word": "heart patient", "original": {"text": "ракӏ унтарав чи, рекӏел унти бугев чи", "precomment": "sick"}, "restored": {"text": "ракӏ унтарав чи, рекӏел унти бугев чи", "precomment": "sick"}}
+- {"candidate": 191, "old_word": "heart patient", "new_word": "cardiologist", "original": {"text": "рекӏел унтабазул тохтир", "precomment": "doctor"}, "restored": {"text": "рекӏел унтабазул тохтир", "precomment": "doctor"}}
+- {"candidate": 192, "old_word": "accordingly; pursuant", "new_word": "according to", "original": {"text": "рекъон", "precomment": "with the dative case or with the preposition 's' with the instrumental case (respectively, accordingly)", "labels": ["preposition"], "examples": [{"en": "according to the law", "av": "законалда рекъон"}]}, "restored": {"text": "рекъон"}}
+- {"candidate": 193, "old_word": "accordingly; pursuant", "new_word": "harmoniously", "original": {"text": "рекъон, данде кколедухъ", "precomment": "harmoniously; unitedly", "examples": [{"en": "live in harmony", "av": "рекъа-решон рукӏине"}]}, "restored": {"text": "рекъон, данде кколедухъ", "precomment": "harmoniously; unitedly"}}
+- {"candidate": 194, "old_word": "fearfully, terribly", "new_word": "terribly", "original": {"text": "цӏакъ кутакалда; хӏаталдаса ун", "precomment": "very strongly", "examples": [{"en": "I am terribly tired", "av": "дун цӏакъ кутакалда свакана"}]}, "restored": {"text": "цӏакъ кутакалда; хӏаталдаса ун", "precomment": "very strongly"}}
+- {"candidate": 195, "old_word": "fearfully, terribly", "new_word": "be afraid", "original": {"text": "хӏинкъула", "precomment": "impersonal", "labels": ["used as a predicate"], "examples": [{"en": "I'm scared!", "av": "дун хӏинкъула! (хӏинкъун вуго)"}]}, "restored": {"text": "хӏинкъула", "precomment": "impersonal", "labels": ["used as a predicate"]}}
+- {"candidate": 197, "old_word": "be built; build oneself", "new_word": "line up", "original": {"text": "кьерда, низамалда чӏезе", "precomment": "join the ranks"}, "restored": {"text": "кьерда, низамалда чӏезе", "precomment": "join the ranks"}}
+- {"candidate": 198, "old_word": "so; yes", "new_word": "so", "original": {"text": "гьадин, гьедин, додин, лъодин, гъодин", "examples": [{"en": "I do just as he does", "av": "дос кин гьабулеб батаниги, гьедин дицаги гьабула"}]}, "restored": {"text": "гьадин, гьедин, додин, лъодин, гъодин"}}
+- {"candidate": 199, "old_word": "so; yes", "new_word": "so", "original": {"text": "хӏалалъ", "precomment": "to such an extent", "examples": [{"en": "he has changed so much that he is unrecognizable", "av": "вихьани лъалареб хӏалалъ хисун вуго дов"}]}, "restored": {"text": "хӏалалъ", "precomment": "to such an extent"}}
+- {"candidate": 200, "old_word": "so; yes", "new_word": "nothing special", "original": {"text": "расги гьечӏо", "precomment": "nothing special", "labels": ["colloquial word", "particle"], "examples": [{"en": "what's the matter with you? – just like that", "av": "дуе щиб? – расги гьечӏо"}]}, "restored": {"text": "расги гьечӏо", "precomment": "nothing special", "labels": ["colloquial word", "particle"]}}
+- {"candidate": 201, "old_word": "calf barn", "new_word": "calf shed", "original": {"text": "бачибокь", "precomment": "shed; barn"}, "restored": {"text": "бачибокь", "precomment": "shed; barn"}}
+- {"candidate": 202, "old_word": "calf barn", "new_word": "calf keeper", "original": {"text": "бачал хьихьулев чи", "precomment": "worker"}, "restored": {"text": "бачал хьихьулев чи", "precomment": "worker"}}
+- {"candidate": 205, "old_word": "peatbog", "new_word": "peat deposit", "original": {"text": "гӏери бугеб бакӏ", "precomment": "peat deposit"}, "restored": {"text": "гӏери бугеб бакӏ", "precomment": "peat deposit"}}
+- {"candidate": 206, "old_word": "peatbog", "new_word": "peat worker", "original": {"text": "гӏери бахъиялъул махщалилав", "precomment": "specialist"}, "restored": {"text": "гӏери бахъиялъул махщалилав", "precomment": "specialist"}}
+- {"candidate": 207, "old_word": "tuba", "new_word": "tuba", "original": {"text": "туба", "comment": "пун гьаракь бахъунел пахьул гьетӏакӏичӏарал трубкабаздасан гӏуцӏараб алат", "labels": ["music"]}, "restored": {"text": "туба", "comment": "пун гьаракь бахъунел пахьул гьетӏакӏичӏарал трубкабаздасан гӏуцӏараб алат", "labels": ["music"]}}
+- {"candidate": 208, "old_word": "tuba", "new_word": "tube", "original": {"text": "трубка, тюбик", "precomment": "vaseline inside", "labels": ["specific name"]}, "restored": {"text": "трубка, тюбик", "precomment": "vaseline inside", "labels": ["specific name"]}}
+- {"candidate": 209, "old_word": "chop", "new_word": "slapdash", "original": {"text": "тӏаса-масаго, баха-бачун", "comment": "абураб магӏнаялда", "labels": ["colloquial (vernacular) word"]}, "restored": {"text": "тӏаса-масаго, баха-бачун", "comment": "абураб магӏнаялда", "labels": ["colloquial (vernacular) word"]}}
+- {"candidate": 216, "old_word": "please; at will", "new_word": "would like", "original": {"text": "къваригӏун буго, бокьун буго, хӏажат буго", "precomment": "to whom", "labels": ["used as a predicate"], "examples": [{"en": "what would you like?; how can I help you?", "av": "дуе щиб бокьун бугеб?"}, {"en": "would you like?", "av": "бокьиларищ?"}]}, "restored": {"text": "къваригӏун буго, бокьун буго, хӏажат буго", "precomment": "to whom", "labels": ["used as a predicate"]}}
+- {"candidate": 219, "old_word": "firecracker; clapper", "new_word": "fly swatter", "original": {"text": "тӏутӏал чӏвалеб жо", "precomment": "for killing flies"}, "restored": {"text": "тӏутӏал чӏвалеб жо", "precomment": "for killing flies"}}
+- {"candidate": 220, "old_word": "firecracker; clapper", "new_word": "firecracker", "original": {"text": "кьвагьеро", "precomment": "toy"}, "restored": {"text": "кьвагьеро", "precomment": "toy"}}
+- {"candidate": 221, "old_word": "at least", "new_word": "although", "original": {"text": "букӏаниги, -гӏаги, -ниги, хӏатта", "precomment": "despite", "labels": ["conjunction"], "examples": [{"en": "he is old, but healthy", "av": "гъов, херлъун вукӏаниги, сах вуго"}]}, "restored": {"text": "букӏаниги, -гӏаги, -ниги, хӏатта", "precomment": "despite", "labels": ["conjunction"]}}
+- {"candidate": 222, "old_word": "at least", "new_word": "even if", "original": {"text": "ниги", "precomment": "in fixed expressions with a predicate", "labels": ["conjunction"], "examples": [{"en": "kill me if you like, I won't say a thing", "av": "нужеца чӏваниги, щибниги бицинаро, абиларо"}]}, "restored": {"text": "ниги", "precomment": "in fixed expressions with a predicate", "labels": ["conjunction"]}}
+- {"candidate": 223, "old_word": "at least", "new_word": "at least", "original": {"text": "гӏаги", "precomment": "at least", "labels": ["particle", "emphatic particle"], "examples": [{"en": "say at least one word", "av": "цохӏо рагӏигӏаги абе"}]}, "restored": {"text": "гӏаги", "precomment": "at least", "labels": ["particle", "emphatic particle"]}}
+- {"candidate": 224, "old_word": "at least", "new_word": "at least", "original": {"text": "ниги", "precomment": "for example", "labels": ["particle"], "examples": [{"en": "let us at least investigate this matter", "av": "гьаб ишалъулниги цӏехрех гьабизин"}]}, "restored": {"text": "ниги", "precomment": "for example", "labels": ["particle"]}}
+- {"candidate": 225, "old_word": "at least", "new_word": "any", "original": {"text": "букӏаниги", "precomment": "with pronoun (any)", "labels": ["particle"], "examples": [{"en": "anyone at all", "av": "щив вукӏаниги"}, {"en": "anything at all", "av": "щиб букӏаниги"}, {"en": "even if so", "av": "гьедин гӏаги букӏарабани"}]}, "restored": {"text": "букӏаниги", "precomment": "with pronoun (any)", "labels": ["particle"]}}
+- {"candidate": 227, "old_word": "electron", "new_word": "electron", "original": {"text": "электрон", "comment": "сундулниги (веществоялъул) бищунго гьитӏинаб зарра (атомалъул бутӏа)", "labels": ["physics"]}, "restored": {"text": "электрон", "comment": "сундулниги (веществоялъул) бищунго гьитӏинаб зарра (атомалъул бутӏа)", "labels": ["physics"]}}
+- {"candidate": 229, "old_word": "boathouse; shed; hangar", "new_word": "shipbuilding shed", "original": {"text": "эллинг", "comment": "гуми гьарулеб ва къачӏалеб ралъдал рагӏалда бараб хасаб рукъ"}, "restored": {"text": "эллинг", "comment": "гуми гьарулеб ва къачӏалеб ралъдал рагӏалда бараб хасаб рукъ"}}
+- {"candidate": 230, "old_word": "boathouse; shed; hangar", "new_word": "airship hangar", "original": {"text": "эллинг", "comment": "дирижаблал, аэростатал гьарулеб ва гьел къачӏалеб хасаб рукъ"}, "restored": {"text": "эллинг", "comment": "дирижаблал, аэростатал гьарулеб ва гьел къачӏалеб хасаб рукъ"}}
+- {"candidate": 231, "old_word": "boathouse; shed; hangar", "new_word": "boathouse", "original": {"text": "эллинг", "comment": "спортивиял гумузе ва къайи-къоно лъезе гьабураб хасаб рукъ"}, "restored": {"text": "эллинг", "comment": "спортивиял гумузе ва къайи-къоно лъезе гьабураб хасаб рукъ"}}
+- {"candidate": 233, "old_word": "Eskimo woman", "new_word": "Eskimo woman", "original": {"text": "эскимосай"}, "restored": {"text": "эскимосай"}}
+- {"candidate": 235, "old_word": "this; it", "new_word": "this", "original": {"text": "гьав; гьай; гьаб", "labels": ["emphatic particle"], "examples": [{"en": "who has come?", "av": "щив гьав вачӏарав?"}]}, "restored": {"text": "гьав; гьай; гьаб"}}
+- {"candidate": 236, "old_word": "Jupiter", "new_word": "Jupiter", "original": {"text": "Юпитер", "comment": "астр.; планета"}, "restored": {"text": "Юпитер", "comment": "planet", "comment_lang": "en", "labels": ["astronomy"]}}
+- {"candidate": 237, "old_word": "Jupiter", "new_word": "floodlight", "original": {"text": "юпитер", "precomment": "lighting fixture", "comment": "кино бахъулелъул цӏакъ кӏудияб канлъи кьолеб электрикалъул алат"}, "restored": {"text": "юпитер", "precomment": "lighting fixture", "comment": "кино бахъулелъул цӏакъ кӏудияб канлъи кьолеб электрикалъул алат"}}
+- {"candidate": 238, "old_word": "tattletale; mischief-maker", "new_word": "tattletale", "original": {"text": "мацӏихъан", "labels": ["colloquial word"]}, "restored": {"text": "мацӏихъан", "labels": ["colloquial word"]}}
+- {"candidate": 239, "old_word": "tattletale; mischief-maker", "new_word": "slander", "original": {"text": "мацӏ, бугьтан", "labels": ["colloquial word"]}, "restored": {"text": "мацӏ, бугьтан", "labels": ["colloquial word"]}}
+- {"candidate": 240, "old_word": "appearance", "new_word": "arrival", "original": {"text": "вачӏин (ячӏин), рачӏин", "precomment": "according to the verb to appear", "examples": [{"en": "attendance at the meeting", "av": "собраниялде рачӏин"}]}, "restored": {"text": "вачӏин (ячӏин), рачӏин"}}
+- {"candidate": 241, "old_word": "appearance", "new_word": "secret meeting place", "original": {"text": "балъго данделъулеб бакӏ", "precomment": "place of clandestine meeting"}, "restored": {"text": "балъго данделъулеб бакӏ", "precomment": "place of clandestine meeting"}}
+- {"candidate": 242, "old_word": "by the verb to appear", "new_word": "arrival", "original": {"text": "вачӏин", "precomment": "according to the verb to appear"}, "restored": {"text": "вачӏин"}}
+- {"candidate": 243, "old_word": "by the verb to appear", "new_word": "phenomenon", "original": {"text": "лъугьа-бахъин, иш, хӏал", "examples": [{"en": "usual phenomenon", "av": "гӏадатаб иш"}, {"en": "phenomenon of nature", "av": "тӏабигӏаталъул лъугьа-бахъин"}]}, "restored": {"text": "лъугьа-бахъин, иш, хӏал"}}
+- {"candidate": 244, "old_word": "by the verb to appear", "new_word": "phenomenon", "original": {"text": "бижи, бакки", "precomment": "that which appeared, arose", "examples": [{"en": "talent is a comparatively rare phenomenon", "av": "пагьму (гьунар) цӏакъ къана-гӏатго бижулеб (букӏунеб) жо буго"}]}, "restored": {"text": "бижи, бакки", "precomment": "that which appeared, arose"}}
+- {"candidate": 245, "old_word": "by the verb to appear", "new_word": "scene", "original": {"text": "явление", "comment": "театралъул пардавалъул цо бутӏа", "labels": ["theatrical term"]}, "restored": {"text": "явление", "comment": "театралъул пардавалъул цо бутӏа", "labels": ["theatrical term"]}}
+- {"candidate": 246, "old_word": "open; factual", "new_word": "used for clandestine meetings", "original": {"text": "балъгого данделъулеб, балъго данделъизе гьабураб", "examples": [{"en": "safe house", "av": "балъго данделъулеб рукъ"}, {"en": "by way of fait accompli", "av": "цебеккун изнуги кьечӏого"}]}, "restored": {"text": "балъгого данделъулеб, балъго данделъизе гьабураб"}}
+- {"candidate": 247, "old_word": "berry picker; berry patch", "new_word": "berry patch", "original": {"text": "гӏисинпихъ бижараб бакӏ", "precomment": "place; spot"}, "restored": {"text": "гӏисинпихъ бижараб бакӏ", "precomment": "place; spot"}}
+- {"candidate": 248, "old_word": "berry picker; berry patch", "new_word": "berry bush", "original": {"text": "гӏисинпихъалъул хьуй", "precomment": "berry bush"}, "restored": {"text": "гӏисинпихъалъул хьуй", "precomment": "berry bush"}}
+- {"candidate": 249, "old_word": "berry picker; berry patch", "new_word": "berry picker", "original": {"text": "гӏисинпихъ бакӏарулев чи", "precomment": "rokhyil, g'alhul"}, "restored": {"text": "гӏисинпихъ бакӏарулев чи", "precomment": "rokhyil, g'alhul"}}
+- {"candidate": 251, "old_word": "sturdy; robust", "new_word": "sturdy", "original": {"text": "къвакӏа-шакӏараб, щулияб, чорхолъ жан бугеб, сахсаламатаб", "precomment": "healthy, strong", "labels": ["figuratively"], "examples": [{"en": "sturdy person", "av": "чорхолъ витӏарав, къвакӏа-шакӏарав чи"}]}, "restored": {"text": "къвакӏа-шакӏараб, щулияб, чорхолъ жан бугеб, сахсаламатаб", "precomment": "healthy, strong", "labels": ["figuratively"]}}
+- {"candidate": 252, "old_word": "sturdy; robust", "new_word": "fresh", "original": {"text": "бацӏцӏадаб; цӏияб", "precomment": "fresh; invigorating", "labels": ["figuratively"], "examples": [{"en": "crisp air", "av": "бацӏцӏадаб (цӏияб) гьава"}]}, "restored": {"text": "бацӏцӏадаб; цӏияб", "precomment": "fresh; invigorating", "labels": ["figuratively"]}}
+- {"candidate": 253, "old_word": "core", "new_word": "nucleus", "original": {"text": "ядро, жанисеб бакӏ", "labels": ["physics", "biology"], "examples": [{"en": "heartwood", "av": "цӏулал жанисеб бакӏ, ракӏ"}, {"en": "atomic nucleus", "av": "атомалъул ядро", "labels": ["физика"]}]}, "restored": {"text": "ядро, жанисеб бакӏ", "labels": ["physics", "biology"]}}
+- {"candidate": 254, "old_word": "core", "new_word": "core", "original": {"text": "аслияб рахъ; ракӏ; кьучӏ", "precomment": "essence", "examples": [{"en": "core of the question", "av": "масъалаялъул (суалалъул) аслу, аслияб рахъ"}]}, "restored": {"text": "аслияб рахъ; ракӏ; кьучӏ", "precomment": "essence"}}
+- {"candidate": 255, "old_word": "core", "new_word": "shot", "original": {"text": "ядро", "labels": ["sports term"], "examples": [{"en": "shot put", "av": "ядро тунки", "comment": "рехи"}]}, "restored": {"text": "ядро", "labels": ["sports term"]}}
+- {"candidate": 256, "old_word": "uvula", "new_word": "tongue", "original": {"text": "мацӏ, къоно", "precomment": "plate; record; lamina", "examples": [{"en": "shoe tongue", "av": "ботинкаялъул мацӏ"}]}, "restored": {"text": "мацӏ, къоно", "precomment": "plate; record; lamina"}}
+- {"candidate": 129, "old_word": "hurry; add speed; start off", "new_words": ["widen", "lengthen"], "original": {"text": "гӏатӏид гьабизе; халат гьабизе", "precomment": "what (to make wider, longer)"}}
+- {"candidate": 45, "old_word": "prey; loot; extraction", "new_word": "fall victim to", "original": {"text": "мина цӏадул къурбанлъун ккана", "precomment": "the house became a prey to fire", "labels": ["figuratively"]}}
+- {"candidate": 167, "old_word": "genus; family; gender", "new_word": "be born in", "original": {"precomment": "he is from Rostov", "text": "досул вижараб бакӏ Ростов буго"}}
+
+Не восстановленные дословно определения:
+
+- {"candidate": 14, "old_word": "importantly; proudly", "sense": {"text": "щиб гьабизе кколебали лъикӏ лъазе ккола", "precomment": "it is important to know what to do", "labels": ["used as a predicate"]}}
+- {"candidate": 15, "old_word": "boiling liquid", "sense": {"text": "гьализабураб пицӏ"}}
+- {"candidate": 16, "old_word": "boiling liquid", "sense": {"precomment": "as if scalded with boiling water", "text": "кутакалда вихха-хочизавуна, хӏинкъизавуна"}}
+- {"candidate": 19, "old_word": "vz- (prefix)", "sense": {"text": "тӏаде, эхеде рахъ, нух магӏна кьола", "examples": [{"en": "take off", "av": "эхеде боржине"}]}}
+- {"candidate": 20, "old_word": "vz- (prefix)", "sense": {"text": "иш кинабгӏаги бакӏалде, хӏалалде щвезаби бихьизабула", "examples": [{"en": "to shake up; to whip", "av": "кӏобокӏун жуба-гъубазабизе"}]}}
+- {"candidate": 21, "old_word": "vz-", "sense": {"text": "е, ю, я хӏарпазда цебе взприставкаялъул бакӏалда хъвалеб", "examples": [{"en": "fly into a rage", "av": "кутакалда ццидахине, балканахине"}]}}
+- {"candidate": 22, "old_word": "prefix", "sense": {"text": "эхеде … (буссин, балагьи)", "examples": [{"en": "exalt; praise", "av": "эхеде борхизе (бахинабизе)"}, {"en": "lift hands", "av": "кверал эхеде рорхизе"}, {"en": "to erect a building", "av": "ригь эхетизе"}, {"en": "the sun rises", "av": "бакъ баккулеб буго"}]}}
+- {"candidate": 23, "old_word": "prefix", "sense": {"text": "цӏидасан … (гьаби)", "examples": [{"en": "to resume classes", "av": "занятиял цӏидасан гьаризе"}]}}
+- {"candidate": 24, "old_word": "vs- vz-", "sense": {"text": "«вз»- приставкаялъул бакӏалда гъугъал гьаркьикъал гьаркьазда цебе хӏалтӏизабула", "examples": [{"en": "boil", "av": "гьализе"}]}}
+- {"candidate": 26, "old_word": "day off; holiday", "sense": {"text": "къватӏире рахъунеб (унеб)", "examples": [{"en": "exit door", "av": "къватӏире рахъунеб (унеб) нуцӏа"}]}}
+- {"candidate": 34, "old_word": "hillock; mound", "sense": {"text": "горка", "comment": "тӏадегӏанаб пилотажалъул цо фигура", "labels": ["aviation"]}}
+- {"candidate": 50, "old_word": "from, out of", "sense": {"text": "см. из (предлог)"}}
+- {"candidate": 51, "old_word": "from-", "sense": {"text": "кисаниги къватӏибехун багъари, ин", "examples": [{"en": "to banish", "av": "къватӏибе бачахъизе"}]}}
+- {"candidate": 52, "old_word": "from-", "sense": {"text": "иш тӏубай, рагӏалде бахъинаби", "examples": [{"en": "to tear up; to tatter", "av": "бихъ-бихъун (тӏутӏун) базе, пара-пара гьабизе"}]}}
+- {"candidate": 53, "old_word": "from-", "sense": {"text": "тӏатӏала (гӏемер) гьаби", "examples": [{"en": "to wound severely", "av": "лъукъ-лъукъизе, лъукъ-лъукъун рехизе"}]}}
+- {"candidate": 56, "old_word": "ka", "sense": {"text": "-я", "precomment": "in the imperative mood is translated by the particle", "examples": [{"en": "give me (colloquial)", "av": "кьея"}, {"en": "tell me now", "av": "бицея дида"}]}}
+- {"candidate": 57, "old_word": "ka", "sense": {"text": "-ин", "precomment": "in the future tense it is translated by a particle", "examples": [{"en": "I think I'll buy this book", "av": "босизин дица гьаб тӏехь"}]}}
+- {"candidate": 71, "old_word": "torment", "sense": {"text": "цӏул, хъарщи чӏегӏераб кьер чӏвазе, къвакӏизе лъелъ лъезе", "precomment": "what (tree)", "examples": [{"en": "stain oak", "av": "микк бецӏлъизе ва къвакӏизе лъадалъ лъезе"}]}}
+- {"candidate": 73, "old_word": "neither", "sense": {"text": "щивниги, щибниги, кинаб букӏаниги, лъилго гуро", "precomment": "in combination with prepositions it is the determinative part of pronouns nobody, nothing, no, nobody's", "examples": [{"en": "I haven't heard about anything", "av": "дида сундулниги хӏакъалъулъ рагӏичӏо"}, {"en": "he doesn't interfere in anything", "av": "дов сундаго гьоркьове лъугьанаро"}, {"en": "so as not to depend on anyone", "av": "лъидаго варавлъун вукӏунгутӏизе"}, {"en": "I will not go under any circumstances", "av": "дун, щиб гьабуниги, инаро"}, {"en": "by no means tell him this", "av": "щиб кканиги, лъазабуге досда гьеб"}]}}
+- {"candidate": 80, "old_word": "ex-", "sense": {"text": "ахир, лъугӏи, лъугӏизегӏан, ахиралде щвезегӏан гьаби бихьизабизе", "comment": "глаголалъул приставка хӏисабалда хӏалтӏизабула", "examples": [{"en": "to shirk; to dodge (e.g. military service)", "av": "лъугӏизегӏан бецизе"}]}}
+- {"candidate": 81, "old_word": "ex-", "sense": {"text": "нахъе гьаби, лъугӏизаби, цояб рахъалдехун ин бихьизабизе", "examples": [{"en": "to drive away", "av": "нахъе ине (рекӏун)"}]}}
+- {"candidate": 82, "old_word": "ex-", "sense": {"text": "данде гьабураб иш бихьизабизе", "examples": [{"en": "to reward", "av": "гьабуралъухъ баркала кьезе"}]}}
+- {"candidate": 83, "old_word": "ex-", "sense": {"text": "цо иш гьабун тӏаса бихьизабизе", "examples": [{"en": "to rattle off", "av": "къали чӏвай лъугӏизе тезе, къали чӏвай тӏаса бихьизабизе"}]}}
+- {"candidate": 84, "old_word": "oto-", "sense": {"text": "“от” – алъул бакӏалда хӏалтӏизабула: 1) “й” – ялда цебе", "precomment": "prefix", "comment": "for example: to step away", "comment_lang": "ru"}}
+- {"candidate": 85, "old_word": "oto-", "sense": {"text": "2) кӏиго яги цӏикӏкӏун рагьукъаб гьаракьалда цебе", "precomment": "prefix", "comment": "for example: to take away, to tear off", "comment_lang": "ru"}}
+- {"candidate": 86, "old_word": "oto-", "sense": {"text": "3) жинда хадуб «ь» бугеб рагьукъаб гьаркьида цебе", "precomment": "prefix", "comment": "for example: отобью, отолью, отопью", "comment_lang": "ru"}}
+- {"candidate": 91, "old_word": "ex-", "sense": {"text": "приставка, «от» – алдаса батӏалъи гьечӏо; е, я хӏарпазда цебе хъвала", "comment": "for example: drive away, notorious", "comment_lang": "ru"}}
+- {"candidate": 94, "old_word": "pere-", "sense": {"text": "щибниги иш цӏидасан такрар гьабиялъул магӏна", "examples": [{"en": "retell", "av": "цӏидасан бицине"}]}}
+- {"candidate": 95, "old_word": "pere-", "sense": {"text": "цӏикӏкӏун ккеялъул магӏна", "examples": [{"en": "oversalt", "av": "цӏамхӏаллъизе"}]}}
+- {"candidate": 96, "old_word": "pere-", "sense": {"text": "цо бакӏ къотӏун, дорехун иналъул магӏна", "examples": [{"en": "to swim across", "av": "лъедон довехун вахине"}]}}
+- {"candidate": 97, "old_word": "pere-", "sense": {"text": "иш гӏемер гьабиялъул магӏна", "examples": [{"en": "interrupt", "av": "гӏемерал гъуризе"}, {"en": "catch all", "av": "гӏемерал кквезе"}]}}
+- {"candidate": 105, "old_word": "pa-", "sense": {"text": "ишалъул байбихьи", "examples": [{"en": "to start creeping", "av": "хъурщизе лъугьине"}, {"en": "run", "av": "векерун ине"}]}}
+- {"candidate": 106, "old_word": "pa-", "sense": {"text": "къокъаб заманалда жаниб лъугьунеб къокъаб иш", "examples": [{"en": "sleep a bit", "av": "(дагьаб мехалъ) кьижизе"}, {"en": "jump around", "av": "(дагьаб мехалъ) кӏанцӏезе"}]}}
+- {"candidate": 110, "old_word": "line; instigate; shoot down", "sense": {"text": "(гъоркь) чӏвазе", "precomment": "what", "examples": [{"en": "repair heels", "av": "угъдул (гъоркь) чӏвазе"}, {"en": "re-shoe", "av": "тӏикъва чӏвазе"}]}}
+- {"candidate": 116, "old_word": "pick up, gather", "sense": {"text": "квачалъ, хӏинкъиялъ лъикӏаб гьечӏеб асар гьабизе, сородизавизе, гъаргъар щвезабизе (унтиялъ, хӏинкъиялъ)", "examples": [{"en": "he has a fever", "av": "дов бакъул унтиялъ сородизавулев вуго"}]}}
+- {"candidate": 125, "old_word": "exemplary", "sense": {"text": "гӏагашагараб", "precomment": "approximate", "examples": [{"en": "approximate calculation", "av": "гӏага-шагараб хӏисаб гьаби"}]}}
+- {"candidate": 144, "old_word": "disperse", "sense": {"text": "риххизе, рахъ-рахъалде, рокъо-рокъоре ине", "examples": [{"en": "the guests have left", "av": "гьалбал рокъо-рокъоре ана"}]}}
+- {"candidate": 153, "old_word": "disperse", "sense": {"text": "бикьун ине, гӏаркьахине", "precomment": "to divide", "examples": [{"en": "the road has become muddy", "av": "нух бикьана"}]}}
+- {"candidate": 176, "old_word": "crossbow, homemade gun", "sense": {"text": "ургъунго жиндаго яргъил ругъун лъурав чи"}}
+- {"candidate": 181, "old_word": "oneself", "sense": {"text": "жиндиего, мунго, диего, дуего", "examples": [{"en": "sit quietly", "av": "мунго парахат гӏодов чӏун вукӏа"}, {"en": "I think to myself", "av": "дунго ургъулев вуго"}, {"en": "he walks along, noticing nothing", "av": "щибго бихьичӏого, живго унев вуго"}, {"en": "not bad; well I never", "av": "квеш гуро"}, {"en": "so-so", "av": "мадар буго, квешги гуро, цӏакъ лъикӏги гуро"}]}}
+- {"candidate": 182, "old_word": "boar", "sense": {"text": "чалтанус"}}
+- {"candidate": 196, "old_word": "be built; build oneself", "sense": {"text": "гӏуцӏизе, базе, гьабизе, санагӏаталда рекъезабизе", "precomment": "think oneself to be something"}}
+- {"candidate": 203, "old_word": "thereby; by that", "sense": {"text": "творительный падеж от тот, то; дательный падеж от те", "labels": ["pronoun"]}}
+- {"candidate": 204, "old_word": "poke", "sense": {"text": "цогидазда бичӏчӏизе хъачӏго щибниги бихьизабизе; къалалги тункизарун бихьизабизе", "comment": "квешаб жо", "examples": [{"en": "to rub smb.'s nose in it", "av": "цогидазда бичӏчӏизе хъачӏго щибниги бихьизабизе (квешаб жо); къалалги тункизарун бихьизабизе"}]}}
+- {"candidate": 210, "old_word": "u-", "sense": {"text": "батӏи-батӏияб магӏна кьолеб приставка"}}
+- {"candidate": 211, "old_word": "u-", "sense": {"text": "цо рахъалде иналъул магӏнаялда", "precomment": "direction of movement aside", "examples": [{"en": "drive away; steal", "av": "цебе къотӏун, бачине"}, {"en": "to fly away", "av": "боржун ине"}]}}
+- {"candidate": 212, "old_word": "u-", "sense": {"text": "сунданиги жаниб магӏнаялда", "precomment": "direction of movement inside something", "examples": [{"en": "accommodate", "av": "гьинабизе"}, {"en": "to put down", "av": "лъезе"}]}}
+- {"candidate": 213, "old_word": "u-", "sense": {"text": "кинабго рахъалдасан бацизабиялъул магӏнаялда", "precomment": "to cover something from all sides", "examples": [{"en": "sprinkle", "av": "тӏаде щвазе"}]}}
+- {"candidate": 214, "old_word": "u-", "sense": {"text": "дагьлъизаби, гьитӏинлъизаби, тӏаса ин магӏнаялда", "precomment": "decrease; reduction", "examples": [{"en": "cut short; truncate", "av": "тӏаса къотӏизе"}, {"en": "diminish, reduce", "av": "дагьлъизабизе, камизабизе"}]}}
+- {"candidate": 215, "old_word": "u-", "sense": {"text": "мурадалде щвей магӏнаялда", "precomment": "achievement of something", "examples": [{"en": "persuade", "av": "разилъизавизе"}, {"en": "arrange; set up", "av": "гӏуцӏизе, гьабизе"}]}}
+- {"candidate": 217, "old_word": "please; at will", "sense": {"text": "бокьаниги, букӏаниги", "precomment": "particle", "examples": [{"en": "anyone at all", "av": "бокьарав чи, щив вукӏаниги"}, {"en": "any whatsoever", "av": "кинаб букӏаниги"}, {"en": "as you please", "av": "дуе бокьухъе"}, {"en": "as much as you like", "av": "кигӏан бокьаниги"}, {"en": "as much as you like", "av": "гӏемер, хӏал хьезегӏан"}]}}
+- {"candidate": 218, "old_word": "already", "sense": {"text": "-ха, -гӏан", "labels": ["emphatic particle"], "examples": [{"en": "not so bad after all", "av": "гьедигӏан квеш гьечӏебха"}, {"en": "i really don't know; goodness knows", "av": "дидагиха лъалареб"}]}}
+- {"candidate": 226, "old_word": "to click", "sense": {"text": "ц, ч гьаркьал, ратӏа гьаричӏого, абизе", "comment": "гӏурусазул севериял говоразда"}}
+- {"candidate": 228, "old_word": "electron", "sense": {"text": "электрон", "comment": "алюминийги, магнийги, литийги, цинкги цадахъ риинарун лъугьунеб тӏадагьаб щулияб металл", "labels": ["physics"]}}
+- {"candidate": 232, "old_word": "escalator", "sense": {"text": "эскалаторалъул(аб)"}}
+- {"candidate": 234, "old_word": "escort", "sense": {"text": "эскорталъе бугеб, эскорталъулаб", "examples": [{"en": "escort destroyer", "av": "эскорталъе бугеб миноносец"}]}}
+- {"candidate": 250, "old_word": "sturdy; robust", "sense": {"text": "лъикӏаб, къвакӏараб, жаниса цӏураб, ччобораб", "examples": [{"en": "sturdy nut", "av": "жаниса цӏураб цӏулакьо"}]}}
+
+
+## Этап 7: окончательная классификация оставшихся примеров
+
+Восстановлены 51 лексических примеров под 49 английскими заголовками, в том числе полезные примеры из удалённых русских приставочных статей. Сами русские приставки как английские заголовки не возвращены. Явные ошибки английского текста исправлены по содержимому аварского перевода.
+
+Восстановлено:
+
+- {"old_word": "b", "new_word": "would", "example": {"en": "I would go", "av": "дунни инаан"}}
+- {"old_word": "in-", "new_word": "run in", "example": {"en": "to run in", "av": "жаниве векеризе"}}
+- {"old_word": "in-", "new_word": "drive in", "example": {"en": "drive in", "av": "жаниб къазабизе"}}
+- {"old_word": "in-", "new_word": "peer", "example": {"en": "to peer", "av": "кӏвар кьун, валагьизе", "comment": "хал гьабизе"}}
+- {"old_word": "vz-", "new_word": "fly into a rage", "example": {"en": "fly into a rage", "av": "кутакалда ццидахине, балканахине"}}
+- {"old_word": "prefix", "new_word": "raise", "example": {"en": "lift hands", "av": "кверал эхеде рорхизе"}}
+- {"old_word": "prefix", "new_word": "erect", "example": {"en": "to erect a building", "av": "ригь эхетизе"}}
+- {"old_word": "prefix", "new_word": "rise", "example": {"en": "the sun rises", "av": "бакъ баккулеб буго"}}
+- {"old_word": "prefix", "new_word": "resume", "example": {"en": "to resume classes", "av": "занятиял цӏидасан гьаризе"}}
+- {"old_word": "prefix", "new_word": "hate", "example": {"en": "come to hate", "av": "рихине"}}
+- {"old_word": "prefix", "new_word": "influence", "example": {"en": "influence someone", "av": "лъиениги асар гьабизабизе"}}
+- {"old_word": "vs- vz-", "new_word": "boil", "example": {"en": "boil", "av": "гьализе"}}
+- {"old_word": "incubate", "new_word": "sit through", "example": {"en": "sit through the end of the meeting", "av": "данделъи лъугӏизегӏан гӏодов чӏун вукӏине"}}
+- {"old_word": "incubate", "new_word": "stay", "example": {"en": "he stayed at home for a week", "av": "дов анкьица рокъов чӏана"}}
+- {"old_word": "from-", "new_word": "tear up", "example": {"en": "to tear up; to tatter", "av": "бихъ-бихъун (тӏутӏун) базе, пара-пара гьабизе"}}
+- {"old_word": "from-", "new_word": "wound", "example": {"en": "to wound severely", "av": "лъукъ-лъукъизе, лъукъ-лъукъун рехизе"}}
+- {"old_word": "ka", "new_word": "give me", "example": {"en": "give me (colloquial)", "av": "кьея"}}
+- {"old_word": "ka", "new_word": "tell me", "example": {"en": "tell me now", "av": "бицея дида"}}
+- {"old_word": "ka", "new_word": "buy", "example": {"en": "I think I'll buy this book", "av": "босизин дица гьаб тӏехь"}}
+- {"old_word": "torment", "new_word": "starve", "example": {"en": "starve", "av": "вакъиялъ тату хвезабизе"}}
+- {"old_word": "ab-", "new_word": "travel", "example": {"en": "to travel all over the country", "av": "тӏолабго улкаялде щвезе"}}
+- {"old_word": "ex-", "new_word": "drive away", "example": {"en": "to drive away", "av": "нахъе ине (рекӏун)"}}
+- {"old_word": "ex-", "new_word": "reward", "example": {"en": "to reward", "av": "гьабуралъухъ баркала кьезе"}}
+- {"old_word": "ex-", "new_word": "finish drumming", "example": {"en": "finish drumming", "av": "къали чӏвай лъугӏизе тезе, къали чӏвай тӏаса бихьизабизе"}}
+- {"old_word": "pere-", "new_word": "retell", "example": {"en": "retell", "av": "цӏидасан бицине"}}
+- {"old_word": "pere-", "new_word": "swim across", "example": {"en": "to swim across", "av": "лъедон довехун вахине"}}
+- {"old_word": "pere-", "new_word": "kill", "example": {"en": "kill many", "av": "гӏемерал гъуризе"}}
+- {"old_word": "pere-", "new_word": "catch", "example": {"en": "catch many", "av": "гӏемерал кквезе"}}
+- {"old_word": "interrupt", "new_word": "hammer", "example": {"en": "hammer a nail in another place", "av": "магӏ цоги бакӏалда кьабизе"}}
+- {"old_word": "pa-", "new_word": "creep", "example": {"en": "to start creeping", "av": "хъурщизе лъугьине"}}
+- {"old_word": "pa-", "new_word": "run", "example": {"en": "run", "av": "векерун ине"}}
+- {"old_word": "pa-", "new_word": "sleep", "example": {"en": "sleep a bit", "av": "(дагьаб мехалъ) кьижизе"}}
+- {"old_word": "pa-", "new_word": "jump", "example": {"en": "jump for a while", "av": "(дагьаб мехалъ) кӏанцӏезе"}}
+- {"old_word": "undermine; sharpen slightly", "new_word": "moth", "example": {"en": "the moth has eaten the carpet", "av": "хӏутӏалъ тӏамах кванан буго"}}
+- {"old_word": "genus; family; gender", "new_word": "kind", "example": {"en": "people of various kinds", "av": "батӏи-батӏияб тайпаялъул гӏадамал"}}
+- {"old_word": "genus; family; gender", "new_word": "males", "example": {"en": "males", "av": "бихьинал"}}
+- {"old_word": "s=", "new_word": "run away", "example": {"en": "to run away; to escape", "av": "лъутун ине"}}
+- {"old_word": "s=", "new_word": "tie", "example": {"en": "to tie; to knit", "av": "бухьун тезе"}}
+- {"old_word": "s=", "new_word": "sideways", "example": {"en": "from the side; sideways", "av": "хьолбохъан"}}
+- {"old_word": "s=", "new_word": "on the left", "example": {"en": "on the left", "av": "квегӏиса"}}
+- {"old_word": "u-", "new_word": "drive off", "example": {"en": "drive away; steal", "av": "цебе къотӏун, бачине"}}
+- {"old_word": "u-", "new_word": "reduce", "example": {"en": "diminish, reduce", "av": "дагьлъизабизе, камизабизе"}}
+- {"old_word": "at least", "new_word": "although", "example": {"en": "he is old, but healthy", "av": "гъов, херлъун вукӏаниги, сах вуго"}}
+- {"old_word": "at least", "new_word": "even if", "example": {"en": "kill me if you like, I won't say a thing", "av": "нужеца чӏваниги, щибниги бицинаро, абиларо"}}
+- {"old_word": "at least", "new_word": "right now", "example": {"en": "I'll go right now", "av": "(бокьани) гьабсагӏатцин ина"}}
+- {"old_word": "at least", "new_word": "at least", "example": {"en": "say at least one word", "av": "цохӏо рагӏигӏаги абе"}}
+- {"old_word": "at least", "new_word": "at least", "example": {"en": "let us at least investigate this matter", "av": "гьаб ишалъулниги цӏехрех гьабизин"}}
+- {"old_word": "at least", "new_word": "even if", "example": {"en": "even if so", "av": "гьедин гӏаги букӏарабани"}}
+- {"old_word": "chokh", "new_word": "not believe in omens", "example": {"en": "does not believe in omens or dreams", "av": "хӏакъикъаталда гьечӏел жалазда божуларо; я макьуялда, я чинхъиялда божуларо (букв.); сунданиги божуларо"}}
+- {"old_word": "open; factual", "new_word": "without prior permission", "example": {"en": "without prior permission", "av": "цебеккун изнуги кьечӏого"}}
+- {"old_word": "sturdy; robust", "new_word": "well-filled nut", "example": {"en": "a well-filled nut", "av": "жаниса цӏураб цӏулакьо"}}
+
+Отложены неоднозначные пары (не возвращены в словарь):
+
+- {"old_word": "vz- (prefix)", "example": {"en": "to shake up; to whip", "av": "кӏобокӏун жуба-гъубазабизе"}}
+- {"old_word": "torment", "example": {"en": "stain oak", "av": "микк бецӏлъизе ва къвакӏизе лъадалъ лъезе"}}
+- {"old_word": "on", "example": {"en": "breast; chest", "av": "каранда балеб"}}
+- {"old_word": "on", "example": {"en": "desktop; table", "av": "столалда тӏад лъолеб"}}
+- {"old_word": "ex-", "example": {"en": "to shirk; to dodge (e.g. military service)", "av": "лъугӏизегӏан бецизе"}}
+- {"old_word": "interrupt", "example": {"en": "break all the furniture", "av": "кинабго мебелалда цӏидасан тӏад жо кквезе"}}
+- {"old_word": "demolish; tear down", "example": {"en": "lose one's head", "av": "чӏаго хутӏиларо; тамихӏалдаса ворчӏиларо; ботӏродаса ватӏалъизе бегьула"}}
+
+Четыре старых склеенных примера (work/chop/trivial/relay) уже разделены в новом файле и не требуют возврата. Электродвижущая сила требует отдельной предметной сверки: старая аварская формулировка смешивает силу и электрический ток.
+
+
+## Этап 6: полный разбор оставшихся кандидатов
+
+Восстановлены 186 проверенных лексических примеров под 168 английскими заголовками. Русские приставки/частицы не восстановлены как заголовки. Полные одинаковые статьи (32) удалены без потерь содержания.
+
+Восстановленные пары:
+
+- {"old_word": "in; at", "new_word": "enter", "example": {"en": "to enter the room", "av": "рокъове лъугьине"}}
+- {"old_word": "in; at", "new_word": "drawer", "example": {"en": "the papers lie in the drawer", "av": "кагътал ящикалъур руго"}}
+- {"old_word": "in; at", "new_word": "in", "example": {"en": "in the room", "av": "рокъоб"}}
+- {"old_word": "in; at", "new_word": "live", "example": {"en": "live in Crimea", "av": "Крымалда гӏумру гьабизе"}}
+- {"old_word": "in; at", "new_word": "study", "example": {"en": "to study at a university", "av": "университеталда цӏализе"}}
+- {"old_word": "in; at", "new_word": "at", "example": {"en": "at five o'clock", "av": "сагӏат щугоялда"}}
+- {"old_word": "in; at", "new_word": "at midnight", "example": {"en": "at midnight", "av": "сордо бащалъараб мехалъ (сардилъ)"}}
+- {"old_word": "in; at", "new_word": "this year", "example": {"en": "this year", "av": "гьаб соналъ (исана)"}}
+- {"old_word": "in; at", "new_word": "in", "example": {"en": "in September", "av": "сентябралда"}}
+- {"old_word": "in; at", "new_word": "notebook", "example": {"en": "squared notebook", "av": "клеткаби ругеб тетрадь"}}
+- {"old_word": "in; at", "new_word": "wear", "example": {"en": "he was wearing a coat", "av": "гьев пальтоялъулъ вугоан (вукӏана)"}}
+- {"old_word": "in; at", "new_word": "in", "example": {"en": "comedy in three acts", "av": "лъабго акталъул комедия"}}
+- {"old_word": "in; at", "new_word": "look", "example": {"en": "look through binoculars", "av": "дурнабаз (дурнабаздасан) валагьизе"}}
+- {"old_word": "in; at", "new_word": "take as an example", "example": {"en": "take as an example", "av": "мисалалъе босизе"}}
+- {"old_word": "in; at", "new_word": "character", "example": {"en": "like his father in character", "av": "гӏамал-хасияталъ инсуда релъарав (эмен гӏадав)"}}
+- {"old_word": "in; at", "new_word": "frost", "example": {"en": "three degrees of frost", "av": "лъабго градусалъул квач"}}
+- {"old_word": "in; at", "new_word": "weigh", "example": {"en": "weighing five kilograms", "av": "щуго килограммалъул цӏайи бугеб"}}
+- {"old_word": "in; at", "new_word": "long", "example": {"en": "two meters long", "av": "халалъи (халалъухъе) кӏиго метр бугеб"}}
+- {"old_word": "in; at", "new_word": "large", "example": {"en": "three times as large", "av": "лъабго нухалъ кӏудияб"}}
+- {"old_word": "in; at", "new_word": "work", "example": {"en": "he used to work as a mechanic", "av": "цеве гьев механиклъун хӏалтӏулев вукӏана"}}
+- {"old_word": "in; at", "new_word": "from", "example": {"en": "two kilometers from the city", "av": "шагьаралдаса кӏиго километралъ добегӏан"}}
+- {"old_word": "in; at", "new_word": "spitting image", "example": {"en": "the boy is the spitting image of his father", "av": "тӏубанго инсуда релъарав вас"}}
+- {"old_word": "in; at", "new_word": "wrap", "example": {"en": "to wrap in paper", "av": "кагътилъ жемизе"}}
+- {"old_word": "in; at", "new_word": "road", "example": {"en": "road to the forest", "av": "рохьобе нух"}}
+- {"old_word": "in; at", "new_word": "turn into", "example": {"en": "snow turned into water", "av": "гӏазу лъеде сверана"}}
+- {"old_word": "in; at", "new_word": "stand to attention", "example": {"en": "stand to attention", "av": "чӏва гӏадин витӏун чӏезе"}}
+- {"old_word": "in; at", "new_word": "joke", "example": {"en": "to say as a joke", "av": "махсарадего абизе"}}
+- {"old_word": "in; at", "new_word": "member", "example": {"en": "be a member of a commission", "av": "комиссиялда (гьоркьов) вукӏине"}}
+- {"old_word": "in; at", "new_word": "help", "example": {"en": "help with work", "av": "хӏалтӏулъ кумек гьабизе"}}
+- {"old_word": "in; at", "new_word": "in a nutshell", "example": {"en": "say in a nutshell", "av": "кӏиго рагӏиялдалъун абизе"}}
+- {"old_word": "along", "new_word": "along", "example": {"en": "walk along the road", "av": "нухдасан (нух чӏван) ине"}}
+- {"old_word": "along", "new_word": "fly", "example": {"en": "fly through the air", "av": "гьаваялдасан воржине"}}
+- {"old_word": "along", "new_word": "shelve", "example": {"en": "to put books on shelves", "av": "тӏахьал полкабазда лъезе"}}
+- {"old_word": "along", "new_word": "shop", "example": {"en": "go shopping", "av": "тукабазде хьвадизе"}}
+- {"old_word": "along", "new_word": "visit", "example": {"en": "go to theaters", "av": "театразде хьвадизе"}}
+- {"old_word": "along", "new_word": "visit", "example": {"en": "visit acquaintances", "av": "лъалел-хъвалезухъе хьвадизе"}}
+- {"old_word": "along", "new_word": "shoot", "example": {"en": "to shoot at the enemy", "av": "тушманасде кьвагьдезе"}}
+- {"old_word": "along", "new_word": "champion", "example": {"en": "chess champion", "av": "шахматал хӏаялъул чемпион"}}
+- {"old_word": "along", "new_word": "track", "example": {"en": "track an animal", "av": "жанаваралъул лъакӏда хадув ине"}}
+- {"old_word": "along", "new_word": "according to", "example": {"en": "work according to plan", "av": "планалда рекъон хӏалтӏизе"}}
+- {"old_word": "along", "new_word": "illness", "example": {"en": "did not arrive on time due to illness", "av": "унтун вукӏиндал заманалда вачӏинчӏо"}}
+- {"old_word": "along", "new_word": "mail", "example": {"en": "send by mail", "av": "почалъ (почалда) битӏизе"}}
+- {"old_word": "along", "new_word": "relative", "example": {"en": "relative on the mother's side", "av": "эбелдахъан (эбелалъун рахъалдасан) гӏагарав чи"}}
+- {"old_word": "along", "new_word": "workmate", "example": {"en": "workmate", "av": "хӏалтӏул рахъалъ гьалмагъ"}}
+- {"old_word": "along", "new_word": "capture", "example": {"en": "operation to capture the fortification", "av": "щулалъи бахъизелъун (кверщел гьабизелъун) гьабулеб операция"}}
+- {"old_word": "along", "new_word": "work", "example": {"en": "to work whole days", "av": "тӏубарал къояз хӏалтӏизе"}}
+- {"old_word": "along", "new_word": "each", "example": {"en": "give everyone a candy", "av": "киназего цо-цо конфета кьезе"}}
+- {"old_word": "along", "new_word": "each", "example": {"en": "at a ruble each", "av": "цоялъухъ цо гъурущ"}}
+- {"old_word": "along", "new_word": "each", "example": {"en": "two each", "av": "кӏи-кӏи (ккун)"}}
+- {"old_word": "along", "new_word": "each", "example": {"en": "three hundred each", "av": "лъабнус-нус"}}
+- {"old_word": "along", "new_word": "each", "example": {"en": "five hundred each", "av": "щунус-нус"}}
+- {"old_word": "along", "new_word": "waist-deep", "example": {"en": "stand waist-deep in water", "av": "къвалакье бахинегӏан лъелъ чӏезе"}}
+- {"old_word": "along", "new_word": "upon completion", "example": {"en": "upon completion of the work", "av": "хӏалтӏудаса хадуб, хӏалтӏи лъугӏидал, хӏалтӏи лъугӏигун"}}
+- {"old_word": "so; yes", "new_word": "as", "example": {"en": "I do just as he does", "av": "дос кин гьабулеб батаниги, гьедин дицаги гьабула"}}
+- {"old_word": "so; yes", "new_word": "change", "example": {"en": "he has changed so much that he is unrecognizable", "av": "вихьани лъалареб хӏалалъ хисун вуго дов"}}
+- {"old_word": "so; yes", "new_word": "unpunished", "example": {"en": "it won't go unpunished", "av": "гьеб гьедин битӏун ккеларо"}}
+- {"old_word": "so; yes", "new_word": "leave", "example": {"en": "this matter cannot be left like this", "av": "гьеб иш гьедин тезе бегьуларо"}}
+- {"old_word": "so; yes", "new_word": "just like that", "example": {"en": "I said it just like that", "av": "дица гьеб гьадинго абун букӏана"}}
+- {"old_word": "so; yes", "new_word": "I told you so", "example": {"en": "I told you so, but you wouldn't listen", "av": "дица абулеб букӏана, амма дуе гӏенеккизецин бокьичӏо"}}
+- {"old_word": "so; yes", "new_word": "so", "example": {"en": "it is hot, so the rivers are getting shallow", "av": "багӏарун буго, гьединлъидал гӏорал гьитӏинлъулел руго"}}
+- {"old_word": "so; yes", "new_word": "nothing", "example": {"en": "what's the matter with you? – just like that", "av": "дуе щиб? – расги гьечӏо"}}
+- {"old_word": "so; yes", "new_word": "so", "example": {"en": "so you don't believe me?", "av": "мун дида божулев гьечӏоха?"}}
+- {"old_word": "so; yes", "new_word": "yes", "example": {"en": "yes, you are not mistaken", "av": "у, мун мекъи ккун гьечӏо"}}
+- {"old_word": "so; yes", "new_word": "is that so", "example": {"en": "is that so?", "av": "гьединищха?"}}
+- {"old_word": "so; yes", "new_word": "so", "example": {"en": "that is so", "av": "гьедин бугизеги буго"}}
+- {"old_word": "so; yes", "new_word": "so to speak", "example": {"en": "so to speak", "av": "гьедин абун телин"}}
+- {"old_word": "so; yes", "new_word": "just so you know", "example": {"en": "just so you know!", "av": "лъан букӏаха!"}}
+- {"old_word": "so; yes", "new_word": "one way or another", "example": {"en": "one way or another", "av": "я гьадинаса, я додинаса"}}
+- {"old_word": "so; yes", "new_word": "this way and that", "example": {"en": "this way and that", "av": "гьадинги додинги, батӏи-батӏияб къагӏидаялъ"}}
+- {"old_word": "so; yes", "new_word": "so be it", "example": {"en": "so be it", "av": "гьедин букӏинеги ккола гьеб"}}
+- {"old_word": "so; yes", "new_word": "so as not to", "example": {"en": "we need to leave earlier so as not to miss the train", "av": "поездалде кватӏунгутӏизе къватӏире дагьалъ хекко рахъине ккела"}}
+- {"old_word": "fugitive, fluent", "new_word": "fleeting", "example": {"en": "fleeting glance", "av": "тохлъукьегояб берчӏвай"}}
+- {"old_word": "day off; holiday", "new_word": "exit", "example": {"en": "exit door", "av": "къватӏире рахъунеб (унеб) нуцӏа"}}
+- {"old_word": "day off; holiday", "new_word": "best clothes", "example": {"en": "best suit", "av": "байрам къоялъ ретӏунеб костюм"}}
+- {"old_word": "day off; holiday", "new_word": "day off", "example": {"en": "I am off duty today, I have a day off today", "av": "дун жакъа гӏодой йиго, дир жакъа гӏодобкъо"}}
+- {"old_word": "face; edge; verge", "new_word": "boundary", "example": {"en": "erasing the boundaries between physical and mental labor", "av": "физикияб ва гӏакълияб хӏалтӏабазда гьоркьоб гӏурхъи тӏагӏин"}}
+- {"old_word": "face; edge; verge", "new_word": "boundary", "example": {"en": "to draw a line between ...", "av": "гӏурхъи чӏвазе … гьоркьоб"}}
+- {"old_word": "face; edge; verge", "new_word": "verge", "example": {"en": "to be on the verge of something", "av": "сундулниги гӏорхъоде щвезе"}}
+- {"old_word": "antiquity", "new_word": "duration", "example": {"en": "duration of friendship", "av": "гьудуллъиялъул халат бахъин (гӏемераб мехалъ букӏин)"}}
+- {"old_word": "antiquity", "new_word": "statute of limitations", "example": {"en": "the case was dismissed due to the statute of limitations", "av": "гӏемер мехиналда бан, дело къан (къотӏизабун) букӏана"}}
+- {"old_word": "prey; loot; extraction", "new_word": "extraction", "example": {"en": "oil production", "av": "ракьулъа чӏегӏернарт бахъи"}}
+- {"old_word": "prey; loot; extraction", "new_word": "loot", "example": {"en": "war loot", "av": "рагъда щвараб давла"}}
+- {"old_word": "reach; drag", "new_word": "drag out", "example": {"en": "to drag out work until evening", "av": "хӏалтӏи къасилъагӏан халат бахъинабизе"}}
+- {"old_word": "reach; drag", "new_word": "survive", "example": {"en": "the patient will not last until spring", "av": "унтарав их щвезегӏан чӏаго хутӏиларо"}}
+- {"old_word": "chewing gum", "new_word": "go over the same old ground", "example": {"en": "go over the same old ground", "av": "чӏамучӏаб (чӏалгӏараб) цого жо бицине"}}
+- {"old_word": "sign; trace", "new_word": "see", "example": {"en": "you can't see an inch in front of your face", "av": "щибниги бихьулеб гьечӏо, бадиб килищ тунканиги, бихьулеб гьечӏо"}}
+- {"old_word": "cell", "new_word": "stack", "example": {"en": "stack firewood in a criss-cross pattern", "av": "цӏулал мачӏу гьабизе"}}
+- {"old_word": "cell", "new_word": "cell", "example": {"en": "nerve cells", "av": "нервабазул зарраби"}}
+- {"old_word": "mole; breakwater", "new_word": "reportedly", "example": {"en": "he, they say, didn't know this", "av": "гъосдадила гьеб лъалароанила"}}
+- {"old_word": "on", "new_word": "bib", "example": {"en": "bib", "av": "карандабухь"}}
+- {"old_word": "on", "new_word": "oversleeve", "example": {"en": "oversleeve", "av": "къвалидаххел", "comment": "хӏалтӏулеб мехалда, къвалал чороклъичӏого рукӏине, тӏасан ххолел бащдал къвалал (цоябкъвал)"}}
+- {"old_word": "on", "new_word": "kneepad", "example": {"en": "kneepad", "av": "накалдабухь, накалдаххел", "comment": "наку цӏунизе"}}
+- {"old_word": "on", "new_word": "strictly", "example": {"en": "strictly", "av": "кьварун"}}
+- {"old_word": "neither", "new_word": "anything", "example": {"en": "he doesn't interfere in anything", "av": "дов сундаго гьоркьове лъугьанаро"}}
+- {"old_word": "neither", "new_word": "anyone", "example": {"en": "so as not to depend on anyone", "av": "лъидаго варавлъун вукӏунгутӏизе"}}
+- {"old_word": "neither", "new_word": "under any circumstances", "example": {"en": "I will not go under any circumstances", "av": "дун, щиб гьабуниги, инаро"}}
+- {"old_word": "neither", "new_word": "by no means", "example": {"en": "by no means tell him this", "av": "щиб кканиги, лъазабуге досда гьеб"}}
+- {"old_word": "to turn around", "new_word": "turn", "example": {"en": "turn facing the window", "av": "гьумерги гордехун буссинабун, чӏезе"}}
+- {"old_word": "to turn around", "new_word": "return", "example": {"en": "you won't be back before an hour", "av": "цо сагӏтидаса цудун тӏад вуссун бажариларо"}}
+- {"old_word": "to turn around", "new_word": "manage", "example": {"en": "we'll manage with just one tractor", "av": "нижеда гьеб цо тракторалъги тӏубазабизе кӏвела"}}
+- {"old_word": "to turn around", "new_word": "turn out", "example": {"en": "things turned out well", "av": "ишал лъикӏ ккана"}}
+- {"old_word": "to turn around", "new_word": "turn into", "example": {"en": "turn into a fair maiden", "av": "берцинай ясалде сверизе"}}
+- {"old_word": "to upholster, to beat off", "new_word": "go from office to office", "example": {"en": "go from office to office", "av": "щибниги гьарун, гӏемер кирениги щвезе"}}
+- {"old_word": "to deny; to refuse to admit", "new_word": "open", "example": {"en": "the door opened easily", "av": "нуцӏа бигьаго ричӏун бачӏана"}}
+- {"old_word": "to deny; to refuse to admit", "new_word": "recant", "example": {"en": "recant one's words", "av": "цебе жинцаго бицаралдаса инкар гьабизе"}}
+- {"old_word": "to sing a funeral service", "new_word": "stop", "example": {"en": "the roosters have stopped crowing", "av": "хӏелкал гӏегӏедун рахъана"}}
+- {"old_word": "cartridge; patron", "new_word": "cartridge", "example": {"en": "live cartridge", "av": "танчил, тункӏил патрон"}}
+- {"old_word": "cartridge; patron", "new_word": "lamp holder", "example": {"en": "lamp holder", "av": "электрикалъул патрон", "comment": "чирахъ кьурулеб патрон"}}
+- {"old_word": "interrupt", "new_word": "kill", "example": {"en": "kill enemies", "av": "тушбаби гъуризе"}}
+- {"old_word": "interrupt", "new_word": "smash", "example": {"en": "to smash crockery", "av": "цӏарагӏ гъурун базе"}}
+- {"old_word": "interrupt", "new_word": "break", "example": {"en": "break an arm", "av": "гъеж бекизе"}}
+- {"old_word": "interrupt", "new_word": "interrupt", "example": {"en": "interrupt speech", "av": "калам (кӏалъай) гьоркьоб къотӏизабизе"}}
+- {"old_word": "interrupt", "new_word": "plump", "example": {"en": "plump a pillow", "av": "къандалъо цӏидасан бухизе", "comment": "бухун тамах гьабизе"}}
+- {"old_word": "to load; to immerse", "new_word": "sink", "example": {"en": "to sink feet into the sand", "av": "бохдул салулъе риччазе"}}
+- {"old_word": "to load; to immerse", "new_word": "load", "example": {"en": "load sacks onto a car", "av": "хъапал машинаялда лъезе", "comment": "машинаялде рахинаризе"}}
+- {"old_word": "line; instigate; shoot down", "new_word": "repair", "example": {"en": "repair heels", "av": "угъдул (гъоркь) чӏвазе"}}
+- {"old_word": "line; instigate; shoot down", "new_word": "line", "example": {"en": "line a fur coat with fur", "av": "хъабчида гъоркьан цӏоко (тахта) кквезе (лъезе)"}}
+- {"old_word": "go on; I suppose", "new_word": "come here", "example": {"en": "come here", "av": "гьаниве вачӏа"}}
+- {"old_word": "undermine; sharpen slightly", "new_word": "sharpen", "example": {"en": "to sharpen a knife", "av": "нус дагьабги рекӏинабизе"}}
+- {"old_word": "undermine; sharpen slightly", "new_word": "erode", "example": {"en": "water eroded the cliff", "av": "лъеца кванан кьуру гӏанлъун буго"}}
+- {"old_word": "undermine; sharpen slightly", "new_word": "weaken", "example": {"en": "illness undermined him", "av": "унтиялъ гьев загӏиплъизавуна, гӏодов чӏвазавуна"}}
+- {"old_word": "to carry away; to miscarry", "new_word": "take", "example": {"en": "to take papers for signature", "av": "кагътал гъолбас гьабизе росун ине"}}
+- {"old_word": "to carry away; to miscarry", "new_word": "chill", "example": {"en": "a chill came from the window", "av": "гордухъан квач чӏвана"}}
+- {"old_word": "to carry away; to miscarry", "new_word": "endure", "example": {"en": "suffer punishment", "av": "тамихӏ хӏе-хьезе"}}
+- {"old_word": "to carry away; to miscarry", "new_word": "loss", "example": {"en": "suffer a heavy loss", "av": "захӏматаб (бакӏаб) ками бихьизе"}}
+- {"old_word": "to carry away; to miscarry", "new_word": "carry", "example": {"en": "let me carry the suitcase", "av": "дица босилин чемодан"}}
+- {"old_word": "at; near; in the presence of", "new_word": "lay out", "example": {"en": "to lay out a garden by the house", "av": "рукъалда аскӏоб ах гьабизе"}}
+- {"old_word": "at; near; in the presence of", "new_word": "laboratory", "example": {"en": "laboratory at the institute", "av": "институталъул лаборатория"}}
+- {"old_word": "at; near; in the presence of", "new_word": "work", "example": {"en": "work at headquarters", "av": "штабалда хӏалтӏизе"}}
+- {"old_word": "at; near; in the presence of", "new_word": "in my presence", "example": {"en": "in my presence", "av": "дида аскӏоб (цебе)"}}
+- {"old_word": "at; near; in the presence of", "new_word": "to your face", "example": {"en": "he will say it to your face too", "av": "мун вугеб бакӏалдаги (дуда цебесанги) абила дос"}}
+- {"old_word": "at; near; in the presence of", "new_word": "cross", "example": {"en": "when crossing the street", "av": "къватӏ къотӏулаго"}}
+- {"old_word": "at; near; in the presence of", "new_word": "have", "example": {"en": "I have money on me", "av": "гӏарац дихъ буго"}}
+- {"old_word": "at; near; in the presence of", "new_word": "despite", "example": {"en": "with all the desire", "av": "кигӏан бокьун букӏаниги (гъира букӏаниги)"}}
+- {"old_word": "at; near; in the presence of", "new_word": "with your help", "example": {"en": "with your help", "av": "дур кумекалдалъун (дур кумек сабаблъун)"}}
+- {"old_word": "exemplary", "new_word": "exemplary", "example": {"en": "exemplary behavior", "av": "мисалияб хьвада-чӏвади"}}
+- {"old_word": "hurry; add speed; start off", "new_word": "let", "example": {"en": "let the calf go to the cow", "av": "бече гӏакдада аскӏобе биччазе"}}
+- {"old_word": "hurry; add speed; start off", "new_word": "spur", "example": {"en": "spur the horse", "av": "чу бекеризе биччазе, бекеризе гьабизе"}}
+- {"old_word": "hurry; add speed; start off", "new_word": "rain", "example": {"en": "the rain started pouring", "av": "цӏад кутаклъана (цӏикӏкӏана), кутакалда базе лъугьана"}}
+- {"old_word": "to ruin", "new_word": "go to hell", "example": {"en": "damn it!; go to hell!", "av": "араб бакӏ лъачӏого тӏагӏаги мун!"}}
+- {"old_word": "disperse", "new_word": "leave", "example": {"en": "the guests have left", "av": "гьалбал рокъо-рокъоре ана"}}
+- {"old_word": "disperse", "new_word": "disperse", "example": {"en": "the clouds dispersed", "av": "накӏкӏал рикь-рикьун ун тӏагӏана"}}
+- {"old_word": "disperse", "new_word": "smooth out", "example": {"en": "wrinkles smoothed out", "av": "рукӏкӏалаби тӏагӏана"}}
+- {"old_word": "disperse", "new_word": "dissolve", "example": {"en": "the sugar in the glass has dissolved", "av": "стаканалъуб чакар биун ана"}}
+- {"old_word": "disperse", "new_word": "miss", "example": {"en": "we missed each other on the way", "av": "ниж нухда данде ккечӏо"}}
+- {"old_word": "disperse", "new_word": "part", "example": {"en": "the boards have parted", "av": "хъарщал ричӏун ун руго"}}
+- {"old_word": "disperse", "new_word": "sell out", "example": {"en": "the book is sold out", "av": "тӏехь бичун ана"}}
+- {"old_word": "disperse", "new_word": "run out", "example": {"en": "money ran out", "av": "гӏарац лъугӏана, тӏагӏана", "comment": "гьаб-доб босун лъугӏана"}}
+- {"old_word": "disperse", "new_word": "spread", "example": {"en": "rumors spread through the village", "av": "хабар росулъ тӏибитӏана"}}
+- {"old_word": "disperse", "new_word": "rain", "example": {"en": "the rain set in", "av": "цӏад цӏакъ кутаклъана"}}
+- {"old_word": "disperse", "new_word": "muddy", "example": {"en": "the road has become muddy", "av": "нух бикьана"}}
+- {"old_word": "siding", "new_word": "departure", "example": {"en": "departure of delegates", "av": "делегатал рокъорокъоре ин"}}
+- {"old_word": "siding", "new_word": "departure", "example": {"en": "departure of the audience from the theater", "av": "театралдаса халкъ биххун ин"}}
+- {"old_word": "hand-to-hand", "new_word": "hand-to-hand combat", "example": {"en": "hand-to-hand combat", "av": "рагъ, кьабгӏей"}}
+- {"old_word": "to run away; to escape", "new_word": "run", "example": {"en": "run down the mountain", "av": "магӏардаса гъоркье векеризе"}}
+- {"old_word": "to run away; to escape", "new_word": "skip", "example": {"en": "skip classes", "av": "дарсаздаса тӏуризе"}}
+- {"old_word": "to run away; to escape", "new_word": "run away", "example": {"en": "the dog ran away from its master", "av": "гьой бетӏергьанчиясдаса тӏурун ана"}}
+- {"old_word": "to run away; to escape", "new_word": "boil over", "example": {"en": "the milk boiled over", "av": "рахь тӏасан ана"}}
+- {"old_word": "to run away; to escape", "new_word": "roll", "example": {"en": "a tear rolled down the cheek", "av": "кӏаркьеналдасан магӏу чвахун ана"}}
+- {"old_word": "oneself", "new_word": "quietly", "example": {"en": "sit quietly", "av": "мунго парахат гӏодов чӏун вукӏа"}}
+- {"old_word": "oneself", "new_word": "think to oneself", "example": {"en": "I think to myself", "av": "дунго ургъулев вуго"}}
+- {"old_word": "oneself", "new_word": "walk", "example": {"en": "he walks along, noticing nothing", "av": "щибго бихьичӏого, живго унев вуго"}}
+- {"old_word": "oneself", "new_word": "not bad", "example": {"en": "not bad; well I never", "av": "квеш гуро"}}
+- {"old_word": "oneself", "new_word": "so-so", "example": {"en": "so-so", "av": "мадар буго, квешги гуро, цӏакъ лъикӏги гуро"}}
+- {"old_word": "fearfully, terribly", "new_word": "scared", "example": {"en": "I'm scared!", "av": "дун хӏинкъула! (хӏинкъун вуго)"}}
+- {"old_word": "thereby; by that", "new_word": "so much the better", "example": {"en": "so much the better", "av": "дагьабги лъикӏ"}}
+- {"old_word": "thereby; by that", "new_word": "the more the better", "example": {"en": "the more, the better", "av": "гӏемер бугебгӏан лъикӏ"}}
+- {"old_word": "thereby; by that", "new_word": "all the more", "example": {"en": "all the more", "av": "гьелеха, гьедин бугелъул гурищха"}}
+- {"old_word": "thereby; by that", "new_word": "nevertheless", "example": {"en": "nevertheless", "av": "гьедин бугониги, кигӏан кин бугониги"}}
+- {"old_word": "please; at will", "new_word": "what would you like", "example": {"en": "what would you like?; how can I help you?", "av": "дуе щиб бокьун бугеб?"}}
+- {"old_word": "please; at will", "new_word": "would you like", "example": {"en": "would you like?", "av": "бокьиларищ?"}}
+- {"old_word": "already", "new_word": "not so bad after all", "example": {"en": "not so bad after all", "av": "гьедигӏан квеш гьечӏебха"}}
+- {"old_word": "already", "new_word": "goodness knows", "example": {"en": "I really don't know; goodness knows", "av": "дидагиха лъалареб"}}
+- {"old_word": "walker", "new_word": "shake", "example": {"en": "the floor is shaking", "av": "чӏабар гьанкӏолеб, щванкӏолеб буго"}}
+- {"old_word": "this; it", "new_word": "who", "example": {"en": "who has come?", "av": "щив гьав вачӏарав?"}}
+- {"old_word": "this; it", "new_word": "struggle", "example": {"en": "life is a struggle", "av": "гӏумру – гьеб къеркьей", "comment": "буго"}}
+- {"old_word": "by the verb to appear", "new_word": "phenomenon", "example": {"en": "usual phenomenon", "av": "гӏадатаб иш"}}
+- {"old_word": "by the verb to appear", "new_word": "phenomenon", "example": {"en": "phenomenon of nature", "av": "тӏабигӏаталъул лъугьа-бахъин"}}
+- {"old_word": "by the verb to appear", "new_word": "phenomenon", "example": {"en": "talent is a comparatively rare phenomenon", "av": "пагьму (гьунар) цӏакъ къана-гӏатго бижулеб (букӏунеб) жо буго"}}
+- {"old_word": "open; factual", "new_word": "safe house", "example": {"en": "safe house", "av": "балъго данделъулеб рукъ"}}
+- {"old_word": "sturdy; robust", "new_word": "sturdy", "example": {"en": "sturdy person", "av": "чорхолъ витӏарав, къвакӏа-шакӏарав чи"}}
+- {"old_word": "sturdy; robust", "new_word": "crisp", "example": {"en": "crisp air", "av": "бацӏцӏадаб (цӏияб) гьава"}}
+- {"old_word": "core", "new_word": "heartwood", "example": {"en": "heartwood", "av": "цӏулал жанисеб бакӏ, ракӏ"}}
+- {"old_word": "core", "new_word": "nucleus", "example": {"en": "atomic nucleus", "av": "атомалъул ядро", "labels": ["физика"]}}
+- {"old_word": "core", "new_word": "core", "example": {"en": "core of the question", "av": "масъалаялъул (суалалъул) аслу, аслияб рахъ"}}
+- {"old_word": "core", "new_word": "shot put", "example": {"en": "shot put", "av": "ядро тунки", "comment": "рехи"}}
+
+
+## Этап 5: бытовые выражения и ложная многозначность
+
+Вынесены fawn on someone из grass snake и molt из fade. Восстановлены
+3 примера в fade, exterminate, terribly, а также 7 самостоятельных
+сочетаний: the old-fashioned way, under no circumstances, anyone at all,
+any whatsoever, as you please, as much as you like, twenty-five years ago.
+Аварское къоло щуго означает 25, поэтому прежнее английское twenty
+не воспроизводится. Содержание английских заголовков проверяется
+по значениям, а не по одному переводу многозначного русского слова.
+
+## Этап 4: восстановление ещё десяти лексических сочетаний
+
+Добавлены guard mounting, hand-to-hand combat, songbirds, rumbles of thunder,
+escort destroyer, truism. В существующие статьи возвращены примеры steering wheel,
+exemplary behavior, approximate calculation, attendance at the meeting.
+Восстановлено только содержимое прежних examples.av; английские заголовки
+разведены по значениям. Склеенные examples с а)/б), уже разделённые в новом
+файле (work, chop, trivial, relay), не считаются потерями и не восстанавливаются.
+
+## Этап 3: удалённые остатки русской грамматики
+
+Удалены 34 статьи без аварского перевода. Ниже их полные записи для аудита.
+
+- {"word": "arches", "senses": [{"comment": "genitive plural", "comment_lang": "en"}]}
+- {"word": "run", "senses": [{"comment": "present tense of бежать", "comment_lang": "ru"}]}
+- {"word": "beat", "senses": [{"comment": "imperative mood from bit'(sja)", "comment_lang": "en"}]}
+- {"word": "I take", "senses": [{"comment": "present tense of брать(ся)", "comment_lang": "ru"}]}
+- {"word": "wrestler's", "senses": [{"comment": "genitive of 'борец'", "comment_lang": "ru"}]}
+- {"word": "felling", "senses": [{"precomment": "noun from the verb fell"}]}
+- {"word": "to you", "senses": [{"comment": "dative case", "comment_lang": "en", "labels": ["pronoun", "personal pronoun"]}]}
+- {"word": "by you", "senses": [{"comment": "instrumental case", "comment_lang": "en", "labels": ["pronoun", "personal pronoun"]}]}
+- {"word": "you", "senses": [{"comment": "genitive case", "comment_lang": "en", "labels": ["pronoun", "personal pronoun"]}]}
+- {"word": "blow", "senses": [{"comment": "imperative from veyat' (to blow), vit' (to weave)", "comment_lang": "en"}]}
+- {"word": "flutter", "senses": [{"comment": "imperative mood from to wind", "comment_lang": "en"}]}
+- {"word": "led", "senses": [{"comment": "past tense of вести", "comment_lang": "ru"}]}
+- {"word": "greatest", "senses": [{"comment": "superlative of great", "comment_lang": "en"}]}
+- {"word": "I will exact", "senses": [{"comment": "future tense of взыскать", "comment_lang": "ru"}]}
+- {"word": "exciting", "labels": ["colloquial word"], "senses": [{"labels": ["colloquial word"]}]}
+- {"word": "all", "senses": [{"precomment": "gen., acc. and prep. from all"}]}
+- {"word": "lice", "senses": [{"precomment": "genitive singular, nominative from louse"}]}
+- {"word": "g", "senses": [{"comment": "the letter G", "comment_lang": "en"}]}
+- {"word": "d", "senses": [{"comment": "Letter - D", "comment_lang": "en"}]}
+- {"word": "will give", "labels": ["singular"], "senses": [{"precomment": "2nd person singular future tense of дать(ся)"}]}
+- {"word": "e", "senses": [{"comment": "Letter - E", "comment_lang": "en"}]}
+- {"word": "z", "senses": [{"comment": "Letter - Z", "comment_lang": "en"}]}
+- {"word": "L", "senses": [{"comment": "Letter L", "comment_lang": "en"}]}
+- {"word": "m", "senses": [{"comment": "Letter - M", "comment_lang": "en"}]}
+- {"word": "p", "senses": [{"comment": "Letter - P", "comment_lang": "en"}]}
+- {"word": "r", "senses": [{"comment": "Letter R", "comment_lang": "en"}]}
+- {"word": "t", "senses": [{"comment": "Letter - T", "comment_lang": "en"}]}
+- {"word": "f", "senses": [{"comment": "Letter - F", "comment_lang": "en"}]}
+- {"word": "kh", "senses": [{"comment": "Letter Kh", "comment_lang": "en"}]}
+- {"word": "ts", "senses": [{"comment": "Letter - Ц", "comment_lang": "ru"}]}
+- {"word": "ch", "senses": [{"comment": "Letter Ч", "comment_lang": "ru"}]}
+- {"word": "particle", "senses": [{"labels": ["diminutive meaning"], "comment": "from 'chast'' I, 'chastitsa' I", "comment_lang": "en"}]}
+- {"word": "sh", "senses": [{"comment": "Letter - Sh", "comment_lang": "en"}]}
+- {"word": "shch", "senses": [{"comment": "Letter - Shch", "comment_lang": "en"}]}
+
+Восстановлены 10 лексических статей из старой версии: cursory, face, panicle, flume, dessert wine, dessert spoon, shoe tongue, ruby earrings, kernel, fluent reading. Их прежнее аварское содержимое не переписывалось; английские заголовки разделены по значениям.
+
+
+## Обновление после решения мейнтейнера
+
+Удаление русских see_also намеренное и не считается потерей.
+Ниже сохранён первоначальный снимок для истории, его номера строк устарели.
+В рабочем файле удалены 478 пустых статей, 9 русских forms и последняя
+русская ссылка; исправлены языки 354 английских комментариев и перенесены
+последние исправления ru-av. Разделены значения hind legs → rear / balk,
+to teach a lesson → teach a lesson / study.
+Остаются 34 статьи без аварского содержимого (русские грамматические
+пояснения, буквы и подобное) и ручной разбор 277 кандидатов на потери.
+Автоматическое восстановление русских ссылок и грамматических статей отменено.
+
+## Первоначальный статус (до очистки)
+
+Полная приёмка не завершена: требуются решения по пустым статьям, удалённым ссылкам и предполагаемым потерям. Данные отчёта относятся к рабочему файлу после согласованного удаления stem/stress и меток русского рода/вида.
+
+## Объём
+
+| Показатель | HEAD | Новый файл |
+|---|---:|---:|
+| Статьи | 38937 | 35219 |
+| Значения | 51060 | 50680 |
+| Примеры | 33404 | 33087 |
+| Статьи с see_also | 4863 | 1 |
+
+## Метод сравнения примеров
+
+Аварские стороны старых примеров искались во всех examples.av, sense.text и sense.comment нового файла после NFC, приведения к нижнему регистру, нормализации пробелов и е/ё. Отсутствие точного нормализованного совпадения — кандидат на потерю, не доказательство: пример мог быть исправлен или переформулирован. Исходные 428 кандидатов после этой нормализации сократились до 277.
+
+## Не перенесены последние исправления ru-av
+
+- Hellenism: в senses[1].comment осталось постороннее электропроигрыватель.
+- record player (бывшее электропроигрыватель): нет text, в comment осталось палстинка.
+- poke (бывшее ткнуть): перевод идиомы дублируется как общее sense.text.
+- forms в 9 статьях и единственный see_also всё ещё содержат русские заголовки; их нельзя считать английскими формами/ссылками.
+
+## Пустые статьи (478)
+
+После удаления русской грамматики часть таких строк состоит только из word. До изменения было 0 статей без senses и see_also. 409 из 478 имеют другую непустую статью с тем же word; остальные 69 строк требуют отдельной проверки. Повторные одинаковые заголовки не считаются автоматически ошибками: они могут представлять разные значения.
+
+- строка 212: {"word": "Aguls", "labels": ["plural"]}
+- строка 668: {"word": "arrest"}
+- строка 1113: {"word": "bang"}
+- строка 1127: {"word": "small tank", "labels": ["diminutive meaning"]}
+- строка 1174: {"word": "beige"}
+- строка 1362: {"word": "madness"}
+- строка 1394: {"word": "show white"}
+- строка 1455: {"word": "bank"}
+- строка 1574: {"word": "continuous", "labels": ["colloquial word"]}
+- строка 1678: {"word": "bivouac"}
+- строка 1800: {"word": "to bless"}
+- строка 1803: {"word": "to improve"}
+- строка 1870: {"word": "saucer"}
+- строка 1872: {"word": "dish"}
+- строка 1898: {"word": "pilgrim"}
+- строка 2047: {"word": "harrow"}
+- строка 2050: {"word": "harrowing"}
+- строка 2080: {"word": "cooper's"}
+- строка 2084: {"word": "I'm afraid"}
+- строка 2103: {"word": "beard", "labels": ["archaic word"]}
+- строка 2115: {"word": "inspector"}
+- строка 2132: {"word": "bro", "labels": ["colloquial (vernacular) word"]}
+- строка 2136: {"word": "brother"}
+- строка 2154: {"word": "rave"}
+- строка 2158: {"word": "disdain", "labels": ["colloquial word"]}
+- строка 2162: {"word": "dawn"}
+- строка 2187: {"word": "diamond"}
+- строка 2401: {"word": "bourgeois", "labels": ["colloquial word"]}
+- строка 2455: {"word": "bang"}
+- строка 2456: {"word": "thump"}
+- строка 2648: {"word": "your", "labels": ["pronoun"]}
+- строка 2649: {"word": "your", "labels": ["pronoun"]}
+- строка 2650: {"word": "your", "labels": ["pronoun", "plural"]}
+- строка 2653: {"word": "run in"}
+- строка 2655: {"word": "absorb"}
+- строка 2656: {"word": "drive in"}
+- строка 2657: {"word": "absorb"}
+- строка 2661: {"word": "throw in"}
+- строка 2664: {"word": "fall in"}
+- строка 2669: {"word": "plunge"}
+- строка 2676: {"word": "screw in"}
+- строка 2679: {"word": "entrust"}
+- строка 2684: {"word": "screw in"}
+- строка 2687: {"word": "introduce"}
+- строка 2690: {"word": "import"}
+- строка 2706: {"word": "press in"}
+- строка 2707: {"word": "hammer in"}
+- строка 2712: {"word": "push in"}
+- строка 2718: {"word": "thread"}
+- строка 2722: {"word": "thread"}
+- строка 2740: {"word": "plentifully", "labels": ["adverb", "colloquial (vernacular) word"]}
+- строка 2748: {"word": "inspire"}
+- строка 2754: {"word": "to blow in"}
+- строка 2758: {"word": "ponder"}
+- строка 2759: {"word": "to blow in"}
+- строка 2762: {"word": "inhale"}
+- строка 2780: {"word": "I lead"}
+- строка 2787: {"word": "carried"}
+- строка 2855: {"word": "camel meat"}
+- строка 2979: {"word": "chickenpox", "labels": ["colloquial word"]}
+- строка 3002: {"word": "I weigh"}
+- строка 3013: {"word": "to get used to"}
+- строка 3036: {"word": "churn"}
+- строка 3037: {"word": "run"}
+- строка 3041: {"word": "whisk"}
+- строка 3042: {"word": "climb up"}
+- строка 3047: {"word": "agitate"}
+- строка 3052: {"word": "swell up"}
+- строка 3055: {"word": "shoulder"}
+- строка 3061: {"word": "weigh"}
+- строка 3062: {"word": "soar"}
+- строка 3063: {"word": "yelp"}
+- строка 3067: {"word": "work up"}
+- строка 3072: {"word": "to cock"}
+- строка 3079: {"word": "to glance"}
+- строка 3081: {"word": "to pile up"}
+- строка 3086: {"word": "to double"}
+- строка 3089: {"word": "to jerk up"}
+- строка 3099: {"word": "to shudder"}
+- строка 3111: {"word": "rear"}
+- строка 3118: {"word": "break open"}
+- строка 3120: {"word": "take off"}
+- строка 3129: {"word": "tousle"}
+- строка 3135: {"word": "to fling up"}
+- строка 3136: {"word": "to get soaked"}
+- строка 3140: {"word": "to soar"}
+- строка 3142: {"word": "to lather"}
+- строка 3148: {"word": "to bridle"}
+- строка 3151: {"word": "I will beat"}
+- строка 3152: {"word": "will soar"}
+- строка 3157: {"word": "rose"}
+- строка 3159: {"word": "to raise"}
+- строка 3165: {"word": "blow up", "homonym": 1}
+- строка 3166: {"word": "dig up", "homonym": 2}
+- строка 3167: {"word": "explode"}
+- строка 3174: {"word": "loosen"}
+- строка 3175: {"word": "ruffle"}
+- строка 3183: {"word": "exact"}
+- строка 3223: {"word": "modify"}
+- строка 3227: {"word": "see"}
+- строка 3243: {"word": "swerve", "homonym": 1}
+- строка 3326: {"word": "slave away"}
+- строка 3327: {"word": "dig in"}
+- строка 3330: {"word": "roll in"}
+- строка 3335: {"word": "put in"}
+- строка 3337: {"word": "paste in"}
+- строка 3340: {"word": "wedge in"}
+- строка 3344: {"word": "switch on"}
+- строка 3350: {"word": "hammer in"}
+- строка 3358: {"word": "take root"}
+- строка 3361: {"word": "creep in"}
+- строка 3368: {"word": "screw in"}
+- строка 3374: {"word": "taste"}
+- строка 3375: {"word": "I will taste", "labels": ["singular"]}
+- строка 3378: {"word": "insert"}
+- строка 3389: {"word": "break in"}
+- строка 3399: {"word": "climb in"}
+- строка 3401: {"word": "pull", "labels": ["singular"]}
+- строка 3403: {"word": "slap on"}
+- строка 3404: {"word": "fly in"}
+- строка 3409: {"word": "pour in"}
+- строка 3411: {"word": "get stuck"}
+- строка 3423: {"word": "fall in love"}
+- строка 3426: {"word": "putty in"}
+- строка 3430: {"word": "impute"}
+- строка 3431: {"word": "freeze in"}
+- строка 3435: {"word": "capacity"}
+- строка 3442: {"word": "baste in"}
+- строка 3446: {"word": "mix in"}
+- строка 3448: {"word": "fit"}
+- строка 3450: {"word": "dent"}
+- строка 3461: {"word": "introduce"}
+- строка 3482: {"word": "delve"}
+- строка 3488: {"word": "heed"}
+- строка 3491: {"word": "bring in"}
+- строка 3502: {"word": "instill"}
+- строка 3517: {"word": "I will drive in"}
+- строка 3519: {"word": "involve"}
+- строка 3588: {"word": "erect"}
+- строка 3627: {"word": "excite"}
+- строка 3633: {"word": "glorify"}
+- строка 3638: {"word": "announce"}
+- строка 3639: {"word": "erect"}
+- строка 3644: {"word": "return"}
+- строка 3648: {"word": "rise"}
+- строка 3653: {"word": "head"}
+- строка 3655: {"word": "ignite"}
+- строка 3658: {"word": "repay"}
+- строка 3660: {"word": "erect"}
+- строка 3664: {"word": "cultivate"}
+- строка 3672: {"word": "abstain"}
+- строка 3695: {"word": "compensate"}
+- строка 3710: {"word": "reward"}
+- строка 3716: {"word": "arise"}
+- строка 3720: {"word": "exalt"}
+- строка 3725: {"word": "resume"}
+- строка 3732: {"word": "increase"}
+- строка 3737: {"word": "revive"}
+- строка 3741: {"word": "take"}
+- строка 3839: {"word": "imagine"}
+- строка 3847: {"word": "to arm"}
+- строка 3858: {"word": "to embody"}
+- строка 3867: {"word": "I will dig in", "homonym": 1}
+- строка 3868: {"word": "I will stare", "homonym": 2}
+- строка 3928: {"word": "exclaim"}
+- строка 3930: {"word": "resurrect"}
+- строка 3937: {"word": "resurrect"}
+- строка 3942: {"word": "become inflamed"}
+- строка 3943: {"word": "glorify"}
+- строка 3955: {"word": "bring up"}
+- строка 3960: {"word": "ignite"}
+- строка 3962: {"word": "replenish"}
+- строка 3972: {"word": "perceive"}
+- строка 3976: {"word": "perceive", "labels": ["archaic word"]}
+- строка 3979: {"word": "reproduce"}
+- строка 3984: {"word": "sit"}
+- строка 3989: {"word": "reunite"}
+- строка 3990: {"word": "recreate"}
+- строка 3993: {"word": "revolt"}
+- строка 3994: {"word": "restore"}
+- строка 4021: {"word": "admire"}
+- строка 4052: {"word": "reign"}
+- строка 4059: {"word": "I howl"}
+- строка 4060: {"word": "I fight"}
+- строка 4065: {"word": "to solder in"}
+- строка 4067: {"word": "to flutter in"}
+- строка 4085: {"word": "write in"}
+- строка 4088: {"word": "absorb"}
+- строка 4090: {"word": "shove in"}
+- строка 4094: {"word": "weave in"}
+- строка 4097: {"word": "swim in"}
+- строка 4101: {"word": "crawl in"}
+- строка 4127: {"word": "harness"}
+- строка 4133: {"word": "let in"}
+- строка 4139: {"word": "get involved"}
+- строка 4160: {"word": "reason with"}
+- строка 4166: {"word": "grow in"}
+- строка 4188: {"word": "cut into"}
+- строка 4201: {"word": "I dig in"}
+- строка 4202: {"word": "I lie"}
+- строка 4203: {"word": "to chop in"}
+- строка 4210: {"word": "to hand over"}
+- строка 4214: {"word": "to dig in"}
+- строка 4215: {"word": "burst in"}
+- строка 4221: {"word": "to thrust in"}
+- строка 4223: {"word": "absorb"}
+- строка 4224: {"word": "all"}
+- строка 4262: {"word": "to jump up"}
+- строка 4263: {"word": "to dig up"}
+- строка 4265: {"word": "to climb up"}
+- строка 4267: {"word": "to feed"}
+- строка 4269: {"word": "to throw up"}
+- строка 4271: {"word": "to boil up"}
+- строка 4283: {"word": "cry out"}
+- строка 4286: {"word": "to open"}
+- строка 4296: {"word": "listen closely"}
+- строка 4297: {"word": "peer"}
+- строка 4300: {"word": "push in"}
+- строка 4303: {"word": "rear"}
+- строка 4304: {"word": "to flutter up"}
+- строка 4305: {"word": "rip open"}
+- строка 4307: {"word": "to plow"}
+- строка 4309: {"word": "to foam"}
+- строка 4314: {"word": "wring one's hands"}
+- строка 4316: {"word": "surface"}
+- строка 4321: {"word": "remember"}
+- строка 4328: {"word": "jump up"}
+- строка 4330: {"word": "sprinkle"}
+- строка 4332: {"word": "scare away"}
+- строка 4334: {"word": "swell up"}
+- строка 4336: {"word": "swell"}
+- строка 4342: {"word": "flare up"}
+- строка 4346: {"word": "get up"}
+- строка 4359: {"word": "meet"}
+- строка 4363: {"word": "shake"}
+- строка 4366: {"word": "intervene"}
+- строка 4373: {"word": "foist"}
+- строка 4375: {"word": "sob"}
+- строка 4377: {"word": "rise"}
+- строка 4382: {"word": "pour in", "homonym": 2}
+- строка 4384: {"word": "all"}
+- строка 4390: {"word": "push in"}
+- строка 4391: {"word": "trample down"}
+- строка 4392: {"word": "drag in"}
+- строка 4395: {"word": "flow in"}
+- строка 4403: {"word": "rub in"}
+- строка 4404: {"word": "squeeze in"}
+- строка 4410: {"word": "drum into"}
+- строка 4429: {"word": "drag into"}
+- строка 4436: {"word": "insert"}
+- строка 4437: {"word": "draw in"}
+- строка 4462: {"word": "clutch"}
+- строка 4469: {"word": "read closely"}
+- строка 4473: {"word": "sew in"}
+- строка 4481: {"word": "eat into"}
+- строка 4485: {"word": "drive in"}
+- строка 4490: {"word": "blurt out"}
+- строка 4491: {"word": "run out"}
+- строка 4494: {"word": "knock out"}
+- строка 4495: {"word": "choose"}
+- строка 4506: {"word": "throw out"}
+- строка 4509: {"word": "shave"}
+- строка 4514: {"word": "drop out"}
+- строка 4517: {"word": "dump", "homonym": 1}
+- строка 4518: {"word": "tumble out", "homonym": 2}
+- строка 4523: {"word": "boil out"}
+- строка 4528: {"word": "ferret out"}
+- строка 4534: {"word": "turn inside out"}
+- строка 4535: {"word": "verify"}
+- строка 4542: {"word": "air out"}
+- строка 4547: {"word": "hang out"}
+- строка 4550: {"word": "unscrew"}
+- строка 4552: {"word": "dislocate"}
+- строка 4556: {"word": "breed"}
+- строка 4563: {"word": "drag out"}
+- строка 4565: {"word": "turn inside out"}
+- строка 4568: {"word": "gain"}
+- строка 4570: {"word": "bend"}
+- строка 4573: {"word": "look out"}
+- строка 4587: {"word": "drive out"}
+- строка 4588: {"word": "shield"}
+- строка 4589: {"word": "burn out"}
+- строка 4594: {"word": "scoop out"}
+- строка 4597: {"word": "unload"}
+- строка 4602: {"word": "gnaw out"}
+- строка 4604: {"word": "issue"}
+- строка 4606: {"word": "expel"}
+- строка 4612: {"word": "dressing"}
+- строка 4614: {"word": "allocate"}
+- строка 4617: {"word": "pull out"}
+- строка 4625: {"word": "tear out"}
+- строка 4637: {"word": "blow out"}
+- строка 4647: {"word": "exhale"}
+- строка 4648: {"word": "eat away"}
+- строка 4655: {"word": "leave", "homonym": 2}
+- строка 4665: {"word": "survive"}
+- строка 4668: {"word": "burn out"}
+- строка 4671: {"word": "wait for"}
+- строка 4673: {"word": "squeeze out"}
+- строка 4674: {"word": "be squeezed out"}
+- строка 4681: {"word": "rescue"}
+- строка 4689: {"word": "cram"}
+- строка 4691: {"word": "summon"}
+- строка 4695: {"word": "win"}
+- строка 4699: {"word": "search out"}
+- строка 4702: {"word": "show"}
+- строка 4706: {"word": "roll out"}
+- строка 4708: {"word": "to pump out"}
+- строка 4709: {"word": "mow down"}
+- строка 4710: {"word": "to throw out"}
+- строка 4713: {"word": "to boil away"}
+- строка 4716: {"word": "to lay out"}
+- строка 4718: {"word": "peck out"}
+- строка 4720: {"word": "shout out"}
+- строка 4722: {"word": "to switch off"}
+- строка 4725: {"word": "beg for"}
+- строка 4728: {"word": "forge"}
+- строка 4729: {"word": "pick out"}
+- строка 4730: {"word": "dig out"}
+- строка 4732: {"word": "to knock out"}
+- строка 4739: {"word": "to uproot"}
+- строка 4741: {"word": "to cut out"}
+- строка 4745: {"word": "chip out"}
+- строка 4746: {"word": "to crumble away"}
+- строка 4748: {"word": "to shout out"}
+- строка 4751: {"word": "to crystallize"}
+- строка 4758: {"word": "wriggle out"}
+- строка 4761: {"word": "bathe", "homonym": 2}
+- строка 4764: {"word": "smoke out"}
+- строка 4767: {"word": "fish out"}
+- строка 4770: {"word": "break out"}
+- строка 4773: {"word": "ripen"}
+- строка 4774: {"word": "climb out"}
+- строка 4777: {"word": "mold"}
+- строка 4779: {"word": "fly out"}
+- строка 4781: {"word": "cure"}
+- строка 4784: {"word": "pour out"}
+- строка 4786: {"word": "lick"}
+- строка 4797: {"word": "hatch"}
+- строка 4798: {"word": "shell"}
+- строка 4802: {"word": "smear"}
+- строка 4803: {"word": "implore"}
+- строка 4804: {"word": "coax"}
+- строка 4807: {"word": "steep"}
+- строка 4808: {"word": "pave"}
+- строка 4809: {"word": "exchange"}
+- строка 4812: {"word": "freeze"}
+- строка 4814: {"word": "measure"}
+- строка 4816: {"word": "measure"}
+- строка 4822: {"word": "sweep out", "homonym": 3}
+- строка 4823: {"word": "baste"}
+- строка 4824: {"word": "vent"}
+- строка 4826: {"word": "die out"}
+- строка 4831: {"word": "to get soaked"}
+- строка 4833: {"word": "thresh out"}
+- строка 4836: {"word": "freeze out"}
+- строка 4847: {"word": "torture"}
+- строка 4849: {"word": "wash out"}
+- строка 4855: {"word": "nurture"}
+- строка 4858: {"word": "take out"}
+- строка 4862: {"word": "wear out"}
+- строка 4868: {"word": "force"}
+- строка 4871: {"word": "surface"}
+- строка 4875: {"word": "fall out"}
+- строка 4877: {"word": "blurt out"}
+- строка 4880: {"word": "evaporate"}
+- строка 4883: {"word": "flutter out"}
+- строка 4888: {"word": "bake"}
+- строка 4895: {"word": "to cut out"}
+- строка 4901: {"word": "write out"}
+- строка 4903: {"word": "push out"}
+- строка 4908: {"word": "smelt"}
+- строка 4913: {"word": "pay out"}
+- строка 4914: {"word": "spit out"}
+- строка 4917: {"word": "splash out"}
+- строка 4921: {"word": "unplait"}
+- строка 4922: {"word": "swim out"}
+- строка 4925: {"word": "rinse out"}
+- строка 4926: {"word": "crawl out"}
+- строка 4931: {"word": "execute"}
+- строка 4942: {"word": "correct"}
+- строка 4943: {"word": "beg for"}
+- строка 4944: {"word": "show out"}
+- строка 4947: {"word": "jump out"}
+- строка 4949: {"word": "unharness"}
+- строка 4954: {"word": "straighten"}
+- строка 4960: {"word": "release"}
+- строка 4968: {"word": "extricate"}
+- строка 4969: {"word": "bulge"}
+- строка 4972: {"word": "interrogate"}
+- строка 4976: {"word": "bulge"}
+- строка 4977: {"word": "produce"}
+- строка 4981: {"word": "level"}
+- строка 4990: {"word": "grow"}
+- строка 4994: {"word": "cultivate"}
+- строка 5000: {"word": "cut out", "homonym": 2}
+- строка 5002: {"word": "cut out"}
+- строка 5003: {"word": "outline"}
+- строка 5010: {"word": "degenerate"}
+- строка 5013: {"word": "chop down"}
+- строка 5018: {"word": "rescue"}
+- строка 5021: {"word": "tear out", "homonym": 1}
+- строка 5022: {"word": "dig out", "homonym": 2}
+- строка 5023: {"word": "break out"}
+- строка 5030: {"word": "disembark"}
+- строка 5031: {"word": "suck out"}
+- строка 5032: {"word": "drill out"}
+- строка 5036: {"word": "release"}
+- строка 5038: {"word": "sow"}
+- строка 5039: {"word": "hew"}
+- строка 5044: {"word": "move out"}
+- строка 5049: {"word": "incubate"}
+- строка 5051: {"word": "scrape out"}
+- строка 5055: {"word": "express"}
+- строка 5056: {"word": "jump out"}
+- строка 5065: {"word": "to track down"}
+- строка 5067: {"word": "to curry favor"}
+- строка 5072: {"word": "to listen to"}
+- строка 5073: {"word": "to look out for"}
+- строка 5074: {"word": "to ridicule"}
+- строка 5079: {"word": "to stick out"}
+- строка 5115: {"word": "interrogate"}
+- строка 5121: {"word": "exhibit"}
+- строка 5123: {"word": "settle"}
+- строка 5126: {"word": "line"}
+- строка 5132: {"word": "line up"}
+- строка 5133: {"word": "stitch"}
+- строка 5152: {"word": "calculate"}
+- строка 5154: {"word": "send out"}
+- строка 5157: {"word": "pour out", "homonym": 2}
+- строка 5159: {"word": "spill out", "homonym": 2}
+- строка 5160: {"word": "dry out"}
+- строка 5162: {"word": "push out"}
+- строка 5163: {"word": "melt down"}
+- строка 5164: {"word": "trample down"}
+- строка 5167: {"word": "pull out"}
+- строка 5168: {"word": "turn"}
+- строка 5180: {"word": "oust"}
+- строка 5181: {"word": "hew"}
+- строка 5183: {"word": "wipe"}
+- строка 5185: {"word": "emboss"}
+- строка 5195: {"word": "bargain"}
+- строка 5198: {"word": "eradicate"}
+- строка 5208: {"word": "to stretch"}
+- строка 5214: {"word": "to fish out"}
+- строка 5216: {"word": "to learn"}
+- строка 5220: {"word": "to nurse"}
+- строка 5222: {"word": "to snatch"}
+- строка 5231: {"word": "emasculate"}
+- строка 5237: {"word": "scratch out"}
+- строка 5239: {"word": "fade"}
+- строка 5241: {"word": "strain"}
+- строка 5242: {"word": "cross out"}
+- строка 5245: {"word": "scoop out"}
+- строка 5247: {"word": "draft"}
+- строка 5250: {"word": "comb out"}
+- строка 5256: {"word": "calculate"}
+- строка 5262: {"word": "subtract", "homonym": 2}
+- строка 5264: {"word": "read through"}
+- строка 5265: {"word": "clean out"}
+- строка 5268: {"word": "to throw out"}
+- строка 5272: {"word": "came out"}
+- строка 5273: {"word": "to shell"}
+- строка 5279: {"word": "knock out"}
+- строка 5284: {"word": "to embroider"}
+- строка 5292: {"word": "pluck out"}
+- строка 5299: {"word": "clarify"}
+- строка 5335: {"word": "hectare"}
+- строка 5436: {"word": "bark"}
+- строка 5444: {"word": "accordion", "labels": ["colloquial word"]}
+- строка 5476: {"word": "anywhere"}
+- строка 5700: {"word": "depths"}
+- строка 5806: {"word": "firebrand", "homonym": 1}
+- строка 5821: {"word": "glaze ice"}
+- строка 5865: {"word": "I drive"}
+- строка 5948: {"word": "small handful"}
+- строка 6023: {"word": "city", "homonym": 2, "labels": ["masculine", "archaic"]}
+- строка 6027: {"word": "urban planning"}
+
+## Кандидаты на потерю примеров (277)
+
+Указан старый английский заголовок и полный прежний пример.
+
+- {"old_word": "b", "example": {"en": "I would go", "av": "дунни инаан"}}
+- {"old_word": "fugitive, fluent", "example": {"en": "fluent reading", "av": "хехаб (дурун) цӏали"}}
+- {"old_word": "fugitive, fluent", "example": {"en": "cursory overview", "av": "тӏаса-масагояб хӏасил", "comment": "гьаби"}}
+- {"old_word": "fugitive, fluent", "example": {"en": "fleeting glance", "av": "тохлъукьегояб берчӏвай"}}
+- {"old_word": "in; at", "example": {"en": "to enter the room", "av": "рокъове лъугьине"}}
+- {"old_word": "in; at", "example": {"en": "the papers lie in the drawer", "av": "кагътал ящикалъур руго"}}
+- {"old_word": "in; at", "example": {"en": "in the room", "av": "рокъоб"}}
+- {"old_word": "in; at", "example": {"en": "live in Crimea", "av": "Крымалда гӏумру гьабизе"}}
+- {"old_word": "in; at", "example": {"en": "to study at a university", "av": "университеталда цӏализе"}}
+- {"old_word": "in; at", "example": {"en": "at five o'clock", "av": "сагӏат щугоялда"}}
+- {"old_word": "in; at", "example": {"en": "at midnight", "av": "сордо бащалъараб мехалъ (сардилъ)"}}
+- {"old_word": "in; at", "example": {"en": "this year", "av": "гьаб соналъ (исана)"}}
+- {"old_word": "in; at", "example": {"en": "in September", "av": "сентябралда"}}
+- {"old_word": "in; at", "example": {"en": "squared notebook", "av": "клеткаби ругеб тетрадь"}}
+- {"old_word": "in; at", "example": {"en": "he was wearing a coat", "av": "гьев пальтоялъулъ вугоан (вукӏана)"}}
+- {"old_word": "in; at", "example": {"en": "comedy in three acts", "av": "лъабго акталъул комедия"}}
+- {"old_word": "in; at", "example": {"en": "look through binoculars", "av": "дурнабаз (дурнабаздасан) валагьизе"}}
+- {"old_word": "in; at", "example": {"en": "take as an example", "av": "мисалалъе босизе"}}
+- {"old_word": "in; at", "example": {"en": "like his father in character", "av": "гӏамал-хасияталъ инсуда релъарав (эмен гӏадав)"}}
+- {"old_word": "in; at", "example": {"en": "three degrees of frost", "av": "лъабго градусалъул квач"}}
+- {"old_word": "in; at", "example": {"en": "weighing five kilograms", "av": "щуго килограммалъул цӏайи бугеб"}}
+- {"old_word": "in; at", "example": {"en": "two meters long", "av": "халалъи (халалъухъе) кӏиго метр бугеб"}}
+- {"old_word": "in; at", "example": {"en": "three times more", "av": "лъабго нухалъ кӏудияб"}}
+- {"old_word": "in; at", "example": {"en": "he used to work as a mechanic", "av": "цеве гьев механиклъун хӏалтӏулев вукӏана"}}
+- {"old_word": "in; at", "example": {"en": "two kilometers from the city", "av": "шагьаралдаса кӏиго километралъ добегӏан"}}
+- {"old_word": "in; at", "example": {"en": "the boy is the spitting image of his father", "av": "тӏубанго инсуда релъарав вас"}}
+- {"old_word": "in; at", "example": {"en": "to wrap in paper", "av": "кагътилъ жемизе"}}
+- {"old_word": "in; at", "example": {"en": "road to the forest", "av": "рохьобе нух"}}
+- {"old_word": "in; at", "example": {"en": "snow turned into water", "av": "гӏазу лъеде сверана"}}
+- {"old_word": "in; at", "example": {"en": "stand to attention", "av": "чӏва гӏадин витӏун чӏезе"}}
+- {"old_word": "in; at", "example": {"en": "to say as a joke", "av": "махсарадего абизе"}}
+- {"old_word": "in; at", "example": {"en": "be a member of a commission", "av": "комиссиялда (гьоркьов) вукӏине"}}
+- {"old_word": "in; at", "example": {"en": "help with work", "av": "хӏалтӏулъ кумек гьабизе"}}
+- {"old_word": "in; at", "example": {"en": "say in a nutshell", "av": "кӏиго рагӏиялдалъун абизе"}}
+- {"old_word": "in-", "example": {"en": "to run in", "av": "жаниве векеризе"}}
+- {"old_word": "in-", "example": {"en": "drive in", "av": "жаниб къазабизе"}}
+- {"old_word": "in-", "example": {"en": "to peer", "av": "кӏвар кьун, валагьизе", "comment": "хал гьабизе"}}
+- {"old_word": "vz- (prefix)", "example": {"en": "to shake up; to whip", "av": "кӏобокӏун жуба-гъубазабизе"}}
+- {"old_word": "vz-", "example": {"en": "fly into a rage", "av": "кутакалда ццидахине, балканахине"}}
+- {"old_word": "prefix", "example": {"en": "lift hands", "av": "кверал эхеде рорхизе"}}
+- {"old_word": "prefix", "example": {"en": "to erect a building", "av": "ригь эхетизе"}}
+- {"old_word": "prefix", "example": {"en": "the sun rises", "av": "бакъ баккулеб буго"}}
+- {"old_word": "prefix", "example": {"en": "to resume classes", "av": "занятиял цӏидасан гьаризе"}}
+- {"old_word": "prefix", "example": {"en": "come to hate", "av": "рихине"}}
+- {"old_word": "prefix", "example": {"en": "influence someone", "av": "лъиениги асар гьабизабизе"}}
+- {"old_word": "vs- vz-", "example": {"en": "boil", "av": "гьализе"}}
+- {"old_word": "incubate", "example": {"en": "sit through the end of the meeting", "av": "данделъи лъугӏизегӏан гӏодов чӏун вукӏине"}}
+- {"old_word": "incubate", "example": {"en": "he stayed at home for a week", "av": "дов анкьица рокъов чӏана"}}
+- {"old_word": "day off; holiday", "example": {"en": "exit door", "av": "къватӏире рахъунеб (унеб) нуцӏа"}}
+- {"old_word": "day off; holiday", "example": {"en": "best suit", "av": "байрам къоялъ ретӏунеб костюм"}}
+- {"old_word": "day off; holiday", "example": {"en": "I am off duty today, I have a day off today", "av": "дун жакъа гӏодой йиго, дир жакъа гӏодобкъо"}}
+- {"old_word": "face; edge; verge", "example": {"en": "a cube has six faces", "av": "кубалъул анлъго хьибил буго"}}
+- {"old_word": "face; edge; verge", "example": {"en": "erasing the boundaries between physical and mental labor", "av": "физикияб ва гӏакълияб хӏалтӏабазда гьоркьоб гӏурхъи тӏагӏин"}}
+- {"old_word": "face; edge; verge", "example": {"en": "to draw a line between ...", "av": "гӏурхъи чӏвазе … гьоркьоб"}}
+- {"old_word": "face; edge; verge", "example": {"en": "to be on the verge of something", "av": "сундулниги гӏорхъоде щвезе"}}
+- {"old_word": "antiquity", "example": {"en": "matter of twenty years ago", "av": "къоло щуго соналъ цебе букӏараб иш"}}
+- {"old_word": "antiquity", "example": {"en": "duration of friendship", "av": "гьудуллъиялъул халат бахъин (гӏемераб мехалъ букӏин)"}}
+- {"old_word": "antiquity", "example": {"en": "the case was dismissed due to the statute of limitations", "av": "гӏемер мехиналда бан, дело къан (къотӏизабун) букӏана"}}
+- {"old_word": "dessert", "example": {"en": "dessert wine", "av": "гьуинаб цӏолбол чагъир"}}
+- {"old_word": "dessert", "example": {"en": "dessert spoon", "av": "гьоркьохъеб балухъ", "comment": "чайдул балухъалдаса кӏудияб"}}
+- {"old_word": "prey; loot; extraction", "example": {"en": "oil production", "av": "ракьулъа чӏегӏернарт бахъи"}}
+- {"old_word": "prey; loot; extraction", "example": {"en": "war loot", "av": "рагъда щвараб давла"}}
+- {"old_word": "reach; drag", "example": {"en": "to drag out work until evening", "av": "хӏалтӏи къасилъагӏан халат бахъинабизе"}}
+- {"old_word": "reach; drag", "example": {"en": "the patient will not last until spring", "av": "унтарав их щвезегӏан чӏаго хутӏиларо"}}
+- {"old_word": "chewing gum", "example": {"en": "chew gum", "av": "чӏамучӏаб (чӏалгӏараб) цого жо бицине"}}
+- {"old_word": "sign; trace", "example": {"en": "you can't see an inch in front of your face", "av": "щибниги бихьулеб гьечӏо, бадиб килищ тунканиги, бихьулеб гьечӏо"}}
+- {"old_word": "from-", "example": {"en": "to tear up; to tatter", "av": "бихъ-бихъун (тӏутӏун) базе, пара-пара гьабизе"}}
+- {"old_word": "from-", "example": {"en": "to wound severely", "av": "лъукъ-лъукъизе, лъукъ-лъукъун рехизе"}}
+- {"old_word": "ka", "example": {"en": "give me (colloquial)", "av": "кьея"}}
+- {"old_word": "ka", "example": {"en": "tell me now", "av": "бицея дида"}}
+- {"old_word": "ka", "example": {"en": "I think I'll buy this book", "av": "босизин дица гьаб тӏехь"}}
+- {"old_word": "cell", "example": {"en": "stack firewood in a crib", "av": "цӏулал мачӏу гьабизе"}}
+- {"old_word": "cell", "example": {"en": "nerve cells", "av": "нервабазул зарраби"}}
+- {"old_word": "which", "example": {"en": "under no circumstances", "av": "щиб гьабуниги, щиб лъугьаниги"}}
+- {"old_word": "molt; shed; fade", "example": {"en": "chintz fades", "av": "читил кьер хола"}}
+- {"old_word": "tray", "example": {"en": "mill flume", "av": "гьабирахъ"}}
+- {"old_word": "panicle", "example": {"en": "oat panicle", "av": "нехадул тӏегь"}}
+- {"old_word": "panicle", "example": {"en": "reed panicle", "av": "муцӏидул тӏегь", "comment": "бутӏуцӏин"}}
+- {"old_word": "mole; breakwater", "example": {"en": "he, they say, didn't know this", "av": "гъосдадила гьеб лъалароанила"}}
+- {"old_word": "torment", "example": {"en": "to exterminate rats", "av": "чӏахӏагӏункӏкӏал хвезаризе"}}
+- {"old_word": "torment", "example": {"en": "starve", "av": "вакъиялъ тату хвезабизе"}}
+- {"old_word": "torment", "example": {"en": "stain oak", "av": "микк бецӏлъизе ва къвакӏизе лъадалъ лъезе"}}
+- {"old_word": "on", "example": {"en": "bib", "av": "карандабухь"}}
+- {"old_word": "on", "example": {"en": "oversleeve", "av": "къвалидаххел", "comment": "хӏалтӏулеб мехалда, къвалал чороклъичӏого рукӏине, тӏасан ххолел бащдал къвалал (цоябкъвал)"}}
+- {"old_word": "on", "example": {"en": "kneepad", "av": "накалдабухь, накалдаххел", "comment": "наку цӏунизе"}}
+- {"old_word": "on", "example": {"en": "breast; chest", "av": "каранда балеб"}}
+- {"old_word": "on", "example": {"en": "desktop; table", "av": "столалда тӏад лъолеб"}}
+- {"old_word": "on", "example": {"en": "strictly", "av": "кьварун"}}
+- {"old_word": "neither", "example": {"en": "he doesn't interfere in anything", "av": "дов сундаго гьоркьове лъугьанаро"}}
+- {"old_word": "neither", "example": {"en": "so as not to depend on anyone", "av": "лъидаго варавлъун вукӏунгутӏизе"}}
+- {"old_word": "neither", "example": {"en": "I will not go under any circumstances", "av": "дун, щиб гьабуниги, инаро"}}
+- {"old_word": "neither", "example": {"en": "by no means tell him this", "av": "щиб кканиги, лъазабуге досда гьеб"}}
+- {"old_word": "to turn around", "example": {"en": "turn facing the window", "av": "гьумерги гордехун буссинабун, чӏезе"}}
+- {"old_word": "to turn around", "example": {"en": "you won't be back before an hour", "av": "цо сагӏтидаса цудун тӏад вуссун бажариларо"}}
+- {"old_word": "to turn around", "example": {"en": "we'll manage with just one tractor", "av": "нижеда гьеб цо тракторалъги тӏубазабизе кӏвела"}}
+- {"old_word": "to turn around", "example": {"en": "things turned out well", "av": "ишал лъикӏ ккана"}}
+- {"old_word": "to turn around", "example": {"en": "turn into a fair maiden", "av": "берцинай ясалде сверизе"}}
+- {"old_word": "to upholster, to beat off", "example": {"en": "go from office to office", "av": "щибниги гьарун, гӏемер кирениги щвезе"}}
+- {"old_word": "ab-", "example": {"en": "to travel all over the country", "av": "тӏолабго улкаялде щвезе"}}
+- {"old_word": "ex-", "example": {"en": "to shirk; to dodge (e.g. military service)", "av": "лъугӏизегӏан бецизе"}}
+- {"old_word": "ex-", "example": {"en": "to drive away", "av": "нахъе ине (рекӏун)"}}
+- {"old_word": "ex-", "example": {"en": "to reward", "av": "гьабуралъухъ баркала кьезе"}}
+- {"old_word": "ex-", "example": {"en": "to rattle off", "av": "къали чӏвай лъугӏизе тезе, къали чӏвай тӏаса бихьизабизе"}}
+- {"old_word": "to deny; to refuse to admit", "example": {"en": "the door opened easily", "av": "нуцӏа бигьаго ричӏун бачӏана"}}
+- {"old_word": "to deny; to refuse to admit", "example": {"en": "recant one's words", "av": "цебе жинцаго бицаралдаса инкар гьабизе"}}
+- {"old_word": "to sing a funeral service", "example": {"en": "the roosters have stopped crowing", "av": "хӏелкал гӏегӏедун рахъана"}}
+- {"old_word": "cartridge; patron", "example": {"en": "live cartridge", "av": "танчил, тункӏил патрон"}}
+- {"old_word": "cartridge; patron", "example": {"en": "lamp holder", "av": "электрикалъул патрон", "comment": "чирахъ кьурулеб патрон"}}
+- {"old_word": "singing", "example": {"en": "songbirds", "av": "бакъан берцинал хӏанчӏи"}}
+- {"old_word": "pere-", "example": {"en": "retell", "av": "цӏидасан бицине"}}
+- {"old_word": "pere-", "example": {"en": "to swim across", "av": "лъедон довехун вахине"}}
+- {"old_word": "pere-", "example": {"en": "interrupt", "av": "гӏемерал гъуризе"}}
+- {"old_word": "pere-", "example": {"en": "catch all", "av": "гӏемерал кквезе"}}
+- {"old_word": "interrupt", "example": {"en": "kill enemies", "av": "тушбаби гъуризе"}}
+- {"old_word": "interrupt", "example": {"en": "to smash crockery", "av": "цӏарагӏ гъурун базе"}}
+- {"old_word": "interrupt", "example": {"en": "break an arm", "av": "гъеж бекизе"}}
+- {"old_word": "interrupt", "example": {"en": "interrupt speech", "av": "калам (кӏалъай) гьоркьоб къотӏизабизе"}}
+- {"old_word": "interrupt", "example": {"en": "drive in a nail", "av": "магӏ цоги бакӏалда кьабизе"}}
+- {"old_word": "interrupt", "example": {"en": "plump a pillow", "av": "къандалъо цӏидасан бухизе", "comment": "бухун тамах гьабизе"}}
+- {"old_word": "interrupt", "example": {"en": "break all the furniture", "av": "кинабго мебелалда цӏидасан тӏад жо кквезе"}}
+- {"old_word": "roll; riffle", "example": {"en": "rumbles of thunder", "av": "гъугъадиялъул халатаб дваргъи"}}
+- {"old_word": "along", "example": {"en": "walk along the road", "av": "нухдасан (нух чӏван) ине"}}
+- {"old_word": "along", "example": {"en": "fly through the air", "av": "гьаваялдасан воржине"}}
+- {"old_word": "along", "example": {"en": "to put books on shelves", "av": "тӏахьал полкабазда лъезе"}}
+- {"old_word": "along", "example": {"en": "go shopping", "av": "тукабазде хьвадизе"}}
+- {"old_word": "along", "example": {"en": "go to theaters", "av": "театразде хьвадизе"}}
+- {"old_word": "along", "example": {"en": "visit acquaintances", "av": "лъалел-хъвалезухъе хьвадизе"}}
+- {"old_word": "along", "example": {"en": "to shoot at the enemy", "av": "тушманасде кьвагьдезе"}}
+- {"old_word": "along", "example": {"en": "chess champion", "av": "шахматал хӏаялъул чемпион"}}
+- {"old_word": "along", "example": {"en": "track an animal", "av": "жанаваралъул лъакӏда хадув ине"}}
+- {"old_word": "along", "example": {"en": "work according to plan", "av": "планалда рекъон хӏалтӏизе"}}
+- {"old_word": "along", "example": {"en": "did not arrive on time due to illness", "av": "унтун вукӏиндал заманалда вачӏинчӏо"}}
+- {"old_word": "along", "example": {"en": "send by mail", "av": "почалъ (почалда) битӏизе"}}
+- {"old_word": "along", "example": {"en": "relative on the mother's side", "av": "эбелдахъан (эбелалъун рахъалдасан) гӏагарав чи"}}
+- {"old_word": "along", "example": {"en": "workmate", "av": "хӏалтӏул рахъалъ гьалмагъ"}}
+- {"old_word": "along", "example": {"en": "operation to capture the fortification", "av": "щулалъи бахъизелъун (кверщел гьабизелъун) гьабулеб операция"}}
+- {"old_word": "along", "example": {"en": "to work whole days", "av": "тӏубарал къояз хӏалтӏизе"}}
+- {"old_word": "along", "example": {"en": "give everyone a candy", "av": "киназего цо-цо конфета кьезе"}}
+- {"old_word": "along", "example": {"en": "at a ruble each", "av": "цоялъухъ цо гъурущ"}}
+- {"old_word": "along", "example": {"en": "two each", "av": "кӏи-кӏи (ккун)"}}
+- {"old_word": "along", "example": {"en": "three hundred each", "av": "лъабнус-нус"}}
+- {"old_word": "along", "example": {"en": "five hundred each", "av": "щунус-нус"}}
+- {"old_word": "along", "example": {"en": "stand waist-deep in water", "av": "къвалакье бахинегӏан лъелъ чӏезе"}}
+- {"old_word": "along", "example": {"en": "upon completion of the work", "av": "хӏалтӏудаса хадуб, хӏалтӏи лъугӏидал, хӏалтӏи лъугӏигун"}}
+- {"old_word": "pa-", "example": {"en": "to start creeping", "av": "хъурщизе лъугьине"}}
+- {"old_word": "pa-", "example": {"en": "run", "av": "векерун ине"}}
+- {"old_word": "pa-", "example": {"en": "sleep a bit", "av": "(дагьаб мехалъ) кьижизе"}}
+- {"old_word": "pa-", "example": {"en": "jump around", "av": "(дагьаб мехалъ) кӏанцӏезе"}}
+- {"old_word": "to load; to immerse", "example": {"en": "to sink feet into the sand", "av": "бохдул салулъе риччазе"}}
+- {"old_word": "to load; to immerse", "example": {"en": "load sacks onto a car", "av": "хъапал машинаялда лъезе", "comment": "машинаялде рахинаризе"}}
+- {"old_word": "line; instigate; shoot down", "example": {"en": "repair heels", "av": "угъдул (гъоркь) чӏвазе"}}
+- {"old_word": "line; instigate; shoot down", "example": {"en": "line a fur coat with fur", "av": "хъабчида гъоркьан цӏоко (тахта) кквезе (лъезе)"}}
+- {"old_word": "go on; I suppose", "example": {"en": "come here", "av": "гьаниве вачӏа"}}
+- {"old_word": "undermine; sharpen slightly", "example": {"en": "to sharpen a knife", "av": "нус дагьабги рекӏинабизе"}}
+- {"old_word": "undermine; sharpen slightly", "example": {"en": "roll out a carpet", "av": "хӏутӏалъ тӏамах кванан буго"}}
+- {"old_word": "undermine; sharpen slightly", "example": {"en": "water eroded the cliff", "av": "лъеца кванан кьуру гӏанлъун буго"}}
+- {"old_word": "undermine; sharpen slightly", "example": {"en": "illness undermined him", "av": "унтиялъ гьев загӏиплъизавуна, гӏодов чӏвазавуна"}}
+- {"old_word": "to carry away; to miscarry", "example": {"en": "to take papers for signature", "av": "кагътал гъолбас гьабизе росун ине"}}
+- {"old_word": "to carry away; to miscarry", "example": {"en": "a chill came from the window", "av": "гордухъан квач чӏвана"}}
+- {"old_word": "to carry away; to miscarry", "example": {"en": "suffer punishment", "av": "тамихӏ хӏе-хьезе"}}
+- {"old_word": "to carry away; to miscarry", "example": {"en": "suffer a heavy loss", "av": "захӏматаб (бакӏаб) ками бихьизе"}}
+- {"old_word": "to carry away; to miscarry", "example": {"en": "let me carry the suitcase", "av": "дица босилин чемодан"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "to lay out a garden by the house", "av": "рукъалда аскӏоб ах гьабизе"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "laboratory at the institute", "av": "институталъул лаборатория"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "work at headquarters", "av": "штабалда хӏалтӏизе"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "in my presence", "av": "дида аскӏоб (цебе)"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "he will say it to your face too", "av": "мун вугеб бакӏалдаги (дуда цебесанги) абила дос"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "when crossing the street", "av": "къватӏ къотӏулаго"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "I have money on me", "av": "гӏарац дихъ буго"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "with all the desire", "av": "кигӏан бокьун букӏаниги (гъира букӏаниги)"}}
+- {"old_word": "at; near; in the presence of", "example": {"en": "with your help", "av": "дур кумекалдалъун (дур кумек сабаблъун)"}}
+- {"old_word": "exemplary", "example": {"en": "exemplary behavior", "av": "мисалияб хьвада-чӏвади"}}
+- {"old_word": "exemplary", "example": {"en": "approximate calculation", "av": "гӏага-шагараб хӏисаб гьаби"}}
+- {"old_word": "hurry; add speed; start off", "example": {"en": "let the calf go to the cow", "av": "бече гӏакдада аскӏобе биччазе"}}
+- {"old_word": "hurry; add speed; start off", "example": {"en": "spur the horse", "av": "чу бекеризе биччазе, бекеризе гьабизе"}}
+- {"old_word": "hurry; add speed; start off", "example": {"en": "the rain started pouring", "av": "цӏад кутаклъана (цӏикӏкӏана), кутакалда базе лъугьана"}}
+- {"old_word": "to ruin", "example": {"en": "damn it!; go to hell!", "av": "араб бакӏ лъачӏого тӏагӏаги мун!"}}
+- {"old_word": "capital", "example": {"en": "truism", "av": "якъинаб хӏакъикъат"}}
+- {"old_word": "work", "example": {"en": "field work", "av": "а) къватӏир (авлахъалда) гьарулел хӏалтӏаби; б) хур-хералъул (хурул) хӏалтӏаби"}}
+- {"old_word": "divorce", "example": {"en": "guard mounting", "av": "посталде ритӏилалде хъаравулзабазул хӏадурлъиялъул хал гьаби"}}
+- {"old_word": "disperse", "example": {"en": "the guests have left", "av": "гьалбал рокъо-рокъоре ана"}}
+- {"old_word": "disperse", "example": {"en": "the clouds dispersed", "av": "накӏкӏал рикь-рикьун ун тӏагӏана"}}
+- {"old_word": "disperse", "example": {"en": "wrinkles smoothed out", "av": "рукӏкӏалаби тӏагӏана"}}
+- {"old_word": "disperse", "example": {"en": "the sugar in the glass has dissolved", "av": "стаканалъуб чакар биун ана"}}
+- {"old_word": "disperse", "example": {"en": "we missed each other on the way", "av": "ниж нухда данде ккечӏо"}}
+- {"old_word": "disperse", "example": {"en": "the boards have parted", "av": "хъарщал ричӏун ун руго"}}
+- {"old_word": "disperse", "example": {"en": "the book is sold out", "av": "тӏехь бичун ана"}}
+- {"old_word": "disperse", "example": {"en": "money ran out", "av": "гӏарац лъугӏана, тӏагӏана", "comment": "гьаб-доб босун лъугӏана"}}
+- {"old_word": "disperse", "example": {"en": "rumors spread through the village", "av": "хабар росулъ тӏибитӏана"}}
+- {"old_word": "disperse", "example": {"en": "the rain set in", "av": "цӏад цӏакъ кутаклъана"}}
+- {"old_word": "disperse", "example": {"en": "the road has become muddy", "av": "нух бикьана"}}
+- {"old_word": "siding", "example": {"en": "departure of delegates", "av": "делегатал рокъорокъоре ин"}}
+- {"old_word": "siding", "example": {"en": "departure of the audience from the theater", "av": "театралдаса халкъ биххун ин"}}
+- {"old_word": "genus; family; gender", "example": {"en": "people of various kinds", "av": "батӏи-батӏияб тайпаялъул гӏадамал"}}
+- {"old_word": "genus; family; gender", "example": {"en": "masculine gender", "av": "бихьинал"}}
+- {"old_word": "chop", "example": {"en": "act rashly", "av": "а) чӏван къотӏун абизе, гьабизе; б) ццидакье ракӏалде кковухъе гьабизе"}}
+- {"old_word": "hand-to-hand", "example": {"en": "hand-to-hand combat", "av": "гъорлъ журан, ярагъ гьечӏого гьабулеб рагъ"}}
+- {"old_word": "hand-to-hand", "example": {"en": "hand-to-hand combat", "av": "рагъ, кьабгӏей"}}
+- {"old_word": "helmsman", "example": {"en": "steering wheel", "av": "рулалъул гьоко", "comment": "гор"}}
+- {"old_word": "s=", "example": {"en": "to run away; to escape", "av": "лъутун ине"}}
+- {"old_word": "s=", "example": {"en": "to tie; to knit", "av": "бухьун тезе"}}
+- {"old_word": "s=", "example": {"en": "from the side; sideways", "av": "хьолбохъан"}}
+- {"old_word": "s=", "example": {"en": "on the left", "av": "квегӏиса"}}
+- {"old_word": "to run away; to escape", "example": {"en": "run down the mountain", "av": "магӏардаса гъоркье векеризе"}}
+- {"old_word": "to run away; to escape", "example": {"en": "skip classes", "av": "дарсаздаса тӏуризе"}}
+- {"old_word": "to run away; to escape", "example": {"en": "the dog ran away from its master", "av": "гьой бетӏергьанчиясдаса тӏурун ана"}}
+- {"old_word": "to run away; to escape", "example": {"en": "the milk boiled over", "av": "рахь тӏасан ана"}}
+- {"old_word": "to run away; to escape", "example": {"en": "a tear rolled down the cheek", "av": "кӏаркьеналдасан магӏу чвахун ана"}}
+- {"old_word": "oneself", "example": {"en": "sit quietly", "av": "мунго парахат гӏодов чӏун вукӏа"}}
+- {"old_word": "oneself", "example": {"en": "I think to myself", "av": "дунго ургъулев вуго"}}
+- {"old_word": "oneself", "example": {"en": "he walks along, noticing nothing", "av": "щибго бихьичӏого, живго унев вуго"}}
+- {"old_word": "oneself", "example": {"en": "not bad; well I never", "av": "квеш гуро"}}
+- {"old_word": "oneself", "example": {"en": "so-so", "av": "мадар буго, квешги гуро, цӏакъ лъикӏги гуро"}}
+- {"old_word": "demolish; tear down", "example": {"en": "lose one's head", "av": "чӏаго хутӏиларо; тамихӏалдаса ворчӏиларо; ботӏродаса ватӏалъизе бегьула"}}
+- {"old_word": "old times", "example": {"en": "the old-fashioned way", "av": "некӏсияб къагӏидаялъ, некӏсияб куцалда"}}
+- {"old_word": "fearfully, terribly", "example": {"en": "I am terribly tired", "av": "дун цӏакъ кутакалда свакана"}}
+- {"old_word": "fearfully, terribly", "example": {"en": "I'm scared!", "av": "дун хӏинкъула! (хӏинкъун вуго)"}}
+- {"old_word": "so; yes", "example": {"en": "I do just as he does", "av": "дос кин гьабулеб батаниги, гьедин дицаги гьабула"}}
+- {"old_word": "so; yes", "example": {"en": "he has changed so much that he is unrecognizable", "av": "вихьани лъалареб хӏалалъ хисун вуго дов"}}
+- {"old_word": "so; yes", "example": {"en": "it won't go unpunished", "av": "гьеб гьедин битӏун ккеларо"}}
+- {"old_word": "so; yes", "example": {"en": "this matter cannot be left like this", "av": "гьеб иш гьедин тезе бегьуларо"}}
+- {"old_word": "so; yes", "example": {"en": "I said it just like that", "av": "дица гьеб гьадинго абун букӏана"}}
+- {"old_word": "so; yes", "example": {"en": "I told you so, but you wouldn't listen", "av": "дица абулеб букӏана, амма дуе гӏенеккизецин бокьичӏо"}}
+- {"old_word": "so; yes", "example": {"en": "it is hot, so the rivers are getting shallow", "av": "багӏарун буго, гьединлъидал гӏорал гьитӏинлъулел руго"}}
+- {"old_word": "so; yes", "example": {"en": "what's the matter with you? – just like that", "av": "дуе щиб? – расги гьечӏо"}}
+- {"old_word": "so; yes", "example": {"en": "so you don't believe me?", "av": "мун дида божулев гьечӏоха?"}}
+- {"old_word": "so; yes", "example": {"en": "yes, you are not mistaken", "av": "у, мун мекъи ккун гьечӏо"}}
+- {"old_word": "so; yes", "example": {"en": "is that so?", "av": "гьединищха?"}}
+- {"old_word": "so; yes", "example": {"en": "that is so", "av": "гьедин бугизеги буго"}}
+- {"old_word": "so; yes", "example": {"en": "so to speak", "av": "гьедин абун телин"}}
+- {"old_word": "so; yes", "example": {"en": "just so you know!", "av": "лъан букӏаха!"}}
+- {"old_word": "so; yes", "example": {"en": "one way or another", "av": "я гьадинаса, я додинаса"}}
+- {"old_word": "so; yes", "example": {"en": "this way and that", "av": "гьадинги додинги, батӏи-батӏияб къагӏидаялъ"}}
+- {"old_word": "so; yes", "example": {"en": "so be it", "av": "гьедин букӏинеги ккола гьеб"}}
+- {"old_word": "so; yes", "example": {"en": "we need to leave earlier so as not to miss the train", "av": "поездалде кватӏунгутӏизе къватӏире дагьалъ хекко рахъине ккела"}}
+- {"old_word": "thereby; by that", "example": {"en": "so much the better", "av": "дагьабги лъикӏ"}}
+- {"old_word": "thereby; by that", "example": {"en": "the more, the better", "av": "гӏемер бугебгӏан лъикӏ"}}
+- {"old_word": "thereby; by that", "example": {"en": "all the more", "av": "гьелеха, гьедин бугелъул гурищха"}}
+- {"old_word": "thereby; by that", "example": {"en": "nevertheless", "av": "гьедин бугониги, кигӏан кин бугониги"}}
+- {"old_word": "u-", "example": {"en": "drive away; steal", "av": "цебе къотӏун, бачине"}}
+- {"old_word": "u-", "example": {"en": "diminish, reduce", "av": "дагьлъизабизе, камизабизе"}}
+- {"old_word": "please; at will", "example": {"en": "what would you like?; how can I help you?", "av": "дуе щиб бокьун бугеб?"}}
+- {"old_word": "please; at will", "example": {"en": "would you like?", "av": "бокьиларищ?"}}
+- {"old_word": "please; at will", "example": {"en": "anyone at all", "av": "бокьарав чи, щив вукӏаниги"}}
+- {"old_word": "please; at will", "example": {"en": "as much as you like", "av": "гӏемер, хӏал хьезегӏан"}}
+- {"old_word": "already", "example": {"en": "not so bad after all", "av": "гьедигӏан квеш гьечӏебха"}}
+- {"old_word": "already", "example": {"en": "i really don't know; goodness knows", "av": "дидагиха лъалареб"}}
+- {"old_word": "walker", "example": {"en": "the floor is shaking", "av": "чӏабар гьанкӏолеб, щванкӏолеб буго"}}
+- {"old_word": "at least", "example": {"en": "he is old, but healthy", "av": "гъов, херлъун вукӏаниги, сах вуго"}}
+- {"old_word": "at least", "example": {"en": "kill me if you like, I won't say a thing", "av": "нужеца чӏваниги, щибниги бицинаро, абиларо"}}
+- {"old_word": "at least", "example": {"en": "I'll go right now", "av": "(бокьани) гьабсагӏатцин ина"}}
+- {"old_word": "at least", "example": {"en": "say at least one word", "av": "цохӏо рагӏигӏаги абе"}}
+- {"old_word": "at least", "example": {"en": "let us at least investigate this matter", "av": "гьаб ишалъулниги цӏехрех гьабизин"}}
+- {"old_word": "at least", "example": {"en": "even if so", "av": "гьедин гӏаги букӏарабани"}}
+- {"old_word": "trivial", "example": {"en": "trivial matter", "av": "а) гьадингояб хӏалтӏи б) бигьаяб хӏалтӏи"}}
+- {"old_word": "chokh", "example": {"en": "does not believe in anything", "av": "хӏакъикъаталда гьечӏел жалазда божуларо; я макьуялда, я чинхъиялда божуларо (букв.); сунданиги божуларо"}}
+- {"old_word": "electromotive", "example": {"en": "electromotive force", "av": "электрикияб ток добе-гьанибе хьвадизабулеб (инабулеб) ва цо хӏалалда чӏезабулеб къуват; электрикалъул ток"}}
+- {"old_word": "escort", "example": {"en": "escort destroyer", "av": "эскорталъе бугеб миноносец"}}
+- {"old_word": "relay", "example": {"en": "relay race", "av": "а) мадиро гьабун рекери; б) (гӏуж, гӏаламат, тӏил) цоцахъе кьун рекери"}}
+- {"old_word": "this; it", "example": {"en": "who has come?", "av": "щив гьав вачӏарав?"}}
+- {"old_word": "this; it", "example": {"en": "life is a struggle", "av": "гӏумру – гьеб къеркьей", "comment": "буго"}}
+- {"old_word": "appearance", "example": {"en": "attendance at the meeting", "av": "собраниялде рачӏин"}}
+- {"old_word": "by the verb to appear", "example": {"en": "usual phenomenon", "av": "гӏадатаб иш"}}
+- {"old_word": "by the verb to appear", "example": {"en": "phenomenon of nature", "av": "тӏабигӏаталъул лъугьа-бахъин"}}
+- {"old_word": "by the verb to appear", "example": {"en": "talent is a comparatively rare phenomenon", "av": "пагьму (гьунар) цӏакъ къана-гӏатго бижулеб (букӏунеб) жо буго"}}
+- {"old_word": "open; factual", "example": {"en": "safe house", "av": "балъго данделъулеб рукъ"}}
+- {"old_word": "open; factual", "example": {"en": "by way of fait accompli", "av": "цебеккун изнуги кьечӏого"}}
+- {"old_word": "sturdy; robust", "example": {"en": "sturdy nut", "av": "жаниса цӏураб цӏулакьо"}}
+- {"old_word": "sturdy; robust", "example": {"en": "sturdy person", "av": "чорхолъ витӏарав, къвакӏа-шакӏарав чи"}}
+- {"old_word": "sturdy; robust", "example": {"en": "crisp air", "av": "бацӏцӏадаб (цӏияб) гьава"}}
+- {"old_word": "core", "example": {"en": "nut kernel", "av": "цӏулакьодул месеху"}}
+- {"old_word": "core", "example": {"en": "heartwood", "av": "цӏулал жанисеб бакӏ, ракӏ"}}
+- {"old_word": "core", "example": {"en": "atomic nucleus", "av": "атомалъул ядро", "labels": ["физика"]}}
+- {"old_word": "core", "example": {"en": "core of the question", "av": "масъалаялъул (суалалъул) аслу, аслияб рахъ"}}
+- {"old_word": "core", "example": {"en": "shot put", "av": "ядро тунки", "comment": "рехи"}}
+- {"old_word": "uvula", "example": {"en": "shoe tongue", "av": "ботинкаялъул мацӏ"}}
+- {"old_word": "ruby", "example": {"en": "ruby earrings", "av": "якъуталъул (якъут лъурал) кӏилкӏал"}}
+
+## Что требуется до полной приёмки
+
+1. Объяснить/восстановить удалённые примеры и переводы; исправления отличать от потерь.
+2. Решить судьбу 478 пустых статей: восстановить полезные английские ссылки либо удалить только подтверждённые бесполезные дубли.
+3. Не восстанавливать автоматически старые русские see_also: цели должны быть английскими.
+4. Перенести актуальные исправления ru-av, не возвращая русский род/вид/stress/stem.
+5. Проверить английские заголовки и значения у статей, объединённых под одинаковым word; убрать ложные морфологические статьи вроде arches с пояснением genitive plural и comment_lang ru.
