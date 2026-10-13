@@ -2269,7 +2269,7 @@
 {"word": "iceboat", "senses": [{"text": "буер", "comment": "цӏорода хъещтӏезе гьабураб дугъ бугеб тӏадагьаб раса"}]}
 {"word": "gully", "senses": [{"text": "хъитӏ", "comment": "чурун лъугьараб"}]}
 {"word": "ice-boater", "senses": [{"text": "буерист", "comment": "буер бачунев чи"}]}
-{"word": "buzhenina (baked spiced pork)", "senses": [{"text": "буженина", "comment": "хасаб куцалда хӏадур гьабураб белъараб болъонил гьан"}]}
+{"word": "buzhenina", "senses": [{"text": "буженина", "comment": "хасаб куцалда хӏадур гьабураб белъараб болъонил гьан", "precomment": "baked spiced pork"}]}
 {"word": "boza", "homonym": 1, "senses": [{"text": "чӏагӏа"}]}
 {"word": "commotion", "homonym": 2, "labels": ["colloquial (vernacular) word"], "senses": [{"text": "гӏадлу биххи, цоцахъ бай, низам гьечӏолъи", "labels": ["colloquial (vernacular) word"]}]}
 {"word": "elder", "senses": [{"text": "гӏанцӏили", "precomment": "tree, berries", "comment": "багӏараб яги чӏегӏераб гӏисинаб пихъ тӏад бижулеб гъветӏ-хъарахъ ва гьелъул пихъ"}]}
@@ -2369,7 +2369,7 @@
 {"word": "drilling", "senses": [{"text": "борлъарулеб", "examples": [{"en": "drilling machine", "av": "борлъарулеб машина"}]}]}
 {"word": "driller", "senses": [{"text": "ворлъарухъан"}]}
 {"word": "to drill", "senses": [{"text": "борлъизе", "precomment": "what", "examples": [{"en": "to drill an oil well", "av": "нартил (нефталъул) скважина борлъизе", "comment": "нефть къватӏибе кьабизе кӏаратӏ бахъизе"}]}]}
-{"word": "burka (Caucasian cloak)", "senses": [{"text": "буртина", "comment": "ретӏунеб"}]}
+{"word": "burka", "senses": [{"text": "буртина", "comment": "ретӏунеб", "precomment": "Caucasian cloak"}]}
 {"word": "to mutter", "senses": [{"text": "бурбудизе, гунгудизе", "precomment": "what", "labels": ["colloquial (vernacular) word"]}]}
 {"word": "felt boots", "labels": ["plural"], "senses": [{"text": "буртинадул хьитал, буртинахьитал", "precomment": "kind of boots"}]}
 {"word": "to grumble", "senses": [{"text": "бурбудун (гунгудун, бичӏчӏуларедухъ) рагӏи абизе", "precomment": "what and without object"}]}
@@ -3734,7 +3734,7 @@
 {"word": "grumpy", "senses": [{"text": "гъулгъудулеб", "precomment": "about an animal"}, {"text": "бурбудулев, гъулгъудулев", "precomment": "about a person", "examples": [{"en": "grumpy grandfather", "av": "бурбудулев (гъулгъудулев) кӏудада"}]}]}
 {"word": "grumbler", "senses": [{"text": "гӏемер бурбудулев (гъулгъудулев) чи"}]}
 {"word": "grumbler", "senses": [{"text": "гӏемер гъулгъудулей (бурбудулей) чӏужу"}]}
-{"word": "up- (prefix)", "senses": [{"text": "«воз» приставкаялъул бакӏалда гъугъаб гьаракьалда цебе хъвала", "examples": [{"en": "upbringing", "av": "тарбия кьей"}]}]}
+{"word": "up-", "senses": [{"text": "«воз» приставкаялъул бакӏалда гъугъаб гьаракьалда цебе хъвала", "examples": [{"en": "upbringing", "av": "тарбия кьей"}]}], "labels": ["prefix"]}
 {"word": "back home", "labels": ["adverb", "colloquial word"], "senses": [{"text": "жиндирго рокъове", "comment": "нухде, ишалда хадув", "labels": ["colloquial word", "ironically"], "examples": [{"en": "go back home", "av": "жиндирго рокъове ине"}]}]}
 {"word": "eighteen", "labels": ["numeral"], "senses": [{"text": "анцӏила микьго", "examples": [{"en": "eighteen rubles", "av": "анцӏила микьго гъуруш"}]}]}
 {"word": "eight", "labels": ["numeral"], "senses": [{"text": "микьго", "examples": [{"en": "eight meters", "av": "микьго метр"}]}]}
@@ -4203,7 +4203,7 @@
 {"word": "lousy", "senses": [{"text": "нацӏ бараб"}]}
 {"word": "in breadth", "labels": ["adverb"], "senses": [{"text": "гӏеблъухъе, гӏатӏилъухъе", "examples": [{"en": "the boots stretched wider", "av": "чакмаби гӏатӏилъун (гӏеблъухъе цӏан рачӏун) руго"}]}]}
 {"word": "sew in", "senses": [{"text": "жанисеб рахъалдасан букъизе", "precomment": "what into what", "examples": [{"en": "to sew a sleeve into a shirt", "av": "къвал гурдил жанисеб рахъалдасан букъизе"}]}]}
-{"word": "in- (prefix)", "senses": [{"text": "“в” приставкаялъул бакӏалда е яги я хӏарпазда цебе хъвала", "examples": [{"en": "to drive in", "av": "жаниве ине (рекӏун)"}, {"en": "in reality", "av": "лъавуда, унго-унголъун, бихьулаго"}]}], "labels": ["prefix"]}
+{"word": "in-", "senses": [{"text": "“в” приставкаялъул бакӏалда е яги я хӏарпазда цебе хъвала", "examples": [{"en": "to drive in", "av": "жаниве ине (рекӏун)"}, {"en": "in reality", "av": "лъавуда, унго-унголъун, бихьулаго"}]}], "labels": ["prefix"]}
 {"word": "penetrating", "labels": ["colloquial word"], "senses": [{"text": "гъорлъ босулеб, гъорлъ бессулеб", "examples": [{"en": "acrid smell", "av": "гъорлъ бессулеб махӏ"}]}, {"text": "сундаго гъорлъе ваккулев, кинабго жо мухӏкан гьабулев", "precomment": "about a person"}]}
 {"word": "entrance", "senses": [{"text": "жаниве лъугьин", "precomment": "by the meaning of the verb въехать", "comment": "рекӏун", "examples": [{"en": "driving into the forest is prohibited", "av": "рекӏун рохьоре лъугьин гьукъараб буго"}]}, {"text": "жанире лъугьунеб бакӏ", "precomment": "place", "examples": [{"en": "entrance to the city", "av": "шагьаралда жанире лъугьунеб бакӏ"}]}]}
 {"word": "entry", "senses": [{"text": "рекӏун жанире унеб", "examples": [{"en": "entrance gate", "av": "рекӏун жанире унеб каву"}]}]}
@@ -5822,7 +5822,6 @@
 {"word": "Dagestani woman", "senses": [{"text": "дагъистанияй"}]}
 {"word": "Dagestani", "senses": [{"text": "дагъистаналъул", "examples": [{"en": "Dagestan languages", "av": "дагъистаналъул (ал) мацӏал"}]}]}
 {"word": "Dagestanis", "labels": ["plural"], "senses": [{"text": "дагъистаниял"}]}
-{"word": "to marvel; to be amazed", "senses": [{"text": "давать", "comment": "ся; и т. д. наст.", "precomment": "from"}]}
 {"word": "even", "senses": [{"text": "хӏатта, -цин", "labels": ["emphatic particle"], "examples": [{"en": "even now", "av": "гьанжецин"}, {"en": "he didn't even say a word", "av": "дос рагӏицин абичӏо"}]}]}
 {"word": "to assent", "labels": ["colloquial word"], "senses": [{"text": "абу-абуралда тӏад рекъезе", "labels": ["colloquial word"]}]}
 {"word": "dactyloscopic", "senses": [{"text": "дактилоскопиялъул(аб)"}]}
@@ -6441,7 +6440,7 @@
 {"word": "dispute", "senses": [{"text": "диспут, бахӏс", "comment": "гьоркьор гӏемерал чагӏи гӏахьаллъараб гӏелмияб, литературияб бахӏс"}]}
 {"word": "debate", "senses": [{"text": "диспут гьабизе, гӏелмияб бахӏс гьабизе"}]}
 {"word": "dissertator", "senses": [{"text": "диссертациялъул автор"}]}
-{"word": "dissertator (female)", "senses": [{"text": "диссертациялъул автор"}]}
+{"word": "dissertator", "senses": [{"text": "диссертациялъул автор", "precomment": "female"}]}
 {"word": "dissertation", "senses": [{"text": "диссертация", "comment": "гӏелмияб даража щвезелъун хъвалеб гӏелмияб хӏалтӏи", "examples": [{"en": "doctoral dissertation", "av": "докторасулаб диссертация"}]}]}
 {"word": "dissimilation", "senses": [{"text": "батӏалъи", "comment": "рагӏулъ бугеб кӏиго релълъараб гьаракьалъул цояб хиси"}]}
 {"word": "dissonance", "senses": [{"text": "музыкалиял гьаркьал цоцалъ рекъонгутӏи", "labels": ["music"]}, {"text": "гьоркьоб рикьи ккей", "labels": ["figuratively"], "examples": [{"en": "introduce discord into the work", "av": "хӏалтӏулъ рикьи ккезабизе, хӏалтӏи хвезабизе"}]}]}
@@ -6501,7 +6500,7 @@
 {"word": "second helping", "labels": ["colloquial word"], "senses": [{"text": "тӏадежубай", "comment": "цебе кьуралда тӏаде жубараб жо"}]}
 {"word": "addition", "senses": [{"text": "тӏаде жубай, тӏаде цӏикӏкӏинаби", "precomment": "by the verb add"}, {"text": "тӏадежубай, тӏаде цӏикӏкӏинаби", "precomment": "addition; supplement", "examples": [{"en": "I made some additions to the text", "av": "дица тексталде дагьа-макъаб жо тӏаде жубана"}, {"en": "in addition", "av": "тӏаде цӏикӏкӏинабиялъе"}, {"en": "in addition to everything said", "av": "абурабщиналда тӏаде жубаялъе (жубазе)"}]}]}
 {"word": "additional", "senses": [{"text": "цебе букӏаралда тӏаде кьураб (жубараб), тӏаде жубараб", "examples": [{"en": "extra time", "av": "тӏаде жубараб заман"}]}]}
-{"word": "run around too much (and get into trouble)", "labels": ["colloquial word"], "senses": [{"text": "тату хвезегӏан векеризе", "examples": [{"en": "now you've got it!", "av": "тату хвезегӏан векерана!"}, {"en": "run oneself to exhaustion", "av": "рухӏ бахъизегӏан векеризе"}]}]}
+{"word": "run around too much", "labels": ["colloquial word"], "senses": [{"text": "тату хвезегӏан векеризе", "examples": [{"en": "now you've got it!", "av": "тату хвезегӏан векерана!"}, {"en": "run oneself to exhaustion", "av": "рухӏ бахъизегӏан векеризе"}], "comment": "and get into trouble", "comment_lang": "en"}]}
 {"word": "run up to", "senses": [{"text": "векерун кивениги щвезе, дурун тӏаде гӏунтӏизе", "examples": [{"en": "run home", "av": "векерун рукъалда аскӏове щвезе"}]}]}
 {"word": "to whiteness", "labels": ["adverb"], "senses": [{"text": "хъахӏлъизегӏан", "precomment": "to whiteness", "examples": [{"en": "to wash clean", "av": "хъахӏлъизегӏан чуризе"}]}, {"text": "цӏохъахӏлъизегӏан багӏаризабизе", "precomment": "to white heat", "examples": [{"en": "white-hot", "av": "цӏохъахӏлъизегӏан багӏаризабураб"}]}]}
 {"word": "finish off", "senses": [{"text": "хвезабизе", "precomment": "whom/what, kill", "examples": [{"en": "finish off a wounded wolf", "av": "лъукъараб бацӏ хвезабизе"}]}, {"text": "тӏубан гъуризе", "precomment": "sb-sth, completely defeat", "examples": [{"en": "finish off enemies", "av": "тушбаби гъурун лъугӏизаризе"}]}, {"text": "гъурун рахъинаризе", "precomment": "something to smash", "examples": [{"en": "plates were finished off", "av": "суркӏби гъурун рахъинаруна"}]}]}
@@ -11073,7 +11072,7 @@
 {"word": "sworn", "senses": [{"examples": [{"en": "make a solemn vow", "av": "кӏудияб къагӏидаялъул къотӏи гьабизе, гьа бан къотӏи гьабизе"}]}]}
 {"word": "perjury", "senses": [{"text": "гьа биххи, биххизаби, гьа хвезаби"}]}
 {"word": "perjurer", "senses": [{"text": "гьа биххарав чи"}]}
-{"word": "perjurer (fem.)", "senses": [{"text": "гьа биххарай гӏадан"}]}
+{"word": "perjurer", "senses": [{"text": "гьа биххарай гӏадан", "precomment": "female"}]}
 {"word": "denunciation", "labels": ["colloquial word"], "senses": [{"text": "рекъечӏеб гӏарз, мацӏ, бугьтан", "examples": [{"en": "to engage in slander", "av": "гӏарзагъине"}]}]}
 {"word": "slanderer", "labels": ["colloquial word"], "senses": [{"text": "мацӏихъан, бугьтанчи, гӏарзачи"}]}
 {"word": "slanderer", "senses": [{"text": "мацӏихъан, бугьтанчӏужу, гӏарзачӏужу"}]}
@@ -13236,7 +13235,7 @@
 {"word": "painter's", "senses": [{"text": "рохьариялъул, лажбар бахиналъул", "examples": [{"en": "painting work", "av": "рохьариялъул хӏалтӏаби"}, {"en": "paint brush", "av": "лажбар бахунеб щётка"}]}]}
 {"word": "mom", "senses": [{"text": "эбел, баба"}]}
 {"word": "mamaliga", "senses": [{"text": "цӏоросаролъул ханджал карщ, хӏичи"}]}
-{"word": "mother's", "senses": [{"precomment": "-a, -o", "examples": [{"en": "mama's boy", "av": "эбелалъул мухӏама"}, {"en": "mama's girl", "av": "бабал ясикӏо, эбелалъул гогьма"}]}]}
+{"word": "mama's", "senses": [{"text": "эбелалъул, бабал", "examples": [{"en": "mama's boy", "av": "эбелалъул мухӏама"}, {"en": "mama's girl", "av": "бабал ясикӏо, эбелалъул гогьма"}]}]}
 {"word": "mammoth", "senses": [{"text": "мамонт", "comment": "цӏакъго цебе заманалда ракьалда букӏараб пилалъул тайпаялъул халатаб расги черхалда бижараб хӏайван"}]}
 {"word": "belongings", "labels": ["plural", "colloquial word"], "senses": [{"text": "къайи-цӏа"}]}
 {"word": "brazier", "senses": [{"text": "мангал", "comment": "жинда гьан бежулеб, квен гьабулеб кор гӏадаб жо"}]}
@@ -13281,7 +13280,8 @@
 {"word": "maral", "senses": [{"text": "марал", "comment": "Сибиралда букӏунеб чӏахӏиял лълъурдулги ругеб кӏудияб ритӏучӏ"}]}
 {"word": "soil", "labels": ["colloquial word"], "senses": [{"text": "чороклъизабизе", "precomment": "someone-something (soil)"}, {"text": "сурат квеш бахъизе", "precomment": "what (to draw poorly)"}, {"text": "чорокго хъвазе", "precomment": "something (to write sloppily)"}, {"text": "какизе", "precomment": "whom-what", "labels": ["figuratively"]}, {"text": "гьунар гьечӏого хъвадаризе", "precomment": "waste paper; scribble", "labels": ["expression"]}, {"text": "кверал чорок гьаризе", "precomment": "soil one's hands", "comment": "кколареб ишалда гьоркьове лъугьине", "labels": ["expression"]}]}
 {"word": "get dirty", "labels": ["colloquial word"], "senses": [{"text": "чороклъизе", "precomment": "to get dirty"}, {"text": "чорокаб, нахъегӏанаб ишалда гьоркьове ккезе", "precomment": "get involved in a dirty business", "labels": ["figuratively"]}]}
-{"word": "make-up; smarting up", "senses": [{"text": "марафет", "comment": "гьурмада жо бахун лъугьараб берцинлъи"}, {"text": "лъухьа-кӏуши, нахъе-цебе жо лъей"}]}
+{"word": "makeup", "senses": [{"text": "марафет", "comment": "гьурмада жо бахун лъугьараб берцинлъи"}]}
+{"word": "tidying up", "senses": [{"text": "лъухьа-кӏуши, нахъе-цебе жо лъей"}]}
 {"word": "marathon", "senses": [{"text": "халатрекери"}, {"text": "халатрахъарал къецал", "comment": "хӏаял"}]}
 {"word": "marathon", "senses": [{"labels": ["sports term"], "examples": [{"en": "marathon running", "av": "43 километргун 195 метралъул манзилалда рекери"}]}]}
 {"word": "manganese", "senses": [{"text": "марганец", "comment": "chemical element, metal", "comment_lang": "en"}]}
@@ -14440,7 +14440,7 @@
 {"word": "bare", "labels": ["adverb"], "senses": [{"text": "лъалиниса бахъун", "comment": "ярагъ", "examples": [{"en": "with sabres drawn", "av": "лъалиниса рахъарал хвалчабигун"}]}, {"text": "бацӏцӏад гьабун; щибниги течӏого", "examples": [{"en": "to crop close", "av": "бацӏцӏад гьабун, къунцӏизе"}]}]}
 {"word": "completely", "labels": ["adverb"], "senses": [{"examples": [{"en": "to utterly defeat the enemy", "av": "тушман минатахъ (щущахъ) виххизавизе"}]}]}
 {"word": "to suffer from hunger", "senses": [{"text": "гӏемер ракъизе, ракъуца кӏвекӏизе"}]}
-{"word": "fur-lined (fur outside)", "senses": [{"text": "тӏад ххам кквечӏого гьабураб", "comment": "тӏимугъ"}]}
+{"word": "uncovered sheepskin coat", "senses": [{"text": "тӏад ххам кквечӏого гьабураб", "comment": "тӏимугъ", "precomment": "without an outer fabric covering"}]}
 {"word": "burn away", "senses": [{"text": "хъалалъ бацизе, хъал лъугьине", "precomment": "form soot"}, {"text": "тамихӏ гьабизе, выговор щвезе", "precomment": "impersonally regarding punishment", "labels": ["colloquial word"]}, {"text": "харж гьабизе", "precomment": "impersonal: of what, about fuel, electricity", "examples": [{"en": "electricity consumed amounted to ten rubles", "av": "анцӏго гъурущалде ток бухӏун буго"}]}]}
 {"word": "upland", "senses": [{"text": "мугӏрузда бугеб; мугӏрузулаб", "examples": [{"en": "upland side", "av": "мугӏрузулаб рахъ, магӏардехун бугеб рахъ"}]}]}
 {"word": "upland", "senses": [{"text": "мугӏрул, гьезул расалъаби, ритӏалаби ругеб ракь"}]}
@@ -14553,7 +14553,7 @@
 {"word": "smoke up", "senses": [{"text": "кӏкӏуйдул цӏезабизе, кӏкӏуйтӏачинабизе"}]}
 {"word": "warm with breath", "senses": [{"text": "хӏухьел биччан, гьава хинлъизабизе; сундениги гьохьун, хӏухьел чӏвазабизе; гьохьун хинлъизабизе, биинабизе"}]}
 {"word": "breathe one's fill", "senses": [{"text": "сундулниги махӏ гӏемер босизе", "examples": [{"en": "to breathe one's fill of forest air", "av": "хӏалхьезегӏан рохьил гьава босизе, цӏазе"}]}, {"labels": ["saying"], "examples": [{"en": "you can't prepare for everything at the last moment", "av": "жиндир заманалда гьабичӏеб ахирисеб лахӏзаталда гьабун бажариларо"}]}, {"examples": [{"en": "the mother adores her son", "av": "эбел жиндирго васасдаса гӏорцӏулей гьечӏо; эбелалъ васасул гьоркьосаго къотӏулареб тӏалабагъаз гьабулеб буго"}]}]}
-{"word": "over–", "senses": [{"text": "щибниги цӏикӏкӏиналъул, борхалъиялъул магӏнаялъул", "precomment": "increase of something", "labels": ["verb"], "examples": [{"en": "to build an extension", "av": "(рукъ) тӏадеги борхат гьабун, базе, тӏаде борхат гьабизе"}]}, {"text": "иш цо бутӏаялъ гьабизе", "precomment": "incompleteness of action", "labels": ["verb"], "examples": [{"en": "break slightly", "av": "кьватӏизабизе", "comment": "тӏубан бекичӏого"}, {"en": "to bite into", "av": "хӏанчӏизе", "comment": "дагьаб хӏанчӏизе яги цо бутӏа хӏанчӏизе"}]}, {"labels": ["adjective"], "examples": [{"en": "periosteal", "av": "ракьаялда тӏад бугеб"}, {"en": "above-ground", "av": "ракьалда тӏад бугеб"}]}, {"labels": ["noun"], "examples": [{"en": "superciliary arch", "av": "нодоялъул кьунсрузда тӏадехунисеб бутӏа"}]}]}
+{"word": "over-", "senses": [{"text": "щибниги цӏикӏкӏиналъул, борхалъиялъул магӏнаялъул", "precomment": "increase of something", "labels": ["verb"], "examples": [{"en": "to build an extension", "av": "(рукъ) тӏадеги борхат гьабун, базе, тӏаде борхат гьабизе"}]}, {"text": "иш цо бутӏаялъ гьабизе", "precomment": "incompleteness of action", "labels": ["verb"], "examples": [{"en": "break slightly", "av": "кьватӏизабизе", "comment": "тӏубан бекичӏого"}, {"en": "to bite into", "av": "хӏанчӏизе", "comment": "дагьаб хӏанчӏизе яги цо бутӏа хӏанчӏизе"}]}, {"labels": ["adjective"], "examples": [{"en": "periosteal", "av": "ракьаялда тӏад бугеб"}, {"en": "above-ground", "av": "ракьалда тӏад бугеб"}]}, {"labels": ["noun"], "examples": [{"en": "superciliary arch", "av": "нодоялъул кьунсрузда тӏадехунисеб бутӏа"}]}]}
 {"word": "in private", "labels": ["adverb"], "senses": [{"text": "батӏияв чи гьечӏого, кӏиялго", "examples": [{"en": "to talk in private", "av": "нугӏзал гьечӏого, кӏиялго цоцазда кӏалъазе, кӏалъаралъазе"}]}, {"text": "живго цохӏо"}]}
 {"word": "raid", "senses": [{"text": "унаго тунки; тӏаде бачин", "precomment": "by the verb to run over"}, {"text": "божударекӏкӏ гьабун, тӏаде кӏанцӏи, гьужум гьаби", "precomment": "raid"}, {"text": "къанагӏат ва къокъаб заманаялъ вачӏин", "comment": "вакки"}]}
 {"word": "rider", "senses": [{"text": "рекӏарав; чотӏахъан"}]}
@@ -14599,7 +14599,7 @@
 {"word": "so-called", "senses": [{"text": "жинде гьедин абулеб", "precomment": "so-called"}]}
 {"word": "to name", "homonym": 1, "senses": [{"examples": [{"en": "to call a spade a spade", "av": "битӏахъе, бугеб куцалъ бадибе абизе"}]}]}
 {"word": "to be called", "homonym": 1, "senses": [{"text": "цӏар букӏине", "comment": "носить какое-либо имя", "examples": [{"en": "what is the name of this street?", "av": "гьаб къватӏалда цӏар щиб?"}, {"en": "as the saying goes; so to speak", "av": "гьедин абула", "labels": ["в значении вводного слова"]}]}]}
-{"word": "super- (prefix)", "senses": [{"comment": "приставка (тӏокӏлъиялъул ва дандекквеялъул даражаялъул прилагательноялги наречиялги лъугьинаризе хӏалтӏизабула)", "examples": [{"en": "best", "av": "бищунго лъикӏаб, бищунго цӏакъаб"}]}]}
+{"word": "super-", "senses": [{"comment": "приставка (тӏокӏлъиялъул ва дандекквеялъул даражаялъул прилагательноялги наречиялги лъугьинаризе хӏалтӏизабула)", "examples": [{"en": "best", "av": "бищунго лъикӏаб, бищунго цӏакъаб"}]}], "labels": ["prefix"]}
 {"word": "most", "labels": ["adverb"], "senses": [{"text": "бищунго лъикӏ, цӏакъ", "examples": [{"en": "most profitably", "av": "бищунго цӏакъ пайдаяб буго"}]}]}
 {"word": "greatest", "senses": [{"text": "бищун кӏудияб", "examples": [{"en": "the largest part", "av": "бищун цӏикӏкӏараб бутӏа"}, {"en": "greatest benefit", "av": "бищун кӏудияб хайир"}]}]}
 {"word": "naivety", "senses": [{"text": "гӏумрудул хӏалбихьи, сихӏирлъи гьечӏолъи", "examples": [{"en": "naivety of judgment", "av": "лъимадул гӏадал пикраби"}, {"en": "childish naivety", "av": "лъимадулаб пикру, кӏалъай, ракӏ букӏин; гӏадатлъи, лъимадулаб божи"}]}]}
@@ -14956,7 +14956,7 @@
 {"word": "on purpose", "labels": ["adverb"], "senses": [{"text": "ургъунго, хасаб мурадалда", "precomment": "for the purpose of", "examples": [{"en": "came on purpose to speak with you", "av": "ургъунго вачӏана, нужгун (мунгун) кӏалъазе"}]}, {"text": "махсарадего", "precomment": "in jest", "labels": ["colloquial word"], "examples": [{"en": "I said it on purpose, no offense", "av": "дица гьеб махсарадего абуна, гӏайиб гьабуге"}, {"en": "as if on purpose", "av": "ургъунго, квешезего гӏадин (ккана)"}]}, {"precomment": "as if on purpose", "text": "ургъунго, квешезего гӏадин (ккана)"}]}
 {"word": "special messenger", "senses": [{"text": "чапар, витӏунчи", "comment": "хасаб хехаб тӏадкъайгун кивениги витӏарав чи", "examples": [{"en": "to send a letter by special messenger", "av": "кагъат чапаргун битӏизе"}]}]}
 {"word": "people's court", "senses": [{"text": "нарсуд", "precomment": "people's court", "comment": "халкъияб суд"}]}
-{"word": "narta (sled)", "senses": [{"text": "нартал", "comment": "севералда, гьаби яги ритӏучӏалги ран, хӏалтӏизарулел чӏедерал, халатал чанагъал"}]}
+{"word": "narta", "senses": [{"text": "нартал", "comment": "севералда, гьаби яги ритӏучӏалги ран, хӏалтӏизарулел чӏедерал, халатал чанагъал", "precomment": "sled"}]}
 {"word": "chop", "senses": [{"text": "къотӏизе", "precomment": "what, of what", "comment": "рохь"}, {"text": "бичӏизе", "comment": "цӏул"}, {"text": "буссизе", "comment": "капуста"}]}
 {"word": "appearance", "senses": [{"text": "сипат", "examples": [{"en": "person with a pleasant appearance", "av": "берцинаб сипаталъул инсан (чи)"}]}]}
 {"word": "external", "senses": [{"text": "къватӏисеб", "precomment": "external", "examples": [{"en": "external wall", "av": "къватӏисеб къед"}, {"en": "outdoor lighting", "av": "къватӏисеб канлъи"}]}, {"text": "къватӏисан бихьулеб", "precomment": "ostentatious", "examples": [{"en": "outward calmness", "av": "бихьулеб гӏодове виччай"}]}, {"text": "тӏасан бахунеб", "comment": "дару", "labels": ["medicine"], "examples": [{"en": "medicine for external use", "av": "тӏасан (гьабулеб) бахунеб дару"}]}, {"text": "черхалда бахунеб дару", "labels": ["used as a noun"]}]}
@@ -18751,7 +18751,7 @@
 {"word": "negatively", "labels": ["adverb"], "senses": [{"text": "квешго, рокьукъго", "examples": [{"en": "have a negative attitude towards someone or something", "av": "лъидехунниги рокьукъго вукӏине"}, {"en": "have a negative effect on someone/something", "av": "квешаб асар гьабизе"}]}]}
 {"word": "negative", "senses": [{"text": "нахъчӏвараб, разилъи гьечӏеб", "precomment": "unfavorable", "examples": [{"en": "negative answer", "av": "нахъчӏвараб жаваб"}, {"en": "negative attitude towards something", "av": "лъидехунниги разилъи гьечӏеб (квешаб) балагьи"}]}, {"text": "отрицательный, нолалдаса гьитӏинаб", "labels": ["mathematics", "physics"], "examples": [{"en": "negative charge", "av": "отрицательный заряд", "comment": "токалъул"}, {"en": "negative number", "av": "нолалдаса гьитӏинаб тарих"}]}, {"text": "рокьукъаб, квешаб", "precomment": "bad", "examples": [{"en": "negative character", "av": "рокьукъав персонаж"}, {"en": "negative character traits", "av": "гӏамал-хасияталъул квешал рахъал"}]}]}
 {"word": "deny", "senses": [{"text": "инкар кквезе, гьабизе", "precomment": "what", "examples": [{"en": "to deny one's guilt", "av": "жиндаго гӏайиб букӏиналъе инкар кквезе"}]}, {"text": "нахъчӏвазе, гӏадахъ босунгутӏизе", "precomment": "to reject something"}]}
-{"word": "spurs (of mountains)", "labels": ["plural"], "senses": [{"text": "мугӏрузул аслиял гурел гӏаркьалаби", "precomment": "sg. spur m", "examples": [{"en": "foothills of the Carpathians", "av": "Карпатазул аслиял гурел гӏаркьалаби"}]}]}
+{"word": "mountain spurs", "labels": ["plural"], "senses": [{"text": "мугӏрузул аслиял гурел гӏаркьалаби", "precomment": "singular: spur", "examples": [{"en": "foothills of the Carpathians", "av": "Карпатазул аслиял гурел гӏаркьалаби"}]}]}
 {"word": "never", "labels": ["adverb", "colloquial word"], "senses": [{"text": "киданиги", "precomment": "never", "examples": [{"en": "never in my life heard anything like it", "av": "киданиги рагӏичӏо гьединаб (гьелда релълъараб) жо"}]}]}
 {"word": "spawn", "labels": ["colloquial word"], "senses": [{"text": "бахьикъосал, рижисурал", "labels": ["contemptuous"]}]}
 {"word": "adolescent", "senses": [{"text": "гӏолилав", "comment": "7 соналдаса 15-ялде щвезегӏан гӏумру бугев вас", "labels": ["archaic word"]}]}
@@ -19717,7 +19717,7 @@
 {"word": "to leaf through", "senses": [{"text": "бегизе, сундулниги тӏанчал регизе", "precomment": "what", "examples": [{"en": "leaf through a book", "av": "тӏехь бегизе"}, {"en": "leaf through a notebook", "av": "блокнот бегизе, гелизе"}]}, {"text": "гӏедегӏун, тӏаса-масаго хал-шал гьабизе", "precomment": "to skim"}]}
 {"word": "to pour", "senses": [{"text": "цоялъуса цогиялъубе тӏезе", "examples": [{"en": "to pour milk from a bottle into a pot", "av": "рахь шишаялъуса хьагинибе тӏезе"}]}, {"text": "тӏасан бачӏинегӏан (чвалхизегӏан) тӏезе", "precomment": "what, of what (pour beyond measure)"}, {"text": "цӏидасан тӏезе, биччазе", "precomment": "what (recast)", "examples": [{"en": "to transfuse blood", "av": "би цӏидасан биччазе"}]}]}
 {"word": "to overflow", "senses": [{"text": "цоги цӏарагӏалъубе чвахизе, чвахун ине", "precomment": "pour into another vessel"}, {"text": "тӏасан ине, чвахизе, къватӏибе чвахизе", "precomment": "overflow"}]}
-{"word": "to turn (a garment)", "senses": [{"text": "гъоркьияб рахъ тӏаде гьабун цӏидасан букъизе; бегуниса бахъун букъизе", "precomment": "what"}]}
+{"word": "turn", "senses": [{"text": "гъоркьияб рахъ тӏаде гьабун цӏидасан букъизе; бегуниса бахъун букъизе", "precomment": "of a garment"}]}
 {"word": "turning of a garment", "senses": [{"text": "ххамил гъоркьияб рахъ тӏаде гьабун цӏидасан букъи; бегуниса бахъун букъи", "precomment": "by the verb turn"}]}
 {"word": "to catch", "senses": [{"text": "кквезе, гӏемерисел кквезе", "precomment": "whom, what", "examples": [{"en": "to catch the fugitives", "av": "лъутаразул (тӏураразул) гӏемерисел кквезе, ккун лъугӏизаризе"}]}]}
 {"word": "adaptation", "senses": [{"text": "цӏидасан сверизабизе, хисизабизе", "precomment": "by the verb to adapt", "labels": ["music", "literature, literary studies"], "examples": [{"en": "rendering prose into verse", "av": "проза кучӏдузде сверизабизе"}]}, {"text": "цӏидасан, батӏайиса бицин", "precomment": "retelling"}]}
@@ -22885,7 +22885,7 @@
 {"word": "receiving", "senses": [{"text": "тӏаде къабул гьарулеб", "precomment": "about time", "examples": [{"en": "reception hours", "av": "тӏаде къабул гьарулеб заман (сагӏат)"}]}, {"text": "щивниги-щибниги кколеб", "precomment": "serving for reception of someone or something", "comment": "босулеб, къабул гьарулеб", "examples": [{"en": "receiving antenna", "av": "(радиосигналал) кколеб антенна"}, {"en": "admissions committee", "av": "(документал) росулеб комиссия"}, {"en": "entrance exams", "av": "цӏализе росулелъул кьолел экзаменал"}]}, {"examples": [{"en": "adoptive father", "av": "бесдал эмен"}, {"en": "adoptive mother; stepmother", "av": "бесдал эбел"}, {"en": "adoptive son", "av": "(васлъун) хьихьизе вачарав вас, гӏудговас"}, {"en": "adopted daughter", "av": "(яслъун) хьихьизе ячарай яс, гӏудгояс"}]}, {"text": "(тӏаде) къабул гьарулеб рукъ", "precomment": "as a noun"}]}
 {"word": "receiving", "senses": [{"text": "къабул гьариялъулаб, къабул гьарулеб, къабул гьабиялъе (босизе) бугеб", "examples": [{"en": "reception point", "av": "(щибниги) къабул гьабулеб (босулеб) бакӏ"}, {"en": "grain reception point", "av": "хӏалухъен къабул гьабулеб бакӏ"}]}]}
 {"word": "receiving clerk", "senses": [{"text": "къабул гьабулев чи", "examples": [{"en": "grain receiver", "av": "хӏалухъен къабул гьабулев (босулев) чи"}]}]}
-{"word": "receiving clerk (female)", "senses": [{"text": "къабул гьабулей (босулей) гӏадан"}]}
+{"word": "receiving clerk", "senses": [{"text": "къабул гьабулей (босулей) гӏадан", "precomment": "female"}]}
 {"word": "adopted child", "labels": ["colloquial word"], "senses": [{"text": "хьихьизе бачараб лъимер"}]}
 {"word": "to pall", "senses": [{"text": "чӏалгӏине, ракӏ буссине, бизарлъизе"}]}
 {"word": "to arrive", "senses": [{"text": "вачӏине", "comment": "(сунданиги рекӏун)", "examples": [{"en": "come home", "av": "рокъове вачӏине"}]}]}
@@ -25119,7 +25119,7 @@
 {"word": "take off one's shoes", "senses": [{"text": "хьитал рахъизе", "comment": "жиндасаго"}]}
 {"word": "learn", "senses": [{"text": "рекӏехъе лъазабизе", "precomment": "what", "examples": [{"en": "learn a new play", "av": "цӏияб пьеса дагь-дагьккун, ругьун гьарулаго, рекӏехъе лъазабизе"}]}]}
 {"word": "forget", "senses": [{"text": "гьабизе лъалеб букӏараб жо кӏочон тезе", "examples": [{"en": "forget how to play the mandolin", "av": "мандолина хъвазе кӏочон тезе"}]}]}
-{"word": "dis- (prefix)", "senses": [{"comment": "приставка (гӏурус мацӏалда «раз» приставкаялъул бакӏалда е, ю, я -ялда цебе хӏалтӏизабула); мас.: разъединить, разъяриться"}]}
+{"word": "dis-", "senses": [{"comment": "приставка (гӏурус мацӏалда «раз» приставкаялъул бакӏалда е, ю, я -ялда цебе хӏалтӏизабула); мас.: разъединить, разъяриться"}], "labels": ["prefix"]}
 {"word": "separation", "senses": [{"text": "батӏа гьаби", "precomment": "disconnection (action)"}, {"text": "батӏалъи, батӏатӏей", "precomment": "separation (state)"}]}
 {"word": "separate", "senses": [{"text": "батӏа тӏезабизе", "precomment": "something (to separate)"}, {"text": "батӏа гьабизе", "precomment": "someone or something (to part)"}]}
 {"word": "separate", "senses": [{"text": "батӏа тӏезе, батӏалъизе", "precomment": "separate from something"}]}
@@ -28232,7 +28232,7 @@
 {"word": "class", "senses": [{"text": "сословиялъул, хасаб тайпаялъул", "labels": ["related to history"]}]}
 {"word": "coworker", "senses": [{"text": "цадахъ хъулухъалда вугев чи, хъулухъцадахъ", "comment": "хъулухъ гьабулев"}]}
 {"word": "female colleague", "senses": [{"text": "цадахъ хъулухъалда йигей гӏадан"}]}
-{"word": "do (a service)", "senses": [{"examples": [{"en": "do a service", "av": "лъиениги лъикӏлъи, кумек, хайир, пайда гьабизе"}]}]}
+{"word": "do a service", "senses": [{"examples": [{"en": "do a service", "av": "лъиениги лъикӏлъи, кумек, хайир, пайда гьабизе"}]}]}
 {"word": "pine", "senses": [{"text": "накӏкӏигъветӏ"}]}
 {"word": "pine", "senses": [{"text": "накӏкӏигъотӏол, накӏкӏигъутӏбузул"}, {"text": "накӏкӏил, накӏкӏицӏулал", "examples": [{"en": "pine forest", "av": "накӏкӏирохь"}]}]}
 {"word": "nap", "labels": ["colloquial word"], "senses": [{"text": "дагьаб мехалъ кьижизе, гъапуллъизе"}]}
@@ -33084,7 +33084,9 @@
 {"word": "thoroughbred", "labels": ["colloquial word"], "senses": [{"text": "бацӏцӏадаб жинсалъул, бидаяб жо", "precomment": "sth", "labels": ["colloquial word"]}]}
 {"word": "purebred", "senses": [{"text": "бацӏцӏадаб тайпаялъул, бидаяб", "examples": [{"en": "thoroughbred horse", "av": "бидаяб чу"}]}, {"text": "унго-унгояб, хӏакъикъияб", "precomment": "real; genuine", "labels": ["colloquial word"]}]}
 {"word": "calligraphy", "senses": [{"text": "берцинхъвай", "examples": [{"en": "penmanship lesson", "av": "берцинхъваялъул дарс"}]}]}
-{"word": "cleanliness; neatness", "senses": [{"text": "рацӏцӏалъи бокьи"}, {"text": "намус буголъи, яхӏ буголъи, вацӏцӏалъи", "precomment": "decency; integrity", "labels": ["figuratively"]}]}
+{"word": "cleanliness", "senses": [{"text": "рацӏцӏалъи бокьи"}]}
+{"word": "neatness", "senses": [{"text": "рацӏцӏалъи бокьи"}]}
+{"word": "integrity", "senses": [{"text": "намус буголъи, яхӏ буголъи, вацӏцӏалъи", "precomment": "decency; integrity", "labels": ["figuratively"]}]}
 {"word": "cleanly", "senses": [{"text": "рацӏцӏалъи бокьулев, вацӏцӏадав", "examples": [{"en": "a neat person", "av": "вацӏцӏадав чи"}]}, {"text": "намус-яхӏ бугев, вацӏцӏадав, тазаяв, лайикълъи гьечӏев, хӏалихьатаб жо гьабуларев", "labels": ["figuratively"]}]}
 {"word": "nitpicker", "labels": ["colloquial word"], "senses": [{"text": "цӏакъго вацӏцӏадав, рацӏцӏалъи бокьулев чи"}, {"text": "чорокаб хӏалтӏи бокьуларев, гьелда ракӏ къалев чи"}]}
 {"word": "purebredness", "senses": [{"text": "бидаяб, жинс лъикӏаб, тайпа лъикӏаб букӏин"}]}

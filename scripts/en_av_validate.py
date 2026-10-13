@@ -6,6 +6,7 @@ import collections
 import hashlib
 import json
 import re
+import unicodedata
 from pathlib import Path
 
 
@@ -15,6 +16,30 @@ RUSSIAN_LABELS = {
     "masculine gender", "feminine gender", "neuter gender",
     "perfective aspect", "imperfective aspect", "biaspectual", "semelfactive aspect",
 }
+
+# Real lexical exceptions, not a general permission for arbitrary punctuation.
+WORD_EXCEPTIONS = {"etc.", "St. John's wort", "1.5-ton truck", "yes, sir"}
+WORD_TOKEN = re.compile(r"[-']?[^\W\d_]+(?:['-][^\W\d_]+)*(?:'|-)?", re.UNICODE)
+
+
+def headword_errors(word):
+    if not isinstance(word, str) or not word.strip():
+        return ["word must be a non-empty string"]
+    errors = []
+    if word != word.strip() or "  " in word:
+        errors.append("leading, trailing or repeated spaces in word")
+    if any(ch.isspace() and ch != " " for ch in word):
+        errors.append("nonstandard whitespace in word")
+    if unicodedata.normalize("NFC", word) != word:
+        errors.append("word must use NFC Unicode normalization")
+    if any(ch.isalpha() and "LATIN" not in unicodedata.name(ch, "") for ch in word):
+        errors.append("non-Latin letter in word")
+    if word not in WORD_EXCEPTIONS:
+        if any(not ch.isalpha() and ch not in " '-" for ch in word):
+            errors.append("unexpected symbol in word")
+        if not all(WORD_TOKEN.fullmatch(token) for token in word.split(" ")):
+            errors.append("invalid word punctuation or token")
+    return errors
 
 
 def validate(path):
@@ -36,8 +61,8 @@ def validate(path):
             continue
         counts["entries"] += 1
         word = article.get("word")
-        if not isinstance(word, str) or not word.strip() or CYRILLIC.search(word):
-            error("word must be a non-empty English headword")
+        for message in headword_errors(word):
+            error(message)
         if line != json.dumps(article, ensure_ascii=False):
             error("non-canonical spaced JSON serialization")
         fingerprint = json.dumps(article, sort_keys=True, ensure_ascii=False)
