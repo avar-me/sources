@@ -478,6 +478,31 @@
       "consumers": []
     }
   ],
+  "dictionary_exports": {
+    "description": "av-ru.jsonl и ru-av.jsonl, собранные в форматы офлайн-словарных приложений (GoldenDict, Lingvo, StarDict-совместимые читалки). Собираются вручную скриптом scripts/export_dictionaries.py (требует стороннего pyglossary, не входит в основную сборку сайта) и коммитятся как готовые файлы — пересобирать нужно вручную после значимых правок av-ru/ru-av.",
+    "groups": [
+      {
+        "id": "av-ru",
+        "title": "Аварско-русский словарь",
+        "files": [
+          {"format": "DSL (ABBYY Lingvo)", "path": "exports/av-ru/av-ru.dsl"},
+          {"format": "StarDict", "path": "exports/av-ru/av-ru.ifo"},
+          {"format": "StarDict", "path": "exports/av-ru/av-ru.idx"},
+          {"format": "StarDict", "path": "exports/av-ru/av-ru.dict"}
+        ]
+      },
+      {
+        "id": "ru-av",
+        "title": "Русско-аварский словарь",
+        "files": [
+          {"format": "DSL (ABBYY Lingvo)", "path": "exports/ru-av/ru-av.dsl"},
+          {"format": "StarDict", "path": "exports/ru-av/ru-av.ifo"},
+          {"format": "StarDict", "path": "exports/ru-av/ru-av.idx"},
+          {"format": "StarDict", "path": "exports/ru-av/ru-av.dict"}
+        ]
+      }
+    ]
+  },
   "schema": {
     "entry": {
       "word": "string — заглавное слово",

@@ -404,7 +404,42 @@ def footer_html() -> str:
 
 # ---------- Catalog (root index.html) ----------
 
-def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
+def render_dictionary_exports_section(dict_exports: dict, checksums: dict[str, str]) -> str:
+    if not dict_exports or not dict_exports.get("groups"):
+        return ""
+    groups_html = []
+    for group in dict_exports["groups"]:
+        rows = []
+        for file_info in group.get("files", []):
+            rel = file_info["path"]
+            digest = checksums.get(rel)
+            if digest is None:
+                continue
+            rows.append(
+                f'<tr><td>{esc(file_info["format"])}</td>'
+                f'<td><a href="{esc(rel)}" download><code>{esc(Path(rel).name)}</code></a></td>'
+                f'<td><details><summary><code>{digest[:12]}…</code></summary>'
+                f'<code class="full-checksum">{digest}</code></details></td></tr>'
+            )
+        if not rows:
+            continue
+        groups_html.append(f"""<div class="export-group">
+      <h3>{esc(group["title"])}</h3>
+      <table class="catalog-table">
+        <thead><tr><th scope="col">Формат</th><th scope="col">Файл</th><th scope="col">SHA-256</th></tr></thead>
+        <tbody>{''.join(rows)}</tbody>
+      </table>
+    </div>""")
+    if not groups_html:
+        return ""
+    return f"""<section class="catalog" aria-labelledby="dictionary-exports">
+    <h2 class="section-title" id="dictionary-exports">Для словарных приложений</h2>
+    <p>{esc(dict_exports.get("description", ""))}</p>
+    {''.join(groups_html)}
+  </section>"""
+
+
+def render_catalog(catalog: dict, stats: dict[str, dict], checksums: dict[str, str] | None = None) -> str:
     groups = {"dictionaries": [], "monolingual": [], "multilingual": []}
     for src in catalog["sources"]:
         sid = src["id"]
@@ -479,11 +514,13 @@ def render_catalog(catalog: dict, stats: dict[str, dict]) -> str:
   </section>
 
   <nav class="catalog-nav" aria-label="Категории источников">
-    <a href="#dictionaries">Словари</a><a href="#monolingual">Монолингвальные корпусы</a><a href="#multilingual">Мультилингвальные корпусы</a>
+    <a href="#dictionaries">Словари</a><a href="#monolingual">Монолингвальные корпусы</a><a href="#multilingual">Мультилингвальные корпусы</a>{'<a href="#dictionary-exports">Для словарных приложений</a>' if catalog.get("dictionary_exports") else ''}
   </nav>
   {sources_block}
   <p class="checksum-note">SHA-256 позволяет проверить целостность скачанного файла.
     <a href="SHA256SUMS" download>Скачать контрольные суммы всех данных и оригиналов</a>.</p>
+
+  {render_dictionary_exports_section(catalog.get("dictionary_exports"), checksums or {})}
 
   <section class="how-it-works">
     <h2 class="section-title">Как работает</h2>
@@ -1532,11 +1569,29 @@ def build() -> None:
             dst_doc.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(src_doc, dst_doc)
 
+    # Dictionary-app exports (DSL/StarDict), built offline by
+    # scripts/export_dictionaries.py and committed as static files.
+    export_paths: list[str] = []
+    dict_exports = catalog.get("dictionary_exports")
+    if dict_exports:
+        for group in dict_exports.get("groups", []):
+            for file_info in group.get("files", []):
+                rel = file_info["path"]
+                src_file = ROOT / rel
+                if not src_file.exists():
+                    print(f"    !! missing dictionary export: {rel}", file=sys.stderr)
+                    continue
+                dst_file = DOCS / rel
+                dst_file.parent.mkdir(parents=True, exist_ok=True)
+                shutil.copy2(src_file, dst_file)
+                export_paths.append(rel)
+
     checksums: dict[str, str] = {}
     files = {"sources.json"}
     for src in catalog["sources"]:
         files.add(src["data_path"])
         files.update(doc["path"] for doc in src.get("documents", []) if (DOCS / doc["path"]).exists())
+    files.update(export_paths)
     for name in sorted(files):
         with (DOCS / name).open("rb") as stream:
             checksums[name] = hashlib.file_digest(stream, "sha256").hexdigest()
@@ -1563,7 +1618,7 @@ def build() -> None:
         stats[src["id"]]["sha256"] = checksums[src["data_path"]]
 
     # Catalog landing page
-    (DOCS / "index.html").write_text(render_catalog(catalog, stats), encoding="utf-8")
+    (DOCS / "index.html").write_text(render_catalog(catalog, stats, checksums), encoding="utf-8")
 
     # Build meta
     (DOCS / "build.json").write_text(

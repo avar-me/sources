@@ -1,0 +1,8 @@
+StarDict's dict ifo file
+version=3.0.0
+bookname=Русско-аварский словарь (sources.avar.me)
+wordcount=38938
+idxfilesize=1055538
+sametypesequence=h
+author=avar.me
+description=Русско-аварский словарь, около 38 900 статей. Источник: sources.avar.me/ru-av

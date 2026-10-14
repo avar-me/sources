@@ -108,6 +108,26 @@ python3 -m http.server -d docs 8000
 
 Деплой автоматический: `git push origin main` → GitHub Actions собирает `docs/` и публикует на GitHub Pages.
 
+### Экспорт в форматы словарных приложений (DSL, StarDict)
+
+`exports/av-ru/` и `exports/ru-av/` — готовые файлы для офлайн-словарных
+приложений (GoldenDict, ABBYY Lingvo, любая StarDict-совместимая читалка),
+собранные из `data/av-ru.jsonl` и `data/ru-av.jsonl`. Эти файлы коммитятся
+в репозиторий и копируются в `docs/` обычной сборкой сайта (`build.sh`/
+`src/build_site.py`), но **генерируются отдельно, вручную**:
+
+```bash
+python3 -m venv .venv-export
+.venv-export/bin/pip install pyglossary
+.venv-export/bin/python scripts/export_dictionaries.py
+```
+
+`pyglossary` — сторонняя зависимость, её нет и не будет в основной сборке
+сайта (`src/build_site.py` принципиально использует только стандартную
+библиотеку, см. `CLAUDE.md`). После значимых правок `av-ru.jsonl`/
+`ru-av.jsonl` перегенерируйте `exports/` этой командой и закоммитьте
+результат вместе с правкой данных.
+
 ## Лицензии
 
 - Код (этот репозиторий, скрипты, шаблоны) — MIT.
