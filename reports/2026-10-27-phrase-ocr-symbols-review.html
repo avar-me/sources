@@ -1,0 +1,953 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>phrase-av-ru: OCR, буквы и знаки</title><style>body{font:16px system-ui;margin:24px;color:#252018;background:#fffdf7}table{width:100%;border-collapse:collapse;table-layout:fixed}td,th{border:1px solid #ccc;padding:8px;vertical-align:top;overflow-wrap:anywhere}td{white-space:pre-wrap}del{background:#ffd4d4}ins{background:#d4f3cf;text-decoration:none}pre{white-space:pre-wrap;font-size:13px}.num{width:3%}.word{width:12%}.field{width:10%}.issue{width:25%}.pair{width:23%}.json{width:4%}</style><h1>phrase-av-ru: OCR, буквы и знаки — 27.10.2026</h1><p>Проверены 2736 статей. Исправлены 25 статей: 21 — опечатки, 4 — структура. Все изменения сверены с PDF и применены по одобрению мейнтейнера 27.10.2026.</p><h2>Отклонено</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr></table><h2>Опечатки</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr><tr id="r1"><td>1</td><td>БАГӀАРАБ АРМИЯ</td><td>examples[0].av</td><td>Разрывы внутри слова: баз дал ъун; строковый перенос хьеза-биялъулъ.
+В PDF Бронемашинабаздалъун одним словом; хьеза- / биялъулъ — строковый перенос. Убрать три ошибочных пробела и соединить перенесённое слово.
+PDF: 19</td><td>Бронемашина<del> </del>баз<del> </del>дал<del> </del>ъун Багӏараб Армия хьеза<del>-</del>биялъулъ гьесда тӏадегӏанаб дуруслъи букӏинабизе кӏвана.</td><td>Бронемашинабаздалъун Багӏараб Армия хьезабиялъулъ гьесда тӏадегӏанаб дуруслъи букӏинабизе кӏвана.</td><td><button onclick="let e=document.getElementById('j1');e.hidden=!e.hidden">json</button></td></tr><tr id="j1" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;БАГӀАРАБ АРМИЯ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Красная Армия&quot;,
+      &quot;equiv&quot;: &quot;calque&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бронемашина баз дал ъун Багӏараб Армия хьеза-биялъулъ гьесда тӏадегӏанаб дуруслъи букӏинабизе кӏвана.&quot;,
+      &quot;ru&quot;: &quot;Он заставил поверить, что Красная Армия будет вооружена бронемашинами.&quot;,
+      &quot;author&quot;: &quot;ГӀ. М. ГӀалиев&quot;,
+      &quot;source&quot;: &quot;Дир захӏмат — дир талихӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 19
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;БАГӀАРАБ АРМИЯ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Красная Армия&quot;,
+      &quot;equiv&quot;: &quot;calque&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бронемашинабаздалъун Багӏараб Армия хьезабиялъулъ гьесда тӏадегӏанаб дуруслъи букӏинабизе кӏвана.&quot;,
+      &quot;ru&quot;: &quot;Он заставил поверить, что Красная Армия будет вооружена бронемашинами.&quot;,
+      &quot;author&quot;: &quot;ГӀ. М. ГӀалиев&quot;,
+      &quot;source&quot;: &quot;Дир захӏмат — дир талихӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 19
+}</pre></td></tr><tr id="r2"><td>2</td><td>БИЯЛЪ РОГЬО ЧУРИЗЕ</td><td>examples[0].av</td><td>Палочка вне диграфа вместо восклицательного знака.
+По скану: Палочка вне диграфа вместо восклицательного знака. Восстановить написание или знак без изменения смысла.
+PDF: 48</td><td>Биялъ рогьо чуризе, Чу кьолой, ХӀажимурад<del>ӏ</del></td><td>Биялъ рогьо чуризе, Чу кьолой, ХӀажимурад<ins>!</ins></td><td><button onclick="let e=document.getElementById('j2');e.hidden=!e.hidden">json</button></td></tr><tr id="j2" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;БИЯЛЪ РОГЬО ЧУРИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;отомстить&quot;,
+      &quot;literal&quot;: &quot;кровью смыть позор&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Биялъ рогьо чуризе, Чу кьолой, ХӀажимурадӏ&quot;,
+      &quot;ru&quot;: &quot;Чтоб кровью смыть позор, Седлай коня, Хаджимурат!&quot;,
+      &quot;author&quot;: &quot;Р. ХӀамзатов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал асарал&quot;
+    }
+  ],
+  &quot;page&quot;: 48,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ]
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;БИЯЛЪ РОГЬО ЧУРИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;отомстить&quot;,
+      &quot;literal&quot;: &quot;кровью смыть позор&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Биялъ рогьо чуризе, Чу кьолой, ХӀажимурад!&quot;,
+      &quot;ru&quot;: &quot;Чтоб кровью смыть позор, Седлай коня, Хаджимурат!&quot;,
+      &quot;author&quot;: &quot;Р. ХӀамзатов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал асарал&quot;
+    }
+  ],
+  &quot;page&quot;: 48,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ]
+}</pre></td></tr><tr id="r3"><td>3</td><td>ВЕХЬЛЪИ ГЬАБИЗЕ</td><td>examples[0].av</td><td>Посторонняя латинская I перед многоточием.
+В PDF перед «цо минуталъ» только многоточие. Латинская I отсутствует; убрать посторонний символ.
+PDF: 57</td><td><del>I</del>...цо минуталъ теларо чияр ясазе вехьлъи гьабизе.</td><td>...цо минуталъ теларо чияр ясазе вехьлъи гьабизе.</td><td><button onclick="let e=document.getElementById('j3');e.hidden=!e.hidden">json</button></td></tr><tr id="j3" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ВЕХЬЛЪИ ГЬАБИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;чабанить; охранять, оберегать кого-чтол.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;I...цо минуталъ теларо чияр ясазе вехьлъи гьабизе.&quot;,
+      &quot;ru&quot;: &quot;...ни на минуту я не позволю ему охранять чужих дочерей.&quot;,
+      &quot;author&quot;: &quot;М. Сулиманов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал&quot;
+    }
+  ],
+  &quot;page&quot;: 57
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ВЕХЬЛЪИ ГЬАБИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;чабанить; охранять, оберегать кого-чтол.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;...цо минуталъ теларо чияр ясазе вехьлъи гьабизе.&quot;,
+      &quot;ru&quot;: &quot;...ни на минуту я не позволю ему охранять чужих дочерей.&quot;,
+      &quot;author&quot;: &quot;М. Сулиманов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал&quot;
+    }
+  ],
+  &quot;page&quot;: 57
+}</pre></td></tr><tr id="r5"><td>5</td><td>ГӀОДОВ ЧӀВАЗЕ</td><td>examples[0].av</td><td>Двойные дефисы в названии города в обоих языках.
+В PDF название города перенесено Темир- / -Хан-Шуравеги и Темирхан- / -Шуру. При соединении сохранить один дефис вместо двух в обоих языках.
+PDF: 102</td><td>examples[0].av: Гьедин гӏодов чӏван, чӏаголъи хун, гӏумруялдаса хьул къотӏун, къваридго, пашманго вуссана Темир<del>-</del>-Хан-Шуравеги Хизри.
+examples[0].ru: Вот так отчаявшись, опустошённый и печальный, потеряв вкус жизни, вернулся Хизри в Темирхан-<del>-</del>Шуру.</td><td>examples[0].av: Гьедин гӏодов чӏван, чӏаголъи хун, гӏумруялдаса хьул къотӏун, къваридго, пашманго вуссана Темир-Хан-Шуравеги Хизри.
+examples[0].ru: Вот так отчаявшись, опустошённый и печальный, потеряв вкус жизни, вернулся Хизри в Темирхан-Шуру.</td><td><button onclick="let e=document.getElementById('j5');e.hidden=!e.hidden">json</button></td></tr><tr id="j5" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀОДОВ ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;отчаяться; опуститься&quot;,
+      &quot;literal&quot;: &quot;на землю лечь&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьедин гӏодов чӏван, чӏаголъи хун, гӏумруялдаса хьул къотӏун, къваридго, пашманго вуссана Темир--Хан-Шуравеги Хизри.&quot;,
+      &quot;ru&quot;: &quot;Вот так отчаявшись, опустошённый и печальный, потеряв вкус жизни, вернулся Хизри в Темирхан--Шуру.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 102
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀОДОВ ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;отчаяться; опуститься&quot;,
+      &quot;literal&quot;: &quot;на землю лечь&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьедин гӏодов чӏван, чӏаголъи хун, гӏумруялдаса хьул къотӏун, къваридго, пашманго вуссана Темир-Хан-Шуравеги Хизри.&quot;,
+      &quot;ru&quot;: &quot;Вот так отчаявшись, опустошённый и печальный, потеряв вкус жизни, вернулся Хизри в Темирхан-Шуру.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 102
+}</pre></td></tr><tr id="r6"><td>6</td><td>КЕРЕН КЬЕЗЕ</td><td>examples[0].av</td><td>Случайный верхний регистр внутри слова: ГьединлъидаЛИН.
+В PDF «Гьединлъидалин» обычным регистром. Исправить ЛИН → лин; продолжение статьи сверено на PDF 142.
+PDF: 141</td><td>Гьединлъида<del>ЛИН</del> дун гьавураб мехалда лъимадухъ балагьичӏей ва гьелъие керен кьезе инкар гьабураб.</td><td>Гьединлъида<ins>лин</ins> дун гьавураб мехалда лъимадухъ балагьичӏей ва гьелъие керен кьезе инкар гьабураб.</td><td><button onclick="let e=document.getElementById('j6');e.hidden=!e.hidden">json</button></td></tr><tr id="j6" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КЕРЕН КЬЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;кормить грудью&quot;,
+      &quot;literal&quot;: &quot;грудь давать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГьединлъидаЛИН дун гьавураб мехалда лъимадухъ балагьичӏей ва гьелъие керен кьезе инкар гьабураб.&quot;,
+      &quot;ru&quot;: &quot;Поэтому, когда родился я, она не стала кормить меня грудью.&quot;,
+      &quot;author&quot;: &quot;П. Муртазагӏалиева&quot;,
+      &quot;source&quot;: &quot;Дир хъахӏаб кӏаз&quot;
+    }
+  ],
+  &quot;page&quot;: 141
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КЕРЕН КЬЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;кормить грудью&quot;,
+      &quot;literal&quot;: &quot;грудь давать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьединлъидалин дун гьавураб мехалда лъимадухъ балагьичӏей ва гьелъие керен кьезе инкар гьабураб.&quot;,
+      &quot;ru&quot;: &quot;Поэтому, когда родился я, она не стала кормить меня грудью.&quot;,
+      &quot;author&quot;: &quot;П. Муртазагӏалиева&quot;,
+      &quot;source&quot;: &quot;Дир хъахӏаб кӏаз&quot;
+    }
+  ],
+  &quot;page&quot;: 141
+}</pre></td></tr><tr id="r7"><td>7</td><td>КӀАЛ ГЬИКЪИЗЕ</td><td>examples[1].av</td><td>Палочка вне диграфа внутри тӏечеӏеб.
+На скане «тӏечеб лъимерги». Лишнее ӏе в тӏечеӏеб — дефект OCR; восстановить тӏечеб.
+PDF: 172</td><td>Карандаса тӏеч<del>еӏ</del>еб лъимерги рехун Лъикӏго йикӏа абун, кӏал гьикъун тана.</td><td>Карандаса тӏечеб лъимерги рехун Лъикӏго йикӏа абун, кӏал гьикъун тана.</td><td><button onclick="let e=document.getElementById('j7');e.hidden=!e.hidden">json</button></td></tr><tr id="j7" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛ ГЬИКЪИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;обвинять, попрекать кого-л.&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;мучить кого-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;... кӏиго цӏадуда гьоркьове ккарав Шайих Пари-фида кӏалал гьикъизе лъугьана, дуцадила ургъунго ахӏун вугила гьев.&quot;,
+      &quot;ru&quot;: &quot;... Шайих-Арифа обвиняли в том, что он специально пригласил его.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    },
+    {
+      &quot;av&quot;: &quot;Карандаса тӏечеӏеб лъимерги рехун Лъикӏго йикӏа абун, кӏал гьикъун тана.&quot;,
+      &quot;ru&quot;: &quot;Измучил и бросил меня С грудным ребёнком на руках.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 172
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛ ГЬИКЪИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;обвинять, попрекать кого-л.&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;мучить кого-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;... кӏиго цӏадуда гьоркьове ккарав Шайих Пари-фида кӏалал гьикъизе лъугьана, дуцадила ургъунго ахӏун вугила гьев.&quot;,
+      &quot;ru&quot;: &quot;... Шайих-Арифа обвиняли в том, что он специально пригласил его.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    },
+    {
+      &quot;av&quot;: &quot;Карандаса тӏечеб лъимерги рехун Лъикӏго йикӏа абун, кӏал гьикъун тана.&quot;,
+      &quot;ru&quot;: &quot;Измучил и бросил меня С грудным ребёнком на руках.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 172
+}</pre></td></tr><tr id="r8"><td>8</td><td>КӀАЛ ЦӀОРОЯВ!</td><td>examples[0].av</td><td>Палочка вместо !; оставшийся строковый перенос гьечӏе-лин.
+PDF: «кӏал цӏородал!» и строковый перенос гьечӏе- / лин. Вернуть ! вместо палочки и соединить гьечӏелин.
+PDF: 173</td><td>— Хъуре, къоролзаби! ЦӀалкӏе, кӏал цӏородал<del>ӏ</del> Нуж гӏадал борхьал нижер заманаялъе камун гьечӏе<del>-</del>лин!</td><td>— Хъуре, къоролзаби! ЦӀалкӏе, кӏал цӏородал<ins>!</ins> Нуж гӏадал борхьал нижер заманаялъе камун гьечӏелин!</td><td><button onclick="let e=document.getElementById('j8');e.hidden=!e.hidden">json</button></td></tr><tr id="j8" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛ ЦӀОРОЯВ!&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;чтоб язык твой отсох!&quot;,
+      &quot;literal&quot;: &quot;замёрз!&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Хъуре, къоролзаби! ЦӀалкӏе, кӏал цӏородалӏ Нуж гӏадал борхьал нижер заманаялъе камун гьечӏе-лин!&quot;,
+      &quot;ru&quot;: &quot;— Болтайте, вдовушки! Есть теперь пища для ваших сплетен. Перемывайте косточки, чтоб языки ваши отсохли!&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 173
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛ ЦӀОРОЯВ!&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;чтоб язык твой отсох!&quot;,
+      &quot;literal&quot;: &quot;замёрз!&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Хъуре, къоролзаби! ЦӀалкӏе, кӏал цӏородал! Нуж гӏадал борхьал нижер заманаялъе камун гьечӏелин!&quot;,
+      &quot;ru&quot;: &quot;— Болтайте, вдовушки! Есть теперь пища для ваших сплетен. Перемывайте косточки, чтоб языки ваши отсохли!&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 173
+}</pre></td></tr><tr id="r9"><td>9</td><td>КӀАЛДИБЕ РАГӀИ БАЧӀИНЧӀОГО ЛЪУГЬИНЕ</td><td>examples[0].av</td><td>Палочка вне диграфа в гьерӏ.
+В PDF «гьей нечон». Й распознано как р с палочкой; восстановить местоимение гьей.
+PDF: 177</td><td>Аминат гьурмалъа багӏарлъана, гье<del>рӏ</del> нечон, кӏалдибе рагӏи бачӏунарого лъугьана.</td><td>Аминат гьурмалъа багӏарлъана, гье<ins>й</ins> нечон, кӏалдибе рагӏи бачӏунарого лъугьана.</td><td><button onclick="let e=document.getElementById('j9');e.hidden=!e.hidden">json</button></td></tr><tr id="j9" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛДИБЕ РАГӀИ БАЧӀИНЧӀОГО ЛЪУГЬИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;потерять дар речи; язык не повернётся сказать&quot;,
+      &quot;literal&quot;: &quot;в рот слово не приходит&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Аминат гьурмалъа багӏарлъана, гьерӏ нечон, кӏалдибе рагӏи бачӏунарого лъугьана.&quot;,
+      &quot;ru&quot;: &quot;Аминат покраснела, смутилась, словно язык проглотила.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;ГӀаданлъиялъул къо&quot;
+    }
+  ],
+  &quot;page&quot;: 177
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КӀАЛДИБЕ РАГӀИ БАЧӀИНЧӀОГО ЛЪУГЬИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;потерять дар речи; язык не повернётся сказать&quot;,
+      &quot;literal&quot;: &quot;в рот слово не приходит&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Аминат гьурмалъа багӏарлъана, гьей нечон, кӏалдибе рагӏи бачӏунарого лъугьана.&quot;,
+      &quot;ru&quot;: &quot;Аминат покраснела, смутилась, словно язык проглотила.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;ГӀаданлъиялъул къо&quot;
+    }
+  ],
+  &quot;page&quot;: 177
+}</pre></td></tr><tr id="r10"><td>10</td><td>ЛЪАВУДЕ ВАЧӀИНЕ</td><td>senses[0].translation</td><td>Два лишних дефиса перед толкованием.
+В PDF перед толкованием стоит знак эквивалентности, а не текстовые дефисы. Убрать --; existing equiv: exact сохранить.
+PDF: 185</td><td><del>-- </del>прийти в сознание, в себя</td><td>прийти в сознание, в себя</td><td><button onclick="let e=document.getElementById('j10');e.hidden=!e.hidden">json</button></td></tr><tr id="j10" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЛЪАВУДЕ ВАЧӀИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;-- прийти в сознание, в себя&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;page&quot;: 185
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЛЪАВУДЕ ВАЧӀИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;прийти в сознание, в себя&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;page&quot;: 185
+}</pre></td></tr><tr id="r11"><td>11</td><td>ЛЪЕЛЪАН КЪВАТӀИВЕ ВАККИЗЕ</td><td>examples[0].av</td><td>Двойной дефис в махсаро--хочӏалда.
+По скану: Двойной дефис в махсаро--хочӏалда. Восстановить написание или знак без изменения смысла.
+PDF: 187</td><td>Росда цебе бугеб лъарал рагӏалда лъел гӏертӏалги цӏун, гӏодор гьелги лъун, гара-чӏварулел, махсаро<del>-</del>-хочӏалда релъа-рохун ясал рукӏаго, лъелъа къватӏиве ваккарав гӏадин, вачӏун тӏаде щвана чодул рекӏарав.</td><td>Росда цебе бугеб лъарал рагӏалда лъел гӏертӏалги цӏун, гӏодор гьелги лъун, гара-чӏварулел, махсаро-хочӏалда релъа-рохун ясал рукӏаго, лъелъа къватӏиве ваккарав гӏадин, вачӏун тӏаде щвана чодул рекӏарав.</td><td><button onclick="let e=document.getElementById('j11');e.hidden=!e.hidden">json</button></td></tr><tr id="j11" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЛЪЕЛЪАН КЪВАТӀИВЕ ВАККИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;как из-под земли вырасти&quot;,
+      &quot;literal&quot;: &quot;из-под воды&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Росда цебе бугеб лъарал рагӏалда лъел гӏертӏалги цӏун, гӏодор гьелги лъун, гара-чӏварулел, махсаро--хочӏалда релъа-рохун ясал рукӏаго, лъелъа къватӏиве ваккарав гӏадин, вачӏун тӏаде щвана чодул рекӏарав.&quot;,
+      &quot;ru&quot;: &quot;На берегу быстрой речки, наполнив кувшины и поставив их, весело болтали девушки, когда прямо перед ними как из-под земли вырос всадник.&quot;,
+      &quot;author&quot;: &quot;М. Абакар&quot;,
+      &quot;source&quot;: &quot;Эбел&quot;
+    }
+  ],
+  &quot;page&quot;: 187
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЛЪЕЛЪАН КЪВАТӀИВЕ ВАККИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;как из-под земли вырасти&quot;,
+      &quot;literal&quot;: &quot;из-под воды&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Росда цебе бугеб лъарал рагӏалда лъел гӏертӏалги цӏун, гӏодор гьелги лъун, гара-чӏварулел, махсаро-хочӏалда релъа-рохун ясал рукӏаго, лъелъа къватӏиве ваккарав гӏадин, вачӏун тӏаде щвана чодул рекӏарав.&quot;,
+      &quot;ru&quot;: &quot;На берегу быстрой речки, наполнив кувшины и поставив их, весело болтали девушки, когда прямо перед ними как из-под земли вырос всадник.&quot;,
+      &quot;author&quot;: &quot;М. Абакар&quot;,
+      &quot;source&quot;: &quot;Эбел&quot;
+    }
+  ],
+  &quot;page&quot;: 187
+}</pre></td></tr><tr id="r13"><td>13</td><td>РАКЬ БАГЪАРИ</td><td>examples[0].av</td><td>Неверное сочетание хӏиа вместо ш; строковый перенос гьу-дуллъиялъулаб.
+По скану: Неверное сочетание хӏиа вместо ш; строковый перенос гьу-дуллъиялъулаб. Восстановить написание или знак без изменения смысла.
+PDF: 239</td><td>Ракь багъариялъ зарал гьабураб нилъер республикаялъул тах<del>ӏи</del>агьаралъе кумекалъе рачӏарал батӏи-батӏиял миллатазул советиял гӏадамаз гьабулеб гьу<del>-</del>дуллъиялъулаб квербакъи, гьелдехун дагъистаниязул бугеб вацлъияб адаб-хъатир бихьун йохулаан гьей.</td><td>Ракь багъариялъ зарал гьабураб нилъер республикаялъул тах<ins>ш</ins>агьаралъе кумекалъе рачӏарал батӏи-батӏиял миллатазул советиял гӏадамаз гьабулеб гьудуллъиялъулаб квербакъи, гьелдехун дагъистаниязул бугеб вацлъияб адаб-хъатир бихьун йохулаан гьей.</td><td><button onclick="let e=document.getElementById('j13');e.hidden=!e.hidden">json</button></td></tr><tr id="j13" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РАКЬ БАГЪАРИ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;землетрясение&quot;,
+      &quot;literal&quot;: &quot;движение земли&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Ракь багъариялъ зарал гьабураб нилъер республикаялъул тахӏиагьаралъе кумекалъе рачӏарал батӏи-батӏиял миллатазул советиял гӏадамаз гьабулеб гьу-дуллъиялъулаб квербакъи, гьелдехун дагъистаниязул бугеб вацлъияб адаб-хъатир бихьун йохулаан гьей.&quot;,
+      &quot;ru&quot;: &quot;Она радовалась, видя, с каким уважением и любовью относятся дагестанцы к людям разных национальностей, приехавших с братской помощью в столицу нашей республики после землетрясения.&quot;,
+      &quot;author&quot;: &quot;ХӀ. ХӀажиев&quot;,
+      &quot;source&quot;: &quot;Севералда бугеб дир милъиршо&quot;
+    }
+  ],
+  &quot;page&quot;: 239
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РАКЬ БАГЪАРИ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;землетрясение&quot;,
+      &quot;literal&quot;: &quot;движение земли&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Ракь багъариялъ зарал гьабураб нилъер республикаялъул тахшагьаралъе кумекалъе рачӏарал батӏи-батӏиял миллатазул советиял гӏадамаз гьабулеб гьудуллъиялъулаб квербакъи, гьелдехун дагъистаниязул бугеб вацлъияб адаб-хъатир бихьун йохулаан гьей.&quot;,
+      &quot;ru&quot;: &quot;Она радовалась, видя, с каким уважением и любовью относятся дагестанцы к людям разных национальностей, приехавших с братской помощью в столицу нашей республики после землетрясения.&quot;,
+      &quot;author&quot;: &quot;ХӀ. ХӀажиев&quot;,
+      &quot;source&quot;: &quot;Севералда бугеб дир милъиршо&quot;
+    }
+  ],
+  &quot;page&quot;: 239
+}</pre></td></tr><tr id="r14"><td>14</td><td>РАКӀ БЕЦӀЦӀИЗЕ</td><td>examples[0].av</td><td>Повреждённое сочетание букв ГӀагӏщкъаб.
+По скану: Повреждённое сочетание букв ГӀагӏщкъаб. Восстановить написание или знак без изменения смысла.
+PDF: 243</td><td>ГӀа<del>гӏщ</del>къаб ракӏ бецӏцӏидал, Мацӏалда милъир бала.</td><td>ГӀа<ins>ши</ins>къаб ракӏ бецӏцӏидал, Мацӏалда милъир бала.</td><td><button onclick="let e=document.getElementById('j14');e.hidden=!e.hidden">json</button></td></tr><tr id="j14" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РАКӀ БЕЦӀЦӀИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;влюбиться; открыть сердце кому-л.&quot;,
+      &quot;literal&quot;: &quot;сердце капает&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀагӏщкъаб ракӏ бецӏцӏидал, Мацӏалда милъир бала.&quot;,
+      &quot;ru&quot;: &quot;Когда я влюбился. Поэтом я стал.&quot;,
+      &quot;author&quot;: &quot;М. ГӀабасил&quot;,
+      &quot;source&quot;: &quot;Иргаби&quot;
+    }
+  ],
+  &quot;page&quot;: 243
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РАКӀ БЕЦӀЦӀИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;влюбиться; открыть сердце кому-л.&quot;,
+      &quot;literal&quot;: &quot;сердце капает&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀашикъаб ракӏ бецӏцӏидал, Мацӏалда милъир бала.&quot;,
+      &quot;ru&quot;: &quot;Когда я влюбился. Поэтом я стал.&quot;,
+      &quot;author&quot;: &quot;М. ГӀабасил&quot;,
+      &quot;source&quot;: &quot;Иргаби&quot;
+    }
+  ],
+  &quot;page&quot;: 243
+}</pre></td></tr><tr id="r16"><td>16</td><td>РУЗИЛ РАГӀАД СВЕРИЗЕ</td><td>examples[0].av</td><td>Двойной дефис нисо--нахги и строковый перенос хутӏи-леб.
+По скану: Двойной дефис нисо--нахги и строковый перенос хутӏи-леб. Восстановить написание или знак без изменения смысла.
+PDF: 280</td><td>Кин нужер рокъоб рузил рагӏад сверичӏого хутӏи<del>-</del>леб, вакъудал боцӏиги бичун, чахьазухъе гьелъул нисо-<del>-</del>нахги бугӏун гӏодор чӏун ругел мехалъ?</td><td>Кин нужер рокъоб рузил рагӏад сверичӏого хутӏилеб, вакъудал боцӏиги бичун, чахьазухъе гьелъул нисо-нахги бугӏун гӏодор чӏун ругел мехалъ?</td><td><button onclick="let e=document.getElementById('j16');e.hidden=!e.hidden">json</button></td></tr><tr id="j16" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РУЗИЛ РАГӀАД СВЕРИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;принести несчастье&quot;,
+      &quot;literal&quot;: &quot;тень совы бродит&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Кин нужер рокъоб рузил рагӏад сверичӏого хутӏи-леб, вакъудал боцӏиги бичун, чахьазухъе гьелъул нисо--нахги бугӏун гӏодор чӏун ругел мехалъ?&quot;,
+      &quot;ru&quot;: &quot;Как же ваш дом беды обойдут, когда вы, присвоив завещанный на богоугодное дело скот и набив свои животы, спокойно сидите?&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Кьалбаз ккола гъветӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 280
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РУЗИЛ РАГӀАД СВЕРИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;принести несчастье&quot;,
+      &quot;literal&quot;: &quot;тень совы бродит&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Кин нужер рокъоб рузил рагӏад сверичӏого хутӏилеб, вакъудал боцӏиги бичун, чахьазухъе гьелъул нисо-нахги бугӏун гӏодор чӏун ругел мехалъ?&quot;,
+      &quot;ru&quot;: &quot;Как же ваш дом беды обойдут, когда вы, присвоив завещанный на богоугодное дело скот и набив свои животы, спокойно сидите?&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Кьалбаз ккола гъветӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 280
+}</pre></td></tr><tr id="r17"><td>17</td><td>РУХСА КЬЕЗЕ</td><td>examples[0].ru</td><td>Двойной дефис уму--разуму.
+По скану: Двойной дефис уму--разуму. Восстановить написание или знак без изменения смысла.
+PDF: 283</td><td>Ты пиши, Чанка, что ученики медресе хотят познакомиться с ним, чтоб он разрешил им поучиться уму-<del>-</del>разуму у него.</td><td>Ты пиши, Чанка, что ученики медресе хотят познакомиться с ним, чтоб он разрешил им поучиться уму-разуму у него.</td><td><button onclick="let e=document.getElementById('j17');e.hidden=!e.hidden">json</button></td></tr><tr id="j17" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РУХСА КЬЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;уст.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;разрешить, позволить&quot;,
+      &quot;literal&quot;: &quot;дать разрешение&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Дуца хъвай, ЧӀанкӏа, гьанир мадрасалда цӏалулел дир тӏанчӏазеги бокьун бугилан дуда бер кӏутӏизе, дуца рухса кьун куркьби рорхизе, дур гӏакълудал ралъдалъ лъедезе.&quot;,
+      &quot;ru&quot;: &quot;Ты пиши, Чанка, что ученики медресе хотят познакомиться с ним, чтоб он разрешил им поучиться уму--разуму у него.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 283
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РУХСА КЬЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;уст.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;разрешить, позволить&quot;,
+      &quot;literal&quot;: &quot;дать разрешение&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Дуца хъвай, ЧӀанкӏа, гьанир мадрасалда цӏалулел дир тӏанчӏазеги бокьун бугилан дуда бер кӏутӏизе, дуца рухса кьун куркьби рорхизе, дур гӏакълудал ралъдалъ лъедезе.&quot;,
+      &quot;ru&quot;: &quot;Ты пиши, Чанка, что ученики медресе хотят познакомиться с ним, чтоб он разрешил им поучиться уму-разуму у него.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 283
+}</pre></td></tr><tr id="r19"><td>19</td><td>ТӀУЛ БИКЬАРАВ ВАЦ</td><td>examples[0].av</td><td>Двойной дефис батӏи--батӏиял.
+По скану: Двойной дефис батӏи--батӏиял. Восстановить написание или знак без изменения смысла.
+PDF: 310</td><td>Щайдай кӏиго тӏул бикьарав вац гьадинал батӏи-<del>-</del>батӏиял ругел?</td><td>Щайдай кӏиго тӏул бикьарав вац гьадинал батӏи-батӏиял ругел?</td><td><button onclick="let e=document.getElementById('j19');e.hidden=!e.hidden">json</button></td></tr><tr id="j19" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ТӀУЛ БИКЬАРАВ ВАЦ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;родной брат&quot;,
+      &quot;literal&quot;: &quot;брат по печени&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Щайдай кӏиго тӏул бикьарав вац гьадинал батӏи--батӏиял ругел?&quot;,
+      &quot;ru&quot;: &quot;Почему они такие разные, два родных брата?&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 310
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ТӀУЛ БИКЬАРАВ ВАЦ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;родной брат&quot;,
+      &quot;literal&quot;: &quot;брат по печени&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Щайдай кӏиго тӏул бикьарав вац гьадинал батӏи-батӏиял ругел?&quot;,
+      &quot;ru&quot;: &quot;Почему они такие разные, два родных брата?&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 310
+}</pre></td></tr><tr id="r20"><td>20</td><td>УЯБ ХАБАР</td><td>examples[0].ru</td><td>Посторонняя латинская X в конце перевода.
+В PDF русский стих заканчивается «Всё покорится народу.» без X. Удалить постороннюю латинскую букву.
+PDF: 315</td><td>Верна молва, что если взяться вместе. Всё покорится народу.<del> X</del></td><td>Верна молва, что если взяться вместе. Всё покорится народу.</td><td><button onclick="let e=document.getElementById('j20');e.hidden=!e.hidden">json</button></td></tr><tr id="j20" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;УЯБ ХАБАР&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;верное сообщение&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Уяб хабар буго — халкъалъул газа, КӀвар кьун кьабгӏун хадуб кьурда рекӏунеб.&quot;,
+      &quot;ru&quot;: &quot;Верна молва, что если взяться вместе. Всё покорится народу. X&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 315
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;УЯБ ХАБАР&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;верное сообщение&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Уяб хабар буго — халкъалъул газа, КӀвар кьун кьабгӏун хадуб кьурда рекӏунеб.&quot;,
+      &quot;ru&quot;: &quot;Верна молва, что если взяться вместе. Всё покорится народу.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 315
+}</pre></td></tr><tr id="r21"><td>21</td><td>ХАДУБ ГЪЕЗАБИЗЕ</td><td>examples[0].av</td><td>Двойной дефис кьер--кьераб.
+По скану: Двойной дефис кьер--кьераб. Восстановить написание или знак без изменения смысла.
+PDF: 319</td><td>ГӀумарие гьабулеб хъулухъ, эб нужедаго бихьизе жоха, кваниеги битӏахъе пачаясул берталъ гӏадин кьер-<del>-</del>кьераб бихьун сурсат бугоха хадуб гъезабулеб.</td><td>ГӀумарие гьабулеб хъулухъ, эб нужедаго бихьизе жоха, кваниеги битӏахъе пачаясул берталъ гӏадин кьер-кьераб бихьун сурсат бугоха хадуб гъезабулеб.</td><td><button onclick="let e=document.getElementById('j21');e.hidden=!e.hidden">json</button></td></tr><tr id="j21" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ХАДУБ ГЪЕЗАБИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;подавать, поставлять непрерывно что-л.&quot;,
+      &quot;literal&quot;: &quot;сзади настигать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀумарие гьабулеб хъулухъ, эб нужедаго бихьизе жоха, кваниеги битӏахъе пачаясул берталъ гӏадин кьер--кьераб бихьун сурсат бугоха хадуб гъезабулеб.&quot;,
+      &quot;ru&quot;: &quot;Если бы вы видели, как ухаживают за Омаром: живёт как у Христа за пазухой, без конца подают ему разные яства.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 319
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ХАДУБ ГЪЕЗАБИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;подавать, поставлять непрерывно что-л.&quot;,
+      &quot;literal&quot;: &quot;сзади настигать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀумарие гьабулеб хъулухъ, эб нужедаго бихьизе жоха, кваниеги битӏахъе пачаясул берталъ гӏадин кьер-кьераб бихьун сурсат бугоха хадуб гъезабулеб.&quot;,
+      &quot;ru&quot;: &quot;Если бы вы видели, как ухаживают за Омаром: живёт как у Христа за пазухой, без конца подают ему разные яства.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 319
+}</pre></td></tr><tr id="r22"><td>22</td><td>ЦӀАР ЧӀВАРАБ</td><td>senses[0].translation</td><td>Двойной дефис кем--либо.
+По скану: Двойной дефис кем--либо. Восстановить написание или знак без изменения смысла.
+PDF: 367</td><td>подаренный; закреплённый за кем-<del>-</del>либо</td><td>подаренный; закреплённый за кем-либо</td><td><button onclick="let e=document.getElementById('j22');e.hidden=!e.hidden">json</button></td></tr><tr id="j22" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАР ЧӀВАРАБ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;подаренный; закреплённый за кем--либо&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьелъин инсуца дие цӏар чӏвараб тагьиялдаги Хъарчигъаян абураб.&quot;,
+      &quot;ru&quot;: &quot;Потому-то отец и назвал подаренного мне жеребёнка Ястребом.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;ЧӀегӏераб гамачӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 367
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАР ЧӀВАРАБ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;подаренный; закреплённый за кем-либо&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьелъин инсуца дие цӏар чӏвараб тагьиялдаги Хъарчигъаян абураб.&quot;,
+      &quot;ru&quot;: &quot;Потому-то отец и назвал подаренного мне жеребёнка Ястребом.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;ЧӀегӏераб гамачӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 367
+}</pre></td></tr><tr id="r23"><td>23</td><td>ЧАРАМУЛ РАКӀ</td><td>examples[0].av</td><td>Двойной дефис лъугьа--бахъиналъ.
+По скану: Двойной дефис лъугьа--бахъиналъ. Восстановить написание или знак без изменения смысла.
+PDF: 373</td><td>Гьесул чарамул ракӏалъул бицуна цоги лъугьа-<del>-</del>бахъиналъ.</td><td>Гьесул чарамул ракӏалъул бицуна цоги лъугьа-бахъиналъ.</td><td><button onclick="let e=document.getElementById('j23');e.hidden=!e.hidden">json</button></td></tr><tr id="j23" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЧАРАМУЛ РАКӀ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;храброе сердце&quot;,
+      &quot;literal&quot;: &quot;стальное&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьесул чарамул ракӏалъул бицуна цоги лъугьа--бахъиналъ.&quot;,
+      &quot;ru&quot;: &quot;О его храбрости рассказывает уже другая история.&quot;,
+      &quot;author&quot;: &quot;ХӀ. Парипов&quot;,
+      &quot;source&quot;: &quot;Чияр яс&quot;
+    }
+  ],
+  &quot;page&quot;: 373
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЧАРАМУЛ РАКӀ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;храброе сердце&quot;,
+      &quot;literal&quot;: &quot;стальное&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьесул чарамул ракӏалъул бицуна цоги лъугьа-бахъиналъ.&quot;,
+      &quot;ru&quot;: &quot;О его храбрости рассказывает уже другая история.&quot;,
+      &quot;author&quot;: &quot;ХӀ. Парипов&quot;,
+      &quot;source&quot;: &quot;Чияр яс&quot;
+    }
+  ],
+  &quot;page&quot;: 373
+}</pre></td></tr><tr id="r24"><td>24</td><td>ЧӀЕГӀЕР БАРАБ КАГЪАТ</td><td>examples[0].av</td><td>Неверное сочетание хӏиа вместо ш в тахӏиагьаралде.
+По скану: Неверное сочетание хӏиа вместо ш в тахӏиагьаралде. Восстановить написание или знак без изменения смысла.
+PDF: 384</td><td>ЧӀегӏер бараб кагъат тах<del>ӏи</del>агьаралде, Гьудулзабаз дихъе битӏун бачӏана.</td><td>ЧӀегӏер бараб кагъат тах<ins>ш</ins>агьаралде, Гьудулзабаз дихъе битӏун бачӏана.</td><td><button onclick="let e=document.getElementById('j24');e.hidden=!e.hidden">json</button></td></tr><tr id="j24" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЧӀЕГӀЕР БАРАБ КАГЪАТ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;похоронка; чёрная весть&quot;,
+      &quot;literal&quot;: &quot;письмо, одетое в траур&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ЧӀегӏер бараб кагъат тахӏиагьаралде, Гьудулзабаз дихъе битӏун бачӏана.&quot;,
+      &quot;ru&quot;: &quot;Похоронку в столицу Друзья ко мне прислали.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Нур бикьулеб буго&quot;
+    }
+  ],
+  &quot;page&quot;: 384
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЧӀЕГӀЕР БАРАБ КАГЪАТ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;похоронка; чёрная весть&quot;,
+      &quot;literal&quot;: &quot;письмо, одетое в траур&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ЧӀегӏер бараб кагъат тахшагьаралде, Гьудулзабаз дихъе битӏун бачӏана.&quot;,
+      &quot;ru&quot;: &quot;Похоронку в столицу Друзья ко мне прислали.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Нур бикьулеб буго&quot;
+    }
+  ],
+  &quot;page&quot;: 384
+}</pre></td></tr><tr id="r25"><td>25</td><td>ЩОКЪРОБ МАГӀУ КЪАЗЕ</td><td>examples[0].source</td><td>Двойная палочка и повреждённое название произведения ГӀӀречӏеб.
+На скане «Кьурулъ нух щвечӏеб бис». То же название уже правильно указано в десяти других статьях. Восстановить щвечӏеб вместо ГӀӀречӏеб.
+PDF: 394</td><td>Кьурулъ нух <del>ГӀӀр</del>ечӏеб бис</td><td>Кьурулъ нух <ins>щв</ins>ечӏеб бис</td><td><button onclick="let e=document.getElementById('j25');e.hidden=!e.hidden">json</button></td></tr><tr id="j25" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩОКЪРОБ МАГӀУ КЪАЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;комок к горлу подступил&quot;,
+      &quot;literal&quot;: &quot;слеза в горле застряла&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Амма бугониги, рагӏуца загьир гьабичӏеб, бадиб хьвадулеб гьасул жиндидехун бугеб рокьукълъиги бихьун, барщун щокъроб магӏуги къан яцгӏалги ун, живго тахбакӏида вегун хӏутӏарав гьесда таманаб жо ракӏалде щвана.&quot;,
+      &quot;ru&quot;: &quot;Чувствуя его неприязнь к себе, не высказанную словами, его двоюродная сестра ушла, обидевшись, со слезами на глазах, и он, оставшись один, лёжа на тахте, вспомнил многое.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Кьурулъ нух ГӀӀречӏеб бис&quot;
+    }
+  ],
+  &quot;page&quot;: 394
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЩОКЪРОБ МАГӀУ КЪАЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;комок к горлу подступил&quot;,
+      &quot;literal&quot;: &quot;слеза в горле застряла&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Амма бугониги, рагӏуца загьир гьабичӏеб, бадиб хьвадулеб гьасул жиндидехун бугеб рокьукълъиги бихьун, барщун щокъроб магӏуги къан яцгӏалги ун, живго тахбакӏида вегун хӏутӏарав гьесда таманаб жо ракӏалде щвана.&quot;,
+      &quot;ru&quot;: &quot;Чувствуя его неприязнь к себе, не высказанную словами, его двоюродная сестра ушла, обидевшись, со слезами на глазах, и он, оставшись один, лёжа на тахте, вспомнил многое.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Кьурулъ нух щвечӏеб бис&quot;
+    }
+  ],
+  &quot;page&quot;: 394
+}</pre></td></tr></table><h2>Структура</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr><tr id="r4"><td>4</td><td>ГЬАЙ АХӀИЗЕ</td><td>examples[0].av</td><td>Авторская ссылка ошибочно включена в аварский стих; ЩӀ вместо (ЦӀ.
+В PDF после двух строк стиха отдельная ссылка (ЦӀ. ХӀамзат, ТӀаса рищарал кучӏдул). Убрать её из av и восстановить author/source. ЩӀ — ошибочно распознанная открывающая скобка с ЦӀ.
+PDF: 70</td><td>examples[0].av: Хутӏмаялде вахун вагӏза гьабичӏо,— Гьай ахӏулеб буго ругел мугьазда. <del>Щ</del>Ӏ. ХӀамзат<del>,</del> ТӀаса рищарал кучӏдул<del>)
+examples[0].author: null
+examples[0].source: null</del></td><td>examples[0].av: Хутӏмаялде вахун вагӏза гьабичӏо,— Гьай ахӏулеб буго ругел мугьазда.<ins>
+examples[0].author:</ins> <ins>Ц</ins>Ӏ. ХӀамзат<ins>
+examples[0].source:</ins> ТӀаса рищарал кучӏдул</td><td><button onclick="let e=document.getElementById('j4');e.hidden=!e.hidden">json</button></td></tr><tr id="j4" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГЬАЙ АХӀИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;положить конец чему-л.; уничтожить что-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Хутӏмаялде вахун вагӏза гьабичӏо,— Гьай ахӏулеб буго ругел мугьазда. ЩӀ. ХӀамзат, ТӀаса рищарал кучӏдул)&quot;,
+      &quot;ru&quot;: &quot;В мечети не читал проповедь, Зато уничтожаешь последние зёрна.&quot;
+    }
+  ],
+  &quot;page&quot;: 70
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГЬАЙ АХӀИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;положить конец чему-л.; уничтожить что-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Хутӏмаялде вахун вагӏза гьабичӏо,— Гьай ахӏулеб буго ругел мугьазда.&quot;,
+      &quot;ru&quot;: &quot;В мечети не читал проповедь, Зато уничтожаешь последние зёрна.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 70
+}</pre></td></tr><tr id="r12"><td>12</td><td>МАХӀШАРАЛЪУЛ КЪО</td><td>examples[0].av</td><td>Авторская ссылка попала в аварский пример.
+Вынести из av ошибочно приклеенную авторскую ссылку в author/source по PDF; сам стих сохранить.
+PDF: 201</td><td>examples[0].av: Гьале, мисалалъе махӏшаралъул къо, Мекъса хӏалтӏарасул хӏал бихьулеб къо. <del>Щ</del>Ӏ. ХӀамзат<del>,</del> ТӀаса рищарал кучӏдул<del>)
+examples[0].author: null
+examples[0].source: null</del></td><td>examples[0].av: Гьале, мисалалъе махӏшаралъул къо, Мекъса хӏалтӏарасул хӏал бихьулеб къо.<ins>
+examples[0].author:</ins> <ins>Ц</ins>Ӏ. ХӀамзат<ins>
+examples[0].source:</ins> ТӀаса рищарал кучӏдул</td><td><button onclick="let e=document.getElementById('j12');e.hidden=!e.hidden">json</button></td></tr><tr id="j12" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;МАХӀШАРАЛЪУЛ КЪО&quot;,
+  &quot;labels&quot;: [
+    &quot;рел.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;день страшного суда&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьале, мисалалъе махӏшаралъул къо, Мекъса хӏалтӏарасул хӏал бихьулеб къо. ЩӀ. ХӀамзат, ТӀаса рищарал кучӏдул)&quot;,
+      &quot;ru&quot;: &quot;Вот, к примеру, день страшного суда, Проверяющий тех, кто в грехах жил.&quot;
+    }
+  ],
+  &quot;page&quot;: 201
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;МАХӀШАРАЛЪУЛ КЪО&quot;,
+  &quot;labels&quot;: [
+    &quot;рел.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;день страшного суда&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Гьале, мисалалъе махӏшаралъул къо, Мекъса хӏалтӏарасул хӏал бихьулеб къо.&quot;,
+      &quot;ru&quot;: &quot;Вот, к примеру, день страшного суда, Проверяющий тех, кто в грехах жил.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 201
+}</pre></td></tr><tr id="r15"><td>15</td><td>РЕКӀАРАБ НУС ГӀАДАБ</td><td>examples[0].av</td><td>Авторская ссылка попала в аварский пример.
+Вынести из av ошибочно приклеенную авторскую ссылку в author/source по PDF; вопросительный знак в конце стиха сохранить.
+PDF: 261</td><td>examples[0].av: Унго рекӏинедай ракӏалда бугеб, Рекӏараб нус гӏадаб дир гьод-мокъалда? <del>Щ</del>Ӏ. ХӀамзат<del>,</del> ТӀаса рищарал кучӏдул<del>)
+examples[0].author: null
+examples[0].source: null</del></td><td>examples[0].av: Унго рекӏинедай ракӏалда бугеб, Рекӏараб нус гӏадаб дир гьод-мокъалда?<ins>
+examples[0].author:</ins> <ins>Ц</ins>Ӏ. ХӀамзат<ins>
+examples[0].source:</ins> ТӀаса рищарал кучӏдул</td><td><button onclick="let e=document.getElementById('j15');e.hidden=!e.hidden">json</button></td></tr><tr id="j15" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РЕКӀАРАБ НУС ГӀАДАБ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;худой&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;острый&quot;,
+      &quot;literal&quot;: &quot;как нож&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Унго рекӏинедай ракӏалда бугеб, Рекӏараб нус гӏадаб дир гьод-мокъалда? ЩӀ. ХӀамзат, ТӀаса рищарал кучӏдул)&quot;,
+      &quot;ru&quot;: &quot;Ужели хочет взобраться На мою худую спину?&quot;
+    }
+  ],
+  &quot;page&quot;: 261
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РЕКӀАРАБ НУС ГӀАДАБ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;худой&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;острый&quot;,
+      &quot;literal&quot;: &quot;как нож&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Унго рекӏинедай ракӏалда бугеб, Рекӏараб нус гӏадаб дир гьод-мокъалда?&quot;,
+      &quot;ru&quot;: &quot;Ужели хочет взобраться На мою худую спину?&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 261
+}</pre></td></tr><tr id="r18"><td>18</td><td>ТӀОМГӀАНАБ ГӀАРЗА</td><td>examples[0].av</td><td>Авторская ссылка попала в аварский пример.
+Вынести из av ошибочно приклеенную авторскую ссылку в author/source по PDF; точку в конце стиха сохранить.
+PDF: 308</td><td>examples[0].av: Къокъаб заманалда Дир хӏалтӏи тӏубачӏони, ТӀомгӏанаб гӏарза кьела ГӀурусазул централде. <del>Щ</del>Ӏ. ХӀамзат<del>,</del> ТӀаса рищарал кучӏдул<del>)
+examples[0].author: null
+examples[0].source: null</del></td><td>examples[0].av: Къокъаб заманалда Дир хӏалтӏи тӏубачӏони, ТӀомгӏанаб гӏарза кьела ГӀурусазул централде.<ins>
+examples[0].author:</ins> <ins>Ц</ins>Ӏ. ХӀамзат<ins>
+examples[0].source:</ins> ТӀаса рищарал кучӏдул</td><td><button onclick="let e=document.getElementById('j18');e.hidden=!e.hidden">json</button></td></tr><tr id="j18" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ТӀОМГӀАНАБ ГӀАРЗА&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;серьёзная жалоба&quot;,
+      &quot;literal&quot;: &quot;жалоба величиной со шкуру [быка]&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Къокъаб заманалда Дир хӏалтӏи тӏубачӏони, ТӀомгӏанаб гӏарза кьела ГӀурусазул централде. ЩӀ. ХӀамзат, ТӀаса рищарал кучӏдул)&quot;,
+      &quot;ru&quot;: &quot;Если за короткий срок Не закончите дело моё, Подам в русский центр Жалобу на вас.&quot;
+    }
+  ],
+  &quot;page&quot;: 308
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ТӀОМГӀАНАБ ГӀАРЗА&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;серьёзная жалоба&quot;,
+      &quot;literal&quot;: &quot;жалоба величиной со шкуру [быка]&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Къокъаб заманалда Дир хӏалтӏи тӏубачӏони, ТӀомгӏанаб гӏарза кьела ГӀурусазул централде.&quot;,
+      &quot;ru&quot;: &quot;Если за короткий срок Не закончите дело моё, Подам в русский центр Жалобу на вас.&quot;,
+      &quot;author&quot;: &quot;ЦӀ. ХӀамзат&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 308
+}</pre></td></tr></table>
