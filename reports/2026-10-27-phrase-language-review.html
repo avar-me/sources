@@ -1,0 +1,813 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>phrase-av-ru: грамматика и пунктуация</title><style>body{font:16px system-ui;margin:24px;color:#252018;background:#fffdf7}table{width:100%;border-collapse:collapse;table-layout:fixed}td,th{border:1px solid #ccc;padding:8px;vertical-align:top;overflow-wrap:anywhere}td{white-space:pre-wrap}del{background:#ffd4d4}ins{background:#d4f3cf;text-decoration:none}pre{white-space:pre-wrap;font-size:13px}.num{width:3%}.word{width:12%}.field{width:10%}.issue{width:25%}.pair{width:23%}.json{width:4%}</style><h1>phrase-av-ru: грамматика и пунктуация — 27.10.2026</h1><p>Исправлены 20 статей: грамматика, пунктуация и ошибки распознавания букв. Все изменения сверены с PDF; ошибки печатного источника отмечены отдельно. Применено по одобрению мейнтейнера 27.10.2026.</p><h2>Отклонено</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr></table><h2>Опечатки</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr><tr id="r1"><td>1</td><td>БАДИБ КИЛИЩ ТУНКАНИГИ КАНЛЪИ, БИХЬУЛАРЕБ ХӀАЛ</td><td>examples[0].ru</td><td>Лишняя точка перед русским переводом.
+Лишняя точка пришла из конца авторской ссылки перед русским переводом на PDF 20. Убрать из начала ru, текст предложения сохранить.
+PDF: 19</td><td><del>. </del>Ночь была так темна, что ни зги не было видно.</td><td>Ночь была так темна, что ни зги не было видно.</td><td><button onclick="let e=document.getElementById('j1');e.hidden=!e.hidden">json</button></td></tr><tr id="j1" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;БАДИБ КИЛИЩ ТУНКАНИГИ КАНЛЪИ, БИХЬУЛАРЕБ ХӀАЛ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;тьма кромешная, ни зги не видно&quot;,
+      &quot;literal&quot;: &quot;состояние, когда ничего не видно, даже если ткнуть пальцем в глаз&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бадиб килищ тунканиги, канлъи бихьулареб хӏалалъ бецӏлъун букӏана сордо.&quot;,
+      &quot;ru&quot;: &quot;. Ночь была так темна, что ни зги не было видно.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 19
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;БАДИБ КИЛИЩ ТУНКАНИГИ КАНЛЪИ, БИХЬУЛАРЕБ ХӀАЛ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;тьма кромешная, ни зги не видно&quot;,
+      &quot;literal&quot;: &quot;состояние, когда ничего не видно, даже если ткнуть пальцем в глаз&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бадиб килищ тунканиги, канлъи бихьулареб хӏалалъ бецӏлъун букӏана сордо.&quot;,
+      &quot;ru&quot;: &quot;Ночь была так темна, что ни зги не было видно.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 19
+}</pre></td></tr><tr id="r2"><td>2</td><td>БЕКАРАБ БОХ Я КЪОКЪЛЪУЛА, Я ХАЛАЛЪУЛА</td><td>senses[0].translation</td><td>Пропущена запятая перед второй частью повторяющегося союза или…или.
+В печатном источнике запятая тоже отсутствует. Между однородными членами с повторяющимся или…или нужна запятая: «или короткой, или длинной». Исправить толкование и повторяющий его русский пример; аварский текст сохранить.
+PDF: 32</td><td>senses[0].translation: Сломанная нога становится или короткой или длинной.
+examples[0].ru: — Сломанная нога становится или короткой или длинной, что поделаешь, что-нибудь да будет,— ответил Омардада и пошёл вперёд.</td><td>senses[0].translation: Сломанная нога становится или короткой<ins>,</ins> или длинной.
+examples[0].ru: — Сломанная нога становится или короткой<ins>,</ins> или длинной, что поделаешь, что-нибудь да будет,— ответил Омардада и пошёл вперёд.</td><td><button onclick="let e=document.getElementById('j2');e.hidden=!e.hidden">json</button></td></tr><tr id="j2" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;БЕКАРАБ БОХ Я КЪОКЪЛЪУЛА, Я ХАЛАЛЪУЛА&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Сломанная нога становится или короткой или длинной.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Бекараб бох я къокълъула, я халалъула, щиб бугониги ккеларищха,— ян жавабги кьун цодагьав цеве тӏун ана ГӀумардада.&quot;,
+      &quot;ru&quot;: &quot;— Сломанная нога становится или короткой или длинной, что поделаешь, что-нибудь да будет,— ответил Омардада и пошёл вперёд.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 32
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;БЕКАРАБ БОХ Я КЪОКЪЛЪУЛА, Я ХАЛАЛЪУЛА&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Сломанная нога становится или короткой, или длинной.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Бекараб бох я къокълъула, я халалъула, щиб бугониги ккеларищха,— ян жавабги кьун цодагьав цеве тӏун ана ГӀумардада.&quot;,
+      &quot;ru&quot;: &quot;— Сломанная нога становится или короткой, или длинной, что поделаешь, что-нибудь да будет,— ответил Омардада и пошёл вперёд.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 32
+}</pre></td></tr><tr id="r3"><td>3</td><td>БЕТӀЕР ЧӀВАЗЕ</td><td>examples[0].ru</td><td>Лишняя запятая перед многоточием.
+В PDF конец стиха «наказывать…» без запятой. Восстановить многоточие вместо ,..; написание имени и прописную следующей стихотворной строки сохранить.
+PDF: 39</td><td>Супайнат ушла от него, Теперь некого наказывать<del>,</del>..</td><td>Супайнат ушла от него, Теперь некого наказывать..<ins>.</ins></td><td><button onclick="let e=document.getElementById('j3');e.hidden=!e.hidden">json</button></td></tr><tr id="j3" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;БЕТӀЕР ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;наказать, избить; намылить шею&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Цингиги Сунайнат ятӏалъарайго, Бетӏер чӏвазе аскӏов чи тӏагӏаравго.&quot;,
+      &quot;ru&quot;: &quot;Супайнат ушла от него, Теперь некого наказывать,..&quot;,
+      &quot;author&quot;: &quot;Р. ХӀамзатов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 39
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;БЕТӀЕР ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;наказать, избить; намылить шею&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Цингиги Сунайнат ятӏалъарайго, Бетӏер чӏвазе аскӏов чи тӏагӏаравго.&quot;,
+      &quot;ru&quot;: &quot;Супайнат ушла от него, Теперь некого наказывать...&quot;,
+      &quot;author&quot;: &quot;Р. ХӀамзатов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал кучӏдул&quot;
+    }
+  ],
+  &quot;page&quot;: 39
+}</pre></td></tr><tr id="r4"><td>4</td><td>ГЪУЛА-ТУЛАРАЛ ЖАЛ РИЦИНЕ</td><td>examples[0].ru</td><td>Лишняя запятая перед многоточием и отсутствие пробела перед тире.
+В PDF 68 в обоих языках напечатано ,… перед словами автора. Запятая перед многоточием здесь лишняя; убрать её и отделить тире пробелом. Текст реплики и многоточие сохранить.
+PDF: 67</td><td>examples[0].ru: — Я заснул<del>,</del>...— начал он придумывать всякие небылицы, надеясь хоть как-нибудь удержать её.
+examples[0].av: — Кьижун хутӏун ватана дун<del>,</del>...— абун гъула-туларал жал рицине лъугьана гьев, гьей рокъой жаний лъалхъилародаян хьулалъ.</td><td>examples[0].ru: — Я заснул...<ins> </ins>— начал он придумывать всякие небылицы, надеясь хоть как-нибудь удержать её.
+examples[0].av: — Кьижун хутӏун ватана дун...<ins> </ins>— абун гъула-туларал жал рицине лъугьана гьев, гьей рокъой жаний лъалхъилародаян хьулалъ.</td><td><button onclick="let e=document.getElementById('j4');e.hidden=!e.hidden">json</button></td></tr><tr id="j4" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГЪУЛА-ТУЛАРАЛ ЖАЛ РИЦИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;плести небылицы&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Кьижун хутӏун ватана дун,...— абун гъула-туларал жал рицине лъугьана гьев, гьей рокъой жаний лъалхъилародаян хьулалъ.&quot;,
+      &quot;ru&quot;: &quot;— Я заснул,...— начал он придумывать всякие небылицы, надеясь хоть как-нибудь удержать её.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 67
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГЪУЛА-ТУЛАРАЛ ЖАЛ РИЦИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;плести небылицы&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Кьижун хутӏун ватана дун... — абун гъула-туларал жал рицине лъугьана гьев, гьей рокъой жаний лъалхъилародаян хьулалъ.&quot;,
+      &quot;ru&quot;: &quot;— Я заснул... — начал он придумывать всякие небылицы, надеясь хоть как-нибудь удержать её.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 67
+}</pre></td></tr><tr id="r5"><td>5</td><td>ГЬЕРСИЛ КЪВАЧӀА</td><td>examples[0].ru</td><td>Ошибка распознавания гбру вместо гору.
+Подтверждено по PDF: Ошибка распознавания гбру вместо гору. Исправить только указанное место.
+PDF: 74</td><td>— Да разве ж это люди? Все лжецы! — И ночью же, покинув город, Перевалил он за Шишилик-г<del>б</del>ру.</td><td>— Да разве ж это люди? Все лжецы! — И ночью же, покинув город, Перевалил он за Шишилик-г<ins>о</ins>ру.</td><td><button onclick="let e=document.getElementById('j5');e.hidden=!e.hidden">json</button></td></tr><tr id="j5" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГЬЕРСИЛ КЪВАЧӀА&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;врун, лжец, обманщик&quot;,
+      &quot;literal&quot;: &quot;мешок вранья&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— ГӀадамалищ гьалилан, Гьерсазул къучӏби ругин! — Къасиго шагьарги тун Шишиликӏ мегӏер гирана.&quot;,
+      &quot;ru&quot;: &quot;— Да разве ж это люди? Все лжецы! — И ночью же, покинув город, Перевалил он за Шишилик-гбру.&quot;,
+      &quot;author&quot;: &quot;Адалло&quot;,
+      &quot;source&quot;: &quot;Годекӏан&quot;
+    }
+  ],
+  &quot;page&quot;: 74
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГЬЕРСИЛ КЪВАЧӀА&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;врун, лжец, обманщик&quot;,
+      &quot;literal&quot;: &quot;мешок вранья&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— ГӀадамалищ гьалилан, Гьерсазул къучӏби ругин! — Къасиго шагьарги тун Шишиликӏ мегӏер гирана.&quot;,
+      &quot;ru&quot;: &quot;— Да разве ж это люди? Все лжецы! — И ночью же, покинув город, Перевалил он за Шишилик-гору.&quot;,
+      &quot;author&quot;: &quot;Адалло&quot;,
+      &quot;source&quot;: &quot;Годекӏан&quot;
+    }
+  ],
+  &quot;page&quot;: 74
+}</pre></td></tr><tr id="r6"><td>6</td><td>ГӀАКСАЛДА ККЕЗЕ</td><td>examples[0].ru</td><td>Лишняя точка перед русским переводом.
+Подтверждено по PDF: Лишняя точка перед русским переводом. Исправить только указанное место.
+PDF: 90</td><td><del>. </del>Может выйти и наоборот. Я сужу по своему опыту.</td><td>Может выйти и наоборот. Я сужу по своему опыту.</td><td><button onclick="let e=document.getElementById('j6');e.hidden=!e.hidden">json</button></td></tr><tr id="j6" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀАКСАЛДА ККЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;ошибиться&quot;,
+      &quot;literal&quot;: &quot;получиться наоборот&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ХӀакъаб жо буго гьелъул гӏаксалда ккезе бегьиги. Дица гьединаб хӏасил гьабула дидаго бихьаралда рекъон.&quot;,
+      &quot;ru&quot;: &quot;. Может выйти и наоборот. Я сужу по своему опыту.&quot;,
+      &quot;author&quot;: &quot;П. Муртазагӏалиева&quot;,
+      &quot;source&quot;: &quot;Дир хъахӏаб кӏаз&quot;
+    }
+  ],
+  &quot;page&quot;: 90
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀАКСАЛДА ККЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;ошибиться&quot;,
+      &quot;literal&quot;: &quot;получиться наоборот&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ХӀакъаб жо буго гьелъул гӏаксалда ккезе бегьиги. Дица гьединаб хӏасил гьабула дидаго бихьаралда рекъон.&quot;,
+      &quot;ru&quot;: &quot;Может выйти и наоборот. Я сужу по своему опыту.&quot;,
+      &quot;author&quot;: &quot;П. Муртазагӏалиева&quot;,
+      &quot;source&quot;: &quot;Дир хъахӏаб кӏаз&quot;
+    }
+  ],
+  &quot;page&quot;: 90
+}</pre></td></tr><tr id="r7"><td>7</td><td>ГӀАКЪЛУ ГЬЕЧӀЕВ</td><td>examples[0].ru</td><td>Имя Омардада ошибочно разбито пробелами.
+Подтверждено по PDF: Имя Омардада ошибочно разбито пробелами. Исправить только указанное место.
+PDF: 90</td><td>Когда я был ещё маленьким и несознательным, я тоже мучил птиц,— начал Омар<del> </del>да<del> </del>да.</td><td>Когда я был ещё маленьким и несознательным, я тоже мучил птиц,— начал Омардада.</td><td><button onclick="let e=document.getElementById('j7');e.hidden=!e.hidden">json</button></td></tr><tr id="j7" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀАКЪЛУ ГЬЕЧӀЕВ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;несознательный; недалёкий, глупый&quot;,
+      &quot;literal&quot;: &quot;ума не имеющий&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀакълу гьечӏев гьитӏинав чияс дицаги толароан доб мехалъ хӏанчӏи,— ян байбихьана ГӀумардадаца.&quot;,
+      &quot;ru&quot;: &quot;Когда я был ещё маленьким и несознательным, я тоже мучил птиц,— начал Омар да да.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 90
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ГӀАКЪЛУ ГЬЕЧӀЕВ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;несознательный; недалёкий, глупый&quot;,
+      &quot;literal&quot;: &quot;ума не имеющий&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ГӀакълу гьечӏев гьитӏинав чияс дицаги толароан доб мехалъ хӏанчӏи,— ян байбихьана ГӀумардадаца.&quot;,
+      &quot;ru&quot;: &quot;Когда я был ещё маленьким и несознательным, я тоже мучил птиц,— начал Омардада.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 90
+}</pre></td></tr><tr id="r8"><td>8</td><td>ДУДА БИХЬА — ДИДА РАГӀА</td><td>examples[0].ru</td><td>Имя Омардада ошибочно разбито пробелами.
+Подтверждено по PDF: Имя Омардада ошибочно разбито пробелами. Исправить только указанное место.
+PDF: 112</td><td>Закончив молитву, Омар<del> </del>да<del> </del>да посмотрел по сторонам, но мальчик и его одежда исчезли без следа, словно сквозь землю провалились.</td><td>Закончив молитву, Омардада посмотрел по сторонам, но мальчик и его одежда исчезли без следа, словно сквозь землю провалились.</td><td><button onclick="let e=document.getElementById('j8');e.hidden=!e.hidden">json</button></td></tr><tr id="j8" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ДУДА БИХЬА — ДИДА РАГӀА&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;как сквозь землю провалился; поминай как звали, и след простыл&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;,
+      &quot;literal&quot;: &quot;ты увидел, я услышал&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Амма какие салам кьураб мехалъ балагьана гурищ, дуда бихьа — дида рагӏа, гӏанчӏав васги ГӀумардадал ретӏелги, ралъдал тӏиналде араб гӏадин, тӏагӏун батана цебеса.&quot;,
+      &quot;ru&quot;: &quot;Закончив молитву, Омар да да посмотрел по сторонам, но мальчик и его одежда исчезли без следа, словно сквозь землю провалились.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 112
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ДУДА БИХЬА — ДИДА РАГӀА&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;как сквозь землю провалился; поминай как звали, и след простыл&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;,
+      &quot;literal&quot;: &quot;ты увидел, я услышал&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Амма какие салам кьураб мехалъ балагьана гурищ, дуда бихьа — дида рагӏа, гӏанчӏав васги ГӀумардадал ретӏелги, ралъдал тӏиналде араб гӏадин, тӏагӏун батана цебеса.&quot;,
+      &quot;ru&quot;: &quot;Закончив молитву, Омардада посмотрел по сторонам, но мальчик и его одежда исчезли без следа, словно сквозь землю провалились.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 112
+}</pre></td></tr><tr id="r9"><td>9</td><td>КЪВАТӀУЛ БАХӀРИ</td><td>examples[0].ru</td><td>Лишняя точка и Найб вместо Наиб.
+Скан даёт «Наиб выгнал меня…»; начальная точка относится к концу предыдущей авторской ссылки. Восстановить Наиб, убрать лишнюю точку.
+PDF: 154</td><td><del>. </del>На<del>й</del>б выгнал меня как уличную собаку.</td><td>На<ins>и</ins>б выгнал меня как уличную собаку.</td><td><button onclick="let e=document.getElementById('j9');e.hidden=!e.hidden">json</button></td></tr><tr id="j9" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КЪВАТӀУЛ БАХӀРИ&quot;,
+  &quot;variants&quot;: [
+    &quot;ТУЛА&quot;
+  ],
+  &quot;labels&quot;: [
+    &quot;бран.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;бездельник, лодырь; бродяга&quot;,
+      &quot;literal&quot;: &quot;уличная собака&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Наибас дун, гӏантлъараб къватӏул бахӏри гӏадин, хъамуна...&quot;,
+      &quot;ru&quot;: &quot;. Найб выгнал меня как уличную собаку.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 154
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КЪВАТӀУЛ БАХӀРИ&quot;,
+  &quot;variants&quot;: [
+    &quot;ТУЛА&quot;
+  ],
+  &quot;labels&quot;: [
+    &quot;бран.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;бездельник, лодырь; бродяга&quot;,
+      &quot;literal&quot;: &quot;уличная собака&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Наибас дун, гӏантлъараб къватӏул бахӏри гӏадин, хъамуна...&quot;,
+      &quot;ru&quot;: &quot;Наиб выгнал меня как уличную собаку.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 154
+}</pre></td></tr><tr id="r10"><td>10</td><td>КЪЕЦ БАЗЕ</td><td>examples[0].ru</td><td>Лишняя точка перед русским переводом.
+Подтверждено по PDF: Лишняя точка перед русским переводом. Исправить только указанное место.
+PDF: 156</td><td><del>. </del>Своей красотой она могла бы поспорить даже с луной.</td><td>Своей красотой она могла бы поспорить даже с луной.</td><td><button onclick="let e=document.getElementById('j10');e.hidden=!e.hidden">json</button></td></tr><tr id="j10" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;КЪЕЦ БАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;затеять спор, спорить с кем-л.&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;соревноваться с кем-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Берцинлъиялъул, гвангъиялъул рахъалъин абуни гьелъ къец базе бегьула моцӏ-цӏваялдехун.&quot;,
+      &quot;ru&quot;: &quot;. Своей красотой она могла бы поспорить даже с луной.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 156
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;КЪЕЦ БАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;затеять спор, спорить с кем-л.&quot;,
+      &quot;equiv&quot;: &quot;exact&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;соревноваться с кем-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Берцинлъиялъул, гвангъиялъул рахъалъин абуни гьелъ къец базе бегьула моцӏ-цӏваялдехун.&quot;,
+      &quot;ru&quot;: &quot;Своей красотой она могла бы поспорить даже с луной.&quot;,
+      &quot;author&quot;: &quot;ГӀ. Шахтаманов&quot;,
+      &quot;source&quot;: &quot;Мугӏалимги мутагӏилги&quot;
+    }
+  ],
+  &quot;page&quot;: 156
+}</pre></td></tr><tr id="r11"><td>11</td><td>НАГӀАНА БАТАГИ</td><td>examples[0].ru</td><td>Лишняя запятая после восклицательного знака перед словами автора.
+В PDF тоже !,—. После восклицательного знака перед словами автора дополнительная запятая не ставится. Оставить ! и тире с пробелом.
+PDF: 213</td><td>— Пропади ты пропадом!<del>,</del>— махнул рукой и родной дядя Айзанат.</td><td>— Пропади ты пропадом!<ins> </ins>— махнул рукой и родной дядя Айзанат.</td><td><button onclick="let e=document.getElementById('j11');e.hidden=!e.hidden">json</button></td></tr><tr id="j11" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;НАГӀАНА БАТАГИ&quot;,
+  &quot;interjection&quot;: true,
+  &quot;labels&quot;: [
+    &quot;бран.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;пропади пропадом!&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Нагӏана батаги дуе! — ян квер хьвагӏун жийго тана цинги имгӏаласги Айзанат.&quot;,
+      &quot;ru&quot;: &quot;— Пропади ты пропадом!,— махнул рукой и родной дядя Айзанат.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 213
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;НАГӀАНА БАТАГИ&quot;,
+  &quot;interjection&quot;: true,
+  &quot;labels&quot;: [
+    &quot;бран.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;пропади пропадом!&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Нагӏана батаги дуе! — ян квер хьвагӏун жийго тана цинги имгӏаласги Айзанат.&quot;,
+      &quot;ru&quot;: &quot;— Пропади ты пропадом! — махнул рукой и родной дядя Айзанат.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 213
+}</pre></td></tr><tr id="r12"><td>12</td><td>НАМУСАЛДЕ РАГӀАД РЕХИЗЕ</td><td>examples[0].ru</td><td>Чтобы вместо Что бы в уступительной конструкции.
+В PDF 216 тоже «Чтобы там ни было» — ошибка самого источника. Здесь уступительная конструкция «что бы … ни», а не союз цели чтобы. Исправить: «Что бы там ни было».
+PDF: 215</td><td>Чтобы там ни было, мы не хотели, чтоб из-за нашего сына кто-нибудь сомневался в честности вашей дочери.</td><td>Что<ins> </ins>бы там ни было, мы не хотели, чтоб из-за нашего сына кто-нибудь сомневался в честности вашей дочери.</td><td><button onclick="let e=document.getElementById('j12');e.hidden=!e.hidden">json</button></td></tr><tr id="j12" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;НАМУСАЛДЕ РАГӀАД РЕХИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;сомневаться в чьей-л. честности&quot;,
+      &quot;literal&quot;: &quot;на честь бросить тень&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Нижее бокьун гьечӏо кин, щиб батаниги, нижер вас сабаблъун дур ясалъул намусалде рагӏад рехизе.&quot;,
+      &quot;ru&quot;: &quot;Чтобы там ни было, мы не хотели, чтоб из-за нашего сына кто-нибудь сомневался в честности вашей дочери.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;ГӀаданлъиялъул къо&quot;
+    }
+  ],
+  &quot;page&quot;: 215
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;НАМУСАЛДЕ РАГӀАД РЕХИЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;сомневаться в чьей-л. честности&quot;,
+      &quot;literal&quot;: &quot;на честь бросить тень&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Нижее бокьун гьечӏо кин, щиб батаниги, нижер вас сабаблъун дур ясалъул намусалде рагӏад рехизе.&quot;,
+      &quot;ru&quot;: &quot;Что бы там ни было, мы не хотели, чтоб из-за нашего сына кто-нибудь сомневался в честности вашей дочери.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;ГӀаданлъиялъул къо&quot;
+    }
+  ],
+  &quot;page&quot;: 215
+}</pre></td></tr><tr id="r13"><td>13</td><td>НАХЪЕ-НАХЪЕ КЪАЗЕ</td><td>examples[0].av</td><td>Лишняя запятая после восклицательного знака перед словами автора.
+В аварском примере, как и в печати, !,—. Удалить избыточную запятую после ! и отделить тире пробелом; русский перевод уже оформлен так же.
+PDF: 219</td><td>— Хажа! Рекӏеда яте! Щиб дуца гьабулеб жо!<del>,</del>— янги ахӏулаго цере ритӏун квералгун нахъе-нахъе къазе лъугьана ГӀусман.</td><td>— Хажа! Рекӏеда яте! Щиб дуца гьабулеб жо!<ins> </ins>— янги ахӏулаго цере ритӏун квералгун нахъе-нахъе къазе лъугьана ГӀусман.</td><td><button onclick="let e=document.getElementById('j13');e.hidden=!e.hidden">json</button></td></tr><tr id="j13" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;НАХЪЕ-НАХЪЕ КЪАЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;попятиться, отступить&quot;,
+      &quot;literal&quot;: &quot;назад идти&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Хажа! Рекӏеда яте! Щиб дуца гьабулеб жо!,— янги ахӏулаго цере ритӏун квералгун нахъе-нахъе къазе лъугьана ГӀусман.&quot;,
+      &quot;ru&quot;: &quot;— Хажа! Опомнись! Что ты делаешь! — крикнул Осман, протянув вперёд руки и отступив назад.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 219
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;НАХЪЕ-НАХЪЕ КЪАЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;попятиться, отступить&quot;,
+      &quot;literal&quot;: &quot;назад идти&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Хажа! Рекӏеда яте! Щиб дуца гьабулеб жо! — янги ахӏулаго цере ритӏун квералгун нахъе-нахъе къазе лъугьана ГӀусман.&quot;,
+      &quot;ru&quot;: &quot;— Хажа! Опомнись! Что ты делаешь! — крикнул Осман, протянув вперёд руки и отступив назад.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 219
+}</pre></td></tr><tr id="r14"><td>14</td><td>ТАЛАВУР ГЬАВИЗЕ</td><td>examples[0].ru</td><td>Ошибка согласования: все мой грехи.
+В PDF 294 тоже «за все мой грехи». Это ошибка согласования печатного источника: множественное число грехи требует мои. Исправить только мой → мои.
+PDF: 293</td><td>Ждать, когда с ножом в руках придёт какой-нибудь бандит грабить меня или кто-нибудь будет мстить мне за все мо<del>й</del> грехи?</td><td>Ждать, когда с ножом в руках придёт какой-нибудь бандит грабить меня или кто-нибудь будет мстить мне за все мо<ins>и</ins> грехи?</td><td><button onclick="let e=document.getElementById('j14');e.hidden=!e.hidden">json</button></td></tr><tr id="j14" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ТАЛАВУР ГЬАВИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;грабить кого-л., заниматься разбоем&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Кидадай кодоб бахъухъе нусги ккун дун талавур гьавизе талихӏ къосарав гъачагъ, дир къоселазухъ къисас босизе чи вачӏинаян балагьун чӏун вукӏинейищ?&quot;,
+      &quot;ru&quot;: &quot;Ждать, когда с ножом в руках придёт какой-нибудь бандит грабить меня или кто-нибудь будет мстить мне за все мой грехи?&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 293
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ТАЛАВУР ГЬАВИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;книжн.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;грабить кого-л., заниматься разбоем&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Кидадай кодоб бахъухъе нусги ккун дун талавур гьавизе талихӏ къосарав гъачагъ, дир къоселазухъ къисас босизе чи вачӏинаян балагьун чӏун вукӏинейищ?&quot;,
+      &quot;ru&quot;: &quot;Ждать, когда с ножом в руках придёт какой-нибудь бандит грабить меня или кто-нибудь будет мстить мне за все мои грехи?&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Зоб цӏадае гъугъала&quot;
+    }
+  ],
+  &quot;page&quot;: 293
+}</pre></td></tr><tr id="r15"><td>15</td><td>ХАБАРАЛДЕ ТӀАДЕ РАКЬ ХЪВАЗЕ</td><td>examples[0].ru</td><td>Лишняя точка и ё вместо е в имени Саидбег.
+По скану «Ты, Саидбег, забудь…». Точка ошибочно перенесена из авторской ссылки; знак ударения над е распознан как ё. Убрать точку, восстановить Саидбег.
+PDF: 318</td><td><del>. </del>Ты, Саидб<del>ё</del>г, забудь об этом разговоре.</td><td>Ты, Саидб<ins>е</ins>г, забудь об этом разговоре.</td><td><button onclick="let e=document.getElementById('j15');e.hidden=!e.hidden">json</button></td></tr><tr id="j15" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ХАБАРАЛДЕ ТӀАДЕ РАКЬ ХЪВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;молчать; в рот воды набрать&quot;,
+      &quot;literal&quot;: &quot;разговор землёй засыпать&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;забыть о чём-л.; из головы вон&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Дуца, Сагӏидбег, гьеб хабаралде тӏаде ракь хъвай.&quot;,
+      &quot;ru&quot;: &quot;. Ты, Саидбёг, забудь об этом разговоре.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;ЧӀегӏераб гамачӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 318
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ХАБАРАЛДЕ ТӀАДЕ РАКЬ ХЪВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;молчать; в рот воды набрать&quot;,
+      &quot;literal&quot;: &quot;разговор землёй засыпать&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;забыть о чём-л.; из головы вон&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Дуца, Сагӏидбег, гьеб хабаралде тӏаде ракь хъвай.&quot;,
+      &quot;ru&quot;: &quot;Ты, Саидбег, забудь об этом разговоре.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;ЧӀегӏераб гамачӏ&quot;
+    }
+  ],
+  &quot;page&quot;: 318
+}</pre></td></tr><tr id="r16"><td>16</td><td>ХӀАМИЛ БЕТӀЕР ГӀАНАСЕБ</td><td>examples[0].ru</td><td>Ё вместо е под ударением в имени Сайдулле.
+На PDF 348 имя напечатано «Сайдулле́» с ударением над е. Это не ё. Восстановить Сайдулле; остальное предложение и многоточие сохранить.
+PDF: 347</td><td>Видишь, такой небольшой аул, как Бакдаб, прославился на весь Союз благодаря Сайдулл<del>ё</del>...</td><td>Видишь, такой небольшой аул, как Бакдаб, прославился на весь Союз благодаря Сайдулл<ins>е</ins>...</td><td><button onclick="let e=document.getElementById('j16');e.hidden=!e.hidden">json</button></td></tr><tr id="j16" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ХӀАМИЛ БЕТӀЕР ГӀАНАСЕБ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;маленький, небольшой&quot;,
+      &quot;literal&quot;: &quot;величиной с голову осла&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бихьулищ, мугӏрузда рекӏараб хӏамил бетӏер гӏанасеб Бакъдаб росдал цӏар эсесералдаго лъан буго Сайдулагь сабалъун...&quot;,
+      &quot;ru&quot;: &quot;Видишь, такой небольшой аул, как Бакдаб, прославился на весь Союз благодаря Сайдуллё...&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 347
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ХӀАМИЛ БЕТӀЕР ГӀАНАСЕБ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;маленький, небольшой&quot;,
+      &quot;literal&quot;: &quot;величиной с голову осла&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Бихьулищ, мугӏрузда рекӏараб хӏамил бетӏер гӏанасеб Бакъдаб росдал цӏар эсесералдаго лъан буго Сайдулагь сабалъун...&quot;,
+      &quot;ru&quot;: &quot;Видишь, такой небольшой аул, как Бакдаб, прославился на весь Союз благодаря Сайдулле...&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 347
+}</pre></td></tr><tr id="r17"><td>17</td><td>ЦӀАР ЧӀВАЗЕ</td><td>examples[0].ru</td><td>Пропущена буква р в стерплю.
+На скане «я это стерплю». Восстановить пропущенную р; остальной перевод сохранить.
+PDF: 366</td><td>— Пусть меня называют какими угодно именами, я это степлю; но я не потерплю, если что-нибудь плохое скажут о тебе.</td><td>— Пусть меня называют какими угодно именами, я это сте<ins>р</ins>плю; но я не потерплю, если что-нибудь плохое скажут о тебе.</td><td><button onclick="let e=document.getElementById('j17');e.hidden=!e.hidden">json</button></td></tr><tr id="j17" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАР ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;закрепить что-л. за кем-л.&quot;,
+      &quot;literal&quot;: &quot;имя ударить&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;прозвать кого-л. кем-л.; дать кличку кому-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Бокьараб цӏар чӏвазе бегьула дида, дица гьеб хӏехьела, амма дуда тӏанкӏ лъураб жо бакьангуро.&quot;,
+      &quot;ru&quot;: &quot;— Пусть меня называют какими угодно именами, я это степлю; но я не потерплю, если что-нибудь плохое скажут о тебе.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 366
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАР ЧӀВАЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;закрепить что-л. за кем-л.&quot;,
+      &quot;literal&quot;: &quot;имя ударить&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;прозвать кого-л. кем-л.; дать кличку кому-л.&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Бокьараб цӏар чӏвазе бегьула дида, дица гьеб хӏехьела, амма дуда тӏанкӏ лъураб жо бакьангуро.&quot;,
+      &quot;ru&quot;: &quot;— Пусть меня называют какими угодно именами, я это стерплю; но я не потерплю, если что-нибудь плохое скажут о тебе.&quot;,
+      &quot;author&quot;: &quot;М. Мухӏамадов&quot;,
+      &quot;source&quot;: &quot;Лъукъарал кьураби&quot;
+    }
+  ],
+  &quot;page&quot;: 366
+}</pre></td></tr><tr id="r18"><td>18</td><td>ЧИЯР ЧОДА РЕКӀИНЕ</td><td>examples[0].av</td><td>Нет пробела после запятой.
+Подтверждено по PDF: Нет пробела после запятой. Исправить только указанное место.
+PDF: 378</td><td>Мун, Абакар, гьебгунияб жо бицине тӏаде вахъана, цониги дуца дурго рагӏи абичӏо,мун жеги гьитӏинав чи вуго, чияр чодаги рекӏун, чияца цӏалги кьабун векеризе виччан унаго гӏодов речӏчӏизе гуринха.</td><td>Мун, Абакар, гьебгунияб жо бицине тӏаде вахъана, цониги дуца дурго рагӏи абичӏо,<ins> </ins>мун жеги гьитӏинав чи вуго, чияр чодаги рекӏун, чияца цӏалги кьабун векеризе виччан унаго гӏодов речӏчӏизе гуринха.</td><td><button onclick="let e=document.getElementById('j18');e.hidden=!e.hidden">json</button></td></tr><tr id="j18" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЧИЯР ЧОДА РЕКӀИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;повторять чужие слова, мысли; говорить с чужих слов&quot;,
+      &quot;literal&quot;: &quot;на чужую лошадь сесть&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Мун, Абакар, гьебгунияб жо бицине тӏаде вахъана, цониги дуца дурго рагӏи абичӏо,мун жеги гьитӏинав чи вуго, чияр чодаги рекӏун, чияца цӏалги кьабун векеризе виччан унаго гӏодов речӏчӏизе гуринха.&quot;,
+      &quot;ru&quot;: &quot;Абакар, ты несёшь чепуху, там нет ни одного твоего слова. Ты ещё молод, как бы тебе не споткнуться, когда несёшься на чужом коне и чужая плётка погоняет коня.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 378
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЧИЯР ЧОДА РЕКӀИНЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;повторять чужие слова, мысли; говорить с чужих слов&quot;,
+      &quot;literal&quot;: &quot;на чужую лошадь сесть&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;Мун, Абакар, гьебгунияб жо бицине тӏаде вахъана, цониги дуца дурго рагӏи абичӏо, мун жеги гьитӏинав чи вуго, чияр чодаги рекӏун, чияца цӏалги кьабун векеризе виччан унаго гӏодов речӏчӏизе гуринха.&quot;,
+      &quot;ru&quot;: &quot;Абакар, ты несёшь чепуху, там нет ни одного твоего слова. Ты ещё молод, как бы тебе не споткнуться, когда несёшься на чужом коне и чужая плётка погоняет коня.&quot;,
+      &quot;author&quot;: &quot;Ф. ГӀалиева&quot;,
+      &quot;source&quot;: &quot;Ракьул гӏерекъ гьороца унаро&quot;
+    }
+  ],
+  &quot;page&quot;: 378
+}</pre></td></tr><tr id="r19"><td>19</td><td>ЧӀАНДА ХАБАР ХЕНЕЗЕ</td><td>examples[0].av</td><td>Повреждённое сочетание ш; вместо щ.
+На скане гьебгощинаб. Сочетание ш; внутри слова — дефект OCR буквы щ. Восстановить щ, не менять структуру вопроса.
+PDF: 382</td><td>— Яги, батизе бегьула, гьебго<del>ш;</del>инаб заманалда дица гӏададиеб чӏанда хабар хенолеб, хайир гьечӏеб вагӏза-базар цӏалулеб букӏараб?</td><td>— Яги, батизе бегьула, гьебго<ins>щ</ins>инаб заманалда дица гӏададиеб чӏанда хабар хенолеб, хайир гьечӏеб вагӏза-базар цӏалулеб букӏараб?</td><td><button onclick="let e=document.getElementById('j19');e.hidden=!e.hidden">json</button></td></tr><tr id="j19" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЧӀАНДА ХАБАР ХЕНЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;болтать глупости, заниматься пустыми разговорами&quot;,
+      &quot;literal&quot;: &quot;молоть&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Яги, батизе бегьула, гьебгош;инаб заманалда дица гӏададиеб чӏанда хабар хенолеб, хайир гьечӏеб вагӏза-базар цӏалулеб букӏараб?&quot;,
+      &quot;ru&quot;: &quot;— Или всё это время я зря тратил слова, я что, занимался пустыми разговорами?&quot;,
+      &quot;author&quot;: &quot;Т. Таймасханов&quot;,
+      &quot;source&quot;: &quot;Сардил чапар&quot;
+    }
+  ],
+  &quot;page&quot;: 382
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЧӀАНДА ХАБАР ХЕНЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;болтать глупости, заниматься пустыми разговорами&quot;,
+      &quot;literal&quot;: &quot;молоть&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;— Яги, батизе бегьула, гьебгощинаб заманалда дица гӏададиеб чӏанда хабар хенолеб, хайир гьечӏеб вагӏза-базар цӏалулеб букӏараб?&quot;,
+      &quot;ru&quot;: &quot;— Или всё это время я зря тратил слова, я что, занимался пустыми разговорами?&quot;,
+      &quot;author&quot;: &quot;Т. Таймасханов&quot;,
+      &quot;source&quot;: &quot;Сардил чапар&quot;
+    }
+  ],
+  &quot;page&quot;: 382
+}</pre></td></tr><tr id="r20"><td>20</td><td>ШАГЬИДЛЪИ БИТӀИЗЕ</td><td>examples[0].av</td><td>Ошибочный пробел внутри глагольной формы.
+В PDF «макьу лъугӏунищали». Убрать ложный пробел внутри лъугӏунищали; отдельное слово макьу и написание имени сохранить.
+PDF: 390</td><td>...Иманшапигӏ, гьадин гаргаралъ ворчӏизавунищ, яги жиндирго макьу лъугӏу<del> </del>нищали, шагьидлъи битӏулаго, магжида кверал рахъизе лъугьана.</td><td>...Иманшапигӏ, гьадин гаргаралъ ворчӏизавунищ, яги жиндирго макьу лъугӏунищали, шагьидлъи битӏулаго, магжида кверал рахъизе лъугьана.</td><td><button onclick="let e=document.getElementById('j20');e.hidden=!e.hidden">json</button></td></tr><tr id="j20" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ШАГЬИДЛЪИ БИТӀИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;уст.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;читать молитву&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;...Иманшапигӏ, гьадин гаргаралъ ворчӏизавунищ, яги жиндирго макьу лъугӏу нищали, шагьидлъи битӏулаго, магжида кверал рахъизе лъугьана.&quot;,
+      &quot;ru&quot;: &quot;...Иманшапи, разбуженный их разговорами, а может быть, просто проснувшись, принялся, поглаживая бороду, читать молитву.&quot;,
+      &quot;author&quot;: &quot;М. Сулиманов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал&quot;
+    }
+  ],
+  &quot;page&quot;: 390
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ШАГЬИДЛЪИ БИТӀИЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;уст.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;читать молитву&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;...Иманшапигӏ, гьадин гаргаралъ ворчӏизавунищ, яги жиндирго макьу лъугӏунищали, шагьидлъи битӏулаго, магжида кверал рахъизе лъугьана.&quot;,
+      &quot;ru&quot;: &quot;...Иманшапи, разбуженный их разговорами, а может быть, просто проснувшись, принялся, поглаживая бороду, читать молитву.&quot;,
+      &quot;author&quot;: &quot;М. Сулиманов&quot;,
+      &quot;source&quot;: &quot;ТӀаса рищарал&quot;
+    }
+  ],
+  &quot;page&quot;: 390
+}</pre></td></tr></table><h2>Структура</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Замечание / решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr></table>
