@@ -565,9 +565,9 @@
 {"word": "beţize", "forms": ["beţize"], "senses": [{"text": "выдёргивать, выщи́пывать", "comment": "Знак * в источнике: изменяемый родовой признак", "examples": [{"av": "xxer beţize", "ru": "щипа́ть траву́.", "comment": "в гора́х, где нельзя́ коси́ть"}]}], "source": "av-ru.1936"}
 {"word": "b:xxe", "forms": ["b:xxe"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "exxeb", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "bexe(r)xize", "forms": ["bexe(r)xize"], "senses": [{"text": "тяну́ться, волочи́ться.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
-{"word": "bezen", "forms": ["bezen", "bezenal"], "senses": [{"text": "за́кром."}], "source": "av-ru.1936"}
-{"word": "bezi", "forms": ["bezi", "bezusa"], "senses": [{"text": "жар, зной.", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"labels": ["эргативный падеж"], "forms": ["bezusa"]}], "see_also": [{"target": "bezize", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "bezize", "forms": ["bezize"], "senses": [{"text": "жа́рить, печь.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
+{"word": "beƶen", "forms": ["beƶen", "beƶenal"], "senses": [{"text": "за́кром."}], "source": "av-ru.1936"}
+{"word": "beƶi", "forms": ["beƶi", "beƶusa"], "senses": [{"text": "жар, зной.", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"labels": ["эргативный падеж"], "forms": ["beƶusa"]}], "see_also": [{"target": "beƶize", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "beƶize", "forms": ["bezize"], "senses": [{"text": "жа́рить, печь.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
 {"word": "beⱬ", "forms": ["beⱬ", "beⱬab"], "senses": [{"text": "тёмный", "examples": [{"av": "beⱬ-xaħilab", "ru": "тёмноси́ний."}]}], "source": "av-ru.1936"}
 {"word": "beⱬal", "forms": ["beⱬal", "baⱬaderisa"], "senses": [{"text": "жи́тели ау́ла Бацада́."}, {"labels": ["эргативный падеж"], "forms": ["baⱬaderisa"]}], "see_also": [{"target": "Baⱬada", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "beⱬize", "forms": ["beⱬize"], "senses": [{"text": "плати́ть, опла́чивать.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
@@ -656,7 +656,7 @@
 {"word": "bix̵bix̵ize", "forms": ["bix̵bix̵ize"], "senses": [{"text": "раздира́ть, разрыва́ть.", "comment": "Знак ** в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bix̵ize", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "bix̵ize", "forms": ["bix̵ize"], "senses": [{"text": "рвать", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "ло́паться"}, {"text": "тре́скаться", "examples": [{"av": "vixize-ħan kvanala dov", "ru": "он ест пока́ не ло́пнет."}]}], "source": "av-ru.1936"}
 {"word": "bizam", "forms": ["bizam", "bizan"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "nizam", "kind": "syn"}], "source": "av-ru.1936"}
-{"word": "bizize", "forms": ["bizize"], "senses": [{"text": "создава́ть, твори́ть", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "произраста́ть"}, {"text": "расти́."}], "source": "av-ru.1936"}
+{"word": "biƶize", "forms": ["bizize"], "senses": [{"text": "создава́ть, твори́ть", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "произраста́ть"}, {"text": "расти́."}], "source": "av-ru.1936"}
 {"word": "bjuleten", "forms": ["bjuleten", "bjuletenal"], "senses": [{"text": "бюллете́нь", "labels": ["интернациональный термин"], "examples": [{"av": "bjuleten baxize, bjuleten qabize", "ru": "издава́ть бюллете́нь."}]}], "source": "av-ru.1936"}
 {"word": "bjuro", "forms": ["bjuro", "bjurabi"], "senses": [{"text": "бюро́.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "bjurokrat", "forms": ["bjurokrat", "bjurokratal"], "senses": [{"text": "бюрокра́т.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
