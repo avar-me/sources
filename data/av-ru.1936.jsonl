@@ -917,9 +917,9 @@
 {"word": "caxotka", "forms": ["caxotka"], "senses": [{"text": "чахо́тка, туберкулёз.", "labels": ["русское происхождение"]}], "see_also": [{"target": "keren", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "caxun", "forms": ["caxun"], "see_also": [{"target": "capxen", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "caxxţ...", "forms": ["caxxţ..."], "see_also": [{"target": "coxxţo", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "cax...", "forms": ["cax..."], "see_also": [{"target": "cex", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "caxma", "forms": ["caxma", "caxmabi"], "senses": [{"text": "замо́к.", "precomment": "руже́йный", "labels": ["тюркское происхождение"]}], "source": "av-ru.1936"}
-{"word": "caxo", "forms": ["caxo"], "senses": [{"text": "двухгодова́лая овца́."}], "source": "av-ru.1936"}
+{"word": "cax̨...", "forms": ["cax̨..."], "see_also": [{"target": "cex̨", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "cax̵ma", "forms": ["cax̵ma", "cax̵mabi"], "senses": [{"text": "замо́к.", "precomment": "руже́йный", "labels": ["тюркское происхождение"]}], "source": "av-ru.1936"}
+{"word": "cax̵o", "forms": ["cax̵o"], "senses": [{"text": "двухгодова́лая овца́."}], "source": "av-ru.1936"}
 {"word": "ccelţero", "forms": ["ccelţero", "ccelţerabi"], "senses": [{"text": "игру́шечный насо́с."}], "see_also": [{"target": "ccilţize", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "cceze", "forms": ["cceze"], "senses": [{"text": "сажа́ть.", "labels": ["редко"]}], "see_also": [{"target": "ççeze", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "c(c)iltize", "forms": ["c(c)iltize"], "senses": [{"text": "хлы́нуть"}, {"text": "ли́ться"}, {"text": "течь."}], "source": "av-ru.1936"}
@@ -961,7 +961,7 @@
 {"word": "cidar", "forms": ["cidar"], "see_also": [{"target": "cijar", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "ci-ħemer", "forms": ["ci-ħemer", "ci-ħemerab"], "senses": [{"text": "челове́к из многолю́дного ро́да"}, {"text": "многолю́дный."}], "see_also": [{"target": "ci", "kind": "see"}, {"target": "ħemmer", "kind": "see"}, {"target": "cijaq", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "ci-ħemerļi", "forms": ["ci-ħemerļi"], "senses": [{"text": "многолю́дство, пере-населённость."}], "source": "av-ru.1936"}
-{"word": "cijaqo", "forms": ["cijaqo", "cijaqabi"], "senses": [{"text": "пу́гало, чу́чело."}], "source": "av-ru.1936"}
+{"word": "cijaķo", "forms": ["cijaķo", "cijaķabi"], "senses": [{"text": "пу́гало, чу́чело."}], "source": "av-ru.1936"}
 {"word": "cijal", "forms": ["cijal"], "see_also": [{"target": "cijar", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "cijaq", "forms": ["cijaq", "cijaqab"], "senses": [{"text": "челове́к из ма-лолю́дного ро́да"}, {"text": "безлю́дный"}, {"text": "не-обита́емый."}], "see_also": [{"target": "ci", "kind": "see"}, {"target": "ci-ħemer", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "cijar", "forms": ["cijar", "cijarab"], "senses": [{"text": "чужо́й."}], "see_also": [{"target": "cijal", "kind": "see"}, {"target": "cidar", "kind": "see"}], "source": "av-ru.1936"}
@@ -995,9 +995,9 @@
 {"word": "corxoq", "forms": ["corxoq", "corxoqab"], "senses": [{"text": "тщеду́шный, сла́бый."}], "see_also": [{"target": "cerxx", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "corxoqļi", "forms": ["corxoqļi"], "senses": [{"text": "тщеду́шие, сла́бость."}], "source": "av-ru.1936"}
 {"word": "cot", "forms": ["cot"], "see_also": [{"target": "cort", "kind": "syn"}], "source": "av-ru.1936"}
-{"word": "coxxţo", "forms": ["coxxţo", "caxxţaļ", "coxxţisa"], "senses": [{"text": "повя́зка.", "comment": "же́нский головно́й убо́р"}, {"labels": ["эргативный падеж"], "forms": ["coxxţisa"]}], "source": "av-ru.1936"}
-{"word": "cox...", "forms": ["cox..."], "see_also": [{"target": "çex̨", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "coşoxan", "forms": ["coşoxan", "coşoxabi"], "senses": [{"text": "обжо́ра."}], "see_also": [{"target": "cex̨", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "coxxţo", "forms": ["coxxţo", "caxxţal", "coxxţisa"], "senses": [{"text": "повя́зка.", "comment": "же́нский головно́й убо́р"}, {"labels": ["эргативный падеж"], "forms": ["coxxţisa"]}], "source": "av-ru.1936"}
+{"word": "cox̨...", "forms": ["cox̨..."], "see_also": [{"target": "çex̨", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "cox̨oxan", "forms": ["cox̨oxan", "cox̨oxabi"], "senses": [{"text": "обжо́ра."}], "see_also": [{"target": "cex̨", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "cu", "forms": ["cu", "cujal", "cosa", "col", "codul", "coda", "cuxida"], "senses": [{"text": "ло́шадь", "examples": [{"av": "col bo", "ru": "ко́нница, кавале́рия"}, {"av": "coda rekine", "ru": "сиде́ть на ло́шади верхо́м, е́здить верхо́м"}, {"av": "codasa reştine", "ru": "слеза́ть с ло́шади, спе́шиваться"}, {"av": "cu qoloze", "ru": "седла́ть ло́шадь"}, {"av": "cu ţamize", "ru": "скака́ть на ло́шади."}]}, {"labels": ["эргативный падеж"], "forms": ["cosa"]}, {"labels": ["родительный падеж"], "forms": ["col", "codul"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["coda", "cuxida"]}], "source": "av-ru.1936"}
 {"word": "cuc", "forms": ["cuc", "cucab"], "senses": [{"text": "сла́бый"}, {"text": "ро́бкий."}], "see_also": [{"target": "cucize", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "cucardize", "forms": ["cucardize"], "senses": [{"text": "ослабля́ть", "examples": [{"av": "racel cucardize", "ru": "распуска́ть по́яс."}]}], "see_also": [{"target": "cuc", "kind": "see"}], "source": "av-ru.1936"}
@@ -1051,14 +1051,14 @@
 {"word": "çaħa", "forms": ["çaħa", "çaħijab"], "senses": [{"text": "кру́пный"}, {"text": "большо́й"}, {"text": "взро́слый", "examples": [{"av": "mixal-çaħa", "ru": "длинноу́сый"}, {"av": "çaħa kkun bici", "ru": "опто́вая прода́жа."}]}], "source": "av-ru.1936"}
 {"word": "çaħaļi", "forms": ["çaħaļi"], "senses": [{"text": "огро́мность, громо́здкость."}], "source": "av-ru.1936"}
 {"word": "çaħaļize", "forms": ["çaħaļize"], "senses": [{"text": "укрупня́ться."}], "source": "av-ru.1936"}
-{"word": "çaħa", "forms": ["çaħa", "çaħdal", "çaħdasa"], "senses": [{"text": "бра́га"}, {"text": "пи́во", "examples": [{"av": "baqva çaħa", "ru": "суха́я бра́га", "comment": "кото́рую пьют разбавля́я горя́чей водо́й"}, {"av": "çaħdal cex̨", "ru": "пья́ница."}]}, {"labels": ["эргативный падеж"], "forms": ["çaħdasa"]}], "source": "av-ru.1936"}
+{"word": "çaḩa", "forms": ["çaḩa", "çaḩdal", "çaḩdasa"], "senses": [{"text": "бра́га"}, {"text": "пи́во", "examples": [{"av": "baqva çaḩa", "ru": "суха́я бра́га", "comment": "кото́рую пьют разбавля́я горя́чей водо́й"}, {"av": "çaḩdal cex̨", "ru": "пья́ница."}]}, {"labels": ["эргативный падеж"], "forms": ["çaḩdasa"]}], "source": "av-ru.1936"}
 {"word": "çalabi", "forms": ["çalabi"], "see_also": [{"target": "çalo", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "çalal", "forms": ["çalal"], "see_also": [{"target": "çolo", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "çalguţam", "forms": ["çalguţam", "çalguţan", "çalguţabi"], "senses": [{"text": "свёкла.", "labels": ["персидское происхождение"]}], "see_also": [{"target": "coƣondor", "kind": "see"}, {"target": "çalquţan", "kind": "see"}, {"target": "çanquţan", "kind": "see"}, {"target": "cakuldar", "kind": "see"}, {"target": "cuguldur", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "çalguţam", "forms": ["çalguţam", "çalguţan", "çalguţabi"], "senses": [{"text": "свёкла.", "labels": ["персидское происхождение"]}], "see_also": [{"target": "coƣondor", "kind": "see"}, {"target": "çalķuţan", "kind": "see"}, {"target": "çanķuţan", "kind": "see"}, {"target": "cakuldar", "kind": "see"}, {"target": "cuguldur", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "çalħin", "forms": ["çalħin", "çalħadul"], "senses": [{"text": "ску́ка"}, {"text": "доса́да."}, {"labels": ["родительный падеж"], "forms": ["çalħadul"]}], "see_also": [{"target": "çalħine", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "çalħine", "forms": ["çalħine", "çalħinze", "çalħize"], "senses": [{"text": "надоеда́ть"}, {"text": "наску́чить", "examples": [{"av": "çalħun bugo dida hab zo", "ru": "мне э́то надое́ло"}, {"av": "çalħine-ħan gargadize", "ru": "надоеда́ть Солтовнёй"}, {"av": "çalħarab", "ru": "надое́вший, наску́чивший.", "labels": ["причастие", "прошедшее время"]}]}], "source": "av-ru.1936"}
 {"word": "çali...", "forms": ["çali..."], "see_also": [{"target": "çolo", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "çalquţan", "forms": ["çalquţan"], "see_also": [{"target": "çalguţam", "kind": "syn"}], "source": "av-ru.1936"}
+{"word": "çalķuţan", "forms": ["çalķuţan"], "see_also": [{"target": "çalguţam", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "çalo", "forms": ["çalo", "çalabi"], "senses": [{"text": "бревно́."}], "source": "av-ru.1936"}
 {"word": "çalxxine", "forms": ["çalxxine", "çalxxinze", "çalxxize"], "senses": [{"text": "распа́рывать."}], "source": "av-ru.1936"}
 {"word": "çamdeze", "forms": ["çamdeze"], "senses": [{"text": "жева́ть"}, {"text": "ча́вкать."}], "see_also": [{"target": "çandeze", "kind": "see"}], "source": "av-ru.1936"}
@@ -1069,8 +1069,8 @@
 {"word": "çançur", "forms": ["çançur"], "senses": [{"text": "чанчу́р.", "comment": "сорт слив"}], "source": "av-ru.1936"}
 {"word": "çandero", "forms": ["çandero", "çanderabi"], "senses": [{"text": "че́люсть."}], "see_also": [{"target": "çamdeze", "kind": "see"}, {"target": "canaq", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "çandeze", "forms": ["çandeze"], "see_also": [{"target": "çamdeze", "kind": "syn"}], "source": "av-ru.1936"}
-{"word": "çanqa", "forms": ["çanqa", "çunqbi"], "senses": [{"text": "ча́нка.", "labels": ["устаревшее слово"], "comment": "пото́мок ха́на от бра́ка с же́нщиной ни́зшего сосло́вия"}], "source": "av-ru.1936"}
-{"word": "çanquţan", "forms": ["çanquţan"], "see_also": [{"target": "çalguţam", "kind": "syn"}], "source": "av-ru.1936"}
+{"word": "çanķa", "forms": ["çanķa", "çunķbi"], "senses": [{"text": "ча́нка.", "labels": ["устаревшее слово"], "comment": "пото́мок ха́на от бра́ка с же́нщиной ни́зшего сосло́вия"}], "source": "av-ru.1936"}
+{"word": "çanķuţan", "forms": ["çanķuţan"], "see_also": [{"target": "çalguţam", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "çanq", "forms": ["çanq", "çanqab"], "senses": [{"text": "курча́вый."}], "source": "av-ru.1936"}
 {"word": "çar...", "forms": ["çar..."], "see_also": [{"target": "çer", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "çar", "forms": ["çar"], "senses": [{"text": "со́рная трава́."}], "see_also": [{"target": "çaħ", "kind": "see"}, {"target": "çaraze", "kind": "see"}], "source": "av-ru.1936"}
