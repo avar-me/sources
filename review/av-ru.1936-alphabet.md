@@ -1,6 +1,6 @@
 # av-ru.1936: проверка алфавита аварских полей
 
-Статей: 7023. Полей с кириллицей: 0. Полей с графемами вне алфавита: 82 в 48 статьях.
+Статей: 7023. Полей с кириллицей: 0. Полей с графемами вне алфавита: 65 в 38 статьях.
 
 Проверяются word, forms, spelling_forms, gender_forms, examples[].av и see_also[].target. Русские переводы, labels и комментарии не транслитерируются. Разрешены 39 исторических букв, регистр, пунктуация и ударение на гласной. Цифры допустимы в обозначениях; предупреждение не служит командой удаления.
 
@@ -38,9 +38,6 @@
 | 3171 | 71 | kusize | senses[1].examples[0].av | b̂o kusize |  | b̂ |
 | 3585 | 79 | maçab | see_also[0].target | maʒab |  | ʒ |
 | 3660 | 80 | mamlakat | forms[1] | mamlakatȧ |  | ȧ |
-| 3713 | 82 | maşinci | forms[1] | maşincahį |  | į |
-| 3714 | 82 | maşkid | forms[1] | maşkįdal |  | į |
-| 3717 | 82 | maşvara | forms[1] | maşvarabį |  | į |
 | 3925 | 86 | mutęħ | word | mutęħ |  | ę |
 | 3925 | 86 | mutęħ | forms[0] | mutęħ |  | ę |
 | 3925 | 86 | mutęħ | forms[2] | mutęħab |  | ę |
@@ -48,15 +45,11 @@
 | 3926 | 86 | mutęħli | forms[0] | mutęħli |  | ę |
 | 4134 | 90 | p(a)lašş | word | p(a)lašş |  | š |
 | 4134 | 90 | p(a)lašş | forms[0] | p(a)lašş |  | š |
-| 4148 | 90 | pana | senses[0].examples[1].av | panā h. |  | ā |
 | 4189 | 91 | parç̧ad | word | parç̧ad |  | ç̧ |
 | 4189 | 91 | parç̧ad | forms[0] | parç̧ad |  | ç̧ |
 | 4189 | 91 | parç̧ad | forms[1] | parç̧adal |  | ç̧ |
 | 4189 | 91 | parç̧ad | see_also[0].target | maç̧ad |  | ç̧ |
 | 4263 | 92 | penzak | forms[1] | penzaḱal |  | ḱ |
-| 4337 | 93 | poloxx | forms[1] | polxxisə |  | ə |
-| 4337 | 93 | poloxx | senses[1].forms[0] | polxxisə |  | ə |
-| 4362 | 94 | premija | forms[1] | prẹmijabi |  | ẹ |
 | 4537 | 97 | qeda-biql̇ | word | qeda-biql̇ |  | l̇ |
 | 4537 | 97 | qeda-biql̇ | forms[0] | qeda-biql̇ |  | l̇ |
 | 4537 | 97 | qeda-biql̇ | see_also[1].target | biql̇ |  | l̇ |
@@ -76,19 +69,9 @@
 | 5289 | 111 | sordo-barṣadļi | word | sordo-barṣadļi |  | ṣ |
 | 5289 | 111 | sordo-barṣadļi | forms[0] | sordo-barṣadļi |  | ṣ |
 | 5513 | 115 | ssuţize | senses[1].examples[1].av | cex̣ ssuţarav |  | x̣ |
-| 5564 | 116 | şeḩ | senses[0].examples[0].av | şaḩīl raq |  | ī |
-| 5564 | 116 | şeḩ | senses[0].examples[1].av | şaḩīl xaba |  | ī |
-| 5581 | 116 | şirman-ç̧olorxa | word | şirman-ç̧olorxa |  | ç̧ |
-| 5581 | 116 | şirman-ç̧olorxa | forms[0] | şirman-ç̧olorxa |  | ç̧ |
-| 5581 | 116 | şirman-ç̧olorxa | forms[1] | şirman-ç̧olorxabi |  | ç̧ |
 | 5651 | 118 | tala | see_also[1].target | max̣i |  | x̣ |
-| 6129 | 126 | varani | forms[2] | varaniđul |  | đ |
-| 6129 | 126 | varani | forms[3] | varaniđal |  | đ |
-| 6129 | 126 | varani | senses[1].forms[0] | varaniđul |  | đ |
-| 6129 | 126 | varani | senses[1].forms[1] | varaniđal |  | đ |
 | 6285 | 129 | xaļq | senses[0].examples[0].av | xaļqaļu raq́ |  | q́ |
 | 6355 | 130 | xoⱨaze | word | xoⱨaze |  | ⱨ |
 | 6355 | 130 | xoⱨaze | forms[0] | xoⱨaze |  | ⱨ |
 | 6437 | 131 | x(x)inķ | senses[0].examples[0].av | ẑura xxinķ |  | ẑ |
 | 6559 | 134 | xaħba | senses[0].examples[0].av | bixịn-xaħba |  | ị |
-| 6871 | 139 | ⱬa | senses[0].examples[7].av | ⱬadul mas̨ina |  | s̨ |

@@ -280,36 +280,6 @@
     ]
   },
   {
-    "line": 3713,
-    "word": "maşinci",
-    "field": "forms[1]",
-    "value": "maşincahį",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "į"
-    ]
-  },
-  {
-    "line": 3714,
-    "word": "maşkid",
-    "field": "forms[1]",
-    "value": "maşkįdal",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "į"
-    ]
-  },
-  {
-    "line": 3717,
-    "word": "maşvara",
-    "field": "forms[1]",
-    "value": "maşvarabį",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "į"
-    ]
-  },
-  {
     "line": 3925,
     "word": "mutęħ",
     "field": "word",
@@ -380,16 +350,6 @@
     ]
   },
   {
-    "line": 4148,
-    "word": "pana",
-    "field": "senses[0].examples[1].av",
-    "value": "panā h.",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ā"
-    ]
-  },
-  {
     "line": 4189,
     "word": "parç̧ad",
     "field": "word",
@@ -437,36 +397,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "ḱ"
-    ]
-  },
-  {
-    "line": 4337,
-    "word": "poloxx",
-    "field": "forms[1]",
-    "value": "polxxisə",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ə"
-    ]
-  },
-  {
-    "line": 4337,
-    "word": "poloxx",
-    "field": "senses[1].forms[0]",
-    "value": "polxxisə",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ə"
-    ]
-  },
-  {
-    "line": 4362,
-    "word": "premija",
-    "field": "forms[1]",
-    "value": "prẹmijabi",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ẹ"
     ]
   },
   {
@@ -660,56 +590,6 @@
     ]
   },
   {
-    "line": 5564,
-    "word": "şeḩ",
-    "field": "senses[0].examples[0].av",
-    "value": "şaḩīl raq",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ī"
-    ]
-  },
-  {
-    "line": 5564,
-    "word": "şeḩ",
-    "field": "senses[0].examples[1].av",
-    "value": "şaḩīl xaba",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ī"
-    ]
-  },
-  {
-    "line": 5581,
-    "word": "şirman-ç̧olorxa",
-    "field": "word",
-    "value": "şirman-ç̧olorxa",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ç̧"
-    ]
-  },
-  {
-    "line": 5581,
-    "word": "şirman-ç̧olorxa",
-    "field": "forms[0]",
-    "value": "şirman-ç̧olorxa",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ç̧"
-    ]
-  },
-  {
-    "line": 5581,
-    "word": "şirman-ç̧olorxa",
-    "field": "forms[1]",
-    "value": "şirman-ç̧olorxabi",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ç̧"
-    ]
-  },
-  {
     "line": 5651,
     "word": "tala",
     "field": "see_also[1].target",
@@ -717,46 +597,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "x̣"
-    ]
-  },
-  {
-    "line": 6129,
-    "word": "varani",
-    "field": "forms[2]",
-    "value": "varaniđul",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "đ"
-    ]
-  },
-  {
-    "line": 6129,
-    "word": "varani",
-    "field": "forms[3]",
-    "value": "varaniđal",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "đ"
-    ]
-  },
-  {
-    "line": 6129,
-    "word": "varani",
-    "field": "senses[1].forms[0]",
-    "value": "varaniđul",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "đ"
-    ]
-  },
-  {
-    "line": 6129,
-    "word": "varani",
-    "field": "senses[1].forms[1]",
-    "value": "varaniđal",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "đ"
     ]
   },
   {
@@ -807,16 +647,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "ị"
-    ]
-  },
-  {
-    "line": 6871,
-    "word": "ⱬa",
-    "field": "senses[0].examples[7].av",
-    "value": "ⱬadul mas̨ina",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "s̨"
     ]
   }
 ]
