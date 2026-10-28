@@ -455,8 +455,8 @@
 {"word": "baxkven", "forms": ["baxkven"], "senses": [{"text": "точи́льный ка́мень осо́бой поро́ды."}], "source": "av-ru.1936"}
 {"word": "bax(x)ca", "forms": ["bax(x)ca"], "see_also": [{"target": "baqca", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "baxxci(n)ze", "forms": ["baxxci(n)ze", "baxxşi(n)ze"], "senses": [{"text": "пря́тать(ся).", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
-{"word": "baxi(n)", "forms": ["baxi(n)"], "see_also": [{"target": "barxįn", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "baxine", "forms": ["baxine"], "see_also": [{"target": "barxįne", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "baxi(n)", "forms": ["baxi(n)"], "see_also": [{"target": "barx̨in", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "baxine", "forms": ["baxine"], "see_also": [{"target": "barx̨ine", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "baxi", "forms": ["baxi"], "senses": [{"text": "добыва́ние, добы́ча, извлече́ние."}], "see_also": [{"target": "baxine", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "baxin", "forms": ["baxin"], "senses": [{"text": "встава́ние", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "засту́пничество."}], "see_also": [{"target": "baxine", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "baxine", "forms": ["baxine", "baxinze", "baxize"], "senses": [{"text": "встава́ть, заступа́ться, защища́ть", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "конча́ть"}, {"text": "покоря́ть"}, {"text": "отнима́ть"}, {"text": "снима́ть"}, {"text": "рыть"}, {"text": "черти́ть", "examples": [{"av": "qizun baxine", "ru": "просыпа́ться, встава́ть от сна"}, {"av": "untun baxine", "ru": "выздора́вливать"}, {"av": "ccuħbi baxi-ne", "ru": "лови́ть ры́бу"}, {"av": "beļi baxine", "ru": "усмеха́ться"}, {"av": "ħuşş baxine", "ru": "проводи́ть черту́."}]}], "see_also": [{"target": "baxine", "kind": "see"}], "source": "av-ru.1936"}
@@ -522,7 +522,7 @@
 {"word": "benzin", "forms": ["benzin"], "senses": [{"text": "бензи́н.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "beꝗa-buxi", "forms": ["beꝗa-buxi"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "reꝗaruxi", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "beꝗarize", "forms": ["beꝗarize"], "senses": [{"labels": ["учащательная форма"], "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "beꝗize", "kind": "from"}], "source": "av-ru.1936"}
-{"word": "beꝗize", "forms": ["beꝗize"], "senses": [{"text": "обраба́тывать зе́млю, паха́ть зе́млю, се́ять.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "biꝗize", "kind": "see"}, {"target": "ẋva-ze", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "beꝗize", "forms": ["beꝗize"], "senses": [{"text": "обраба́тывать зе́млю, паха́ть зе́млю, се́ять.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "biꝗize", "kind": "see"}, {"target": "x̨vaze", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "ber", "forms": ["ber", "beral", "burdul", "berzul", "be-raļul", "berazul"], "senses": [{"text": "глаз, очко́", "comment": "на игра́льной ко́сти, на домино́", "examples": [{"av": "berzul jas, jas-ber", "ru": "зрачо́к"}, {"av": "berzu ţamax", "ru": "ве́ко"}, {"av": "ⱬⱬorol beral", "ru": "очки́"}, {"av": "berzu işan", "ru": "подми́гивание"}, {"av": "berzul balah", "ru": "любова́ние"}, {"av": "berzul kanļi, berzul nu", "ru": "свет оче́й, зре́ние"}, {"av": "berzul kanļi ara", "ru": "слепе́ц, слепо́й"}, {"av": "ber ķutize", "ru": "взгля́дывать"}, {"av": "ber riçize", "ru": "открыва́ть глаза́"}, {"av": "ber qanşize", "ru": "закрыва́ть глаза́, мига́ть"}, {"av": "ber qanşize-ħan mex(x)aļ", "ru": "в одно́ мгнове́ние"}, {"av": "ber kkeze", "ru": "сгла́зить."}]}, {"labels": ["родительный падеж"], "forms": ["berzul", "be-raļul"]}, {"labels": ["родительный падеж", "множественное число"], "forms": ["berazul"]}], "source": "av-ru.1936"}
 {"word": "berdanka", "forms": ["berdanka", "berdankal", "berdankabi"], "senses": [{"examples": [{"av": "I", "ru": "берда́нка.", "comment": "ружье́"}]}], "source": "av-ru.1936"}
 {"word": "berhin", "forms": ["berhin"], "senses": [{"text": "побе́да."}], "see_also": [{"target": "berhine", "kind": "see"}], "source": "av-ru.1936"}
@@ -670,8 +670,8 @@
 {"word": "bog", "forms": ["bog", "bogal", "bogosa"], "senses": [{"text": "су́точный паёк"}, {"text": "вече́рняя пора́"}, {"text": "вре́мя", "examples": [{"av": "bogoļo", "ru": "ве́чером.", "labels": ["местный падеж", "3-я серия"]}]}, {"labels": ["эргативный падеж"], "forms": ["bogosa"]}], "source": "av-ru.1936"}
 {"word": "bogoruq", "forms": ["bogoruq", "bogoruqzal", "bogoruqob"], "senses": [{"text": "ку́хня."}, {"labels": ["местный падеж", "5-я серия"], "forms": ["bogoruqob"]}], "see_also": [{"target": "bog", "kind": "see"}, {"target": "ruq", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "bohine", "forms": ["bohine", "bohinze", "bohize"], "senses": [{"text": "пуска́ть, выпуска́ть.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "rohine", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "boh̄o...", "forms": ["boh̄o..."], "see_also": [{"target": "buh̄a", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "boh̄olo", "forms": ["boh̄olo", "boh̄oli", "boh̄olabi"], "senses": [{"text": "боо́ло, бу́ка.", "comment": "стра́шное ска́зочное существо́; упомина́ется в ава́рских ска́зках"}], "source": "av-ru.1936"}
+{"word": "boḩo...", "forms": ["boḩo..."], "see_also": [{"target": "buḩa", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "boḩolo", "forms": ["boḩolo", "boḩoli", "boḩolabi"], "senses": [{"text": "боо́ло, бу́ка.", "comment": "стра́шное ска́зочное существо́; упомина́ется в ава́рских ска́зках"}], "source": "av-ru.1936"}
 {"word": "bojar", "forms": ["bojar", "bojarav", "bojaral"], "senses": [{"text": "боя́рин", "labels": ["русское происхождение"]}, {"text": "князь.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "bojkot", "forms": ["bojkot"], "senses": [{"text": "бойко́т", "labels": ["интернациональный термин"], "examples": [{"av": "bojkot h.", "ru": "бойкоти́ровать"}, {"av": "bojkotalda qorq", "ru": "под бойко́том."}]}], "source": "av-ru.1936"}
 {"word": "boķon", "forms": ["boķon", "buķnal", "buķnabi", "buķnisa", "buķnil", "buķnib"], "senses": [{"text": "у́гол", "examples": [{"av": "boķonab", "ru": "уго́льный"}, {"av": "lab-boķonab", "ru": "треуго́льный."}]}, {"labels": ["эргативный падеж"], "forms": ["buķnisa"]}, {"labels": ["родительный падеж"], "forms": ["buķnil", "buķnal"]}, {"labels": ["местный падеж", "5-я серия"], "forms": ["buķnib"]}], "source": "av-ru.1936"}
@@ -732,7 +732,7 @@
 {"word": "boţo...", "forms": ["boţo..."], "see_also": [{"target": "buţ", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "boţr...", "forms": ["boţr...", "buţr..."], "see_also": [{"target": "beţer", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "boxca", "forms": ["boxca", "boxcabi"], "senses": [{"text": "паке́т"}, {"text": "конве́рт."}], "source": "av-ru.1936"}
-{"word": "boxx", "forms": ["boxx", "boxxal", "boxxdol"], "senses": [{"text": "нога́", "examples": [{"av": "boxx-kiliş", "ru": "мизи́нец."}]}, {"labels": ["родительный падеж"], "forms": ["boxxdol"]}], "see_also": [{"target": "maño", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "boxx", "forms": ["boxx", "boxxal", "boxxdol"], "senses": [{"text": "нога́", "examples": [{"av": "boxx-kiliş", "ru": "мизи́нец."}]}, {"labels": ["родительный падеж"], "forms": ["boxxdol"]}], "see_also": [{"target": "maħo", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "boxxel", "forms": ["boxxel", "boxxalabi", "boxxalisa"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}, {"labels": ["эргативный падеж"], "forms": ["boxxalisa"]}], "see_also": [{"target": "boxxi", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "boxxi", "forms": ["boxxi", "boxxabi", "boxxusa"], "senses": [{"text": "ра́дость.", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"labels": ["эргативный падеж"], "forms": ["boxxusa"]}], "see_also": [{"target": "boxxize", "kind": "see"}, {"target": "boxxel", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "boxxize", "forms": ["boxxize"], "senses": [{"text": "ра́доваться.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "boxxel", "kind": "see"}], "source": "av-ru.1936"}
@@ -2534,7 +2534,7 @@
 {"word": "ḩazab", "forms": ["ḩazab", "ḩazabal"], "senses": [{"text": "наказа́ние", "labels": ["арабское происхождение"]}, {"text": "муче́ние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "ḩazdaq", "forms": ["ḩazdaq", "ḩazdaqab"], "senses": [{"text": "бессне́жный."}], "see_also": [{"target": "ḩazo", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "ḩaziz", "forms": ["ḩaziz", "ḩazizab"], "senses": [{"text": "дорого́й, ми́лый.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "ḩazo", "forms": ["ḩazo", "ḩazusa", "ḩazdaza", "ḩaz(u)dal"], "senses": [{"text": "снег", "examples": [{"av": "ḩazo-xañab", "ru": "белосне́жный."}]}, {"labels": ["эргативный падеж"], "forms": ["ḩazusa", "ḩazdaza"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["ḩaz(u)dal"]}], "source": "av-ru.1936"}
+{"word": "ḩazo", "forms": ["ḩazo", "ḩazusa", "ḩazdaza", "ḩaz(u)dal"], "senses": [{"text": "снег", "examples": [{"av": "ḩazo-xaħab", "ru": "белосне́жный."}]}, {"labels": ["эргативный падеж"], "forms": ["ḩazusa", "ḩazdaza"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["ḩaz(u)dal"]}], "source": "av-ru.1936"}
 {"word": "ḩazajib", "forms": ["ḩazajib"], "senses": [{"text": "чуде́сный, удиви́тельный.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "ḩazajibli", "forms": ["ḩazajibli"], "senses": [{"text": "чу́до."}], "source": "av-ru.1936"}
 {"word": "ḩazajiblize", "forms": ["ḩazajiblize"], "senses": [{"text": "удивля́ться, изумля́ться."}], "source": "av-ru.1936"}
@@ -4131,7 +4131,7 @@
 {"word": "pal", "forms": ["pal", "palal"], "senses": [{"text": "жре́бий, гада́ние", "labels": ["персидское происхождение"], "examples": [{"av": "pal qoţize", "ru": "вынима́ть, тяну́ть жре́бий"}, {"av": "pal ţamize", "ru": "броса́ть жре́бий, гада́ть."}]}], "see_also": [{"target": "palixan", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "palan", "forms": ["palan", "palanal"], "see_also": [{"target": "pulan", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "palass", "forms": ["palass", "palassal", "palssal"], "senses": [{"text": "пала́с.", "comment": "род ковра́"}], "source": "av-ru.1936"}
-{"word": "p(a)lašş", "forms": ["p(a)lašş", "palaşşal"], "senses": [{"text": "плащ.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "p(a)laşş", "forms": ["p(a)laşş", "palaşşal"], "senses": [{"text": "плащ.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "palata", "forms": ["palata", "palatabi"], "senses": [{"text": "пала́та", "labels": ["русское происхождение"], "examples": [{"av": "Daranbazaraļul palata", "ru": "Торго́вая пала́та."}]}], "source": "av-ru.1936"}
 {"word": "palci", "forms": ["palci", "pa'caħi"], "senses": [{"text": "гада́тель.", "labels": ["персидское происхождение"]}], "see_also": [{"target": "pal", "kind": "see"}, {"target": "palixan", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "palħassil", "forms": ["palħassil"], "senses": [{"text": "одни́м сло́вом, коро́че говоря́.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
@@ -4611,7 +4611,7 @@
 {"word": "qoţqoţize", "forms": ["qoţqoţize"], "senses": [{"labels": ["учащательная форма"]}], "see_also": [{"target": "qoţize", "kind": "from"}], "source": "av-ru.1936"}
 {"word": "qoxize", "forms": ["qoxize"], "see_also": [{"target": "qvax̵ize", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "qoxoc", "forms": ["qoxoc", "qoxok", "qoxcal"], "see_also": [{"target": "dergel", "kind": "syn"}], "source": "av-ru.1936"}
-{"word": "qoẋo(l)-dergo", "forms": ["qoẋo(l)-dergo", "qoẋo(l)-larkac"], "see_also": [{"target": "dergel", "kind": "syn"}], "source": "av-ru.1936"}
+{"word": "qox̨o(l)-dergo", "forms": ["qox̨o(l)-dergo", "qox̨o(l)-larkac"], "see_also": [{"target": "dergel", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "qubat", "forms": ["qubat", "qubatal"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "quvvat", "kind": "syn"}], "source": "av-ru.1936"}
 {"word": "qub(b)a", "forms": ["qub(b)a", "qubbabi"], "senses": [{"text": "ку́пол, свод, мавзоле́й.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "qubdul", "forms": ["qubdul"], "see_also": [{"target": "qebed", "kind": "see"}], "source": "av-ru.1936"}
@@ -4907,7 +4907,7 @@
 {"word": "razi", "forms": ["razi", "razidul", "razi-per"], "senses": [{"text": "чесно́к", "examples": [{"av": "razi-bux", "ru": "сту́пка для чеснока́."}]}, {"labels": ["родительный падеж"], "forms": ["razidul"]}], "source": "av-ru.1936"}
 {"word": "razul", "forms": ["razul", "razulzabi"], "senses": [{"text": "персо́на, субъе́кт.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "razize", "forms": ["razize"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bazize", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "razząd", "forms": ["razząd"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bazzad", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "raⱬⱬad", "forms": ["raⱬⱬad"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "baⱬⱬad", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "razţine", "forms": ["razţine"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bazzine", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "razⱬunisa-ħeţe", "forms": ["razⱬunisa-ħeţe"], "senses": [{"text": "подо́шва."}], "see_also": [{"target": "ħeţe", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "recc", "forms": ["recc"], "senses": [{"text": "таба́чный отва́р"}, {"text": "никоти́н."}], "source": "av-ru.1936"}
@@ -6556,7 +6556,7 @@
 {"word": "xahilļize", "forms": ["xahilļize"], "senses": [{"text": "сине́ть."}], "source": "av-ru.1936"}
 {"word": "xaħ", "forms": ["xaħ", "xaħab"], "senses": [{"text": "бе́лый", "examples": [{"av": "xaħ h.", "ru": "бели́ть"}, {"av": "xaħ(ab)-maxx", "ru": "жестъ"}, {"av": "xaħ-bei", "ru": "бело́к гла́за"}, {"av": "xaħ(ab)-qerab, xaħ-maħab", "ru": "белова́тый"}, {"av": "xaħ-kkarab", "ru": "белокъ́рый."}]}], "see_also": [{"target": "xvaħ", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "xaħabize", "forms": ["xaħabize"], "senses": [{"examples": [{"av": "", "comment": "= xaħ h., см. xaħ."}]}], "source": "av-ru.1936"}
-{"word": "xaħba", "forms": ["xaħba", "xaħbabi"], "senses": [{"text": "проститу́тка", "labels": ["арабское происхождение"], "examples": [{"av": "bixịn-xaħba", "ru": "прелюбоде́й, развра́тник."}]}], "source": "av-ru.1936"}
+{"word": "xaħba", "forms": ["xaħba", "xaħbabi"], "senses": [{"text": "проститу́тка", "labels": ["арабское происхождение"], "examples": [{"av": "bix̨in-xaħba", "ru": "прелюбоде́й, развра́тник."}]}], "source": "av-ru.1936"}
 {"word": "xaħbaļi", "forms": ["xaħbaļi"], "senses": [{"text": "проститу́ция, развра́т.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "xaħ-kkarab", "forms": ["xaħ-kkarab"], "see_also": [{"target": "xaħ", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "xaħļi", "forms": ["xaħļi"], "senses": [{"text": "белизна́"}, {"text": "бело́к яйца́."}], "source": "av-ru.1936"}

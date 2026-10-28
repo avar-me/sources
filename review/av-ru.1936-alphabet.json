@@ -1,115 +1,5 @@
 [
   {
-    "line": 458,
-    "word": "baxi(n)",
-    "field": "see_also[0].target",
-    "value": "barxįn",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "į"
-    ]
-  },
-  {
-    "line": 459,
-    "word": "baxine",
-    "field": "see_also[0].target",
-    "value": "barxįne",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "į"
-    ]
-  },
-  {
-    "line": 525,
-    "word": "beꝗize",
-    "field": "see_also[1].target",
-    "value": "ẋva-ze",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ẋ"
-    ]
-  },
-  {
-    "line": 673,
-    "word": "boh̄o...",
-    "field": "word",
-    "value": "boh̄o...",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 673,
-    "word": "boh̄o...",
-    "field": "forms[0]",
-    "value": "boh̄o...",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 673,
-    "word": "boh̄o...",
-    "field": "see_also[0].target",
-    "value": "buh̄a",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 674,
-    "word": "boh̄olo",
-    "field": "word",
-    "value": "boh̄olo",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 674,
-    "word": "boh̄olo",
-    "field": "forms[0]",
-    "value": "boh̄olo",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 674,
-    "word": "boh̄olo",
-    "field": "forms[1]",
-    "value": "boh̄oli",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 674,
-    "word": "boh̄olo",
-    "field": "forms[2]",
-    "value": "boh̄olabi",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "h̄"
-    ]
-  },
-  {
-    "line": 735,
-    "word": "boxx",
-    "field": "see_also[0].target",
-    "value": "maño",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ñ"
-    ]
-  },
-  {
     "line": 1556,
     "word": "gamiẍan",
     "field": "word",
@@ -170,16 +60,6 @@
     ]
   },
   {
-    "line": 2537,
-    "word": "ḩazo",
-    "field": "senses[0].examples[0].av",
-    "value": "ḩazo-xañab",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ñ"
-    ]
-  },
-  {
     "line": 3039,
     "word": "kkeze",
     "field": "senses[2].examples[1].av",
@@ -207,26 +87,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "ȧ"
-    ]
-  },
-  {
-    "line": 4134,
-    "word": "p(a)lašş",
-    "field": "word",
-    "value": "p(a)lašş",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "š"
-    ]
-  },
-  {
-    "line": 4134,
-    "word": "p(a)lašş",
-    "field": "forms[0]",
-    "value": "p(a)lašş",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "š"
     ]
   },
   {
@@ -270,56 +130,6 @@
     ]
   },
   {
-    "line": 4614,
-    "word": "qoẋo(l)-dergo",
-    "field": "word",
-    "value": "qoẋo(l)-dergo",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ẋ"
-    ]
-  },
-  {
-    "line": 4614,
-    "word": "qoẋo(l)-dergo",
-    "field": "forms[0]",
-    "value": "qoẋo(l)-dergo",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ẋ"
-    ]
-  },
-  {
-    "line": 4614,
-    "word": "qoẋo(l)-dergo",
-    "field": "forms[1]",
-    "value": "qoẋo(l)-larkac",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ẋ"
-    ]
-  },
-  {
-    "line": 4910,
-    "word": "razząd",
-    "field": "word",
-    "value": "razząd",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ą"
-    ]
-  },
-  {
-    "line": 4910,
-    "word": "razząd",
-    "field": "forms[0]",
-    "value": "razząd",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ą"
-    ]
-  },
-  {
     "line": 5053,
     "word": "rix̵",
     "field": "forms[1]",
@@ -357,16 +167,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "q́"
-    ]
-  },
-  {
-    "line": 6559,
-    "word": "xaħba",
-    "field": "senses[0].examples[0].av",
-    "value": "bixịn-xaħba",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ị"
     ]
   }
 ]
