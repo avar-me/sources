@@ -51,7 +51,8 @@ class NormalizationTests(unittest.TestCase):
         self.assertLess(sort_key('aƣ'), sort_key('ah'))
         self.assertLess(sort_key('kj'), sort_key('kk'))
         self.assertLess(sort_key('kk'), sort_key('kķ'))
-        self.assertEqual(sort_key("ba-'ri"), sort_key('bari'))
+        self.assertEqual(sort_key('ba-ri'), sort_key('bari'))
+        self.assertLess(sort_key("ba-'ri"), sort_key('bari'))
         self.assertFalse(inversion('bar', 'ba(r)i'))
 
 

@@ -20,6 +20,7 @@ except ImportError:
     from parse_zhirkov_1936 import ROOT, articles
 
 ALPHABET = "a b c ç d e f g ƣ h ħ ḩ i j k ķ l ļ ł m n o p q ꝗ r s ꞩ ş t ţ u v x x̨ x̵ z ƶ ⱬ".split()
+APOSTROPHES = "'’‘ʼʿ"
 ALIASES = {
     "ơ": "ƣ", "ḳ": "ķ", "ⱪ": "ķ", "ƙ": "ķ", "k̇": "ķ",
     "ḥ": "ḩ", "ḥ": "ḩ", "ḷ": "ļ", "ɫ": "ļ", "ɬ": "ļ",
@@ -30,6 +31,7 @@ ALIASES = {
     "а": "a", "с": "c", "х": "x", "і": "i", "ј": "j",
 }
 RANK = {unicodedata.normalize("NFD", c): i for i, c in enumerate(ALPHABET)}
+RANK["'"] = -1  # Suspicious punctuation sorts before letters instead of disappearing.
 ALIASES = {unicodedata.normalize("NFD", a): unicodedata.normalize("NFD", b) for a, b in ALIASES.items()}
 
 
@@ -39,6 +41,8 @@ def units(word):
         if unicodedata.combining(c):
             if c not in ("\u0301", "\u0300") and result:
                 result[-1] += c
+        elif c in APOSTROPHES:
+            result.append("'")
         elif c.isalpha() or c.isdigit():
             result.append(c)
     return [ALIASES.get(c, c) for c in result]
@@ -79,11 +83,15 @@ def report(source_articles, indices):
              f"Статей: {len(source_articles)}. Подозрительных соседних пар: {len(indices)}.", "",
              f"У {checked_count} пар порядок подтверждён по печати; остальные {len(indices) - checked_count} требуют сверки. "
              "Решения хранятся в `review/av-ru.1936-order-reviewed.json`; совпадение проверяется по скану и обоим заголовкам.", "",
-             "Порядок 39 букв взят со сканов 5 и 147. Апострофы, дефисы, регистр и ударения игнорируются; "
+             "Порядок 39 букв взят со сканов 5 и 147. Апострофы учитываются как отдельный знак перед буквами (варианты знака унифицированы); дефисы, регистр и ударения игнорируются; "
              "удвоенные согласные сортируются как две буквы. Для внутрисловных скобок проверяются обе формы.", "",
              "Это кандидаты для сверки, а не список готовых замен. Разные исторические буквы нередко "
              "распознаны одинаково (q, s, z); встречаются печатные перестановки, отсылки и повреждённые "
              "границы статей. Пересортировывать исходник для устранения предупреждений нельзя.", "",
+             "Проверка идёт по найденным инверсиям: каждая пара сверяется с печатью, "
+             "формами, примерами и ссылками. Апостроф больше не удаляется из ключа: "
+             "исходное ass’o после assķo теперь даёт инверсию. Исправление asslo/asslu "
+             "подтверждено пользователем, формой asslijab и статьёй аслу (2006).", "",
              "Воспроизведение: `python3 src/audit_zhirkov_1936_order.py --report review/av-ru.1936-order.md`.", "",
              "## Графемы вне алфавита и диагностических эквивалентов", "",
              ", ".join(f"`{unicodedata.normalize('NFC', c)}` × {n}" for c, n in unknown.most_common()) or "Нет.", "",
