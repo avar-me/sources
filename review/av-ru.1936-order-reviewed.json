@@ -152,5 +152,26 @@
     "current": "biqbiqize",
     "status": "printed_order",
     "reason": "В оригинале biqize «воровать» предшествует biqbiqize; q без штриха в обоих заголовках. Следующая статья biꝗize «разделить» имеет q со штрихом. Печатный порядок сохранён."
+  },
+  {
+    "scan": 32,
+    "previous": "ççikva",
+    "current": "C(ç)iķab",
+    "status": "printed_order",
+    "reason": "В печати первый C в названии Чиркея без седили; ķ восстановлена по увеличенному скану. Заголовок расположен после ççikva."
+  },
+  {
+    "scan": 32,
+    "previous": "ç(ç)oqo-borox̨",
+    "current": "C(ç)ox̵",
+    "status": "printed_order",
+    "reason": "Первый C в названии Чоха без седили, второй вариант начинается с Ç. Заголовок и последовательность сохранены по печати."
+  },
+  {
+    "scan": 35,
+    "previous": "Danija",
+    "current": "danƣura",
+    "status": "printed_order",
+    "reason": "Danija напечатано перед danƣura; ƣ в danƣura и его форме подтверждена на скане. Печатный порядок сохранён."
   }
 ]
