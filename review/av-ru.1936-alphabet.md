@@ -1,6 +1,6 @@
 # av-ru.1936: проверка алфавита аварских полей
 
-Статей: 7023. Полей с кириллицей: 0. Полей с графемами вне алфавита: 93 в 56 статьях.
+Статей: 7023. Полей с кириллицей: 0. Полей с графемами вне алфавита: 82 в 48 статьях.
 
 Проверяются word, forms, spelling_forms, gender_forms, examples[].av и see_also[].target. Русские переводы, labels и комментарии не транслитерируются. Разрешены 39 исторических букв, регистр, пунктуация и ударение на гласной. Цифры допустимы в обозначениях; предупреждение не служит командой удаления.
 
@@ -13,10 +13,7 @@
 | 297 | 15 | baƣcaci | forms[1] | baƣcacah̨t |  | h̨ |
 | 458 | 19 | baxi(n) | see_also[0].target | barxįn |  | į |
 | 459 | 19 | baxine | see_also[0].target | barxįne |  | į |
-| 511 | 20 | beķiķiç | see_also[1].target | ķi̇ç |  | i̇ |
 | 525 | 20 | beꝗize | see_also[1].target | ẋva-ze |  | ẋ |
-| 671 | 23 | bogorůq | word | bogorůq |  | ů |
-| 671 | 23 | bogorůq | forms[0] | bogorůq |  | ů |
 | 673 | 23 | boh̄o... | word | boh̄o... |  | h̄ |
 | 673 | 23 | boh̄o... | forms[0] | boh̄o... |  | h̄ |
 | 673 | 23 | boh̄o... | see_also[0].target | buh̄a |  | h̄ |
@@ -25,11 +22,6 @@
 | 674 | 23 | boh̄olo | forms[1] | boh̄oli |  | h̄ |
 | 674 | 23 | boh̄olo | forms[2] | boh̄olabi |  | h̄ |
 | 735 | 24 | boxx | see_also[0].target | maño |  | ñ |
-| 814 | 26 | bussarizė | word | bussarizė |  | ė |
-| 814 | 26 | bussarizė | forms[0] | bussarizė |  | ė |
-| 883 | 28 | cangit | senses[0].examples[0].av | cangit ɦaze |  | ɦ |
-| 897 | 28 | cara | senses[0].examples[0].av | dir cara buɦun bugo |  | ɦ |
-| 899 | 28 | caram | senses[0].examples[0].av | caram-ɦan qvaqarab |  | ɦ |
 | 958 | 29 | cex̨ | forms[2] | cax̣al |  | x̣ |
 | 1118 | 32 | C(ç)ox̵ | senses[0].examples[0].av | ççoxiϳav |  | ϳ |
 | 1264 | 35 | deħen | forms[2] | dūħnul |  | ū |
@@ -37,9 +29,6 @@
 | 1556 | 41 | gamiẍan | forms[0] | gamiẍan |  | ẍ |
 | 1556 | 41 | gamiẍan | forms[1] | gamiẍabi |  | ẍ |
 | 1604 | 42 | geni | senses[0].examples[0].av | hozzọ-gen |  | ọ |
-| 1680 | 43 | Gresija | see_also[0].target | Yunanistan |  | y |
-| 2077 | 50 | hine | forms[1] | hinzė |  | ė |
-| 2077 | 50 | hine | forms[2] | hizė |  | ė |
 | 2405 | 57 | ḩaʿa(t)lize | word | ḩaʿa(t)lize |  | ʿ |
 | 2405 | 57 | ḩaʿa(t)lize | forms[0] | ḩaʿa(t)lize |  | ʿ |
 | 2537 | 59 | ḩazo | senses[0].examples[0].av | ḩazo-xañab |  | ñ |

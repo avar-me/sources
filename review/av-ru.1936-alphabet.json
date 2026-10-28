@@ -30,16 +30,6 @@
     ]
   },
   {
-    "line": 511,
-    "word": "beķiķiç",
-    "field": "see_also[1].target",
-    "value": "ķi̇ç",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "i̇"
-    ]
-  },
-  {
     "line": 525,
     "word": "beꝗize",
     "field": "see_also[1].target",
@@ -47,26 +37,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "ẋ"
-    ]
-  },
-  {
-    "line": 671,
-    "word": "bogorůq",
-    "field": "word",
-    "value": "bogorůq",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ů"
-    ]
-  },
-  {
-    "line": 671,
-    "word": "bogorůq",
-    "field": "forms[0]",
-    "value": "bogorůq",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ů"
     ]
   },
   {
@@ -150,56 +120,6 @@
     ]
   },
   {
-    "line": 814,
-    "word": "bussarizė",
-    "field": "word",
-    "value": "bussarizė",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ė"
-    ]
-  },
-  {
-    "line": 814,
-    "word": "bussarizė",
-    "field": "forms[0]",
-    "value": "bussarizė",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ė"
-    ]
-  },
-  {
-    "line": 883,
-    "word": "cangit",
-    "field": "senses[0].examples[0].av",
-    "value": "cangit ɦaze",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ɦ"
-    ]
-  },
-  {
-    "line": 897,
-    "word": "cara",
-    "field": "senses[0].examples[0].av",
-    "value": "dir cara buɦun bugo",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ɦ"
-    ]
-  },
-  {
-    "line": 899,
-    "word": "caram",
-    "field": "senses[0].examples[0].av",
-    "value": "caram-ɦan qvaqarab",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ɦ"
-    ]
-  },
-  {
     "line": 958,
     "word": "cex̨",
     "field": "forms[2]",
@@ -267,36 +187,6 @@
     "cyrillic": [],
     "outside_alphabet": [
       "ọ"
-    ]
-  },
-  {
-    "line": 1680,
-    "word": "Gresija",
-    "field": "see_also[0].target",
-    "value": "Yunanistan",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "y"
-    ]
-  },
-  {
-    "line": 2077,
-    "word": "hine",
-    "field": "forms[1]",
-    "value": "hinzė",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ė"
-    ]
-  },
-  {
-    "line": 2077,
-    "word": "hine",
-    "field": "forms[2]",
-    "value": "hizė",
-    "cyrillic": [],
-    "outside_alphabet": [
-      "ė"
     ]
   },
   {
