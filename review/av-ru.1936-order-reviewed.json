@@ -215,5 +215,47 @@
     "current": "ba'li",
     "status": "printed_order",
     "reason": "Пользователь подтвердил 28.10.2026: ba'li означает «баъли», перестановка умышленная. Апостроф и положение статьи сохранить; не заменять на baḩli."
+  },
+  {
+    "scan": 56,
+    "previous": "ħuss(i)",
+    "current": "ħur",
+    "status": "printed_order",
+    "reason": "Заголовок ħuss(i) с формами ħussabi, ħussusa расположен перед ħur и в оригинале; порядок сохранён."
+  },
+  {
+    "scan": 59,
+    "previous": "Ḩaxvax",
+    "current": "Ḩaxuş",
+    "status": "printed_order",
+    "reason": "На скане 59 Ḩaxuş стоит вверху правой колонки после Ḩaxvax внизу левой; обе буквы x и гласные u/v подтверждены. Печатная перестановка сохранена."
+  },
+  {
+    "scan": 71,
+    "previous": "kvagize",
+    "current": "kvadrat",
+    "status": "printed_order",
+    "reason": "В печати kvagize стоит перед kvadrat, обе основы читаются однозначно; перестановка сохранена."
+  },
+  {
+    "scan": 73,
+    "previous": "ķaliccaze",
+    "current": "ķal-hiqize",
+    "status": "printed_order",
+    "reason": "Составное ķal-hiqize напечатано с обычной h после ķaliccaze и перед ķal-kkvej. Печатное написание и порядок сохранены."
+  },
+  {
+    "scan": 73,
+    "previous": "ķalţu",
+    "current": "kaluş",
+    "status": "printed_order",
+    "reason": "При увеличении оригинала у k в kaluş нет нижнего знака (в отличие от следующего ķalzi). Обычная k и печатное положение среди ķ сохранены."
+  },
+  {
+    "scan": 76,
+    "previous": "le! li!",
+    "current": "lebal",
+    "status": "printed_order",
+    "reason": "Составной заголовок le! li! содержит два призывных восклицания; в печати он стоит перед lebal. Написание и порядок сохранены."
   }
 ]
