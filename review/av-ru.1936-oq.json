@@ -1,0 +1,4296 @@
+{
+  "source": "av-ru.1936",
+  "date": "2026-10-28",
+  "method": "Ручная сверка всех полей с oq в исходном JSONL с оригинальным PDF; изменения в HTML и DOCX, затем пересборка. Номер scan — физическая страница PDF начала статьи; продолжения могут быть на следующей странице. Счётчик fields считает поля, не отдельные повторения oq внутри поля.",
+  "summary": {
+    "articles_checked": 171,
+    "fields_checked": 475,
+    "fields_corrected": 304,
+    "fields_preserved": 171,
+    "articles_changed": 109,
+    "paragraphs_changed": 109
+  },
+  "scan_notes": {
+    "12": "artezian-oquj: печатная ƣ, oq → ƣ.",
+    "15": "badibioq и bioq: печатная ƣ.",
+    "17": "roqi: o+q сохранено; baļarƣize — ƣ и лишнее I OCR.",
+    "18": "basanƣize: печатная ƣ.",
+    "23": "boq(v)ad: o+q сохранено.",
+    "24": "boq(v)aze, boq, boqaboqize, boqaxin, boqize, boşoqap: o+q сохранено.",
+    "28": "canoq.../canaoq → canƣ.../canaƣ: печатная ƣ.",
+    "29": "ccut: ççoqo сохранено (o+q). cerƣen/zerƣen: ƣ распалась.",
+    "30": "coƣondor, corƣ.../cerƣen, urƣel — ƣ; corxoq/corxoqļi: o+q сохранено.",
+    "31": "Ссылка coƣondor: печатная ƣ.",
+    "32": "ç(ç)oqo и ç(ç)oq: o+q сохранено.",
+    "34": "Все oq в группе dabaƣ/Daƣ — печатная ƣ; убрать OCR-подчёркивания.",
+    "35": "danƣura и Darƣi (также ссылки) — ƣ; убрать OCR-подчёркивания.",
+    "36": "dinƣize, dirƣize — печатная ƣ.",
+    "37": "duƣ, duƣdaze, durƣize — ƣ; у duoql лишний конечный l.",
+    "38": "eƣe: формы ƣosa/ƣol; заголовок и uƣdul также содержат ƣ.",
+    "39": "erƣax — печатная ƣ.",
+    "41": "gazarƣo/gazarƣabi — печатная ƣ.",
+    "42": "qoqol-derge → qox̨ol-derge: q ошибочно вместо x̨, не ƣ.",
+    "44": "gvanƣ/gvanƣarab — печатная ƣ.",
+    "45": "ƣacaƣ, ƣalƣaj, ƣarƣadize/ƣarƣar, ƣavƣa — печатная ƣ.",
+    "48": "habi-boq и ссылка boq: o+q сохранено.",
+    "50": "hezoq: o+q сохранено; habi(l)-boq в продолжении (51): o+q сохранено.",
+    "52": "huƣub, ħaburƣine и варианты — ƣ; hcoqoļdoxan → heqoldoxan по печатной ссылке he-qoldoxan.",
+    "61": "ḩondoq: o+q сохранено. Ссылка ţaƣi — ƣ.",
+    "64": "jaƣzijat, janƣiz — печатная ƣ.",
+    "65": "boqize/roqi в jaqina — o+q сохранено; jaroqlsa → jarƣisa, заголовок jaraƣ по той же статье.",
+    "66": "kaƣat/kaƣtal/kaƣtisa — печатная ƣ.",
+    "67": "oqveţ → ƣveţ: соединённая ƣ, знак у t сохранён.",
+    "68": "roqi в продолжении kkeze (скан 69) — o+q сохранено.",
+    "72": "oqo-kver → oƣo-kver: ƣ после o, ср. скан 89.",
+    "73": "ķi-qoqo → ķi-qogo: обычная g в печати.",
+    "81": "manƣuşş, marƣal, maşƣul и производные — ƣ.",
+    "82": "maxil-oqveţ → maxil-ƣveţ.",
+    "83": "mikkil-oqveţ → mikkil-ƣveţ.",
+    "84": "moqlosa/moqrosa/moqrol: o+q сохранено.",
+    "85": "moq/moqoq/moqro/moqlo/morqo: o+q сохранено; muƣ/muƣaj/muƣdul/meƣ: ƣ.",
+    "86": "laoq → laƣ, печатная ƣ.",
+    "89": "oq'o → oƣo: ƣ, апостроф OCR убран. Ссылка eqe также eƣe.",
+    "98": "qirƣidize/qirƣiz/Qirƣizistan — ƣ; qoq/qoqa/qoqaze/qoqli/qoqlize — o+q сохранено.",
+    "101": "qoƣen/qoƣabi/qoƣadul: ƣ после o.",
+    "102": "raķ ƣeze: печатная ƣ.",
+    "103": "raļarƣize/baļarƣize — ƣ; roqosa/roqo — o+q сохранено.",
+    "107": "rizzi(l)-oqvet → rizzi(l)-ƣvet; roqaze/roqob/roqi/roqize/roqo/roquq — o+q сохранено.",
+    "109": "roqob/boqaze: o+q сохранено; saoq → saƣ.",
+    "111": "soroq: o+q сохранено; ssaoqri → ssaƣri.",
+    "112": "ssajiƣatal, ssandalaƣac, ssarƣass, ssavƣat, ssuƣra/ssuƣur — ƣ.",
+    "114": "soroq сохранено; в статье saqur — saƣur, soƣronib (ƣ).",
+    "115": "soƣro/sorƣo, ssebe-biƣ, şahri-kaƣat — ƣ.",
+    "116": "şoqrosa: o+q сохранено.",
+    "117": "şoq/şoqļi/şoqļize: o+q сохранено.",
+    "121": "boqulev сохранено; ţaƣi/ţaƣur и формы — ƣ.",
+    "122": "ţarƣal и ссылка ţaƣur — ƣ.",
+    "123": "ţimuƣ/ţimƣal/ţinƣ... — ƣ.",
+    "124": "ţoƣ.../ţoƣro... и ссылки — ƣ; ţoqo — o+q сохранено.",
+    "125": "urƣabek/urƣali/urƣel и формы — ƣ.",
+    "126": "urƣize и ссылки, vaƣardize/vaƣarƣize, vaļarƣize — ƣ; boqize сохранено.",
+    "127": "vasanƣize, viƣize/biƣize — ƣ.",
+    "128": "voqize/hoqize, voqine/boqine — o+q сохранено.",
+    "138": "zvanoqi/zvaroqeze — o+q сохранено; zarƣa/zerƣen, zarƣabi/zergƣabi/zorƣosa/zarƣadul — ƣ.",
+    "139": "zobaoqobaj/zobaoqobaze/zuroqize/zvaroqeze — o+q сохранено; Darƣi — ƣ."
+  },
+  "articles": [
+    {
+      "line": 173,
+      "word_before": "artezian-oquj",
+      "word_after": "artezian-ƣuj",
+      "scan": 12,
+      "fields": [
+        {
+          "field": "word",
+          "before": "artezian-oquj",
+          "after": "artezian-ƣuj",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "artezian-oquj",
+          "after": "artezian-ƣuj",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 289,
+      "word_before": "badibioq",
+      "word_after": "badibiƣ",
+      "scan": 15,
+      "fields": [
+        {
+          "field": "word",
+          "before": "badibioq",
+          "after": "badibiƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "badibioq",
+          "after": "badibiƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[1].target",
+          "before": "bioq",
+          "after": "biƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 373,
+      "word_before": "baļaroqIize",
+      "word_after": "baļarƣize",
+      "scan": 17,
+      "fields": [
+        {
+          "field": "word",
+          "before": "baļaroqIize",
+          "after": "baļarƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "baļaroqIize",
+          "after": "baļarƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 398,
+      "word_before": "baqan",
+      "word_after": "baqan",
+      "scan": 17,
+      "fields": [
+        {
+          "field": "see_also[1].target",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 423,
+      "word_before": "basandize",
+      "word_after": "basandize",
+      "scan": 18,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "basanoqize",
+          "after": "basanƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 690,
+      "word_before": "boq(v)ad",
+      "word_after": "boq(v)ad",
+      "scan": 23,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boq(v)ad",
+          "after": "boq(v)ad",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boq(v)ad",
+          "after": "boq(v)ad",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "boq(v)adab",
+          "after": "boq(v)adab",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqvaze",
+          "after": "boqvaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 691,
+      "word_before": "boq(v)aze",
+      "word_after": "boq(v)aze",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boq(v)aze",
+          "after": "boq(v)aze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boq(v)aze",
+          "after": "boq(v)aze",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqvad",
+          "after": "boqvad",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 692,
+      "word_before": "boq",
+      "word_after": "boq",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boq",
+          "after": "boq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boq",
+          "after": "boq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "boqal",
+          "after": "boqal",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[2]",
+          "before": "boqosa",
+          "after": "boqosa",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[3]",
+          "before": "boqob",
+          "after": "boqob",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "boqosa",
+          "after": "boqosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "boqob",
+          "after": "boqob",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 693,
+      "word_before": "boqaboqize",
+      "word_after": "boqaboqize",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boqaboqize",
+          "after": "boqaboqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boqaboqize",
+          "after": "boqaboqize",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 694,
+      "word_before": "boqaxin",
+      "word_after": "boqaxin",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boqaxin",
+          "after": "boqaxin",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boqaxin",
+          "after": "boqaxin",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "boquxin",
+          "after": "boquxin",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 695,
+      "word_before": "boqize",
+      "word_after": "boqize",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "boqun",
+          "after": "boqun",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "boquleb",
+          "after": "boquleb",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[2].av",
+          "before": "dije voqula vugo hav ci",
+          "after": "dije voqula vugo hav ci",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 731,
+      "word_before": "boşoqap",
+      "word_after": "boşoqap",
+      "scan": 24,
+      "fields": [
+        {
+          "field": "word",
+          "before": "boşoqap",
+          "after": "boşoqap",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "boşoqap",
+          "after": "boşoqap",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "boşoqapal",
+          "after": "boşoqapal",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 884,
+      "word_before": "canoq...",
+      "word_after": "canƣ...",
+      "scan": 28,
+      "fields": [
+        {
+          "field": "word",
+          "before": "canoq...",
+          "after": "canƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "canoq...",
+          "after": "canƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "canaoq",
+          "after": "canaƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 940,
+      "word_before": "ccut",
+      "word_after": "ccut",
+      "scan": 29,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "ççoqo-borox̵",
+          "after": "ççoqo-borox̵",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 951,
+      "word_before": "ceroqen",
+      "word_after": "cerƣen",
+      "scan": 29,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ceroqen",
+          "after": "cerƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ceroqen",
+          "after": "cerƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "zeroqen",
+          "after": "zerƣen",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 985,
+      "word_before": "coqondor",
+      "word_after": "coƣondor",
+      "scan": 30,
+      "fields": [
+        {
+          "field": "word",
+          "before": "coqondor",
+          "after": "coƣondor",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "coqondor",
+          "after": "coƣondor",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 991,
+      "word_before": "coroq...",
+      "word_after": "corƣ...",
+      "scan": 30,
+      "fields": [
+        {
+          "field": "word",
+          "before": "coroq...",
+          "after": "corƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "coroq...",
+          "after": "corƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ceroqen",
+          "after": "cerƣen",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 995,
+      "word_before": "corxoq",
+      "word_after": "corxoq",
+      "scan": 30,
+      "fields": [
+        {
+          "field": "word",
+          "before": "corxoq",
+          "after": "corxoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "corxoq",
+          "after": "corxoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "corxoqab",
+          "after": "corxoqab",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 996,
+      "word_before": "corxoqļi",
+      "word_after": "corxoqļi",
+      "scan": 30,
+      "fields": [
+        {
+          "field": "word",
+          "before": "corxoqļi",
+          "after": "corxoqļi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "corxoqļi",
+          "after": "corxoqļi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 1005,
+      "word_before": "cucize",
+      "word_after": "cucize",
+      "scan": 30,
+      "fields": [
+        {
+          "field": "senses[3].examples[0].av",
+          "before": "uroqel cucize",
+          "after": "urƣel cucize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1057,
+      "word_before": "çalguţam",
+      "word_after": "çalguţam",
+      "scan": 31,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "coqondor",
+          "after": "coƣondor",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1117,
+      "word_before": "ç(ç)oqo-borox̵",
+      "word_after": "ç(ç)oqo-borox̵",
+      "scan": 32,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ç(ç)oqo-borox̵",
+          "after": "ç(ç)oqo-borox̵",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ç(ç)oqo-borox̵",
+          "after": "ç(ç)oqo-borox̵",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 1119,
+      "word_before": "ç(ç)uq",
+      "word_after": "ç(ç)uq",
+      "scan": 32,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "ç(ç)oq",
+          "after": "ç(ç)oq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 1200,
+      "word_before": "dabaoq_",
+      "word_after": "dabaƣ",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "dabaoq_",
+          "after": "dabaƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "dabaoq_",
+          "after": "dabaƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "daboq_isa",
+          "after": "dabƣisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "daboq_isa",
+          "after": "dabƣisa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1201,
+      "word_before": "dabaoq_av",
+      "word_after": "dabaƣav",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "dabaoq_av",
+          "after": "dabaƣav",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "dabaoq_av",
+          "after": "dabaƣav",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1205,
+      "word_before": "Daoq_-",
+      "word_after": "Daƣ-",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daoq_-",
+          "after": "Daƣ-",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daoq_-",
+          "after": "Daƣ-",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1206,
+      "word_before": "Daoq_is(s)tan",
+      "word_after": "Daƣis(s)tan",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daoq_is(s)tan",
+          "after": "Daƣis(s)tan",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daoq_is(s)tan",
+          "after": "Daƣis(s)tan",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "daoq_isstanijab",
+          "after": "daƣisstanijab",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "Daoq_isstan Avtonomijab Sosialist Sovet Respublik (DASSR)",
+          "after": "Daƣisstan Avtonomijab Sosialist Sovet Respublik (DASSR)",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1207,
+      "word_before": "Daoq_kom",
+      "word_after": "Daƣkom",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daoq_kom",
+          "after": "Daƣkom",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daoq_kom",
+          "after": "Daƣkom",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1208,
+      "word_before": "Daoq_sik",
+      "word_after": "Daƣsik",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daoq_sik",
+          "after": "Daƣsik",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daoq_sik",
+          "after": "Daƣsik",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1209,
+      "word_before": "Daoq_us(s)tan",
+      "word_after": "Daƣus(s)tan",
+      "scan": 34,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daoq_us(s)tan",
+          "after": "Daƣus(s)tan",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daoq_us(s)tan",
+          "after": "Daƣus(s)tan",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "Daoq_is(s)tan",
+          "after": "Daƣis(s)tan",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1237,
+      "word_before": "danoq_ura",
+      "word_after": "danƣura",
+      "scan": 35,
+      "fields": [
+        {
+          "field": "word",
+          "before": "danoq_ura",
+          "after": "danƣura",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "danoq_ura",
+          "after": "danƣura",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "danoq_urabi",
+          "after": "danƣurabi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1248,
+      "word_before": "Dargi",
+      "word_after": "Dargi",
+      "scan": 35,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "Daroq_i",
+          "after": "Darƣi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1249,
+      "word_before": "Daroq_i",
+      "word_after": "Darƣi",
+      "scan": 35,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Daroq_i",
+          "after": "Darƣi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Daroq_i",
+          "after": "Darƣi",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "Ⱬijab-Daroq_i",
+          "after": "Ⱬijab-Darƣi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1317,
+      "word_before": "dinoqize",
+      "word_after": "dinƣize",
+      "scan": 36,
+      "fields": [
+        {
+          "field": "word",
+          "before": "dinoqize",
+          "after": "dinƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "dinoqize",
+          "after": "dinƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "kvas dinoqize",
+          "after": "kvas dinƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1326,
+      "word_before": "diroqize",
+      "word_after": "dirƣize",
+      "scan": 36,
+      "fields": [
+        {
+          "field": "word",
+          "before": "diroqize",
+          "after": "dirƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "diroqize",
+          "after": "dirƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "diroqarab keren",
+          "after": "dirƣarab keren",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1374,
+      "word_before": "duoql",
+      "word_after": "duƣ",
+      "scan": 37,
+      "fields": [
+        {
+          "field": "word",
+          "before": "duoql",
+          "after": "duƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "duoql",
+          "after": "duƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "duoqal",
+          "after": "duƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "duoqisa",
+          "after": "duƣisa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1375,
+      "word_before": "duoqdaze",
+      "word_after": "duƣdaze",
+      "scan": 37,
+      "fields": [
+        {
+          "field": "word",
+          "before": "duoqdaze",
+          "after": "duƣdaze",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "duoqdaze",
+          "after": "duƣdaze",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "duoqdaze h.",
+          "after": "duƣdaze h.",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1389,
+      "word_before": "duroqize",
+      "word_after": "durƣize",
+      "scan": 37,
+      "fields": [
+        {
+          "field": "word",
+          "before": "duroqize",
+          "after": "durƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "duroqize",
+          "after": "durƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "dinoqize",
+          "after": "dinƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1422,
+      "word_before": "eqe",
+      "word_after": "eƣe",
+      "scan": 38,
+      "fields": [
+        {
+          "field": "forms[2]",
+          "before": "oqosa",
+          "after": "ƣosa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[3]",
+          "before": "oqol",
+          "after": "ƣol",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "oqosa",
+          "after": "ƣosa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "oqol",
+          "after": "ƣol",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1459,
+      "word_before": "eroqax",
+      "word_after": "erƣax",
+      "scan": 39,
+      "fields": [
+        {
+          "field": "word",
+          "before": "eroqax",
+          "after": "erƣax",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "eroqax",
+          "after": "erƣax",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "eroqaxal",
+          "after": "erƣaxal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1588,
+      "word_before": "gazargo",
+      "word_after": "gazargo",
+      "scan": 41,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "gazaroqo",
+          "after": "gazarƣo",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[3]",
+          "before": "gazaroqabi",
+          "after": "gazarƣabi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1617,
+      "word_before": "gergel",
+      "word_after": "gergel",
+      "scan": 42,
+      "fields": [
+        {
+          "field": "see_also[1].target",
+          "before": "qoqol-derge",
+          "after": "qox̨ol-derge",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1743,
+      "word_before": "gvanoq",
+      "word_after": "gvanƣ",
+      "scan": 44,
+      "fields": [
+        {
+          "field": "word",
+          "before": "gvanoq",
+          "after": "gvanƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "gvanoq",
+          "after": "gvanƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].examples[0].av",
+          "before": "gvanoqarab",
+          "after": "gvanƣarab",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1755,
+      "word_before": "ƣacaoq",
+      "word_after": "ƣacaƣ",
+      "scan": 45,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ƣacaoq",
+          "after": "ƣacaƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ƣacaoq",
+          "after": "ƣacaƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "xacaoq",
+          "after": "xacaƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1770,
+      "word_before": "ƣaloqaj",
+      "word_after": "ƣalƣaj",
+      "scan": 45,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ƣaloqaj",
+          "after": "ƣalƣaj",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ƣaloqaj",
+          "after": "ƣalƣaj",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ƣaloqajav",
+          "after": "ƣalƣajav",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "Ƣaloqajazul baķ",
+          "after": "Ƣalƣajazul baķ",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "ƣaloqajazul maⱬⱬ",
+          "after": "ƣalƣajazul maⱬⱬ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1792,
+      "word_before": "ƣaroqadize",
+      "word_after": "ƣarƣadize",
+      "scan": 45,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ƣaroqadize",
+          "after": "ƣarƣadize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ƣaroqadize",
+          "after": "ƣarƣadize",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ƣaroqar",
+          "after": "ƣarƣar",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1793,
+      "word_before": "ƣaroqar",
+      "word_after": "ƣarƣar",
+      "scan": 45,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ƣaroqar",
+          "after": "ƣarƣar",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ƣaroqar",
+          "after": "ƣarƣar",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ƣaroqadize",
+          "after": "ƣarƣadize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1800,
+      "word_before": "ƣavoqa",
+      "word_after": "ƣavƣa",
+      "scan": 45,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ƣavoqa",
+          "after": "ƣavƣa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ƣavoqa",
+          "after": "ƣavƣa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 1921,
+      "word_before": "habi-boq",
+      "word_after": "habi-boq",
+      "scan": 48,
+      "fields": [
+        {
+          "field": "word",
+          "before": "habi-boq",
+          "after": "habi-boq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "habi-boq",
+          "after": "habi-boq",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[1].target",
+          "before": "boq",
+          "after": "boq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 2069,
+      "word_before": "hezoq",
+      "word_after": "hezoq",
+      "scan": 50,
+      "fields": [
+        {
+          "field": "word",
+          "before": "hezoq",
+          "after": "hezoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "hezoq",
+          "after": "hezoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "hezoqal",
+          "after": "hezoqal",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 2090,
+      "word_before": "hiţinļize",
+      "word_after": "hiţinļize",
+      "scan": 50,
+      "fields": [
+        {
+          "field": "senses[0].examples[3].av",
+          "before": "habi(l)-boq",
+          "after": "habi(l)-boq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 2148,
+      "word_before": "huoqub",
+      "word_after": "huƣub",
+      "scan": 52,
+      "fields": [
+        {
+          "field": "word",
+          "before": "huoqub",
+          "after": "huƣub",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "huoqub",
+          "after": "huƣub",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2162,
+      "word_before": "huqulduxan",
+      "word_after": "huqulduxan",
+      "scan": 52,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "hcoqoļdoxan",
+          "after": "heqoldoxan",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2183,
+      "word_before": "ħabuhine",
+      "word_after": "ħabuhine",
+      "scan": 52,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "ħaburoqine",
+          "after": "ħaburƣine",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2184,
+      "word_before": "ħaburoqine",
+      "word_after": "ħaburƣine",
+      "scan": 52,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ħaburoqine",
+          "after": "ħaburƣine",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ħaburoqine",
+          "after": "ħaburƣine",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ħaburoqinze",
+          "after": "ħaburƣinze",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ħaburoqize",
+          "after": "ħaburƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2629,
+      "word_before": "ḩondoq",
+      "word_after": "ḩondoq",
+      "scan": 61,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ḩondoq",
+          "after": "ḩondoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ḩondoq",
+          "after": "ḩondoq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 2639,
+      "word_before": "ḩorq",
+      "word_after": "ḩorq",
+      "scan": 61,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "ţaoqi",
+          "after": "ţaƣi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2811,
+      "word_before": "jaoqzijat",
+      "word_after": "jaƣzijat",
+      "scan": 64,
+      "fields": [
+        {
+          "field": "word",
+          "before": "jaoqzijat",
+          "after": "jaƣzijat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "jaoqzijat",
+          "after": "jaƣzijat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "jaoqzijatal",
+          "after": "jaƣzijatal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2816,
+      "word_before": "janoqiz",
+      "word_after": "janƣiz",
+      "scan": 64,
+      "fields": [
+        {
+          "field": "word",
+          "before": "janoqiz",
+          "after": "janƣiz",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "janoqiz",
+          "after": "janƣiz",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2825,
+      "word_before": "jaqina",
+      "word_after": "jaqina",
+      "scan": 65,
+      "fields": [
+        {
+          "field": "see_also[2].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[3].target",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 2826,
+      "word_before": "jaraq",
+      "word_after": "jaraƣ",
+      "scan": 65,
+      "fields": [
+        {
+          "field": "forms[2]",
+          "before": "jaroqlsa",
+          "after": "jarƣisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "jaroqlsa",
+          "after": "jarƣisa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2890,
+      "word_before": "kaoqat",
+      "word_after": "kaƣat",
+      "scan": 66,
+      "fields": [
+        {
+          "field": "word",
+          "before": "kaoqat",
+          "after": "kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "kaoqat",
+          "after": "kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "kaoqtal",
+          "after": "kaƣtal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "kaoqtisa",
+          "after": "kaƣtisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].examples[0].av",
+          "before": "raharab kaoqat",
+          "after": "raharab kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].examples[1].av",
+          "before": "raxarab kaoqat",
+          "after": "raxarab kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].examples[2].av",
+          "before": "zakaznoj kaoqat",
+          "after": "zakaznoj kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].examples[3].av",
+          "before": "kaoqtil qvaça",
+          "after": "kaƣtil qvaça",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "kaoqtisa",
+          "after": "kaƣtisa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 2951,
+      "word_before": "kari",
+      "word_after": "kari",
+      "scan": 67,
+      "fields": [
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "oqveţ",
+          "after": "ƣveţ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3039,
+      "word_before": "kkeze",
+      "word_after": "kkeze",
+      "scan": 68,
+      "fields": [
+        {
+          "field": "senses[2].examples[0].av",
+          "before": "roqi kkeze",
+          "after": "roqi kkeze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3228,
+      "word_before": "kver",
+      "word_after": "kver",
+      "scan": 72,
+      "fields": [
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "oqo-kver",
+          "after": "oƣo-kver",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3282,
+      "word_before": "ķi",
+      "word_after": "ķi",
+      "scan": 73,
+      "fields": [
+        {
+          "field": "senses[0].examples[7].av",
+          "before": "ķi-qoqo",
+          "after": "ķi-qogo",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3663,
+      "word_before": "manoquşş",
+      "word_after": "manƣuşş",
+      "scan": 81,
+      "fields": [
+        {
+          "field": "word",
+          "before": "manoquşş",
+          "after": "manƣuşş",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "manoquşş",
+          "after": "manƣuşş",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "manoquşşzabi",
+          "after": "manƣuşşzabi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3678,
+      "word_before": "maroqal",
+      "word_after": "marƣal",
+      "scan": 81,
+      "fields": [
+        {
+          "field": "word",
+          "before": "maroqal",
+          "after": "marƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "maroqal",
+          "after": "marƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "maroqalal",
+          "after": "marƣalal",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "maroqalaļul cerx",
+          "after": "marƣalaļul cerx",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3708,
+      "word_before": "maşoqul",
+      "word_after": "maşƣul",
+      "scan": 81,
+      "fields": [
+        {
+          "field": "word",
+          "before": "maşoqul",
+          "after": "maşƣul",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "maşoqul",
+          "after": "maşƣul",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "maşoqulab",
+          "after": "maşƣulab",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3709,
+      "word_before": "maşoqulļi",
+      "word_after": "maşƣulļi",
+      "scan": 81,
+      "fields": [
+        {
+          "field": "word",
+          "before": "maşoqulļi",
+          "after": "maşƣulļi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "maşoqulļi",
+          "after": "maşƣulļi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3710,
+      "word_before": "maşoqulļize",
+      "word_after": "maşƣulļize",
+      "scan": 81,
+      "fields": [
+        {
+          "field": "word",
+          "before": "maşoqulļize",
+          "after": "maşƣulļize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "maşoqulļize",
+          "after": "maşƣulļize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3726,
+      "word_before": "max",
+      "word_after": "max",
+      "scan": 82,
+      "fields": [
+        {
+          "field": "forms[2]",
+          "before": "maxil-oqveţ",
+          "after": "maxil-ƣveţ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3801,
+      "word_before": "mikk",
+      "word_after": "mikk",
+      "scan": 83,
+      "fields": [
+        {
+          "field": "forms[3]",
+          "before": "mikkil-oqveţ",
+          "after": "mikkil-ƣveţ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3831,
+      "word_before": "miqil",
+      "word_after": "miqil",
+      "scan": 84,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "moqlosa",
+          "after": "moqlosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].forms[0]",
+          "before": "moqlosa",
+          "after": "moqlosa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3832,
+      "word_before": "miqir",
+      "word_after": "miqir",
+      "scan": 84,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "moqrosa",
+          "after": "moqrosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "moqrol qvet",
+          "after": "moqrol qvet",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "moqrosa",
+          "after": "moqrosa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3864,
+      "word_before": "moq",
+      "word_after": "moq",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "moq",
+          "after": "moq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "moq",
+          "after": "moq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "moqal",
+          "after": "moqal",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[2]",
+          "before": "moqrosa",
+          "after": "moqrosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "moqroļ (baķ)",
+          "after": "moqroļ (baķ)",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "moqrosa",
+          "after": "moqrosa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3865,
+      "word_before": "moqoq",
+      "word_after": "moqoq",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "moqoq",
+          "after": "moqoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "moqoq",
+          "after": "moqoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "moqoqal",
+          "after": "moqoqal",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[2]",
+          "before": "moqoqisa",
+          "after": "moqoqisa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "moqoqisa",
+          "after": "moqoqisa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3866,
+      "word_before": "moqro...",
+      "word_after": "moqro...",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "moqro...",
+          "after": "moqro...",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "moqro...",
+          "after": "moqro...",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "moq",
+          "after": "moq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3867,
+      "word_before": "moqlo...",
+      "word_after": "moqlo...",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "moqlo...",
+          "after": "moqlo...",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "moqlo...",
+          "after": "moqlo...",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3868,
+      "word_before": "moqro...",
+      "word_after": "moqro...",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "moqro...",
+          "after": "moqro...",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "moqro...",
+          "after": "moqro...",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3869,
+      "word_before": "morqo...",
+      "word_after": "morqo...",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "moq",
+          "after": "moq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 3882,
+      "word_before": "muoq",
+      "word_after": "muƣ",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "muoq",
+          "after": "muƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "muoq",
+          "after": "muƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "muoqal",
+          "after": "muƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "muoqzasa",
+          "after": "muƣzasa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[3]",
+          "before": "muoqzal",
+          "after": "muƣzal",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "muoqab",
+          "after": "muƣab",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "muoqab rax",
+          "after": "muƣab rax",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "muoqzasa",
+          "after": "muƣzasa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "muoqzal",
+          "after": "muƣzal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3883,
+      "word_before": "muoqaj",
+      "word_after": "muƣaj",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "muoqaj",
+          "after": "muƣaj",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "muoqaj",
+          "after": "muƣaj",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3884,
+      "word_before": "muoqaj-holo",
+      "word_after": "muƣaj-holo",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "muoqaj-holo",
+          "after": "muƣaj-holo",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "muoqaj-holo",
+          "after": "muƣaj-holo",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "muoqaj-halisa",
+          "after": "muƣaj-halisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "muoqaj-halisa",
+          "after": "muƣaj-halisa",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "muoqaj",
+          "after": "muƣaj",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3885,
+      "word_before": "muoqdul",
+      "word_after": "muƣdul",
+      "scan": 85,
+      "fields": [
+        {
+          "field": "word",
+          "before": "muoqdul",
+          "after": "muƣdul",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "muoqdul",
+          "after": "muƣdul",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "meoq",
+          "after": "meƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 3968,
+      "word_before": "nanik",
+      "word_after": "nanik",
+      "scan": 86,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "laoq",
+          "after": "laƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4086,
+      "word_before": "oq'o...",
+      "word_after": "oƣo...",
+      "scan": 89,
+      "fields": [
+        {
+          "field": "word",
+          "before": "oq'o...",
+          "after": "oƣo...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "oq'o...",
+          "after": "oƣo...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "oq'oldul",
+          "after": "oƣoldul",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4087,
+      "word_before": "oq'o-kver",
+      "word_after": "oƣo-kver",
+      "scan": 89,
+      "fields": [
+        {
+          "field": "word",
+          "before": "oq'o-kver",
+          "after": "oƣo-kver",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "oq'o-kver",
+          "after": "oƣo-kver",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4568,
+      "word_before": "qiroqidize",
+      "word_after": "qirƣidize",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qiroqidize",
+          "after": "qirƣidize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qiroqidize",
+          "after": "qirƣidize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "qiroqirize",
+          "after": "qirƣirize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4569,
+      "word_before": "qiroqiz",
+      "word_after": "qirƣiz",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qiroqiz",
+          "after": "qirƣiz",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qiroqiz",
+          "after": "qirƣiz",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "qiroqizav",
+          "after": "qirƣizav",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "qiroqizazul mazz",
+          "after": "qirƣizazul mazz",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4570,
+      "word_before": "Qiroqizistan",
+      "word_after": "Qirƣizistan",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Qiroqizistan",
+          "after": "Qirƣizistan",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Qiroqizistan",
+          "after": "Qirƣizistan",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "qiroqiz",
+          "after": "qirƣiz",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4594,
+      "word_before": "qoq",
+      "word_after": "qoq",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoq",
+          "after": "qoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoq",
+          "after": "qoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "qoqab",
+          "after": "qoqab",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "qoq h.",
+          "after": "qoq h.",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "qoq-nigi xxalatnigi",
+          "after": "qoq-nigi xxalatnigi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4595,
+      "word_before": "qoqa",
+      "word_after": "qoqa",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoqa",
+          "after": "qoqa",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoqa",
+          "after": "qoqa",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "qoqabi",
+          "after": "qoqabi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[2]",
+          "before": "qoqadul",
+          "after": "qoqadul",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "qoqa-qoqa ine",
+          "after": "qoqa-qoqa ine",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "qoqadul",
+          "after": "qoqadul",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "qoqaze",
+          "after": "qoqaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4596,
+      "word_before": "qoqaze",
+      "word_after": "qoqaze",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoqaze",
+          "after": "qoqaze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoqaze",
+          "after": "qoqaze",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "qoqa",
+          "after": "qoqa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4597,
+      "word_before": "qoqli",
+      "word_after": "qoqli",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoqli",
+          "after": "qoqli",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoqli",
+          "after": "qoqli",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4598,
+      "word_before": "qoqlize",
+      "word_after": "qoqlize",
+      "scan": 98,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoqlize",
+          "after": "qoqlize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoqlize",
+          "after": "qoqlize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4734,
+      "word_before": "qoqen",
+      "word_after": "qoƣen",
+      "scan": 101,
+      "fields": [
+        {
+          "field": "word",
+          "before": "qoqen",
+          "after": "qoƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "qoqen",
+          "after": "qoƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "qoqabi",
+          "after": "qoƣabi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "qoqadul",
+          "after": "qoƣadul",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "qoqadul",
+          "after": "qoƣadul",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4822,
+      "word_before": "raķ",
+      "word_after": "raķ",
+      "scan": 102,
+      "fields": [
+        {
+          "field": "senses[1].examples[1].av",
+          "before": "raķ oqeze",
+          "after": "raķ ƣeze",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4833,
+      "word_before": "raļaroqize",
+      "word_after": "raļarƣize",
+      "scan": 103,
+      "fields": [
+        {
+          "field": "word",
+          "before": "raļaroqize",
+          "after": "raļarƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "raļaroqize",
+          "after": "raļarƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "baļaroqize",
+          "after": "baļarƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 4848,
+      "word_before": "raq",
+      "word_after": "raq",
+      "scan": 103,
+      "fields": [
+        {
+          "field": "forms[3]",
+          "before": "roqosa",
+          "after": "roqosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[2].forms[1]",
+          "before": "roqosa",
+          "after": "roqosa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 4849,
+      "word_before": "raqa",
+      "word_after": "raqa",
+      "scan": 103,
+      "fields": [
+        {
+          "field": "forms[5]",
+          "before": "roqo!",
+          "after": "roqo!",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[2].forms[2]",
+          "before": "roqo!",
+          "after": "roqo!",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5061,
+      "word_before": "rizzi(l)-oqvet",
+      "word_after": "rizzi(l)-ƣvet",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "rizzi(l)-oqvet",
+          "after": "rizzi(l)-ƣvet",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "rizzi(l)-oqvet",
+          "after": "rizzi(l)-ƣvet",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5076,
+      "word_before": "roqaze",
+      "word_after": "roqaze",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqaze",
+          "after": "roqaze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqaze",
+          "after": "roqaze",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqvaze",
+          "after": "boqvaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5077,
+      "word_before": "roqob",
+      "word_after": "roqob",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqob",
+          "after": "roqob",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqob",
+          "after": "roqob",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5078,
+      "word_before": "roqi",
+      "word_after": "roqi",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "roqusa",
+          "after": "roqusa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "dosul roqi haj jasalde kkana",
+          "after": "dosul roqi haj jasalde kkana",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "roqul xxer",
+          "after": "roqul xxer",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "roqusa",
+          "after": "roqusa",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5079,
+      "word_before": "roqize",
+      "word_after": "roqize",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqize",
+          "after": "roqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqize",
+          "after": "roqize",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5080,
+      "word_before": "roqo...",
+      "word_after": "roqo...",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqo...",
+          "after": "roqo...",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqo...",
+          "after": "roqo...",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5081,
+      "word_before": "roqo(b)",
+      "word_after": "roqo(b)",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roqo(b)",
+          "after": "roqo(b)",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roqo(b)",
+          "after": "roqo(b)",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "roqabi",
+          "after": "roqabi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5082,
+      "word_before": "roquq",
+      "word_after": "roquq",
+      "scan": 107,
+      "fields": [
+        {
+          "field": "word",
+          "before": "roquq",
+          "after": "roquq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "roquq",
+          "after": "roquq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "roquqab",
+          "after": "roquqab",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "roqi",
+          "after": "roqi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5165,
+      "word_before": "ruq",
+      "word_after": "ruq",
+      "scan": 109,
+      "fields": [
+        {
+          "field": "forms[3]",
+          "before": "roqob",
+          "after": "roqob",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[3].forms[0]",
+          "before": "roqob",
+          "after": "roqob",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5168,
+      "word_before": "ruqdaţa",
+      "word_after": "ruqdaţa",
+      "scan": 109,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "boqaze",
+          "after": "boqaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5210,
+      "word_before": "saoq",
+      "word_after": "saƣ",
+      "scan": 109,
+      "fields": [
+        {
+          "field": "word",
+          "before": "saoq",
+          "after": "saƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "saoq",
+          "after": "saƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "saoqab",
+          "after": "saƣab",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5294,
+      "word_before": "soroq",
+      "word_after": "soroq",
+      "scan": 111,
+      "fields": [
+        {
+          "field": "word",
+          "before": "soroq",
+          "after": "soroq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "soroq",
+          "after": "soroq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5320,
+      "word_before": "ssaoqri",
+      "word_after": "ssaƣri",
+      "scan": 111,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssaoqri",
+          "after": "ssaƣri",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssaoqri",
+          "after": "ssaƣri",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ssaoqrabi",
+          "after": "ssaƣrabi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5328,
+      "word_before": "ssaj(i)olat",
+      "word_after": "ssaj(i)olat",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "ssajioqatal",
+          "after": "ssajiƣatal",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ssavoqat",
+          "after": "ssavƣat",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5337,
+      "word_before": "ssandalaoqac",
+      "word_after": "ssandalaƣac",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssandalaoqac",
+          "after": "ssandalaƣac",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssandalaoqac",
+          "after": "ssandalaƣac",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5344,
+      "word_before": "ssaroqass",
+      "word_after": "ssarƣass",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssaroqass",
+          "after": "ssarƣass",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssaroqass",
+          "after": "ssarƣass",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ssaroqassal",
+          "after": "ssarƣassal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5345,
+      "word_before": "ssavoqat",
+      "word_after": "ssavƣat",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssavoqat",
+          "after": "ssavƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssavoqat",
+          "after": "ssavƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ssavoqatal",
+          "after": "ssavƣatal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5377,
+      "word_before": "ssuoqra...",
+      "word_after": "ssuƣra...",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssuoqra...",
+          "after": "ssuƣra...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssuoqra...",
+          "after": "ssuƣra...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5378,
+      "word_before": "Ssuoqrat",
+      "word_after": "Ssuƣrat",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Ssuoqrat",
+          "after": "Ssuƣrat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Ssuoqrat",
+          "after": "Ssuƣrat",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "ssuoqraļev",
+          "after": "ssuƣraļev",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5379,
+      "word_before": "ssuoqur",
+      "word_after": "ssuƣur",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ssuoqral",
+          "after": "ssuƣral",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ssuoqrasa",
+          "after": "ssuƣrasa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "ssuoqrasa",
+          "after": "ssuƣrasa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5380,
+      "word_before": "ssuoqur",
+      "word_after": "ssuƣur",
+      "scan": 112,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssuoqur",
+          "after": "ssuƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ssuoqurderisa",
+          "after": "ssuƣurderisa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ssuoqulderisa",
+          "after": "ssuƣulderisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "ssuoqurderisa",
+          "after": "ssuƣurderisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[1]",
+          "before": "ssuoqulderisa",
+          "after": "ssuƣulderisa",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "Ssuoqrat",
+          "after": "Ssuƣrat",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5449,
+      "word_before": "suruq",
+      "word_after": "suruq",
+      "scan": 114,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "soroq",
+          "after": "soroq",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5462,
+      "word_before": "saqur",
+      "word_after": "saƣur",
+      "scan": 114,
+      "fields": [
+        {
+          "field": "forms[3]",
+          "before": "soqronib",
+          "after": "soƣronib",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[3].forms[0]",
+          "before": "soqronib",
+          "after": "soƣronib",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5487,
+      "word_before": "sooqro...",
+      "word_after": "soƣro...",
+      "scan": 115,
+      "fields": [
+        {
+          "field": "word",
+          "before": "sooqro...",
+          "after": "soƣro...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "sooqro...",
+          "after": "soƣro...",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5495,
+      "word_before": "soroqo...",
+      "word_after": "sorƣo...",
+      "scan": 115,
+      "fields": [
+        {
+          "field": "word",
+          "before": "soroqo...",
+          "after": "sorƣo...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "soroqo...",
+          "after": "sorƣo...",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5498,
+      "word_before": "ssebe-bioq",
+      "word_after": "ssebe-biƣ",
+      "scan": 115,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ssebe-bioq",
+          "after": "ssebe-biƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ssebe-bioq",
+          "after": "ssebe-biƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[1].target",
+          "before": "bioq",
+          "after": "biƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5526,
+      "word_before": "şahri-kaoqat",
+      "word_after": "şahri-kaƣat",
+      "scan": 115,
+      "fields": [
+        {
+          "field": "word",
+          "before": "şahri-kaoqat",
+          "after": "şahri-kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "şahri-kaoqat",
+          "after": "şahri-kaƣat",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "kaoqat",
+          "after": "kaƣat",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5567,
+      "word_before": "şeqer",
+      "word_after": "şeqer",
+      "scan": 116,
+      "fields": [
+        {
+          "field": "forms[3]",
+          "before": "şoqrosa",
+          "after": "şoqrosa",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "şoqrosa",
+          "after": "şoqrosa",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5591,
+      "word_before": "şoq",
+      "word_after": "şoq",
+      "scan": 117,
+      "fields": [
+        {
+          "field": "word",
+          "before": "şoq",
+          "after": "şoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "şoq",
+          "after": "şoq",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "şoqab",
+          "after": "şoqab",
+          "status": "preserved"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "şoq vugc dun",
+          "after": "şoq vugc dun",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5592,
+      "word_before": "şoqļi",
+      "word_after": "şoqļi",
+      "scan": 117,
+      "fields": [
+        {
+          "field": "word",
+          "before": "şoqļi",
+          "after": "şoqļi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "şoqļi",
+          "after": "şoqļi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5593,
+      "word_before": "şoqļize",
+      "word_after": "şoqļize",
+      "scan": 117,
+      "fields": [
+        {
+          "field": "word",
+          "before": "şoqļize",
+          "after": "şoqļize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "şoqļize",
+          "after": "şoqļize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5841,
+      "word_before": "ţa(d)ļi",
+      "word_after": "ţa(d)ļi",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "ţadļi boqulev ci",
+          "after": "ţadļi boqulev ci",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 5846,
+      "word_before": "ţaojal",
+      "word_after": "ţaojal",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "ţaoqi",
+          "after": "ţaƣi",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5847,
+      "word_before": "ţaoqi",
+      "word_after": "ţaƣi",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţaoqi",
+          "after": "ţaƣi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţaoqi",
+          "after": "ţaƣi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ţaoqal",
+          "after": "ţaƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ţooqosa",
+          "after": "ţoƣosa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "ţooqosa",
+          "after": "ţoƣosa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5848,
+      "word_before": "ţaoqur",
+      "word_after": "ţaƣur",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţaoqur",
+          "after": "ţaƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţaoqur",
+          "after": "ţaƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ţaoqral",
+          "after": "ţaƣral",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ţaroqal",
+          "after": "ţarƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[3]",
+          "before": "ţooqrosa",
+          "after": "ţoƣrosa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[4]",
+          "before": "tooqronib",
+          "after": "ţoƣronib",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[0].av",
+          "before": "ţaoqur ļeze",
+          "after": "ţaƣur ļeze",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[1].av",
+          "before": "ţaoqur baxize",
+          "after": "ţaƣur baxize",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[0].examples[2].av",
+          "before": "qugudul taoqur",
+          "after": "qugudul ţaƣur",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "ţooqrosa",
+          "after": "ţoƣrosa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "tooqronib",
+          "after": "ţoƣronib",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5849,
+      "word_before": "ţaoqur-karo",
+      "word_after": "ţaƣur-karo",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţaoqur-karo",
+          "after": "ţaƣur-karo",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţaoqur-karo",
+          "after": "ţaƣur-karo",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ţaoqur",
+          "after": "ţaƣur",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5850,
+      "word_before": "ţaoqral",
+      "word_after": "ţaƣral",
+      "scan": 121,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţaoqral",
+          "after": "ţaƣral",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţaoqral",
+          "after": "ţaƣral",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "taoqur",
+          "after": "ţaƣur",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5887,
+      "word_before": "ţaroqal",
+      "word_after": "ţarƣal",
+      "scan": 122,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţaroqal",
+          "after": "ţarƣal",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţaroqal",
+          "after": "ţarƣal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5941,
+      "word_before": "ţimuoq",
+      "word_after": "ţimuƣ",
+      "scan": 123,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţimuoq",
+          "after": "ţimuƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţimuoq",
+          "after": "ţimuƣ",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ţimoqal",
+          "after": "ţimƣal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5942,
+      "word_before": "ţimux",
+      "word_after": "ţimux",
+      "scan": 123,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "ţimuoq",
+          "after": "ţimuƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5947,
+      "word_before": "ţinoq...",
+      "word_after": "ţinƣ...",
+      "scan": 123,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţinoq...",
+          "after": "ţinƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţinoq...",
+          "after": "ţinƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "ţimuoq",
+          "after": "ţimuƣ",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5967,
+      "word_before": "ţooq...",
+      "word_after": "ţoƣ...",
+      "scan": 124,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţooq...",
+          "after": "ţoƣ...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţooq...",
+          "after": "ţoƣ...",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5968,
+      "word_before": "ţooqro...",
+      "word_after": "ţoƣro...",
+      "scan": 124,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţooqro...",
+          "after": "ţoƣro...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţooqro...",
+          "after": "ţoƣro...",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 5989,
+      "word_before": "ţoqo",
+      "word_after": "ţoqo",
+      "scan": 124,
+      "fields": [
+        {
+          "field": "word",
+          "before": "ţoqo",
+          "after": "ţoqo",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "ţoqo",
+          "after": "ţoqo",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[1]",
+          "before": "ţoqal",
+          "after": "ţoqal",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[2]",
+          "before": "ţoqabi",
+          "after": "ţoqabi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6068,
+      "word_before": "uroqabek",
+      "word_after": "urƣabek",
+      "scan": 125,
+      "fields": [
+        {
+          "field": "word",
+          "before": "uroqabek",
+          "after": "urƣabek",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "uroqabek",
+          "after": "urƣabek",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "uroqabekal",
+          "after": "urƣabekal",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6069,
+      "word_before": "uroqali...",
+      "word_after": "urƣali...",
+      "scan": 125,
+      "fields": [
+        {
+          "field": "word",
+          "before": "uroqali...",
+          "after": "urƣali...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "uroqali...",
+          "after": "urƣali...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "uroqel",
+          "after": "urƣel",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6070,
+      "word_before": "uroqel",
+      "word_after": "urƣel",
+      "scan": 125,
+      "fields": [
+        {
+          "field": "word",
+          "before": "uroqel",
+          "after": "urƣel",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "uroqel",
+          "after": "urƣel",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "uroqalabi",
+          "after": "urƣalabi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "uroqisa",
+          "after": "urƣisa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "uroqisa",
+          "after": "urƣisa",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6071,
+      "word_before": "uroqize",
+      "word_after": "urƣize",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "word",
+          "before": "uroqize",
+          "after": "urƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "uroqize",
+          "after": "urƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].examples[0].av",
+          "before": "uroqun",
+          "after": "urƣun",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "uroqel",
+          "after": "urƣel",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6078,
+      "word_before": "urxel",
+      "word_after": "urxel",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "uroqel",
+          "after": "urƣel",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6079,
+      "word_before": "urxize",
+      "word_after": "urxize",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "uroqize",
+          "after": "urƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6103,
+      "word_before": "vaqardize",
+      "word_after": "vaƣardize",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "vaqaroqize",
+          "after": "vaƣarƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6122,
+      "word_before": "vaļaroqize",
+      "word_after": "vaļarƣize",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "word",
+          "before": "vaļaroqize",
+          "after": "vaļarƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "vaļaroqize",
+          "after": "vaļarƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "baļaroqize",
+          "after": "baļarƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6128,
+      "word_before": "vaqina",
+      "word_after": "vaqina",
+      "scan": 126,
+      "fields": [
+        {
+          "field": "see_also[1].target",
+          "before": "boqize",
+          "after": "boqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6138,
+      "word_before": "vasandize",
+      "word_after": "vasandize",
+      "scan": 127,
+      "fields": [
+        {
+          "field": "forms[1]",
+          "before": "vasanoqize",
+          "after": "vasanƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6201,
+      "word_before": "vioqize",
+      "word_after": "viƣize",
+      "scan": 127,
+      "fields": [
+        {
+          "field": "word",
+          "before": "vioqize",
+          "after": "viƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "vioqize",
+          "after": "viƣize",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "bioqize",
+          "after": "biƣize",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6226,
+      "word_before": "voqize",
+      "word_after": "voqize",
+      "scan": 128,
+      "fields": [
+        {
+          "field": "word",
+          "before": "voqize",
+          "after": "voqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "voqize",
+          "after": "voqize",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "hoqize",
+          "after": "hoqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6242,
+      "word_before": "voqine",
+      "word_after": "voqine",
+      "scan": 128,
+      "fields": [
+        {
+          "field": "word",
+          "before": "voqine",
+          "after": "voqine",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "voqine",
+          "after": "voqine",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "boqine",
+          "after": "boqine",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6791,
+      "word_before": "zvanoqi",
+      "word_after": "zvanoqi",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zvanoqi",
+          "after": "zvanoqi",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zvanoqi",
+          "after": "zvanoqi",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "zvanoqize",
+          "after": "zvanoqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6792,
+      "word_before": "zvanoqize",
+      "word_after": "zvanoqize",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zvanoqize",
+          "after": "zvanoqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zvanoqize",
+          "after": "zvanoqize",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "zinoqize",
+          "after": "zinoqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6793,
+      "word_before": "zvaroqeze",
+      "word_after": "zvaroqeze",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zvaroqeze",
+          "after": "zvaroqeze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zvaroqeze",
+          "after": "zvaroqeze",
+          "status": "preserved"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "zvaroqeze",
+          "after": "zvaroqeze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6794,
+      "word_before": "zvari",
+      "word_after": "zvari",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "zvanoqi",
+          "after": "zvanoqi",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6795,
+      "word_before": "zvarize",
+      "word_after": "zvarize",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "zvanoqize",
+          "after": "zvanoqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6823,
+      "word_before": "zaroqa...",
+      "word_after": "zarƣa...",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zaroqa...",
+          "after": "zarƣa...",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zaroqa...",
+          "after": "zarƣa...",
+          "status": "corrected"
+        },
+        {
+          "field": "see_also[0].target",
+          "before": "zeroqen",
+          "after": "zerƣen",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6836,
+      "word_before": "zeroqen",
+      "word_after": "zerƣen",
+      "scan": 138,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zeroqen",
+          "after": "zerƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zeroqen",
+          "after": "zerƣen",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[1]",
+          "before": "zaroqabi",
+          "after": "zarƣabi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[2]",
+          "before": "zergoqabi",
+          "after": "zergƣabi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[3]",
+          "before": "zoroqosa",
+          "after": "zorƣosa",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[4]",
+          "before": "zaroqadul",
+          "after": "zarƣadul",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[1].forms[0]",
+          "before": "zergoqabi",
+          "after": "zergƣabi",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[2].forms[0]",
+          "before": "zoroqosa",
+          "after": "zorƣosa",
+          "status": "corrected"
+        },
+        {
+          "field": "senses[3].forms[0]",
+          "before": "zaroqadul",
+          "after": "zarƣadul",
+          "status": "corrected"
+        }
+      ]
+    },
+    {
+      "line": 6851,
+      "word_before": "zobaoqobaj",
+      "word_after": "zobaoqobaj",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zobaoqobaj",
+          "after": "zobaoqobaj",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zobaoqobaj",
+          "after": "zobaoqobaj",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6852,
+      "word_before": "zobaoqobaze",
+      "word_after": "zobaoqobaze",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zobaoqobaze",
+          "after": "zobaoqobaze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zobaoqobaze",
+          "after": "zobaoqobaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6854,
+      "word_before": "zobaze",
+      "word_after": "zobaze",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "see_also[0].target",
+          "before": "zobaoqobaze",
+          "after": "zobaoqobaze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6864,
+      "word_before": "zuroqize",
+      "word_after": "zuroqize",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zuroqize",
+          "after": "zuroqize",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zuroqize",
+          "after": "zuroqize",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6869,
+      "word_before": "zvaroqeze",
+      "word_after": "zvaroqeze",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "word",
+          "before": "zvaroqeze",
+          "after": "zvaroqeze",
+          "status": "preserved"
+        },
+        {
+          "field": "forms[0]",
+          "before": "zvaroqeze",
+          "after": "zvaroqeze",
+          "status": "preserved"
+        }
+      ]
+    },
+    {
+      "line": 6892,
+      "word_before": "Ⱬijab-Daroqi",
+      "word_after": "Ⱬijab-Darƣi",
+      "scan": 139,
+      "fields": [
+        {
+          "field": "word",
+          "before": "Ⱬijab-Daroqi",
+          "after": "Ⱬijab-Darƣi",
+          "status": "corrected"
+        },
+        {
+          "field": "forms[0]",
+          "before": "Ⱬijab-Daroqi",
+          "after": "Ⱬijab-Darƣi",
+          "status": "corrected"
+        }
+      ]
+    }
+  ]
+}
