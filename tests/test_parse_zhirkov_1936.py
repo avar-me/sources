@@ -151,7 +151,7 @@ class ZhirkovParserTests(unittest.TestCase):
         es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
         self.assertFalse([f for f in audit(es) if f['cyrillic']])
         by_word = {e['word']: e for e in es}
-        self.assertTrue({'fotograf', 'majdan', 'zⱬomor', 'eb', 'Bolqarija', 'uborşşis(s)a'} <= by_word.keys())
+        self.assertTrue({'fotograf', 'majdan', 'zⱬomor', 'eb', 'Bolƣarija', 'uborşşis(s)a'} <= by_word.keys())
         self.assertIn('ebab', by_word['eb']['forms'])
         self.assertNotIn('фото́граф', json.dumps(by_word['fosfor'], ensure_ascii=False))
 
