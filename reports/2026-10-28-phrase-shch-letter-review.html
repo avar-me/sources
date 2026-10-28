@@ -1,0 +1,194 @@
+<!doctype html><html lang="ru"><meta charset="utf-8"><title>phrase-av-ru: буква Щ вместо ЦӀ</title><style>body{font:16px system-ui;margin:24px;color:#252018;background:#fffdf7}table{width:100%;border-collapse:collapse;table-layout:fixed}td,th{border:1px solid #ccc;padding:8px;vertical-align:top;overflow-wrap:anywhere}td{white-space:pre-wrap}del{background:#ffd4d4}ins{background:#d4f3cf;text-decoration:none}pre{white-space:pre-wrap;font-size:13px}.num{width:3%}.word{width:14%}.field{width:8%}.issue{width:30%}.pair{width:20%}.json{width:4%}</style><h1>phrase-av-ru: буква Щ вместо ЦӀ — 28.10.2026</h1><p>Исправлены 7 статей, где заголовок печатался с «Щ» вместо «ЦӀ» (OCR-артефакт слияния Ц+палочка). Каждая правка подтверждена data/av-ru.jsonl или переводом/примером той же статьи.</p><h2>Опечатки</h2><table><colgroup><col class="num"><col class="word"><col class="field"><col class="issue"><col class="pair"><col class="pair"><col class="json"></colgroup><tr><th>#</th><th>Слово</th><th>Поле</th><th>Решение</th><th>Сейчас</th><th>Предложение</th><th>JSON</th></tr><tr id="r1"><td>1</td><td>ЦӀА ЛЪЕЗЕ</td><td>phrase</td><td>Скан (с. 363, физ. 350) печатает заголовок с разрядкой «Щ А Л Ъ ЕЗЕ» — артефакт OCR на жирном шрифте заголовков. Literal «огонь положить» и пример «цӏа лъолеб» (= «открывать огонь») однозначно указывают на «цӏа» (огонь), палочка слилась с Ц в «щ» при сканировании.
+PDF: 363</td><td><del>Щ</del>А ЛЪЕЗЕ</td><td><ins>ЦӀ</ins>А ЛЪЕЗЕ</td><td><button onclick="let e=document.getElementById('j1');e.hidden=!e.hidden">json</button></td></tr><tr id="j1" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩА ЛЪЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;предать огню&quot;,
+      &quot;literal&quot;: &quot;огонь положить&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;атаковать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ТӀубараб анкьалъ чучичӏо боркьараб рагъул кор. Немцазда цӏа лъолеб букӏана 48-абилеб гӏарадачагӏазул полкалъги.&quot;,
+      &quot;ru&quot;: &quot;Целую неделю шёл жестокий бой. 48-ой артиллерийский полк атаковал немцев.&quot;,
+      &quot;author&quot;: &quot;ХӀ. Парипов&quot;,
+      &quot;source&quot;: &quot;Чияр яс&quot;
+    }
+  ],
+  &quot;page&quot;: 363
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀА ЛЪЕЗЕ&quot;,
+  &quot;senses&quot;: [
+    {
+      &quot;n&quot;: 1,
+      &quot;translation&quot;: &quot;предать огню&quot;,
+      &quot;literal&quot;: &quot;огонь положить&quot;
+    },
+    {
+      &quot;n&quot;: 2,
+      &quot;translation&quot;: &quot;атаковать&quot;
+    }
+  ],
+  &quot;examples&quot;: [
+    {
+      &quot;av&quot;: &quot;ТӀубараб анкьалъ чучичӏо боркьараб рагъул кор. Немцазда цӏа лъолеб букӏана 48-абилеб гӏарадачагӏазул полкалъги.&quot;,
+      &quot;ru&quot;: &quot;Целую неделю шёл жестокий бой. 48-ой артиллерийский полк атаковал немцев.&quot;,
+      &quot;author&quot;: &quot;ХӀ. Парипов&quot;,
+      &quot;source&quot;: &quot;Чияр яс&quot;
+    }
+  ],
+  &quot;page&quot;: 363
+}</pre></td></tr><tr id="r2"><td>2</td><td>ЦӀАДАКЬА ВАХЪУН ГОНГИКЬ ЧӀЕЗЕ</td><td>phrase</td><td>Точное совпадение с пословицей в data/av-ru.jsonl (статья «цӏад» = дождь): «цӏадакьа вахъун гонгикь чӏезе» — «убежав от дождя, стоять под водостоком» (рус. эквивалент «из огня да в полымя»). Основа «цӏад-» (дождь), не «щад-».
+PDF: 364</td><td><del>Щ</del>АДАКЬА ВАХЪУН ГОНГИКЬ ЧӀЕЗЕ</td><td><ins>ЦӀ</ins>АДАКЬА ВАХЪУН ГОНГИКЬ ЧӀЕЗЕ</td><td><button onclick="let e=document.getElementById('j2');e.hidden=!e.hidden">json</button></td></tr><tr id="j2" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩАДАКЬА ВАХЪУН ГОНГИКЬ ЧӀЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;из огня да в полымя&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;,
+      &quot;literal&quot;: &quot;уйдя из-под дождя, встать под жёлоб&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАДАКЬА ВАХЪУН ГОНГИКЬ ЧӀЕЗЕ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;из огня да в полымя&quot;,
+      &quot;equiv&quot;: &quot;approx&quot;,
+      &quot;literal&quot;: &quot;уйдя из-под дождя, встать под жёлоб&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre></td></tr><tr id="r3"><td>3</td><td>ЦӀАДУЛ УНТИ</td><td>phrase</td><td>data/av-ru.jsonl прямо фиксирует «цӏадул унти» = «тиф» (под статьёй «цӏа», косвенная основа «цӏад-»). Заголовок «ЩАДУЛ» — та же OCR-ошибка Щ/ЦӀ.
+PDF: 364</td><td><del>Щ</del>АДУЛ УНТИ</td><td><ins>ЦӀ</ins>АДУЛ УНТИ</td><td><button onclick="let e=document.getElementById('j3');e.hidden=!e.hidden">json</button></td></tr><tr id="j3" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩАДУЛ УНТИ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;тиф&quot;,
+      &quot;literal&quot;: &quot;огненная болезнь&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАДУЛ УНТИ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;тиф&quot;,
+      &quot;literal&quot;: &quot;огненная болезнь&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre></td></tr><tr id="r4"><td>4</td><td>ЦӀАДУХЪ БАКӀ ГЬЕЧӀЕВ</td><td>phrase</td><td>data/av-ru.jsonl фиксирует «цӏадухъ гӏодор чӏезе» = «сидеть вокруг костра» (та же косвенная основа «цӏад-» от «цӏа» = огонь). Literal «у огня не имеющий места» подтверждает смысл.
+PDF: 364</td><td><del>Щ</del>АДУХЪ БАКӀ ГЬЕЧӀЕВ</td><td><ins>ЦӀ</ins>АДУХЪ БАКӀ ГЬЕЧӀЕВ</td><td><button onclick="let e=document.getElementById('j4');e.hidden=!e.hidden">json</button></td></tr><tr id="j4" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩАДУХЪ БАКӀ ГЬЕЧӀЕВ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;пришелец; изгнанник&quot;,
+      &quot;literal&quot;: &quot;у огня не имеющий места&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАДУХЪ БАКӀ ГЬЕЧӀЕВ&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;пришелец; изгнанник&quot;,
+      &quot;literal&quot;: &quot;у огня не имеющий места&quot;
+    }
+  ],
+  &quot;page&quot;: 364
+}</pre></td></tr><tr id="r5"><td>5</td><td>ЦӀАМУДЕ ГӀИ ГӀАДИН</td><td>phrase</td><td>data/av-ru.jsonl: «цӏам» = соль (формы цӏам/цӏамуца/цӏамул). Literal «как овцы на соль» прямо требует дативной формы «цӏамуде», не «щамуде».
+PDF: 365</td><td><del>Щ</del>АМУДЕ ГӀИ ГӀАДИН</td><td><ins>ЦӀ</ins>АМУДЕ ГӀИ ГӀАДИН</td><td><button onclick="let e=document.getElementById('j5');e.hidden=!e.hidden">json</button></td></tr><tr id="j5" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;ЩАМУДЕ ГӀИ ГӀАДИН&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;с жадностью&quot;,
+      &quot;literal&quot;: &quot;как овцы на соль&quot;
+    }
+  ],
+  &quot;page&quot;: 365
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;ЦӀАМУДЕ ГӀИ ГӀАДИН&quot;,
+  &quot;labels&quot;: [
+    &quot;разг.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;с жадностью&quot;,
+      &quot;literal&quot;: &quot;как овцы на соль&quot;
+    }
+  ],
+  &quot;page&quot;: 365
+}</pre></td></tr><tr id="r6"><td>6</td><td>РУГЪУН ЛЪЕЧӀОГО БИ БЕЦӀЦӀУЛАРЕБ, ЦӀАД ТӀИНКӀИЧӀОГО ТӀОХ ГӀЕККОЛАРЕБ</td><td>phrase</td><td>Перевод «без дождя крыша не протекает» прямо указывает на «цӏад» (дождь, им. падеж) на месте «ЩАД».
+PDF: 279</td><td>РУГЪУН ЛЪЕЧӀОГО БИ БЕЦӀЦӀУЛАРЕБ, <del>Щ</del>АД ТӀИНКӀИЧӀОГО ТӀОХ ГӀЕККОЛАРЕБ</td><td>РУГЪУН ЛЪЕЧӀОГО БИ БЕЦӀЦӀУЛАРЕБ, <ins>ЦӀ</ins>АД ТӀИНКӀИЧӀОГО ТӀОХ ГӀЕККОЛАРЕБ</td><td><button onclick="let e=document.getElementById('j6');e.hidden=!e.hidden">json</button></td></tr><tr id="j6" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;РУГЪУН ЛЪЕЧӀОГО БИ БЕЦӀЦӀУЛАРЕБ, ЩАД ТӀИНКӀИЧӀОГО ТӀОХ ГӀЕККОЛАРЕБ&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Без раны кровь не течёт, без дождя крыша не протекает; нет дыма без огня&quot;
+    }
+  ],
+  &quot;page&quot;: 279
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;РУГЪУН ЛЪЕЧӀОГО БИ БЕЦӀЦӀУЛАРЕБ, ЦӀАД ТӀИНКӀИЧӀОГО ТӀОХ ГӀЕККОЛАРЕБ&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Без раны кровь не течёт, без дождя крыша не протекает; нет дыма без огня&quot;
+    }
+  ],
+  &quot;page&quot;: 279
+}</pre></td></tr><tr id="r7"><td>7</td><td>УМУМУЗУЛ МАЛЪИ - МАГЪИЛЪЕ БАЛЕБ ЦӀАД</td><td>phrase</td><td>Перевод «Заветы предков — благодатный дождь» прямо указывает на «цӏад» (дождь, им. падеж) на месте «ЩАД».
+PDF: 311</td><td>УМУМУЗУЛ МАЛЪИ - МАГЪИЛЪЕ БАЛЕБ <del>Щ</del>АД</td><td>УМУМУЗУЛ МАЛЪИ - МАГЪИЛЪЕ БАЛЕБ <ins>ЦӀ</ins>АД</td><td><button onclick="let e=document.getElementById('j7');e.hidden=!e.hidden">json</button></td></tr><tr id="j7" hidden><td colspan="7"><b>JSON сейчас</b><pre>{
+  &quot;phrase&quot;: &quot;УМУМУЗУЛ МАЛЪИ - МАГЪИЛЪЕ БАЛЕБ ЩАД&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Заветы предков — благодатный дождь.&quot;
+    }
+  ],
+  &quot;page&quot;: 311
+}</pre><b>JSON предложение</b><pre>{
+  &quot;phrase&quot;: &quot;УМУМУЗУЛ МАЛЪИ - МАГЪИЛЪЕ БАЛЕБ ЦӀАД&quot;,
+  &quot;labels&quot;: [
+    &quot;погов.&quot;
+  ],
+  &quot;senses&quot;: [
+    {
+      &quot;translation&quot;: &quot;Заветы предков — благодатный дождь.&quot;
+    }
+  ],
+  &quot;page&quot;: 311
+}</pre></td></tr></table></html>
