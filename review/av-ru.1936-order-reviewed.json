@@ -264,5 +264,12 @@
     "current": "maħlaj",
     "status": "printed_order",
     "reason": "На скане 79 maħlax̵ «на вершинах» напечатано после maħkama и перед maħlaj «обоняние». ħ и x̵ различимы, заголовки и печатная перестановка сохранены."
+  },
+  {
+    "scan": 86,
+    "previous": "naļulav",
+    "current": "naļu...",
+    "status": "printed_order",
+    "reason": "Отсылочная статья naļu... напечатана после naļulav и перед namus. Заголовок и печатный порядок сохранены."
   }
 ]
