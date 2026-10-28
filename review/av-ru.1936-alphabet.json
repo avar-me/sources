@@ -1,0 +1,932 @@
+[
+  {
+    "line": 297,
+    "word": "baƣcaci",
+    "field": "forms[1]",
+    "value": "baƣcacah̨t",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̨"
+    ]
+  },
+  {
+    "line": 458,
+    "word": "baxi(n)",
+    "field": "see_also[0].target",
+    "value": "barxįn",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 459,
+    "word": "baxine",
+    "field": "see_also[0].target",
+    "value": "barxįne",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 511,
+    "word": "beķiķiç",
+    "field": "see_also[1].target",
+    "value": "ķi̇ç",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "i̇"
+    ]
+  },
+  {
+    "line": 525,
+    "word": "beꝗize",
+    "field": "see_also[1].target",
+    "value": "ẋva-ze",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẋ"
+    ]
+  },
+  {
+    "line": 671,
+    "word": "bogorůq",
+    "field": "word",
+    "value": "bogorůq",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ů"
+    ]
+  },
+  {
+    "line": 671,
+    "word": "bogorůq",
+    "field": "forms[0]",
+    "value": "bogorůq",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ů"
+    ]
+  },
+  {
+    "line": 673,
+    "word": "boh̄o...",
+    "field": "word",
+    "value": "boh̄o...",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 673,
+    "word": "boh̄o...",
+    "field": "forms[0]",
+    "value": "boh̄o...",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 673,
+    "word": "boh̄o...",
+    "field": "see_also[0].target",
+    "value": "buh̄a",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 674,
+    "word": "boh̄olo",
+    "field": "word",
+    "value": "boh̄olo",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 674,
+    "word": "boh̄olo",
+    "field": "forms[0]",
+    "value": "boh̄olo",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 674,
+    "word": "boh̄olo",
+    "field": "forms[1]",
+    "value": "boh̄oli",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 674,
+    "word": "boh̄olo",
+    "field": "forms[2]",
+    "value": "boh̄olabi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "h̄"
+    ]
+  },
+  {
+    "line": 735,
+    "word": "boxx",
+    "field": "see_also[0].target",
+    "value": "maño",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ñ"
+    ]
+  },
+  {
+    "line": 814,
+    "word": "bussarizė",
+    "field": "word",
+    "value": "bussarizė",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ė"
+    ]
+  },
+  {
+    "line": 814,
+    "word": "bussarizė",
+    "field": "forms[0]",
+    "value": "bussarizė",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ė"
+    ]
+  },
+  {
+    "line": 883,
+    "word": "cangit",
+    "field": "senses[0].examples[0].av",
+    "value": "cangit ɦaze",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ɦ"
+    ]
+  },
+  {
+    "line": 897,
+    "word": "cara",
+    "field": "senses[0].examples[0].av",
+    "value": "dir cara buɦun bugo",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ɦ"
+    ]
+  },
+  {
+    "line": 899,
+    "word": "caram",
+    "field": "senses[0].examples[0].av",
+    "value": "caram-ɦan qvaqarab",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ɦ"
+    ]
+  },
+  {
+    "line": 958,
+    "word": "cex̨",
+    "field": "forms[2]",
+    "value": "cax̣al",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "x̣"
+    ]
+  },
+  {
+    "line": 1118,
+    "word": "C(ç)ox̵",
+    "field": "senses[0].examples[0].av",
+    "value": "ççoxiϳav",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ϳ"
+    ]
+  },
+  {
+    "line": 1264,
+    "word": "deħen",
+    "field": "forms[2]",
+    "value": "dūħnul",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ū"
+    ]
+  },
+  {
+    "line": 1556,
+    "word": "gamiẍan",
+    "field": "word",
+    "value": "gamiẍan",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẍ"
+    ]
+  },
+  {
+    "line": 1556,
+    "word": "gamiẍan",
+    "field": "forms[0]",
+    "value": "gamiẍan",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẍ"
+    ]
+  },
+  {
+    "line": 1556,
+    "word": "gamiẍan",
+    "field": "forms[1]",
+    "value": "gamiẍabi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẍ"
+    ]
+  },
+  {
+    "line": 1604,
+    "word": "geni",
+    "field": "senses[0].examples[0].av",
+    "value": "hozzọ-gen",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ọ"
+    ]
+  },
+  {
+    "line": 1680,
+    "word": "Gresija",
+    "field": "see_also[0].target",
+    "value": "Yunanistan",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "y"
+    ]
+  },
+  {
+    "line": 2077,
+    "word": "hine",
+    "field": "forms[1]",
+    "value": "hinzė",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ė"
+    ]
+  },
+  {
+    "line": 2077,
+    "word": "hine",
+    "field": "forms[2]",
+    "value": "hizė",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ė"
+    ]
+  },
+  {
+    "line": 2405,
+    "word": "ḩaʿa(t)lize",
+    "field": "word",
+    "value": "ḩaʿa(t)lize",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ʿ"
+    ]
+  },
+  {
+    "line": 2405,
+    "word": "ḩaʿa(t)lize",
+    "field": "forms[0]",
+    "value": "ḩaʿa(t)lize",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ʿ"
+    ]
+  },
+  {
+    "line": 2537,
+    "word": "ḩazo",
+    "field": "senses[0].examples[0].av",
+    "value": "ḩazo-xañab",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ñ"
+    ]
+  },
+  {
+    "line": 3039,
+    "word": "kkeze",
+    "field": "senses[2].examples[1].av",
+    "value": "kį-kį kkun",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 3120,
+    "word": "kor",
+    "field": "senses[0].examples[0].av",
+    "value": "kor b̂orqize",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "b̂"
+    ]
+  },
+  {
+    "line": 3141,
+    "word": "kulak",
+    "field": "senses[0].examples[0].av",
+    "value": "kulakazul xaluci, kulakazul raçç, kulakazul qorq ̂alupan",
+    "cyrillic": [],
+    "outside_alphabet": [
+      " ̂"
+    ]
+  },
+  {
+    "line": 3171,
+    "word": "kusize",
+    "field": "senses[1].examples[0].av",
+    "value": "b̂o kusize",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "b̂"
+    ]
+  },
+  {
+    "line": 3585,
+    "word": "maçab",
+    "field": "see_also[0].target",
+    "value": "maʒab",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ʒ"
+    ]
+  },
+  {
+    "line": 3660,
+    "word": "mamlakat",
+    "field": "forms[1]",
+    "value": "mamlakatȧ",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ȧ"
+    ]
+  },
+  {
+    "line": 3713,
+    "word": "maşinci",
+    "field": "forms[1]",
+    "value": "maşincahį",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 3714,
+    "word": "maşkid",
+    "field": "forms[1]",
+    "value": "maşkįdal",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 3717,
+    "word": "maşvara",
+    "field": "forms[1]",
+    "value": "maşvarabį",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "į"
+    ]
+  },
+  {
+    "line": 3925,
+    "word": "mutęħ",
+    "field": "word",
+    "value": "mutęħ",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ę"
+    ]
+  },
+  {
+    "line": 3925,
+    "word": "mutęħ",
+    "field": "forms[0]",
+    "value": "mutęħ",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ę"
+    ]
+  },
+  {
+    "line": 3925,
+    "word": "mutęħ",
+    "field": "forms[2]",
+    "value": "mutęħab",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ę"
+    ]
+  },
+  {
+    "line": 3926,
+    "word": "mutęħli",
+    "field": "word",
+    "value": "mutęħli",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ę"
+    ]
+  },
+  {
+    "line": 3926,
+    "word": "mutęħli",
+    "field": "forms[0]",
+    "value": "mutęħli",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ę"
+    ]
+  },
+  {
+    "line": 4134,
+    "word": "p(a)lašş",
+    "field": "word",
+    "value": "p(a)lašş",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "š"
+    ]
+  },
+  {
+    "line": 4134,
+    "word": "p(a)lašş",
+    "field": "forms[0]",
+    "value": "p(a)lašş",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "š"
+    ]
+  },
+  {
+    "line": 4148,
+    "word": "pana",
+    "field": "senses[0].examples[1].av",
+    "value": "panā h.",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ā"
+    ]
+  },
+  {
+    "line": 4189,
+    "word": "parç̧ad",
+    "field": "word",
+    "value": "parç̧ad",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 4189,
+    "word": "parç̧ad",
+    "field": "forms[0]",
+    "value": "parç̧ad",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 4189,
+    "word": "parç̧ad",
+    "field": "forms[1]",
+    "value": "parç̧adal",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 4189,
+    "word": "parç̧ad",
+    "field": "see_also[0].target",
+    "value": "maç̧ad",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 4263,
+    "word": "penzak",
+    "field": "forms[1]",
+    "value": "penzaḱal",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ḱ"
+    ]
+  },
+  {
+    "line": 4337,
+    "word": "poloxx",
+    "field": "forms[1]",
+    "value": "polxxisə",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ə"
+    ]
+  },
+  {
+    "line": 4337,
+    "word": "poloxx",
+    "field": "senses[1].forms[0]",
+    "value": "polxxisə",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ə"
+    ]
+  },
+  {
+    "line": 4362,
+    "word": "premija",
+    "field": "forms[1]",
+    "value": "prẹmijabi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẹ"
+    ]
+  },
+  {
+    "line": 4537,
+    "word": "qeda-biql̇",
+    "field": "word",
+    "value": "qeda-biql̇",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "l̇"
+    ]
+  },
+  {
+    "line": 4537,
+    "word": "qeda-biql̇",
+    "field": "forms[0]",
+    "value": "qeda-biql̇",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "l̇"
+    ]
+  },
+  {
+    "line": 4537,
+    "word": "qeda-biql̇",
+    "field": "see_also[1].target",
+    "value": "biql̇",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "l̇"
+    ]
+  },
+  {
+    "line": 4614,
+    "word": "qoẋo(l)-dergo",
+    "field": "word",
+    "value": "qoẋo(l)-dergo",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẋ"
+    ]
+  },
+  {
+    "line": 4614,
+    "word": "qoẋo(l)-dergo",
+    "field": "forms[0]",
+    "value": "qoẋo(l)-dergo",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẋ"
+    ]
+  },
+  {
+    "line": 4614,
+    "word": "qoẋo(l)-dergo",
+    "field": "forms[1]",
+    "value": "qoẋo(l)-larkac",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẋ"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "word",
+    "value": "quç̇ç̇",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "forms[0]",
+    "value": "quç̇ç̇",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "forms[1]",
+    "value": "quç̇ç̇da",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "senses[1].examples[0].av",
+    "value": "quç̇ç̇ab",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "senses[2].forms[0]",
+    "value": "quç̇ç̇da",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4745,
+    "word": "quç̇ç̇",
+    "field": "see_also[0].target",
+    "value": "ç̇çuq",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̇"
+    ]
+  },
+  {
+    "line": 4910,
+    "word": "razząd",
+    "field": "word",
+    "value": "razząd",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ą"
+    ]
+  },
+  {
+    "line": 4910,
+    "word": "razząd",
+    "field": "forms[0]",
+    "value": "razząd",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ą"
+    ]
+  },
+  {
+    "line": 5053,
+    "word": "rix̵",
+    "field": "forms[1]",
+    "value": "rix̵ȧ",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ȧ"
+    ]
+  },
+  {
+    "line": 5229,
+    "word": "sapar",
+    "field": "senses[0].examples[0].av",
+    "value": "sapar bux̣ine",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "x̣"
+    ]
+  },
+  {
+    "line": 5289,
+    "word": "sordo-barṣadļi",
+    "field": "word",
+    "value": "sordo-barṣadļi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ṣ"
+    ]
+  },
+  {
+    "line": 5289,
+    "word": "sordo-barṣadļi",
+    "field": "forms[0]",
+    "value": "sordo-barṣadļi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ṣ"
+    ]
+  },
+  {
+    "line": 5513,
+    "word": "ssuţize",
+    "field": "senses[1].examples[1].av",
+    "value": "cex̣ ssuţarav",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "x̣"
+    ]
+  },
+  {
+    "line": 5564,
+    "word": "şeḩ",
+    "field": "senses[0].examples[0].av",
+    "value": "şaḩīl raq",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ī"
+    ]
+  },
+  {
+    "line": 5564,
+    "word": "şeḩ",
+    "field": "senses[0].examples[1].av",
+    "value": "şaḩīl xaba",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ī"
+    ]
+  },
+  {
+    "line": 5581,
+    "word": "şirman-ç̧olorxa",
+    "field": "word",
+    "value": "şirman-ç̧olorxa",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 5581,
+    "word": "şirman-ç̧olorxa",
+    "field": "forms[0]",
+    "value": "şirman-ç̧olorxa",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 5581,
+    "word": "şirman-ç̧olorxa",
+    "field": "forms[1]",
+    "value": "şirman-ç̧olorxabi",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ç̧"
+    ]
+  },
+  {
+    "line": 5651,
+    "word": "tala",
+    "field": "see_also[1].target",
+    "value": "max̣i",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "x̣"
+    ]
+  },
+  {
+    "line": 6129,
+    "word": "varani",
+    "field": "forms[2]",
+    "value": "varaniđul",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "đ"
+    ]
+  },
+  {
+    "line": 6129,
+    "word": "varani",
+    "field": "forms[3]",
+    "value": "varaniđal",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "đ"
+    ]
+  },
+  {
+    "line": 6129,
+    "word": "varani",
+    "field": "senses[1].forms[0]",
+    "value": "varaniđul",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "đ"
+    ]
+  },
+  {
+    "line": 6129,
+    "word": "varani",
+    "field": "senses[1].forms[1]",
+    "value": "varaniđal",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "đ"
+    ]
+  },
+  {
+    "line": 6285,
+    "word": "xaļq",
+    "field": "senses[0].examples[0].av",
+    "value": "xaļqaļu raq́",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "q́"
+    ]
+  },
+  {
+    "line": 6355,
+    "word": "xoⱨaze",
+    "field": "word",
+    "value": "xoⱨaze",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ⱨ"
+    ]
+  },
+  {
+    "line": 6355,
+    "word": "xoⱨaze",
+    "field": "forms[0]",
+    "value": "xoⱨaze",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ⱨ"
+    ]
+  },
+  {
+    "line": 6437,
+    "word": "x(x)inķ",
+    "field": "senses[0].examples[0].av",
+    "value": "ẑura xxinķ",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ẑ"
+    ]
+  },
+  {
+    "line": 6559,
+    "word": "xaħba",
+    "field": "senses[0].examples[0].av",
+    "value": "bixịn-xaħba",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "ị"
+    ]
+  },
+  {
+    "line": 6871,
+    "word": "ⱬa",
+    "field": "senses[0].examples[7].av",
+    "value": "ⱬadul mas̨ina",
+    "cyrillic": [],
+    "outside_alphabet": [
+      "s̨"
+    ]
+  }
+]

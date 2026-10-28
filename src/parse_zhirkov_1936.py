@@ -10,6 +10,10 @@ import re
 import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
+try:
+    from .normalize_zhirkov_1936 import CODE_ALIASES
+except ImportError:
+    from normalize_zhirkov_1936 import CODE_ALIASES
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "av-ru.1936"
@@ -31,7 +35,7 @@ GRAMMAR = {
     "neg": "отрицательная форма", "frequ": "учащательная форма",
     "adv": "деепричастие", "ger": "деепричастие",
 }
-GRAMMAR_CODES = r"act|poss|pos|dat|all|al[1-5]?|el[1-5]?|l[1-5]?|pl|m|f|perf|pr|fut|part|imp|neg|frequ|adv|ger"
+GRAMMAR_CODES = r"act|poss|pos|dat|all|al[1-5]?|el[1-5]?|l[1-5]?|pl|m|f|perf|pr|fut|part|imp|neg|frequ|adv|ger|" + "|".join(map(re.escape, CODE_ALIASES))
 GRAMMAR_RE = re.compile(r"^(" + GRAMMAR_CODES + r")\.?($|\s+)")
 RUSSIAN_LABELS = {
     "редко": "редко", "устаревшее слово": "устаревшее слово",
@@ -108,7 +112,7 @@ def grammar_prefix(text):
     labels = []
     while match := GRAMMAR_RE.match(text.strip()):
         text = text.strip()
-        code = match[1]
+        code = CODE_ALIASES.get(match[1], match[1])
         base = re.sub(r"[1-5]$", "", code)
         labels.append(GRAMMAR[base])
         if code[-1:].isdigit():
@@ -136,11 +140,16 @@ def articles(html):
             continue
         fragment = match[2]
         text = plain(fragment)
-        if not re.search(r"[А-Яа-яЁё]|=", text):
-            continue
         bold = re.match(r"\s*<b>(.*?)</b>", fragment, re.S)
+        # A heading and paradigm may precede the Russian gloss across a
+        # column/page break; its recognition must not rely on Cyrillic OCR.
+        if not re.search(r"[А-Яа-яЁё]|=", text) and not (bold and re.search(r"\[[^]]+\]", text)):
+            continue
         if bold:
-            heading = plain(bold[1])
+            # OCR can place the final letter's combining mark just outside
+            # the bold span. It is still part of the headword grapheme.
+            tail_marks = re.match(r"[\u0300-\u036f]*", fragment[bold.end():])[0]
+            heading = plain(bold[1]) + tail_marks
             word = heading.split(",", 1)[0].rstrip("*").strip()
             result.append({"word": word, "text": text, "heading": heading, "page": page})
         else:
@@ -150,7 +159,48 @@ def articles(html):
     return result
 
 
-def extract_forms(block, forms, morphology, notes):
+def qualified_forms(item, current, forms, morphology):
+    """Retain meaning/dialect qualifiers beside their actual bracketed forms."""
+    if not any(russian(t) for t in item.split()):
+        return False
+    pending, comments, extra, result = [], [], [], []
+    def flush():
+        if not pending:
+            return
+        value = " ".join(pending)
+        record = {"labels": unique(current + extra), "forms": [value]}
+        if comments:
+            record["comment"] = " ".join(comments)
+        result.append(record)
+        pending.clear()
+        comments.clear()
+        extra.clear()
+    for token in split_top(item, " "):
+        if not token:
+            continue
+        if token.startswith("(") and token.endswith(")"):
+            inner = token[1:-1]
+            found = annotation(inner)
+            if found:
+                extra.extend(found)
+            else:
+                comments.append(inner)
+        elif russian(token):
+            comments.append(token)
+        else:
+            if pending and (comments or extra):
+                flush()
+            pending.append(token)
+    flush()
+    if not result:
+        return False
+    for record in result:
+        forms.extend(record["forms"])
+        morphology.append(record)
+    return True
+
+
+def extract_forms(block, forms, morphology, notes, refs):
     """Only explicit grammatical labels are inherited; unmarked is not always pl."""
     current = []
     # Some comma separators are absent in OCR, but an explicit code still
@@ -172,6 +222,12 @@ def extract_forms(block, forms, morphology, notes):
         item, labels = grammar_prefix(item)
         if labels:
             current = labels
+        referral_match = re.match(r"^(?:cp\.|ср\.|см\.)\s*(.*)$", item)
+        if referral_match and (values := targets(referral_match[1])):
+            refs.extend({"target": value, "kind": "see"} for value in values)
+            continue
+        if qualified_forms(item, current, forms, morphology):
+            continue
         # A parenthetical qualifier must not become part of a search form.
         qualifiers = []
         for start, end, inner in reversed(list(groups(item))):
@@ -184,7 +240,7 @@ def extract_forms(block, forms, morphology, notes):
             continue
         # Unknown OCR fragments remain readable, rather than becoming fake forms.
         tokens = item.split()
-        if any(russian(t) or t in GRAMMAR or t in ("I", "II", "ll", "11", "15", "I1", "I5", "pcs", "poc", "adu", "cp.") for t in tokens):
+        if any(russian(t) or t.isdigit() or t in GRAMMAR or t in ("I", "II", "ll", "11", "15", "I1", "I5", "pcs", "poc", "adu", "cp.") for t in tokens):
             notes.append("Неразобранная форма: " + original)
             continue
         forms.append(item)
@@ -267,6 +323,9 @@ def split_example(text):
             av, ru = text[:token.start()].strip(), text[token.start():].strip()
             if av and any(c.isalpha() for c in av):
                 return av, ru
+            # A numeric Russian definition is not a Latin example; do not
+            # continue past its first Russian word into a parenthetical gloss.
+            return None
         depth += value.count("(") - value.count(")")
         depth = max(0, depth)
     return None
@@ -309,7 +368,7 @@ def structure(article):
             rest = rest[len(marker):].strip()
         elif rest.startswith("[") and "]" in rest:
             end = rest.index("]")
-            extract_forms(rest[1:end], forms, morphology, notes)
+            extract_forms(rest[1:end], forms, morphology, notes, refs)
             rest = rest[end + 1:].strip()
         elif rest.startswith(","):
             match = re.match(r",\s*([^,;\[\]\s]+(?:\([^)]*\))?)", rest)
@@ -347,8 +406,9 @@ def structure(article):
                 labels.append(ORIGINS[code])
                 rest = rest[match.end():].strip()
             elif re.match(r"l\s", rest):
-                # Often an OCR confusion with origin i; never infer which.
-                notes.append("Неоднозначная помета источника: l")
+                # Confirmed origin-slot OCR i/l confusion. Parenthesized l and
+                # l inside paradigms continue to mean the locative case.
+                labels.append(ORIGINS["i"])
                 rest = rest[1:].strip()
             else:
                 remainder, found = grammar_prefix(rest)
@@ -372,8 +432,9 @@ def structure(article):
                 notes.append("Знак == в источнике")
             continue
         # Referrals on an example belong to that example, not the headword.
-        if "=" in segment and not russian(segment.split()[0]):
-            av, rhs = segment.split("=", 1)
+        equality = split_top(segment, "=")
+        if len(equality) > 1 and not russian(segment.split()[0]):
+            av, rhs = equality[0], "=".join(equality[1:])
             av, example_labels, _ = strip_annotations(av.strip())
             item = {"av": av, "comment": "= " + rhs.strip()}
             if example_labels:
@@ -428,10 +489,16 @@ def structure(article):
     # Group equally labelled paradigmatic forms without manufacturing translations.
     grouped = {}
     for item in morphology:
-        key = tuple(item["labels"])
+        key = (tuple(item["labels"]), item.get("comment"))
         grouped.setdefault(key, []).extend(item["forms"])
     senses = lexical
-    senses += [{"labels": list(key), "forms": unique(values)} for key, values in grouped.items()]
+    for (group_labels, comment), values in grouped.items():
+        group = {"forms": unique(values)}
+        if group_labels:
+            group = {"labels": list(group_labels), **group}
+        if comment:
+            group["comment"] = comment
+        senses.append(group)
     entry = {"word": word, "forms": unique(forms)}
     if senses:
         entry["senses"] = senses

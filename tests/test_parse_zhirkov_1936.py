@@ -10,6 +10,7 @@ from parse_zhirkov_1936 import (
     GRAMMAR, ORIGINS, ORIGIN_GLYPHS, RUSSIAN_LABELS,
     articles, parse, structure, unaccent,
 )
+from normalize_zhirkov_1936 import CODE_ALIASES
 
 
 def entry(body):
@@ -87,10 +88,10 @@ class ZhirkovParserTests(unittest.TestCase):
         self.assertEqual(e['senses'][0]['text'], 'бандеро́ль')
         self.assertEqual([x['av'] for x in e['senses'][0]['examples']], ['zakaz-banderol', 'banderol habun bitize'])
 
-    def test_unknown_case_code_is_not_an_example_and_optional_russian_prefix(self):
+    def test_ocr_case_code_and_optional_russian_prefix(self):
         e = entry('<b>labda</b> (11) на косого́ре; labda h. (за)пуска́ть волчо́к.')
         self.assertEqual(e['senses'][0]['text'], 'на косого́ре')
-        self.assertIn('(11)', e['senses'][0]['comment'])
+        self.assertEqual(e['senses'][0]['labels'], ['местный падеж', '1-я серия'])
         self.assertEqual(e['senses'][0]['examples'][0], {'av': 'labda h.', 'ru': '(за)пуска́ть волчо́к.'})
 
     def test_variant_qualifier_does_not_apply_to_whole_entry(self):
@@ -98,12 +99,67 @@ class ZhirkovParserTests(unittest.TestCase):
         self.assertNotIn('labels', e['senses'][0])
         self.assertIn({'labels': ['редко'], 'forms': ['buḳinze', 'buḳize']}, e['senses'])
 
-    def test_uncertain_ocr_is_preserved(self):
+    def test_ocr_case_and_origin_labels_keep_the_actual_forms(self):
         e = entry('<b>ceх̣</b> [ceх̣al, 15 coх̣onib] l живо́т.')
         self.assertIn('ceх̣al', e['forms'])
-        self.assertIn('15 coх̣onib', e['senses'][0]['comment'])
-        self.assertIn('Неоднозначная помета источника: l', e['senses'][0]['comment'])
-        self.assertNotIn('интернациональный термин', e['senses'][0].get('labels', []))
+        self.assertIn({'labels': ['местный падеж', '5-я серия'], 'forms': ['coх̣onib']}, e['senses'])
+        self.assertIn('интернациональный термин', e['senses'][0]['labels'])
+        e = entry('<b>x</b> [unknown 99] сло́во.')
+        self.assertIn('unknown 99', e['senses'][0]['comment'])
+
+    def test_form_qualifiers_and_bracketed_reference(self):
+        e = entry('<b>emen</b> [act imssusa (ре́дко) emenas (в го́воре Чирке́я)] оте́ц.')
+        self.assertIn({'labels': ['эргативный падеж', 'редко'], 'forms': ['imssusa']}, e['senses'])
+        self.assertIn({'labels': ['эргативный падеж'], 'forms': ['emenas'], 'comment': 'в го́воре Чирке́я'}, e['senses'])
+        e = entry('<b>x</b> [cp. y] сло́во.')
+        self.assertEqual(e['see_also'], [{'target': 'y', 'kind': 'see'}])
+
+    def test_confirmed_da_plural(self):
+        es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
+        e = next(e for e in es if e['word'] == 'da' and 'dabal' in e['forms'])
+        self.assertIn({'labels': ['множественное число'], 'forms': ['dabi', 'dabal']}, e['senses'])
+
+    def test_verified_ocr_distinctions_survive_rebuild(self):
+        es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
+        words = {e['word'] for e in es}
+        self.assertTrue({'ƣumuq', 'qvarid', 'ƣvarid', 'ƣocax', 'ḩabdal-maħab', 'ħil', 'ⱬil'} <= words)
+        self.assertNotIn('ƣumuƣ', words)
+        field = next(e for e in es if e['word'] == 'ḩalax')
+        self.assertIn('ħajvan', json.dumps(field, ensure_ascii=False))
+        for word in ('ḩureţ', 'ḩvereţ'):
+            e = next(e for e in es if e['word'] == word)
+            self.assertTrue(any({'местный падеж', '5-я серия'} <= set(s.get('labels', [])) for s in e.get('senses', [])))
+
+    def test_equality_inside_russian_explanation_is_not_example_delimiter(self):
+        e = entry('<b>anⱬ</b> де́сять; anⱬilla де́сять (с едини́цами, напр. anⱬilla-kigo = 12).')
+        example = e['senses'][0]['examples'][0]
+        self.assertEqual(example['av'], 'anⱬilla')
+        self.assertIn('anⱬilla-kigo = 12', example['comment'])
+        e = entry('<b>qoloni-lab</b> 1/8 кали́ (ме́ра ёмкости).')
+        self.assertNotIn('examples', e['senses'][0])
+        self.assertIn('1/8 кали́', e['senses'][0]['text'])
+
+    def test_latin_heading_paradigm_can_precede_russian_continuation(self):
+        es = parse('<!-- p040 --><p><b>fotograf</b> [fotografal, fotografzabi]</p><p>i фото́граф.</p>')
+        self.assertEqual(len(es), 1)
+        self.assertEqual(es[0]['word'], 'fotograf')
+        self.assertIn('fotografzabi', es[0]['forms'])
+        self.assertIn('интернациональный термин', es[0]['senses'][0]['labels'])
+
+    def test_no_cyrillic_in_latin_fields_and_restored_headings(self):
+        from audit_zhirkov_1936_alphabet import audit
+        es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
+        self.assertFalse([f for f in audit(es) if f['cyrillic']])
+        by_word = {e['word']: e for e in es}
+        self.assertTrue({'fotograf', 'majdan', 'zⱬomor', 'eb', 'Bolqarija', 'uborşşis(s)a'} <= by_word.keys())
+        self.assertIn('ebab', by_word['eb']['forms'])
+        self.assertNotIn('фото́граф', json.dumps(by_word['fosfor'], ensure_ascii=False))
+
+    def test_headword_combining_mark_outside_bold_span(self):
+        e = entry('<b>ƣajix</b>̵ [ƣajix̵al] t ло́дка.')
+        self.assertEqual(e['word'], 'ƣajix̵')
+        self.assertIn('ƣajix̵al', e['forms'])
+        self.assertNotIn('examples', e['senses'][0])
 
     def test_scan_order_and_continuations(self):
         html = '<!-- p007 --><p><b>x</b> нача́ло</p><!-- p008 --><p>введе́ние</p><!-- p010 --><p>продолже́ние.</p><!-- p143 --><p><b>y</b> грамма́тика.</p>'
@@ -114,7 +170,7 @@ class ZhirkovParserTests(unittest.TestCase):
     def test_whole_source_keeps_boundaries_and_lexical_tokens(self):
         raw = articles((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
         self.assertEqual(len(raw), 7023)
-        allowed = set(GRAMMAR) | set(ORIGINS) | set(ORIGIN_GLYPHS) | {'см', 'ср', 'cp'}
+        allowed = set(GRAMMAR) | set(ORIGINS) | set(ORIGIN_GLYPHS) | set(CODE_ALIASES) | {'см', 'ср', 'cp'}
         allowed |= set(' '.join(RUSSIAN_LABELS).split())
         for article in raw:
             e = structure(article)

@@ -1,0 +1,5433 @@
+[
+  {
+    "scan": 7,
+    "word": "ab",
+    "ocr_tokens": [
+      "aɫ"
+    ],
+    "non_suffix_tokens": [
+      "aɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 7,
+    "word": "abonaciɫi",
+    "ocr_tokens": [
+      "abonaciɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 7,
+    "word": "abonaciɫize",
+    "ocr_tokens": [
+      "abonaciɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 7,
+    "word": "aburiⱪɫi",
+    "ocr_tokens": [
+      "aburiⱪɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 7,
+    "word": "aburiⱪɫize",
+    "ocr_tokens": [
+      "aburiⱪɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 7,
+    "word": "acixɫi",
+    "ocr_tokens": [
+      "acixɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 7,
+    "word": "acixɫize",
+    "ocr_tokens": [
+      "acixɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 10,
+    "word": "agentɫi",
+    "ocr_tokens": [
+      "agentɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 10,
+    "word": "agentstvo",
+    "ocr_tokens": [
+      "agen-tɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 10,
+    "word": "aħmaqɫi",
+    "ocr_tokens": [
+      "aħmaqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 10,
+    "word": "aħmaqɫize",
+    "ocr_tokens": [
+      "aħmaqɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 11,
+    "word": "aksiz",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "aktivɫi",
+    "ocr_tokens": [
+      "aktivɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 11,
+    "word": "alat",
+    "ocr_tokens": [
+      "alatɫun",
+      "alat-ɫun"
+    ],
+    "non_suffix_tokens": [
+      "alatɫun",
+      "alat-ɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "alzan",
+    "ocr_tokens": [
+      "al-zanaɫub"
+    ],
+    "non_suffix_tokens": [
+      "al-zanaɫub"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "aɫ...",
+    "ocr_tokens": [
+      "aɫ"
+    ],
+    "non_suffix_tokens": [
+      "aɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "amanat",
+    "ocr_tokens": [
+      "amanat(aɫul)",
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "amanat(aɫul)",
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "amnistija",
+    "ocr_tokens": [
+      "amnistijaɫ"
+    ],
+    "non_suffix_tokens": [
+      "amnistijaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 11,
+    "word": "-an",
+    "ocr_tokens": [
+      "-iɫan"
+    ],
+    "non_suffix_tokens": [
+      "-iɫan"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 12,
+    "word": "Anzi",
+    "ocr_tokens": [
+      "Anzi-raɫad"
+    ],
+    "non_suffix_tokens": [
+      "Anzi-raɫad"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 12,
+    "word": "aristokratɫi",
+    "ocr_tokens": [
+      "aristokratɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 13,
+    "word": "avadanɫi",
+    "ocr_tokens": [
+      "avadanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 13,
+    "word": "avadanɫize",
+    "ocr_tokens": [
+      "avadanɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "avtorɫi",
+    "ocr_tokens": [
+      "avtorɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "axirɫi",
+    "ocr_tokens": [
+      "axirɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "axirɫize",
+    "ocr_tokens": [
+      "axirɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "axiχanɫi",
+    "ocr_tokens": [
+      "axiχanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "axxa(d)ɫi",
+    "ocr_tokens": [
+      "axxa(d)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "axxa(d)ɫize",
+    "ocr_tokens": [
+      "axxa(d)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 14,
+    "word": "azar",
+    "ocr_tokens": [
+      "azar-zoɫ"
+    ],
+    "non_suffix_tokens": [
+      "azar-zoɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 14,
+    "word": "aznaurɫi",
+    "ocr_tokens": [
+      "aznaurɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "baħarɫi",
+    "ocr_tokens": [
+      "baħarɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "baħarɫize",
+    "ocr_tokens": [
+      "baħarɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "bajanɫi",
+    "ocr_tokens": [
+      "bajanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "bajanɫize",
+    "ocr_tokens": [
+      "bajanɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "bajram",
+    "ocr_tokens": [
+      "revoljusijaɫul"
+    ],
+    "non_suffix_tokens": [
+      "revoljusijaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 16,
+    "word": "bakɫi",
+    "ocr_tokens": [
+      "bakɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "bakɫize",
+    "ocr_tokens": [
+      "bakɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 16,
+    "word": "balah",
+    "ocr_tokens": [
+      "balahaɫul"
+    ],
+    "non_suffix_tokens": [
+      "balahaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "balux",
+    "ocr_tokens": [
+      "baɫux",
+      "baɫxal"
+    ],
+    "non_suffix_tokens": [
+      "baɫux",
+      "baɫxal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baɫ",
+    "ocr_tokens": [
+      "baɫ",
+      "baɫal",
+      "baɫisa"
+    ],
+    "non_suffix_tokens": [
+      "baɫ",
+      "baɫal",
+      "baɫisa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baɫaroqIize",
+    "ocr_tokens": [
+      "baɫaroqIize"
+    ],
+    "non_suffix_tokens": [
+      "baɫaroqIize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baɫgo",
+    "ocr_tokens": [
+      "baɫgo",
+      "baɫgojab"
+    ],
+    "non_suffix_tokens": [
+      "baɫgo",
+      "baɫgojab"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baɫgoɬi",
+    "ocr_tokens": [
+      "baɫgoɬi"
+    ],
+    "non_suffix_tokens": [
+      "baɫgoɬi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baɫxal",
+    "ocr_tokens": [
+      "baɫxal",
+      "baɫxaderisa",
+      "baɫxaderil"
+    ],
+    "non_suffix_tokens": [
+      "baɫxal",
+      "baɫxaderisa",
+      "baɫxaderil"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "baq",
+    "ocr_tokens": [
+      "baquɫ"
+    ],
+    "non_suffix_tokens": [
+      "baquɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "Baqɫi",
+    "ocr_tokens": [
+      "Baqɫi",
+      "Baqɫusa",
+      "baqɫulab",
+      "baqɫulav"
+    ],
+    "non_suffix_tokens": [
+      "Baqɫusa",
+      "baqɫulab",
+      "baqɫulav"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 17,
+    "word": "bar(a)jka(t)",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 18,
+    "word": "ba(r)şşad",
+    "ocr_tokens": [
+      "barşşa(d)-ɫunguţi"
+    ],
+    "non_suffix_tokens": [
+      "barşşa(d)-ɫunguţi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 18,
+    "word": "ba(r)şşa(d)ɫi",
+    "ocr_tokens": [
+      "ba(r)şşa(d)ɫi",
+      "barşşaţɫi",
+      "barşşadɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 18,
+    "word": "barşşadɫize",
+    "ocr_tokens": [
+      "barşşadɫize",
+      "barşşaţɫize",
+      "barşşa-ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 18,
+    "word": "bas(s)ma",
+    "ocr_tokens": [
+      "ba-ssmajalda-ɫun"
+    ],
+    "non_suffix_tokens": [
+      "ba-ssmajalda-ɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 18,
+    "word": "basraɫi",
+    "ocr_tokens": [
+      "basraɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 18,
+    "word": "basraɫize",
+    "ocr_tokens": [
+      "basraɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 19,
+    "word": "baxine",
+    "ocr_tokens": [
+      "beɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 19,
+    "word": "baz̧z̧a(d)ɫi",
+    "ocr_tokens": [
+      "baz̧z̧a(d)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 19,
+    "word": "baz̧z̧a(d)ɫize",
+    "ocr_tokens": [
+      "baz̧z̧a(d)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "beɫi",
+    "ocr_tokens": [
+      "beɫi",
+      "beɫusa",
+      "beɫize)"
+    ],
+    "non_suffix_tokens": [
+      "beɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "beɫine",
+    "ocr_tokens": [
+      "beɫine",
+      "beɫinze",
+      "beɫize"
+    ],
+    "non_suffix_tokens": [
+      "beɫine",
+      "beɫinze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "beɫize",
+    "ocr_tokens": [
+      "beɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "beɫɫen",
+    "ocr_tokens": [
+      "beɫɫen",
+      "beɫɫene)"
+    ],
+    "non_suffix_tokens": [
+      "beɫɫen",
+      "beɫɫene)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "beɫɫene",
+    "ocr_tokens": [
+      "beɫɫene"
+    ],
+    "non_suffix_tokens": [
+      "beɫɫene"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "beɫabuxize",
+    "ocr_tokens": [
+      "beɫabuxize"
+    ],
+    "non_suffix_tokens": [
+      "beɫabuxize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "ber",
+    "ocr_tokens": [
+      "be-raɫul",
+      "kanɫi",
+      "mex(x)aɫ"
+    ],
+    "non_suffix_tokens": [
+      "be-raɫul",
+      "mex(x)aɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "berhinɫi",
+    "ocr_tokens": [
+      "berhinɫi",
+      "berhinɫusa"
+    ],
+    "non_suffix_tokens": [
+      "berhinɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 20,
+    "word": "bersinɫi",
+    "ocr_tokens": [
+      "bersinɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "bessdalɫi",
+    "ocr_tokens": [
+      "bessdalɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "bessdalɫize",
+    "ocr_tokens": [
+      "bessdalɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "bessɫi",
+    "ocr_tokens": [
+      "bessɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 20,
+    "word": "bessɫize",
+    "ocr_tokens": [
+      "bessɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 21,
+    "word": "bi",
+    "ocr_tokens": [
+      "beɫine"
+    ],
+    "non_suffix_tokens": [
+      "beɫine"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 21,
+    "word": "biblioteka",
+    "ocr_tokens": [
+      "bibliotekaɫul"
+    ],
+    "non_suffix_tokens": [
+      "bibliotekaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 21,
+    "word": "biduqɫi",
+    "ocr_tokens": [
+      "biduqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 21,
+    "word": "biduqɫize",
+    "ocr_tokens": [
+      "biduqɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 22,
+    "word": "bihaɫi",
+    "ocr_tokens": [
+      "bihaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 22,
+    "word": "bihaɫize",
+    "ocr_tokens": [
+      "bihaɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 22,
+    "word": "biɫanxi",
+    "ocr_tokens": [
+      "biɫanxi",
+      "biɫanxize)"
+    ],
+    "non_suffix_tokens": [
+      "biɫanxi",
+      "biɫanxize)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 22,
+    "word": "biɫanxize",
+    "ocr_tokens": [
+      "biɫanxize",
+      "biɫine)"
+    ],
+    "non_suffix_tokens": [
+      "biɫanxize",
+      "biɫine)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 22,
+    "word": "(b)iline",
+    "ocr_tokens": [
+      "biɫa"
+    ],
+    "non_suffix_tokens": [
+      "biɫa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 22,
+    "word": "biɫize",
+    "ocr_tokens": [
+      "biɫize",
+      "biɫine)"
+    ],
+    "non_suffix_tokens": [
+      "biɫine)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 22,
+    "word": "birza",
+    "ocr_tokens": [
+      "zaħmataɫul"
+    ],
+    "non_suffix_tokens": [
+      "zaħmataɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 22,
+    "word": "bissa(d)ɫi",
+    "ocr_tokens": [
+      "bissa(d)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 23,
+    "word": "bog",
+    "ocr_tokens": [
+      "bogoɫo"
+    ],
+    "non_suffix_tokens": [
+      "bogoɫo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 23,
+    "word": "Boɫqarija",
+    "ocr_tokens": [
+      "Boɫqarija",
+      "boɫqarijab",
+      "boɫqarijazul"
+    ],
+    "non_suffix_tokens": [
+      "Boɫqarija",
+      "boɫqarijab",
+      "boɫqarijazul"
+    ],
+    "status": "Проверено: Bolqarija/bolqarijab/bolqarijazul; обычная l, скан 23"
+  },
+  {
+    "scan": 23,
+    "word": "bolşevik",
+    "ocr_tokens": [
+      "qahidajaɫ"
+    ],
+    "non_suffix_tokens": [
+      "qahidajaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 23,
+    "word": "Boɫix̧",
+    "ocr_tokens": [
+      "Boɫix̧",
+      "boɫix̧eb",
+      "boɫix̧ev",
+      "baɫx̧al)"
+    ],
+    "non_suffix_tokens": [
+      "Boɫix̧",
+      "boɫix̧eb",
+      "boɫix̧ev",
+      "baɫx̧al)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 23,
+    "word": "boɫo",
+    "ocr_tokens": [
+      "boɫo",
+      "boɫabi",
+      "boɫosa",
+      "boɫodal"
+    ],
+    "non_suffix_tokens": [
+      "boɫo",
+      "boɫabi",
+      "boɫosa",
+      "boɫodal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 23,
+    "word": "boɫon",
+    "ocr_tokens": [
+      "boɫon",
+      "boɫonal",
+      "boɫonisa",
+      "boɫonil"
+    ],
+    "non_suffix_tokens": [
+      "boɫon",
+      "boɫonal",
+      "boɫonisa",
+      "boɫonil"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 24,
+    "word": "borɫize",
+    "ocr_tokens": [
+      "borɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 24,
+    "word": "borxaɫi",
+    "ocr_tokens": [
+      "borxaɫi",
+      "borxatɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 24,
+    "word": "borxa(t)ɫi",
+    "ocr_tokens": [
+      "borxa(t)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 24,
+    "word": "borxa(t)ɫize",
+    "ocr_tokens": [
+      "borxa(t)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 25,
+    "word": "brigada",
+    "ocr_tokens": [
+      "qaħidajaɫ",
+      "ħaɫti"
+    ],
+    "non_suffix_tokens": [
+      "qaħidajaɫ",
+      "ħaɫti"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 25,
+    "word": "budzet",
+    "ocr_tokens": [
+      "baqaɫul",
+      "ħukumataɫul"
+    ],
+    "non_suffix_tokens": [
+      "baqaɫul",
+      "ħukumataɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 26,
+    "word": "butun",
+    "ocr_tokens": [
+      "butunaɫ-go"
+    ],
+    "non_suffix_tokens": [
+      "butunaɫ-go"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 26,
+    "word": "buzzine",
+    "ocr_tokens": [
+      "vuzz-ɫun"
+    ],
+    "non_suffix_tokens": [
+      "vuzz-ɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 27,
+    "word": "caluxxɫi",
+    "ocr_tokens": [
+      "caluxxɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 27,
+    "word": "caluxxɫize",
+    "ocr_tokens": [
+      "caluxxɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 27,
+    "word": "camħal",
+    "ocr_tokens": [
+      "ɫɫin-camħal"
+    ],
+    "non_suffix_tokens": [
+      "ɫɫin-camħal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 27,
+    "word": "camħalɫi",
+    "ocr_tokens": [
+      "camħalɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 27,
+    "word": "camħalɫize",
+    "ocr_tokens": [
+      "camħalɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 27,
+    "word": "canaq",
+    "ocr_tokens": [
+      "niɫazul"
+    ],
+    "non_suffix_tokens": [
+      "niɫazul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 28,
+    "word": "caparɫize",
+    "ocr_tokens": [
+      "caparɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 28,
+    "word": "caraxanɫi",
+    "ocr_tokens": [
+      "caraxanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 28,
+    "word": "carɫi",
+    "ocr_tokens": [
+      "carɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 28,
+    "word": "carɫize",
+    "ocr_tokens": [
+      "carɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "ccoborɫi",
+    "ocr_tokens": [
+      "ccoborɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "ccoborɫize",
+    "ocr_tokens": [
+      "ccoborɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "cerma",
+    "ocr_tokens": [
+      "cermajaɫub"
+    ],
+    "non_suffix_tokens": [
+      "cermajaɫub"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 29,
+    "word": "ciaqɫi",
+    "ocr_tokens": [
+      "ciaqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "ci-ħemerɫi",
+    "ocr_tokens": [
+      "ci-ħemerɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "cijarɫi",
+    "ocr_tokens": [
+      "cijarɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 29,
+    "word": "cinqize",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 29,
+    "word": "ciraq",
+    "ocr_tokens": [
+      "ɫoleb"
+    ],
+    "non_suffix_tokens": [
+      "ɫoleb"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 30,
+    "word": "cixiɫ",
+    "ocr_tokens": [
+      "cixiɫ"
+    ],
+    "non_suffix_tokens": [
+      "cixiɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 30,
+    "word": "clenɫi",
+    "ocr_tokens": [
+      "clenɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "corxoqɫi",
+    "ocr_tokens": [
+      "corxoqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "coxxţo",
+    "ocr_tokens": [
+      "caxxţaɫ"
+    ],
+    "non_suffix_tokens": [
+      "caxxţaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 30,
+    "word": "cucɫi",
+    "ocr_tokens": [
+      "cucɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "cucɫize",
+    "ocr_tokens": [
+      "cucɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "cumar(t)ɫi",
+    "ocr_tokens": [
+      "cumar(t)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "cunssɫi",
+    "ocr_tokens": [
+      "cunssɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "cuqa",
+    "ocr_tokens": [
+      "cuqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "curukɫi",
+    "ocr_tokens": [
+      "curukɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 30,
+    "word": "curukɫize",
+    "ocr_tokens": [
+      "curukɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çabar",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 31,
+    "word": "çagoɫi",
+    "ocr_tokens": [
+      "çagoɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çagoɫizabize",
+    "ocr_tokens": [
+      "çagoɫizabize"
+    ],
+    "non_suffix_tokens": [
+      "çagoɫizabize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 31,
+    "word": "çagoɫize",
+    "ocr_tokens": [
+      "çagoɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çaħaɫi",
+    "ocr_tokens": [
+      "çaħaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çaħaɫize",
+    "ocr_tokens": [
+      "çaħaɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çamuç(u)ɫi",
+    "ocr_tokens": [
+      "çamuç(u)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "çamuç(u)ɫize",
+    "ocr_tokens": [
+      "çamuç(u)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 31,
+    "word": "Çarbiɫi",
+    "ocr_tokens": [
+      "Çarbiɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 36,
+    "word": "dergel",
+    "ocr_tokens": [
+      "qoxoɫ-larqac)"
+    ],
+    "non_suffix_tokens": [
+      "qoxoɫ-larqac)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 37,
+    "word": "doklad",
+    "ocr_tokens": [
+      "dokladaɫux"
+    ],
+    "non_suffix_tokens": [
+      "dokladaɫux"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 42,
+    "word": "gigo",
+    "ocr_tokens": [
+      "gigojaɫ",
+      "aħţeɫa"
+    ],
+    "non_suffix_tokens": [
+      "gigojaɫ",
+      "aħţeɫa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 42,
+    "word": "goc",
+    "ocr_tokens": [
+      "gocalda-ɫun"
+    ],
+    "non_suffix_tokens": [
+      "gocalda-ɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 42,
+    "word": "gohɫi",
+    "ocr_tokens": [
+      "gohɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 42,
+    "word": "gohɫize",
+    "ocr_tokens": [
+      "gohɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 43,
+    "word": "gulajt",
+    "ocr_tokens": [
+      "gulajtaɫ"
+    ],
+    "non_suffix_tokens": [
+      "gulajtaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 44,
+    "word": "gvaj",
+    "ocr_tokens": [
+      "gvauɫ"
+    ],
+    "non_suffix_tokens": [
+      "gvauɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 45,
+    "word": "ơalbaꙁ",
+    "ocr_tokens": [
+      "ơalbaꙁaɫul"
+    ],
+    "non_suffix_tokens": [
+      "ơalbaꙁaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 45,
+    "word": "ơanqize",
+    "ocr_tokens": [
+      "ɫeɫ"
+    ],
+    "non_suffix_tokens": [
+      "ɫeɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qez",
+    "ocr_tokens": [
+      "qezaɫu"
+    ],
+    "non_suffix_tokens": [
+      "qezaɫu"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qizɫi",
+    "ocr_tokens": [
+      "qizɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 46,
+    "word": "qizɫize",
+    "ocr_tokens": [
+      "qizɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 46,
+    "word": "qob",
+    "ocr_tokens": [
+      "qoɫ",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "qoɫ",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qoba",
+    "ocr_tokens": [
+      "ɫoba)"
+    ],
+    "non_suffix_tokens": [
+      "ɫoba)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qoqɫi",
+    "ocr_tokens": [
+      "qoqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 46,
+    "word": "qoqɫize",
+    "ocr_tokens": [
+      "qoqɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 46,
+    "word": "qoɫ",
+    "ocr_tokens": [
+      "qoɫ"
+    ],
+    "non_suffix_tokens": [
+      "qoɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qoq-ɫel",
+    "ocr_tokens": [
+      "qoq-ɫel",
+      "qorq-ɫel"
+    ],
+    "non_suffix_tokens": [
+      "qoq-ɫel",
+      "qorq-ɫel"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qo(r)t",
+    "ocr_tokens": [
+      "qorɫa"
+    ],
+    "non_suffix_tokens": [
+      "qorɫa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qo(r)q",
+    "ocr_tokens": [
+      "qorɫ)"
+    ],
+    "non_suffix_tokens": [
+      "qorɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 46,
+    "word": "qorq-ɫel",
+    "ocr_tokens": [
+      "qorq-ɫel",
+      "qorq-ɫalisa",
+      "qorq-ɫelaɫe",
+      "ɫeze)"
+    ],
+    "non_suffix_tokens": [
+      "qorq-ɫel",
+      "qorq-ɫalisa",
+      "qorq-ɫelaɫe",
+      "ɫeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 47,
+    "word": "qvaridɫi",
+    "ocr_tokens": [
+      "qvaridɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 48,
+    "word": "hab",
+    "ocr_tokens": [
+      "haɫ"
+    ],
+    "non_suffix_tokens": [
+      "haɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "hagɫi",
+    "ocr_tokens": [
+      "hagɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 48,
+    "word": "hagɫize",
+    "ocr_tokens": [
+      "hagɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 48,
+    "word": "haqab",
+    "ocr_tokens": [
+      "haɫab)"
+    ],
+    "non_suffix_tokens": [
+      "haɫab)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haqaba",
+    "ocr_tokens": [
+      "haɫaba)"
+    ],
+    "non_suffix_tokens": [
+      "haɫaba)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haqadin",
+    "ocr_tokens": [
+      "haɫadin)"
+    ],
+    "non_suffix_tokens": [
+      "haɫadin)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "hali",
+    "ocr_tokens": [
+      "haɫusa"
+    ],
+    "non_suffix_tokens": [
+      "haɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫ",
+    "ocr_tokens": [
+      "haɫ"
+    ],
+    "non_suffix_tokens": [
+      "haɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫab",
+    "ocr_tokens": [
+      "haɫab",
+      "ɫob"
+    ],
+    "non_suffix_tokens": [
+      "haɫab",
+      "ɫob"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫaba",
+    "ocr_tokens": [
+      "haɫaba",
+      "haɫabe",
+      "haɫasa",
+      "ɫoba",
+      "haɫab"
+    ],
+    "non_suffix_tokens": [
+      "haɫaba",
+      "haɫabe",
+      "haɫasa",
+      "ɫoba",
+      "haɫab"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫabgo",
+    "ocr_tokens": [
+      "haɫabgo",
+      "haɫabgojab",
+      "haɫab)"
+    ],
+    "non_suffix_tokens": [
+      "haɫabgo",
+      "haɫabgojab",
+      "haɫab)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫadin",
+    "ocr_tokens": [
+      "haɫadin",
+      "haɫadinab",
+      "haɫab",
+      "ɫob"
+    ],
+    "non_suffix_tokens": [
+      "haɫadin",
+      "haɫadinab",
+      "haɫab",
+      "ɫob"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 48,
+    "word": "haɫale",
+    "ocr_tokens": [
+      "haɫale",
+      "haɫab)"
+    ],
+    "non_suffix_tokens": [
+      "haɫale",
+      "haɫab)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 49,
+    "word": "heb",
+    "ocr_tokens": [
+      "heɫ"
+    ],
+    "non_suffix_tokens": [
+      "heɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 50,
+    "word": "hemmexxaɫ",
+    "ocr_tokens": [
+      "hemmexxaɫ"
+    ],
+    "non_suffix_tokens": [
+      "hemmexxaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 50,
+    "word": "hid",
+    "ocr_tokens": [
+      "Hidaɫ)"
+    ],
+    "non_suffix_tokens": [
+      "Hidaɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 50,
+    "word": "Hidaɫ",
+    "ocr_tokens": [
+      "Hidaɫ"
+    ],
+    "non_suffix_tokens": [
+      "Hidaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 50,
+    "word": "Hiriɫi",
+    "ocr_tokens": [
+      "Hiriɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 50,
+    "word": "hiṭinɫi",
+    "ocr_tokens": [
+      "hiṭinɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 50,
+    "word": "hiṭinɫize",
+    "ocr_tokens": [
+      "hiṭinɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hobol",
+    "ocr_tokens": [
+      "hobolaɫ",
+      "hobolɫi"
+    ],
+    "non_suffix_tokens": [
+      "hobolaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 51,
+    "word": "hobolɫi",
+    "ocr_tokens": [
+      "hobolɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hocɫi",
+    "ocr_tokens": [
+      "hocɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hodorɫi",
+    "ocr_tokens": [
+      "hodorɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hodorɫize",
+    "ocr_tokens": [
+      "hodorɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hodul",
+    "ocr_tokens": [
+      "hodulaɫ"
+    ],
+    "non_suffix_tokens": [
+      "hodulaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 51,
+    "word": "hodulɫi",
+    "ocr_tokens": [
+      "hodulɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hodulɫize",
+    "ocr_tokens": [
+      "hodulɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "homerçeħerɫi",
+    "ocr_tokens": [
+      "homerçeħerɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "homerxaħɫi",
+    "ocr_tokens": [
+      "homerxaħɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "horqo(b)",
+    "ocr_tokens": [
+      "horqob-ɫeze",
+      "ɫeze",
+      "qorɫ)"
+    ],
+    "non_suffix_tokens": [
+      "horqob-ɫeze",
+      "ɫeze",
+      "qorɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 51,
+    "word": "horqobaḳ",
+    "ocr_tokens": [
+      "ɫik"
+    ],
+    "non_suffix_tokens": [
+      "ɫik"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 51,
+    "word": "horqoɫi",
+    "ocr_tokens": [
+      "horqoɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "horqoxanɫi",
+    "ocr_tokens": [
+      "horqoxanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 51,
+    "word": "hozẓaɫ",
+    "ocr_tokens": [
+      "hozẓaɫ",
+      "Hozẓaɫ)"
+    ],
+    "non_suffix_tokens": [
+      "hozẓaɫ",
+      "Hozẓaɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "Hozzaɫ",
+    "ocr_tokens": [
+      "Hozzaɫ",
+      "hozzaɫev",
+      "hozzaɫ)"
+    ],
+    "non_suffix_tokens": [
+      "Hozzaɫ",
+      "hozzaɫev",
+      "hozzaɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "Hozzdaɫ",
+    "ocr_tokens": [
+      "Hozzdaɫ",
+      "Hozzaɫ"
+    ],
+    "non_suffix_tokens": [
+      "Hozzdaɫ",
+      "Hozzaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "huɫub",
+    "ocr_tokens": [
+      "huɫub",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "huɫub",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "huqulduxan",
+    "ocr_tokens": [
+      "hcoqoɫdoxan"
+    ],
+    "non_suffix_tokens": [
+      "hcoqoɫdoxan"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "hurşşize",
+    "ocr_tokens": [
+      "oɫalal-guri"
+    ],
+    "non_suffix_tokens": [
+      "oɫalal-guri"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "huru-oɫedo",
+    "ocr_tokens": [
+      "huru-oɫedo",
+      "oɫedo)"
+    ],
+    "non_suffix_tokens": [
+      "huru-oɫedo",
+      "oɫedo)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "hvenɫi",
+    "ocr_tokens": [
+      "hvenɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 52,
+    "word": "ħadurɫi",
+    "ocr_tokens": [
+      "ħadurɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 52,
+    "word": "ħadurɫize",
+    "ocr_tokens": [
+      "ħadurɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 52,
+    "word": "ħajat",
+    "ocr_tokens": [
+      "biɫanxizabize"
+    ],
+    "non_suffix_tokens": [
+      "biɫanxizabize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 52,
+    "word": "ħajranɫi",
+    "ocr_tokens": [
+      "ħajranɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 52,
+    "word": "ħajranɫize",
+    "ocr_tokens": [
+      "ħajranɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħajvanɫi",
+    "ocr_tokens": [
+      "ħajvanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħajvanɫize",
+    "ocr_tokens": [
+      "ħajvanɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħakimɫi",
+    "ocr_tokens": [
+      "ħakimɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħalaqɫi",
+    "ocr_tokens": [
+      "ħalaqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħalaqɫize",
+    "ocr_tokens": [
+      "ħalaqɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħaliqa(d)ɫi",
+    "ocr_tokens": [
+      "ħaliqa(d)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħaliqa(d)ɫize",
+    "ocr_tokens": [
+      "ħaliqa(d)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 53,
+    "word": "ħal-k̨oɫi",
+    "ocr_tokens": [
+      "ħal-k̨oɫi",
+      "ħal-k̨oɫusa"
+    ],
+    "non_suffix_tokens": [
+      "ħal-k̨oɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 53,
+    "word": "ħama",
+    "ocr_tokens": [
+      "niɫazul"
+    ],
+    "non_suffix_tokens": [
+      "niɫazul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 53,
+    "word": "ħama-oɫanq",
+    "ocr_tokens": [
+      "ħama-oɫanq"
+    ],
+    "non_suffix_tokens": [
+      "ħama-oɫanq"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 54,
+    "word": "ħaq(q)",
+    "ocr_tokens": [
+      "ħaqqaɫuɫ",
+      "dosuɫ"
+    ],
+    "non_suffix_tokens": [
+      "ħaqqaɫuɫ",
+      "dosuɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 54,
+    "word": "ħaq(q)ɫi",
+    "ocr_tokens": [
+      "ħaq(q)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħaraka(t)",
+    "ocr_tokens": [
+      "aktivɫi)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħaranɫi",
+    "ocr_tokens": [
+      "ħaranɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħaranɫize",
+    "ocr_tokens": [
+      "ħaranɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħasra(t)ɫize",
+    "ocr_tokens": [
+      "ħasra(t)ɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħassilɫize",
+    "ocr_tokens": [
+      "ħassilɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħaze",
+    "ocr_tokens": [
+      "vas-ɫun"
+    ],
+    "non_suffix_tokens": [
+      "vas-ɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 54,
+    "word": "ħaza(t)ɫi",
+    "ocr_tokens": [
+      "ħaza(t)ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 54,
+    "word": "ħeleko",
+    "ocr_tokens": [
+      "roxoɫ"
+    ],
+    "non_suffix_tokens": [
+      "roxoɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 55,
+    "word": "ħex",
+    "ocr_tokens": [
+      "ħeşaɫ"
+    ],
+    "non_suffix_tokens": [
+      "ħeşaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 55,
+    "word": "ħinssɫi",
+    "ocr_tokens": [
+      "ħinssɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 55,
+    "word": "ħinssɫize",
+    "ocr_tokens": [
+      "ħinssɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 56,
+    "word": "ħadada",
+    "ocr_tokens": [
+      "ħadaɫ"
+    ],
+    "non_suffix_tokens": [
+      "ħadaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 57,
+    "word": "ħadaɫ",
+    "ocr_tokens": [
+      "ħadaɫ"
+    ],
+    "non_suffix_tokens": [
+      "ħadaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 60,
+    "word": "ḥi",
+    "ocr_tokens": [
+      "ḥijaɫe",
+      "ḥijaɫa"
+    ],
+    "non_suffix_tokens": [
+      "ḥijaɫe",
+      "ḥijaɫa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 61,
+    "word": "ḥunqal",
+    "ocr_tokens": [
+      "ḥunqaɫzabi",
+      "ḥunqaɫ-ebel"
+    ],
+    "non_suffix_tokens": [
+      "ḥunqaɫzabi",
+      "ḥunqaɫ-ebel"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 62,
+    "word": "hurdul",
+    "ocr_tokens": [
+      "hur-dulaɫ"
+    ],
+    "non_suffix_tokens": [
+      "hur-dulaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 62,
+    "word": "imperializm",
+    "ocr_tokens": [
+      "imperializmaɫul"
+    ],
+    "non_suffix_tokens": [
+      "imperializmaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 66,
+    "word": "junkuɫize",
+    "ocr_tokens": [
+      "junkuɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kakɫi",
+    "ocr_tokens": [
+      "kakɫi",
+      "kakɫusa"
+    ],
+    "non_suffix_tokens": [
+      "kakɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 66,
+    "word": "kamilɫi",
+    "ocr_tokens": [
+      "kamilɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kamilɫize",
+    "ocr_tokens": [
+      "kamilɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kan",
+    "ocr_tokens": [
+      "kanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kanab",
+    "ocr_tokens": [
+      "kanɫi)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kanahab",
+    "ocr_tokens": [
+      "kanɫi)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 66,
+    "word": "kanal",
+    "ocr_tokens": [
+      "Belomoro-Baltikaɫul"
+    ],
+    "non_suffix_tokens": [
+      "Belomoro-Baltikaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 66,
+    "word": "kandidat",
+    "ocr_tokens": [
+      "partijaɫul"
+    ],
+    "non_suffix_tokens": [
+      "partijaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 66,
+    "word": "kanɫi",
+    "ocr_tokens": [
+      "kanɫi",
+      "kanɫusa"
+    ],
+    "non_suffix_tokens": [
+      "kanɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 67,
+    "word": "karaceɫ",
+    "ocr_tokens": [
+      "karaceɫ"
+    ],
+    "non_suffix_tokens": [
+      "karaceɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 67,
+    "word": "karacize",
+    "ocr_tokens": [
+      "karaceɫ)"
+    ],
+    "non_suffix_tokens": [
+      "karaceɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 69,
+    "word": "klass",
+    "ocr_tokens": [
+      "uşkulaɫul"
+    ],
+    "non_suffix_tokens": [
+      "uşkulaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 70,
+    "word": "konferensija",
+    "ocr_tokens": [
+      "partijaɫul"
+    ],
+    "non_suffix_tokens": [
+      "partijaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 70,
+    "word": "konsulɫi",
+    "ocr_tokens": [
+      "konsulɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 70,
+    "word": "kulakɫi",
+    "ocr_tokens": [
+      "kulakɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 70,
+    "word": "kultura",
+    "ocr_tokens": [
+      "ɫul"
+    ],
+    "non_suffix_tokens": [
+      "ɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 71,
+    "word": "kuɫnal",
+    "ocr_tokens": [
+      "kuɫnal"
+    ],
+    "non_suffix_tokens": [
+      "kuɫnal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 71,
+    "word": "kustarɫi",
+    "ocr_tokens": [
+      "kustarɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 71,
+    "word": "kustarɫize",
+    "ocr_tokens": [
+      "kustarɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 71,
+    "word": "kutakɫi",
+    "ocr_tokens": [
+      "kutakɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 71,
+    "word": "kutakɫizabize",
+    "ocr_tokens": [
+      "kutakɫizabize"
+    ],
+    "non_suffix_tokens": [
+      "kutakɫizabize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 71,
+    "word": "kutakɫize",
+    "ocr_tokens": [
+      "kutakɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 71,
+    "word": "kvana-oɫvanaj",
+    "ocr_tokens": [
+      "kvana-oɫvanaj"
+    ],
+    "non_suffix_tokens": [
+      "kvana-oɫvanaj"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 72,
+    "word": "kveɫ",
+    "ocr_tokens": [
+      "kveɫ",
+      "kveɫal"
+    ],
+    "non_suffix_tokens": [
+      "kveɫ",
+      "kveɫal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 72,
+    "word": "kveɫel",
+    "ocr_tokens": [
+      "kveɫel",
+      "kveɫelal",
+      "kveɫalisa",
+      "ɫeze)"
+    ],
+    "non_suffix_tokens": [
+      "kveɫel",
+      "kveɫelal",
+      "kveɫalisa",
+      "ɫeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 72,
+    "word": "kver",
+    "ocr_tokens": [
+      "kveraɫuq"
+    ],
+    "non_suffix_tokens": [
+      "kveraɫuq"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 72,
+    "word": "kverɫel",
+    "ocr_tokens": [
+      "kverɫel",
+      "kveɫel"
+    ],
+    "non_suffix_tokens": [
+      "kverɫel",
+      "kveɫel"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 72,
+    "word": "kverɫi",
+    "ocr_tokens": [
+      "kverɫi",
+      "kverɫabi",
+      "kverɫusa"
+    ],
+    "non_suffix_tokens": [
+      "kverɫabi",
+      "kverɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳal-ɫaj",
+    "ocr_tokens": [
+      "ḳal-ɫaj",
+      "ḳal-ɫajisa"
+    ],
+    "non_suffix_tokens": [
+      "ḳal-ɫaj",
+      "ḳal-ɫajisa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳal-ɫaze",
+    "ocr_tokens": [
+      "ḳal-ɫaze"
+    ],
+    "non_suffix_tokens": [
+      "ḳal-ɫaze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳaɫa-basaj",
+    "ocr_tokens": [
+      "ḳaɫa-basaj",
+      "ḳaɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "ḳaɫa-basaj",
+      "ḳaɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳaɫaj",
+    "ocr_tokens": [
+      "ḳaɫaj",
+      "ḳaɫajisa",
+      "ḳaɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "ḳaɫaj",
+      "ḳaɫajisa",
+      "ḳaɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳaɫaraɫaze",
+    "ocr_tokens": [
+      "ḳaɫaraɫaze",
+      "ḳaɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "ḳaɫaraɫaze",
+      "ḳaɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳaɫaze",
+    "ocr_tokens": [
+      "ḳaɫaze",
+      "ḳaɫaze-han",
+      "ɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "ḳaɫaze",
+      "ḳaɫaze-han",
+      "ɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 73,
+    "word": "ḳarc(c)anɫi",
+    "ocr_tokens": [
+      "ḳarc(c)anɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 74,
+    "word": "ḳodo",
+    "ocr_tokens": [
+      "ḳodoɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 74,
+    "word": "ḳodoɫi",
+    "ocr_tokens": [
+      "ḳodoɫi",
+      "ḳodoɫusa"
+    ],
+    "non_suffix_tokens": [
+      "ḳodoɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 74,
+    "word": "ḳodoɫize",
+    "ocr_tokens": [
+      "ḳodoɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 75,
+    "word": "ḳvaħalɫi",
+    "ocr_tokens": [
+      "ḳvaħalɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 75,
+    "word": "ḳvaħalɫize",
+    "ocr_tokens": [
+      "ḳvaħalɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 75,
+    "word": "laqɫi",
+    "ocr_tokens": [
+      "laqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "ɫedeze",
+    "ocr_tokens": [
+      "ɫedeze",
+      "ɫin)"
+    ],
+    "non_suffix_tokens": [
+      "ɫedeze",
+      "ɫin)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫedoxan",
+    "ocr_tokens": [
+      "ɫedoxan",
+      "ɫedoxabi",
+      "ɫedeze)"
+    ],
+    "non_suffix_tokens": [
+      "ɫedoxan",
+      "ɫedoxabi",
+      "ɫedeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫeɫer",
+    "ocr_tokens": [
+      "ɫeɫer",
+      "ɫeɫerab"
+    ],
+    "non_suffix_tokens": [
+      "ɫeɫer",
+      "ɫeɫerab"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫeɫerɫi",
+    "ocr_tokens": [
+      "ɫeɫerɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "ɫi...",
+    "ocr_tokens": [
+      "ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "ɫijab",
+    "ocr_tokens": [
+      "ɫijab",
+      "ɫik"
+    ],
+    "non_suffix_tokens": [
+      "ɫijab",
+      "ɫik"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫik",
+    "ocr_tokens": [
+      "ɫik",
+      "ɫikab",
+      "ɫijab",
+      "ɫik-an",
+      "ɫik-mexxaɫ"
+    ],
+    "non_suffix_tokens": [
+      "ɫik",
+      "ɫikab",
+      "ɫijab",
+      "ɫik-an",
+      "ɫik-mexxaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫikaɫan",
+    "ocr_tokens": [
+      "ɫikaɫan",
+      "ɫik",
+      "-iɫan)"
+    ],
+    "non_suffix_tokens": [
+      "ɫikaɫan",
+      "ɫik",
+      "-iɫan)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫikgo",
+    "ocr_tokens": [
+      "ɫikgo"
+    ],
+    "non_suffix_tokens": [
+      "ɫikgo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫikine",
+    "ocr_tokens": [
+      "ɫikine",
+      "ɫikinze",
+      "ɫikize",
+      "ɫik)"
+    ],
+    "non_suffix_tokens": [
+      "ɫikine",
+      "ɫikinze",
+      "ɫikize",
+      "ɫik)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫikɫi",
+    "ocr_tokens": [
+      "ɫikɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "ɫikɫize",
+    "ocr_tokens": [
+      "ɫikɫize",
+      "ɫikɫun",
+      "ɫuhin"
+    ],
+    "non_suffix_tokens": [
+      "ɫikɫun",
+      "ɫuhin"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫiɫi",
+    "ocr_tokens": [
+      "ɫiɫi",
+      "ɫikɫi",
+      "ɫik"
+    ],
+    "non_suffix_tokens": [
+      "ɫik"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫiɫize",
+    "ocr_tokens": [
+      "ɫiɫize",
+      "ɫikɫize",
+      "ɫik"
+    ],
+    "non_suffix_tokens": [
+      "ɫik"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫ(i)in",
+    "ocr_tokens": [
+      "ɫ(i)in",
+      "ɫ(i)m",
+      "ɫimal",
+      "ɫesa",
+      "ɫel",
+      "ɫidal",
+      "ɫadal",
+      "ɫin",
+      "ɫeɫ"
+    ],
+    "non_suffix_tokens": [
+      "ɫ(i)in",
+      "ɫ(i)m",
+      "ɫimal",
+      "ɫesa",
+      "ɫel",
+      "ɫidal",
+      "ɫadal",
+      "ɫin",
+      "ɫeɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫ(i)in-camħal",
+    "ocr_tokens": [
+      "ɫ(i)in-camħal",
+      "ɫin"
+    ],
+    "non_suffix_tokens": [
+      "ɫ(i)in-camħal",
+      "ɫin"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫ(i)inɫize",
+    "ocr_tokens": [
+      "ɫ(i)inɫize",
+      "ɫin)"
+    ],
+    "non_suffix_tokens": [
+      "ɫin)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫudbi",
+    "ocr_tokens": [
+      "ɫudbi",
+      "ɫadi"
+    ],
+    "non_suffix_tokens": [
+      "ɫudbi",
+      "ɫadi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫob",
+    "ocr_tokens": [
+      "ɫob",
+      "ɫol",
+      "ɫos",
+      "ɫoz",
+      "ɫobab"
+    ],
+    "non_suffix_tokens": [
+      "ɫob",
+      "ɫol",
+      "ɫos",
+      "ɫoz",
+      "ɫobab"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫoba",
+    "ocr_tokens": [
+      "ɫoba"
+    ],
+    "non_suffix_tokens": [
+      "ɫoba"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫobe",
+    "ocr_tokens": [
+      "ɫobe",
+      "ɫobasa",
+      "ɫob"
+    ],
+    "non_suffix_tokens": [
+      "ɫobe",
+      "ɫobasa",
+      "ɫob"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫobgo",
+    "ocr_tokens": [
+      "ɫobgo",
+      "ɫobgojab",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "ɫobgo",
+      "ɫobgojab",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫobħadab",
+    "ocr_tokens": [
+      "ɫobħadab",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "ɫobħadab",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫodaħan",
+    "ocr_tokens": [
+      "ɫodaħan",
+      "ɫodaħanab",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "ɫodaħan",
+      "ɫodaħanab",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫodin",
+    "ocr_tokens": [
+      "ɫodin",
+      "ɫodinab",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "ɫodin",
+      "ɫodinab",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫoħodin",
+    "ocr_tokens": [
+      "ɫoħodin",
+      "ɫoħodinab",
+      "ɫob)"
+    ],
+    "non_suffix_tokens": [
+      "ɫoħodin",
+      "ɫoħodinab",
+      "ɫob)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫole",
+    "ocr_tokens": [
+      "ɫole",
+      "ɫob"
+    ],
+    "non_suffix_tokens": [
+      "ɫole",
+      "ɫob"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫole-ɫob",
+    "ocr_tokens": [
+      "ɫole-ɫob",
+      "ɫob"
+    ],
+    "non_suffix_tokens": [
+      "ɫole-ɫob",
+      "ɫob"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫoɫo...",
+    "ocr_tokens": [
+      "ɫoɫo",
+      "ɫeɫ"
+    ],
+    "non_suffix_tokens": [
+      "ɫoɫo",
+      "ɫeɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫor",
+    "ocr_tokens": [
+      "ɫor",
+      "ɫoral",
+      "ɫoril",
+      "ɫoril-qveţ"
+    ],
+    "non_suffix_tokens": [
+      "ɫor",
+      "ɫoral",
+      "ɫoril",
+      "ɫoril-qveţ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫorob",
+    "ocr_tokens": [
+      "ɫorob",
+      "ɫorobe",
+      "ɫorosa"
+    ],
+    "non_suffix_tokens": [
+      "ɫorob",
+      "ɫorobe",
+      "ɫorosa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫuldul",
+    "ocr_tokens": [
+      "ɫuldul",
+      "ɫel"
+    ],
+    "non_suffix_tokens": [
+      "ɫuldul",
+      "ɫel"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫuɫdul",
+    "ocr_tokens": [
+      "ɫuɫdul",
+      "ɫeɫ"
+    ],
+    "non_suffix_tokens": [
+      "ɫuɫdul",
+      "ɫeɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫundul",
+    "ocr_tokens": [
+      "ɫundul",
+      "ɫen"
+    ],
+    "non_suffix_tokens": [
+      "ɫundul",
+      "ɫen"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "-ɫuni",
+    "ocr_tokens": [
+      "-ɫuni",
+      "-ja-ɫuni",
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "-ɫuni",
+      "-ja-ɫuni",
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "ɫuxize",
+    "ocr_tokens": [
+      "ɫuxize"
+    ],
+    "non_suffix_tokens": [
+      "ɫuxize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 78,
+    "word": "łamaɫi",
+    "ocr_tokens": [
+      "łamaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "łamaɫize",
+    "ocr_tokens": [
+      "łamaɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 78,
+    "word": "łar",
+    "ocr_tokens": [
+      "osoɫ"
+    ],
+    "non_suffix_tokens": [
+      "osoɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 79,
+    "word": "łuχɫi",
+    "ocr_tokens": [
+      "łuχɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 79,
+    "word": "łuχɫize",
+    "ocr_tokens": [
+      "łuχɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 79,
+    "word": "macca-makkaɫalev",
+    "ocr_tokens": [
+      "macca-makkaɫalev",
+      "ɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "macca-makkaɫalev",
+      "ɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 79,
+    "word": "madar",
+    "ocr_tokens": [
+      "haɫil"
+    ],
+    "non_suffix_tokens": [
+      "haɫil"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 79,
+    "word": "madohalɫi",
+    "ocr_tokens": [
+      "madohalɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 79,
+    "word": "mahi",
+    "ocr_tokens": [
+      "mahiɫal",
+      "mahiɫul"
+    ],
+    "non_suffix_tokens": [
+      "mahiɫal",
+      "mahiɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 79,
+    "word": "maħ",
+    "ocr_tokens": [
+      "ɫ(i)in"
+    ],
+    "non_suffix_tokens": [
+      "ɫ(i)in"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 79,
+    "word": "maħlaj",
+    "ocr_tokens": [
+      "ɫaze)"
+    ],
+    "non_suffix_tokens": [
+      "ɫaze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maħ",
+    "ocr_tokens": [
+      "buravaɫul"
+    ],
+    "non_suffix_tokens": [
+      "buravaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maħarulɫi",
+    "ocr_tokens": [
+      "maħarulɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 80,
+    "word": "maɫ",
+    "ocr_tokens": [
+      "maɫ",
+      "maɫal"
+    ],
+    "non_suffix_tokens": [
+      "maɫ",
+      "maɫal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maɫɫi",
+    "ocr_tokens": [
+      "maɫɫi",
+      "maɫɫize)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 80,
+    "word": "maɫjarize",
+    "ocr_tokens": [
+      "maɫjarize",
+      "maɫɫize"
+    ],
+    "non_suffix_tokens": [
+      "maɫjarize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maɫjaruxan",
+    "ocr_tokens": [
+      "maɫjaruxan",
+      "maɫlaruxabi",
+      "ɫɫuxan"
+    ],
+    "non_suffix_tokens": [
+      "maɫjaruxan",
+      "maɫlaruxabi",
+      "ɫɫuxan"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maɫɫize",
+    "ocr_tokens": [
+      "maɫɫize",
+      "maɫɫiço-go"
+    ],
+    "non_suffix_tokens": [
+      "maɫɫiço-go"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maɫɫuxan",
+    "ocr_tokens": [
+      "maɫɫuxan",
+      "maɫɫuxabi",
+      "maɫɫi-"
+    ],
+    "non_suffix_tokens": [
+      "maɫɫuxan",
+      "maɫɫuxabi",
+      "maɫɫi-"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 80,
+    "word": "maɫral",
+    "ocr_tokens": [
+      "maɫral",
+      "miɫir"
+    ],
+    "non_suffix_tokens": [
+      "maɫral",
+      "miɫir"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "manɫɫize",
+    "ocr_tokens": [
+      "manɫɫize",
+      "maɫɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 81,
+    "word": "maqo",
+    "ocr_tokens": [
+      "maqiɫ"
+    ],
+    "non_suffix_tokens": [
+      "maqiɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "maroqal",
+    "ocr_tokens": [
+      "maroqalaɫul"
+    ],
+    "non_suffix_tokens": [
+      "maroqalaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "marha",
+    "ocr_tokens": [
+      "ketojaɫ"
+    ],
+    "non_suffix_tokens": [
+      "ketojaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "marqaço",
+    "ocr_tokens": [
+      "marqaçoɫ"
+    ],
+    "non_suffix_tokens": [
+      "marqaçoɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "masslaħat",
+    "ocr_tokens": [
+      "masslaħataɫul"
+    ],
+    "non_suffix_tokens": [
+      "masslaħataɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "massxxara",
+    "ocr_tokens": [
+      "massxxarajaɫ"
+    ],
+    "non_suffix_tokens": [
+      "massxxarajaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 81,
+    "word": "maşoqulɫi",
+    "ocr_tokens": [
+      "maşoqulɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 81,
+    "word": "maşoqulɫize",
+    "ocr_tokens": [
+      "maşoqulɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 82,
+    "word": "max",
+    "ocr_tokens": [
+      "ɫor)"
+    ],
+    "non_suffix_tokens": [
+      "ɫor)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "millatciɫi",
+    "ocr_tokens": [
+      "millatciɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "miɫi",
+    "ocr_tokens": [
+      "miɫi",
+      "maɫal"
+    ],
+    "non_suffix_tokens": [
+      "maɫal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "miɫir",
+    "ocr_tokens": [
+      "miɫir",
+      "miɫral",
+      "maɫral",
+      "muɫrusa"
+    ],
+    "non_suffix_tokens": [
+      "miɫir",
+      "miɫral",
+      "maɫral",
+      "muɫrusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "miɫirşo",
+    "ocr_tokens": [
+      "miɫirşo",
+      "miɫirşabi",
+      "miɫirşodal",
+      "miɫir"
+    ],
+    "non_suffix_tokens": [
+      "miɫirşo",
+      "miɫirşabi",
+      "miɫirşodal",
+      "miɫir"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "miɫral",
+    "ocr_tokens": [
+      "miɫral",
+      "miɫir"
+    ],
+    "non_suffix_tokens": [
+      "miɫral",
+      "miɫir"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "mina",
+    "ocr_tokens": [
+      "halmaqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "minist(e)rɫi",
+    "ocr_tokens": [
+      "minist(e)rɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "ministerstva",
+    "ocr_tokens": [
+      "ininisterɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "mirkaɫ-go",
+    "ocr_tokens": [
+      "mirkaɫ-go"
+    ],
+    "non_suffix_tokens": [
+      "mirkaɫ-go"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "mis(s)kinɫi",
+    "ocr_tokens": [
+      "mis(s)kinɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "mis(s)kinɫize",
+    "ocr_tokens": [
+      "mis(s)kinɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 84,
+    "word": "mişirşo",
+    "ocr_tokens": [
+      "miɫirşo"
+    ],
+    "non_suffix_tokens": [
+      "miɫirşo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 84,
+    "word": "molo...",
+    "ocr_tokens": [
+      "maɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "moq",
+    "ocr_tokens": [
+      "moqroɫ"
+    ],
+    "non_suffix_tokens": [
+      "moqroɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 85,
+    "word": "moz̧z̧",
+    "ocr_tokens": [
+      "kanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muhlat",
+    "ocr_tokens": [
+      "ɫabgo"
+    ],
+    "non_suffix_tokens": [
+      "ɫabgo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 85,
+    "word": "muħkan",
+    "ocr_tokens": [
+      "kanɫi)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muħkanɫi",
+    "ocr_tokens": [
+      "muħkanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muħkanɫize",
+    "ocr_tokens": [
+      "muħkanɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muķurɫi",
+    "ocr_tokens": [
+      "muķurɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muɫru...",
+    "ocr_tokens": [
+      "muɫru",
+      "miɫir"
+    ],
+    "non_suffix_tokens": [
+      "muɫru",
+      "miɫir"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 85,
+    "word": "mun",
+    "ocr_tokens": [
+      "duɫ"
+    ],
+    "non_suffix_tokens": [
+      "duɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 85,
+    "word": "muradɫi",
+    "ocr_tokens": [
+      "muradɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muridɫi",
+    "ocr_tokens": [
+      "muridɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 85,
+    "word": "muridɫize",
+    "ocr_tokens": [
+      "muridɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 88,
+    "word": "nil",
+    "ocr_tokens": [
+      "niɫal",
+      "niɫisa",
+      "niɫ-gi"
+    ],
+    "non_suffix_tokens": [
+      "niɫal",
+      "niɫisa",
+      "niɫ-gi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "niɫo",
+    "ocr_tokens": [
+      "niɫo",
+      "niɫabi"
+    ],
+    "non_suffix_tokens": [
+      "niɫo",
+      "niɫabi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "nil",
+    "ocr_tokens": [
+      "neɫesa",
+      "neɫer"
+    ],
+    "non_suffix_tokens": [
+      "neɫesa",
+      "neɫer"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "niɫer",
+    "ocr_tokens": [
+      "niɫer",
+      "neɫer"
+    ],
+    "non_suffix_tokens": [
+      "niɫer",
+      "neɫer"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "nizam-heçoɫi",
+    "ocr_tokens": [
+      "nizam-heçoɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 88,
+    "word": "niz",
+    "ocr_tokens": [
+      "niɫ)"
+    ],
+    "non_suffix_tokens": [
+      "niɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "nodo",
+    "ocr_tokens": [
+      "nadaɫ"
+    ],
+    "non_suffix_tokens": [
+      "nadaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "noķo",
+    "ocr_tokens": [
+      "(eɫ)"
+    ],
+    "non_suffix_tokens": [
+      "(eɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "noɫ",
+    "ocr_tokens": [
+      "noɫ",
+      "noɫasseb"
+    ],
+    "non_suffix_tokens": [
+      "noɫ",
+      "noɫasseb"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 88,
+    "word": "nuhɫi",
+    "ocr_tokens": [
+      "nuhɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 88,
+    "word": "nuqsanɫi",
+    "ocr_tokens": [
+      "nuqsanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 88,
+    "word": "nux",
+    "ocr_tokens": [
+      "nuxaɫ",
+      "ɫabgo"
+    ],
+    "non_suffix_tokens": [
+      "nuxaɫ",
+      "ɫabgo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 89,
+    "word": "nuxmaɫɫi",
+    "ocr_tokens": [
+      "nuxmaɫɫi",
+      "maɫɫize)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 89,
+    "word": "oburɫi",
+    "ocr_tokens": [
+      "oburɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 89,
+    "word": "oburɫize",
+    "ocr_tokens": [
+      "oburɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 89,
+    "word": "Osetija",
+    "ocr_tokens": [
+      "Hiriɫi)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 89,
+    "word": "pac(c)aɫi",
+    "ocr_tokens": [
+      "pac(c)aɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 89,
+    "word": "paccaɫize",
+    "ocr_tokens": [
+      "paccaɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 94,
+    "word": "programma",
+    "ocr_tokens": [
+      "partijaɫul",
+      "zavodaɫul"
+    ],
+    "non_suffix_tokens": [
+      "partijaɫul",
+      "zavodaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raɫad",
+    "ocr_tokens": [
+      "raɫad",
+      "raɫadal",
+      "raɫdal",
+      "Tarqu-raɫad",
+      "Anzi-raɫad"
+    ],
+    "non_suffix_tokens": [
+      "raɫad",
+      "raɫadal",
+      "raɫdal",
+      "Tarqu-raɫad",
+      "Anzi-raɫad"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raɫad-raħal",
+    "ocr_tokens": [
+      "raɫad-raħal",
+      "raɫad-raħalabi",
+      "raɫad"
+    ],
+    "non_suffix_tokens": [
+      "raɫad-raħal",
+      "raɫad-raħalabi",
+      "raɫad"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raɫaroqize",
+    "ocr_tokens": [
+      "raɫaroqize",
+      "baɫaroqize"
+    ],
+    "non_suffix_tokens": [
+      "raɫaroqize",
+      "baɫaroqize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raɫda...",
+    "ocr_tokens": [
+      "raɫda",
+      "raɫad"
+    ],
+    "non_suffix_tokens": [
+      "raɫda",
+      "raɫad"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raɫdaxan",
+    "ocr_tokens": [
+      "raɫdaxan",
+      "raɫdaxabi",
+      "raɫad)"
+    ],
+    "non_suffix_tokens": [
+      "raɫdaxan",
+      "raɫdaxabi",
+      "raɫad)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 103,
+    "word": "raqdalɫi",
+    "ocr_tokens": [
+      "raqdalɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 103,
+    "word": "raqdalɫize",
+    "ocr_tokens": [
+      "raqdalɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 103,
+    "word": "rasaɫi",
+    "ocr_tokens": [
+      "rasaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 105,
+    "word": "reɫ",
+    "ocr_tokens": [
+      "reɫ",
+      "reɫal"
+    ],
+    "non_suffix_tokens": [
+      "reɫ",
+      "reɫal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 106,
+    "word": "riɫin",
+    "ocr_tokens": [
+      "riɫin",
+      "biɫine)"
+    ],
+    "non_suffix_tokens": [
+      "riɫin",
+      "biɫine)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 106,
+    "word": "riɫine",
+    "ocr_tokens": [
+      "riɫine",
+      "riɫinze",
+      "riɫize",
+      "biɫine)"
+    ],
+    "non_suffix_tokens": [
+      "riɫine",
+      "riɫinze",
+      "biɫine)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 107,
+    "word": "rol",
+    "ocr_tokens": [
+      "roɫ",
+      "roɫal",
+      "roɫusa"
+    ],
+    "non_suffix_tokens": [
+      "roɫ",
+      "roɫal",
+      "roɫusa"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 107,
+    "word": "rorɫaro",
+    "ocr_tokens": [
+      "rorɫaro",
+      "rorɫarabi",
+      "borɫize)"
+    ],
+    "non_suffix_tokens": [
+      "rorɫaro",
+      "rorɫarabi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 108,
+    "word": "ruq̇un",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 108,
+    "word": "ruhunɫi",
+    "ocr_tokens": [
+      "ruhunɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 108,
+    "word": "ruhunɫize",
+    "ocr_tokens": [
+      "ruhunɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 108,
+    "word": "ruħ",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 108,
+    "word": "ruħ-çagoɫi",
+    "ocr_tokens": [
+      "ruħ-çagoɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 109,
+    "word": "sababɫize",
+    "ocr_tokens": [
+      "sababɫize",
+      "sababɫun"
+    ],
+    "non_suffix_tokens": [
+      "sababɫun"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 109,
+    "word": "sahviɫize",
+    "ocr_tokens": [
+      "sahviɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 112,
+    "word": "Ssuoqrat",
+    "ocr_tokens": [
+      "ssuoqraɫev"
+    ],
+    "non_suffix_tokens": [
+      "ssuoqraɫev"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 114,
+    "word": "surdaɫel",
+    "ocr_tokens": [
+      "surdaɫel",
+      "surdaɫelal",
+      "ɫeze)"
+    ],
+    "non_suffix_tokens": [
+      "surdaɫel",
+      "surdaɫelal",
+      "ɫeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 114,
+    "word": "suruqɫi",
+    "ocr_tokens": [
+      "suruqɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 114,
+    "word": "sadaxci",
+    "ocr_tokens": [
+      "maɫɫulev"
+    ],
+    "non_suffix_tokens": [
+      "maɫɫulev"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 114,
+    "word": "sadaxɫi",
+    "ocr_tokens": [
+      "sadaxɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 114,
+    "word": "so",
+    "ocr_tokens": [
+      "sojaɫ",
+      "so-nixaɫ",
+      "soɫeze)"
+    ],
+    "non_suffix_tokens": [
+      "sojaɫ",
+      "so-nixaɫ",
+      "soɫeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 115,
+    "word": "soɫeze",
+    "ocr_tokens": [
+      "soɫeze",
+      "soɫize",
+      "dunijalaɫul",
+      "soɫe"
+    ],
+    "non_suffix_tokens": [
+      "soɫeze",
+      "dunijalaɫul",
+      "soɫe"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 115,
+    "word": "soɫi",
+    "ocr_tokens": [
+      "soɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 115,
+    "word": "so-so",
+    "ocr_tokens": [
+      "sosaɫ"
+    ],
+    "non_suffix_tokens": [
+      "sosaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 115,
+    "word": "ssuɫize",
+    "ocr_tokens": [
+      "ssuɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 119,
+    "word": "tebergo",
+    "ocr_tokens": [
+      "ɫebergo"
+    ],
+    "non_suffix_tokens": [
+      "ɫebergo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 119,
+    "word": "tel",
+    "ocr_tokens": [
+      "telaɫul"
+    ],
+    "non_suffix_tokens": [
+      "telaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 119,
+    "word": "tif",
+    "ocr_tokens": [
+      "tifaɫ"
+    ],
+    "non_suffix_tokens": [
+      "tifaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 120,
+    "word": "toli",
+    "ocr_tokens": [
+      "tolijaɫul"
+    ],
+    "non_suffix_tokens": [
+      "tolijaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 120,
+    "word": "toxxɫi",
+    "ocr_tokens": [
+      "toxxɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 120,
+    "word": "toxxɫuqe",
+    "ocr_tokens": [
+      "toxxɫuqe"
+    ],
+    "non_suffix_tokens": [
+      "toxxɫuqe"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 120,
+    "word": "toxxɫize",
+    "ocr_tokens": [
+      "toxxɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 120,
+    "word": "tussnaxɫi",
+    "ocr_tokens": [
+      "tussnaxɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "țab",
+    "ocr_tokens": [
+      "ɫab",
+      "ɫab-qogo"
+    ],
+    "non_suffix_tokens": [
+      "ɫab",
+      "ɫab-qogo"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "țabiħijab",
+    "ocr_tokens": [
+      "becedɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "țad",
+    "ocr_tokens": [
+      "țade-giɫɫik̇",
+      "ɫuhine",
+      "ɫuha"
+    ],
+    "non_suffix_tokens": [
+      "țade-giɫɫik̇",
+      "ɫuhine",
+      "ɫuha"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "țadahɫi",
+    "ocr_tokens": [
+      "țadahɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "țadahɫize",
+    "ocr_tokens": [
+      "țadahɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "țadeħanɫi",
+    "ocr_tokens": [
+      "țadeħanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "țadeħanɫizabi",
+    "ocr_tokens": [
+      "țadeħanɫizabi"
+    ],
+    "non_suffix_tokens": [
+      "țadeħanɫizabi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "țaderaxi",
+    "ocr_tokens": [
+      "țaderaxijaɫ"
+    ],
+    "non_suffix_tokens": [
+      "țaderaxijaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "țad-ɫej",
+    "ocr_tokens": [
+      "țad-ɫej",
+      "ɫeze)"
+    ],
+    "non_suffix_tokens": [
+      "țad-ɫej",
+      "ɫeze)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "ța(d)ɫi",
+    "ocr_tokens": [
+      "ța(d)ɫi",
+      "țadɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 121,
+    "word": "ța(d)ɫize",
+    "ocr_tokens": [
+      "ța(d)ɫize",
+      "țadɫula"
+    ],
+    "non_suffix_tokens": [
+      "țadɫula"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 121,
+    "word": "țaoqur",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 124,
+    "word": "ṭol",
+    "ocr_tokens": [
+      "ṭolaɫ-go"
+    ],
+    "non_suffix_tokens": [
+      "ṭolaɫ-go"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 124,
+    "word": "ṭul",
+    "ocr_tokens": [
+      "ṭulaɫul"
+    ],
+    "non_suffix_tokens": [
+      "ṭulaɫul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 126,
+    "word": "us(s)tarɫi",
+    "ocr_tokens": [
+      "us(s)tarɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 126,
+    "word": "vakilɫi",
+    "ocr_tokens": [
+      "vakilɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 126,
+    "word": "vaɫaroqize",
+    "ocr_tokens": [
+      "vaɫaroqize",
+      "baɫaroqize"
+    ],
+    "non_suffix_tokens": [
+      "vaɫaroqize",
+      "baɫaroqize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 127,
+    "word": "varisɫi",
+    "ocr_tokens": [
+      "varisɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 127,
+    "word": "varisɫize",
+    "ocr_tokens": [
+      "varisɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 127,
+    "word": "vassɫi",
+    "ocr_tokens": [
+      "vassɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 127,
+    "word": "veɫanxize",
+    "ocr_tokens": [
+      "veɫanxize",
+      "beɫanxize"
+    ],
+    "non_suffix_tokens": [
+      "veɫanxize",
+      "beɫanxize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 127,
+    "word": "veɫize",
+    "ocr_tokens": [
+      "veɫize",
+      "beɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 127,
+    "word": "veɫɫen",
+    "ocr_tokens": [
+      "veɫɫen",
+      "beɫɫen"
+    ],
+    "non_suffix_tokens": [
+      "veɫɫen",
+      "beɫɫen"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 127,
+    "word": "veɫɫene",
+    "ocr_tokens": [
+      "veɫɫene",
+      "beɫɫene"
+    ],
+    "non_suffix_tokens": [
+      "veɫɫene",
+      "beɫɫene"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 128,
+    "word": "viɫanxize",
+    "ocr_tokens": [
+      "viɫanxize",
+      "biɫanxize"
+    ],
+    "non_suffix_tokens": [
+      "viɫanxize",
+      "biɫanxize"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 128,
+    "word": "viɫine",
+    "ocr_tokens": [
+      "viɫine",
+      "biɫine"
+    ],
+    "non_suffix_tokens": [
+      "viɫine",
+      "biɫine"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 128,
+    "word": "vixa-ɫaze",
+    "ocr_tokens": [
+      "vixa-ɫaze",
+      "bixa-ɫaze"
+    ],
+    "non_suffix_tokens": [
+      "vixa-ɫaze",
+      "bixa-ɫaze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 128,
+    "word": "vorɫize",
+    "ocr_tokens": [
+      "vorɫize",
+      "borɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 128,
+    "word": "xabaɫo",
+    "ocr_tokens": [
+      "xabaɫo",
+      "xabaɫabi"
+    ],
+    "non_suffix_tokens": [
+      "xabaɫo",
+      "xabaɫabi"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 128,
+    "word": "xaduxanɫi",
+    "ocr_tokens": [
+      "xaduxanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 128,
+    "word": "xainɫi",
+    "ocr_tokens": [
+      "xainɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 128,
+    "word": "xainɫize",
+    "ocr_tokens": [
+      "xainɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xaɫħat",
+    "ocr_tokens": [
+      "xaɫħat",
+      "xaɫħatal"
+    ],
+    "non_suffix_tokens": [
+      "xaɫħat",
+      "xaɫħatal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 129,
+    "word": "xaɫica",
+    "ocr_tokens": [
+      "xaɫica",
+      "xaɫiça",
+      "xaɫicabi",
+      "xaɫicadul"
+    ],
+    "non_suffix_tokens": [
+      "xaɫica",
+      "xaɫiça",
+      "xaɫicabi",
+      "xaɫicadul"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 129,
+    "word": "xaɫq",
+    "ocr_tokens": [
+      "xaɫq",
+      "xaɫqal",
+      "xaɫqaɫu"
+    ],
+    "non_suffix_tokens": [
+      "xaɫq",
+      "xaɫqal",
+      "xaɫqaɫu"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 129,
+    "word": "xamɫi",
+    "ocr_tokens": [
+      "xamɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xanɫi",
+    "ocr_tokens": [
+      "xanɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xarabɫi",
+    "ocr_tokens": [
+      "xarabɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xarabɫize",
+    "ocr_tokens": [
+      "xarabɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xasalix̦ɫi",
+    "ocr_tokens": [
+      "xasalix̦ɫi",
+      "xaselix̦ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xaselix̦ɫi",
+    "ocr_tokens": [
+      "xaselix̦ɫi",
+      "xasalix̦ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xaslixeɫi",
+    "ocr_tokens": [
+      "xaslixeɫi",
+      "xasalix̦ɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xaṭaɫi",
+    "ocr_tokens": [
+      "xaṭaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xaṭaɫize",
+    "ocr_tokens": [
+      "xaṭaɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xerɫi",
+    "ocr_tokens": [
+      "xerɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xerɫize",
+    "ocr_tokens": [
+      "xerɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xijanat",
+    "ocr_tokens": [
+      "xijanatɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 129,
+    "word": "xiɫalo",
+    "ocr_tokens": [
+      "xiɫalo",
+      "xiɫalodal"
+    ],
+    "non_suffix_tokens": [
+      "xiɫalo",
+      "xiɫalodal"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 130,
+    "word": "xvel",
+    "ocr_tokens": [
+      "ɫalaro"
+    ],
+    "non_suffix_tokens": [
+      "ɫalaro"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 134,
+    "word": "xahilɫi",
+    "ocr_tokens": [
+      "xahilɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xahilɫize",
+    "ocr_tokens": [
+      "xahilɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xaħbaɫi",
+    "ocr_tokens": [
+      "xaħbaɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xaħɫi",
+    "ocr_tokens": [
+      "xaħɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xaħɫize",
+    "ocr_tokens": [
+      "xaħɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xaravuIɫi",
+    "ocr_tokens": [
+      "xaravuIɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xarq̇asɫi",
+    "ocr_tokens": [
+      "xarq̇asɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 134,
+    "word": "xarq̇asɫize",
+    "ocr_tokens": [
+      "xarq̇asɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 135,
+    "word": "xubɫi",
+    "ocr_tokens": [
+      "xubɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 136,
+    "word": "xvaj(i)",
+    "ocr_tokens": [
+      "ɫalev"
+    ],
+    "non_suffix_tokens": [
+      "ɫalev"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 136,
+    "word": "xvassarɫi",
+    "ocr_tokens": [
+      "xvassarɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 136,
+    "word": "xvassarɫize",
+    "ocr_tokens": [
+      "xvassarɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 136,
+    "word": "xvaşize",
+    "ocr_tokens": [
+      "xvaşun-ɫaj"
+    ],
+    "non_suffix_tokens": [
+      "xvaşun-ɫaj"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 136,
+    "word": "zahirɫi",
+    "ocr_tokens": [
+      "zahirɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 136,
+    "word": "zahirɫize",
+    "ocr_tokens": [
+      "zahirɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 136,
+    "word": "zaħmat",
+    "ocr_tokens": [
+      "zaħmatɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 137,
+    "word": "zaħipɫi",
+    "ocr_tokens": [
+      "zaħipɫi"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 137,
+    "word": "zaħipɫize",
+    "ocr_tokens": [
+      "zaħipɫize"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 137,
+    "word": "zob",
+    "ocr_tokens": [
+      "zobaɫul-qerab"
+    ],
+    "non_suffix_tokens": [
+      "zobaɫul-qerab"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 138,
+    "word": "zal",
+    "ocr_tokens": [
+      "zalaɫ"
+    ],
+    "non_suffix_tokens": [
+      "zalaɫ"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 140,
+    "word": "z̦ol",
+    "ocr_tokens": [
+      "ɫab-z̦ol"
+    ],
+    "non_suffix_tokens": [
+      "ɫab-z̦ol"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 140,
+    "word": "zz̦aldeze",
+    "ocr_tokens": [
+      "maɫɫize)"
+    ],
+    "non_suffix_tokens": [],
+    "status": "Только суффиксы -ɫi/-ɫize; грамматическая улика, не проверка скана"
+  },
+  {
+    "scan": 141,
+    "word": "zz̦ar",
+    "ocr_tokens": [
+      "ɫeze"
+    ],
+    "non_suffix_tokens": [
+      "ɫeze"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 142,
+    "word": "Z̧z̧or",
+    "ocr_tokens": [
+      "(z̧z̧orossa-roɫ)"
+    ],
+    "non_suffix_tokens": [
+      "(z̧z̧orossa-roɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 142,
+    "word": "z̧z̧oros(s)a-roɫ",
+    "ocr_tokens": [
+      "z̧z̧oros(s)a-roɫ",
+      "z̧z̧orosso-roɫ",
+      "roɫ)"
+    ],
+    "non_suffix_tokens": [
+      "z̧z̧oros(s)a-roɫ",
+      "z̧z̧orosso-roɫ",
+      "roɫ)"
+    ],
+    "status": "Проверить по контексту"
+  },
+  {
+    "scan": 142,
+    "word": "z̧z̧oroze",
+    "ocr_tokens": [
+      "ɫin"
+    ],
+    "non_suffix_tokens": [
+      "ɫin"
+    ],
+    "status": "Проверить по контексту"
+  }
+]
