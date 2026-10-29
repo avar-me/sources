@@ -313,5 +313,33 @@
     "current": "ţaƣral",
     "status": "printed_order",
     "reason": "Отсылка ţaƣral → ţaƣur напечатана после ţaƣur-karo. Порядок сохранён без пересортировки."
+  },
+  {
+    "scan": 20,
+    "previous": "beļļene",
+    "current": "belabux̵ize",
+    "status": "printed_order",
+    "reason": "В оригинале belabux̵ize с обычной l напечатано после beļļene; нижнего знака у l нет. Порядок сохранён."
+  },
+  {
+    "scan": 48,
+    "previous": "Halꝗaderil-ḩor",
+    "current": "hali",
+    "status": "printed_order",
+    "reason": "Название реки с поперечным штрихом ꝗ и нижним знаком ḩ напечатано перед hali. Печатная перестановка сохранена."
+  },
+  {
+    "scan": 124,
+    "previous": "ţorļize",
+    "current": "ţorax̨",
+    "status": "printed_order",
+    "reason": "Сложное слово ţorax̨ «сливки» напечатано после ţorļize; нижний знак x подтверждён. Порядок сохранён."
+  },
+  {
+    "scan": 132,
+    "previous": "Xxunzax",
+    "current": "x(x)unzal",
+    "status": "printed_order",
+    "reason": "Отсылка x(x)unzal → xxurzal с необязательной первой x действительно следует после Xxunzax. Печатный порядок сохранён."
   }
 ]

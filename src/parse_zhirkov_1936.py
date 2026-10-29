@@ -143,7 +143,7 @@ def articles(html):
         bold = re.match(r"\s*<b>(.*?)</b>", fragment, re.S)
         # A heading and paradigm may precede the Russian gloss across a
         # column/page break; its recognition must not rely on Cyrillic OCR.
-        if not re.search(r"[А-Яа-яЁё]|=", text) and not (bold and re.search(r"\[[^]]+\]", text)):
+        if not re.search(r"[А-Яа-яЁё]|=", text) and not (bold and "[" in text):
             continue
         if bold:
             # OCR can place the final letter's combining mark just outside
@@ -155,7 +155,11 @@ def articles(html):
         else:
             if not result:
                 raise ValueError(f"Orphan continuation on scan {page}: {text}")
-            result[-1]["text"] += " " + text
+            previous = result[-1]["text"]
+            if previous.endswith('-') and previous.count('[') > previous.count(']'):
+                result[-1]["text"] = previous[:-1] + text
+            else:
+                result[-1]["text"] += " " + text
     return result
 
 

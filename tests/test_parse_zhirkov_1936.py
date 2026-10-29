@@ -151,9 +151,25 @@ class ZhirkovParserTests(unittest.TestCase):
         es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
         self.assertFalse([f for f in audit(es) if f['cyrillic']])
         by_word = {e['word']: e for e in es}
-        self.assertTrue({'fotograf', 'majdan', 'zⱬomor', 'eb', 'Bolƣarija', 'uborşşis(s)a'} <= by_word.keys())
+        self.assertTrue({'fotograf', 'majdan', 'ⱬⱬomor', 'eb', 'Bolƣarija', 'uborşşis(s)a'} <= by_word.keys())
         self.assertIn('ebab', by_word['eb']['forms'])
         self.assertNotIn('фото́граф', json.dumps(by_word['fosfor'], ensure_ascii=False))
+
+    def test_paradigm_can_close_on_next_page(self):
+        es = parse('<!-- p138 --><p><b>ƶerƣen</b> бу́бен.</p>'
+                   '<p><b>ƶib</b> [ƶal, <i>act</i> ƶinsa, <i>dat</i></p>'
+                   '<!-- p139 --><p>ƶindij(e)] сам, он.</p>')
+        self.assertEqual([e['word'] for e in es], ['ƶerƣen', 'ƶib'])
+        self.assertEqual(es[0]['senses'][0]['text'], 'бу́бен.')
+        self.assertIn('ƶal', es[1]['forms'])
+        self.assertIn('ƶindij(e)', es[1]['forms'])
+
+    def test_paradigm_word_hyphenated_across_column(self):
+        es = parse('<!-- p050 --><p><b>hobo</b> [habal, <i>pos</i> ha-</p>'
+                   '<p>bil] жёрнов.</p>')
+        self.assertEqual(es[0]['word'], 'hobo')
+        self.assertIn('habil', es[0]['forms'])
+        self.assertNotIn('ha- bil', es[0]['forms'])
 
     def test_headword_combining_mark_outside_bold_span(self):
         e = entry('<b>ƣajix</b>̵ [ƣajix̵al] t ло́дка.')
@@ -169,7 +185,7 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_whole_source_keeps_boundaries_and_lexical_tokens(self):
         raw = articles((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
-        self.assertEqual(len(raw), 7023)
+        self.assertEqual(len(raw), 7026)
         allowed = set(GRAMMAR) | set(ORIGINS) | set(ORIGIN_GLYPHS) | set(CODE_ALIASES) | {'см', 'ср', 'cp'}
         allowed |= set(' '.join(RUSSIAN_LABELS).split())
         for article in raw:
