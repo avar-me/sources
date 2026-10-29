@@ -271,5 +271,47 @@
     "current": "naļu...",
     "status": "printed_order",
     "reason": "Отсылочная статья naļu... напечатана после naļulav и перед namus. Заголовок и печатный порядок сохранены."
+  },
+  {
+    "scan": 96,
+    "previous": "qaji-ssveri",
+    "current": "qajisa",
+    "status": "printed_order",
+    "reason": "Отсылочная статья qajisa (act) = qajissa напечатана после qaji-ssveri; порядок сохранён."
+  },
+  {
+    "scan": 97,
+    "previous": "qasseļize-ħan",
+    "current": "qasandize",
+    "status": "printed_order",
+    "reason": "В печати qasandize с обычной s следует после qasseļize-ħan; это перестановка оригинала, а не OCR."
+  },
+  {
+    "scan": 103,
+    "previous": "raķ-buħari",
+    "current": "rakine",
+    "status": "printed_order",
+    "reason": "На скане 103 после raķ-buħari напечатано rakine с обычной k, со ссылкой bakine; порядок сохранён."
+  },
+  {
+    "scan": 104,
+    "previous": "reccize",
+    "current": "reccanx̵(d)ize",
+    "status": "printed_order",
+    "reason": "Оригинал содержит reccanx̵(d)ize с обычными c после reccize. Порядок сохранён без пересортировки."
+  },
+  {
+    "scan": 120,
+    "previous": "toxxļuqe",
+    "current": "toxxļize",
+    "status": "printed_order",
+    "reason": "В печати форма toxxļuqe следует внутри группы toxxļi перед статьёй toxxļize; последовательность сохранена без пересортировки."
+  },
+  {
+    "scan": 121,
+    "previous": "ţaƣur-karo",
+    "current": "ţaƣral",
+    "status": "printed_order",
+    "reason": "Отсылка ţaƣral → ţaƣur напечатана после ţaƣur-karo. Порядок сохранён без пересортировки."
   }
 ]

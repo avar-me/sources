@@ -1,8 +1,8 @@
 # av-ru.1936: проверка алфавитного порядка
 
-Статей: 7023. Подозрительных соседних пар: 130.
+Статей: 7023. Подозрительных соседних пар: 83.
 
-У 39 пар порядок подтверждён по печати; остальные 91 требуют сверки. Решения хранятся в `review/av-ru.1936-order-reviewed.json`; совпадение проверяется по скану и обоим заголовкам.
+У 45 пар порядок подтверждён по печати; остальные 38 требуют сверки. Решения хранятся в `review/av-ru.1936-order-reviewed.json`; совпадение проверяется по скану и обоим заголовкам.
 
 Порядок 39 букв взят со сканов 5 и 147. Апострофы учитываются как отдельный знак перед буквами (варианты знака унифицированы); дефисы, регистр и ударения игнорируются; удвоенные согласные сортируются как две буквы. Для внутрисловных скобок проверяются обе формы.
 
@@ -64,59 +64,12 @@
 | 3614 | 79 | maħlax̵ | maħlaj | maħo | Печатный порядок подтверждён |
 | 3697 | 81 | masala | mas'ala(t) | masħu | Печатный порядок подтверждён |
 | 3966 | 86 | naļulav | naļu... | namus | Печатный порядок подтверждён |
-| 4461 | 96 | qaji-ssveri | qajisa | qaji-sadax | Требует сверки |
-| 4517 | 97 | qasseļize-ħan | qasandize | qaţ | Требует сверки |
-| 4535 | 97 | qeceze | qecç | qed | Требует сверки |
-| 4549 | 97 | qeze | qbiqdize | qibla | Требует сверки |
-| 4643 | 99 | qurqur | qurqi | qurqize | Требует сверки |
-| 4683 | 100 | qvine | qabej | qabeze | Требует сверки |
-| 4743 | 101 | qoxxorxxo | Qox | qoz | Требует сверки |
-| 4805 | 102 | raħmo | raħ | raħad | Требует сверки |
-| 4827 | 103 | raķ-buħari | rakine | ra(ķ)qaze | Требует сверки |
-| 4848 | 103 | raqvaze | raq | raqa | Требует сверки |
-| 4870 | 103 | rasxod | rasabi | rasi | Требует сверки |
-| 4891 | 104 | raxxçi(n)ze | raxq | raxan | Требует сверки |
-| 4892 | 104 | raxq | raxan | raxdaq | Требует сверки |
-| 4894 | 104 | raxdaq | rax | raxas(s) | Требует сверки |
-| 4906 | 104 | raziļize | razarize | razi | Требует сверки |
-| 4909 | 104 | razul | razize | raⱬⱬad | Требует сверки |
-| 4911 | 104 | raⱬⱬad | razţine | razⱬunisa-ħeţe | Требует сверки |
-| 4915 | 104 | reccize | reccanx̵(d)ize | reçaze | Требует сверки |
-| 4934 | 105 | reqleze | reħaze | reħel | Требует сверки |
-| 4938 | 105 | reḩize | reḩel | reḩer | Требует сверки |
-| 4957 | 105 | reqine | rekk | rels | Требует сверки |
-| 4967 | 105 | reļļen-xvaj | reļ | reqab | Требует сверки |
-| 4974 | 105 | req-şink(an) | reqarize | reqaruxabi | Требует сверки |
-| 4985 | 105 | restoran | resarize | resaruxabi | Требует сверки |
-| 5006 | 106 | rexxunti | rexed | reqen | Требует сверки |
-| 5007 | 106 | rexed | reqen | rexe(r)xize | Требует сверки |
-| 5013 | 106 | rezolusija | rezissor | rezize | Требует сверки |
-| 5015 | 106 | rezize | reqen | reqize | Требует сверки |
-| 5018 | 106 | rezz | reqzarize | reqqize | Требует сверки |
-| 5019 | 106 | reqzarize | reqqize | ricel | Требует сверки |
-| 5025 | 106 | riqvel | rih | rihin | Требует сверки |
-| 5040 | 106 | Rissi-baqal | risarduxabi | rişşaruxabi | Требует сверки |
-| 5046 | 106 | riţel | riti | ri(ţ)muç | Требует сверки |
-| 5058 | 107 | rizli | rizaliqab | rizi | Требует сверки |
-| 5071 | 107 | rokkel | rokka... | rokkel | Требует сверки |
-| 5078 | 107 | roqob | roqi | roqize | Требует сверки |
-| 5110 | 108 | rosţ... | rosen | rosine | Требует сверки |
-| 5129 | 108 | rox̨ine | roxo | roⱬⱬen | Требует сверки |
-| 5186 | 109 | rus(s)un | rusize | ruşbat | Требует сверки |
-| 5191 | 109 | ruxize | ruxa... | rux̨bi | Требует сверки |
-| 5197 | 109 | rux̨ine | ruxarize | ruxize | Требует сверки |
-| 5202 | 109 | ruzmal-qo | ruzize | ruⱬⱬalago | Требует сверки |
-| 5261 | 110 | siqar | sijasat | sijasi(jab) | Требует сверки |
-| 5324 | 111 | ssaħirļi | s(s)aħat | ssajaq | Требует сверки |
-| 5457 | 114 | svaz | sa | sadax | Требует сверки |
-| 5646 | 118 | tahi | tahankize | taħzir | Требует сверки |
-| 5687 | 118 | tarha | tarh... | tarix | Требует сверки |
-| 5770 | 120 | toxxļuqe | toxxļize | tox(x)ter | Требует сверки |
-| 5776 | 120 | tul | tujze | tukan | Требует сверки |
-| 5847 | 121 | ţaojal | ţaƣi | ţaƣur | Требует сверки |
-| 5850 | 121 | ţaƣur-karo | ţaƣral | ţahan | Требует сверки |
-| 5864 | 122 | ţaliih | ţaliḩ | ţali | Требует сверки |
-| 5865 | 122 | ţaliḩ | ţali | ţalize | Требует сверки |
+| 4461 | 96 | qaji-ssveri | qajisa | qaji-sadax | Печатный порядок подтверждён |
+| 4517 | 97 | qasseļize-ħan | qasandize | qaţ | Печатный порядок подтверждён |
+| 4827 | 103 | raķ-buħari | rakine | ra(ķ)qaze | Печатный порядок подтверждён |
+| 4915 | 104 | reccize | reccanx̵(d)ize | reçaze | Печатный порядок подтверждён |
+| 5770 | 120 | toxxļuqe | toxxļize | tox(x)ter | Печатный порядок подтверждён |
+| 5850 | 121 | ţaƣur-karo | ţaƣral | ţahan | Печатный порядок подтверждён |
 | 5903 | 123 | ţaxxel | ţaxal | ţaxdi | Требует сверки |
 | 5909 | 123 | ţeḩ | Ţeħ-nusal | ţeħ-ⱬzun | Требует сверки |
 | 5956 | 123 | ţiqva | ţiqal | ţiraqize | Требует сверки |
