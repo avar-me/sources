@@ -341,5 +341,26 @@
     "current": "x(x)unzal",
     "status": "printed_order",
     "reason": "Отсылка x(x)unzal → xxurzal с необязательной первой x действительно следует после Xxunzax. Печатный порядок сохранён."
+  },
+  {
+    "scan": 47,
+    "previous": "ha!",
+    "current": "ha",
+    "status": "printed_order",
+    "reason": "Восклицание ha! напечатано перед существительным ha «клятва»; знак и порядок сохранены."
+  },
+  {
+    "scan": 62,
+    "previous": "ḩuru...",
+    "current": "ḩuru",
+    "status": "printed_order",
+    "reason": "Печатная отсылка ḩuru... → ḩor стоит перед ḩuru «дёрн»; многоточие и порядок сохранены."
+  },
+  {
+    "scan": 139,
+    "previous": "ƶin...",
+    "current": "ƶin",
+    "status": "printed_order",
+    "reason": "Печатная отсылка ƶin... → ƶib стоит перед ƶin «джин, демон»; многоточие и порядок сохранены."
   }
 ]

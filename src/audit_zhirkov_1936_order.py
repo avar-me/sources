@@ -45,12 +45,17 @@ def units(word):
             result.append("'")
         elif c.isalpha() or c.isdigit():
             result.append(c)
+        elif not c.isspace() and c not in "-()":
+            # Keep punctuation visible: a stray leading dot must expose .xxira.
+            result.append(c)
     return [ALIASES.get(c, c) for c in result]
 
 
 def sort_key(word):
     # Unknown letters have deterministic keys but also appear in the report.
-    return tuple((RANK[c], "") if c in RANK else (1000, c) for c in units(word))
+    return tuple((RANK[c], "") if c in RANK else
+                 (-1, c) if unicodedata.category(c[0]).startswith(('P', 'S')) else
+                 (1000, c) for c in units(word))
 
 
 def variants(word):
@@ -83,7 +88,7 @@ def report(source_articles, indices):
              f"Статей: {len(source_articles)}. Подозрительных соседних пар: {len(indices)}.", "",
              f"У {checked_count} пар порядок подтверждён по печати; остальные {len(indices) - checked_count} требуют сверки. "
              "Решения хранятся в `review/av-ru.1936-order-reviewed.json`; совпадение проверяется по скану и обоим заголовкам.", "",
-             "Порядок 39 букв взят со сканов 5 и 147. Апострофы учитываются как отдельный знак перед буквами (варианты знака унифицированы); дефисы, регистр и ударения игнорируются; "
+             "Порядок 39 букв взят со сканов 5 и 147. Апострофы учитываются как отдельный знак перед буквами (варианты знака унифицированы); прочая пунктуация также сохраняется перед буквами, включая точки и знаки восклицания/вопроса. Дефисы, пробелы, регистр и ударения игнорируются; "
              "удвоенные согласные сортируются как две буквы. Для внутрисловных скобок проверяются обе формы.", "",
              "Это кандидаты для сверки, а не список готовых замен. Разные исторические буквы нередко "
              "распознаны одинаково (q, s, z); встречаются печатные перестановки, отсылки и повреждённые "

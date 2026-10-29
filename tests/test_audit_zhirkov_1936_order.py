@@ -17,6 +17,18 @@ class OrderAuditTests(unittest.TestCase):
         entries = [{'word': w} for w in ['assķo', 'asslo', 'assosiasija']]
         self.assertEqual(audit(entries), [])
 
+    def test_stray_leading_punctuation_exposes_inversion(self):
+        for mark in '.:;!?/':
+            with self.subTest(mark=mark):
+                words = ['x(x)inķ-bax̵', mark + 'xxira', 'xxiraļi']
+                self.assertEqual(audit([{'word': w} for w in words]), [1])
+        self.assertEqual(audit([{'word': w} for w in
+                                ['x(x)inķ-bax̵', 'xxira', 'xxiraļi']]), [])
+
+    def test_punctuation_is_not_silently_discarded(self):
+        self.assertNotEqual(sort_key('ija?'), sort_key('ija'))
+        self.assertNotEqual(sort_key('alx...'), sort_key('alx'))
+
     def test_apostrophe_is_preserved_in_key_without_replacing_borrowing(self):
         entry = {'word': "qur'an"}
         self.assertNotEqual(sort_key(entry['word']), sort_key('quran'))
