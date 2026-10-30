@@ -906,7 +906,7 @@
 {"word": "carļi", "forms": ["carļi"], "senses": [{"text": "пестрота́"}, {"text": "седина́."}], "source": "av-ru.1936"}
 {"word": "carļize", "forms": ["carļize"], "senses": [{"text": "пестре́ть"}, {"text": "седе́ть", "examples": [{"av": "raḩi carļize", "ru": "измени́ть своему́ сло́ву."}]}], "source": "av-ru.1936"}
 {"word": "carmi...", "forms": ["carmi..."], "see_also": [{"target": "caram", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "carmi-qalam", "forms": ["carmi-qalam", "carmi-qalamal", "carmi-qalmisa"], "senses": [{"text": "стально́е перо́."}, {"labels": ["родительный падеж"], "forms": ["carmi-qalmisa"]}], "see_also": [{"target": "caram", "kind": "compare"}, {"target": "qalam", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "carmi-qalam", "forms": ["carmi-qalam", "carmi-qalamal", "carmi-qalmisa"], "senses": [{"text": "стально́е перо́."}, {"labels": ["эргативный падеж"], "forms": ["carmi-qalmisa"]}], "see_also": [{"target": "caram", "kind": "compare"}, {"target": "qalam", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "cartalabi", "forms": ["cartalabi"], "senses": [{"text": "«со́шки».", "labels": ["множественное число"], "comment": "подста́вка для стари́нного ружья́"}], "source": "av-ru.1936"}
 {"word": "carux", "forms": ["carux", "caruxal"], "see_also": [{"target": "cerek", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "carx", "forms": ["carx", "carxal", "carxisa"], "senses": [{"text": "колесо́", "labels": ["персидское происхождение"]}, {"text": "вал", "labels": ["персидское происхождение"]}, {"text": "точи́ло", "labels": ["персидское происхождение"], "examples": [{"av": "carxida kkveze", "ru": "точи́ть."}]}, {"labels": ["эргативный падеж"], "forms": ["carxisa"]}], "source": "av-ru.1936"}
@@ -1324,7 +1324,7 @@
 {"word": "direktivijab", "forms": ["direktivijab"], "senses": [{"text": "директи́вный.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "dirgo", "forms": ["dirgo", "dirabgo"], "senses": [{"text": "мой со́бственный.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "source": "av-ru.1936"}
 {"word": "dirƣize", "forms": ["dirƣize"], "senses": [{"text": "оска́ливать зу́бы", "examples": [{"av": "dirƣarab keren", "ru": "откры́тая грудь."}]}], "source": "av-ru.1936"}
-{"word": "diriƶabl", "forms": ["diriƶabl", "diriƶablabi", "diriƶalblal"], "senses": [{"text": "дирижа́бль."}], "source": "av-ru.1936"}
+{"word": "diriƶabl", "forms": ["diriƶabl", "diriƶablabi", "diriƶablal"], "senses": [{"text": "дирижа́бль."}], "source": "av-ru.1936"}
 {"word": "diskussija", "forms": ["diskussija", "diskussijabi"], "senses": [{"text": "диску́ссия", "labels": ["интернациональный термин"], "examples": [{"av": "diskussijab", "ru": "дискуссио́нный."}]}], "source": "av-ru.1936"}
 {"word": "dissiplina", "forms": ["dissiplina"], "senses": [{"text": "дисципли́на", "labels": ["интернациональный термин"], "examples": [{"av": "dissiplina ççezabize", "ru": "устана́вливать дисципли́ну."}]}], "source": "av-ru.1936"}
 {"word": "divizija", "forms": ["divizija", "diviza", "divizijabi"], "spelling_forms": ["divizija", "diviza"], "senses": [{"text": "диви́зия", "labels": ["интернациональный термин"], "examples": [{"av": "divizi-nacaniķ", "ru": "нача́льник диви́зии."}]}], "source": "av-ru.1936"}
@@ -5611,7 +5611,7 @@
 {"word": "ştrejkbrexer", "forms": ["ştrejkbrexer", "ştrejkbrexerzabi"], "senses": [{"text": "штрейкбрéхер."}], "source": "av-ru.1936"}
 {"word": "şu", "forms": ["şu"], "senses": [{"precomment": "в нарéчии Тили́тля"}], "see_also": [{"target": "şiv", "kind": "spelling"}, {"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şu", "forms": ["şu", "şugo"], "senses": [{"text": "пять", "examples": [{"av": "şugojab", "ru": "пя́теро şujabgo пять şu-abileb пя́тый", "comment": "с местоимéниями"}, {"av": "şu-abize", "ru": "в-пя́тых şu-ⱬol пять раз"}, {"av": "şu-şu", "ru": "по пяти́."}]}], "source": "av-ru.1936"}
-{"word": "şub", "forms": ["şub"], "senses": [{"text": "росá", "examples": [{"av": "şub kkana xuribe", "ru": "роспáла нá пóле."}]}], "source": "av-ru.1936"}
+{"word": "şub", "forms": ["şub"], "senses": [{"text": "росá", "examples": [{"av": "şub kkana xuribe", "ru": "роса́ па́ла на́ по́ле."}]}], "source": "av-ru.1936"}
 {"word": "şujileb", "forms": ["şujileb", "şujil"], "spelling_forms": ["şujileb", "şujil"], "see_also": [{"target": "şu-abileb", "kind": "spelling"}, {"target": "şu", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şuķdul", "forms": ["şuķdul"], "see_also": [{"target": "şeķ", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şulat", "forms": ["şulat", "şula", "şulatab"], "spelling_forms": ["şulat", "şula"], "senses": [{"text": "крéпкий, про́чный", "examples": [{"av": "şula(t) h.", "ru": "укрепля́ть, упро́чивать."}]}], "see_also": [{"target": "şulijab", "kind": "compare"}], "source": "av-ru.1936"}
@@ -6210,7 +6210,7 @@
 {"word": "visize", "forms": ["visize"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bisize", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "vistavka", "forms": ["vistavka", "vistavkabi"], "senses": [{"text": "вы́ставка.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "viꞩꞩad", "forms": ["viꞩꞩad", "viꞩꞩat"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "biꞩꞩad", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "vişşaruxan", "forms": ["vişşaruxan", "arişşaruxabi"], "senses": [{"text": "избира́тель.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bişşize", "kind": "compare"}, {"target": "jişşaruxan", "kind": "compare"}, {"target": "rişşi", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "vişşaruxan", "forms": ["vişşaruxan", "rişşaruxabi"], "senses": [{"text": "избира́тель.", "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bişşize", "kind": "compare"}, {"target": "jişşaruxan", "kind": "compare"}, {"target": "rişşi", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "vişşize", "forms": ["vişşize"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bişşize", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "vişşun", "forms": ["vişşun"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "bişşun", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "viţize", "forms": ["viţize"], "senses": [{"comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "biţize", "kind": "see"}], "source": "av-ru.1936"}
@@ -6484,7 +6484,7 @@
 {"word": "x̨ami", "forms": ["x̨ami"], "senses": [{"text": "ру́гань, брань."}], "see_also": [{"target": "x̨amize", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "x̨amize", "forms": ["x̨amize", "x̨amana"], "senses": [{"text": "руга́ться, брани́ться."}, {"labels": ["прошедшее время"], "forms": ["x̨amana"]}], "see_also": [{"target": "x̨andaruxan", "kind": "compare"}, {"target": "x̨andeze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "x̨andarize", "forms": ["x̨andarize"], "senses": [{"labels": ["учащательная форма"]}], "see_also": [{"target": "x̨amize", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "x̨andaruxan", "forms": ["x̨andaruxan", "xandandaruxabi"], "senses": [{"text": "руга́тель"}, {"text": "скверносло́в."}], "see_also": [{"target": "x̨andarize", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "x̨andaruxan", "forms": ["x̨andaruxan", "x̨andaruxabi"], "senses": [{"text": "руга́тель"}, {"text": "скверносло́в."}], "see_also": [{"target": "x̨andarize", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "x̨andeze", "forms": ["x̨andeze"], "see_also": [{"target": "x̨amize", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "X̨argabi", "forms": ["X̨argabi"], "senses": [{"text": "Гергеби́ль", "labels": ["множественное число"], "comment": "ау́л", "examples": [{"av": "x̨argabissev, x̨argalissev", "ru": "гергеби́лец."}]}], "source": "av-ru.1936"}
 {"word": "x̨aze", "stress": 3, "forms": ["x̨aze"], "form_stresses": {"0": 3}, "senses": [{"text": "рассыпа́ть, разбра́сывать"}, {"text": "се́ять", "examples": [{"av": "haras x̨aze", "ru": "транжи́рить, промота́ть де́ньги."}]}], "see_also": [{"target": "x̨vaze", "kind": "compare"}], "source": "av-ru.1936"}
