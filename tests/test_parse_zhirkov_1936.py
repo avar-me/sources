@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from parse_zhirkov_1936 import (
     GRAMMAR, ORIGINS, ORIGIN_GLYPHS, RUSSIAN_LABELS,
-    articles, parse, structure, unaccent,
+    articles, parse, structure, unaccent, headword_spellings,
 )
 from normalize_zhirkov_1936 import CODE_ALIASES
 
@@ -29,6 +29,33 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_optional_headword_letters_become_spelling_forms(self):
+        e = entry('<b>ş(v)anţixx</b> [şvanţixxal] сло́во; şvanţixx x приме́р.')
+        self.assertEqual(e['word'], 'şvanţixx')
+        self.assertEqual(e['spelling_forms'], ['şvanţixx', 'şanţixx'])
+        self.assertEqual(e['forms'], ['şvanţixx', 'şanţixx', 'şvanţixxal'])
+        self.assertEqual(headword_spellings('bar(a)jka(t)'), ['barajkat', 'barajka', 'barjkat', 'barjka'])
+        self.assertEqual(headword_spellings('(b)iline'), ['biline', 'iline'])
+        self.assertEqual(headword_spellings('funtal (-sterling)'), ['funtal-sterling', 'funtal'])
+        self.assertEqual(headword_spellings('x̵adur(-qo)'), ['x̵adur-qo', 'x̵adur'])
+        self.assertEqual(headword_spellings('ļ(ļ)ada...'), ['ļļada...', 'ļada...'])
+
+    def test_parenthetical_abbreviation_and_damaged_heading(self):
+        e = entry('<b>Odeen (ODN)</b> r о́бщество.')
+        self.assertEqual(e['word'], 'Odeen')
+        self.assertEqual(e['spelling_forms'], ['Odeen', 'ODN'])
+        self.assertEqual(headword_spellings('piruzia)'), ['piruzia)'])
+        self.assertEqual(headword_spellings('piruz(a)'), ['piruza', 'piruz'])
+        self.assertEqual(headword_spellings('x((y))'), ['x((y))'])
+        self.assertNotIn('spelling_forms', entry('<b>x</b> (редко) сло́во.'))
+
+    def test_reference_to_expanded_heading_uses_canonical_word(self):
+        entries = parse('<!-- p010-L -->' +
+                        '<p><b>x</b> см. dal(l)ak.</p>' +
+                        '<p><b>dal(l)ak</b> сло́во.</p>')
+        self.assertEqual(entries[0]['see_also'], [{'target': 'dallak', 'kind': 'see'}])
+        self.assertEqual(entries[1]['spelling_forms'], ['dallak', 'dalak'])
+
     def test_unmarked_forms_and_explicit_case_number_gender(self):
         e = entry('<b>ab</b> [aɫ, <i>act</i> aɫ, <i>act m</i> as, <i>act pl</i> az], <b>abab*</b> э́тот.')
         self.assertEqual(e['forms'], ['ab', 'aɫ', 'as', 'az', 'abab'])
@@ -108,7 +135,7 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_optional_letters_are_not_grammatical_annotations(self):
         e = entry('<b>dal(l)ak</b> [dal(l)akal, act ṭorṣṣ(al)isa] сло́во; mix(al)çaħa длинноу́сый; qu(l)tux табаке́рка; ħam(m)ab о́бщий.')
-        self.assertEqual(e['forms'], ['dal(l)ak', 'dal(l)akal', 'ṭorṣṣ(al)isa'])
+        self.assertEqual(e['forms'], ['dallak', 'dalak', 'dal(l)akal', 'ṭorṣṣ(al)isa'])
         self.assertEqual([x['av'] for x in e['senses'][0]['examples']], ['mix(al)çaħa', 'qu(l)tux', 'ħam(m)ab'])
 
     def test_missing_separator_before_related_examples(self):
@@ -179,7 +206,7 @@ class ZhirkovParserTests(unittest.TestCase):
         es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
         self.assertFalse([f for f in audit(es) if f['cyrillic']])
         by_word = {e['word']: e for e in es}
-        self.assertTrue({'fotograf', 'majdan', 'ⱬⱬomor', 'eb', 'Bolƣarija', 'uborşşis(s)a'} <= by_word.keys())
+        self.assertTrue({'fotograf', 'majdan', 'ⱬⱬomor', 'eb', 'Bolƣarija', 'uborşşissa'} <= by_word.keys())
         self.assertIn('ebab', by_word['eb']['forms'])
         self.assertNotIn('фото́граф', json.dumps(by_word['fosfor'], ensure_ascii=False))
 
@@ -218,8 +245,11 @@ class ZhirkovParserTests(unittest.TestCase):
         allowed |= set(' '.join(RUSSIAN_LABELS).split())
         for article in raw:
             e = structure(article)
-            self.assertEqual(e['word'], article['word'])
-            original = set(re.findall(r'\w+', unaccent(article['text'])))
+            spellings = headword_spellings(article['word'])
+            self.assertEqual(e['word'], spellings[0])
+            # Optional pieces are joined into words, not lost lexical tokens.
+            normalized_source = re.sub(r'(?<!\w)' + re.escape(article['word']) + r'(?!\w)', lambda _: ' '.join(spellings), article['text'])
+            original = set(re.findall(r'\w+', unaccent(normalized_source)))
             result = set(re.findall(r'\w+', unaccent(' '.join(strings(e)))))
             missing = {t for t in original - result if t not in allowed and not re.fullmatch(r'(?:al|el|l)[1-5]', t)}
             self.assertFalse(missing, (article['word'], missing))

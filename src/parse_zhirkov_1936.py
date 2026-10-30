@@ -367,6 +367,31 @@ def inline_parts(text, word):
     return [text]
 
 
+def headword_spellings(word):
+    """Expand optional letters in a heading; never expand grammar annotations."""
+    abbreviation = re.fullmatch(r"([^()\s]+)\s+\(([A-Z]+)\)", word)
+    if abbreviation:
+        return list(abbreviation.groups())
+    if "(" not in word and ")" not in word:
+        return [word]
+    # Broken/nested parentheses need a source correction, not a guessed spelling.
+    if re.sub(r"\([^()]+\)", "", word).count("(") or re.sub(r"\([^()]+\)", "", word).count(")"):
+        return [word]
+    variants = [""]
+    end = 0
+    for match in re.finditer(r"\(([^()]+)\)", word):
+        optional = match[1]
+        if not all(c.isalpha() or c == "-" or unicodedata.combining(c) for c in optional):
+            return [word]
+        prefix = word[end:match.start()]
+        # A separated optional suffix belongs to the same spelling.
+        if optional.startswith("-"):
+            prefix = prefix.rstrip()
+        variants = [v + prefix + suffix for v in variants for suffix in (optional, "")]
+        end = match.end()
+    return unique(v + word[end:] for v in variants)
+
+
 def structure(article):
     word = article["word"]
     rest = article["text"][len(word):].strip()
@@ -525,7 +550,11 @@ def structure(article):
         if comment:
             group["comment"] = comment
         senses.append(group)
-    entry = {"word": word, "forms": unique(forms)}
+    spellings = headword_spellings(word)
+    forms = [variant for form in forms for variant in (spellings if form == word else [form])]
+    entry = {"word": spellings[0], "forms": unique(forms)}
+    if len(spellings) > 1:
+        entry["spelling_forms"] = spellings
     if senses:
         entry["senses"] = senses
     if refs:
@@ -535,7 +564,13 @@ def structure(article):
 
 
 def parse(html):
-    return [structure(article) for article in articles(html)]
+    source = articles(html)
+    entries = [structure(article) for article in source]
+    headings = {article["word"]: entry["word"] for article, entry in zip(source, entries)}
+    for entry in entries:
+        for reference in entry.get("see_also", []):
+            reference["target"] = headings.get(reference["target"], reference["target"])
+    return entries
 
 
 if __name__ == "__main__":
