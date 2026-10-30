@@ -30,6 +30,38 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_parenthetical_russian_prefix_is_part_of_word(self):
+        for prefix, base in [('на', 'про́тив'), ('воз', 'обновля́ться'), ('пере', 'ме́на')]:
+            e = entry('<b>x</b> (' + prefix + ')' + base + '.')
+            self.assertEqual(e['senses'][0]['text'], '(' + prefix + ')' + base + '.')
+            self.assertNotIn('precomment', e['senses'][0])
+        e = entry('<b>x</b> сло́во; (раз)мо́лотый.')
+        self.assertEqual(e['senses'][1]['text'], '(раз)мо́лотый.')
+
+    def test_comma_before_phrase_does_not_consume_its_first_word(self):
+        e = entry('<b>kari</b> [act karusa], karul ƣveţ ту́товое де́рево.')
+        self.assertEqual(e['forms'], ['kari', 'karusa'])
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'karul ƣveţ')
+        e = entry('<b>x</b>, y (l5) сло́во.')
+        self.assertEqual(e['forms'], ['x', 'y'])
+        self.assertEqual(e['senses'][0]['text'], 'сло́во.')
+        e = entry('<b>x</b>, y = z (ср. q).')
+        self.assertEqual(e['forms'], ['x', 'y'])
+        self.assertIn({'target': 'z', 'kind': 'spelling'}, e['see_also'])
+
+    def test_example_paradigm_is_comment_and_headword_h_is_restored(self):
+        e = entry('<b>ƶib</b> сам; ƶib-ƶib [act ƶinsa-ƶinsa] ка́ждый.')
+        ex = e['senses'][0]['examples'][0]
+        self.assertEqual(ex['av'], 'ƶib-ƶib')
+        self.assertIn('[act ƶinsa-ƶinsa]', ex['comment'])
+        self.assertEqual(entry('<b>been</b> h. удобря́ть.')['senses'][0]['examples'][0]['av'], 'been h.')
+
+    def test_separated_ending_is_not_a_search_form(self):
+        e = entry('<b>ixx</b> [pos ixxdal (-il); oxxol(il)] весна́.')
+        self.assertEqual(e['forms'], ['ixx', 'ixxdal', 'oxxol(il)'])
+        self.assertIn({'labels': ['родительный падеж'], 'forms': ['ixxdal'],
+                       'comment': 'Вариант окончания в источнике: -il'}, e['senses'])
+
     def test_subject_number_alternative_stays_in_example_translation(self):
         e = entry('<b>çaxad!</b> [çaxadal!]; beţer çaxad! да бу́дет он (бу́дут они́) здоро́в(ы)! (ср. çaxa).')
         self.assertEqual(e['forms'], ['çaxad!', 'çaxadal!'])

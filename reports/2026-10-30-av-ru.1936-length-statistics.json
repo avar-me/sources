@@ -1,0 +1,176 @@
+{
+  "before": {
+    "word": {
+      "count": 7027,
+      "min": 1,
+      "median": 6,
+      "p95": 11,
+      "p99": 13,
+      "max": 19
+    },
+    "forms": {
+      "count": 13638,
+      "min": 1,
+      "median": 7.0,
+      "p95": 11,
+      "p99": 13,
+      "max": 23
+    },
+    "target": {
+      "count": 4276,
+      "min": 2,
+      "median": 6.0,
+      "p95": 9,
+      "p99": 11,
+      "max": 14
+    },
+    "text": {
+      "count": 6263,
+      "min": 2,
+      "median": 10,
+      "p95": 28,
+      "p99": 38,
+      "max": 73
+    },
+    "comment": {
+      "count": 1181,
+      "min": 3,
+      "median": 46,
+      "p95": 47,
+      "p99": 71,
+      "max": 100
+    },
+    "labels": {
+      "count": 4000,
+      "min": 5,
+      "median": 21.0,
+      "p95": 24,
+      "p99": 24,
+      "max": 24
+    },
+    "av": {
+      "count": 2207,
+      "min": 2,
+      "median": 11,
+      "p95": 23,
+      "p99": 31,
+      "max": 62
+    },
+    "ru": {
+      "count": 2207,
+      "min": 1,
+      "median": 15,
+      "p95": 33,
+      "p99": 44,
+      "max": 80
+    },
+    "precomment": {
+      "count": 48,
+      "min": 2,
+      "median": 15.5,
+      "p95": 21,
+      "p99": 31,
+      "max": 31
+    },
+    "spelling_forms": {
+      "count": 1104,
+      "min": 2,
+      "median": 7.0,
+      "p95": 11,
+      "p99": 12,
+      "max": 15
+    }
+  },
+  "after": {
+    "word": {
+      "count": 7027,
+      "min": 1,
+      "median": 6,
+      "p95": 11,
+      "p99": 13,
+      "max": 19
+    },
+    "forms": {
+      "count": 13634,
+      "min": 1,
+      "median": 7.0,
+      "p95": 11,
+      "p99": 13,
+      "max": 19
+    },
+    "target": {
+      "count": 4295,
+      "min": 2,
+      "median": 6,
+      "p95": 9,
+      "p99": 11,
+      "max": 14
+    },
+    "text": {
+      "count": 6263,
+      "min": 2,
+      "median": 10,
+      "p95": 28,
+      "p99": 38,
+      "max": 69
+    },
+    "comment": {
+      "count": 1184,
+      "min": 3,
+      "median": 46.0,
+      "p95": 47,
+      "p99": 73,
+      "max": 100
+    },
+    "labels": {
+      "count": 4005,
+      "min": 5,
+      "median": 21,
+      "p95": 24,
+      "p99": 24,
+      "max": 24
+    },
+    "av": {
+      "count": 2209,
+      "min": 4,
+      "median": 11,
+      "p95": 23,
+      "p99": 30,
+      "max": 56
+    },
+    "ru": {
+      "count": 2209,
+      "min": 1,
+      "median": 15,
+      "p95": 32,
+      "p99": 44,
+      "max": 80
+    },
+    "precomment": {
+      "count": 41,
+      "min": 7,
+      "median": 16,
+      "p95": 29,
+      "p99": 31,
+      "max": 31
+    },
+    "spelling_forms": {
+      "count": 1104,
+      "min": 2,
+      "median": 7.0,
+      "p95": 11,
+      "p99": 12,
+      "max": 15
+    }
+  },
+  "thresholds": {
+    "word": "<=1 или >=15",
+    "av": "<=3 или >=40",
+    "ru": "<=3 или >=50",
+    "text": "<=3 или >=45",
+    "comment": "<=3 или >=75",
+    "precomment": "<=6 или >=29",
+    "target": "пробел или >=13",
+    "forms/spelling_forms/gender_forms": "пробел или >=18"
+  }
+}

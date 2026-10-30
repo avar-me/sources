@@ -98,7 +98,7 @@ GRAMMAR = {
     "adv": "деепричастие", "ger": "деепричастие",
 }
 GRAMMAR_CODES = r"act|poss|pos|dat|all|al[1-5]?|el[1-5]?|l[1-5]?|pl|m|f|perf|pr|fut|part|imp|neg|frequ|adv|ger|" + "|".join(map(re.escape, CODE_ALIASES))
-GRAMMAR_RE = re.compile(r"^(" + GRAMMAR_CODES + r")\.?($|\s+)")
+GRAMMAR_RE = re.compile(r"^(" + GRAMMAR_CODES + r")\.?($|[\s,]+)")
 REFERENCE_RE = re.compile(r"(?<!\w)(см\.|ср\.|cp\.)\s*|=+")
 
 
@@ -283,7 +283,7 @@ def extract_forms(block, forms, morphology, notes, refs):
     # Some comma separators are absent in OCR, but an explicit code still
     # unambiguously starts a labelled group after an actual form.
     items = []
-    for item in split_top(block, ","):
+    for item in [item for part in split_top(block) for item in split_top(part, ",")]:
         chunks = re.split(r"\s+(?=(?:" + GRAMMAR_CODES + r")\.?\s)", item)
         combined = ""
         for chunk in chunks:
@@ -304,6 +304,12 @@ def extract_forms(block, forms, morphology, notes, refs):
             refs.extend(form_refs)
             continue
         if qualified_forms(item, current, forms, morphology):
+            continue
+        ending = re.fullmatch(r"(\S+)\s+\((-[^()]+)\)", item)
+        if ending:
+            forms.append(ending[1])
+            morphology.append({"labels": current[:], "forms": [ending[1]],
+                               "comment": "Вариант окончания в источнике: " + ending[2]})
             continue
         # A parenthetical qualifier must not become part of a search form.
         qualifiers = []
@@ -481,6 +487,17 @@ def structure(article):
             extract_forms(rest[1:end], forms, morphology, notes, refs)
             rest = rest[end + 1:].strip()
         elif rest.startswith(","):
+            if re.match(r"\s*[aiprtарт](?=\s|,)", rest[1:]):
+                # Origin codes may themselves be comma-separated (r, p).
+                rest = rest[1:].lstrip()
+                continue
+            candidate = split_example(rest[1:].lstrip())
+            if (candidate and len(candidate[0].split()) > 1
+                    and not any(c in candidate[0] for c in ",;[]=")
+                    and not any(grammar_prefix(t.strip("()."))[1] or t in ORIGINS for t in candidate[0].split())):
+                # A comma may introduce a whole example, not another spelling.
+                rest = rest[1:].lstrip()
+                continue
             match = re.match(r",\s*([^,;\[\]\s]+(?:\([^)]*\))?)", rest)
             if match and not russian(match[1]) and match[1] not in ("=",):
                 variant = match[1].rstrip("*")
@@ -493,6 +510,12 @@ def structure(article):
                 rest = rest[1:].lstrip()
         elif rest.startswith("("):
             first = next(groups(rest), None)
+            if (first and first[0] == 0 and first[1] < len(rest)
+                    and rest[first[1]].isalpha()
+                    and re.fullmatch(r"[А-Яа-яЁё]+-?", first[2])
+                    and not annotation(first[2])):
+                # (на)против / (воз)обновляться are whole Russian words.
+                break
             if first and first[0] == 0 and referral(first[2])[0]:
                 refs.extend(referral(first[2])[0])
                 rest = rest[first[1]:].strip()
@@ -513,7 +536,7 @@ def structure(article):
                     notes.append(f"Помета источника: ({first[2]})")
                 rest = rest[first[1]:].strip()
         else:
-            match = re.match(r"([aiprtарт])(?=\s)", rest)
+            match = re.match(r"([aiprtарт])(?=\s|,)", rest)
             if match:
                 code = ORIGIN_GLYPHS.get(match[1], match[1])
                 labels.append(ORIGINS[code])
@@ -568,7 +591,13 @@ def structure(article):
         if example:
             av, ru = example
             av, example_labels, _ = strip_annotations(av)
+            av = av.rstrip(",").strip()
             ru, comments = prose_comments(ru)
+            if av == "h.":
+                av = word + " h."
+            for match in reversed(list(re.finditer(r"\[([^\[\]]+)\]", av))):
+                comments.insert(0, "Формы выражения в источнике: [" + match[1] + "]")
+                av = (av[:match.start()] + av[match.end():]).strip()
             # A final full stop may belong to the removed reference, not to
             # an already complete exclamation/question in the example.
             ru = re.sub(r"([!?])\.$", r"\1", ru)
@@ -589,7 +618,8 @@ def structure(article):
             segment, segment_labels, _ = strip_annotations(segment)
             sense = {}
             first = next(groups(segment), None)
-            if first and first[0] == 0 and any(russian(t) for t in first[2].split()):
+            if (first and first[0] == 0 and any(russian(t) for t in first[2].split())
+                    and (first[1] == len(segment) or not segment[first[1]].isalpha())):
                 sense["precomment"] = first[2]
                 segment = segment[first[1]:].strip()
             segment, comments = prose_comments(segment)
