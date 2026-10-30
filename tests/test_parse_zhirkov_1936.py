@@ -30,6 +30,24 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_subject_number_alternative_stays_in_example_translation(self):
+        e = entry('<b>çaxad!</b> [çaxadal!]; beţer çaxad! да бу́дет он (бу́дут они́) здоро́в(ы)! (ср. çaxa).')
+        self.assertEqual(e['forms'], ['çaxad!', 'çaxadal!'])
+        ex = e['senses'][0]['examples'][0]
+        self.assertEqual(ex['av'], 'beţer çaxad!')
+        self.assertEqual(ex['ru'], 'да бу́дет он (бу́дут они́) здоро́в(ы)!')
+        self.assertNotIn('comment', ex)
+        self.assertEqual(entry('<b>x</b> x y куда́? (ср. z).')['senses'][0]['examples'][0]['ru'], 'куда́?')
+
+    def test_origin_only_heading_survives_page_break_without_swallowing_footers(self):
+        es = parse('<!-- p079-L --><p><b>maħo</b> нога́.</p>'
+                   '<p><b>maħrum, maħrun</b> <i>a</i></p>'
+                   '<p><b>M</b></p><!-- p080-L --><p>лишённый.</p>')
+        self.assertEqual([e['word'] for e in es], ['maħo', 'maħrum'])
+        self.assertEqual(es[0]['senses'][0]['text'], 'нога́.')
+        self.assertEqual(es[1]['senses'][0]['text'], 'лишённый.')
+        self.assertIn('арабское происхождение', es[1]['senses'][0]['labels'])
+
     def test_form_stresses_use_local_indices_without_merging_stress_variants(self):
         e = entry('<b>meḩer</b> [múḩrul, act moḩrosa, pos muḩrúl] гора́.')
         self.assertEqual(e['forms'], ['meḩer', 'muḩrul', 'moḩrosa', 'muḩrul'])
@@ -285,7 +303,7 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_whole_source_keeps_boundaries_and_lexical_tokens(self):
         raw = articles((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
-        self.assertEqual(len(raw), 7026)
+        self.assertEqual(len(raw), 7027)
         allowed = set(GRAMMAR) | set(ORIGINS) | set(ORIGIN_GLYPHS) | set(CODE_ALIASES) | {'см', 'ср', 'cp'}
         allowed |= set(' '.join(RUSSIAN_LABELS).split())
         for article in raw:

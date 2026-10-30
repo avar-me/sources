@@ -212,7 +212,10 @@ def articles(html):
         bold = re.match(r"\s*<b>(.*?)</b>", fragment, re.S)
         # A heading and paradigm may precede the Russian gloss across a
         # column/page break; its recognition must not rely on Cyrillic OCR.
-        if not re.search(r"[А-Яа-яЁё]|=", text) and not (bold and "[" in text):
+        # A headword followed only by an italic origin code can have its gloss
+        # on the next page (maħrum). Alphabet headings/footers are not entries.
+        origin_only = bold and re.fullmatch(r"\s*<i>[aiprtарт]</i>\s*", fragment[bold.end():])
+        if not re.search(r"[А-Яа-яЁё]|=", text) and not (bold and ("[" in text or origin_only)):
             continue
         if bold:
             # OCR can place the final letter's combining mark just outside
@@ -360,6 +363,12 @@ def prose_comments(text):
     """Move standalone Russian parenthetical explanations, not optional letters."""
     comments = []
     for start, end, inner in reversed(list(groups(text))):
+        # Subject/number alternatives are grammar of the translation itself,
+        # e.g. "да будет он (будут они) здоров(ы)", not an explanation.
+        before_plain = unaccent(unicodedata.normalize("NFD", text[:start]))
+        inner_plain = unaccent(unicodedata.normalize("NFD", inner))
+        if re.search(r"\b(?:он|она|оно)\s*$", before_plain) and re.fullmatch(r"(?:будут\s+)?они", inner_plain):
+            continue
         if ((start == 0 or text[start - 1].isspace())
                 and (end == len(text) or not text[end].isalpha())
                 and any(russian(t) for t in inner.split())):
@@ -560,6 +569,9 @@ def structure(article):
             av, ru = example
             av, example_labels, _ = strip_annotations(av)
             ru, comments = prose_comments(ru)
+            # A final full stop may belong to the removed reference, not to
+            # an already complete exclamation/question in the example.
+            ru = re.sub(r"([!?])\.$", r"\1", ru)
             item = {"av": av, "ru": ru}
             if example_labels:
                 item["labels"] = example_labels
