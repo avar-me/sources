@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 """Import Zhirkov 1936 OCR HTML into the existing dictionary schema.
 
-Historical spelling, accents and OCR errors are preserved. No transliteration.
+Historical letters and OCR readings are preserved in canonical Unicode.
+Headword accents become stress metadata. No transliteration.
 See books/av-ru.1936/README.md for extraction rules and limitations.
 """
 
@@ -11,12 +12,73 @@ import unicodedata
 from html.parser import HTMLParser
 from pathlib import Path
 try:
-    from .normalize_zhirkov_1936 import CODE_ALIASES
+    from .normalize_zhirkov_1936 import CODE_ALIASES, normalize_unicode
 except ImportError:
-    from normalize_zhirkov_1936 import CODE_ALIASES
+    from normalize_zhirkov_1936 import CODE_ALIASES, normalize_unicode
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = "av-ru.1936"
+LATIN_FIELDS = {"word", "forms", "spelling_forms", "gender_forms", "av", "target", "stem"}
+
+
+def canonical_latin_fields(value):
+    """Canonicalize historical Latin only; Russian prose keeps its typography."""
+    if isinstance(value, dict):
+        return {key: canonical_latin_fields(item) if key not in LATIN_FIELDS
+                else normalize_latin_value(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [canonical_latin_fields(item) for item in value]
+    return value
+
+
+def normalize_latin_value(value):
+    if isinstance(value, str):
+        return normalize_unicode(value)
+    if isinstance(value, list):
+        return unique(normalize_latin_value(item) for item in value)
+    if isinstance(value, dict):
+        return {key: normalize_latin_value(item) for key, item in value.items()}
+    return value
+
+
+def headword_stress(word):
+    """Return NFC spelling and a one-based code-point position in that spelling."""
+    if not any(c in unicodedata.normalize("NFD", word) for c in "\u0301\u0300"):
+        return unicodedata.normalize("NFC", word), None
+    clusters = re.findall(r"[^\u0300-\u036f][\u0300-\u036f]*", unicodedata.normalize("NFD", word))
+    output, positions = "", []
+    for cluster in clusters:
+        accented = any(c in cluster for c in "\u0301\u0300")
+        clean = unicodedata.normalize("NFC", unaccent(cluster))
+        if accented:
+            if cluster[0].lower() not in "aeiou":
+                raise ValueError(f"Stress on a non-vowel in headword: {word}")
+            positions.append(len(output) + 1)
+        output += clean
+    if len(positions) > 1:
+        raise ValueError(f"Multiple stresses in headword need review: {word}")
+    return output, positions[0] if positions else None
+
+
+def extract_form_stresses(value):
+    """Preserve form order and stress distinctions even after spellings coincide."""
+    if isinstance(value, list):
+        return [extract_form_stresses(item) for item in value]
+    if not isinstance(value, dict):
+        return value
+    result = {}
+    for key, item in value.items():
+        if key != "forms":
+            result[key] = extract_form_stresses(item)
+            continue
+        converted = [headword_stress(form) for form in item]
+        result[key] = [form for form, _ in converted]
+        stresses = {str(i): stress for i, (_, stress) in enumerate(converted) if stress is not None}
+        if stresses:
+            result["form_stresses"] = stresses
+    return result
+
+
 ORIGINS = {
     "a": "арабское происхождение", "p": "персидское происхождение",
     "r": "русское происхождение", "t": "тюркское происхождение",
@@ -560,16 +622,28 @@ def structure(article):
     if refs:
         entry["see_also"] = [dict(item) for item in dict.fromkeys(tuple(r.items()) for r in refs)]
     entry["source"] = SOURCE
-    return entry
+    entry = canonical_latin_fields(entry)
+    accented = entry["word"]
+    clean, stress = headword_stress(accented)
+    if stress is not None:
+        entry = {"word": clean, "stress": stress, **{k: v for k, v in entry.items() if k != "word"}}
+        for field in ("spelling_forms",):
+            if field in entry:
+                entry[field] = unique(clean if value == accented else value for value in entry[field])
+    return extract_form_stresses(entry)
 
 
 def parse(html):
     source = articles(html)
     entries = [structure(article) for article in source]
-    headings = {article["word"]: entry["word"] for article, entry in zip(source, entries)}
+    headings = {normalize_unicode(article["word"]): entry["word"] for article, entry in zip(source, entries)}
     for entry in entries:
         for reference in entry.get("see_also", []):
-            reference["target"] = headings.get(reference["target"], reference["target"])
+            before = reference["target"]
+            reference["target"] = headings.get(before, before)
+            if reference["target"] != before and headword_stress(before)[1] is not None:
+                note = "Ударение цели в источнике: " + before
+                reference["comment"] = "; ".join(filter(None, (reference.get("comment"), note)))
     return entries
 
 

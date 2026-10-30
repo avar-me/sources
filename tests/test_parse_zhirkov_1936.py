@@ -2,13 +2,14 @@ import json
 import re
 import sys
 import unittest
+import unicodedata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from parse_zhirkov_1936 import (
     GRAMMAR, ORIGINS, ORIGIN_GLYPHS, RUSSIAN_LABELS,
-    articles, parse, structure, unaccent, headword_spellings,
+    articles, parse, structure, unaccent, headword_spellings, headword_stress,
 )
 from normalize_zhirkov_1936 import CODE_ALIASES
 
@@ -29,6 +30,50 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_form_stresses_use_local_indices_without_merging_stress_variants(self):
+        e = entry('<b>meḩer</b> [múḩrul, act moḩrosa, pos muḩrúl] гора́.')
+        self.assertEqual(e['forms'], ['meḩer', 'muḩrul', 'moḩrosa', 'muḩrul'])
+        self.assertEqual(e['form_stresses'], {'1': 2, '3': 5})
+        genitive = next(s for s in e['senses'] if s.get('labels') == ['родительный падеж'])
+        self.assertEqual(genitive['forms'], ['muḩrul'])
+        self.assertEqual(genitive['form_stresses'], {'0': 5})
+        self.assertNotIn('form_stresses', e['senses'][0])
+        self.assertNotIn('form_stresses', entry('<b>x</b> [xal] сло́во.'))
+        marked = entry('<b>búrtabi</b> сло́во.')
+        self.assertEqual(marked['form_stresses'], {'0': 2})
+
+    def test_headword_stress_is_separate_and_uses_output_character_position(self):
+        for marked in ('búrtabi', 'bu\u0301rtabi'):
+            e = entry('<b>' + marked + '</b> сло́во.')
+            self.assertEqual(e['word'], 'burtabi')
+            self.assertEqual(e['stress'], 2)
+            self.assertEqual(e['forms'], ['burtabi'])
+        self.assertEqual(headword_stress('x̨áze'), ('x̨aze', 3))
+        self.assertEqual(headword_stress('hèressici'), ('heressici', 2))
+        e = entry('<b>meḩer</b> [múḩrul, muḩrúl] гора́.')
+        self.assertEqual(e['forms'], ['meḩer', 'muḩrul', 'muḩrul'])
+        self.assertEqual(e['form_stresses'], {'1': 2, '2': 5})
+        self.assertNotIn('stress', e)
+        with self.assertRaises(ValueError):
+            headword_stress('á-á')
+
+    def test_stress_variants_remain_separate_articles_and_references_follow(self):
+        es = parse('<!-- p010-L --><p><b>búrtabi</b> см. burtábi.</p>'
+                   '<p><b>burtábi</b> сло́во.</p>')
+        self.assertEqual([e['word'] for e in es], ['burtabi', 'burtabi'])
+        self.assertEqual([e['stress'] for e in es], [2, 5])
+        self.assertEqual(es[0]['see_also'], [{'target': 'burtabi', 'kind': 'see', 'comment': 'Ударение цели в источнике: burtábi'}])
+
+    def test_canonical_unicode_is_applied_only_to_latin_fields(self):
+        e = entry('<b>ḳa</b> [ķal, ḳal] сло́во; x̌a ру́сский.')
+        self.assertEqual(e['word'], 'ķa')
+        self.assertEqual(e['forms'], ['ķa', 'ķal'])
+        self.assertEqual(e['senses'][0]['text'], 'сло́во')
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'x̵a')
+        self.assertEqual(e['senses'][0]['examples'][0]['ru'], 'ру́сский.')
+        self.assertEqual(entry('<b>x̨a</b> сло́во.')['word'], 'x̨a')
+        self.assertNotEqual(entry('<b>x̨a</b> сло́во.')['word'], e['senses'][0]['examples'][0]['av'])
+
     def test_optional_headword_letters_become_spelling_forms(self):
         e = entry('<b>ş(v)anţixx</b> [şvanţixxal] сло́во; şvanţixx x приме́р.')
         self.assertEqual(e['word'], 'şvanţixx')
@@ -67,7 +112,7 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_missing_comma_and_inherited_case(self):
         e = entry('<b>aħi</b> [aħabi, act aħusa all aħude, aħud, aħuṭe] крик.')
-        self.assertIn({'labels': ['направительный падеж'], 'forms': ['aħude', 'aħud', 'aħuṭe']}, e['senses'])
+        self.assertIn({'labels': ['направительный падеж'], 'forms': ['aħude', 'aħud', 'aħuţe']}, e['senses'])
         self.assertIn({'labels': ['эргативный падеж'], 'forms': ['aħusa']}, e['senses'])
 
     def test_origin_abbreviations(self):
@@ -135,7 +180,7 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_optional_letters_are_not_grammatical_annotations(self):
         e = entry('<b>dal(l)ak</b> [dal(l)akal, act ṭorṣṣ(al)isa] сло́во; mix(al)çaħa длинноу́сый; qu(l)tux табаке́рка; ħam(m)ab о́бщий.')
-        self.assertEqual(e['forms'], ['dallak', 'dalak', 'dal(l)akal', 'ṭorṣṣ(al)isa'])
+        self.assertEqual(e['forms'], ['dallak', 'dalak', 'dal(l)akal', 'ţorṣṣ(al)isa'])
         self.assertEqual([x['av'] for x in e['senses'][0]['examples']], ['mix(al)çaħa', 'qu(l)tux', 'ħam(m)ab'])
 
     def test_missing_separator_before_related_examples(self):
@@ -152,7 +197,7 @@ class ZhirkovParserTests(unittest.TestCase):
     def test_variant_qualifier_does_not_apply_to_whole_entry(self):
         e = entry('<b>buḳine</b>, buḳinze (ре́дко), buḳize (ре́дко) быть.')
         self.assertNotIn('labels', e['senses'][0])
-        self.assertIn({'labels': ['редко'], 'forms': ['buḳinze', 'buḳize']}, e['senses'])
+        self.assertIn({'labels': ['редко'], 'forms': ['buķinze', 'buķize']}, e['senses'])
 
     def test_ocr_case_and_origin_labels_keep_the_actual_forms(self):
         e = entry('<b>ceх̣</b> [ceх̣al, 15 coх̣onib] l живо́т.')
@@ -246,17 +291,27 @@ class ZhirkovParserTests(unittest.TestCase):
         for article in raw:
             e = structure(article)
             spellings = headword_spellings(article['word'])
-            self.assertEqual(e['word'], spellings[0])
+            self.assertEqual(e['word'], headword_stress(spellings[0])[0])
             # Optional pieces are joined into words, not lost lexical tokens.
             normalized_source = re.sub(r'(?<!\w)' + re.escape(article['word']) + r'(?!\w)', lambda _: ' '.join(spellings), article['text'])
-            original = set(re.findall(r'\w+', unaccent(normalized_source)))
-            result = set(re.findall(r'\w+', unaccent(' '.join(strings(e)))))
+            original = set(re.findall(r'\w+', unaccent(unicodedata.normalize('NFD', normalized_source))))
+            result = set(re.findall(r'\w+', unaccent(unicodedata.normalize('NFD', ' '.join(strings(e))))))
             missing = {t for t in original - result if t not in allowed and not re.fullmatch(r'(?:al|el|l)[1-5]', t)}
             self.assertFalse(missing, (article['word'], missing))
             self.assertFalse([ex for sense in e.get('senses', []) for ex in sense.get('examples', []) if not ex.get('av')])
             self.assertFalse([sense for sense in e.get('senses', []) if 'text' in sense and not sense['text']])
             self.assertEqual(e['forms'][0], e['word'])
             self.assertEqual(e['source'], 'av-ru.1936')
+            for block in [e] + e.get('senses', []):
+                for form in block.get('forms', []):
+                    self.assertFalse(any(mark in unicodedata.normalize('NFD', form) for mark in '\u0301\u0300'))
+                for index, position in block.get('form_stresses', {}).items():
+                    self.assertRegex(index, r'^(0|[1-9][0-9]*)$')
+                    self.assertLess(int(index), len(block['forms']))
+                    form = block['forms'][int(index)]
+                    self.assertGreaterEqual(position, 1)
+                    self.assertLessEqual(position, len(form))
+                    self.assertIn(form[position - 1].lower(), 'aeiou')
 
 
 if __name__ == '__main__':
