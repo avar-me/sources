@@ -8,6 +8,23 @@ from audit_zhirkov_1936_order import sort_key, inversion
 
 
 class NormalizationTests(unittest.TestCase):
+    def test_default_apply_updates_html_without_opening_archival_docx(self):
+        import tempfile
+        from unittest.mock import patch
+        import normalize_zhirkov_1936 as normalizer
+        with tempfile.TemporaryDirectory() as directory:
+            book = Path(directory)
+            html = book / "av-ru.1936.html"
+            docx = book / "av-ru.1936.docx"
+            html.write_text("<p><b>ḳa</b> перевод</p>", encoding="utf-8")
+            docx.write_bytes(b"archival snapshot; deliberately not a ZIP")
+            with patch.object(normalizer, "BOOK", book):
+                changes = normalizer.apply()
+            self.assertIn("ķa", html.read_text(encoding="utf-8"))
+            self.assertEqual(docx.read_bytes(), b"archival snapshot; deliberately not a ZIP")
+            self.assertEqual(len(changes["html"]), 1)
+            self.assertEqual(changes["docx"], [])
+
     def test_graphic_aliases_and_case(self):
         self.assertEqual(normalize_unicode("Ṭ ṭ ţ ț ṯ ṭ ṫ"), "Ţ ţ ţ ţ ţ ţ ţ")
         self.assertEqual(normalize_unicode("ḳ ķ ƙ ⱪ k̦"), "ķ ķ ķ ķ ķ")

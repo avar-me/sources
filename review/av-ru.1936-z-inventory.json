@@ -1,0 +1,7450 @@
+{
+  "date": "2026-10-30",
+  "scope": "Инвентаризация остаточных написаний с z после фильтра продуктивных окончаний. Это поисковые написания, не число ошибок. Неразмеченное в реестре не означает, что слово ошибочно или ранее не просматривалось.",
+  "productive_endings_filter": "inze|ize|eze|aze|oze|uze|zabi|zab|zeb|zabize|azul|az|zul|zatil|zatilab",
+  "fixed_rounds": [
+    {
+      "round": 1,
+      "changed_fragments": 23,
+      "scans": [
+        15,
+        16,
+        17,
+        23,
+        24,
+        27,
+        30,
+        31,
+        32,
+        44,
+        51,
+        55,
+        60,
+        72,
+        99,
+        100,
+        104,
+        116,
+        130,
+        131,
+        132
+      ]
+    },
+    {
+      "round": 2,
+      "changed_fragments": 8,
+      "scans": [
+        29,
+        33,
+        87,
+        112,
+        119,
+        128,
+        138
+      ]
+    },
+    {
+      "round": 3,
+      "changed_fragments": 31,
+      "scans": [
+        31,
+        63,
+        82,
+        83,
+        86,
+        131,
+        135,
+        139,
+        140,
+        176,
+        180,
+        181
+      ]
+    },
+    {
+      "round": 4,
+      "changed_fragments": 23,
+      "scans": [
+        11,
+        27,
+        72,
+        73,
+        117,
+        150,
+        152,
+        155,
+        161,
+        174,
+        187
+      ]
+    },
+    {
+      "round": 5,
+      "changed_fragments": 13,
+      "scans": [
+        7,
+        12,
+        14,
+        15,
+        22,
+        63,
+        84,
+        130
+      ]
+    },
+    {
+      "round": 6,
+      "changed_fragments": 29,
+      "scans": [
+        15,
+        25,
+        26,
+        35,
+        36,
+        43,
+        44,
+        70,
+        85,
+        89,
+        90,
+        92,
+        93,
+        94,
+        113,
+        118,
+        121
+      ]
+    },
+    {
+      "round": 7,
+      "changed_fragments": 25,
+      "scans": [
+        10,
+        26,
+        35,
+        38,
+        49,
+        52,
+        64,
+        70,
+        113,
+        119,
+        121,
+        131,
+        132,
+        134,
+        145
+      ]
+    },
+    {
+      "round": 8,
+      "changed_fragments": 32,
+      "scans": [
+        25,
+        26,
+        35,
+        42,
+        43,
+        53,
+        56,
+        60,
+        62,
+        64,
+        114,
+        122,
+        123
+      ]
+    },
+    {
+      "round": 9,
+      "changed_fragments": 16,
+      "scans": [
+        11,
+        12,
+        24,
+        25,
+        39,
+        81,
+        103,
+        107,
+        108,
+        128
+      ]
+    },
+    {
+      "round": 10,
+      "changed_fragments": 53,
+      "scans": [
+        10,
+        11,
+        12,
+        14,
+        16,
+        17,
+        18,
+        23,
+        29,
+        32,
+        39,
+        40,
+        46,
+        47,
+        50,
+        58,
+        63,
+        65,
+        68,
+        74,
+        76,
+        77,
+        80,
+        81,
+        87,
+        88,
+        89,
+        90,
+        91,
+        93,
+        95,
+        96,
+        98,
+        99,
+        110,
+        117,
+        119,
+        120,
+        123,
+        132,
+        133,
+        134
+      ]
+    },
+    {
+      "round": 11,
+      "changed_fragments": 45,
+      "scans": [
+        16,
+        30,
+        33,
+        36,
+        39,
+        41,
+        49,
+        53,
+        54,
+        59,
+        72,
+        80,
+        83,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        93,
+        96,
+        97,
+        112,
+        118,
+        124,
+        128,
+        132,
+        133
+      ]
+    },
+    {
+      "round": 12,
+      "changed_fragments": 10,
+      "scans": [
+        33,
+        41,
+        57,
+        69,
+        72,
+        73,
+        99,
+        132
+      ]
+    },
+    {
+      "round": 13,
+      "changed_fragments": 7,
+      "scans": [
+        149,
+        150,
+        151,
+        168
+      ]
+    },
+    {
+      "round": 14,
+      "changed_fragments": 16,
+      "scans": [
+        27,
+        88,
+        89,
+        115,
+        174
+      ]
+    },
+    {
+      "round": 15,
+      "changed_fragments": 9,
+      "scans": [
+        46,
+        47,
+        66,
+        96,
+        108
+      ]
+    },
+    {
+      "round": 16,
+      "changed_fragments": 4,
+      "scans": [
+        19,
+        101
+      ]
+    },
+    {
+      "round": 17,
+      "changed_fragments": 4,
+      "scans": [
+        147,
+        148
+      ]
+    },
+    {
+      "round": 18,
+      "changed_fragments": 5,
+      "scans": [
+        41,
+        50,
+        188
+      ]
+    },
+    {
+      "round": 19,
+      "changed_fragments": 2,
+      "scans": [
+        104,
+        112
+      ]
+    },
+    {
+      "round": 20,
+      "changed_fragments": 20,
+      "scans": [
+        178
+      ]
+    },
+    {
+      "round": 21,
+      "changed_fragments": 1,
+      "scans": [
+        44
+      ]
+    },
+    {
+      "round": 22,
+      "changed_fragments": 8,
+      "scans": [
+        5,
+        8,
+        23,
+        163,
+        172,
+        182
+      ]
+    }
+  ],
+  "inventory": [
+    {
+      "token": "Abxazija",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "Alazan",
+      "scans": [
+        11
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        11
+      ]
+    },
+    {
+      "token": "Azarbajƶan",
+      "scans": [
+        14,
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14,
+        90
+      ]
+    },
+    {
+      "token": "Azija",
+      "scans": [
+        13,
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        13,
+        14
+      ]
+    },
+    {
+      "token": "Daranbazaraļul",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "Frunze",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "Ganza",
+      "scans": [
+        188
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        188
+      ]
+    },
+    {
+      "token": "Grozni",
+      "scans": [
+        43,
+        114
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        43,
+        114
+      ]
+    },
+    {
+      "token": "Izmur",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [
+        64
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "Kizljar",
+      "scans": [
+        68
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        68
+      ]
+    },
+    {
+      "token": "Labazan",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "Labazanisa",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "Maƶuz",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "Orƶonikidze",
+      "scans": [
+        89
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        89
+      ]
+    },
+    {
+      "token": "Parizalul",
+      "scans": [
+        69
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69
+      ]
+    },
+    {
+      "token": "Qazan",
+      "scans": [
+        97
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        97
+      ]
+    },
+    {
+      "token": "Qirƣizistan",
+      "scans": [
+        98
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        98
+      ]
+    },
+    {
+      "token": "Uzbekistan",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "Xxunz",
+      "scans": [
+        171
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        171
+      ]
+    },
+    {
+      "token": "Xxunzax",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "Xxunzderisa",
+      "scans": [
+        171
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        171
+      ]
+    },
+    {
+      "token": "Z",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "Zakatal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "Zaqavqazija",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "Zz",
+      "scans": [
+        147
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        147
+      ]
+    },
+    {
+      "token": "abizesseb",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "absoljutizm",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "abxazijab",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "abzar",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "abzaral",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "abzas",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "abzasal",
+      "scans": [
+        7
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7
+      ]
+    },
+    {
+      "token": "aksiz",
+      "scans": [
+        11
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        11
+      ]
+    },
+    {
+      "token": "aksizal",
+      "scans": [
+        11
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        11
+      ]
+    },
+    {
+      "token": "amortizasija",
+      "scans": [
+        11
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        11
+      ]
+    },
+    {
+      "token": "anarxizm",
+      "scans": [
+        11
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        11
+      ]
+    },
+    {
+      "token": "antisemitizm",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "antropomorfizm",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "anzgo",
+      "scans": [
+        73,
+        74,
+        77,
+        111,
+        125,
+        178
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        73,
+        74,
+        77,
+        111,
+        125,
+        178
+      ]
+    },
+    {
+      "token": "apserzaħi",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "artezian",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "arxaizm",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "arxaizmal",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "arxaizmijab",
+      "scans": [
+        12
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        12
+      ]
+    },
+    {
+      "token": "arz",
+      "scans": [
+        13
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        13
+      ]
+    },
+    {
+      "token": "arzal",
+      "scans": [
+        13
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        13
+      ]
+    },
+    {
+      "token": "ateizm",
+      "scans": [
+        13
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        13
+      ]
+    },
+    {
+      "token": "avanturizm",
+      "scans": [
+        13
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        13
+      ]
+    },
+    {
+      "token": "avuz",
+      "scans": [
+        10,
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        10,
+        14
+      ]
+    },
+    {
+      "token": "avuzal",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "axbazam",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "axbazan",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "axbazanal",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azal",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azalijab",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azar",
+      "scans": [
+        14,
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14,
+        23
+      ]
+    },
+    {
+      "token": "azarabgo",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azaral",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azaralda",
+      "scans": [
+        178
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        178
+      ]
+    },
+    {
+      "token": "azarbaj",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azargo",
+      "scans": [
+        14,
+        178
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14,
+        178
+      ]
+    },
+    {
+      "token": "azargojab",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azbar",
+      "scans": [
+        7,
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        7,
+        14
+      ]
+    },
+    {
+      "token": "azbaral",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azesseb",
+      "scans": [
+        184
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        184
+      ]
+    },
+    {
+      "token": "azijab",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azin",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azine",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "aznaur",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "aznaurļi",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "azot",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "aƣazal",
+      "scans": [
+        10
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        10
+      ]
+    },
+    {
+      "token": "aƣuz",
+      "scans": [
+        10,
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        10,
+        14
+      ]
+    },
+    {
+      "token": "aƣuzal",
+      "scans": [
+        10
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        10
+      ]
+    },
+    {
+      "token": "aƶuz",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "bandazu",
+      "scans": [
+        17
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        17
+      ]
+    },
+    {
+      "token": "baza",
+      "scans": [
+        38
+      ],
+      "confirmed_printed_z_scans": [
+        38
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "bazar",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazaral",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazargabi",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazargan",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazaļ",
+      "scans": [
+        166
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        166
+      ]
+    },
+    {
+      "token": "bazijab",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazis",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "bazisa",
+      "scans": [
+        166
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        166
+      ]
+    },
+    {
+      "token": "baħarzal",
+      "scans": [
+        15
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        15
+      ]
+    },
+    {
+      "token": "benzin",
+      "scans": [
+        20
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        20
+      ]
+    },
+    {
+      "token": "berzu",
+      "scans": [
+        20
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        20
+      ]
+    },
+    {
+      "token": "berzuq",
+      "scans": [
+        20
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        20
+      ]
+    },
+    {
+      "token": "berzuqab",
+      "scans": [
+        20
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        20
+      ]
+    },
+    {
+      "token": "bez",
+      "scans": [
+        24
+      ],
+      "confirmed_printed_z_scans": [
+        24
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "bezļun",
+      "scans": [
+        180
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        180
+      ]
+    },
+    {
+      "token": "bizam",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bizan",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bjurokratizm",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bogoruqzal",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bolzal",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bolzalal",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "bolzalalde",
+      "scans": [
+        23,
+        141
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23,
+        141
+      ]
+    },
+    {
+      "token": "bolşevizm",
+      "scans": [
+        23
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23
+      ]
+    },
+    {
+      "token": "boz",
+      "scans": [
+        24
+      ],
+      "confirmed_printed_z_scans": [
+        24
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "bozil",
+      "scans": [
+        24
+      ],
+      "confirmed_printed_z_scans": [
+        24
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "budizm",
+      "scans": [
+        25
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        25
+      ]
+    },
+    {
+      "token": "ccujze",
+      "scans": [
+        29,
+        162
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        29,
+        162
+      ]
+    },
+    {
+      "token": "danderizi",
+      "scans": [
+        35
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35
+      ]
+    },
+    {
+      "token": "darvinizm",
+      "scans": [
+        35
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35
+      ]
+    },
+    {
+      "token": "darzi",
+      "scans": [
+        35
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35
+      ]
+    },
+    {
+      "token": "darzijal",
+      "scans": [
+        35
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35
+      ]
+    },
+    {
+      "token": "dazdanija",
+      "scans": [
+        35,
+        37
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35,
+        37
+      ]
+    },
+    {
+      "token": "dazdanijabi",
+      "scans": [
+        35
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35
+      ]
+    },
+    {
+      "token": "depozit",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "depozital",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "derzi",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "derzijal",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "determinizm",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dezertir",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dezertiral",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dezertirli",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dezinfeksija",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "diagnoz",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "diagnozal",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dinsiz",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "diviz",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "divizi",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "divizijabi",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "divizijon",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "divizijonal",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dizel",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "dizelal",
+      "scans": [
+        36
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36
+      ]
+    },
+    {
+      "token": "doz",
+      "scans": [
+        37,
+        47,
+        175
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        37,
+        47,
+        175
+      ]
+    },
+    {
+      "token": "dozal",
+      "scans": [
+        37
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        37
+      ]
+    },
+    {
+      "token": "dozaquz",
+      "scans": [
+        43
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        43
+      ]
+    },
+    {
+      "token": "dozda",
+      "scans": [
+        175
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        175
+      ]
+    },
+    {
+      "token": "doznanije",
+      "scans": [
+        35,
+        37
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35,
+        37
+      ]
+    },
+    {
+      "token": "dozulab",
+      "scans": [
+        37
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        37
+      ]
+    },
+    {
+      "token": "dozux",
+      "scans": [
+        175
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        175
+      ]
+    },
+    {
+      "token": "dualizm",
+      "scans": [
+        37
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        37
+      ]
+    },
+    {
+      "token": "enze",
+      "scans": [
+        185
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        185
+      ]
+    },
+    {
+      "token": "erkenļizaji",
+      "scans": [
+        39
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        39
+      ]
+    },
+    {
+      "token": "ez",
+      "scans": [
+        38,
+        39
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        38,
+        39
+      ]
+    },
+    {
+      "token": "ezesseb",
+      "scans": [
+        185
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        185
+      ]
+    },
+    {
+      "token": "fabzavkom",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "fabzavkomal",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "feodalizm",
+      "scans": [
+        40,
+        182
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40,
+        182
+      ]
+    },
+    {
+      "token": "fizkultura",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "fizkulturcaħi",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "fizkulturci",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "fizkulturijab",
+      "scans": [
+        40
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        40
+      ]
+    },
+    {
+      "token": "garnizon",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "garnizonal",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "garzin",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "garzine",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gaza",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [
+        41
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gazal",
+      "scans": [
+        41,
+        43
+      ],
+      "confirmed_printed_z_scans": [
+        41,
+        43
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gazargabi",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazargo",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazarƣabi",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazarƣo",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazet",
+      "scans": [
+        41,
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41,
+        67
+      ]
+    },
+    {
+      "token": "gazetal",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazetalda",
+      "scans": [
+        77
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        77
+      ]
+    },
+    {
+      "token": "gazgazada",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazgazal",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "gazgazde",
+      "scans": [
+        41
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        41
+      ]
+    },
+    {
+      "token": "geodezija",
+      "scans": [
+        42
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        42
+      ]
+    },
+    {
+      "token": "germez",
+      "scans": [
+        42
+      ],
+      "confirmed_printed_z_scans": [
+        42
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gezma",
+      "scans": [
+        42
+      ],
+      "confirmed_printed_z_scans": [
+        42
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gipnotizm",
+      "scans": [
+        42
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        42
+      ]
+    },
+    {
+      "token": "gipnoz",
+      "scans": [
+        42
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        42
+      ]
+    },
+    {
+      "token": "gorizont",
+      "scans": [
+        43
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        43
+      ]
+    },
+    {
+      "token": "goz",
+      "scans": [
+        37,
+        43,
+        47
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        37,
+        43,
+        47
+      ]
+    },
+    {
+      "token": "gozal",
+      "scans": [
+        43
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        43
+      ]
+    },
+    {
+      "token": "gozo",
+      "scans": [
+        43
+      ],
+      "confirmed_printed_z_scans": [
+        43
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gumanizm",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gunzarabi",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gunzari",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gunzaridal",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gunzaridul",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gurenzal",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [
+        44
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "guzbi",
+      "scans": [
+        41,
+        43
+      ],
+      "confirmed_printed_z_scans": [
+        41,
+        43
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gvanz",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [
+        44
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gvanzic",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [
+        44
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gvanzical",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "gvanzuc",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [
+        44
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "gvanzucal",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "habizi",
+      "scans": [
+        150
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        150
+      ]
+    },
+    {
+      "token": "halmaqzabasa",
+      "scans": [
+        173
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        173
+      ]
+    },
+    {
+      "token": "hanz",
+      "scans": [
+        180
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        180
+      ]
+    },
+    {
+      "token": "harazi",
+      "scans": [
+        49,
+        52
+      ],
+      "confirmed_printed_z_scans": [
+        49,
+        52
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "harza",
+      "scans": [
+        49
+      ],
+      "confirmed_printed_z_scans": [
+        49
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "harzajab",
+      "scans": [
+        49
+      ],
+      "confirmed_printed_z_scans": [
+        49
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "heressiççuzu",
+      "scans": [
+        50
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        50
+      ]
+    },
+    {
+      "token": "hez",
+      "scans": [
+        49,
+        50
+      ],
+      "confirmed_printed_z_scans": [
+        49,
+        50
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "hodulzaji",
+      "scans": [
+        51
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        51
+      ]
+    },
+    {
+      "token": "idealizm",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        62
+      ]
+    },
+    {
+      "token": "imperializm",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        62
+      ]
+    },
+    {
+      "token": "imperializmaļul",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        62
+      ]
+    },
+    {
+      "token": "infuzor",
+      "scans": [
+        63
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        63
+      ]
+    },
+    {
+      "token": "infuzoral",
+      "scans": [
+        63
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        63
+      ]
+    },
+    {
+      "token": "ingiliz",
+      "scans": [
+        63
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        63
+      ]
+    },
+    {
+      "token": "iz",
+      "scans": [
+        160
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        160
+      ]
+    },
+    {
+      "token": "izbac",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izbacal",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izbacitalnabi",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izbacitalni",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izbocik",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izbocikal",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izesseb",
+      "scans": [
+        185
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        185
+      ]
+    },
+    {
+      "token": "izin",
+      "scans": [
+        156
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        156
+      ]
+    },
+    {
+      "token": "izmur",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [
+        64
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "iznabi",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izno",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "iznu",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izvoşş",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "izvoşşik",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "janƣiz",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "jazixab",
+      "scans": [
+        65
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        65
+      ]
+    },
+    {
+      "token": "jazixal",
+      "scans": [
+        65
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        65
+      ]
+    },
+    {
+      "token": "jazix̵",
+      "scans": [
+        65
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        65
+      ]
+    },
+    {
+      "token": "jaƣzijat",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "jaƣzijatal",
+      "scans": [
+        64
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        64
+      ]
+    },
+    {
+      "token": "jez",
+      "scans": [
+        65,
+        106
+      ],
+      "confirmed_printed_z_scans": [
+        65,
+        106
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "jezisa",
+      "scans": [
+        65
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        65
+      ]
+    },
+    {
+      "token": "kapitalizm",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "karzinka",
+      "scans": [
+        8,
+        67,
+        182
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        8,
+        67,
+        182
+      ]
+    },
+    {
+      "token": "karzinkabi",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "kazarma",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "kazarmabi",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "kazet",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "kazijat",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "kazu",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "ketoruz",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [
+        109
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "klizma",
+      "scans": [
+        69
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69
+      ]
+    },
+    {
+      "token": "klizmabi",
+      "scans": [
+        69
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69
+      ]
+    },
+    {
+      "token": "kolxoz",
+      "scans": [
+        69,
+        182
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69,
+        182
+      ]
+    },
+    {
+      "token": "kolxozal",
+      "scans": [
+        69
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69
+      ]
+    },
+    {
+      "token": "kolxoznik",
+      "scans": [
+        69
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        69
+      ]
+    },
+    {
+      "token": "kommunizm",
+      "scans": [
+        70
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        70
+      ]
+    },
+    {
+      "token": "komvuz",
+      "scans": [
+        70
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        70
+      ]
+    },
+    {
+      "token": "komvuzal",
+      "scans": [
+        70
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        70
+      ]
+    },
+    {
+      "token": "kutuz",
+      "scans": [
+        173
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        173
+      ]
+    },
+    {
+      "token": "kvenze",
+      "scans": [
+        72
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        72
+      ]
+    },
+    {
+      "token": "laqzaderisa",
+      "scans": [
+        172
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        172
+      ]
+    },
+    {
+      "token": "laqzal",
+      "scans": [
+        172
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        172
+      ]
+    },
+    {
+      "token": "lazgi",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "lazgijab",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "lazgijav",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "lazza",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [
+        76
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "lazzat",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [
+        76
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "lazzatab",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [
+        76
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "lazzatal",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [
+        76
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "laħza",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "laħzatal",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "laƣzaderisa",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "laƣzal",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "leninizm",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "lezissa",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [
+        76
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "lozung",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "lozungal",
+      "scans": [
+        76
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        76
+      ]
+    },
+    {
+      "token": "magazin",
+      "scans": [
+        79
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        79
+      ]
+    },
+    {
+      "token": "magazinal",
+      "scans": [
+        79
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        79
+      ]
+    },
+    {
+      "token": "magzi",
+      "scans": [
+        79
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        79
+      ]
+    },
+    {
+      "token": "magzisa",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "malataħzir",
+      "scans": [
+        80
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        80
+      ]
+    },
+    {
+      "token": "manzara",
+      "scans": [
+        121
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        121
+      ]
+    },
+    {
+      "token": "manzil",
+      "scans": [
+        81
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        81
+      ]
+    },
+    {
+      "token": "manzilal",
+      "scans": [
+        81
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        81
+      ]
+    },
+    {
+      "token": "markazijab",
+      "scans": [
+        81
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        81
+      ]
+    },
+    {
+      "token": "marksizm",
+      "scans": [
+        81
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        81
+      ]
+    },
+    {
+      "token": "marzil",
+      "scans": [
+        81
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        81
+      ]
+    },
+    {
+      "token": "materializm",
+      "scans": [
+        36,
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36,
+        82
+      ]
+    },
+    {
+      "token": "maxrazal",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "mazalijav",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "mazhab",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "mazhabal",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "mazilijav",
+      "scans": [
+        82
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        82
+      ]
+    },
+    {
+      "token": "maḩarzuqalal",
+      "scans": [
+        80
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        80
+      ]
+    },
+    {
+      "token": "maḩarzuqali",
+      "scans": [
+        80
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        80
+      ]
+    },
+    {
+      "token": "megez",
+      "scans": [
+        79,
+        82,
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        79,
+        82,
+        85
+      ]
+    },
+    {
+      "token": "mirzaj",
+      "scans": [
+        84
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        84
+      ]
+    },
+    {
+      "token": "monarxizm",
+      "scans": [
+        84
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        84
+      ]
+    },
+    {
+      "token": "mozoro",
+      "scans": [
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        85
+      ]
+    },
+    {
+      "token": "mozral",
+      "scans": [
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        85
+      ]
+    },
+    {
+      "token": "mozrisa",
+      "scans": [
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        85
+      ]
+    },
+    {
+      "token": "muzej",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "muzejal",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "muzika",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "muzikacahi",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "muzikci",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "muƣzal",
+      "scans": [
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        85
+      ]
+    },
+    {
+      "token": "muƣzasa",
+      "scans": [
+        85
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        85
+      ]
+    },
+    {
+      "token": "nadziratilal",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "nazbarişş",
+      "scans": [
+        87
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        87
+      ]
+    },
+    {
+      "token": "nazbarişşal",
+      "scans": [
+        87
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        87
+      ]
+    },
+    {
+      "token": "nazikab",
+      "scans": [
+        87
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        87
+      ]
+    },
+    {
+      "token": "nizam",
+      "scans": [
+        23,
+        57,
+        88
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23,
+        57,
+        88
+      ]
+    },
+    {
+      "token": "nizamal",
+      "scans": [
+        88
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        88
+      ]
+    },
+    {
+      "token": "nizamijab",
+      "scans": [
+        88
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        88
+      ]
+    },
+    {
+      "token": "nizan",
+      "scans": [
+        88
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        88
+      ]
+    },
+    {
+      "token": "nuħzal",
+      "scans": [
+        88
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        88
+      ]
+    },
+    {
+      "token": "ojze",
+      "scans": [
+        163
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        163
+      ]
+    },
+    {
+      "token": "organizasija",
+      "scans": [
+        61,
+        89
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        61,
+        89
+      ]
+    },
+    {
+      "token": "organizasijabi",
+      "scans": [
+        89
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        89
+      ]
+    },
+    {
+      "token": "ozden",
+      "scans": [
+        89,
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        89,
+        126
+      ]
+    },
+    {
+      "token": "ozdenal",
+      "scans": [
+        89
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        89
+      ]
+    },
+    {
+      "token": "ozdenav",
+      "scans": [
+        89
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        89
+      ]
+    },
+    {
+      "token": "ozesseb",
+      "scans": [
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        186
+      ]
+    },
+    {
+      "token": "panduz",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "panduzal",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "panturkizm",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "panz",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [
+        90
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "panzal",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [
+        90
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "panzisa",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [
+        90
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "papiruz",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "papiruzal",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "papuruz",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "papuruzal",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "paransuzav",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "parazit",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "parazital",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "parlamentarizm",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "parovoz",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "parovozal",
+      "scans": [
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        91
+      ]
+    },
+    {
+      "token": "pazal",
+      "scans": [
+        92
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        92
+      ]
+    },
+    {
+      "token": "pazisa",
+      "scans": [
+        92
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        92
+      ]
+    },
+    {
+      "token": "paꞩifizm",
+      "scans": [
+        92
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        92
+      ]
+    },
+    {
+      "token": "pessimizm",
+      "scans": [
+        92
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        92
+      ]
+    },
+    {
+      "token": "pirkazal",
+      "scans": [
+        93
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        93
+      ]
+    },
+    {
+      "token": "piruzal",
+      "scans": [
+        93
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        93
+      ]
+    },
+    {
+      "token": "piruzia",
+      "scans": [
+        93
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        93
+      ]
+    },
+    {
+      "token": "politexnizm",
+      "scans": [
+        93
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        93
+      ]
+    },
+    {
+      "token": "pozitivist",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "pozitivizm",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "prezident",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "prezidental",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "prezidium",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "prezidiumal",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "profsojuz",
+      "scans": [
+        68,
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        68,
+        94
+      ]
+    },
+    {
+      "token": "profsojuzal",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "protoplazma",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "pujze",
+      "scans": [
+        94,
+        95,
+        117
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94,
+        95,
+        117
+      ]
+    },
+    {
+      "token": "qanza",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qanzadul",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qarpuz",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qarpuzal",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qarz",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qarzal",
+      "scans": [
+        96
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        96
+      ]
+    },
+    {
+      "token": "qazmil",
+      "scans": [
+        98
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        98
+      ]
+    },
+    {
+      "token": "qez",
+      "scans": [
+        25
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        25
+      ]
+    },
+    {
+      "token": "qirƣiz",
+      "scans": [
+        98
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        98
+      ]
+    },
+    {
+      "token": "qirƣizav",
+      "scans": [
+        98
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        98
+      ]
+    },
+    {
+      "token": "quzdul",
+      "scans": [
+        44
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        44
+      ]
+    },
+    {
+      "token": "razi",
+      "scans": [
+        104
+      ],
+      "confirmed_printed_z_scans": [
+        104
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "razijab",
+      "scans": [
+        104
+      ],
+      "confirmed_printed_z_scans": [
+        104
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "raziļi",
+      "scans": [
+        104
+      ],
+      "confirmed_printed_z_scans": [
+        104
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "razvedka",
+      "scans": [
+        70
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        70
+      ]
+    },
+    {
+      "token": "reformizm",
+      "scans": [
+        104
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        104
+      ]
+    },
+    {
+      "token": "revizija",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106
+      ]
+    },
+    {
+      "token": "revizijabi",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106
+      ]
+    },
+    {
+      "token": "rez",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [
+        106
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "rezina",
+      "scans": [
+        106,
+        110
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106,
+        110
+      ]
+    },
+    {
+      "token": "rezisa",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [
+        106
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "rezolusija",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106
+      ]
+    },
+    {
+      "token": "rezolusijabi",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106
+      ]
+    },
+    {
+      "token": "rihzal",
+      "scans": [
+        106
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        106
+      ]
+    },
+    {
+      "token": "riz",
+      "scans": [
+        107
+      ],
+      "confirmed_printed_z_scans": [
+        107
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "rizil",
+      "scans": [
+        75
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        75
+      ]
+    },
+    {
+      "token": "rizli",
+      "scans": [
+        107
+      ],
+      "confirmed_printed_z_scans": [
+        107
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ruqz",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109
+      ]
+    },
+    {
+      "token": "ruqzal",
+      "scans": [
+        109,
+        151
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109,
+        151
+      ]
+    },
+    {
+      "token": "ruz",
+      "scans": [
+        68,
+        109
+      ],
+      "confirmed_printed_z_scans": [
+        68,
+        109
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ruzal",
+      "scans": [
+        68
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        68
+      ]
+    },
+    {
+      "token": "ruzisa",
+      "scans": [
+        68,
+        109
+      ],
+      "confirmed_printed_z_scans": [
+        68,
+        109
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ruzma",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109
+      ]
+    },
+    {
+      "token": "ruzmal",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109
+      ]
+    },
+    {
+      "token": "ruzman",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109
+      ]
+    },
+    {
+      "token": "sjezd",
+      "scans": [
+        111
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        111
+      ]
+    },
+    {
+      "token": "sjezdal",
+      "scans": [
+        111
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        111
+      ]
+    },
+    {
+      "token": "sojuz",
+      "scans": [
+        111
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        111
+      ]
+    },
+    {
+      "token": "sojuzal",
+      "scans": [
+        111
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        111
+      ]
+    },
+    {
+      "token": "sosializm",
+      "scans": [
+        111
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        111
+      ]
+    },
+    {
+      "token": "ssojze",
+      "scans": [
+        112
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        112
+      ]
+    },
+    {
+      "token": "ssujze",
+      "scans": [
+        113
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        113
+      ]
+    },
+    {
+      "token": "ssussujze",
+      "scans": [
+        113
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        113
+      ]
+    },
+    {
+      "token": "ssvenze",
+      "scans": [
+        113
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        113
+      ]
+    },
+    {
+      "token": "taħzir",
+      "scans": [
+        80,
+        118
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        80,
+        118
+      ]
+    },
+    {
+      "token": "taħziral",
+      "scans": [
+        118
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        118
+      ]
+    },
+    {
+      "token": "tirmazal",
+      "scans": [
+        119
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        119
+      ]
+    },
+    {
+      "token": "tuberkuljoz",
+      "scans": [
+        182
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        182
+      ]
+    },
+    {
+      "token": "tujze",
+      "scans": [
+        54,
+        120,
+        121,
+        162
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        54,
+        120,
+        121,
+        162
+      ]
+    },
+    {
+      "token": "tutujze",
+      "scans": [
+        120
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        120
+      ]
+    },
+    {
+      "token": "ucuz",
+      "scans": [
+        125
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        125
+      ]
+    },
+    {
+      "token": "ucuzļi",
+      "scans": [
+        125
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        125
+      ]
+    },
+    {
+      "token": "ujze",
+      "scans": [
+        162,
+        163,
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        162,
+        163,
+        186
+      ]
+    },
+    {
+      "token": "ujzesseb",
+      "scans": [
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        186
+      ]
+    },
+    {
+      "token": "ulzal",
+      "scans": [
+        131
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        131
+      ]
+    },
+    {
+      "token": "unzal",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "urzal",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "ux̵ççuzu",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "uzbek",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "uzbekal",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "uzden",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "uzdeng",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "uzdengal",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "uzesseb",
+      "scans": [
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        186
+      ]
+    },
+    {
+      "token": "uzu",
+      "scans": [
+        153
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        153
+      ]
+    },
+    {
+      "token": "vazgal",
+      "scans": [
+        127,
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        127,
+        128
+      ]
+    },
+    {
+      "token": "vazgalal",
+      "scans": [
+        127
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        127
+      ]
+    },
+    {
+      "token": "vazipa",
+      "scans": [
+        127
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        127
+      ]
+    },
+    {
+      "token": "vazipabi",
+      "scans": [
+        127
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        127
+      ]
+    },
+    {
+      "token": "vaḩzo",
+      "scans": [
+        126
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        126
+      ]
+    },
+    {
+      "token": "venze",
+      "scans": [
+        156,
+        162
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        156,
+        162
+      ]
+    },
+    {
+      "token": "vezesseb",
+      "scans": [
+        187
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        187
+      ]
+    },
+    {
+      "token": "vogzal",
+      "scans": [
+        127,
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        127,
+        128
+      ]
+    },
+    {
+      "token": "vogzalabi",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "vogzalal",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "vznos",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "vznosal",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "vzvod",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "vzvodal",
+      "scans": [
+        128
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128
+      ]
+    },
+    {
+      "token": "xabzal",
+      "scans": [
+        128,
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        128,
+        130
+      ]
+    },
+    {
+      "token": "xamiz",
+      "scans": [
+        129
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        129
+      ]
+    },
+    {
+      "token": "xarz",
+      "scans": [
+        129
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        129
+      ]
+    },
+    {
+      "token": "xarzal",
+      "scans": [
+        129
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        129
+      ]
+    },
+    {
+      "token": "xazax",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "xojze",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xozajstva",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xozajstvabi",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xozrascot",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xulzal",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xunzal",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xurzal",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xuzahin",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xvazahin",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xvazajin",
+      "scans": [
+        130
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130
+      ]
+    },
+    {
+      "token": "xverzabuna",
+      "scans": [
+        110
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        110
+      ]
+    },
+    {
+      "token": "xxujze",
+      "scans": [
+        131
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        131
+      ]
+    },
+    {
+      "token": "xxulzal",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "xxunz",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "xxunzal",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "xxunzax",
+      "scans": [
+        171
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        171
+      ]
+    },
+    {
+      "token": "xxunzaxev",
+      "scans": [
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        132
+      ]
+    },
+    {
+      "token": "xxurzal",
+      "scans": [
+        130,
+        131,
+        132
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        130,
+        131,
+        132
+      ]
+    },
+    {
+      "token": "x̵arbuz",
+      "scans": [
+        134
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        134
+      ]
+    },
+    {
+      "token": "x̵arbuzal",
+      "scans": [
+        134
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        134
+      ]
+    },
+    {
+      "token": "x̵azal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azallojav",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azam",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azamal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azan",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azanal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azax",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "x̵azax̵",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azax̵al",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azix̵",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azix̵al",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵azmisa",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵aznisa",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵izam",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵izamal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵izan",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵izanal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵ojze",
+      "scans": [
+        135,
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135,
+        136
+      ]
+    },
+    {
+      "token": "x̵umuz",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵umuzal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵unzal",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "x̵uzxul",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "x̵uzx̵ul",
+      "scans": [
+        135
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        135
+      ]
+    },
+    {
+      "token": "z",
+      "scans": [
+        5,
+        60,
+        137,
+        141,
+        148,
+        172,
+        187
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        5,
+        60,
+        137,
+        141,
+        148,
+        172,
+        187
+      ]
+    },
+    {
+      "token": "za",
+      "scans": [
+        170
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        170
+      ]
+    },
+    {
+      "token": "zaban",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zabanal",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zabastovka",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zabastovkabi",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zabastovkajal",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zadul",
+      "scans": [
+        125
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        125
+      ]
+    },
+    {
+      "token": "zadval",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zags",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahir",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahirab",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahirļi",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahrabi",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahrijab",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zahro",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zajdan",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zajdanal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zajip",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zajipab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zakat",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zakaznoj",
+      "scans": [
+        66,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        66,
+        137
+      ]
+    },
+    {
+      "token": "zakon",
+      "scans": [
+        23,
+        105,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        23,
+        105,
+        137
+      ]
+    },
+    {
+      "token": "zakonal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zakuska",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zakuskabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zal",
+      "scans": [
+        137,
+        187
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137,
+        187
+      ]
+    },
+    {
+      "token": "zalal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalim",
+      "scans": [
+        137,
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137,
+        138
+      ]
+    },
+    {
+      "token": "zalimab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalin",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalinab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalog",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalogal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalp",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalpal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalum",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zalun",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaman",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        62
+      ]
+    },
+    {
+      "token": "zamana",
+      "scans": [
+        39,
+        136,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        39,
+        136,
+        137
+      ]
+    },
+    {
+      "token": "zamanabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zamanajat",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zamanal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zamanijab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zanal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zanderek",
+      "scans": [
+        35,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        35,
+        137
+      ]
+    },
+    {
+      "token": "zangaj",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zangajal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zani",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zanisa",
+      "scans": [
+        102
+      ],
+      "confirmed_printed_z_scans": [
+        102
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "zapass",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zapassal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaq",
+      "scans": [
+        52
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        52
+      ]
+    },
+    {
+      "token": "zaqal",
+      "scans": [
+        32
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        32
+      ]
+    },
+    {
+      "token": "zaqun",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zar",
+      "scans": [
+        14,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14,
+        137
+      ]
+    },
+    {
+      "token": "zaral",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaralal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarar",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zararab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zararal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarbab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarbabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarbo",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarbudal",
+      "scans": [
+        54,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        54,
+        137
+      ]
+    },
+    {
+      "token": "zarrabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarusa",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zarvav",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zasedanija",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zasedanijabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaval",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zavod",
+      "scans": [
+        66,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        66,
+        137
+      ]
+    },
+    {
+      "token": "zavodal",
+      "scans": [
+        39,
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        39,
+        137
+      ]
+    },
+    {
+      "token": "zavodaļul",
+      "scans": [
+        94
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        94
+      ]
+    },
+    {
+      "token": "zavot",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zazal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zazisa",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaħmat",
+      "scans": [
+        136,
+        137,
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136,
+        137,
+        138
+      ]
+    },
+    {
+      "token": "zaħmatab",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zaħmatal",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zaħmataļul",
+      "scans": [
+        22
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        22
+      ]
+    },
+    {
+      "token": "zaħmatci",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zaħmatļi",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zaƣal",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [
+        136
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "zaƣalab",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [
+        136
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "zaḩip",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaḩipab",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zaḩipļi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "ze",
+      "scans": [
+        10,
+        18,
+        29,
+        39,
+        50,
+        55,
+        59,
+        60,
+        95,
+        104,
+        127,
+        132,
+        137,
+        139,
+        155,
+        156,
+        162,
+        184,
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        10,
+        18,
+        29,
+        39,
+        50,
+        55,
+        59,
+        60,
+        95,
+        104,
+        127,
+        132,
+        137,
+        139,
+        155,
+        156,
+        162,
+        184,
+        186
+      ]
+    },
+    {
+      "token": "zemlemer",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zemlemeral",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zesseb",
+      "scans": [
+        186
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        186
+      ]
+    },
+    {
+      "token": "zi",
+      "scans": [
+        49
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        49
+      ]
+    },
+    {
+      "token": "zigar",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zigara",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zigaral",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zigardabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zigardi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zigardusa",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zijab",
+      "scans": [
+        36,
+        80
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        36,
+        80
+      ]
+    },
+    {
+      "token": "zijan",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zijanal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zina",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zinqi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zinƣi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zir",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "ziratil",
+      "scans": [
+        86
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        86
+      ]
+    },
+    {
+      "token": "ziţiţabi",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "znacok",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "znacokal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zo",
+      "scans": [
+        14
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        14
+      ]
+    },
+    {
+      "token": "zob",
+      "scans": [
+        47,
+        137,
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        47,
+        137,
+        138
+      ]
+    },
+    {
+      "token": "zobada",
+      "scans": [
+        61
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        61
+      ]
+    },
+    {
+      "token": "zobal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobala",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobalal",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobaļul",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobdib",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobdil",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zobdul",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zod",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zodul",
+      "scans": [
+        16
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        16
+      ]
+    },
+    {
+      "token": "zonosa",
+      "scans": [
+        137
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        137
+      ]
+    },
+    {
+      "token": "zu",
+      "scans": [
+        170,
+        173,
+        187
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        170,
+        173,
+        187
+      ]
+    },
+    {
+      "token": "zuhmat",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zulaqo",
+      "scans": [
+        66,
+        91
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        66,
+        91
+      ]
+    },
+    {
+      "token": "zulaqodal",
+      "scans": [
+        56
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        56
+      ]
+    },
+    {
+      "token": "zulmabi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zulmo",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zulmojab",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zun",
+      "scans": [
+        28
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        28
+      ]
+    },
+    {
+      "token": "zunuleb",
+      "scans": [
+        67
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        67
+      ]
+    },
+    {
+      "token": "zurma",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmabi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmadul",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmil",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmixabi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmixan",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurmo",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurna",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zurnabi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zuħmat",
+      "scans": [
+        136
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        136
+      ]
+    },
+    {
+      "token": "zuţarab",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zuţi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zvanƣi",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "zvari",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "çadeqanzi",
+      "scans": [
+        17
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        17
+      ]
+    },
+    {
+      "token": "çvajze",
+      "scans": [
+        34
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        34
+      ]
+    },
+    {
+      "token": "ççizu",
+      "scans": [
+        32
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        32
+      ]
+    },
+    {
+      "token": "ççuzu",
+      "scans": [
+        26,
+        29,
+        32,
+        39,
+        50,
+        61,
+        77,
+        89,
+        98,
+        151,
+        152
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        26,
+        29,
+        32,
+        39,
+        50,
+        61,
+        77,
+        89,
+        98,
+        151,
+        152
+      ]
+    },
+    {
+      "token": "ħalţizabuleb",
+      "scans": [
+        90
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        90
+      ]
+    },
+    {
+      "token": "ħavuz",
+      "scans": [
+        54
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        54
+      ]
+    },
+    {
+      "token": "ħavuzal",
+      "scans": [
+        54
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        54
+      ]
+    },
+    {
+      "token": "ħazo",
+      "scans": [
+        19
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        19
+      ]
+    },
+    {
+      "token": "ħaţazda",
+      "scans": [
+        124
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        124
+      ]
+    },
+    {
+      "token": "ħinzunib",
+      "scans": [
+        109
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        109
+      ]
+    },
+    {
+      "token": "ķazal",
+      "scans": [
+        73
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        73
+      ]
+    },
+    {
+      "token": "ķķvenze",
+      "scans": [
+        74
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        74
+      ]
+    },
+    {
+      "token": "ļajze",
+      "scans": [
+        77
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        77
+      ]
+    },
+    {
+      "token": "ļoz",
+      "scans": [
+        78
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        78
+      ]
+    },
+    {
+      "token": "şojze",
+      "scans": [
+        117
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        117
+      ]
+    },
+    {
+      "token": "şovinizm",
+      "scans": [
+        117
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        117
+      ]
+    },
+    {
+      "token": "şşibiz",
+      "scans": [
+        150
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        150
+      ]
+    },
+    {
+      "token": "ƣanza",
+      "scans": [
+        47
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        47
+      ]
+    },
+    {
+      "token": "ƣaza",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazan",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazanal",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazaq",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazavat",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazavatal",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazax",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣazi",
+      "scans": [
+        45,
+        46
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45,
+        46
+      ]
+    },
+    {
+      "token": "ƣazizal",
+      "scans": [
+        45
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        45
+      ]
+    },
+    {
+      "token": "ƣiz",
+      "scans": [
+        46
+      ],
+      "confirmed_printed_z_scans": [
+        46
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ƣizine",
+      "scans": [
+        46
+      ],
+      "confirmed_printed_z_scans": [
+        46
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ƣizļi",
+      "scans": [
+        46
+      ],
+      "confirmed_printed_z_scans": [
+        46
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ƣoz",
+      "scans": [
+        46,
+        47
+      ],
+      "confirmed_printed_z_scans": [
+        46,
+        47
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ƣunzbi",
+      "scans": [
+        47
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        47
+      ]
+    },
+    {
+      "token": "ƣvenz",
+      "scans": [
+        47
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        47
+      ]
+    },
+    {
+      "token": "ƶanaza",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "ƶazajil",
+      "scans": [
+        138
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        138
+      ]
+    },
+    {
+      "token": "ƶuzax̵",
+      "scans": [
+        139
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        139
+      ]
+    },
+    {
+      "token": "ƶuzaħ",
+      "scans": [
+        139
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        139
+      ]
+    },
+    {
+      "token": "ḩariza",
+      "scans": [
+        58,
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        58,
+        59
+      ]
+    },
+    {
+      "token": "ḩarz",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩarza",
+      "scans": [
+        58,
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        58,
+        59
+      ]
+    },
+    {
+      "token": "ḩarzu",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩarzulḩal",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazabal",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazdaq",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazdaqab",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazdaza",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩaziz",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazo",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩazusa",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩaƶiz",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩaƶizļi",
+      "scans": [
+        59
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        59
+      ]
+    },
+    {
+      "token": "ḩez",
+      "scans": [
+        60
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        60
+      ]
+    },
+    {
+      "token": "ḩinz",
+      "scans": [
+        60
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        60
+      ]
+    },
+    {
+      "token": "ḩinzunib",
+      "scans": [
+        60
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        60
+      ]
+    },
+    {
+      "token": "ḩurduz",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        62
+      ]
+    },
+    {
+      "token": "ḩuzrabi",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [
+        62
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ḩuzru",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [
+        62
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ḩuzrudal",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [
+        62
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ḩuzrujab",
+      "scans": [
+        62
+      ],
+      "confirmed_printed_z_scans": [
+        62
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ⱬⱬajze",
+      "scans": [
+        140
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        140
+      ]
+    },
+    {
+      "token": "ⱬⱬaliz",
+      "scans": [
+        159,
+        160
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        159,
+        160
+      ]
+    },
+    {
+      "token": "ⱬⱬalizin",
+      "scans": [
+        157
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        157
+      ]
+    },
+    {
+      "token": "ⱬⱬanz",
+      "scans": [
+        141
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        141
+      ]
+    },
+    {
+      "token": "ⱬⱬanzal",
+      "scans": [
+        141
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        141
+      ]
+    },
+    {
+      "token": "ⱬⱬujze",
+      "scans": [
+        142
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        142
+      ]
+    },
+    {
+      "token": "ⱬⱬvabzasa",
+      "scans": [
+        142
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        142
+      ]
+    },
+    {
+      "token": "ꝗenzer",
+      "scans": [
+        100
+      ],
+      "confirmed_printed_z_scans": [
+        100
+      ],
+      "unclassified_scans": []
+    },
+    {
+      "token": "ꝗvarizabe",
+      "scans": [
+        101
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        101
+      ]
+    },
+    {
+      "token": "ꞩabzasa",
+      "scans": [
+        114
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        114
+      ]
+    },
+    {
+      "token": "ꞩenzur",
+      "scans": [
+        114
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        114
+      ]
+    },
+    {
+      "token": "ꞩujze",
+      "scans": [
+        115
+      ],
+      "confirmed_printed_z_scans": [],
+      "unclassified_scans": [
+        115
+      ]
+    }
+  ]
+}

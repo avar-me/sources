@@ -217,15 +217,15 @@
           "description": "Заглавное слово целевой статьи."
         },
         "kind": {
-          "enum": ["see", "from"],
-          "description": "see — «см. также»; from — форма или производное от target."
+          "enum": ["see", "from", "spelling", "compare"],
+          "description": "see — «см.»; spelling — «=», вариант написания; compare — «ср.»; from — форма или производное от target."
         },
         "refwordnum": {
           "$ref": "#/$defs/nonEmptyString"
         },
         "comment": {
           "$ref": "#/$defs/nonEmptyString",
-          "description": "Аварский контекст или выражение, уточняющее область действия ссылки; требует comment_lang: av."
+          "description": "Пояснение области действия ссылки. Если всё пояснение написано по-аварски, требуется comment_lang: av."
         },
         "comment_lang": {
           "$ref": "#/$defs/commentLanguage"

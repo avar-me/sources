@@ -37,6 +37,13 @@ GRAMMAR = {
 }
 GRAMMAR_CODES = r"act|poss|pos|dat|all|al[1-5]?|el[1-5]?|l[1-5]?|pl|m|f|perf|pr|fut|part|imp|neg|frequ|adv|ger|" + "|".join(map(re.escape, CODE_ALIASES))
 GRAMMAR_RE = re.compile(r"^(" + GRAMMAR_CODES + r")\.?($|\s+)")
+REFERENCE_RE = re.compile(r"(?<!\w)(см\.|ср\.|cp\.)\s*|=+")
+
+
+def reference_kind(marker):
+    return "spelling" if marker.startswith("=") else "compare" if marker in ("ср.", "cp.") else "see"
+
+
 RUSSIAN_LABELS = {
     "редко": "редко", "устаревшее слово": "устаревшее слово",
     "о животном": "о животном", "детское слово": "детская лексика",
@@ -156,7 +163,8 @@ def articles(html):
             if not result:
                 raise ValueError(f"Orphan continuation on scan {page}: {text}")
             previous = result[-1]["text"]
-            if previous.endswith('-') and previous.count('[') > previous.count(']'):
+            if previous.endswith('-') and (previous.count('[') > previous.count(']')
+                    or (re.search(r'[А-Яа-яЁё]\u0301?-$', previous) and re.match(r'[а-яё]', text))):
                 result[-1]["text"] = previous[:-1] + text
             else:
                 result[-1]["text"] += " " + text
@@ -226,9 +234,9 @@ def extract_forms(block, forms, morphology, notes, refs):
         item, labels = grammar_prefix(item)
         if labels:
             current = labels
-        referral_match = re.match(r"^(?:cp\.|ср\.|см\.)\s*(.*)$", item)
-        if referral_match and (values := targets(referral_match[1])):
-            refs.extend({"target": value, "kind": "see"} for value in values)
+        form_refs, _ = referral(item)
+        if form_refs:
+            refs.extend(form_refs)
             continue
         if qualified_forms(item, current, forms, morphology):
             continue
@@ -253,7 +261,7 @@ def extract_forms(block, forms, morphology, notes, refs):
 
 
 def targets(text):
-    text = text.strip()
+    text = text.strip().rstrip(",;").strip()
     if text.endswith(".") and not text.endswith("..."):
         text = text[:-1].rstrip()
     values = split_top(text, ",")
@@ -265,11 +273,11 @@ def targets(text):
 
 def extract_references(text, refs):
     for start, end, inner in reversed(list(groups(text))):
-        match = re.search(r"(?:ср|см|cp)\.\s*", inner)
+        match = REFERENCE_RE.match(inner)
         if match:
-            values = targets(inner[match.end():])
+            values, _ = referral(inner)
             if values:
-                refs[0:0] = [{"target": v, "kind": "see"} for v in values]
+                refs[0:0] = values
                 before = inner[:match.start()].strip().rstrip(";").strip()
                 replacement = "(" + before + ")" if before else ""
                 text = text[:start] + replacement + text[end:]
@@ -305,15 +313,17 @@ def referral(text):
     if suffix:
         _, labels = grammar_prefix(suffix[1])
         text = text[:suffix.start()].strip()
-    match = re.match(r"^(см\.|ср\.|cp\.|=+)\s*(.*)$", text)
-    if match:
-        values = targets(match[2])
-        if values:
-            kind = "see"
-            if match[1].startswith("="):
-                kind = "from" if labels else "syn"
-            return [{"target": v, "kind": kind} for v in values], labels
-    return [], []
+    matches = list(REFERENCE_RE.finditer(text))
+    if not matches or matches[0].start() != 0:
+        return [], []
+    refs = []
+    for i, match in enumerate(matches):
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        values = targets(text[match.end():end])
+        if not values:
+            return [], []
+        refs.extend({"target": value, "kind": reference_kind(match[0].strip())} for value in values)
+    return refs, labels
 
 
 def split_example(text):
@@ -387,7 +397,10 @@ def structure(article):
                 rest = rest[1:].lstrip()
         elif rest.startswith("("):
             first = next(groups(rest), None)
-            if first and first[0] == 0 and annotation(first[2]):
+            if first and first[0] == 0 and referral(first[2])[0]:
+                refs.extend(referral(first[2])[0])
+                rest = rest[first[1]:].strip()
+            elif first and first[0] == 0 and annotation(first[2]):
                 if qualifier_form:
                     morphology.append({"labels": annotation(first[2]), "forms": [qualifier_form]})
                     qualifier_form = None
@@ -426,6 +439,7 @@ def structure(article):
     segments = [part for segment in split_top(rest) for part in inline_parts(segment, word)]
     for segment in segments:
         segment = segment.lstrip(", ")
+        segment = re.sub(r",\s*\.$", ".", segment)
         if not segment or segment == ".":
             continue
         found_refs, found_labels = referral(segment)
@@ -437,15 +451,22 @@ def structure(article):
             continue
         # Referrals on an example belong to that example, not the headword.
         equality = split_top(segment, "=")
-        if len(equality) > 1 and not russian(segment.split()[0]):
+        if len(equality) > 1 and equality[0].strip() and not russian(segment.split()[0]):
             av, rhs = equality[0], "=".join(equality[1:])
             av, example_labels, _ = strip_annotations(av.strip())
-            item = {"av": av, "comment": "= " + rhs.strip()}
-            if example_labels:
-                item["labels"] = example_labels
-            if not lexical:
-                lexical.append({})
-            lexical[-1].setdefault("examples", []).append(item)
+            values = targets(rhs)
+            if values:
+                refs.extend({"target": value, "kind": "spelling", "comment": "Отсылка при выражении: " + av} for value in values)
+                labels += example_labels
+            elif av and any(russian(t) for t in rhs.split()):
+                if not lexical:
+                    lexical.append({})
+                item = {"av": av, "ru": rhs.strip()}
+                if example_labels:
+                    item["labels"] = example_labels
+                lexical[-1].setdefault("examples", []).append(item)
+            else:
+                notes.append("Неразобранная отсылка: " + segment)
             continue
         example = split_example(segment)
         if example:
@@ -473,7 +494,8 @@ def structure(article):
                 sense["precomment"] = first[2]
                 segment = segment[first[1]:].strip()
             segment, comments = prose_comments(segment)
-            sense["text"] = segment
+            if segment:
+                sense["text"] = segment.rstrip(",;")
             if segment_labels:
                 sense["labels"] = segment_labels
             if comments:
@@ -507,7 +529,7 @@ def structure(article):
     if senses:
         entry["senses"] = senses
     if refs:
-        entry["see_also"] = [dict(target=t, kind=k) for t, k in dict.fromkeys((r["target"], r["kind"]) for r in refs)]
+        entry["see_also"] = [dict(item) for item in dict.fromkeys(tuple(r.items()) for r in refs)]
     entry["source"] = SOURCE
     return entry
 

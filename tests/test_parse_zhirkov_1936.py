@@ -52,16 +52,44 @@ class ZhirkovParserTests(unittest.TestCase):
 
     def test_references_and_example_scope(self):
         e = entry('<b>x</b> = y; <i>см.</i> z; x h. де́лать (<i>ср.</i> a, b).')
-        self.assertIn({'target': 'y', 'kind': 'syn'}, e['see_also'])
+        self.assertIn({'target': 'y', 'kind': 'spelling'}, e['see_also'])
         self.assertIn({'target': 'z', 'kind': 'see'}, e['see_also'])
-        self.assertIn({'target': 'a', 'kind': 'see'}, e['see_also'])
+        self.assertIn({'target': 'a', 'kind': 'compare'}, e['see_also'])
         self.assertEqual(e['senses'][0]['examples'][0], {'av': 'x h.', 'ru': 'де́лать.'})
         e = entry('<b>x</b> сло́во; x y = z.')
-        self.assertEqual(e['senses'][0]['examples'], [{'av': 'x y', 'comment': '= z.'}])
-        self.assertNotIn('see_also', e)
+        self.assertNotIn('examples', e['senses'][0])
+        self.assertEqual(e['see_also'], [{'target': 'z', 'kind': 'spelling', 'comment': 'Отсылка при выражении: x y'}])
         e = entry('<b>aħahize</b> = aħize <i>frequ.</i>')
-        self.assertEqual(e['see_also'], [{'target': 'aħize', 'kind': 'from'}])
+        self.assertEqual(e['see_also'], [{'target': 'aħize', 'kind': 'spelling'}])
         self.assertEqual(e['senses'][0]['labels'], ['учащательная форма'])
+
+    def test_russian_word_across_paragraph_and_page_break(self):
+        es = parse('<!-- p054 --><p><b>ħeleko</b> пе-</p><!-- p055 --><p>ту́х.</p>')
+        self.assertEqual(es[0]['senses'][0]['text'], 'пету́х.')
+        e = entry('<b>x</b> пу́говица (в игре),; x h. делать.')
+        self.assertEqual(e['senses'][0]['text'], 'пу́говица')
+
+    def test_reference_chains_and_nested_optional_letters(self):
+        e = entry('<b>x</b> = ab(in), см. a; ср. b, c.')
+        self.assertEqual(e['see_also'], [
+            {'target': 'ab(in)', 'kind': 'spelling'},
+            {'target': 'a', 'kind': 'see'},
+            {'target': 'b', 'kind': 'compare'},
+            {'target': 'c', 'kind': 'compare'}])
+        self.assertNotIn('senses', e)
+        e = entry('<b>x</b> (ср. y) сло́во (= пояснение).')
+        self.assertEqual(e['see_also'], [{'target': 'y', 'kind': 'compare'}])
+        self.assertIn('пояснение', e['senses'][0]['comment'])
+        e = entry('<b>x</b> [ср. y] = z frequ.')
+        self.assertEqual(e['see_also'][0]['kind'], 'compare')
+        self.assertEqual(e['see_also'][1]['kind'], 'spelling')
+        self.assertIn('учащательная форма', e['senses'][0]['labels'])
+
+    def test_equal_before_russian_gloss_is_a_real_example(self):
+        e = entry('<b>x</b> сло́во; x h. = делать.')
+        self.assertEqual(e['senses'][0]['examples'], [{'av': 'x h.', 'ru': 'делать.'}])
+        e = entry('<b>x</b> = неразобранное.')
+        self.assertFalse(any(not e.get('av') for s in e.get('senses', []) for e in s.get('examples', [])))
 
     def test_examples_and_local_case_labels(self):
         e = entry('<b>badib</b> (l5) на лице́; badibe* (al5) на лицо́; badisa (el5) с лица́.')
@@ -112,7 +140,7 @@ class ZhirkovParserTests(unittest.TestCase):
         self.assertIn({'labels': ['эргативный падеж', 'редко'], 'forms': ['imssusa']}, e['senses'])
         self.assertIn({'labels': ['эргативный падеж'], 'forms': ['emenas'], 'comment': 'в го́воре Чирке́я'}, e['senses'])
         e = entry('<b>x</b> [cp. y] сло́во.')
-        self.assertEqual(e['see_also'], [{'target': 'y', 'kind': 'see'}])
+        self.assertEqual(e['see_also'], [{'target': 'y', 'kind': 'compare'}])
 
     def test_confirmed_da_plural(self):
         es = parse((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text())
@@ -195,6 +223,8 @@ class ZhirkovParserTests(unittest.TestCase):
             result = set(re.findall(r'\w+', unaccent(' '.join(strings(e)))))
             missing = {t for t in original - result if t not in allowed and not re.fullmatch(r'(?:al|el|l)[1-5]', t)}
             self.assertFalse(missing, (article['word'], missing))
+            self.assertFalse([ex for sense in e.get('senses', []) for ex in sense.get('examples', []) if not ex.get('av')])
+            self.assertFalse([sense for sense in e.get('senses', []) if 'text' in sense and not sense['text']])
             self.assertEqual(e['forms'][0], e['word'])
             self.assertEqual(e['source'], 'av-ru.1936')
 

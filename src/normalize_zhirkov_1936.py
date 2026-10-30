@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Conservative Unicode and grammatical-abbreviation normalization of the OCR.
 
-Run --apply with the bundled document Python runtime to update HTML and DOCX
-together, then rebuild JSONL. Unknown marks are preserved, never stripped.
+Run --apply to update the canonical HTML, then rebuild JSONL.
+The archival DOCX is updated only with the explicit --include-docx option. Unknown marks are preserved, never stripped.
 """
 
 import argparse
@@ -139,8 +139,7 @@ def normalize_fragment(fragment):
     return "".join(pieces), before, after
 
 
-def apply():
-    from lxml import etree as E
+def apply(include_docx=False):
     html_path, docx_path = BOOK / "av-ru.1936.html", BOOK / "av-ru.1936.docx"
     source = html_path.read_text(encoding="utf-8")
     changes = {"html": [], "docx": []}
@@ -150,6 +149,10 @@ def apply():
             changes["html"].append({"before": before, "after": after})
         return "<p>" + value + "</p>"
     result = re.sub(r"<p>(.*?)</p>", paragraph, source, flags=re.S)
+    if not include_docx:
+        html_path.write_text(result, encoding="utf-8")
+        return changes
+    from lxml import etree as E
     with zipfile.ZipFile(docx_path) as z:
         infos = z.infolist()
         members = {i.filename: z.read(i.filename) for i in infos}
@@ -185,11 +188,12 @@ def apply():
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--apply", action="store_true")
+    parser.add_argument("--include-docx", action="store_true", help="Also update the archival Word snapshot (normally HTML only)")
     parser.add_argument("--log", type=Path)
     args = parser.parse_args()
     if not args.apply:
         parser.error("Use --apply explicitly to update the editable sources")
-    changes = apply()
+    changes = apply(include_docx=args.include_docx)
     if args.log:
         args.log.write_text(json.dumps(changes, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print({name: len(items) for name, items in changes.items()})
