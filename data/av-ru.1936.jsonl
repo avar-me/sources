@@ -6941,7 +6941,7 @@
 {"word": "ⱬⱬalķu", "forms": ["ⱬⱬalķu", "ⱬⱬalķal"], "senses": [{"text": "си́то."}], "see_also": [{"target": "ⱬⱬarķu", "kind": "compare"}, {"target": "Ⱬⱬalķal", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "ⱬⱬalķuhod", "forms": ["ⱬⱬalķuhod", "ⱬⱬalķuhodisa"], "senses": [{"text": "поясни́ца."}, {"labels": ["эргативный падеж"], "forms": ["ⱬⱬalķuhodisa"]}], "see_also": [{"target": "ⱬⱬalķu", "kind": "compare"}, {"target": "hod", "kind": "compare"}, {"target": "ⱬⱬarķuhod", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "ⱬⱬam", "forms": ["ⱬⱬam"], "see_also": [{"target": "ⱬⱬan", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "ⱬⱬamħal", "forms": ["ⱬⱬamħal", "ⱬⱬanħal", "ⱬⱬamħalab"], "senses": [{"text": "солёный."}], "see_also": [{"target": "ⱬⱬan", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "ⱬⱬamḩal", "forms": ["ⱬⱬamḩal", "ⱬⱬanḩal", "ⱬⱬamḩalab"], "senses": [{"text": "солёный."}], "see_also": [{"target": "ⱬⱬan", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "ⱬⱬamuq", "forms": ["ⱬⱬamuq", "ⱬⱬamuqab"], "senses": [{"text": "без со́ли, несолёный, пре́сный."}], "see_also": [{"target": "ⱬⱬan", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "ⱬⱬamuqļi", "forms": ["ⱬⱬamuqļi"], "senses": [{"text": "преснота́."}], "source": "av-ru.1936"}
 {"word": "ⱬⱬan", "forms": ["ⱬⱬan", "ⱬⱬam", "ⱬⱬanusa"], "senses": [{"text": "соль", "examples": [{"av": "ⱬⱬan baze", "ru": "соли́ть"}, {"av": "ⱬⱬan baleb ƶo", "ru": "соло́нка"}, {"av": "ⱬⱬan çvaze", "ru": "заса́ливать, соли́ть впро́к."}]}, {"labels": ["эргативный падеж"], "forms": ["ⱬⱬanusa"]}], "source": "av-ru.1936"}
