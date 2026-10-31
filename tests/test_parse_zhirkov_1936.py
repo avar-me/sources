@@ -30,6 +30,28 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_comma_separated_origin_and_grammar_codes_are_not_examples(self):
+        e = entry('<b>pessok-cakar</b> r, p са́харный песо́к.')
+        self.assertEqual(e['senses'][0]['text'], 'са́харный песо́к.')
+        self.assertEqual(e['senses'][0]['labels'], ['русское происхождение', 'персидское происхождение'])
+        self.assertNotIn('examples', e['senses'][0])
+        e = entry('<b>azar</b> p, azargo ты́сяча.')
+        self.assertEqual(e['forms'], ['azar', 'azargo'])
+        self.assertEqual(e['senses'][0]['labels'], ['персидское происхождение'])
+        e = entry('<b>dozul</b> pos pl, dozulab их.')
+        self.assertEqual(e['senses'][0]['labels'], ['родительный падеж', 'множественное число'])
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'dozulab')
+
+    def test_shared_translation_keeps_expression_variants(self):
+        e = entry('<b>nux</b> доро́га; maşinadul nux, maxxul nux желе́зная доро́га.')
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'maşinadul nux, maxxul nux')
+        e = entry('<b>x</b> reķarab (part perf), верхово́й.')
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'reķarab')
+        e = entry('<b>azar</b> ты́сяча; azar-alda (l1) = azar (с со́тнями).')
+        self.assertIn({'target': 'azar', 'kind': 'spelling',
+                       'comment': 'Отсылка при выражении: azar-alda; с со́тнями'}, e['see_also'])
+        self.assertNotIn('examples', e['senses'][0])
+
     def test_parenthetical_russian_prefix_is_part_of_word(self):
         for prefix, base in [('на', 'про́тив'), ('воз', 'обновля́ться'), ('пере', 'ме́на')]:
             e = entry('<b>x</b> (' + prefix + ')' + base + '.')

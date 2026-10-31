@@ -573,9 +573,11 @@ def structure(article):
         if len(equality) > 1 and equality[0].strip() and not russian(segment.split()[0]):
             av, rhs = equality[0], "=".join(equality[1:])
             av, example_labels, _ = strip_annotations(av.strip())
-            values = targets(rhs)
+            target_text, target_comments = prose_comments(rhs)
+            values = targets(target_text)
             if values:
-                refs.extend({"target": value, "kind": "spelling", "comment": "Отсылка при выражении: " + av} for value in values)
+                context = "; ".join(["Отсылка при выражении: " + av] + target_comments)
+                refs.extend({"target": value, "kind": "spelling", "comment": context} for value in values)
                 labels += example_labels
             elif av and any(russian(t) for t in rhs.split()):
                 if not lexical:
