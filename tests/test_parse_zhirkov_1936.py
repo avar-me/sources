@@ -30,6 +30,23 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_bare_numbered_case_codes_after_starred_examples(self):
+        e = entry('<b>ƣoba*</b> l5 там; ƣobe* al5 туда (вниз); gobasa* el5 оттуда (снизу).')
+        examples = e['senses'][0]['examples']
+        self.assertEqual([x['av'] for x in examples], ['ƣobe', 'gobasa'])
+        self.assertEqual(examples[0]['labels'], ['направительный падеж', '5-я серия'])
+        self.assertEqual(examples[1]['labels'], ['исходный падеж', '5-я серия'])
+        self.assertIn('Знак *', examples[0]['comment'])
+        self.assertIn('вниз', examples[0]['comment'])
+        self.assertEqual(examples[1]['ru'], 'оттуда.')
+
+    def test_case_mark_between_headword_and_variant(self):
+        e = entry('<b>Ƣoloda</b> (l1), <b>Ƣoloda-bak</b> Голода (область).')
+        self.assertEqual(e['forms'], ['Ƣoloda', 'Ƣoloda-bak'])
+        self.assertEqual(e['senses'][0]['text'], 'Голода.')
+        self.assertIn('местный падеж', e['senses'][0]['labels'])
+        self.assertNotIn('examples', e['senses'][0])
+
     def test_comma_separated_origin_and_grammar_codes_are_not_examples(self):
         e = entry('<b>pessok-cakar</b> r, p са́харный песо́к.')
         self.assertEqual(e['senses'][0]['text'], 'са́харный песо́к.')

@@ -1,0 +1,16 @@
+{"before": "aş!aval", "after": "aşlaval", "source_scan": 13, "kind": "damaged_print", "reason": "Восстановлена повреждённая l в форме основы aşlav; в печати штрих выглядит как !."}
+{"before": "şlavalda lun", "after": "aşlavalda lun", "source_scan": 13, "kind": "ocr", "reason": "В начале примера на скане есть a; она потеряна при распознавании."}
+{"before": "belgilijat cI", "after": "belgilijab ci", "source_scan": 20, "kind": "ocr", "reason": "Скан прямо печатает belgilijab ci; b распознана как t, строчная i как прописная I."}
+{"before": "ƣo!al-rasize", "after": "ƣolal-rasize", "source_scan": 46, "kind": "damaged_print", "reason": "Восстановлена повреждённая l в plural ƣolal основы ƣol; печатный штрих выглядит как !. Начальная r второго компонента сохраняется."}
+{"before": "tamxiI ƣulţux", "after": "tamxil ƣulţux", "source_scan": 47, "kind": "ocr", "reason": "Скан: tamxil, конечная строчная l ошибочно прочитана как I."}
+{"before": "ḩimrataI", "after": "ḩimratal", "source_scan": 60, "kind": "ocr", "reason": "Скан: конечная строчная l; заглавная I внутри обычного слова ошибочна."}
+{"before": "ḩo!oxabi", "after": "ḩoloxabi", "source_scan": 61, "kind": "damaged_print", "reason": "Восстановлена повреждённая l в ḩoloxabi; печатный штрих выглядит как !."}
+{"before": "jarqIsa", "after": "jarqisa", "source_scan": 61, "kind": "ocr", "reason": "Скан: строчная i, а не прописная I; сохранён остальной текст выражения."}
+{"before": "izvoşş:kal", "after": "izvoşşikal", "source_scan": 64, "kind": "damaged_print", "reason": "Восстановлена повреждённая i между şş и k; на скане штрих неполный и похож на двоеточие."}
+{"before": "okrugaI", "after": "okrugal", "source_scan": 89, "kind": "ocr", "reason": "Скан: конечная l в okrugal."}
+{"before": "xxaI", "after": "xxal", "source_scan": 129, "kind": "ocr", "reason": "Скан: ссылка на xxal, а не xxaI; целевая статья xxal существует."}
+{"before": "возвраще́ние к созна́нию протрезвле́ние", "after": "возвраще́ние к созна́нию; протрезвле́ние", "source_scan": 22, "kind": "ocr", "reason": "В печати значения разделены точкой с запятой."}
+{"before": "проведе́ние в жизнь осуществле́ние", "after": "проведе́ние в жизнь; осуществле́ние", "source_scan": 22, "kind": "ocr", "reason": "В печати значения разделены точкой с запятой."}
+{"before": "пробужде́ние спасе́ние", "after": "пробужде́ние; спасе́ние", "source_scan": 24, "kind": "ocr", "reason": "В печати значения разделены точкой с запятой."}
+{"before": "Ƣoloda, (l1) Ƣoloda-bak", "after": "Ƣoloda (l1), Ƣoloda-bak", "source_scan": 46, "kind": "structure", "reason": "Помета перед вариантом ошибочно попадала в forms, вариант становился примером. HTML явно отделяет помету от двух заголовков; текст источника сохранён."}
+{"before": "ƣobe* al5 туда (вниз), gobasa* el5 оттуда (снизу)", "after": "ƣobe (al5) → туда; gobasa (el5) → оттуда", "source_scan": 46, "kind": "structure", "reason": "Отделены два примера с собственными переводами; конвертер извлекает непарные коды серий на конце av и сохраняет знак * в comment."}

@@ -594,7 +594,18 @@ def structure(article):
             av, ru = example
             av, example_labels, _ = strip_annotations(av)
             av = av.rstrip(",").strip()
+            # Bare numbered case codes are grammar, even after a starred form.
+            # Restrict this to numbered series: ordinary words may match short codes.
+            case_suffix = re.search(r"\s+((?:al|el|l)[1-5])\.?$", av)
+            if case_suffix:
+                example_labels += grammar_prefix(case_suffix[1])[1]
+                av = av[:case_suffix.start()].rstrip()
             ru, comments = prose_comments(ru)
+            if case_suffix:
+                marker = re.search(r"\*+$", av)
+                if marker:
+                    comments.insert(0, f"Знак {marker[0]} в источнике: изменяемый родовой признак")
+                    av = av[:marker.start()].rstrip()
             if av == "h.":
                 av = word + " h."
             for match in reversed(list(re.finditer(r"\[([^\[\]]+)\]", av))):
