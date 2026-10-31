@@ -68,14 +68,15 @@ def extract_form_stresses(value):
         return value
     result = {}
     for key, item in value.items():
-        if key != "forms":
+        if key not in {"forms", "spelling_forms", "gender_forms"}:
             result[key] = extract_form_stresses(item)
             continue
         converted = [headword_stress(form) for form in item]
         result[key] = [form for form, _ in converted]
         stresses = {str(i): stress for i, (_, stress) in enumerate(converted) if stress is not None}
         if stresses:
-            result["form_stresses"] = stresses
+            stress_key = "form_stresses" if key == "forms" else key[:-5] + "form_stresses"
+            result[stress_key] = stresses
     return result
 
 
@@ -495,6 +496,15 @@ def structure(article):
             extract_forms(rest[1:end], forms, morphology, notes, refs)
             rest = rest[end + 1:].strip()
         elif rest.startswith(","):
+            marked_variant = next((match for variant in article.get("spelling_forms", [])[1:]
+                                   if (match := re.match(r",\s*" + re.escape(variant)
+                                                        + r"(\*+)?(?=$|[\s,\[(])", rest))), None)
+            if marked_variant:
+                qualifier_form = marked_variant[0].lstrip(",").strip().rstrip("*")
+                if marked_variant[1]:
+                    notes.append(f"Знак {marked_variant[1]} в источнике: изменяемый родовой признак")
+                rest = rest[marked_variant.end():].strip()
+                continue
             if re.match(r"\s*[aiprtарт](?=\s|,)", rest[1:]):
                 # Origin codes may themselves be comma-separated (r, p).
                 rest = rest[1:].lstrip()
@@ -696,10 +706,46 @@ def structure(article):
     clean, stress = headword_stress(accented)
     if stress is not None:
         entry = {"word": clean, "stress": stress, **{k: v for k, v in entry.items() if k != "word"}}
-        for field in ("spelling_forms",):
-            if field in entry:
-                entry[field] = unique(clean if value == accented else value for value in entry[field])
-    return extract_form_stresses(entry)
+    return extract_form_stresses(index_notation(entry))
+
+
+
+def index_notation(entry):
+    """Keep the book's grammatical signs in prose, outside indexed spellings."""
+    ellipsis = re.compile(r"\.{3}|…")
+    stem_heading = bool(ellipsis.search(entry["word"]))
+    for key in ("word", "forms", "spelling_forms", "gender_forms"):
+        if key not in entry:
+            continue
+        value = entry[key]
+        if isinstance(value, str):
+            entry[key] = ellipsis.sub("", value)
+        elif isinstance(value, list):
+            entry[key] = [ellipsis.sub("", form) for form in value]
+    if stem_heading:
+        sense = entry.setdefault("senses", [{}])[0]
+        note = "Основа, выступающая в производных формах; многоточие в источнике."
+        note += " Формы указаны в статье по ссылке." if entry.get("see_also") else " Ссылка в источнике не указана."
+        sense["precomment"] = "; ".join(filter(None, (sense.get("precomment"), note)))
+    for reference in entry.get("see_also", []):
+        if ellipsis.search(reference["target"]):
+            reference["target"] = ellipsis.sub("", reference["target"])
+            note = "Многоточие в источнике отмечает основу производных форм."
+            reference["comment"] = "; ".join(filter(None, (reference.get("comment"), note)))
+    for sense in entry.get("senses", []):
+        for example in sense.get("examples", []):
+            av = example.get("av", "")
+            marks = re.findall(r"([^\s,;*]+)(\*+)", av)
+            notes = [f"Знак {marker} при '{form}' в источнике: изменяемый родовой признак"
+                     for form, marker in marks]
+            if marks:
+                example["av"] = re.sub(r"\*+", "", av)
+            if re.fullmatch(r"ja(?:\.{3}|…)\s+ja(?:\.{3}|…)", av):
+                example["av"] = "ja ja"
+                notes.append("Парная конструкция: ja [первая часть] ja [вторая часть]; многоточия в источнике обозначают места частей выражения.")
+            if notes:
+                example["comment"] = "; ".join(filter(None, (example.get("comment"), *notes)))
+    return entry
 
 
 def parse(html):

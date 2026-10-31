@@ -1,0 +1,7059 @@
+{
+  "alphabet": [
+    "a",
+    "b",
+    "c",
+    "ç",
+    "d",
+    "e",
+    "f",
+    "g",
+    "ƣ",
+    "h",
+    "ħ",
+    "ḩ",
+    "i",
+    "j",
+    "k",
+    "ķ",
+    "l",
+    "ļ",
+    "ł",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "ꝗ",
+    "r",
+    "s",
+    "ꞩ",
+    "ş",
+    "t",
+    "ţ",
+    "u",
+    "v",
+    "x",
+    "x̨",
+    "x̵",
+    "z",
+    "ƶ",
+    "ⱬ"
+  ],
+  "uppercase_pairs": "Aa Bb Cc Çç Dd Ee Ff Gg Ƣƣ Hh Ħħ Ḩḩ Ii Jj Kk Ķķ Ll Ļļ Łł Mm Nn Oo Pp Qq Ꝗꝗ Rr Ss Ꞩꞩ Şş Tt Ţţ Uu Vv Xx X̨x̨ X̵x̵ Zz Ƶƶ Ⱬⱬ",
+  "apostrophe": "'",
+  "source_scans": [
+    5,
+    9,
+    147
+  ],
+  "entries": 7027,
+  "changed_entries": 273,
+  "stem_entries": 247,
+  "ellipsis_fields_before": 515,
+  "findings_before": [
+    {
+      "line": 40,
+      "word": "adin",
+      "field": "senses[0].examples[0].av",
+      "value": "adinab, adinabab*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 69,
+      "word": "aħadin",
+      "field": "senses[0].examples[0].av",
+      "value": "aħadinab, aħadinabab*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 115,
+      "word": "alx...",
+      "field": "word",
+      "value": "alx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 115,
+      "word": "alx...",
+      "field": "forms[0]",
+      "value": "alx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 117,
+      "word": "aļ...",
+      "field": "word",
+      "value": "aļ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 117,
+      "word": "aļ...",
+      "field": "forms[0]",
+      "value": "aļ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 183,
+      "word": "as...",
+      "field": "word",
+      "value": "as...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 183,
+      "word": "as...",
+      "field": "forms[0]",
+      "value": "as...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 260,
+      "word": "az...",
+      "field": "word",
+      "value": "az...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 260,
+      "word": "az...",
+      "field": "forms[0]",
+      "value": "az...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 277,
+      "word": "bac...",
+      "field": "word",
+      "value": "bac...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 277,
+      "word": "bac...",
+      "field": "forms[0]",
+      "value": "bac...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 287,
+      "word": "badib",
+      "field": "senses[0].examples[0].av",
+      "value": "badibe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 391,
+      "word": "baqn...",
+      "field": "word",
+      "value": "baqn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 391,
+      "word": "baqn...",
+      "field": "forms[0]",
+      "value": "baqn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 582,
+      "word": "bic...",
+      "field": "word",
+      "value": "bic...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 582,
+      "word": "bic...",
+      "field": "forms[0]",
+      "value": "bic...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 636,
+      "word": "biş...",
+      "field": "word",
+      "value": "biş...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 636,
+      "word": "biş...",
+      "field": "forms[0]",
+      "value": "biş...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 639,
+      "word": "bişşize",
+      "field": "senses[0].examples[0].av",
+      "value": "ţasa bişşize*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 669,
+      "word": "boco...",
+      "field": "word",
+      "value": "boco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 669,
+      "word": "boco...",
+      "field": "forms[0]",
+      "value": "boco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 673,
+      "word": "boḩo...",
+      "field": "word",
+      "value": "boḩo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 673,
+      "word": "boḩo...",
+      "field": "forms[0]",
+      "value": "boḩo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 680,
+      "word": "bolo...",
+      "field": "word",
+      "value": "bolo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 680,
+      "word": "bolo...",
+      "field": "forms[0]",
+      "value": "bolo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 714,
+      "word": "borx̨...",
+      "field": "word",
+      "value": "borx̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 714,
+      "word": "borx̨...",
+      "field": "forms[0]",
+      "value": "borx̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 720,
+      "word": "bosa...",
+      "field": "word",
+      "value": "bosa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 720,
+      "word": "bosa...",
+      "field": "forms[0]",
+      "value": "bosa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 726,
+      "word": "bosn...",
+      "field": "word",
+      "value": "bosn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 726,
+      "word": "bosn...",
+      "field": "forms[0]",
+      "value": "bosn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 732,
+      "word": "boţo...",
+      "field": "word",
+      "value": "boţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 732,
+      "word": "boţo...",
+      "field": "forms[0]",
+      "value": "boţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 733,
+      "word": "boţr...",
+      "field": "word",
+      "value": "boţr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 733,
+      "word": "boţr...",
+      "field": "spelling_forms[0]",
+      "value": "boţr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 733,
+      "word": "boţr...",
+      "field": "spelling_forms[1]",
+      "value": "buţr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 764,
+      "word": "buħc...",
+      "field": "word",
+      "value": "buħc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 764,
+      "word": "buħc...",
+      "field": "forms[0]",
+      "value": "buħc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 792,
+      "word": "burça...",
+      "field": "word",
+      "value": "burça...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 792,
+      "word": "burça...",
+      "field": "forms[0]",
+      "value": "burça...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 802,
+      "word": "burţa...",
+      "field": "word",
+      "value": "burţa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 802,
+      "word": "burţa...",
+      "field": "forms[0]",
+      "value": "burţa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 843,
+      "word": "cad...",
+      "field": "word",
+      "value": "cad...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 843,
+      "word": "cad...",
+      "field": "forms[0]",
+      "value": "cad...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 859,
+      "word": "cakri...",
+      "field": "word",
+      "value": "cakri...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 859,
+      "word": "cakri...",
+      "field": "forms[0]",
+      "value": "cakri...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 884,
+      "word": "canƣ...",
+      "field": "word",
+      "value": "canƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 884,
+      "word": "canƣ...",
+      "field": "forms[0]",
+      "value": "canƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 892,
+      "word": "capxa...",
+      "field": "word",
+      "value": "capxa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 892,
+      "word": "capxa...",
+      "field": "forms[0]",
+      "value": "capxa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 904,
+      "word": "cargg...",
+      "field": "word",
+      "value": "cargg...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 904,
+      "word": "cargg...",
+      "field": "forms[0]",
+      "value": "cargg...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 908,
+      "word": "carmi...",
+      "field": "word",
+      "value": "carmi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 908,
+      "word": "carmi...",
+      "field": "forms[0]",
+      "value": "carmi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 919,
+      "word": "caxxţ...",
+      "field": "word",
+      "value": "caxxţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 919,
+      "word": "caxxţ...",
+      "field": "forms[0]",
+      "value": "caxxţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 920,
+      "word": "cax̨...",
+      "field": "word",
+      "value": "cax̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 920,
+      "word": "cax̨...",
+      "field": "forms[0]",
+      "value": "cax̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 939,
+      "word": "ccurb...",
+      "field": "word",
+      "value": "ccurb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 939,
+      "word": "ccurb...",
+      "field": "forms[0]",
+      "value": "ccurb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 983,
+      "word": "cod...",
+      "field": "word",
+      "value": "cod...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 983,
+      "word": "cod...",
+      "field": "forms[0]",
+      "value": "cod...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 984,
+      "word": "codro...",
+      "field": "word",
+      "value": "codro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 984,
+      "word": "codro...",
+      "field": "forms[0]",
+      "value": "codro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 988,
+      "word": "colo...",
+      "field": "word",
+      "value": "colo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 988,
+      "word": "colo...",
+      "field": "forms[0]",
+      "value": "colo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 991,
+      "word": "corƣ...",
+      "field": "word",
+      "value": "corƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 991,
+      "word": "corƣ...",
+      "field": "forms[0]",
+      "value": "corƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 994,
+      "word": "corx...",
+      "field": "word",
+      "value": "corx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 994,
+      "word": "corx...",
+      "field": "forms[0]",
+      "value": "corx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 999,
+      "word": "cox̨...",
+      "field": "word",
+      "value": "cox̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 999,
+      "word": "cox̨...",
+      "field": "forms[0]",
+      "value": "cox̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1018,
+      "word": "cund...",
+      "field": "word",
+      "value": "cund...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1018,
+      "word": "cund...",
+      "field": "forms[0]",
+      "value": "cund...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1021,
+      "word": "cunt...",
+      "field": "word",
+      "value": "cunt...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1021,
+      "word": "cunt...",
+      "field": "forms[0]",
+      "value": "cunt...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1025,
+      "word": "curg...",
+      "field": "word",
+      "value": "curg...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1025,
+      "word": "curg...",
+      "field": "forms[0]",
+      "value": "curg...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1060,
+      "word": "çali...",
+      "field": "word",
+      "value": "çali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1060,
+      "word": "çali...",
+      "field": "forms[0]",
+      "value": "çali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1075,
+      "word": "çap...",
+      "field": "word",
+      "value": "çap...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1075,
+      "word": "çap...",
+      "field": "forms[0]",
+      "value": "çap...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1083,
+      "word": "çarb...",
+      "field": "word",
+      "value": "çarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1083,
+      "word": "çarb...",
+      "field": "forms[0]",
+      "value": "çarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1087,
+      "word": "çart...",
+      "field": "word",
+      "value": "çart...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1087,
+      "word": "çart...",
+      "field": "forms[0]",
+      "value": "çart...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1091,
+      "word": "ççal...",
+      "field": "word",
+      "value": "ççal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1091,
+      "word": "ççal...",
+      "field": "forms[0]",
+      "value": "ççal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1144,
+      "word": "çinxx...",
+      "field": "word",
+      "value": "çinxx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1144,
+      "word": "çinxx...",
+      "field": "forms[0]",
+      "value": "çinxx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1163,
+      "word": "çoţ...",
+      "field": "word",
+      "value": "çoţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1163,
+      "word": "çoţ...",
+      "field": "forms[0]",
+      "value": "çoţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1183,
+      "word": "çuţ...",
+      "field": "word",
+      "value": "çuţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1183,
+      "word": "çuţ...",
+      "field": "forms[0]",
+      "value": "çuţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1190,
+      "word": "çvadn...",
+      "field": "word",
+      "value": "çvadn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1190,
+      "word": "çvadn...",
+      "field": "forms[0]",
+      "value": "çvadn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1219,
+      "word": "daħni...",
+      "field": "word",
+      "value": "daħni...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1219,
+      "word": "daħni...",
+      "field": "forms[0]",
+      "value": "daħni...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1302,
+      "word": "di...",
+      "field": "word",
+      "value": "di...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1302,
+      "word": "di...",
+      "field": "forms[0]",
+      "value": "di...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1335,
+      "word": "doba",
+      "field": "senses[0].examples[0].av",
+      "value": "dobe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1335,
+      "word": "doba",
+      "field": "senses[0].examples[1].av",
+      "value": "dohasa*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1369,
+      "word": "du...",
+      "field": "word",
+      "value": "du...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1369,
+      "word": "du...",
+      "field": "forms[0]",
+      "value": "du...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1453,
+      "word": "enib",
+      "field": "senses[0].examples[0].av",
+      "value": "enibe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1486,
+      "word": "exxeb",
+      "field": "senses[0].examples[0].av",
+      "value": "exxebe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1542,
+      "word": "gal...",
+      "field": "word",
+      "value": "gal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1542,
+      "word": "gal...",
+      "field": "forms[0]",
+      "value": "gal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1549,
+      "word": "galm...",
+      "field": "word",
+      "value": "galm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1549,
+      "word": "galm...",
+      "field": "forms[0]",
+      "value": "galm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1555,
+      "word": "gamç...",
+      "field": "word",
+      "value": "gamç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1555,
+      "word": "gamç...",
+      "field": "forms[0]",
+      "value": "gamç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1558,
+      "word": "ganç...",
+      "field": "word",
+      "value": "ganç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1558,
+      "word": "ganç...",
+      "field": "forms[0]",
+      "value": "ganç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1561,
+      "word": "gar...",
+      "field": "word",
+      "value": "gar...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1561,
+      "word": "gar...",
+      "field": "forms[0]",
+      "value": "gar...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1566,
+      "word": "garb...",
+      "field": "word",
+      "value": "garb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1566,
+      "word": "garb...",
+      "field": "forms[0]",
+      "value": "garb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1578,
+      "word": "garss...",
+      "field": "word",
+      "value": "garss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1578,
+      "word": "garss...",
+      "field": "forms[0]",
+      "value": "garss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1591,
+      "word": "gaƶ...",
+      "field": "word",
+      "value": "gaƶ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1591,
+      "word": "gaƶ...",
+      "field": "forms[0]",
+      "value": "gaƶ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1629,
+      "word": "gimi...",
+      "field": "word",
+      "value": "gimi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1629,
+      "word": "gimi...",
+      "field": "forms[0]",
+      "value": "gimi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1654,
+      "word": "gong...",
+      "field": "word",
+      "value": "gong...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1654,
+      "word": "gong...",
+      "field": "forms[0]",
+      "value": "gong...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1658,
+      "word": "gorbo...",
+      "field": "word",
+      "value": "gorbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1658,
+      "word": "gorbo...",
+      "field": "forms[0]",
+      "value": "gorbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1757,
+      "word": "ƣadi...",
+      "field": "word",
+      "value": "ƣadi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1757,
+      "word": "ƣadi...",
+      "field": "forms[0]",
+      "value": "ƣadi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1759,
+      "word": "ƣadr...",
+      "field": "word",
+      "value": "ƣadr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1759,
+      "word": "ƣadr...",
+      "field": "forms[0]",
+      "value": "ƣadr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1777,
+      "word": "ƣamss...",
+      "field": "word",
+      "value": "ƣamss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1777,
+      "word": "ƣamss...",
+      "field": "forms[0]",
+      "value": "ƣamss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1779,
+      "word": "ƣanss...",
+      "field": "word",
+      "value": "ƣanss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1779,
+      "word": "ƣanss...",
+      "field": "forms[0]",
+      "value": "ƣanss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1808,
+      "word": "ƣaƶ...",
+      "field": "word",
+      "value": "ƣaƶ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1808,
+      "word": "ƣaƶ...",
+      "field": "forms[0]",
+      "value": "ƣaƶ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1838,
+      "word": "ƣoƣo...",
+      "field": "word",
+      "value": "ƣoƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1838,
+      "word": "ƣoƣo...",
+      "field": "forms[0]",
+      "value": "ƣoƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1920,
+      "word": "habi...",
+      "field": "word",
+      "value": "habi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1920,
+      "word": "habi...",
+      "field": "forms[0]",
+      "value": "habi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1925,
+      "word": "hacc...",
+      "field": "word",
+      "value": "hacc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1925,
+      "word": "hacc...",
+      "field": "forms[0]",
+      "value": "hacc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1928,
+      "word": "hadaba",
+      "field": "senses[0].examples[0].av",
+      "value": "hadabe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1928,
+      "word": "hadaba",
+      "field": "senses[0].examples[1].av",
+      "value": "hadabasa*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1939,
+      "word": "haƣaba",
+      "field": "senses[0].examples[0].av",
+      "value": "haƣabe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1943,
+      "word": "hah...",
+      "field": "word",
+      "value": "hah...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1943,
+      "word": "hah...",
+      "field": "forms[0]",
+      "value": "hah...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1951,
+      "word": "hak...",
+      "field": "word",
+      "value": "hak...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1951,
+      "word": "hak...",
+      "field": "forms[0]",
+      "value": "hak...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1956,
+      "word": "hal...",
+      "field": "word",
+      "value": "hal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1956,
+      "word": "hal...",
+      "field": "forms[0]",
+      "value": "hal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1982,
+      "word": "hanib",
+      "field": "senses[0].examples[0].av",
+      "value": "hanibe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1988,
+      "word": "haqli...",
+      "field": "word",
+      "value": "haqli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1988,
+      "word": "haqli...",
+      "field": "forms[0]",
+      "value": "haqli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1998,
+      "word": "hare...",
+      "field": "word",
+      "value": "hare...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 1998,
+      "word": "hare...",
+      "field": "forms[0]",
+      "value": "hare...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2002,
+      "word": "harq...",
+      "field": "word",
+      "value": "harq...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2002,
+      "word": "harq...",
+      "field": "forms[0]",
+      "value": "harq...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2020,
+      "word": "haⱬⱬu...",
+      "field": "word",
+      "value": "haⱬⱬu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2020,
+      "word": "haⱬⱬu...",
+      "field": "forms[0]",
+      "value": "haⱬⱬu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2047,
+      "word": "henib",
+      "field": "senses[0].examples[0].av",
+      "value": "henibe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2057,
+      "word": "herss...",
+      "field": "word",
+      "value": "herss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2057,
+      "word": "herss...",
+      "field": "forms[0]",
+      "value": "herss...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2109,
+      "word": "hohma...",
+      "field": "word",
+      "value": "hohma...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2109,
+      "word": "hohma...",
+      "field": "forms[0]",
+      "value": "hohma...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2114,
+      "word": "hoḩer",
+      "field": "forms[4]",
+      "value": "hu’rul",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "’"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2129,
+      "word": "horm...",
+      "field": "word",
+      "value": "horm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2129,
+      "word": "horm...",
+      "field": "forms[0]",
+      "value": "horm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2130,
+      "word": "horo...",
+      "field": "word",
+      "value": "horo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2130,
+      "word": "horo...",
+      "field": "forms[0]",
+      "value": "horo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2158,
+      "word": "hundu...",
+      "field": "word",
+      "value": "hundu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2158,
+      "word": "hundu...",
+      "field": "forms[0]",
+      "value": "hundu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2177,
+      "word": "hveḩr...",
+      "field": "word",
+      "value": "hveḩr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2177,
+      "word": "hveḩr...",
+      "field": "forms[0]",
+      "value": "hveḩr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2187,
+      "word": "ħacc...",
+      "field": "word",
+      "value": "ħacc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2187,
+      "word": "ħacc...",
+      "field": "forms[0]",
+      "value": "ħacc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2231,
+      "word": "ħançç...",
+      "field": "word",
+      "value": "ħançç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2231,
+      "word": "ħançç...",
+      "field": "forms[0]",
+      "value": "ħançç...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2259,
+      "word": "ħarpi...",
+      "field": "word",
+      "value": "ħarpi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2259,
+      "word": "ħarpi...",
+      "field": "forms[0]",
+      "value": "ħarpi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2272,
+      "word": "ħaţi...",
+      "field": "word",
+      "value": "ħaţi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2272,
+      "word": "ħaţi...",
+      "field": "forms[0]",
+      "value": "ħaţi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2289,
+      "word": "ħed...",
+      "field": "word",
+      "value": "ħed...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2289,
+      "word": "ħed...",
+      "field": "forms[0]",
+      "value": "ħed...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2307,
+      "word": "ħev...",
+      "field": "word",
+      "value": "ħev...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2307,
+      "word": "ħev...",
+      "field": "forms[0]",
+      "value": "ħev...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2335,
+      "word": "ħobo...",
+      "field": "word",
+      "value": "ħobo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2335,
+      "word": "ħobo...",
+      "field": "forms[0]",
+      "value": "ħobo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2347,
+      "word": "ħoto...",
+      "field": "word",
+      "value": "ħoto...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2347,
+      "word": "ħoto...",
+      "field": "forms[0]",
+      "value": "ħoto...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2348,
+      "word": "ħoţo...",
+      "field": "word",
+      "value": "ħoţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2348,
+      "word": "ħoţo...",
+      "field": "forms[0]",
+      "value": "ħoţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2351,
+      "word": "ħox̨...",
+      "field": "word",
+      "value": "ħox̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2351,
+      "word": "ħox̨...",
+      "field": "spelling_forms[0]",
+      "value": "ħox̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2351,
+      "word": "ħox̨...",
+      "field": "spelling_forms[1]",
+      "value": "ħux̨...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2354,
+      "word": "ħox̨la...",
+      "field": "word",
+      "value": "ħox̨la...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2354,
+      "word": "ħox̨la...",
+      "field": "forms[0]",
+      "value": "ħox̨la...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2355,
+      "word": "ħox̨o...",
+      "field": "word",
+      "value": "ħox̨o...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2355,
+      "word": "ħox̨o...",
+      "field": "forms[0]",
+      "value": "ħox̨o...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2432,
+      "word": "ḩakda...",
+      "field": "word",
+      "value": "ḩakda...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2432,
+      "word": "ḩakda...",
+      "field": "forms[0]",
+      "value": "ḩakda...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2436,
+      "word": "ḩal...",
+      "field": "word",
+      "value": "ḩal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2436,
+      "word": "ḩal...",
+      "field": "forms[0]",
+      "value": "ḩal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2450,
+      "word": "ḩalx...",
+      "field": "word",
+      "value": "ḩalx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2450,
+      "word": "ḩalx...",
+      "field": "forms[0]",
+      "value": "ḩalx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2452,
+      "word": "ḩama...",
+      "field": "word",
+      "value": "ḩama...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2452,
+      "word": "ḩama...",
+      "field": "forms[0]",
+      "value": "ḩama...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2459,
+      "word": "ḩana...",
+      "field": "word",
+      "value": "ḩana...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2459,
+      "word": "ḩana...",
+      "field": "forms[0]",
+      "value": "ḩana...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2511,
+      "word": "ḩarso...",
+      "field": "word",
+      "value": "ḩarso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2511,
+      "word": "ḩarso...",
+      "field": "forms[0]",
+      "value": "ḩarso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2514,
+      "word": "ḩart...",
+      "field": "word",
+      "value": "ḩart...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2514,
+      "word": "ḩart...",
+      "field": "forms[0]",
+      "value": "ḩart...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2582,
+      "word": "ḩerq...",
+      "field": "word",
+      "value": "ḩerq...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2582,
+      "word": "ḩerq...",
+      "field": "forms[0]",
+      "value": "ḩerq...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2583,
+      "word": "ḩerţ...",
+      "field": "word",
+      "value": "ḩerţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2583,
+      "word": "ḩerţ...",
+      "field": "forms[0]",
+      "value": "ḩerţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2591,
+      "word": "ḩija...",
+      "field": "word",
+      "value": "ḩija...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2591,
+      "word": "ḩija...",
+      "field": "forms[0]",
+      "value": "ḩija...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2597,
+      "word": "ḩind...",
+      "field": "word",
+      "value": "ḩind...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2597,
+      "word": "ḩind...",
+      "field": "forms[0]",
+      "value": "ḩind...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2600,
+      "word": "ḩinz...",
+      "field": "word",
+      "value": "ḩinz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2600,
+      "word": "ḩinz...",
+      "field": "forms[0]",
+      "value": "ḩinz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2619,
+      "word": "ḩokko...",
+      "field": "word",
+      "value": "ḩokko...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2619,
+      "word": "ḩokko...",
+      "field": "forms[0]",
+      "value": "ḩokko...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2633,
+      "word": "ḩonso...",
+      "field": "word",
+      "value": "ḩonso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2633,
+      "word": "ḩonso...",
+      "field": "forms[0]",
+      "value": "ḩonso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2637,
+      "word": "ḩoro...",
+      "field": "word",
+      "value": "ḩoro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2637,
+      "word": "ḩoro...",
+      "field": "forms[0]",
+      "value": "ḩoro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2647,
+      "word": "ḩorⱬm...",
+      "field": "word",
+      "value": "ḩorⱬm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2647,
+      "word": "ḩorⱬm...",
+      "field": "forms[0]",
+      "value": "ḩorⱬm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2650,
+      "word": "ḩoşţo...",
+      "field": "word",
+      "value": "ḩoşţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2650,
+      "word": "ḩoşţo...",
+      "field": "forms[0]",
+      "value": "ḩoşţo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2675,
+      "word": "ḩurţ...",
+      "field": "word",
+      "value": "ḩurţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2675,
+      "word": "ḩurţ...",
+      "field": "forms[0]",
+      "value": "ḩurţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2676,
+      "word": "ḩuru...",
+      "field": "word",
+      "value": "ḩuru...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2676,
+      "word": "ḩuru...",
+      "field": "forms[0]",
+      "value": "ḩuru...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2738,
+      "word": "inssu...",
+      "field": "word",
+      "value": "inssu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2738,
+      "word": "inssu...",
+      "field": "forms[0]",
+      "value": "inssu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2768,
+      "word": "issu...",
+      "field": "word",
+      "value": "issu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2768,
+      "word": "issu...",
+      "field": "forms[0]",
+      "value": "issu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2768,
+      "word": "issu...",
+      "field": "see_also[0].target",
+      "value": "inssu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2804,
+      "word": "ja",
+      "field": "senses[0].examples[0].av",
+      "value": "ja... ja...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2945,
+      "word": "karan...",
+      "field": "word",
+      "value": "karan...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2945,
+      "word": "karan...",
+      "field": "forms[0]",
+      "value": "karan...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2962,
+      "word": "karţ...",
+      "field": "word",
+      "value": "karţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2962,
+      "word": "karţ...",
+      "field": "forms[0]",
+      "value": "karţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2970,
+      "word": "kat...",
+      "field": "word",
+      "value": "kat...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 2970,
+      "word": "kat...",
+      "field": "forms[0]",
+      "value": "kat...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3015,
+      "word": "kin",
+      "field": "senses[0].examples[0].av",
+      "value": "kinab, kinabab*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3028,
+      "word": "kirt...",
+      "field": "word",
+      "value": "kirt...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3028,
+      "word": "kirt...",
+      "field": "forms[0]",
+      "value": "kirt...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3062,
+      "word": "koko...",
+      "field": "word",
+      "value": "koko...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3062,
+      "word": "koko...",
+      "field": "forms[0]",
+      "value": "koko...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3119,
+      "word": "kopo...",
+      "field": "word",
+      "value": "kopo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3119,
+      "word": "kopo...",
+      "field": "forms[0]",
+      "value": "kopo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3122,
+      "word": "korço...",
+      "field": "word",
+      "value": "korço...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3122,
+      "word": "korço...",
+      "field": "forms[0]",
+      "value": "korço...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3126,
+      "word": "koso...",
+      "field": "word",
+      "value": "koso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3126,
+      "word": "koso...",
+      "field": "forms[0]",
+      "value": "koso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3273,
+      "word": "ķarm...",
+      "field": "word",
+      "value": "ķarm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3273,
+      "word": "ķarm...",
+      "field": "forms[0]",
+      "value": "ķarm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3284,
+      "word": "ķib",
+      "field": "senses[0].examples[2].av",
+      "value": "ķib·ķib-nigi",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "·"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3302,
+      "word": "ķilķ...",
+      "field": "word",
+      "value": "ķilķ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3302,
+      "word": "ķilķ...",
+      "field": "forms[0]",
+      "value": "ķilķ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3502,
+      "word": "ļļada...",
+      "field": "word",
+      "value": "ļļada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3502,
+      "word": "ļļada...",
+      "field": "forms[0]",
+      "value": "ļļada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3502,
+      "word": "ļļada...",
+      "field": "forms[1]",
+      "value": "ļada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3502,
+      "word": "ļļada...",
+      "field": "spelling_forms[0]",
+      "value": "ļļada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3502,
+      "word": "ļļada...",
+      "field": "spelling_forms[1]",
+      "value": "ļada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3510,
+      "word": "ļļe...",
+      "field": "word",
+      "value": "ļļe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3510,
+      "word": "ļļe...",
+      "field": "forms[0]",
+      "value": "ļļe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3510,
+      "word": "ļļe...",
+      "field": "forms[1]",
+      "value": "ļe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3510,
+      "word": "ļļe...",
+      "field": "spelling_forms[0]",
+      "value": "ļļe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3510,
+      "word": "ļļe...",
+      "field": "spelling_forms[1]",
+      "value": "ļe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3516,
+      "word": "ļļi...",
+      "field": "word",
+      "value": "ļļi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3516,
+      "word": "ļļi...",
+      "field": "forms[0]",
+      "value": "ļļi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3532,
+      "word": "ļobe",
+      "field": "senses[0].examples[0].av",
+      "value": "ļobasa*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3540,
+      "word": "ļoļo...",
+      "field": "word",
+      "value": "ļoļo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3540,
+      "word": "ļoļo...",
+      "field": "forms[0]",
+      "value": "ļoļo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3542,
+      "word": "ļorob",
+      "field": "senses[0].examples[0].av",
+      "value": "ļorobe*",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3584,
+      "word": "maci...",
+      "field": "word",
+      "value": "maci...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3584,
+      "word": "maci...",
+      "field": "forms[0]",
+      "value": "maci...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3599,
+      "word": "magzi...",
+      "field": "word",
+      "value": "magzi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3599,
+      "word": "magzi...",
+      "field": "forms[0]",
+      "value": "magzi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3602,
+      "word": "maƣi...",
+      "field": "word",
+      "value": "maƣi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3602,
+      "word": "maƣi...",
+      "field": "forms[0]",
+      "value": "maƣi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3607,
+      "word": "mahdi...",
+      "field": "word",
+      "value": "mahdi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3607,
+      "word": "mahdi...",
+      "field": "forms[0]",
+      "value": "mahdi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3739,
+      "word": "maxxu...",
+      "field": "word",
+      "value": "maxxu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3739,
+      "word": "maxxu...",
+      "field": "forms[0]",
+      "value": "maxxu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3855,
+      "word": "mocclo...",
+      "field": "word",
+      "value": "mocclo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3855,
+      "word": "mocclo...",
+      "field": "forms[0]",
+      "value": "mocclo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3856,
+      "word": "moclo...",
+      "field": "word",
+      "value": "moclo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3856,
+      "word": "moclo...",
+      "field": "forms[0]",
+      "value": "moclo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3861,
+      "word": "moḩro...",
+      "field": "word",
+      "value": "moḩro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3861,
+      "word": "moḩro...",
+      "field": "forms[0]",
+      "value": "moḩro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3862,
+      "word": "molo...",
+      "field": "word",
+      "value": "molo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3862,
+      "word": "molo...",
+      "field": "forms[0]",
+      "value": "molo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3868,
+      "word": "moqro...",
+      "field": "word",
+      "value": "moqro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3868,
+      "word": "moqro...",
+      "field": "forms[0]",
+      "value": "moqro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3869,
+      "word": "moꝗlo...",
+      "field": "word",
+      "value": "moꝗlo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3869,
+      "word": "moꝗlo...",
+      "field": "forms[0]",
+      "value": "moꝗlo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3870,
+      "word": "moꝗro...",
+      "field": "word",
+      "value": "moꝗro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3870,
+      "word": "moꝗro...",
+      "field": "forms[0]",
+      "value": "moꝗro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3871,
+      "word": "morqo...",
+      "field": "word",
+      "value": "morqo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3871,
+      "word": "morqo...",
+      "field": "forms[0]",
+      "value": "morqo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3902,
+      "word": "muļru...",
+      "field": "word",
+      "value": "muļru...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3902,
+      "word": "muļru...",
+      "field": "forms[0]",
+      "value": "muļru...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3926,
+      "word": "mutaħelun",
+      "field": "spelling_forms[1]",
+      "value": "mutaħelúm",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [],
+      "internal_capitals": [],
+      "indexed_stress": [
+        "́"
+      ]
+    },
+    {
+      "line": 3968,
+      "word": "naļu...",
+      "field": "word",
+      "value": "naļu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 3968,
+      "word": "naļu...",
+      "field": "forms[0]",
+      "value": "naļu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4046,
+      "word": "noso...",
+      "field": "word",
+      "value": "noso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4046,
+      "word": "noso...",
+      "field": "forms[0]",
+      "value": "noso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4088,
+      "word": "oƣo...",
+      "field": "word",
+      "value": "oƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4088,
+      "word": "oƣo...",
+      "field": "spelling_forms[0]",
+      "value": "oƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4325,
+      "word": "poco...",
+      "field": "word",
+      "value": "poco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4325,
+      "word": "poco...",
+      "field": "forms[0]",
+      "value": "poco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4346,
+      "word": "porcco...",
+      "field": "word",
+      "value": "porcco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4346,
+      "word": "porcco...",
+      "field": "forms[0]",
+      "value": "porcco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4349,
+      "word": "poro...",
+      "field": "word",
+      "value": "poro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4349,
+      "word": "poro...",
+      "field": "forms[0]",
+      "value": "poro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4445,
+      "word": "qada...",
+      "field": "word",
+      "value": "qada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4445,
+      "word": "qada...",
+      "field": "forms[0]",
+      "value": "qada...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4472,
+      "word": "qalm...",
+      "field": "word",
+      "value": "qalm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4472,
+      "word": "qalm...",
+      "field": "forms[0]",
+      "value": "qalm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4480,
+      "word": "qanal",
+      "field": "see_also[0].target",
+      "value": "kana¹",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "¹"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4483,
+      "word": "qani...",
+      "field": "word",
+      "value": "qani...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4483,
+      "word": "qani...",
+      "field": "forms[0]",
+      "value": "qani...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4577,
+      "word": "qirşi...",
+      "field": "word",
+      "value": "qirşi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4577,
+      "word": "qirşi...",
+      "field": "forms[0]",
+      "value": "qirşi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4586,
+      "word": "qoçço...",
+      "field": "word",
+      "value": "qoçço...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4586,
+      "word": "qoçço...",
+      "field": "forms[0]",
+      "value": "qoçço...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4590,
+      "word": "qolo...",
+      "field": "word",
+      "value": "qolo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4590,
+      "word": "qolo...",
+      "field": "forms[0]",
+      "value": "qolo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4605,
+      "word": "qorqo...",
+      "field": "word",
+      "value": "qorqo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4605,
+      "word": "qorqo...",
+      "field": "forms[0]",
+      "value": "qorqo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4612,
+      "word": "qoţno...",
+      "field": "word",
+      "value": "qoţno...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4612,
+      "word": "qoţno...",
+      "field": "forms[0]",
+      "value": "qoţno...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4647,
+      "word": "qurşi...",
+      "field": "word",
+      "value": "qurşi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4647,
+      "word": "qurşi...",
+      "field": "forms[0]",
+      "value": "qurşi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4650,
+      "word": "quţna...",
+      "field": "word",
+      "value": "quţna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4650,
+      "word": "quţna...",
+      "field": "spelling_forms[0]",
+      "value": "quţna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4650,
+      "word": "quţna...",
+      "field": "spelling_forms[1]",
+      "value": "qoţno...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4651,
+      "word": "quţu...",
+      "field": "word",
+      "value": "quţu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4651,
+      "word": "quţu...",
+      "field": "forms[0]",
+      "value": "quţu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4692,
+      "word": "ꝗaħri...",
+      "field": "word",
+      "value": "ꝗaħri...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4692,
+      "word": "ꝗaħri...",
+      "field": "forms[0]",
+      "value": "ꝗaħri...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4698,
+      "word": "ꝗalu...",
+      "field": "word",
+      "value": "ꝗalu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4698,
+      "word": "ꝗalu...",
+      "field": "forms[0]",
+      "value": "ꝗalu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4740,
+      "word": "ꝗolbo...",
+      "field": "word",
+      "value": "ꝗolbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4740,
+      "word": "ꝗolbo...",
+      "field": "forms[0]",
+      "value": "ꝗolbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4836,
+      "word": "raļda...",
+      "field": "word",
+      "value": "raļda...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4836,
+      "word": "raļda...",
+      "field": "forms[0]",
+      "value": "raļda...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4846,
+      "word": "raqli...",
+      "field": "word",
+      "value": "raqli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4846,
+      "word": "raqli...",
+      "field": "forms[0]",
+      "value": "raqli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4848,
+      "word": "raqu...",
+      "field": "word",
+      "value": "raqu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4848,
+      "word": "raqu...",
+      "field": "forms[0]",
+      "value": "raqu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4879,
+      "word": "ratli...",
+      "field": "word",
+      "value": "ratli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4879,
+      "word": "ratli...",
+      "field": "forms[0]",
+      "value": "ratli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4883,
+      "word": "raţli...",
+      "field": "word",
+      "value": "raţli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4883,
+      "word": "raţli...",
+      "field": "forms[0]",
+      "value": "raţli...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4951,
+      "word": "reķe...",
+      "field": "word",
+      "value": "reķe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 4951,
+      "word": "reķe...",
+      "field": "forms[0]",
+      "value": "reķe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5029,
+      "word": "rihn...",
+      "field": "word",
+      "value": "rihn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5029,
+      "word": "rihn...",
+      "field": "forms[0]",
+      "value": "rihn...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5046,
+      "word": "riţali...",
+      "field": "word",
+      "value": "riţali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5046,
+      "word": "riţali...",
+      "field": "forms[0]",
+      "value": "riţali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5067,
+      "word": "rohali...",
+      "field": "word",
+      "value": "rohali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5067,
+      "word": "rohali...",
+      "field": "forms[0]",
+      "value": "rohali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5073,
+      "word": "roķķa...",
+      "field": "word",
+      "value": "roķķa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5073,
+      "word": "roķķa...",
+      "field": "forms[0]",
+      "value": "roķķa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5082,
+      "word": "roꝗo...",
+      "field": "word",
+      "value": "roꝗo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5082,
+      "word": "roꝗo...",
+      "field": "forms[0]",
+      "value": "roꝗo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5106,
+      "word": "roso...",
+      "field": "word",
+      "value": "roso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5106,
+      "word": "roso...",
+      "field": "forms[0]",
+      "value": "roso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5111,
+      "word": "rosţ...",
+      "field": "word",
+      "value": "rosţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5111,
+      "word": "rosţ...",
+      "field": "forms[0]",
+      "value": "rosţ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5111,
+      "word": "rosţ...",
+      "field": "see_also[0].target",
+      "value": "roso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5115,
+      "word": "roţlo...",
+      "field": "word",
+      "value": "roţlo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5115,
+      "word": "roţlo...",
+      "field": "forms[0]",
+      "value": "roţlo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5116,
+      "word": "roxo...",
+      "field": "word",
+      "value": "roxo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5116,
+      "word": "roxo...",
+      "field": "forms[0]",
+      "value": "roxo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5125,
+      "word": "roxxu...",
+      "field": "word",
+      "value": "roxxu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5125,
+      "word": "roxxu...",
+      "field": "forms[0]",
+      "value": "roxxu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5127,
+      "word": "rox̨a...",
+      "field": "word",
+      "value": "rox̨a...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5127,
+      "word": "rox̨a...",
+      "field": "forms[0]",
+      "value": "rox̨a...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5139,
+      "word": "ruhal...",
+      "field": "word",
+      "value": "ruhal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5139,
+      "word": "ruhal...",
+      "field": "forms[0]",
+      "value": "ruhal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5148,
+      "word": "ruħali...",
+      "field": "word",
+      "value": "ruħali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5148,
+      "word": "ruħali...",
+      "field": "forms[0]",
+      "value": "ruħali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5174,
+      "word": "ruqz...",
+      "field": "word",
+      "value": "ruqz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5174,
+      "word": "ruqz...",
+      "field": "forms[0]",
+      "value": "ruqz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5181,
+      "word": "rusi...",
+      "field": "word",
+      "value": "rusi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5181,
+      "word": "rusi...",
+      "field": "forms[0]",
+      "value": "rusi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5186,
+      "word": "russna...",
+      "field": "word",
+      "value": "russna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5186,
+      "word": "russna...",
+      "field": "forms[0]",
+      "value": "russna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5186,
+      "word": "russna...",
+      "field": "forms[1]",
+      "value": "rusna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5186,
+      "word": "russna...",
+      "field": "spelling_forms[0]",
+      "value": "russna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5186,
+      "word": "russna...",
+      "field": "spelling_forms[1]",
+      "value": "rusna...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5193,
+      "word": "rux̨a...",
+      "field": "word",
+      "value": "rux̨a...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5193,
+      "word": "rux̨a...",
+      "field": "forms[0]",
+      "value": "rux̨a...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5210,
+      "word": "sagl...",
+      "field": "word",
+      "value": "sagl...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5210,
+      "word": "sagl...",
+      "field": "forms[0]",
+      "value": "sagl...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5234,
+      "word": "sardi...",
+      "field": "word",
+      "value": "sardi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5234,
+      "word": "sardi...",
+      "field": "forms[0]",
+      "value": "sardi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5272,
+      "word": "sivu...",
+      "field": "word",
+      "value": "sivu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5272,
+      "word": "sivu...",
+      "field": "forms[0]",
+      "value": "sivu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5375,
+      "word": "ssongr...",
+      "field": "word",
+      "value": "ssongr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5375,
+      "word": "ssongr...",
+      "field": "spelling_forms[0]",
+      "value": "ssongr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5375,
+      "word": "ssongr...",
+      "field": "spelling_forms[1]",
+      "value": "ssungr...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5379,
+      "word": "ssuƣra...",
+      "field": "word",
+      "value": "ssuƣra...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5379,
+      "word": "ssuƣra...",
+      "field": "forms[0]",
+      "value": "ssuƣra...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5387,
+      "word": "ssun...",
+      "field": "word",
+      "value": "ssun...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5387,
+      "word": "ssun...",
+      "field": "forms[0]",
+      "value": "ssun...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5390,
+      "word": "ssuntra...",
+      "field": "word",
+      "value": "ssuntra...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5390,
+      "word": "ssuntra...",
+      "field": "forms[0]",
+      "value": "ssuntra...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5467,
+      "word": "ꞩara...",
+      "field": "word",
+      "value": "ꞩara...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5467,
+      "word": "ꞩara...",
+      "field": "forms[0]",
+      "value": "ꞩara...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5489,
+      "word": "ꞩoƣro...",
+      "field": "word",
+      "value": "ꞩoƣro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5489,
+      "word": "ꞩoƣro...",
+      "field": "forms[0]",
+      "value": "ꞩoƣro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5497,
+      "word": "ꞩorƣo...",
+      "field": "word",
+      "value": "ꞩorƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5497,
+      "word": "ꞩorƣo...",
+      "field": "forms[0]",
+      "value": "ꞩorƣo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5506,
+      "word": "ꞩꞩida...",
+      "field": "word",
+      "value": "ꞩꞩida...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5506,
+      "word": "ꞩꞩida...",
+      "field": "forms[0]",
+      "value": "ꞩꞩida...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5529,
+      "word": "şaḩi...",
+      "field": "word",
+      "value": "şaḩi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5529,
+      "word": "şaḩi...",
+      "field": "forms[0]",
+      "value": "şaḩi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5538,
+      "word": "şakļize",
+      "field": "senses[0].examples[0].av",
+      "value": "vuķine* a",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "*"
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5675,
+      "word": "tanc...",
+      "field": "word",
+      "value": "tanc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5675,
+      "word": "tanc...",
+      "field": "forms[0]",
+      "value": "tanc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5676,
+      "word": "tankal...",
+      "field": "word",
+      "value": "tankal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5676,
+      "word": "tankal...",
+      "field": "forms[0]",
+      "value": "tankal...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5689,
+      "word": "tarḩ...",
+      "field": "word",
+      "value": "tarḩ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5689,
+      "word": "tarḩ...",
+      "field": "forms[0]",
+      "value": "tarḩ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5756,
+      "word": "toka...",
+      "field": "word",
+      "value": "toka...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5756,
+      "word": "toka...",
+      "field": "spelling_forms[0]",
+      "value": "toka...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5756,
+      "word": "toka...",
+      "field": "spelling_forms[1]",
+      "value": "tuka...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5799,
+      "word": "turb...",
+      "field": "word",
+      "value": "turb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5799,
+      "word": "turb...",
+      "field": "forms[0]",
+      "value": "turb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5876,
+      "word": "ţamx...",
+      "field": "word",
+      "value": "ţamx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5876,
+      "word": "ţamx...",
+      "field": "forms[0]",
+      "value": "ţamx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5878,
+      "word": "ţanc...",
+      "field": "word",
+      "value": "ţanc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5878,
+      "word": "ţanc...",
+      "field": "forms[0]",
+      "value": "ţanc...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5883,
+      "word": "ţanx...",
+      "field": "word",
+      "value": "ţanx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5883,
+      "word": "ţanx...",
+      "field": "forms[0]",
+      "value": "ţanx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5949,
+      "word": "ţinƣ...",
+      "field": "word",
+      "value": "ţinƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5949,
+      "word": "ţinƣ...",
+      "field": "forms[0]",
+      "value": "ţinƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5955,
+      "word": "ţinx...",
+      "field": "word",
+      "value": "ţinx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5955,
+      "word": "ţinx...",
+      "field": "forms[0]",
+      "value": "ţinx...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5969,
+      "word": "ţoƣ...",
+      "field": "word",
+      "value": "ţoƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5969,
+      "word": "ţoƣ...",
+      "field": "forms[0]",
+      "value": "ţoƣ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5970,
+      "word": "ţoƣro...",
+      "field": "word",
+      "value": "ţoƣro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5970,
+      "word": "ţoƣro...",
+      "field": "forms[0]",
+      "value": "ţoƣro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5977,
+      "word": "ţoho...",
+      "field": "word",
+      "value": "ţoho...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5977,
+      "word": "ţoho...",
+      "field": "forms[0]",
+      "value": "ţoho...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5979,
+      "word": "ţoħo...",
+      "field": "word",
+      "value": "ţoħo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 5979,
+      "word": "ţoħo...",
+      "field": "forms[0]",
+      "value": "ţoħo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6005,
+      "word": "ţoxxo...",
+      "field": "word",
+      "value": "ţoxxo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6005,
+      "word": "ţoxxo...",
+      "field": "forms[0]",
+      "value": "ţoxxo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6071,
+      "word": "urƣali...",
+      "field": "word",
+      "value": "urƣali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6071,
+      "word": "urƣali...",
+      "field": "forms[0]",
+      "value": "urƣali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6269,
+      "word": "xaba...",
+      "field": "word",
+      "value": "xaba...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6269,
+      "word": "xaba...",
+      "field": "forms[0]",
+      "value": "xaba...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6293,
+      "word": "xan...",
+      "field": "word",
+      "value": "xan...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6293,
+      "word": "xan...",
+      "field": "forms[0]",
+      "value": "xan...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6298,
+      "word": "xar...",
+      "field": "word",
+      "value": "xar...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6298,
+      "word": "xar...",
+      "field": "forms[0]",
+      "value": "xar...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6303,
+      "word": "xarb...",
+      "field": "word",
+      "value": "xarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6303,
+      "word": "xarb...",
+      "field": "forms[0]",
+      "value": "xarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6308,
+      "word": "xasali...",
+      "field": "word",
+      "value": "xasali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6308,
+      "word": "xasali...",
+      "field": "forms[0]",
+      "value": "xasali...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6388,
+      "word": "xval...",
+      "field": "word",
+      "value": "xval...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6388,
+      "word": "xval...",
+      "field": "forms[0]",
+      "value": "xval...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6415,
+      "word": "xxarb...",
+      "field": "word",
+      "value": "xxarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6415,
+      "word": "xxarb...",
+      "field": "forms[0]",
+      "value": "xxarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6415,
+      "word": "xxarb...",
+      "field": "forms[1]",
+      "value": "xarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6415,
+      "word": "xxarb...",
+      "field": "spelling_forms[0]",
+      "value": "xxarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6415,
+      "word": "xxarb...",
+      "field": "spelling_forms[1]",
+      "value": "xarb...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6418,
+      "word": "xxari...",
+      "field": "word",
+      "value": "xxari...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6418,
+      "word": "xxari...",
+      "field": "forms[0]",
+      "value": "xxari...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6445,
+      "word": "xxoco...",
+      "field": "word",
+      "value": "xxoco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6445,
+      "word": "xxoco...",
+      "field": "forms[0]",
+      "value": "xxoco...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6451,
+      "word": "xxonƶro...",
+      "field": "word",
+      "value": "xxonƶro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6451,
+      "word": "xxonƶro...",
+      "field": "forms[0]",
+      "value": "xxonƶro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6460,
+      "word": "xxunderi...",
+      "field": "word",
+      "value": "xxunderi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6460,
+      "word": "xxunderi...",
+      "field": "forms[0]",
+      "value": "xxunderi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6510,
+      "word": "x̨olbo...",
+      "field": "word",
+      "value": "x̨olbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6510,
+      "word": "x̨olbo...",
+      "field": "forms[0]",
+      "value": "x̨olbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6515,
+      "word": "x̨udu...",
+      "field": "word",
+      "value": "x̨udu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6515,
+      "word": "x̨udu...",
+      "field": "forms[0]",
+      "value": "x̨udu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6551,
+      "word": "x̵abi...",
+      "field": "word",
+      "value": "x̵abi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6551,
+      "word": "x̵abi...",
+      "field": "forms[0]",
+      "value": "x̵abi...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6604,
+      "word": "x̵arx̵...",
+      "field": "word",
+      "value": "x̵arx̵...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6604,
+      "word": "x̵arx̵...",
+      "field": "forms[0]",
+      "value": "x̵arx̵...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6651,
+      "word": "x̵orm...",
+      "field": "word",
+      "value": "x̵orm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6651,
+      "word": "x̵orm...",
+      "field": "forms[0]",
+      "value": "x̵orm...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6653,
+      "word": "x̵orso...",
+      "field": "word",
+      "value": "x̵orso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6653,
+      "word": "x̵orso...",
+      "field": "forms[0]",
+      "value": "x̵orso...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6716,
+      "word": "x̵vavu...",
+      "field": "word",
+      "value": "x̵vavu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6716,
+      "word": "x̵vavu...",
+      "field": "forms[0]",
+      "value": "x̵vavu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6783,
+      "word": "zod...",
+      "field": "word",
+      "value": "zod...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6783,
+      "word": "zod...",
+      "field": "forms[0]",
+      "value": "zod...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6801,
+      "word": "ƶadu...",
+      "field": "word",
+      "value": "ƶadu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6801,
+      "word": "ƶadu...",
+      "field": "forms[0]",
+      "value": "ƶadu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6826,
+      "word": "ƶarƣa...",
+      "field": "word",
+      "value": "ƶarƣa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6826,
+      "word": "ƶarƣa...",
+      "field": "forms[0]",
+      "value": "ƶarƣa...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6848,
+      "word": "ƶin...",
+      "field": "word",
+      "value": "ƶin...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6848,
+      "word": "ƶin...",
+      "field": "forms[0]",
+      "value": "ƶin...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6859,
+      "word": "ƶodo...",
+      "field": "word",
+      "value": "ƶodo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6859,
+      "word": "ƶodo...",
+      "field": "forms[0]",
+      "value": "ƶodo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6860,
+      "word": "ƶono...",
+      "field": "word",
+      "value": "ƶono...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6860,
+      "word": "ƶono...",
+      "field": "forms[0]",
+      "value": "ƶono...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6874,
+      "word": "ƶvede...",
+      "field": "word",
+      "value": "ƶvede...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6874,
+      "word": "ƶvede...",
+      "field": "forms[0]",
+      "value": "ƶvede...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6874,
+      "word": "ƶvede...",
+      "field": "see_also[0].target",
+      "value": "ƶodo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6886,
+      "word": "ⱬe...",
+      "field": "word",
+      "value": "ⱬe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6886,
+      "word": "ⱬe...",
+      "field": "forms[0]",
+      "value": "ⱬe...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6911,
+      "word": "ⱬoⱬo...",
+      "field": "word",
+      "value": "ⱬoⱬo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6911,
+      "word": "ⱬoⱬo...",
+      "field": "forms[0]",
+      "value": "ⱬoⱬo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6933,
+      "word": "ⱬⱬak...",
+      "field": "word",
+      "value": "ⱬⱬak...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6933,
+      "word": "ⱬⱬak...",
+      "field": "forms[0]",
+      "value": "ⱬⱬak...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6949,
+      "word": "ⱬⱬanz...",
+      "field": "word",
+      "value": "ⱬⱬanz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6949,
+      "word": "ⱬⱬanz...",
+      "field": "forms[0]",
+      "value": "ⱬⱬanz...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6956,
+      "word": "ⱬⱬavu...",
+      "field": "word",
+      "value": "ⱬⱬavu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6956,
+      "word": "ⱬⱬavu...",
+      "field": "forms[0]",
+      "value": "ⱬⱬavu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6977,
+      "word": "ⱬⱬilⱬⱬ...",
+      "field": "word",
+      "value": "ⱬⱬilⱬⱬ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6977,
+      "word": "ⱬⱬilⱬⱬ...",
+      "field": "forms[0]",
+      "value": "ⱬⱬilⱬⱬ...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6993,
+      "word": "ⱬⱬolbo...",
+      "field": "word",
+      "value": "ⱬⱬolbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6993,
+      "word": "ⱬⱬolbo...",
+      "field": "forms[0]",
+      "value": "ⱬⱬolbo...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6998,
+      "word": "ⱬⱬoro...",
+      "field": "word",
+      "value": "ⱬⱬoro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 6998,
+      "word": "ⱬⱬoro...",
+      "field": "forms[0]",
+      "value": "ⱬⱬoro...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 7007,
+      "word": "ⱬⱬudu...",
+      "field": "word",
+      "value": "ⱬⱬudu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    },
+    {
+      "line": 7007,
+      "word": "ⱬⱬudu...",
+      "field": "forms[0]",
+      "value": "ⱬⱬudu...",
+      "cyrillic": [],
+      "outside_alphabet": [],
+      "unexpected_symbols": [
+        "..."
+      ],
+      "internal_capitals": [],
+      "indexed_stress": []
+    }
+  ],
+  "findings_after": [],
+  "new_homographs": [
+    {
+      "word": "habi",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "word": "ħox̨",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "word": "ḩuru",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "word": "koko",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "word": "xan",
+      "before": 1,
+      "after": 2
+    },
+    {
+      "word": "ƶin",
+      "before": 1,
+      "after": 2
+    }
+  ],
+  "word_stress_entries": 9,
+  "spelling_stress_entries": 1
+}

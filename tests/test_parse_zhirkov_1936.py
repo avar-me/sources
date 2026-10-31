@@ -30,6 +30,40 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_stem_ellipsis_moves_to_prose_without_deleting_entries(self):
+        es = parse('<!-- p010 --><p><b>hah...</b> см. heh.</p><p><b>hah</b> сло́во.</p>'
+                   '<p><b>x...</b> см. hah...</p>')
+        self.assertEqual([e['word'] for e in es], ['hah', 'hah', 'x'])
+        self.assertEqual(es[0]['forms'], ['hah'])
+        self.assertIn('Основа', es[0]['senses'][0]['precomment'])
+        self.assertEqual(es[2]['see_also'][0]['target'], 'hah')
+        self.assertIn('Многоточие', es[2]['see_also'][0]['comment'])
+
+    def test_spelling_and_gender_stresses_leave_example_accents(self):
+        from parse_zhirkov_1936 import extract_form_stresses
+        e = entry('<b>foo, fóu</b> сло́во; foo á ру́сский.')
+        self.assertEqual(e['spelling_forms'], ['foo', 'fou'])
+        self.assertEqual(e['spelling_form_stresses'], {'1': 2})
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'foo á')
+        g = extract_form_stresses({'gender_forms': ['vá', 'já'], 'av': 'vá', 'text': 'ру́сский'})
+        self.assertEqual(g['gender_forms'], ['va', 'ja'])
+        self.assertEqual(g['gender_form_stresses'], {'0': 2, '1': 2})
+        self.assertEqual(g['av'], 'vá')
+        self.assertEqual(g['text'], 'ру́сский')
+
+    def test_heading_phrase_and_grammatical_marks_do_not_become_examples(self):
+        e = entry('<b>şakļize, şakļun vuķine*</b> a сомнева́ться.')
+        self.assertEqual(e['spelling_forms'], ['şakļize', 'şakļun vuķine'])
+        self.assertNotIn('forms', e)
+        self.assertEqual(e['senses'][0]['text'], 'сомнева́ться.')
+        self.assertNotIn('examples', e['senses'][0])
+        self.assertIn('арабское происхождение', e['senses'][0]['labels'])
+        e = entry('<b>x</b> сло́во; foo* á приме́р; ja... ja... и́ли... и́ли...')
+        self.assertEqual(e['senses'][0]['examples'][0]['av'], 'foo á')
+        self.assertIn('Знак *', e['senses'][0]['examples'][0]['comment'])
+        self.assertEqual(e['senses'][0]['examples'][1]['av'], 'ja ja')
+        self.assertIn('Парная конструкция', e['senses'][0]['examples'][1]['comment'])
+
     def test_bold_comma_spellings_are_separate_from_bracketed_forms(self):
         e = entry('<b>foo</b>, <b>fo</b>, <b>fooo</b> [fooal, act foosa] сло́во.')
         self.assertEqual(e['spelling_forms'], ['foo', 'fo', 'fooo'])
@@ -395,7 +429,7 @@ class ZhirkovParserTests(unittest.TestCase):
         for article in raw:
             e = structure(article)
             spellings = headword_spellings(article['word'])
-            self.assertEqual(e['word'], headword_stress(spellings[0])[0])
+            self.assertEqual(e['word'], headword_stress(spellings[0])[0].replace('...', '').replace('…', ''))
             # Optional pieces are joined into words, not lost lexical tokens.
             normalized_source = article['text']
             for source_form in [article['word']] + article.get('spelling_forms', []):

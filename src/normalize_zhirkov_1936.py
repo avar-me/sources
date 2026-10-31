@@ -33,6 +33,7 @@ ALIASES = {
     "x\u030c": "x̵", "x\u0304": "x̵", "χ": "x̵",
     **{f"z{mark}": "ⱬ" for mark in ("\u0323", "\u0327", "\u0326", "\u0328", "\u0307", "\u0309", "\u0304")},
     "z\u0335": "ƶ", "q\u0335": "ꝗ", "s\u0335": "ꞩ",
+    "’": "'",  # Same apostrophe, canonical index spelling.
     "ı": "i", "ɩ": "i", "ɪ": "i", "ɡ": "g", "ⱼ": "j",
 }
 CODE_ALIASES = {

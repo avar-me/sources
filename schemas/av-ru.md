@@ -44,7 +44,9 @@
 - `forms[]` — раскрытые формы;
 - `form_stresses` — необязательная карта индексов соседнего `forms` (с 0) в позиции ударения (с 1), например `{"0": 2, "1": 5}`. Допустима у статьи и у значения. Формы без знаков ударения; отсутствующий индекс означает неизвестное/неуказанное ударение. Позиция считается по Unicode-символам очищенной формы, не по слогам. Одинаковые написания с разными ударениями не сливаются;
 - `gender_forms[]` — формы по грамматическим классам/родам;
+- `gender_form_stresses` — необязательная карта индексов `gender_forms` в позиции ударения; те же правила индексации, что у `form_stresses`;
 - `spelling_forms[]` — варианты написания одной лексемы;
+- `spelling_form_stresses` — необязательная карта индексов `spelling_forms` в позиции ударения; сами написания без знаков ударения;
 - `labels[]` — пометы всей статьи;
 - `precomment` — общее предварительное пояснение;
 - `exclamation` — форма междометного восклицания;
@@ -174,7 +176,7 @@
 
 JSON Schema не учитывает порядок ключей, но в репозитории он нормирован ради читаемых диффов:
 
-- статья: `word → stress → homonym → stem → forms → form_stresses → gender_forms → spelling_forms → labels → precomment → exclamation → senses → see_also → pos → form → source`;
+- статья: `word → stress → homonym → stem → forms → form_stresses → gender_forms → gender_form_stresses → spelling_forms → spelling_form_stresses → labels → precomment → exclamation → senses → see_also → pos → form → source`;
 - значение: `text → precomment → labels → forms → морфологические ссылки → comment → comment_lang → examples`;
 - пример: `av → ru → labels → comment → comment_lang`;
 - `comment_lang` всегда сразу после `comment`.
@@ -199,3 +201,5 @@ JSON Schema не учитывает порядок ключей, но в реп�
     наборов у существующих статей-вариантов.
 
 `form_stresses` требует соседнего `forms`. Ключи — неотрицательные целые индексы, записанные строками JSON; значения — положительные целые. Индекс должен существовать в массиве, позиция должна указывать на гласную формы. Последние два ограничения проверяются содержательно (JSON Schema не сравнивает индексы и длины соседних значений).
+
+`spelling_form_stresses` требует `spelling_forms`, а `gender_form_stresses` — `gender_forms`. Карты используют индексы с 0 и позиции с 1 по Unicode-символам, как `form_stresses`. Ударения в `av`, `ru` и `text` при этом сохраняются.

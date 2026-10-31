@@ -15,7 +15,7 @@ except ImportError:
     from parse_zhirkov_1936 import ROOT, articles
 
 LETTERS = {ud.normalize('NFD', c) for c in ALPHABET}
-LATIN_KEYS = {'word', 'forms', 'spelling_forms', 'gender_forms', 'av', 'target'}
+LATIN_KEYS = {'word', 'forms', 'spelling_forms', 'gender_forms', 'av', 'target', 'stem'}
 
 
 def latin_fields(value, path=''):
@@ -56,14 +56,33 @@ def anomalies(text):
     return cyrillic, list(dict.fromkeys(foreign))
 
 
+
+def unexpected_symbols(text):
+    """Punctuation is an explicit allowlist, not an exemption for all symbols."""
+    allowed = set(" -'(),.!?")
+    found = [c for c in text if not c.isalpha() and not ud.combining(c) and c not in allowed]
+    if "..." in text or "…" in text:
+        found.append("...")
+    return list(dict.fromkeys(found))
+
+
+def internal_capitals(text):
+    return [token for token in re.findall(r"[^\W\d_]+", text)
+            if any(token[i - 1].islower() and token[i].isupper() for i in range(1, len(token)))]
+
+
 def audit(entries):
     result = []
     for line, entry in enumerate(entries, 1):
         for path, value in latin_fields(entry):
             cyrillic, foreign = anomalies(value)
-            if cyrillic or foreign:
+            symbols, capitals = unexpected_symbols(value), internal_capitals(value)
+            indexed = re.search(r"(?:^|\.)(?:word|forms|spelling_forms|gender_forms)(?:\[|\.|$)", path)
+            stress = [mark for mark in "\u0301\u0300" if indexed and mark in ud.normalize("NFD", value)]
+            if cyrillic or foreign or symbols or capitals or stress:
                 result.append(dict(line=line, word=entry['word'], field=path, value=value,
-                                   cyrillic=cyrillic, outside_alphabet=foreign))
+                                   cyrillic=cyrillic, outside_alphabet=foreign,
+                                   unexpected_symbols=symbols, internal_capitals=capitals, indexed_stress=stress))
     return result
 
 
@@ -71,23 +90,24 @@ def report(entries, findings, pages):
     cy = [r for r in findings if r['cyrillic']]
     lines = ['# av-ru.1936: проверка алфавита аварских полей', '',
              f'Статей: {len(entries)}. Полей с кириллицей: {len(cy)}. '
-             f'Полей с графемами вне алфавита: {len(findings)} '
+             f'Полей с любыми аномалиями: {len(findings)} '
              f'в {len({r["line"] for r in findings})} статьях.', '',
              'Проверяются word, forms, spelling_forms, gender_forms, examples[].av и see_also[].target. '
              'Русские переводы, labels и комментарии не транслитерируются. '
-             'Разрешены 39 исторических букв, регистр, пунктуация и ударение на гласной. '
-             'Цифры допустимы в обозначениях; предупреждение не служит командой удаления.', '',
+             'Разрешены 39 исторических букв, регистр, дефис, апостроф и ограниченный набор пунктуации. '
+             'Ударение разрешено на гласной в av/target; индексные word/*forms проверяются отдельно. '
+             'Цифры, звёздочки и троеточия требуют решения; предупреждение не служит командой удаления.', '',
              'Каноническая запись не доказывает правильность чтения: подмена одной допустимой буквы '
              'другой здесь не обнаруживается. Особенно важны контекстная проверка ɫ и различение x/x̨/x̵.', '',
              'Воспроизведение: `python3 src/audit_zhirkov_1936_alphabet.py '
              '--report review/av-ru.1936-alphabet.md --json review/av-ru.1936-alphabet.json`.', '',
-             '| Строка | Скан | Слово | Поле | Значение | Кириллица | Вне алфавита |',
-             '|---:|---:|---|---|---|---|---|']
+             '| Строка | Скан | Слово | Поле | Значение | Кириллица | Вне алфавита | Символы | Регистр |',
+             '|---:|---:|---|---|---|---|---|---|---|']
     def cell(value):
         return str(value).replace('|', '\\|').replace('\n', ' ')
     for r in findings:
         lines.append('| ' + ' | '.join(map(cell, [r['line'], pages.get(r['line'], ''), r['word'],
-                     r['field'], r['value'], ' '.join(r['cyrillic']), ' '.join(r['outside_alphabet'])])) + ' |')
+                     r['field'], r['value'], ' '.join(r['cyrillic']), ' '.join(r['outside_alphabet']), ' '.join(r.get('unexpected_symbols', [])), ' '.join(r.get('internal_capitals', []))])) + ' |')
     return '\n'.join(lines) + '\n'
 
 

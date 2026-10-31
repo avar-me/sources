@@ -7,6 +7,23 @@ from audit_zhirkov_1936_alphabet import anomalies, audit, latin_fields
 
 
 class AlphabetAuditTests(unittest.TestCase):
+    def test_indexed_stress_is_reported_but_example_stress_is_allowed(self):
+        found = audit([{'word': 'bá', 'spelling_forms': ['bá', 'bú'],
+                        'senses': [{'forms': ['bà'], 'examples': [{'av': 'bá', 'ru': 'сло́во'}]}]}])
+        self.assertEqual({x['field'] for x in found},
+                         {'word', 'spelling_forms[0]', 'spelling_forms[1]', 'senses[0].forms[0]'})
+        self.assertTrue(all(x['indexed_stress'] for x in found))
+
+    def test_punctuation_and_interior_case_are_audited(self):
+        entries = [{'word': 'ab...', 'forms': ['kana¹', 'okruI'],
+                    'senses': [{'examples': [{'av': "foo* ķib·ķib", 'ru': 'текст'}]}]}]
+        found = audit(entries)
+        self.assertEqual(len(found), 4)
+        self.assertTrue(any(x['unexpected_symbols'] == ['...'] for x in found))
+        self.assertTrue(any(x['internal_capitals'] == ['okruI'] for x in found))
+        self.assertFalse(audit([{'word': "ab-c'd", 'spelling_forms': ['Ab', 'ODN'],
+                                 'senses': [{'examples': [{'av': 'á h. (?)', 'ru': 'русский'}]}]}]))
+
     def test_only_latin_language_fields_are_checked(self):
         entry = {'word': 'ab', 'forms': ['ab', 'aх'],
                  'senses': [{'text': 'русский перевод', 'labels': ['метка'],

@@ -37,7 +37,7 @@
         "^(0|[1-9][0-9]*)$": {"type": "integer", "minimum": 1}
       },
       "additionalProperties": false,
-      "description": "Индекс соседнего forms (с 0) → позиция ударения в Unicode-символах формы (с 1)."
+      "description": "Индекс соседнего массива форм (с 0) → позиция ударения в Unicode-символах формы (с 1)."
     },
     "entry": {
       "type": "object",
@@ -72,6 +72,14 @@
         "gender_forms": {
           "$ref": "#/$defs/stringArray",
           "description": "Формы по грамматическим классам/родам."
+        },
+        "gender_form_stresses": {
+          "$ref": "#/$defs/formStresses",
+          "description": "Индексы gender_forms (с 0) → позиции ударений (с 1)."
+        },
+        "spelling_form_stresses": {
+          "$ref": "#/$defs/formStresses",
+          "description": "Индексы spelling_forms (с 0) → позиции ударений (с 1)."
         },
         "spelling_forms": {
           "$ref": "#/$defs/stringArray",
@@ -119,7 +127,7 @@
           "description": "Источник статьи: av-ru.2006 — словарь 2006 года; avar.me.2026 — дополнения и реконструкции avar.me."
         }
       },
-      "dependentRequired": {"form_stresses": ["forms"]}
+      "dependentRequired": {"form_stresses": ["forms"], "spelling_form_stresses": ["spelling_forms"], "gender_form_stresses": ["gender_forms"]}
     },
     "sense": {
       "type": "object",
