@@ -224,6 +224,14 @@ def articles(html):
             heading = plain(bold[1]) + tail_marks
             word = heading.split(",", 1)[0].rstrip("*").strip()
             result.append({"word": word, "text": text, "heading": heading, "page": page})
+            # Only the initial uninterrupted bold list denotes spellings.
+            # Bold forms after a bracketed paradigm are not part of this list.
+            bold_list = re.match(r"\s*<b>.*?</b>(?:\s*,\s*<b>.*?</b>)*", fragment, re.S)
+            variants = [value.strip().rstrip("*") for value in plain(bold_list[0]).split(",")]
+            if len(variants) > 1 and all(value and not any(russian(t) for t in value.split())
+                                         and not any(c in value for c in "[]=") for value in variants):
+                result[-1]["spelling_forms"] = variants
+
         else:
             if not result:
                 raise ValueError(f"Orphan continuation on scan {page}: {text}")
@@ -472,7 +480,7 @@ def headword_spellings(word):
 def structure(article):
     word = article["word"]
     rest = article["text"][len(word):].strip()
-    forms, morphology, notes, labels, refs = [word], [], [], [], []
+    forms, morphology, notes, labels, refs = ([] if article.get("spelling_forms") else [word]), [], [], [], []
     qualifier_form = None
     precomments = []
     # Leading variants, bracketed forms and abbreviations alternate in the source.
@@ -501,7 +509,8 @@ def structure(article):
             match = re.match(r",\s*([^,;\[\]\s]+(?:\([^)]*\))?)", rest)
             if match and not russian(match[1]) and match[1] not in ("=",):
                 variant = match[1].rstrip("*")
-                forms.append(variant)
+                if variant not in article.get("spelling_forms", []):
+                    forms.append(variant)
                 qualifier_form = variant
                 if match[1].endswith("*"):
                     notes.append("Знак * в источнике: изменяемый родовой признак")
@@ -667,9 +676,14 @@ def structure(article):
         if comment:
             group["comment"] = comment
         senses.append(group)
-    spellings = headword_spellings(word)
-    forms = [variant for form in forms for variant in (spellings if form == word else [form])]
-    entry = {"word": spellings[0], "forms": unique(forms)}
+    spellings = unique([variant for form in article.get("spelling_forms", [word])
+                        for variant in headword_spellings(form)])
+    # Preserve existing optional-letter handling; comma-separated bold spellings
+    # do not become inflectional forms merely because they head the same entry.
+    forms = [variant for form in forms for variant in (headword_spellings(word) if form == word else [form])]
+    entry = {"word": spellings[0]}
+    if forms:
+        entry["forms"] = unique(forms)
     if len(spellings) > 1:
         entry["spelling_forms"] = spellings
     if senses:

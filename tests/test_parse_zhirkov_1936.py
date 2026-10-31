@@ -30,6 +30,21 @@ def strings(value):
 
 
 class ZhirkovParserTests(unittest.TestCase):
+    def test_bold_comma_spellings_are_separate_from_bracketed_forms(self):
+        e = entry('<b>foo</b>, <b>fo</b>, <b>fooo</b> [fooal, act foosa] сло́во.')
+        self.assertEqual(e['spelling_forms'], ['foo', 'fo', 'fooo'])
+        self.assertEqual(e['forms'], ['fooal', 'foosa'])
+        e = entry('<b>foo, fo</b> [foal] сло́во.')
+        self.assertEqual(e['spelling_forms'], ['foo', 'fo'])
+        self.assertEqual(e['forms'], ['foal'])
+
+    def test_three_bold_spelling_variants_in_source(self):
+        e = parse('<!-- p010 --><p>'
+                  '<b>ⱬⱬamħal</b>, <b>ⱬⱬanħal</b>, <b>ⱬⱬamħalab</b>, солёный.</p>')[0]
+        self.assertEqual(e['spelling_forms'], ['ⱬⱬamħal', 'ⱬⱬanħal', 'ⱬⱬamħalab'])
+        self.assertEqual(e['word'], 'ⱬⱬamħal')
+        self.assertNotIn('forms', e)
+
     def test_bare_numbered_case_codes_after_starred_examples(self):
         e = entry('<b>ƣoba*</b> l5 там; ƣobe* al5 туда (вниз); gobasa* el5 оттуда (снизу).')
         examples = e['senses'][0]['examples']
@@ -382,14 +397,18 @@ class ZhirkovParserTests(unittest.TestCase):
             spellings = headword_spellings(article['word'])
             self.assertEqual(e['word'], headword_stress(spellings[0])[0])
             # Optional pieces are joined into words, not lost lexical tokens.
-            normalized_source = re.sub(r'(?<!\w)' + re.escape(article['word']) + r'(?!\w)', lambda _: ' '.join(spellings), article['text'])
+            normalized_source = article['text']
+            for source_form in [article['word']] + article.get('spelling_forms', []):
+                normalized_source = re.sub(r'(?<!\w)' + re.escape(source_form) + r'(?!\w)',
+                                           lambda _: ' '.join(headword_spellings(source_form)), normalized_source)
             original = set(re.findall(r'\w+', unaccent(unicodedata.normalize('NFD', normalized_source))))
             result = set(re.findall(r'\w+', unaccent(unicodedata.normalize('NFD', ' '.join(strings(e))))))
             missing = {t for t in original - result if t not in allowed and not re.fullmatch(r'(?:al|el|l)[1-5]', t)}
             self.assertFalse(missing, (article['word'], missing))
             self.assertFalse([ex for sense in e.get('senses', []) for ex in sense.get('examples', []) if not ex.get('av')])
             self.assertFalse([sense for sense in e.get('senses', []) if 'text' in sense and not sense['text']])
-            self.assertEqual(e['forms'][0], e['word'])
+            if not article.get('spelling_forms'):
+                self.assertEqual(e['forms'][0], e['word'])
             self.assertEqual(e['source'], 'av-ru.1936')
             for block in [e] + e.get('senses', []):
                 for form in block.get('forms', []):
