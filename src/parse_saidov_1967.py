@@ -132,7 +132,12 @@ def articles(html):
             # exact prefix, since PlainText() emits the bold span's own text
             # first; used later to recover everything *after* the headword.
             heading_prefix = ("*" if bold[1] else "") + plain(bold[2])
-            entry = {"word": word, "text": text, "heading_prefix": heading_prefix, "page": page}
+            # Raw (unflattened) HTML after the headword -- preserves the
+            # <b>/<i> markup the book itself uses to distinguish Avar text
+            # from Russian prose and grammatical labels (bold = Avar,
+            # italic = label/comment, plain = Russian translation).
+            body_html = fragment[bold.end():]
+            entry = {"word": word, "text": text, "heading_prefix": heading_prefix, "body_html": body_html, "page": page}
             if stress is not None:
                 entry["stress"] = stress
             if star:
@@ -150,6 +155,7 @@ def articles(html):
                 result[-1]["text"] = previous[:-1] + text
             else:
                 result[-1]["text"] += " " + text
+            result[-1]["body_html"] = result[-1].get("body_html", "") + " " + fragment
     return result
 
 
@@ -218,6 +224,266 @@ def parse_headword_bracket(content):
     return {"kind": "forms", "forms": forms}
 
 
+# --- Tag-aware segmentation ------------------------------------------
+#
+# The book's own typesetting already marks the Avar/Russian boundary that
+# flattened text throws away: bold is Avar (headword, example phrases,
+# cross-reference targets, cited word forms), italic is a grammatical
+# label or comment, and plain text is the Russian translation. Confirmed
+# on a random sample of paragraphs and corpus-wide: 75% of ';'-separated
+# clauses in the main dictionary start with a bold run.
+
+RUN_RE = re.compile(r"<b>(.*?)</b>|<i>(.*?)</i>|<br\s*/?>|(</?[a-zA-Z][^>]*>)|([^<]+)", re.S)
+# Connector words a plain run can be made of while still not being a real
+# translation (e.g. "<b>адаб тезе</b> или <b>адаб рехизе</b> преступить
+# границы приличия" -- the shared gloss comes after the *second* bold
+# phrase, not after "или"). Rare (survives filtering only ~15 times in
+# the whole book) but cheap to guard against.
+_CONNECTOR_WORDS = {"и", "а", "но", "или", "да", "же", "ли"}
+
+
+def tag_runs(fragment):
+    """Tokenize one HTML fragment into (kind, text) runs, kind in
+    {"b", "i", "t"}; adjacent runs of the same kind are merged. A stray
+    unmatched closing tag (e.g. a lone `</b>` left behind when a bold span
+    is hyphen-split across a page boundary the OCR pipeline did not
+    rejoin, a known, rare OCR defect -- see the README) is silently
+    dropped rather than leaking as literal `</b>`-shaped text."""
+    runs = []
+    for m in RUN_RE.finditer(fragment):
+        if m[1] is not None:
+            kind, content = "b", plain(m[1])
+        elif m[2] is not None:
+            kind, content = "i", plain(m[2])
+        elif m[0].startswith("<br"):
+            kind, content = "t", " "
+        elif m[3] is not None:
+            continue  # stray tag, no run
+        else:
+            kind, content = "t", plain(m[4])
+        if not content:
+            continue
+        if runs and runs[-1][0] == kind:
+            runs[-1] = (kind, (runs[-1][1] + " " + content).strip())
+        else:
+            runs.append((kind, content))
+    return runs
+
+
+def _isolate_embedded_markers(runs, suffix):
+    """A sense number is usually its own bold span, but the typesetting is
+    inconsistent in two ways: sometimes only the *major* marker ("1.") is
+    bold and the sub-markers ("1)", "2)") are plain text glued into the
+    following "t" run (confirmed on "ратизе": `<b>1.</b> 1) быть ...; 2)
+    находиться ...`); sometimes a major and sub marker are glued together
+    into *one* bold span (confirmed on "рагьизе": `<b>1. 1)</b> открываться
+    ...`). Split any such marker out into its own run first (kind
+    preserved), so the check below can find it regardless of kind or of
+    what it was printed next to."""
+    marker_re = re.compile(r"(?<![\d.)])\d+" + re.escape(suffix) + r"(?=\s|$)")
+    out = []
+    for kind, content in runs:
+        if not marker_re.search(content):
+            out.append((kind, content))
+            continue
+        pos = 0
+        for m in marker_re.finditer(content):
+            before = content[pos:m.start()].strip()
+            if before:
+                out.append((kind, before))
+            out.append((kind, m[0]))
+            pos = m.end()
+        after = content[pos:].strip()
+        if after:
+            out.append((kind, after))
+    return out
+
+
+def split_runs_on_markers(runs, suffix):
+    """Same counting rule as `split_markers`, but matching a run that is
+    nothing but the marker itself -- bold most of the time, but see
+    `_isolate_embedded_markers` for the plain-text exception."""
+    runs = _isolate_embedded_markers(runs, suffix)
+    accepted, expected = [], None
+    for i, (kind, content) in enumerate(runs):
+        if kind not in ("b", "t") or not re.fullmatch(r"\d+" + re.escape(suffix), content):
+            continue
+        num = int(content[:-1])
+        if expected is None:
+            if num in (1, 2):
+                accepted.append(i)
+                expected = num + 1
+        elif num == expected:
+            accepted.append(i)
+            expected += 1
+    if not accepted:
+        return [runs] if runs else []
+    chunks = []
+    head = runs[: accepted[0]]
+    if any(c for _, c in head):
+        chunks.append(head)
+    for j, idx in enumerate(accepted):
+        end = accepted[j + 1] if j + 1 < len(accepted) else len(runs)
+        chunk = runs[idx + 1 : end]
+        if any(c for _, c in chunk):
+            chunks.append(chunk)
+    return chunks
+
+
+def split_leaf_runs(runs):
+    leaves = []
+    for major in split_runs_on_markers(runs, "."):
+        leaves.extend(split_runs_on_markers(major, ")"))
+    return leaves
+
+
+def runs_to_text(runs):
+    """Flatten runs back to plain text for the existing string-based
+    stub/label/see-also regexes, which do not need to know which part
+    was bold. Uses `_smart_join` so trailing punctuation from its own run
+    (as in a stub target run immediately followed by a lone "." run) does
+    not pick up a spurious leading space that would break those regexes'
+    `[;,.]?` boundary matching."""
+    return _smart_join(c for _, c in runs if c).strip()
+
+
+_IDIOM = ("◇", "")  # sentinel run marking the position of the ◇ marker
+# A "см./ср." italic run ends an example's translation right there, even
+# mid-group (e.g. "<b>...</b> что же это ты делаешь?; <i>ср.</i> <b>авго</b>,
+# ..."): everything from it onward is a cross-reference list, left in
+# `leftover` for the text-based `extract_see_also` to convert, not folded
+# into the preceding example's `ru`.
+_SEE_ALSO_MARKER_RE = re.compile(r"^(см\.(?:\s+также)?|ср\.)$", re.I)
+
+
+def _expand_idiom_marker(runs):
+    """Replace any 't' run containing '◇' with [before, _IDIOM, after],
+    so the marker becomes its own position in the sequence instead of
+    being buried inside a run's text (where a later lookahead could
+    accidentally swallow it into an example's translation)."""
+    expanded = []
+    for kind, content in runs:
+        if kind == "t" and "◇" in content:
+            before, _, after = content.partition("◇")
+            if before.strip():
+                expanded.append(("t", before.strip()))
+            expanded.append(_IDIOM)
+            if after.strip():
+                expanded.append(("t", after.strip()))
+        else:
+            expanded.append((kind, content))
+    return expanded
+
+
+def _smart_join(parts):
+    """Join run texts the way the printed page would read them: no space
+    is forced next to an opening/closing bracket picked up from a plain
+    run (e.g. "идёт (" + "или" + "ведёт) в Гуниб" -> "идёт (или ведёт) в
+    Гуниб", not "идёт ( или ведёт ) в Гуниб")."""
+    out = ""
+    for p in parts:
+        if not p:
+            continue
+        if out and not out.endswith(("(", "«", "'")) and not p.startswith((")", ",", ";", ".", "»", "'")):
+            out += " "
+        out += p
+    return out
+
+
+def extract_bold_examples(runs):
+    """Pull (av, ru) example pairs out of one leaf's runs using bold-vs-
+    plain typesetting: a bold run is that example's Avar phrase, and
+    every run after it up to the next bold run (or the ◇ idiom marker, or
+    the end of the leaf) is its Russian translation -- plain prose, with
+    any inline italic aside folded in (the book also uses italic for a
+    parenthetical wording alternative *inside* a translation, e.g. "идёт
+    (<i>или</i> ведёт)", not only for grammatical labels). The combined
+    translation must contain real letters and be more than a bare
+    connector word, or the bold run is left as a cross-reference target /
+    cited word form for the existing text-based `try_stub`/
+    `extract_see_also` logic instead.
+
+    The idiom marker '◇' switches collection into a second ("idiom")
+    bucket from that point on, since an idiom becomes its own sense with
+    label "поговорка".
+
+    Returns (leftover_runs, examples, idiom_leftover_runs, idiom_examples).
+    """
+    runs = _expand_idiom_marker(runs)
+    leftover, idiom_leftover = [], []
+    examples, idiom_examples = [], []
+    after_idiom = False
+    i, n = 0, len(runs)
+    while i < n:
+        if runs[i] is _IDIOM:
+            after_idiom = True
+            i += 1
+            continue
+        kind, content = runs[i]
+        # A bold sense-number marker that `split_leaf_runs` did not strip
+        # (e.g. its siblings were OCR'd as letters -- "а) бодать; б)
+        # подать рог; <b>3)</b> рожок ...", where "3)" can never be a
+        # valid *first* marker and so is correctly left unsplit) is never
+        # a real Avar example phrase: no Avar word is just digits.
+        if kind == "b" and re.fullmatch(r"\d+[.)]", content):
+            (idiom_leftover if after_idiom else leftover).append((kind, content))
+            i += 1
+            continue
+        prev = runs[i - 1] if i > 0 and runs[i - 1] is not _IDIOM else None
+        is_stub_target = (
+            kind == "b"
+            and prev is not None
+            and prev[0] == "i"
+            and re.search(r"(?:от|глагола)$", prev[1], re.I)
+        )
+        if kind == "b" and not is_stub_target:
+            j = i + 1
+            while (
+                j < n
+                and runs[j] is not _IDIOM
+                and runs[j][0] != "b"
+                and not (runs[j][0] == "i" and _SEE_ALSO_MARKER_RE.fullmatch(runs[j][1]))
+            ):
+                j += 1
+            group = list(runs[i + 1 : j])
+            # A label right after the Avar phrase (e.g. "<b>...</b>
+            # <i>погов.</i> ...") classifies this specific example, rather
+            # than being part of its Russian translation.
+            ex_labels = []
+            while group and group[0][0] == "i" and group[0][1] in ABBR_LABELS:
+                ex_labels.append(ABBR_LABELS[group[0][1]])
+                group = group[1:]
+            # "букв." ("literally") introduces a literal-translation aside
+            # that belongs in `comment` (established convention), not
+            # folded into the translation itself.
+            ex_comment = None
+            for k, (gkind, gcontent) in enumerate(group):
+                if gkind == "i" and gcontent.rstrip(".") == "букв":
+                    preceding = _smart_join(c for _, c in group[:k])
+                    # Skip the split if "букв." sits inside an still-open
+                    # "(" from the preceding text (e.g. "...ума (букв.
+                    # ничего) не прибавится" -- the sentence continues
+                    # *after* that closing paren, back in `ru`, which a
+                    # simple cut-from-here split would lose).
+                    if preceding.count("(") <= preceding.count(")"):
+                        ex_comment = _smart_join(c for _, c in group[k:]).strip(" ;,.")
+                        group = group[:k]
+                    break
+            ru = _smart_join(c for _, c in group).strip(" ;,.")
+            if len(ru) > 2 and ru.lower() not in _CONNECTOR_WORDS and re.search(r"[а-яёА-ЯЁ]", ru):
+                pair = {"av": content, "ru": ru}
+                if ex_comment:
+                    pair["comment"] = ex_comment
+                if ex_labels:
+                    pair["labels"] = ex_labels
+                (idiom_examples if after_idiom else examples).append(pair)
+                i = j
+                continue
+        (idiom_leftover if after_idiom else leftover).append((kind, content))
+        i += 1
+    return leftover, examples, idiom_leftover, idiom_examples
+
+
 def split_markers(text, suffix):
     """Split on top-level 'N<suffix>' sense markers that count up from 1
     (the very first, implicit "1." is often not printed, so the sequence
@@ -277,13 +543,6 @@ def extract_see_also(text):
         targets.append(t)
     remaining = text[: m.start()].strip().rstrip(";").strip()
     return remaining, [{"target": strip_stress(t), "kind": kind} for t in targets]
-
-
-def extract_idiom(text):
-    if "◇" not in text:
-        return text, None
-    main, idiom = text.split("◇", 1)
-    return main.strip().rstrip(";").strip(), idiom.strip()
 
 
 ABBR_LABELS = {
@@ -461,57 +720,140 @@ def try_stub(leaf):
     m = IMPERATIVE_RE.match(leaf)
     if m:
         targets, rest = _targets(m[1]), m[2].strip()
-        sense = {"comment": "от " + ", ".join(f"'{t}'" for t in targets) + "; повел."}
+        sense = {"labels": ["повелительное"], "comment": "от " + ", ".join(f"'{t}'" for t in targets)}
         if rest:
             sense["text"] = rest
         return sense, [{"target": t, "kind": "from"} for t in targets]
     m = PAST_TENSE_RE.match(leaf)
     if m:
         targets, rest = _targets(m[1]), m[2].strip()
-        sense = {"comment": "от " + ", ".join(f"'{t}'" for t in targets) + "; прош. вр."}
+        sense = {"labels": ["прошедшее время"], "comment": "от " + ", ".join(f"'{t}'" for t in targets)}
         if rest:
             sense["text"] = rest
         return sense, [{"target": t, "kind": "from"} for t in targets]
     return None
 
 
-def build_senses(remainder):
-    """Turn the raw post-headword text into `senses`/`see_also`."""
+# --- High-confidence example extraction via av-ru.jsonl (av-ru.2006) ---
+#
+# Splitting an Avar example phrase from its Russian translation inside a
+# sense's `text` is not attempted in general (see module docstring): both
+# languages are Cyrillic here, with no structural marker reliable enough
+# on its own (a stress-accent heuristic was tried and rejected -- too many
+# false positives from short unaccented Russian words). But data/av-ru.jsonl
+# (av-ru.2006) already has clean `examples[].av` for ~6500 of the same
+# headwords; when a 1967 sense's text begins a clause with that exact
+# phrase (accents aside -- 1967 never accents Avar text, so no alignment
+# issue), the match is used only as a boundary anchor, not as a source of
+# content: the Russian translation is still 1967's own wording, not
+# av-ru.jsonl's, since they are different books.
+
+_ANCHOR_INDEX: dict | None = None
+
+
+def _load_anchor_index() -> dict:
+    global _ANCHOR_INDEX
+    if _ANCHOR_INDEX is None:
+        index: dict[str, set] = {}
+        path = ROOT / "data" / "av-ru.jsonl"
+        for line in path.read_text(encoding="utf-8").splitlines():
+            entry = json.loads(line)
+            for sense in entry.get("senses", []):
+                for ex in sense.get("examples", []) or []:
+                    av = ex.get("av")
+                    if av:
+                        index.setdefault(entry["word"], set()).add(strip_stress(av))
+        _ANCHOR_INDEX = index
+    return _ANCHOR_INDEX
+
+
+def extract_known_examples(word, text):
+    """Split `text` into (leftover_text, examples[]) using av-ru.jsonl
+    anchors for `word` as high-confidence boundaries. A clause (';'-
+    separated, as elsewhere in this module) is only split when it starts
+    with one of those anchors exactly, followed by a space or the clause's
+    own end."""
+    anchors = _load_anchor_index().get(word)
+    if not anchors or not text:
+        return text, []
+    clauses = re.split(r";\s*", text)
+    kept, examples = [], []
+    for clause in clauses:
+        bare = clause.rstrip(". ").strip()
+        matched = None
+        for anchor in sorted(anchors, key=len, reverse=True):
+            if bare == anchor or bare.startswith(anchor + " "):
+                matched = anchor
+                break
+        if matched:
+            rest = bare[len(matched):].strip()
+            if rest:
+                examples.append({"av": matched, "ru": rest})
+            else:
+                kept.append(clause)
+        else:
+            kept.append(clause)
+    leftover = "; ".join(kept)
+    return (leftover if leftover else None), examples
+
+
+def _build_one_sense(leaf_text, examples):
+    """Shared tail of sense assembly, after bold-based example extraction
+    has already removed any (av, ru) pairs from `leaf_text`'s runs."""
+    leaf_text, leaf_see_also = extract_see_also(leaf_text)
+    # A plain inline label (e.g. "диал.") can precede a "<label> от X"
+    # stub ("диал. понуд. от башлайизе; ..."); strip one leading label at
+    # a time and re-check for a stub after each, so the stub is still
+    # recognized once it is no longer hidden behind it.
+    pre_labels = []
+    stub = try_stub(leaf_text) if leaf_text else None
+    while leaf_text and not stub:
+        m = LEADING_LABEL_RE.match(leaf_text)
+        if not m:
+            break
+        pre_labels.append(ABBR_LABELS[m[1]])
+        leaf_text = leaf_text[m.end():].strip()
+        stub = try_stub(leaf_text) if leaf_text else None
+    see_also = list(leaf_see_also)
+    if stub:
+        sense, stub_see_also = stub
+        combined_labels = pre_labels + sense.get("labels", [])
+        if combined_labels:
+            sense["labels"] = combined_labels
+        see_also.extend(stub_see_also)
+    elif leaf_text or pre_labels or examples:
+        sense = {}
+        if pre_labels:
+            sense["labels"] = pre_labels
+        if leaf_text:
+            sense["text"] = leaf_text
+    else:
+        sense = None
+    if sense is not None and examples:
+        sense["examples"] = examples
+    return sense, see_also
+
+
+def build_senses(leaf_run_groups):
+    """Turn the leaf-split run groups (see `split_leaf_runs`) into
+    `senses`/`see_also`, using the book's own bold/italic typesetting to
+    separate Avar examples from their Russian translation (see
+    `extract_bold_examples`) before falling back to the text-based
+    stub/label/see-also logic for whatever is left."""
     see_also = []
     senses = []
-    for leaf in split_senses(remainder):
-        leaf, leaf_see_also = extract_see_also(leaf)
-        see_also.extend(leaf_see_also)
-        leaf, idiom = extract_idiom(leaf)
-        # A plain inline label (e.g. "диал.") can precede a "<label> от X"
-        # stub ("диал. понуд. от башлайизе; ..."); strip one leading label
-        # at a time and re-check for a stub after each, so the stub is
-        # still recognized once it is no longer hidden behind it.
-        pre_labels = []
-        stub = try_stub(leaf) if leaf else None
-        while leaf and not stub:
-            m = LEADING_LABEL_RE.match(leaf)
-            if not m:
-                break
-            pre_labels.append(ABBR_LABELS[m[1]])
-            leaf = leaf[m.end():].strip()
-            stub = try_stub(leaf) if leaf else None
-        if stub:
-            sense, stub_see_also = stub
-            combined_labels = pre_labels + sense.get("labels", [])
-            if combined_labels:
-                sense["labels"] = combined_labels
+    for runs in leaf_run_groups:
+        leftover, examples, idiom_leftover, idiom_examples = extract_bold_examples(runs)
+        sense, sense_see_also = _build_one_sense(runs_to_text(leftover), examples)
+        see_also.extend(sense_see_also)
+        if sense is not None:
             senses.append(sense)
-            see_also.extend(stub_see_also)
-        elif leaf or pre_labels:
-            sense = {}
-            if pre_labels:
-                sense["labels"] = pre_labels
-            if leaf:
-                sense["text"] = leaf
-            senses.append(sense)
-        if idiom:
-            senses.append({"text": idiom, "labels": ["поговорка"]})
+        if idiom_leftover or idiom_examples:
+            idiom_sense, idiom_see_also = _build_one_sense(runs_to_text(idiom_leftover), idiom_examples)
+            see_also.extend(idiom_see_also)
+            if idiom_sense is not None:
+                idiom_sense["labels"] = ["поговорка"] + [l for l in idiom_sense.get("labels", []) if l != "поговорка"]
+                senses.append(idiom_sense)
     return senses, see_also
 
 
@@ -524,33 +866,40 @@ def build_entry(article):
     if article.get("homonym"):
         entry["homonym"] = article["homonym"]
 
-    text = article["text"]
-    prefix = article.get("heading_prefix", "")
-    remainder = text[len(prefix):].lstrip() if text.startswith(prefix) else text
+    body_html = article.get("body_html", "").lstrip()
 
     # The roman-numeral homonym marker is usually part of the bold heading
-    # (caught in articles()), but sometimes sits just outside it ("<b>бай</b>
-    # II ...").
-    loose_homonym = re.match(r"^(I{1,3})\s+(.*)$", remainder)
-    if loose_homonym:
-        entry["homonym"] = len(loose_homonym[1])
-        remainder = loose_homonym[2]
+    # (caught in articles()), but sometimes sits just outside it -- as
+    # plain text ("<b>бай</b> II ...") or in its own bold span ("<b>ба́зе</b>
+    # [...] <b>I</b> <b>1)</b> ..."), and either before or after a headword
+    # bracket, so this is checked again after the bracket is stripped too.
+    loose_homonym_re = re.compile(r"^(?:<b>)?(I{1,3})(?:</b>)?\s+(.*)$", re.S)
 
-    if remainder.startswith("["):
-        close = remainder.find("]")
+    def strip_loose_homonym(html):
+        m = loose_homonym_re.match(html)
+        if not m:
+            return html
+        entry["homonym"] = len(m[1])
+        return m[2]
+
+    body_html = strip_loose_homonym(body_html)
+
+    if body_html.startswith("["):
+        close = body_html.find("]")
         if close != -1:
-            bracket = parse_headword_bracket(remainder[1:close])
+            bracket = parse_headword_bracket(plain(body_html[1:close]))
             if bracket["kind"] == "forms" and bracket["forms"]:
                 entry["forms"] = [strip_stress(article["word"])] + bracket["forms"]
-                remainder = remainder[close + 1:].lstrip()
+                body_html = body_html[close + 1:].lstrip()
             elif bracket["kind"] == "relation":
                 label, target = bracket["label"], bracket["target"]
                 rel_sense = {"participlefrom": target} if label.startswith("прич") else {"comment": f"от '{target}'; {label}"}
                 entry.setdefault("_bracket_relation", (rel_sense, target))
-                remainder = remainder[close + 1:].lstrip()
-            # kind == "unknown": leave remainder (bracket included) untouched
+                body_html = body_html[close + 1:].lstrip()
+            # kind == "unknown": leave body_html (bracket included) untouched
+            body_html = strip_loose_homonym(body_html)
 
-    senses, see_also = build_senses(remainder)
+    senses, see_also = build_senses(split_leaf_runs(tag_runs(body_html)))
 
     bracket_relation = entry.pop("_bracket_relation", None)
     if bracket_relation:
@@ -564,6 +913,16 @@ def build_entry(article):
             entry["gender_forms"] = gender_forms
         else:
             entry["class_marker"] = True
+
+    for sense in senses:
+        if sense.get("text"):
+            leftover, examples = extract_known_examples(entry["word"], sense["text"])
+            if examples:
+                if leftover:
+                    sense["text"] = leftover
+                else:
+                    del sense["text"]
+                sense["examples"] = examples
 
     if senses:
         entry["senses"] = senses
