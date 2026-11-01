@@ -40,20 +40,20 @@
 {"word": "adin", "forms": ["adin"], "senses": [{"text": "так", "examples": [{"av": "adinab, adinabab", "ru": "тако́й.", "comment": "Знак * при 'adinabab' в источнике: изменяемый родовой признак"}]}], "see_also": [{"target": "ab", "kind": "compare"}, {"target": "edin", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "adize", "forms": ["adize"], "senses": [{"labels": ["редко"]}], "see_also": [{"target": "ħodize", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "adjutant", "forms": ["adjutant", "adjutantal"], "senses": [{"text": "адъюта́нт.", "labels": ["интернациональный термин"]}], "see_also": [{"target": "atutan", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "adres", "forms": ["adres", "adresal"], "senses": [{"text": "áдрес", "labels": ["интернациональный термин"], "examples": [{"av": "adres qeze", "ru": "дава́ть áдрес"}, {"av": "adres xvaze", "ru": "адресова́ть, писа́ть áдрес."}]}], "source": "av-ru.1936"}
-{"word": "adres-ustul", "forms": ["adres-ustul"], "senses": [{"text": "áдресный стол.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "adres", "forms": ["adres", "adresal"], "senses": [{"text": "а́дрес", "labels": ["интернациональный термин"], "examples": [{"av": "adres qeze", "ru": "дава́ть а́дрес"}, {"av": "adres xvaze", "ru": "адресова́ть, писа́ть а́дрес."}]}], "source": "av-ru.1936"}
+{"word": "adres-ustul", "forms": ["adres-ustul"], "senses": [{"text": "а́дресный стол.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "advokat", "forms": ["advokat", "advokatal"], "senses": [{"text": "адвока́т.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "aerodrom", "forms": ["aerodrom", "aerodromal"], "senses": [{"text": "аэродро́м.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "aeroplan", "forms": ["aeroplan", "aeroplanal"], "senses": [{"text": "аэропла́н, самолёт", "labels": ["интернациональный термин"], "examples": [{"av": "aeroplanalul majdan", "ru": "аэродро́м."}]}], "see_also": [{"target": "aerodrom", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "aeroplanci", "forms": ["aeroplanci", "aeroplancaḩi"], "senses": [{"text": "авиа́тор, лётчик.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "affiks", "forms": ["affiks", "afiks", "affiksal"], "spelling_forms": ["affiks", "afiks"], "senses": [{"text": "áффикс.", "labels": ["интернациональный термин"], "comment": "граммати́ческое оконча́ние и́ли приста́вка"}], "source": "av-ru.1936"}
+{"word": "affiks", "forms": ["affiks", "afiks", "affiksal"], "spelling_forms": ["affiks", "afiks"], "senses": [{"text": "а́ффикс.", "labels": ["интернациональный термин"], "comment": "граммати́ческое оконча́ние и́ли приста́вка"}], "source": "av-ru.1936"}
 {"word": "affrikat", "forms": ["affrikat", "affrikatal"], "senses": [{"text": "аффрика́т.", "labels": ["интернациональный термин"], "comment": "согла́сный зву́к, составно́й из двух зву́ков, напр.: s = t + s, c = t + ş"}], "source": "av-ru.1936"}
 {"word": "afƣan", "forms": ["afƣan", "afƣanal"], "senses": [{"text": "афга́нец", "examples": [{"av": "afƣanab", "ru": "афга́нский"}, {"av": "afƣanav", "ru": "афга́нец."}]}], "source": "av-ru.1936"}
 {"word": "Afƣanistan", "forms": ["Afƣanistan"], "senses": [{"text": "Афганиста́н."}], "source": "av-ru.1936"}
 {"word": "afişa", "forms": ["afişa", "afişabi"], "senses": [{"text": "афи́ша", "labels": ["интернациональный термин"], "examples": [{"av": "afişabi çvaze", "ru": "раскле́ивать афи́ши; афиши́ровать."}]}], "source": "av-ru.1936"}
-{"word": "Afrika", "spelling_forms": ["Afrika", "Afriqa"], "senses": [{"text": "Áфрика", "examples": [{"av": "afrikajab, afriqijab", "ru": "африка́нский."}]}], "source": "av-ru.1936"}
+{"word": "Afrika", "spelling_forms": ["Afrika", "Afriqa"], "senses": [{"text": "А́фрика", "examples": [{"av": "afrikajab, afriqijab", "ru": "африка́нский."}]}], "source": "av-ru.1936"}
 {"word": "agent", "forms": ["agent", "agental"], "senses": [{"text": "аге́нт.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "agentļi", "forms": ["agentļi"], "senses": [{"text": "аге́нтство, агентýра.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "agentļi", "forms": ["agentļi"], "senses": [{"text": "аге́нтство, агенту́ра.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "agentstvo", "forms": ["agentstvo", "agentstvobi"], "senses": [{"labels": ["русское происхождение"]}], "see_also": [{"target": "agentļi", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "agitasija", "forms": ["agitasija"], "senses": [{"text": "агита́ция", "labels": ["интернациональный термин"], "examples": [{"av": "agitasija h", "ru": "агити́ровать."}]}], "source": "av-ru.1936"}
 {"word": "agitator", "forms": ["agitator", "agitatoral", "agitatorzabi"], "senses": [{"text": "агита́тор.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
@@ -63,7 +63,7 @@
 {"word": "agropunkt", "forms": ["agropunkt", "agropunktal"], "senses": [{"text": "агропу́нкт.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "agrovakil", "forms": ["agrovakil", "agrovakilzabi"], "senses": [{"text": "агроуполномо́ченный.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "aƣaz", "forms": ["aƣaz", "aƣazal"], "senses": [{"text": "нача́ло", "labels": ["персидское происхождение"], "examples": [{"av": "aƣaz h", "ru": "начина́ть."}]}], "source": "av-ru.1936"}
-{"word": "aƣul", "spelling_forms": ["aƣul", "aƣulab"], "senses": [{"text": "агýльский", "examples": [{"av": "aƣulav", "ru": "агу́л(ец)"}, {"av": "aƣul maⱬⱬ", "ru": "агу́льский язы́к."}]}], "source": "av-ru.1936"}
+{"word": "aƣul", "spelling_forms": ["aƣul", "aƣulab"], "senses": [{"text": "агу́льский", "examples": [{"av": "aƣulav", "ru": "агу́л(ец)"}, {"av": "aƣul maⱬⱬ", "ru": "агу́льский язы́к."}]}], "source": "av-ru.1936"}
 {"word": "aƣuz", "forms": ["aƣuz", "aƣuzal"], "senses": [{"text": "о́вод.", "labels": ["тюркское происхождение"]}], "see_also": [{"target": "avuz", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "ahlo", "forms": ["ahlo", "ahlabi"], "senses": [{"text": "пле́мя, наро́дность.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "aħadin", "forms": ["aħadin"], "senses": [{"text": "точь-в-то́чь так", "examples": [{"av": "aħadinab, aħadinabab", "ru": "точь-в-то́чь тако́й.", "comment": "Знак * при 'aħadinabab' в источнике: изменяемый родовой признак"}]}], "see_also": [{"target": "ab", "kind": "compare"}, {"target": "adin", "kind": "compare"}], "source": "av-ru.1936"}
@@ -243,7 +243,7 @@
 {"word": "avtomobil", "forms": ["avtomobil", "avtomobilal"], "senses": [{"text": "автомоби́ль."}], "see_also": [{"target": "aptomobil", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "avtonomija", "forms": ["avtonomija", "avtonomijabi"], "senses": [{"text": "автоно́мия, самоуправле́ние", "labels": ["интернациональный термин"], "examples": [{"av": "avtono-mijab", "ru": "автоно́мный"}, {"av": "avtonomijab res-publika", "ru": "автоно́мная респу́блика."}]}], "source": "av-ru.1936"}
 {"word": "avtor", "forms": ["avtor", "avtoral", "avtorzabi"], "senses": [{"text": "а́втор, сочини́тель, состави́тель", "labels": ["интернациональный термин"], "examples": [{"av": "avtorasul ixtijar", "ru": "а́вторское пра́во."}]}], "source": "av-ru.1936"}
-{"word": "avtorļi", "forms": ["avtorļi"], "senses": [{"text": "áвторство."}], "source": "av-ru.1936"}
+{"word": "avtorļi", "forms": ["avtorļi"], "senses": [{"text": "а́вторство."}], "source": "av-ru.1936"}
 {"word": "avuz", "forms": ["avuz", "avuzal"], "senses": [{"labels": ["тюркское происхождение"]}], "see_also": [{"target": "aƣuz", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "ax", "forms": ["ax", "axal", "axisa"], "senses": [{"text": "сад", "examples": [{"av": "axiq", "ru": "в саду́", "labels": ["местный падеж", "4-я серия"]}, {"av": "ax h.", "ru": "разводи́ть сад."}]}, {"labels": ["эргативный падеж"], "forms": ["axisa"]}], "source": "av-ru.1936"}
 {"word": "axbazam", "forms": ["axbazanal"], "spelling_forms": ["axbazam", "axbazan"], "senses": [{"text": "абрико́с."}], "source": "av-ru.1936"}
@@ -1505,7 +1505,7 @@
 {"word": "feodal", "forms": ["feodal", "feodalal", "feodalzabi"], "senses": [{"text": "феода́л.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "feodalizm", "forms": ["feodalizm"], "senses": [{"text": "феодали́зм.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "fevral-moⱬⱬ", "forms": ["fevral-moⱬⱬ", "fevral"], "spelling_forms": ["fevral-moⱬⱬ", "fevral"], "senses": [{"text": "февра́ль.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "filantrop", "forms": ["filantrop", "filantropzabi", "filantropal"], "senses": [{"text": "филантрóп.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "filantrop", "forms": ["filantrop", "filantropzabi", "filantropal"], "senses": [{"text": "филантро́п.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "filma", "forms": ["filma", "filmal", "filmabi"], "senses": [{"text": "фи́льм(а)", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "finansal", "forms": ["finansal"], "senses": [{"text": "фина́нсы.", "labels": ["множественное число", "интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "finotdel", "forms": ["finotdel", "finotdelal"], "senses": [{"text": "финотде́л.", "labels": ["русское происхождение"], "comment": "фина́нсовый отде́л"}], "source": "av-ru.1936"}
@@ -1551,7 +1551,7 @@
 {"word": "gama", "forms": ["gama", "gamul", "gumi", "gamisa", "gamil", "gimil", "gaminib", "gaminub"], "senses": [{"text": "кора́бль", "labels": ["тюркское происхождение"]}, {"text": "судно́", "labels": ["тюркское происхождение"]}, {"text": "ло́дка", "labels": ["тюркское происхождение"], "examples": [{"av": "ⱬel gama", "ru": "парохо́д"}, {"av": "raqul gama", "ru": "бронено́сец"}, {"av": "havajaļul gama", "ru": "дирижа́бль, цеппели́н"}, {"av": "gamida reķine", "ru": "сади́ться на кора́бль."}]}, {"labels": ["эргативный падеж"], "forms": ["gamisa"]}, {"labels": ["родительный падеж"], "forms": ["gamil", "gimil"]}, {"labels": ["местный падеж", "5-я серия"], "forms": ["gaminib", "gaminub"]}], "source": "av-ru.1936"}
 {"word": "gamaç", "forms": ["gamaç", "gamçal", "gançal", "gamçisa", "gançisa"], "senses": [{"text": "ка́мень", "examples": [{"av": "gamaç buⱬize", "ru": "обтёсывать ка́мень"}, {"av": "gamaç-ħadav", "ru": "как ка́мень, бесстра́шный"}, {"av": "gamçil ustar", "ru": "ка́менщик"}, {"av": "gançi(l) turcci", "ru": "ка́менный у́голь."}]}, {"labels": ["эргативный падеж"], "forms": ["gamçisa", "gançisa"]}], "source": "av-ru.1936"}
 {"word": "gamani", "forms": ["gamani"], "see_also": [{"target": "gabani", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "gamara", "forms": ["gamara", "gamarabi"], "senses": [{"text": "áрка, свод."}], "see_also": [{"target": "ķamuri", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "gamara", "forms": ["gamara", "gamarabi"], "senses": [{"text": "а́рка, свод."}], "see_also": [{"target": "ķamuri", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "gamç", "forms": ["gamç"], "see_also": [{"target": "gamaç", "kind": "see"}], "source": "av-ru.1936", "senses": [{"precomment": "Основа, выступающая в производных формах; многоточие в источнике. Формы указаны в статье по ссылке."}]}
 {"word": "gamix̵an", "forms": ["gamix̵an", "gamix̵abi"], "senses": [{"text": "моря́к, матро́с"}, {"text": "ло́дочник."}], "see_also": [{"target": "gama", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "gamuş", "forms": ["gamuş", "gamuşal", "gamşal", "gamşisa", "gamuşil", "gamşil"], "senses": [{"text": "бу́йвол."}, {"labels": ["эргативный падеж"], "forms": ["gamşisa"]}, {"labels": ["родительный падеж"], "forms": ["gamuşil", "gamşil"]}], "see_also": [{"target": "gimiş", "kind": "compare"}], "source": "av-ru.1936"}
@@ -1579,7 +1579,7 @@
 {"word": "garzin", "forms": ["garzin"], "senses": [{"text": "цара́пина, сса́дина."}], "see_also": [{"target": "garzine", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "garzine", "spelling_forms": ["garzine", "garzinze", "garzize"], "senses": [{"text": "оцара́пать, ссади́ть."}], "see_also": [{"target": "xxacaze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "garⱬⱬ", "forms": ["garⱬⱬ", "garⱬ", "garⱬⱬal", "garⱬⱬisa"], "spelling_forms": ["garⱬⱬ", "garⱬ"], "senses": [{"text": "саранча́", "examples": [{"av": "garⱬⱬ-ħan ħemer", "ru": "многочи́сленный как саранча́"}, {"av": "garⱬⱬil boxx", "ru": "тонконо́гий."}]}, {"labels": ["эргативный падеж"], "forms": ["garⱬⱬisa"]}], "source": "av-ru.1936"}
-{"word": "garⱬⱬab", "forms": ["garⱬⱬab"], "senses": [{"text": "короткошёрстый.", "comment": "о барáне"}], "see_also": [{"target": "garⱬⱬ", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "garⱬⱬab", "forms": ["garⱬⱬab"], "senses": [{"text": "короткошёрстый.", "comment": "о бара́не"}], "see_also": [{"target": "garⱬⱬ", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "gastinisa", "forms": ["gastinisa", "gastinsa", "gastinisabi"], "spelling_forms": ["gastinisa", "gastinsa"], "senses": [{"text": "гости́ница.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "gastronomija", "forms": ["gastronomija"], "senses": [{"text": "гастроно́мия.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "gaţize", "forms": ["gaţize"], "senses": [{"text": "быть тя́жким, доса́дным, неприя́тным", "examples": [{"av": "dida gaţana hab raħi", "ru": "мне неприя́тно э́то сло́во."}]}], "see_also": [{"target": "xaţize", "kind": "compare"}], "source": "av-ru.1936"}
@@ -1589,7 +1589,7 @@
 {"word": "gazet", "forms": ["gazet", "gazetal"], "senses": [{"text": "газе́та.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "gazgaz", "forms": ["gazgaz", "gazgazal"], "senses": [{"text": "ходу́ли", "examples": [{"av": "gazgazde vaxine", "ru": "встава́ть, поднима́ться на ходу́ли"}, {"av": "gazgazada xvadize", "ru": "ходи́ть на ходу́лях."}]}], "source": "av-ru.1936"}
 {"word": "gaƶ", "forms": ["gaƶ"], "see_also": [{"target": "goƶo", "kind": "see"}], "source": "av-ru.1936", "senses": [{"precomment": "Основа, выступающая в производных формах; многоточие в источнике. Формы указаны в статье по ссылке."}]}
-{"word": "gaƶac", "forms": ["gaƶac", "gaƶacal"], "senses": [{"text": "име́ющий торчáщие вперёд зу́бы."}], "see_also": [{"target": "goƶo", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "gaƶac", "forms": ["gaƶac", "gaƶacal"], "senses": [{"text": "име́ющий торча́щие вперёд зу́бы."}], "see_also": [{"target": "goƶo", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "gaƶaxxarab", "forms": ["gaƶaxxarab"], "senses": [{"text": "зубча́тый."}], "see_also": [{"target": "goƶo", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "gebeganxdize", "forms": ["gebeganxdize", "gebeganxize"], "spelling_forms": ["gebeganxdize", "gebeganxize"], "senses": [{"labels": ["учащательная форма"]}], "see_also": [{"target": "gebegize", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "gebegize", "forms": ["gebegize"], "senses": [{"text": "кати́ться", "comment": "Знак * в источнике: изменяемый родовой признак"}, {"text": "единобо́рство."}], "source": "av-ru.1936"}
@@ -2073,7 +2073,7 @@
 {"word": "Hidaļ", "forms": ["Hidaļ"], "senses": [{"text": "Гида́тль.", "labels": ["местный падеж", "3-я серия"], "comment": "ау́л"}], "see_also": [{"target": "hid", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "himize", "forms": ["himize"], "senses": [{"text": "вмеща́ться, помеща́ться"}, {"text": "улыба́ться."}], "see_also": [{"target": "hine", "kind": "compare"}, {"target": "heze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "hind", "forms": ["hind", "hin", "hindul"], "spelling_forms": ["hind", "hin"], "senses": [{"text": "дворе́ц."}], "source": "av-ru.1936"}
-{"word": "Hindusstan", "forms": ["Hindusstan", "Hindustan"], "spelling_forms": ["Hindusstan", "Hindustan"], "senses": [{"text": "Индоста́н, Íндия", "examples": [{"av": "hindus(s)tanav", "ru": "инди́ец."}]}], "source": "av-ru.1936"}
+{"word": "Hindusstan", "forms": ["Hindusstan", "Hindustan"], "spelling_forms": ["Hindusstan", "Hindustan"], "senses": [{"text": "Индоста́н, И́ндия", "examples": [{"av": "hindus(s)tanav", "ru": "инди́ец."}]}], "source": "av-ru.1936"}
 {"word": "hine", "spelling_forms": ["hine", "hinze", "hize"], "senses": [{"text": "вмеща́ться"}, {"text": "быть внутри́."}], "see_also": [{"target": "heze", "kind": "compare"}, {"target": "himize", "kind": "compare"}, {"target": "heço", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "hintax", "forms": ["hintax"], "senses": [{"text": "полотно́."}], "source": "av-ru.1936"}
 {"word": "hinze", "forms": ["hinze", "hize"], "spelling_forms": ["hinze", "hize"], "see_also": [{"target": "hine", "kind": "see"}], "source": "av-ru.1936"}
@@ -2452,7 +2452,7 @@
 {"word": "ḩama", "forms": ["ḩama"], "see_also": [{"target": "ḩomo", "kind": "see"}], "source": "av-ru.1936", "senses": [{"precomment": "Основа, выступающая в производных формах; многоточие в источнике. Формы указаны в статье по ссылке."}]}
 {"word": "ḩamal", "forms": ["ḩamal", "ḩamalal", "aḩmal(al)"], "senses": [{"text": "нрав, хара́ктер", "labels": ["арабское происхождение"], "examples": [{"av": "ḩamal h.", "ru": "стара́ться, добива́ться."}]}], "source": "av-ru.1936"}
 {"word": "ḩamḩara", "forms": ["ḩamḩara", "ḩamḩarabi"], "senses": [{"text": "ши́шка.", "comment": "от уши́ба"}], "source": "av-ru.1936"}
-{"word": "Ḩamirko", "forms": ["Ḩamirko"], "senses": [{"text": "Амиркó.", "comment": "название легендарной пти́цы; упомина́ется в аварских ска́зках"}], "source": "av-ru.1936"}
+{"word": "Ḩamirko", "forms": ["Ḩamirko"], "senses": [{"text": "Амирко́.", "comment": "название легендарной пти́цы; упомина́ется в аварских ска́зках"}], "source": "av-ru.1936"}
 {"word": "ḩamli", "forms": ["ḩamli"], "senses": [{"text": "всео́бщность, универса́льность."}], "source": "av-ru.1936"}
 {"word": "ḩamlize", "forms": ["ḩamlize"], "senses": [{"text": "распространя́ться."}], "source": "av-ru.1936"}
 {"word": "-ḩan", "spelling_forms": ["-ḩan", "-ḩanab", "-ḩanasseb"], "senses": [{"text": "аффиксы, обознача́ющие ра́венство по разме́ру."}], "source": "av-ru.1936"}
@@ -3615,75 +3615,75 @@
 {"word": "maħlaj", "forms": ["maħlaj"], "senses": [{"text": "обоня́ние."}], "see_also": [{"target": "maħ", "kind": "compare"}, {"target": "ļaze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maħo", "forms": ["maħo", "maħabi"], "senses": [{"text": "нога́."}], "see_also": [{"target": "boxx", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maħrum", "spelling_forms": ["maħrum", "maħrun", "maħrumab"], "senses": [{"text": "лишённый", "labels": ["арабское происхождение"], "examples": [{"av": "ixtijaraldasa maħrum harurav", "ru": "лишённый прав, лишенец."}]}], "source": "av-ru.1936"}
-{"word": "maħrumli", "forms": ["maħrumli"], "senses": [{"text": "лишéние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maħrumlize", "forms": ["maħrumlize"], "senses": [{"text": "печáлиться, грустíть, горевáть.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maħsel", "forms": ["maħsel", "maħselal"], "senses": [{"text": "воню́чка.", "comment": "живóтное"}], "see_also": [{"target": "maħsine", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maħsine", "spelling_forms": ["maħsine", "maħsinze", "maħsize"], "senses": [{"text": "пóртиться, гнить, разлагáться"}, {"text": "воня́ть."}], "see_also": [{"target": "maħ", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maḩ", "forms": ["maḩ", "maḩal", "maḩisa"], "senses": [{"text": "гвоздь", "examples": [{"av": "buravaļul maḩ", "ru": "болт"}, {"av": "ruqnal maḩ", "ru": "кóрпия"}, {"av": "maḩ çvaze", "ru": "вбивáть гвоздь"}]}, {"labels": ["эргативный падеж"], "forms": ["maḩisa"]}], "source": "av-ru.1936"}
-{"word": "maḩadan", "forms": ["maḩadan", "maḩdan", "maḩadanal"], "spelling_forms": ["maḩadan", "maḩdan"], "senses": [{"text": "руднíк, кóпи", "labels": ["арабское происхождение"]}, {"text": "минера́л, метáлл.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maḩarda", "forms": ["maḩarda"], "senses": [{"text": "на горáх", "labels": ["местный падеж", "1-я серия"], "examples": [{"av": "maḩarde", "ru": "на́ гóры", "labels": ["направительный падеж"]}, {"av": "maḩardasa", "ru": "с гор.", "labels": ["исходный падеж", "1-я серия"]}]}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maḩarip", "forms": ["maḩarip"], "senses": [{"text": "просвещéние, образовáние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maḩarul", "spelling_forms": ["maḩarul", "maḩarulab"], "senses": [{"text": "гóрский авáрский", "examples": [{"av": "maḩarulav", "ru": "гóрец, авáрец"}, {"av": "maḩarul maⱬⱬ", "ru": "авáрский язы́к."}]}], "source": "av-ru.1936"}
-{"word": "maḩarul-ci", "forms": ["maḩarul-ci", "maḩarul-caħi"], "senses": [{"text": "гóрец авáрец."}], "source": "av-ru.1936"}
-{"word": "maḩarulļi", "forms": ["maḩarulļi"], "senses": [{"text": "гóрцы."}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maḩarux-bak", "forms": ["maḩarux-bak"], "senses": [{"text": "гóрная мéстность, нагóрье."}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maħrumli", "forms": ["maħrumli"], "senses": [{"text": "лише́ние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maħrumlize", "forms": ["maħrumlize"], "senses": [{"text": "печа́литься, грусти́ть, горева́ть.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maħsel", "forms": ["maħsel", "maħselal"], "senses": [{"text": "воню́чка.", "comment": "живо́тное"}], "see_also": [{"target": "maħsine", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maħsine", "spelling_forms": ["maħsine", "maħsinze", "maħsize"], "senses": [{"text": "по́ртиться, гнить, разлага́ться"}, {"text": "воня́ть."}], "see_also": [{"target": "maħ", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maḩ", "forms": ["maḩ", "maḩal", "maḩisa"], "senses": [{"text": "гвоздь", "examples": [{"av": "buravaļul maḩ", "ru": "болт"}, {"av": "ruqnal maḩ", "ru": "ко́рпия"}, {"av": "maḩ çvaze", "ru": "вбива́ть гвоздь"}]}, {"labels": ["эргативный падеж"], "forms": ["maḩisa"]}], "source": "av-ru.1936"}
+{"word": "maḩadan", "forms": ["maḩadan", "maḩdan", "maḩadanal"], "spelling_forms": ["maḩadan", "maḩdan"], "senses": [{"text": "рудни́к, ко́пи", "labels": ["арабское происхождение"]}, {"text": "минера́л, мета́лл.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maḩarda", "forms": ["maḩarda"], "senses": [{"text": "на гора́х", "labels": ["местный падеж", "1-я серия"], "examples": [{"av": "maḩarde", "ru": "на́ го́ры", "labels": ["направительный падеж"]}, {"av": "maḩardasa", "ru": "с гор.", "labels": ["исходный падеж", "1-я серия"]}]}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maḩarip", "forms": ["maḩarip"], "senses": [{"text": "просвеще́ние, образова́ние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maḩarul", "spelling_forms": ["maḩarul", "maḩarulab"], "senses": [{"text": "го́рский ава́рский", "examples": [{"av": "maḩarulav", "ru": "го́рец, ава́рец"}, {"av": "maḩarul maⱬⱬ", "ru": "ава́рский язы́к."}]}], "source": "av-ru.1936"}
+{"word": "maḩarul-ci", "forms": ["maḩarul-ci", "maḩarul-caħi"], "senses": [{"text": "го́рец ава́рец."}], "source": "av-ru.1936"}
+{"word": "maḩarulļi", "forms": ["maḩarulļi"], "senses": [{"text": "го́рцы."}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maḩarux-bak", "forms": ["maḩarux-bak"], "senses": [{"text": "го́рная ме́стность, наго́рье."}], "see_also": [{"target": "meḩer", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maḩarzuqali", "forms": ["maḩarzuqali", "maḩarzuqalal"], "senses": [{"text": "ноздря́."}], "see_also": [{"target": "meḩer", "kind": "compare"}, {"target": "qa'i", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maḩdan", "forms": ["maḩdan"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "maḩadan", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "maḩiruq", "forms": ["maḩiruq"], "see_also": [{"target": "maḩil ruq", "kind": "spelling"}, {"target": "maḩo", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "maḩişat", "forms": ["maḩişat"], "senses": [{"text": "жизнь", "labels": ["арабское происхождение"]}, {"text": "быт", "labels": ["арабское происхождение"], "examples": [{"av": "zijab maḩişat", "ru": "нóвый быт"}, {"av": "maḩişatijab huⱬⱬi", "ru": "хозяйственная организáция."}]}], "source": "av-ru.1936"}
-{"word": "maḩna", "forms": ["maḩna"], "senses": [{"text": "смысл, значéние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maḩo", "forms": ["maḩo", "maḩabi", "maḩisa", "maḩid"], "senses": [{"text": "слезá, слёзы, плач", "examples": [{"av": "ci xun maḩo", "ru": "оплáкивание поко́йника"}, {"av": "maḩil ruq", "ru": "дом, где есть поко́йник"}, {"av": "maḩid şeze", "ru": "напóлниться слезáми, гóрько пла́кать."}]}, {"labels": ["эргативный падеж"], "forms": ["maḩisa", "maḩid"]}], "source": "av-ru.1936"}
+{"word": "maḩişat", "forms": ["maḩişat"], "senses": [{"text": "жизнь", "labels": ["арабское происхождение"]}, {"text": "быт", "labels": ["арабское происхождение"], "examples": [{"av": "zijab maḩişat", "ru": "но́вый быт"}, {"av": "maḩişatijab huⱬⱬi", "ru": "хозяйственная организа́ция."}]}], "source": "av-ru.1936"}
+{"word": "maḩna", "forms": ["maḩna"], "senses": [{"text": "смысл, значе́ние.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maḩo", "forms": ["maḩo", "maḩabi", "maḩisa", "maḩid"], "senses": [{"text": "слеза́, слёзы, плач", "examples": [{"av": "ci xun maḩo", "ru": "опла́кивание поко́йника"}, {"av": "maḩil ruq", "ru": "дом, где есть поко́йник"}, {"av": "maḩid şeze", "ru": "напо́лниться слеза́ми, го́рько пла́кать."}]}, {"labels": ["эргативный падеж"], "forms": ["maḩisa", "maḩid"]}], "source": "av-ru.1936"}
 {"word": "maḩrassin", "forms": ["maḩrassin", "maḩrasin"], "spelling_forms": ["maḩrassin", "maḩrasin"], "see_also": [{"target": "meḩerccin", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "maḩripci", "forms": ["maḩripci", "maḩripcaħi"], "senses": [{"text": "просвещéнец.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maj", "spelling_forms": ["maj", "maj-moⱬⱬ"], "senses": [{"text": "май", "labels": ["интернациональный термин"], "examples": [{"av": "maj-moⱬⱬil ꞩo-abileb qo", "ru": "Пéрвое мáя."}]}], "source": "av-ru.1936"}
-{"word": "majdan", "forms": ["majdan", "majdanal", "majdabi"], "senses": [{"text": "плóщадь, плац", "labels": ["арабское происхождение"]}, {"text": "луг, пóле.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "bajdan", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maḩripci", "forms": ["maḩripci", "maḩripcaħi"], "senses": [{"text": "просвеще́нец.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maj", "spelling_forms": ["maj", "maj-moⱬⱬ"], "senses": [{"text": "май", "labels": ["интернациональный термин"], "examples": [{"av": "maj-moⱬⱬil ꞩo-abileb qo", "ru": "Пе́рвое ма́я."}]}], "source": "av-ru.1936"}
+{"word": "majdan", "forms": ["majdan", "majdanal", "majdabi"], "senses": [{"text": "пло́щадь, плац", "labels": ["арабское происхождение"]}, {"text": "луг, по́ле.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "bajdan", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "majmalak", "forms": ["majmalak", "majmalakal", "majmalakidul"], "senses": [{"text": "обезья́на."}, {"labels": ["родительный падеж"], "forms": ["majmalakidul"]}], "see_also": [{"target": "majmun", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "majmun", "forms": ["majmun", "majmunal"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "majmalak", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "major", "forms": ["major", "majorzabi"], "senses": [{"text": "майóр.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "makro", "forms": ["makro"], "senses": [{"text": "хíтрость, улóвка", "labels": ["арабское происхождение"], "examples": [{"av": "mak- rojab", "ru": "хíтрый, лукáвый, ковáрный."}]}], "source": "av-ru.1936"}
-{"word": "maktab", "forms": ["maktab", "maktabal"], "senses": [{"text": "шкóла, учи́лище.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "mal", "forms": ["mal", "malal", "malasa"], "senses": [{"text": "подóшва, ступня́, копы́то", "examples": [{"av": "mal baze, mal qa- bize", "ru": "лягáться, брыкáться."}]}, {"labels": ["эргативный падеж"], "forms": ["malasa"]}], "source": "av-ru.1936"}
+{"word": "major", "forms": ["major", "majorzabi"], "senses": [{"text": "майо́р.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "makro", "forms": ["makro"], "senses": [{"text": "хи́трость, уло́вка", "labels": ["арабское происхождение"], "examples": [{"av": "mak- rojab", "ru": "хи́трый, лука́вый, кова́рный."}]}], "source": "av-ru.1936"}
+{"word": "maktab", "forms": ["maktab", "maktabal"], "senses": [{"text": "шко́ла, учи́лище.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "mal", "forms": ["mal", "malal", "malasa"], "senses": [{"text": "подо́шва, ступня́, копы́то", "examples": [{"av": "mal baze, mal qa- bize", "ru": "ляга́ться, брыка́ться."}]}, {"labels": ["эргативный падеж"], "forms": ["malasa"]}], "source": "av-ru.1936"}
 {"word": "mal", "forms": ["mal"], "senses": [{"text": "иму́щество.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "malajik", "forms": ["malajik", "malajikzabi"], "senses": [{"text": "áнгел.", "precomment": "устарéвшее слóво", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "malajik", "forms": ["malajik", "malajikzabi"], "senses": [{"text": "а́нгел.", "labels": ["арабское происхождение", "устаревшее слово"]}], "source": "av-ru.1936"}
 {"word": "malal", "forms": ["malal"], "see_also": [{"target": "ma'", "kind": "see"}, {"target": "mali", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "malataħzir", "forms": ["malataħzir"], "senses": [{"text": "затáптывание дó смéрти.", "precomment": "устарéвшее слóво", "comment": "жестóкая казнь в дрéвности"}], "see_also": [{"target": "mal", "kind": "compare"}, {"target": "taħzir", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "mal-boⱬⱬi", "forms": ["mal-boⱬⱬi"], "senses": [{"text": "иму́щество, достоя́ние, сóбственность."}], "source": "av-ru.1936"}
+{"word": "malataħzir", "forms": ["malataħzir"], "senses": [{"text": "зата́птывание до́ сме́рти.", "labels": ["устаревшее слово"], "comment": "жесто́кая казнь в дре́вности"}], "see_also": [{"target": "mal", "kind": "compare"}, {"target": "taħzir", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "mal-boⱬⱬi", "forms": ["mal-boⱬⱬi"], "senses": [{"text": "иму́щество, достоя́ние, со́бственность."}], "source": "av-ru.1936"}
 {"word": "malħun", "forms": ["malħun", "malħunzabi"], "senses": [{"text": "прокля́тый.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "mali", "forms": ["mali", "malal", "malabi", "molosa"], "senses": [{"text": "лéстница.", "comment": "перенóсная"}, {"labels": ["эргативный падеж"], "forms": ["molosa"]}], "source": "av-ru.1936"}
-{"word": "malikab", "forms": ["malikab"], "senses": [{"text": "сóбственный.", "labels": ["арабское происхождение"], "comment": "на праве сóбственности"}], "source": "av-ru.1936"}
-{"word": "malla", "forms": ["malla", "mallazabi"], "senses": [{"text": "муллá.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maļ", "forms": ["maļ", "maļal"], "senses": [{"text": "нóготь, кóготь", "examples": [{"av": "maļal", "ru": "ковы́чки.", "labels": ["множественное число"]}]}], "source": "av-ru.1936"}
-{"word": "maļļ", "forms": ["maļļ"], "senses": [{"text": "обучéние."}], "see_also": [{"target": "maļļize", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "mali", "forms": ["mali", "malal", "malabi", "molosa"], "senses": [{"text": "ле́стница.", "comment": "перено́сная"}, {"labels": ["эргативный падеж"], "forms": ["molosa"]}], "source": "av-ru.1936"}
+{"word": "malikab", "forms": ["malikab"], "senses": [{"text": "со́бственный.", "labels": ["арабское происхождение"], "comment": "на праве со́бственности"}], "source": "av-ru.1936"}
+{"word": "malla", "forms": ["malla", "mallazabi"], "senses": [{"text": "мулла́.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maļ", "forms": ["maļ", "maļal"], "senses": [{"text": "но́готь, ко́готь", "examples": [{"av": "maļal", "ru": "ковы́чки.", "labels": ["множественное число"]}]}], "source": "av-ru.1936"}
+{"word": "maļļ", "forms": ["maļļ"], "senses": [{"text": "обуче́ние."}], "see_also": [{"target": "maļļize", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maļļarize", "forms": ["maļļarize"], "see_also": [{"target": "maļļize", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "maļļaruxan", "forms": ["maļļaruxan", "maļļaruxabi"], "see_also": [{"target": "maļļuxan", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "maļļize", "forms": ["maļļize"], "senses": [{"text": "учи́ть, научáть, инструкти́ровать"}, {"text": "считáть"}, {"text": "принимáть во внимáние", "examples": [{"av": "maļļiço-go", "ru": "не считáя, исключáя, за исключéнием."}]}], "source": "av-ru.1936"}
-{"word": "maļļuxan", "forms": ["maļļuxan", "maļļuxabi"], "senses": [{"text": "учи́тель"}, {"text": "инстру́ктор"}, {"text": "настáвник."}], "see_also": [{"target": "maļļize", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maļļize", "forms": ["maļļize"], "senses": [{"text": "учи́ть, науча́ть, инструкти́ровать"}, {"text": "счита́ть"}, {"text": "принима́ть во внима́ние", "examples": [{"av": "maļļiço-go", "ru": "не счита́я, исключа́я, за исключе́нием."}]}], "source": "av-ru.1936"}
+{"word": "maļļuxan", "forms": ["maļļuxan", "maļļuxabi"], "senses": [{"text": "учи́тель"}, {"text": "инстру́ктор"}, {"text": "наста́вник."}], "see_also": [{"target": "maļļize", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maļral", "forms": ["maļral"], "see_also": [{"target": "miļir", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "mamlakat", "forms": ["mamlakat", "mamlakatal"], "senses": [{"text": "странá", "labels": ["арабское происхождение"]}, {"text": "госудáрство.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "mamlakat", "forms": ["mamlakat", "mamlakatal"], "senses": [{"text": "страна́", "labels": ["арабское происхождение"]}, {"text": "госуда́рство.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "manevr", "forms": ["manevr"], "senses": [{"text": "манёвры", "labels": ["интернациональный термин"], "examples": [{"av": "manevr h.", "ru": "маневри́ровать."}]}], "source": "av-ru.1936"}
-{"word": "mangoro", "spelling_forms": ["mangoro", "manguro"], "senses": [{"text": "бáбочка.", "comment": "Форма 'manguro': (в нарéчии Чóха)"}], "source": "av-ru.1936"}
-{"word": "manƣuşş", "forms": ["manƣuşş", "manƣuşşzabi"], "senses": [{"text": "глашáтай."}], "source": "av-ru.1936"}
-{"word": "manifest", "forms": ["manifest", "manifestal"], "senses": [{"text": "манифéст", "labels": ["интернациональный термин"], "examples": [{"av": "Kommunistijab manifest", "ru": "Коммунисти́ческий манифéст."}]}], "source": "av-ru.1936"}
-{"word": "maniħ", "forms": ["maniħ", "maniħal"], "senses": [{"text": "препя́тствие, помéха.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "mangoro", "spelling_forms": ["mangoro", "manguro"], "senses": [{"text": "ба́бочка.", "comment": "Форма 'manguro': (в наре́чии Чо́ха)"}], "source": "av-ru.1936"}
+{"word": "manƣuşş", "forms": ["manƣuşş", "manƣuşşzabi"], "senses": [{"text": "глаша́тай."}], "source": "av-ru.1936"}
+{"word": "manifest", "forms": ["manifest", "manifestal"], "senses": [{"text": "манифе́ст", "labels": ["интернациональный термин"], "examples": [{"av": "Kommunistijab manifest", "ru": "Коммунисти́ческий манифе́ст."}]}], "source": "av-ru.1936"}
+{"word": "maniħ", "forms": ["maniħ", "maniħal"], "senses": [{"text": "препя́тствие, поме́ха.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "manka", "forms": ["manka", "mankabi", "mankadul"], "senses": [{"text": "ба́нка.", "labels": ["русское происхождение"]}, {"labels": ["родительный падеж"], "forms": ["mankadul"]}], "see_also": [{"target": "banka", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "manļļize", "forms": ["manļļize"], "see_also": [{"target": "maļļize", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "manpaħat", "forms": ["manpaħat", "manpaħatal"], "senses": [{"text": "пóльза, вы́года.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "mukaħat", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "manzil", "forms": ["manzil", "manzilal"], "senses": [{"text": "перегóн, расстоя́ние от привáла до привáла.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "marzil", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "manpaħat", "forms": ["manpaħat", "manpaħatal"], "senses": [{"text": "по́льза, вы́года.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "mukaħat", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "manzil", "forms": ["manzil", "manzilal"], "senses": [{"text": "перего́н, расстоя́ние от прива́ла до прива́ла.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "marzil", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "maqab", "forms": ["maqab"], "senses": [{"text": "малочи́сленный."}], "see_also": [{"target": "dahamaq", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maqala", "forms": ["maqala", "maqalabi"], "senses": [{"text": "статья́.", "labels": ["арабское происхождение"], "comment": "в газéте и́ли журнáле"}], "source": "av-ru.1936"}
-{"word": "maqan", "forms": ["maqan", "maqanal", "maqnal", "maqanabi"], "senses": [{"text": "напéв, мелóдия.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "baqan", "kind": "compare"}, {"target": "paqan", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maqar", "forms": ["maqar", "maqaral"], "senses": [{"text": "корá, кóрка.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maqala", "forms": ["maqala", "maqalabi"], "senses": [{"text": "статья́.", "labels": ["арабское происхождение"], "comment": "в газе́те и́ли журна́ле"}], "source": "av-ru.1936"}
+{"word": "maqan", "forms": ["maqan", "maqanal", "maqnal", "maqanabi"], "senses": [{"text": "напе́в, мело́дия.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "baqan", "kind": "compare"}, {"target": "paqan", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maqar", "forms": ["maqar", "maqaral"], "senses": [{"text": "кора́, ко́рка.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "maqnaţis", "forms": ["maqnaţis", "maqnaţisal"], "senses": [{"text": "магни́т.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maꝗix̨x̨ine", "spelling_forms": ["maꝗix̨x̨ine", "maꝗix̨x̨inze", "maꝗix̨x̨ize"], "senses": [{"text": "хотéть спать, дремáть."}], "see_also": [{"target": "maꝗo", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "maꝗo", "forms": ["maꝗo", "maꝗabi"], "senses": [{"text": "сон, сновидéние", "examples": [{"av": "maꝗiļ", "ru": "во сне.", "labels": ["местный падеж", "3-я серия"]}]}], "source": "av-ru.1936"}
-{"word": "marganes", "forms": ["marganes"], "senses": [{"text": "мáрганец.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "marƣal", "forms": ["marƣal", "marƣalal"], "senses": [{"text": "жéмчуг, жемчу́жина", "examples": [{"av": "marƣalaļul cerx", "ru": "жемчу́жное тéло.", "comment": "эпи́тет красоты́"}]}], "source": "av-ru.1936"}
-{"word": "marha", "forms": ["marha", "marhabi"], "senses": [{"text": "скáзка", "examples": [{"av": "marha bisuna bugo ketojaļ", "ru": "кóшка мурлы́кает."}]}], "source": "av-ru.1936"}
-{"word": "marhaci", "forms": ["marhaci", "marhacaħi"], "senses": [{"text": "скáзочник."}], "source": "av-ru.1936"}
+{"word": "maꝗix̨x̨ine", "spelling_forms": ["maꝗix̨x̨ine", "maꝗix̨x̨inze", "maꝗix̨x̨ize"], "senses": [{"text": "хоте́ть спать, дрема́ть."}], "see_also": [{"target": "maꝗo", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "maꝗo", "forms": ["maꝗo", "maꝗabi"], "senses": [{"text": "сон, сновиде́ние", "examples": [{"av": "maꝗiļ", "ru": "во сне.", "labels": ["местный падеж", "3-я серия"]}]}], "source": "av-ru.1936"}
+{"word": "marganes", "forms": ["marganes"], "senses": [{"text": "ма́рганец.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "marƣal", "forms": ["marƣal", "marƣalal"], "senses": [{"text": "же́мчуг, жемчу́жина", "examples": [{"av": "marƣalaļul cerx", "ru": "жемчу́жное те́ло.", "comment": "эпи́тет красоты́"}]}], "source": "av-ru.1936"}
+{"word": "marha", "forms": ["marha", "marhabi"], "senses": [{"text": "ска́зка", "examples": [{"av": "marha bisuna bugo ketojaļ", "ru": "ко́шка мурлы́кает."}]}], "source": "av-ru.1936"}
+{"word": "marhaci", "forms": ["marhaci", "marhacaħi"], "senses": [{"text": "ска́зочник."}], "source": "av-ru.1936"}
 {"word": "marho", "forms": ["marho", "marhabi"], "see_also": [{"target": "marha", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "marħaba!", "forms": ["marħaba!"], "senses": [{"text": "добрó пожáловать!", "labels": ["арабское происхождение"], "examples": [{"av": "marħaba-jan aħize", "ru": "приве́тствовать слóвом: marħaba!"}]}], "source": "av-ru.1936"}
-{"word": "marka", "forms": ["markabi", "markadul"], "spelling_forms": ["marka", "marqa"], "senses": [{"text": "мáрка", "labels": ["интернациональный термин"], "examples": [{"av": "marka çvaze", "ru": "наклéивать мáрку."}]}, {"labels": ["родительный падеж"], "forms": ["markadul"]}], "source": "av-ru.1936"}
-{"word": "markaz", "forms": ["markaz"], "senses": [{"text": "центр", "labels": ["арабское происхождение"], "examples": [{"av": "markazijab", "ru": "центрáльный."}]}], "source": "av-ru.1936"}
+{"word": "marħaba!", "forms": ["marħaba!"], "senses": [{"text": "добро́ пожа́ловать!", "labels": ["арабское происхождение"], "examples": [{"av": "marħaba-jan aħize", "ru": "приве́тствовать сло́вом: marħaba!"}]}], "source": "av-ru.1936"}
+{"word": "marka", "forms": ["markabi", "markadul"], "spelling_forms": ["marka", "marqa"], "senses": [{"text": "ма́рка", "labels": ["интернациональный термин"], "examples": [{"av": "marka çvaze", "ru": "накле́ивать ма́рку."}]}, {"labels": ["родительный падеж"], "forms": ["markadul"]}], "source": "av-ru.1936"}
+{"word": "markaz", "forms": ["markaz"], "senses": [{"text": "центр", "labels": ["арабское происхождение"], "examples": [{"av": "markazijab", "ru": "центра́льный."}]}], "source": "av-ru.1936"}
 {"word": "marksist", "forms": ["marksist", "marksistal"], "senses": [{"text": "маркси́ст", "labels": ["интернациональный термин"], "examples": [{"av": "marksistijab", "ru": "маркси́стский."}]}], "source": "av-ru.1936"}
 {"word": "marksizm", "forms": ["marksizm"], "senses": [{"text": "маркси́зм.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "marķaço", "forms": ["marķaço", "marķaçol", "marķaçoda", "marķaçoļ"], "senses": [{"text": "су́мерки."}, {"labels": ["родительный падеж"], "forms": ["marķaçol"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["marķaçoda"]}, {"labels": ["местный падеж", "3-я серия"], "forms": ["marķaçoļ"]}], "source": "av-ru.1936"}
@@ -3693,25 +3693,25 @@
 {"word": "marxi", "forms": ["marxi", "maxi", "marxabi", "marxosa"], "spelling_forms": ["marxi", "maxi"], "senses": [{"text": "ху́тор."}, {"labels": ["эргативный падеж"], "forms": ["marxosa"]}], "see_also": [{"target": "tala", "kind": "compare"}, {"target": "ko'o", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "marxo", "forms": ["marxo", "marxabi"], "see_also": [{"target": "marxi", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "marzil", "forms": ["marzil"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "manzil", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "marƶan", "forms": ["marƶan", "marƶanal"], "senses": [{"text": "корáлл.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "marƶan", "forms": ["marƶan", "marƶanal"], "senses": [{"text": "кора́лл.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "masailal", "forms": ["masailal"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "mas'alat", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "masala", "forms": ["masala"], "senses": [{"text": "напримéр.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "misal", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "mas'alat", "forms": ["mas'alat", "mas'ala", "mas'alabi"], "spelling_forms": ["mas'alat", "mas'ala"], "senses": [{"text": "вопрóс", "labels": ["арабское происхождение"]}, {"text": "проблéма.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "masħu", "forms": ["masħu", "masħabi"], "senses": [{"text": "лёгкая сафья́новая óбувь.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "massa", "forms": ["massa", "massabi"], "senses": [{"text": "мáсса.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "masala", "forms": ["masala"], "senses": [{"text": "наприме́р.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "misal", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "mas'alat", "forms": ["mas'alat", "mas'ala", "mas'alabi"], "spelling_forms": ["mas'alat", "mas'ala"], "senses": [{"text": "вопро́с", "labels": ["арабское происхождение"]}, {"text": "пробле́ма.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "masħu", "forms": ["masħu", "masħabi"], "senses": [{"text": "лёгкая сафья́новая о́бувь.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "massa", "forms": ["massa", "massabi"], "senses": [{"text": "ма́сса.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "massder", "forms": ["massder"], "senses": [{"labels": ["русское происхождение"]}], "see_also": [{"target": "messter", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "masslaħat", "forms": ["masslaħat"], "senses": [{"text": "соглáсие", "labels": ["арабское происхождение"]}, {"text": "дóбрый совéт", "labels": ["арабское происхождение"], "examples": [{"av": "masslaħataļul sud", "ru": "третéйский суд."}]}], "source": "av-ru.1936"}
+{"word": "masslaħat", "forms": ["masslaħat"], "senses": [{"text": "согла́сие", "labels": ["арабское происхождение"]}, {"text": "до́брый сове́т", "labels": ["арабское происхождение"], "examples": [{"av": "masslaħataļul sud", "ru": "трете́йский суд."}]}], "source": "av-ru.1936"}
 {"word": "masster", "forms": ["masster", "master", "massterzabi"], "spelling_forms": ["masster", "master"], "senses": [{"labels": ["русское происхождение"]}], "see_also": [{"target": "messter", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "massxxara", "forms": ["massxxara", "massxxarabi"], "senses": [{"text": "шу́тка, насмéшка", "labels": ["арабское происхождение"], "examples": [{"av": "massxxarade, massxxarajalde, massxxarajaļ", "ru": "в шу́тку, в насмéшку.", "labels": ["местный падеж", "1-я серия", "эргативный падеж"]}]}], "see_also": [{"target": "maxxssara", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "massxxaraci", "forms": ["massxxaraci", "massxxaracaħi"], "senses": [{"text": "шутни́к, насмéшник."}], "source": "av-ru.1936"}
-{"word": "masştab", "forms": ["masştab", "masştabal"], "senses": [{"text": "масштáб.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "masterskaja", "forms": ["masterskaja", "masterskajabi"], "senses": [{"text": "мастерскáя.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maş", "forms": ["maş", "maşal"], "senses": [{"text": "тру́бка, трубá"}, {"text": "язы́к плáмени."}], "source": "av-ru.1936"}
-{"word": "maşƣul", "spelling_forms": ["maşƣul", "maşƣulab"], "senses": [{"text": "занятóй.", "labels": ["арабское происхождение"], "comment": "каки́м-ли́бо дéлом"}], "source": "av-ru.1936"}
+{"word": "massxxara", "forms": ["massxxara", "massxxarabi"], "senses": [{"text": "шу́тка, насме́шка", "labels": ["арабское происхождение"], "examples": [{"av": "massxxarade, massxxarajalde, massxxarajaļ", "ru": "в шу́тку, в насме́шку.", "labels": ["местный падеж", "1-я серия", "эргативный падеж"]}]}], "see_also": [{"target": "maxxssara", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "massxxaraci", "forms": ["massxxaraci", "massxxaracaħi"], "senses": [{"text": "шутни́к, насме́шник."}], "source": "av-ru.1936"}
+{"word": "masştab", "forms": ["masştab", "masştabal"], "senses": [{"text": "масшта́б.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "masterskaja", "forms": ["masterskaja", "masterskajabi"], "senses": [{"text": "мастерска́я.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maş", "forms": ["maş", "maşal"], "senses": [{"text": "тру́бка, труба́"}, {"text": "язы́к пла́мени."}], "source": "av-ru.1936"}
+{"word": "maşƣul", "spelling_forms": ["maşƣul", "maşƣulab"], "senses": [{"text": "занято́й.", "labels": ["арабское происхождение"], "comment": "каки́м-ли́бо де́лом"}], "source": "av-ru.1936"}
 {"word": "maşƣulļi", "forms": ["maşƣulļi"], "senses": [{"text": "заня́тие.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maşƣulļize", "forms": ["maşƣulļize"], "senses": [{"text": "занимáться.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maşhur", "spelling_forms": ["maşhur", "maşhurab"], "senses": [{"text": "знамени́тый, слáвный, извéстный.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "maşina", "forms": ["maşina", "maşin", "maşinal", "maşinabi", "maşinadul"], "spelling_forms": ["maşina", "maşin"], "senses": [{"text": "маши́на", "labels": ["интернациональный термин"], "examples": [{"av": "maşinadul nux", "ru": "желéзная доро́га"}, {"av": "borƶuneb maşina", "ru": "лета́тельная маши́на, дирижа́бль, аэропла́н."}]}, {"labels": ["родительный падеж"], "forms": ["maşinadul"]}], "source": "av-ru.1936"}
+{"word": "maşƣulļize", "forms": ["maşƣulļize"], "senses": [{"text": "занима́ться.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maşhur", "spelling_forms": ["maşhur", "maşhurab"], "senses": [{"text": "знамени́тый, сла́вный, изве́стный.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "maşina", "forms": ["maşina", "maşin", "maşinal", "maşinabi", "maşinadul"], "spelling_forms": ["maşina", "maşin"], "senses": [{"text": "маши́на", "labels": ["интернациональный термин"], "examples": [{"av": "maşinadul nux", "ru": "желе́зная доро́га"}, {"av": "borƶuneb maşina", "ru": "лета́тельная маши́на, дирижа́бль, аэропла́н."}]}, {"labels": ["родительный падеж"], "forms": ["maşinadul"]}], "source": "av-ru.1936"}
 {"word": "maşinci", "forms": ["maşinci", "maşincaḩi"], "senses": [{"text": "машини́ст."}], "source": "av-ru.1936"}
 {"word": "maşķid", "forms": ["maşķid", "maşķidal"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "maƶgit", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "maşo", "forms": ["maşo", "maşabi"], "see_also": [{"target": "maş", "kind": "spelling"}], "source": "av-ru.1936"}
@@ -3833,7 +3833,7 @@
 {"word": "miꝗil", "forms": ["miꝗil", "moꝗlosa"], "senses": [{"labels": ["эргативный падеж"], "forms": ["moꝗlosa"]}], "see_also": [{"target": "miꝗir", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "miꝗir", "forms": ["miꝗir", "moꝗrosa"], "senses": [{"text": "пе́рсик", "examples": [{"av": "moꝗrol qvet", "ru": "пе́рсиковое де́рево."}]}, {"labels": ["эргативный падеж"], "forms": ["moꝗrosa"]}], "source": "av-ru.1936"}
 {"word": "miꝗo", "forms": ["miꝗo", "miꝗabi"], "senses": [{"text": "восьмёрка."}], "see_also": [{"target": "miꝗ", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "mirk", "forms": ["mirk", "mirkal"], "senses": [{"precomment": "в наре́чии Чóха"}], "see_also": [{"target": "mikk", "kind": "spelling"}], "source": "av-ru.1936"}
+{"word": "mirk", "forms": ["mirk", "mirkal"], "senses": [{"precomment": "в наре́чии Чо́ха"}], "see_also": [{"target": "mikk", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "mirkaļ-go", "forms": ["mirkaļ-go"], "senses": [{"text": "совсе́м, во́все."}], "source": "av-ru.1936"}
 {"word": "mirzaj", "forms": ["mirzaj"], "senses": [{"text": "зелёная бязь.", "labels": ["персидское происхождение"]}], "source": "av-ru.1936"}
 {"word": "mirzaj-xxan", "spelling_forms": ["mirzaj-xxan", "mirzaj-xxam"], "senses": [{"text": "мануфакту́ра."}], "see_also": [{"target": "mirzaj", "kind": "compare"}], "source": "av-ru.1936"}
@@ -5530,119 +5530,119 @@
 {"word": "şaḩi xan", "forms": ["şaḩi xan", "şaḩi xabi"], "senses": [{"text": "горше́чник, гонча́р."}], "see_also": [{"target": "şeḩ", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şaj", "forms": ["şaj"], "senses": [{"text": "почемУ́?, заче́м?", "examples": [{"av": "şaj-daj", "ru": "почемУ́-же?, заче́м же?"}, {"av": "şajilan abuni", "ru": "е́сли спроси́ть почемУ́?, заче́м?..."}, {"av": "şaj-guro (-ni), şaj-gureb", "ru": "не и́наче как."}]}], "see_also": [{"target": "şe", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şajţan", "forms": ["şajţan"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "şeţan", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şajx", "forms": ["şajx", "şajxzabi"], "senses": [{"text": "шeйх.", "precomment": "устарéвшее слóво", "labels": ["арабское происхождение"]}], "see_also": [{"target": "şixx", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şak", "forms": ["şak", "şakal"], "senses": [{"text": "сомнéние, подозрéние", "labels": ["арабское происхождение"], "examples": [{"av": "şakab", "ru": "сомнúтельный, подозрúтельный"}, {"av": "şak heço", "ru": "несомнéнно, нет сомнéния"}, {"av": "şak-heçeb", "ru": "несомнéнный."}]}], "source": "av-ru.1936"}
-{"word": "şakdari", "forms": ["şakdari", "şakdarusa"], "senses": [{"text": "рéвность, подозрéние."}, {"labels": ["эргативный падеж"], "forms": ["şakdarusa"]}], "see_also": [{"target": "şakdarize", "kind": "compare"}, {"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şakdarize", "forms": ["şakdarize"], "senses": [{"text": "ревновáть"}, {"text": "подозревáть."}], "see_also": [{"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şakļi", "forms": ["şakļi"], "senses": [{"text": "сомнúтельность, подозрúтельность.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şakļize", "spelling_forms": ["şakļize", "şakļun vuķine"], "senses": [{"text": "сомневáться.", "labels": ["арабское происхождение"], "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şajx", "forms": ["şajx", "şajxzabi"], "senses": [{"text": "шейх.", "labels": ["арабское происхождение", "устаревшее слово"]}], "see_also": [{"target": "şixx", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şak", "forms": ["şak", "şakal"], "senses": [{"text": "сомне́ние, подозре́ние", "labels": ["арабское происхождение"], "examples": [{"av": "şakab", "ru": "сомну́тельный, подозру́тельный"}, {"av": "şak heço", "ru": "несомне́нно, нет сомне́ния"}, {"av": "şak-heçeb", "ru": "несомне́нный."}]}], "source": "av-ru.1936"}
+{"word": "şakdari", "forms": ["şakdari", "şakdarusa"], "senses": [{"text": "ре́вность, подозре́ние."}, {"labels": ["эргативный падеж"], "forms": ["şakdarusa"]}], "see_also": [{"target": "şakdarize", "kind": "compare"}, {"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şakdarize", "forms": ["şakdarize"], "senses": [{"text": "ревнова́ть"}, {"text": "подозрева́ть."}], "see_also": [{"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şakļi", "forms": ["şakļi"], "senses": [{"text": "сомну́тельность, подозру́тельность.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şakļize", "spelling_forms": ["şakļize", "şakļun vuķine"], "senses": [{"text": "сомнева́ться.", "labels": ["арабское происхождение"], "comment": "Знак * в источнике: изменяемый родовой признак"}], "see_also": [{"target": "şak", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şal", "forms": ["şal"], "see_also": [{"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şal", "forms": ["şal", "şalal"], "senses": [{"text": "шаль.", "labels": ["персидское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şalaj", "forms": ["şalaj"], "senses": [{"text": "тúна, ил."}], "source": "av-ru.1936"}
-{"word": "şalbar", "forms": ["şalbaral"], "spelling_forms": ["şalbar", "şalvar"], "senses": [{"text": "шаровáры, штаны́, брю́ки", "labels": ["персидское происхождение"], "examples": [{"av": "şalbaraļul qva", "ru": "штани́на."}]}], "see_also": [{"target": "şarbal", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şamal", "forms": ["şamal"], "senses": [{"text": "сéвер", "labels": ["арабское происхождение"], "examples": [{"av": "şamali(jab)", "ru": "сéверный."}]}], "source": "av-ru.1936"}
-{"word": "şamat", "forms": ["şamat", "şamatal"], "senses": [{"text": "суббóта.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şalaj", "forms": ["şalaj"], "senses": [{"text": "ту́на, ил."}], "source": "av-ru.1936"}
+{"word": "şalbar", "forms": ["şalbaral"], "spelling_forms": ["şalbar", "şalvar"], "senses": [{"text": "шарова́ры, штаны́, брю́ки", "labels": ["персидское происхождение"], "examples": [{"av": "şalbaraļul qva", "ru": "штани́на."}]}], "see_also": [{"target": "şarbal", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şamal", "forms": ["şamal"], "senses": [{"text": "се́вер", "labels": ["арабское происхождение"], "examples": [{"av": "şamali(jab)", "ru": "се́верный."}]}], "source": "av-ru.1936"}
+{"word": "şamat", "forms": ["şamat", "şamatal"], "senses": [{"text": "суббо́та.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şanķlal", "forms": ["şanķlal"], "see_also": [{"target": "şinķil", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şanţixx", "forms": ["şanţixx"], "see_also": [{"target": "şvanţixx", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şapaqat", "forms": ["şapaqat", "şapaqatal"], "senses": [{"text": "нагрáда.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şapize", "forms": ["şapize"], "senses": [{"text": "заливáть, обливáть."}], "source": "av-ru.1936"}
+{"word": "şapaqat", "forms": ["şapaqat", "şapaqatal"], "senses": [{"text": "награ́да.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şapize", "forms": ["şapize"], "senses": [{"text": "залива́ть, облива́ть."}], "source": "av-ru.1936"}
 {"word": "şaqi", "forms": ["şaqi"], "senses": [{"text": "черни́ла.", "labels": ["тюркское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şaqiţel", "forms": ["şaqiţel", "şaqiţalabi", "şaqiţalisa"], "senses": [{"text": "черни́льница."}, {"labels": ["эргативный падеж"], "forms": ["şaqiţalisa"]}], "see_also": [{"target": "şaqi", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şar", "forms": ["şar", "şaral"], "senses": [{"text": "сли́вочное мáсло", "examples": [{"av": "şa çvaze", "ru": "сбивáть мáсло."}]}], "source": "av-ru.1936"}
-{"word": "şar", "forms": ["şar", "şaral"], "senses": [{"text": "шар", "labels": ["русское происхождение"], "examples": [{"av": "havajaļul şa", "ru": "воздýшный шар."}]}], "source": "av-ru.1936"}
+{"word": "şar", "forms": ["şar", "şaral"], "senses": [{"text": "сли́вочное ма́сло", "examples": [{"av": "şa çvaze", "ru": "сбива́ть ма́сло."}]}], "source": "av-ru.1936"}
+{"word": "şar", "forms": ["şar", "şaral"], "senses": [{"text": "шар", "labels": ["русское происхождение"], "examples": [{"av": "havajaļul şa", "ru": "возду́шный шар."}]}], "source": "av-ru.1936"}
 {"word": "şarbal", "forms": ["şarbal", "şarbalal"], "senses": [{"labels": ["персидское происхождение"]}], "see_also": [{"target": "şalbar", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şarho", "forms": ["şarho", "şarh"], "spelling_forms": ["şarho", "şarh"], "senses": [{"text": "шариáт", "labels": ["арабское происхождение"], "comment": "религиóзный закóн ислáма", "examples": [{"av": "şarḩijab", "ru": "шариáтский, зако́нный."}]}], "see_also": [{"target": "şariḩat", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şarho", "forms": ["şarho", "şarh"], "spelling_forms": ["şarho", "şarh"], "senses": [{"text": "шариа́т", "labels": ["арабское происхождение"], "comment": "религио́зный зако́н исла́ма", "examples": [{"av": "şarḩijab", "ru": "шариа́тский, зако́нный."}]}], "see_also": [{"target": "şariḩat", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şariḩat", "forms": ["şariḩat", "şariḩatisa"], "senses": [{"labels": ["арабское происхождение"]}, {"labels": ["эргативный падеж"], "forms": ["şariḩatisa"]}], "see_also": [{"target": "şarḩo", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şarp", "forms": ["şarp", "şarpal"], "senses": [{"text": "шарф.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şarq", "forms": ["şarq"], "senses": [{"text": "востóк", "labels": ["арабское происхождение"], "examples": [{"av": "şarqi(jab)", "ru": "востóчный."}]}], "source": "av-ru.1936"}
-{"word": "şarşab", "forms": ["şarşab"], "senses": [{"text": "покрывáло."}], "source": "av-ru.1936"}
-{"word": "şarţ", "forms": ["şarţ", "şarţal", "şuruţal"], "senses": [{"text": "услóвие.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şaşka", "forms": ["şaşka", "şaşkabi"], "senses": [{"text": "шáшка.", "labels": ["русское происхождение"], "comment": "игрáльная"}], "source": "av-ru.1936"}
-{"word": "şata", "forms": ["şata", "şatabi"], "senses": [{"text": "чуло́к, носóк."}], "source": "av-ru.1936"}
-{"word": "şaxmat", "forms": ["şaxmat", "şaxmatal"], "senses": [{"text": "шáхматы.", "labels": ["персидское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şarq", "forms": ["şarq"], "senses": [{"text": "восто́к", "labels": ["арабское происхождение"], "examples": [{"av": "şarqi(jab)", "ru": "восто́чный."}]}], "source": "av-ru.1936"}
+{"word": "şarşab", "forms": ["şarşab"], "senses": [{"text": "покрыва́ло."}], "source": "av-ru.1936"}
+{"word": "şarţ", "forms": ["şarţ", "şarţal", "şuruţal"], "senses": [{"text": "усло́вие.", "labels": ["арабское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şaşka", "forms": ["şaşka", "şaşkabi"], "senses": [{"text": "ша́шка.", "labels": ["русское происхождение"], "comment": "игра́льная"}], "source": "av-ru.1936"}
+{"word": "şata", "forms": ["şata", "şatabi"], "senses": [{"text": "чуло́к, носо́к."}], "source": "av-ru.1936"}
+{"word": "şaxmat", "forms": ["şaxmat", "şaxmatal"], "senses": [{"text": "ша́хматы.", "labels": ["персидское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şe", "forms": ["şe"], "see_also": [{"target": "şaj", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şef", "forms": ["şef", "şefal"], "senses": [{"text": "шеф.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "şefļi", "forms": ["şefļi"], "senses": [{"text": "шéфство."}], "source": "av-ru.1936"}
-{"word": "şeḩ", "forms": ["şeḩ", "şaḩisa"], "senses": [{"text": "гли́няное издéлие", "examples": [{"av": "şaḩil raq", "ru": "гли́на"}, {"av": "şaḩil xaba", "ru": "гли́няный горшо́к."}]}, {"labels": ["эргативный падеж"], "forms": ["şaḩisa"]}], "source": "av-ru.1936"}
-{"word": "şeķ", "forms": ["şeķ", "şeķal", "şuķdul", "şoķosa"], "senses": [{"text": "мýскул", "examples": [{"av": "şoķol(ab)", "ru": "мýскулистый"}, {"av": "şuķdul ruķķin", "ru": "сýдороги, спáзмы, конвýльсии."}]}, {"labels": ["эргативный падеж"], "forms": ["şoķosa"]}], "source": "av-ru.1936"}
-{"word": "şeleş", "forms": ["şeleş", "şilşal"], "senses": [{"text": "двойнóй подборóдок."}], "source": "av-ru.1936"}
-{"word": "şeqer", "forms": ["şeqer", "şeqeral", "şuqrul", "şoqrosa"], "senses": [{"text": "гóрло, глóтка", "examples": [{"av": "şeqer kkveze", "ru": "схвати́ть за гóрло; приставáть."}]}, {"labels": ["эргативный падеж"], "forms": ["şoqrosa"]}], "source": "av-ru.1936"}
-{"word": "şeri", "forms": ["şeri", "şerabi", "şeridal"], "senses": [{"text": "дождевáя лýжа."}, {"labels": ["родительный падеж"], "forms": ["şeridal"]}], "source": "av-ru.1936"}
-{"word": "şetan", "forms": ["şetabi", "şetadul"], "spelling_forms": ["şetan", "şeţan"], "senses": [{"text": "шайтáн, чорт, сатанá", "labels": ["арабское происхождение"], "examples": [{"av": "şetan-huri", "ru": "вихрь."}]}, {"labels": ["родительный падеж"], "forms": ["şetadul"]}], "see_also": [{"target": "şajţan", "kind": "compare"}, {"target": "şşveţan", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şefļi", "forms": ["şefļi"], "senses": [{"text": "ше́фство."}], "source": "av-ru.1936"}
+{"word": "şeḩ", "forms": ["şeḩ", "şaḩisa"], "senses": [{"text": "гли́няное изде́лие", "examples": [{"av": "şaḩil raq", "ru": "гли́на"}, {"av": "şaḩil xaba", "ru": "гли́няный горшо́к."}]}, {"labels": ["эргативный падеж"], "forms": ["şaḩisa"]}], "source": "av-ru.1936"}
+{"word": "şeķ", "forms": ["şeķ", "şeķal", "şuķdul", "şoķosa"], "senses": [{"text": "му́скул", "examples": [{"av": "şoķol(ab)", "ru": "му́скулистый"}, {"av": "şuķdul ruķķin", "ru": "су́дороги, спа́змы, конву́льсии."}]}, {"labels": ["эргативный падеж"], "forms": ["şoķosa"]}], "source": "av-ru.1936"}
+{"word": "şeleş", "forms": ["şeleş", "şilşal"], "senses": [{"text": "двойно́й подборо́док."}], "source": "av-ru.1936"}
+{"word": "şeqer", "forms": ["şeqer", "şeqeral", "şuqrul", "şoqrosa"], "senses": [{"text": "го́рло, гло́тка", "examples": [{"av": "şeqer kkveze", "ru": "схвати́ть за го́рло; пристава́ть."}]}, {"labels": ["эргативный падеж"], "forms": ["şoqrosa"]}], "source": "av-ru.1936"}
+{"word": "şeri", "forms": ["şeri", "şerabi", "şeridal"], "senses": [{"text": "дождева́я лу́жа."}, {"labels": ["родительный падеж"], "forms": ["şeridal"]}], "source": "av-ru.1936"}
+{"word": "şetan", "forms": ["şetabi", "şetadul"], "spelling_forms": ["şetan", "şeţan"], "senses": [{"text": "шайта́н, чорт, сатана́", "labels": ["арабское происхождение"], "examples": [{"av": "şetan-huri", "ru": "вихрь."}]}, {"labels": ["родительный падеж"], "forms": ["şetadul"]}], "see_also": [{"target": "şajţan", "kind": "compare"}, {"target": "şşveţan", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şetanļi", "forms": ["şetanļi"], "senses": [{"text": "чертовщи́на."}], "source": "av-ru.1936"}
 {"word": "şeze", "forms": ["şeze"], "see_also": [{"target": "şveze", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şib", "forms": ["şib", "şal", "şiv", "sij", "ssunsa", "şibaļ", "ļļisa"], "senses": [{"text": "кто, что", "comment": "Формы в источнике: [şal, m şiv, f sij, act ssunsa, şibaļ; act m f, act pl ļļisa]", "examples": [{"av": "şibab", "ru": "кáждый, вся́кий"}, {"av": "şib-nigi", "ru": "чтó бы то ни́ было, ктó бы то ни́ был"}, {"av": "şib-guro, şib-guro-ni, şib-gureb", "ru": "ничтó инóе, никтó инóй."}]}, {"labels": ["мужской род"], "forms": ["şiv"]}, {"labels": ["женский род"], "forms": ["sij"]}, {"labels": ["эргативный падеж"], "forms": ["ssunsa", "şibaļ"]}, {"labels": ["эргативный падеж", "множественное число"], "forms": ["ļļisa"]}], "see_also": [{"target": "şibize", "kind": "compare"}, {"target": "şibļize", "kind": "compare"}, {"target": "şijab", "kind": "compare"}, {"target": "şinab", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şibgo", "spelling_forms": ["şibgo", "şibgo-gi"], "senses": [{"text": "всё, никтó, ничтó.", "comment": "с отрицáтельным глагóлом"}], "source": "av-ru.1936"}
-{"word": "şibize", "forms": ["şibize"], "senses": [{"text": "что дéлать?", "examples": [{"av": "mun hanib şibula?", "ru": "что ты здесь дéлаешь?"}]}], "see_also": [{"target": "şib", "kind": "compare"}, {"target": "habize", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şibļize", "forms": ["şibļize"], "senses": [{"text": "чем сдéлаться?, чем ко́нчиться?", "examples": [{"av": "şibļana hab ƶo?", "ru": "чем ко́нчилось э́то?"}]}], "see_also": [{"target": "şib", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şib", "forms": ["şib", "şal", "şiv", "sij", "ssunsa", "şibaļ", "ļļisa"], "senses": [{"text": "кто, что", "comment": "Формы в источнике: [şal, m şiv, f sij, act ssunsa, şibaļ; act m f, act pl ļļisa]", "examples": [{"av": "şibab", "ru": "ка́ждый, вся́кий"}, {"av": "şib-nigi", "ru": "что́ бы то ни́ было, кто́ бы то ни́ был"}, {"av": "şib-guro, şib-guro-ni, şib-gureb", "ru": "ничто́ ино́е, никто́ ино́й."}]}, {"labels": ["мужской род"], "forms": ["şiv"]}, {"labels": ["женский род"], "forms": ["sij"]}, {"labels": ["эргативный падеж"], "forms": ["ssunsa", "şibaļ"]}, {"labels": ["эргативный падеж", "множественное число"], "forms": ["ļļisa"]}], "see_also": [{"target": "şibize", "kind": "compare"}, {"target": "şibļize", "kind": "compare"}, {"target": "şijab", "kind": "compare"}, {"target": "şinab", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şibgo", "spelling_forms": ["şibgo", "şibgo-gi"], "senses": [{"text": "всё, никто́, ничто́.", "comment": "с отрица́тельным глаго́лом"}], "source": "av-ru.1936"}
+{"word": "şibize", "forms": ["şibize"], "senses": [{"text": "что де́лать?", "examples": [{"av": "mun hanib şibula?", "ru": "что ты здесь де́лаешь?"}]}], "see_also": [{"target": "şib", "kind": "compare"}, {"target": "habize", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şibļize", "forms": ["şibļize"], "senses": [{"text": "чем сде́латься?, чем ко́нчиться?", "examples": [{"av": "şibļana hab ƶo?", "ru": "чем ко́нчилось э́то?"}]}], "see_also": [{"target": "şib", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şijab", "forms": ["şijab"], "see_also": [{"target": "şibab", "kind": "spelling"}, {"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şimal", "forms": ["şimal"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "şamal", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şinab", "forms": ["şinab"], "see_also": [{"target": "şibab", "kind": "spelling"}, {"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şinķil", "forms": ["şinķil", "şanķlal"], "senses": [{"text": "копы́то."}], "source": "av-ru.1936"}
-{"word": "şinķize", "forms": ["şinķize"], "senses": [{"text": "заходи́ть"}, {"text": "сади́ться.", "comment": "о сóлнце"}], "source": "av-ru.1936"}
-{"word": "şirman-ççolorxa", "forms": ["şirman-ççolorxa", "şirman-ççolorxabi"], "senses": [{"text": "мундштýк.", "comment": "уздéчки"}], "source": "av-ru.1936"}
-{"word": "şişa", "forms": ["şişa", "şişabi", "şuşbi", "şişadal"], "senses": [{"text": "стеклó", "labels": ["персидское происхождение"]}, {"text": "буты́лка, флако́н, пузырёк.", "labels": ["персидское происхождение"]}, {"labels": ["родительный падеж"], "forms": ["şişadal"]}], "source": "av-ru.1936"}
+{"word": "şinķize", "forms": ["şinķize"], "senses": [{"text": "заходи́ть"}, {"text": "сади́ться.", "comment": "о со́лнце"}], "source": "av-ru.1936"}
+{"word": "şirman-ççolorxa", "forms": ["şirman-ççolorxa", "şirman-ççolorxabi"], "senses": [{"text": "мундшту́к.", "comment": "узде́чки"}], "source": "av-ru.1936"}
+{"word": "şişa", "forms": ["şişa", "şişabi", "şuşbi", "şişadal"], "senses": [{"text": "стекло́", "labels": ["персидское происхождение"]}, {"text": "буты́лка, флако́н, пузырёк.", "labels": ["персидское происхождение"]}, {"labels": ["родительный падеж"], "forms": ["şişadal"]}], "source": "av-ru.1936"}
 {"word": "şixx", "forms": ["şixx", "şixxzabi"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "şajx", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şkap", "forms": ["şkap", "şkapal"], "senses": [{"text": "шкаф, шкап.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şkola", "forms": ["şkola", "şkolabi"], "senses": [{"text": "шко́ла.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şljapa", "forms": ["şljapa", "şljapabi"], "senses": [{"text": "шля́па.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şob", "forms": ["şob", "şobal", "şobil", "şobda"], "senses": [{"text": "верши́на, горá, холм."}, {"labels": ["родительный падеж"], "forms": ["şobil"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["şobda"]}], "source": "av-ru.1936"}
+{"word": "şob", "forms": ["şob", "şobal", "şobil", "şobda"], "senses": [{"text": "верши́на, гора́, холм."}, {"labels": ["родительный падеж"], "forms": ["şobil"]}, {"labels": ["местный падеж", "1-я серия"], "forms": ["şobda"]}], "source": "av-ru.1936"}
 {"word": "şoji", "forms": ["şoji", "şoj"], "spelling_forms": ["şoji", "şoj"], "see_also": [{"target": "şvej", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şojze", "forms": ["şojze"], "see_also": [{"target": "şveze", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şoķolab", "forms": ["şoķolab", "şoķol"], "spelling_forms": ["şoķolab", "şoķol"], "see_also": [{"target": "şeķ", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "şoq", "spelling_forms": ["şoq", "şoqab"], "senses": [{"text": "нездорóвый", "examples": [{"av": "şoq vugc dun", "ru": "я нездорóв."}]}], "source": "av-ru.1936"}
-{"word": "şoqļi", "forms": ["şoqļi"], "senses": [{"text": "нездорóвье, недомогáние."}], "source": "av-ru.1936"}
-{"word": "şoqļize", "forms": ["şoqļize"], "senses": [{"text": "заболевáть."}], "source": "av-ru.1936"}
+{"word": "şoq", "spelling_forms": ["şoq", "şoqab"], "senses": [{"text": "нездоро́вый", "examples": [{"av": "şoq vugc dun", "ru": "я нездоро́в."}]}], "source": "av-ru.1936"}
+{"word": "şoqļi", "forms": ["şoqļi"], "senses": [{"text": "нездоро́вье, недомога́ние."}], "source": "av-ru.1936"}
+{"word": "şoqļize", "forms": ["şoqļize"], "senses": [{"text": "заболева́ть."}], "source": "av-ru.1936"}
 {"word": "şovinizm", "forms": ["şovinizm"], "senses": [{"text": "шовини́зм.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "şpala", "forms": ["şpala", "şpal", "şpalabi", "şpalal"], "spelling_forms": ["şpala", "şpal"], "senses": [{"text": "шпа́ла.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şpion", "forms": ["şpion", "şpional", "şpionzabi"], "senses": [{"text": "шпио́н", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "şpionļi", "forms": ["şpionļi"], "senses": [{"text": "шпиона́ж.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "şpionļize", "forms": ["şpionļize"], "senses": [{"text": "шпио́нить.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "şşeplet", "forms": ["şşeplet", "şşepletal"], "senses": [{"text": "штиблéт.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şşetovod", "forms": ["şşetovod", "şşetovodal"], "senses": [{"text": "счетовóд", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
-{"word": "şşetovodļi", "forms": ["şşetovodļi"], "senses": [{"text": "счетовóдство."}], "source": "av-ru.1936"}
+{"word": "şşeplet", "forms": ["şşeplet", "şşepletal"], "senses": [{"text": "штибле́т.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şşetovod", "forms": ["şşetovod", "şşetovodal"], "senses": [{"text": "счетово́д", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "şşetovodļi", "forms": ["şşetovodļi"], "senses": [{"text": "счетово́дство."}], "source": "av-ru.1936"}
 {"word": "şşilpet", "forms": ["şşilpet", "şşilpetal"], "senses": [{"labels": ["русское происхождение"]}], "see_also": [{"target": "şşeplet", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şşotal", "forms": ["şşotal", "şşot"], "spelling_forms": ["şşotal", "şşot"], "senses": [{"text": "счёты.", "labels": ["русское происхождение"]}], "see_also": [{"target": "cot", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şşotka", "forms": ["şşotka", "şşotkabi"], "senses": [{"text": "щётка.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "şşveţan", "forms": ["şşveţan"], "see_also": [{"target": "şetan", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "ştab", "forms": ["ştab", "ştabal"], "senses": [{"text": "штаб.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "ştampa", "forms": ["ştampa", "ştamp", "ştampal", "ştampabi"], "spelling_forms": ["ştampa", "ştamp"], "senses": [{"text": "штамп, печáть."}], "source": "av-ru.1936"}
-{"word": "ştat", "forms": ["ştat", "ştatal"], "senses": [{"text": "штат", "labels": ["интернациональный термин"]}, {"text": "шта́ты, персонáл", "labels": ["интернациональный термин"], "examples": [{"av": "Amerikajaļul ꞩoļaral ştata", "ru": "США.", "comment": "Соединённые Шта́ты Амéрики"}]}], "source": "av-ru.1936"}
-{"word": "ştempel", "forms": ["ştempel", "ştempelal"], "senses": [{"text": "штéмпель", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
-{"word": "ştrejkbrexer", "forms": ["ştrejkbrexer", "ştrejkbrexerzabi"], "senses": [{"text": "штрейкбрéхер."}], "source": "av-ru.1936"}
-{"word": "şu", "forms": ["şu"], "senses": [{"precomment": "в нарéчии Тили́тля"}], "see_also": [{"target": "şiv", "kind": "spelling"}, {"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "şu", "spelling_forms": ["şu", "şugo"], "senses": [{"text": "пять", "examples": [{"av": "şugojab", "ru": "пя́теро şujabgo пять şu-abileb пя́тый", "comment": "с местоимéниями"}, {"av": "şu-abize", "ru": "в-пя́тых şu-ⱬol пять раз"}, {"av": "şu-şu", "ru": "по пяти́."}]}], "source": "av-ru.1936"}
-{"word": "şub", "forms": ["şub"], "senses": [{"text": "росá", "examples": [{"av": "şub kkana xuribe", "ru": "роса́ па́ла на́ по́ле."}]}], "source": "av-ru.1936"}
+{"word": "ştampa", "forms": ["ştampa", "ştamp", "ştampal", "ştampabi"], "spelling_forms": ["ştampa", "ştamp"], "senses": [{"text": "штамп, печа́ть."}], "source": "av-ru.1936"}
+{"word": "ştat", "forms": ["ştat", "ştatal"], "senses": [{"text": "штат", "labels": ["интернациональный термин"]}, {"text": "шта́ты, персона́л", "labels": ["интернациональный термин"], "examples": [{"av": "Amerikajaļul ꞩoļaral ştata", "ru": "США.", "comment": "Соединённые Шта́ты Аме́рики"}]}], "source": "av-ru.1936"}
+{"word": "ştempel", "forms": ["ştempel", "ştempelal"], "senses": [{"text": "ште́мпель", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
+{"word": "ştrejkbrexer", "forms": ["ştrejkbrexer", "ştrejkbrexerzabi"], "senses": [{"text": "штрейкбре́хер."}], "source": "av-ru.1936"}
+{"word": "şu", "forms": ["şu"], "senses": [{"precomment": "в наре́чии Тили́тля"}], "see_also": [{"target": "şiv", "kind": "spelling"}, {"target": "şib", "kind": "see"}], "source": "av-ru.1936"}
+{"word": "şu", "spelling_forms": ["şu", "şugo"], "senses": [{"text": "пять", "examples": [{"av": "şugojab", "ru": "пя́теро şujabgo пять şu-abileb пя́тый", "comment": "с местоиме́ниями"}, {"av": "şu-abize", "ru": "в-пя́тых şu-ⱬol пять раз"}, {"av": "şu-şu", "ru": "по пяти́."}]}], "source": "av-ru.1936"}
+{"word": "şub", "forms": ["şub"], "senses": [{"text": "роса́", "examples": [{"av": "şub kkana xuribe", "ru": "роса́ па́ла на́ по́ле."}]}], "source": "av-ru.1936"}
 {"word": "şujileb", "forms": ["şujileb", "şujil"], "spelling_forms": ["şujileb", "şujil"], "see_also": [{"target": "şu-abileb", "kind": "spelling"}, {"target": "şu", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şuķdul", "forms": ["şuķdul"], "see_also": [{"target": "şeķ", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "şulat", "spelling_forms": ["şulat", "şula", "şulatab"], "senses": [{"text": "крéпкий, про́чный", "examples": [{"av": "şula(t) h.", "ru": "укрепля́ть, упро́чивать."}]}], "see_also": [{"target": "şulijab", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şulat", "spelling_forms": ["şulat", "şula", "şulatab"], "senses": [{"text": "кре́пкий, про́чный", "examples": [{"av": "şula(t) h.", "ru": "укрепля́ть, упро́чивать."}]}], "see_also": [{"target": "şulijab", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şulatļi", "forms": ["şulatļi", "şulaļi"], "spelling_forms": ["şulatļi", "şulaļi"], "senses": [{"text": "про́чность."}], "source": "av-ru.1936"}
 {"word": "şulatļize", "forms": ["şulatļize", "şulaļize"], "spelling_forms": ["şulatļize", "şulaļize"], "senses": [{"text": "укрепля́ться, упро́чиваться."}], "source": "av-ru.1936"}
 {"word": "şulijab", "forms": ["şulijab"], "see_also": [{"target": "şulatab", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "şunţxxul", "forms": ["şunţxxul"], "see_also": [{"target": "şvanţixx", "kind": "see"}], "source": "av-ru.1936"}
 {"word": "şuqrul", "forms": ["şuqrul"], "see_also": [{"target": "şeqer", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "Şura", "forms": ["Şura", "Şurab", "Şurahab"], "senses": [{"text": "Темúр-Хан-Шурá.", "comment": "прéжнее назвáние Буйнáкска"}, {"labels": ["местный падеж", "5-я серия"], "forms": ["Şurab", "Şurahab"]}], "source": "av-ru.1936"}
-{"word": "şura", "forms": ["şura", "şurabi"], "senses": [{"text": "совéт.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "sovet", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "Şura", "forms": ["Şura", "Şurab", "Şurahab"], "senses": [{"text": "Тему́р-Хан-Шура́.", "comment": "пре́жнее назва́ние Буйна́кска"}, {"labels": ["местный падеж", "5-я серия"], "forms": ["Şurab", "Şurahab"]}], "source": "av-ru.1936"}
+{"word": "şura", "forms": ["şura", "şurabi"], "senses": [{"text": "сове́т.", "labels": ["арабское происхождение"]}], "see_also": [{"target": "sovet", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şuri", "forms": ["şuri", "şurusa"], "senses": [{"text": "шо́пот."}, {"labels": ["эргативный падеж"], "forms": ["şurusa"]}], "see_also": [{"target": "şurize", "kind": "compare"}, {"target": "şuş", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şurize", "forms": ["şurize"], "senses": [{"text": "ползти́, шевели́ться"}, {"text": "шептáть."}], "see_also": [{"target": "şurşudize", "kind": "compare"}, {"target": "şurşşaze", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şurize", "forms": ["şurize"], "senses": [{"text": "ползти́, шевели́ться"}, {"text": "шепта́ть."}], "see_also": [{"target": "şurşudize", "kind": "compare"}, {"target": "şurşşaze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şurşşaze", "forms": ["şurşşaze"], "see_also": [{"target": "şuşşaze", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şurşudize", "forms": ["şurşudize"], "senses": [{"text": "шуршáть, шептáть."}], "see_also": [{"target": "şurize", "kind": "compare"}, {"target": "şurşuri", "kind": "compare"}, {"target": "şuş", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şurşuri", "forms": ["şurşuri", "şurşur"], "spelling_forms": ["şurşuri", "şurşur"], "senses": [{"text": "дрожь"}, {"text": "шо́рох, шуршáние, шо́пот."}], "see_also": [{"target": "şurşudize", "kind": "compare"}, {"target": "şurize", "kind": "compare"}, {"target": "şuşşaze", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "şurum", "forms": ["şurmal", "şurmisa"], "spelling_forms": ["şurum", "şurun"], "senses": [{"text": "чáшка", "examples": [{"av": "boţrol şurum", "ru": "чéреп."}]}, {"labels": ["эргативный падеж"], "forms": ["şurmisa"]}], "source": "av-ru.1936"}
+{"word": "şurşudize", "forms": ["şurşudize"], "senses": [{"text": "шурша́ть, шепта́ть."}], "see_also": [{"target": "şurize", "kind": "compare"}, {"target": "şurşuri", "kind": "compare"}, {"target": "şuş", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şurşuri", "forms": ["şurşuri", "şurşur"], "spelling_forms": ["şurşuri", "şurşur"], "senses": [{"text": "дрожь"}, {"text": "шо́рох, шурша́ние, шо́пот."}], "see_also": [{"target": "şurşudize", "kind": "compare"}, {"target": "şurize", "kind": "compare"}, {"target": "şuşşaze", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şurum", "forms": ["şurmal", "şurmisa"], "spelling_forms": ["şurum", "şurun"], "senses": [{"text": "ча́шка", "examples": [{"av": "boţrol şurum", "ru": "че́реп."}]}, {"labels": ["эргативный падеж"], "forms": ["şurmisa"]}], "source": "av-ru.1936"}
 {"word": "şuruţal", "forms": ["şuruţal"], "see_also": [{"target": "şarţ", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "şuş", "forms": ["şuş"], "senses": [{"text": "шо́пот", "examples": [{"av": "şuş bisine", "ru": "говори́ть шо́потом, шептáть."}]}], "see_also": [{"target": "şuşşaze", "kind": "compare"}, {"target": "şuri", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şuş", "forms": ["şuş"], "senses": [{"text": "шо́пот", "examples": [{"av": "şuş bisine", "ru": "говори́ть шо́потом, шепта́ть."}]}], "see_also": [{"target": "şuşşaze", "kind": "compare"}, {"target": "şuri", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şuşbi", "forms": ["şuşbi"], "see_also": [{"target": "şişa", "kind": "see"}], "source": "av-ru.1936"}
-{"word": "şuşşaze", "forms": ["şuşşaze", "şuşaze"], "spelling_forms": ["şuşşaze", "şuşaze"], "senses": [{"text": "рассыпáть, разбрáсывать"}, {"text": "броди́ть, кочевáть."}], "see_also": [{"target": "şuş", "kind": "compare"}, {"target": "şurşudize", "kind": "compare"}, {"target": "şurize", "kind": "compare"}, {"target": "şurşşaze", "kind": "compare"}], "source": "av-ru.1936"}
+{"word": "şuşşaze", "forms": ["şuşşaze", "şuşaze"], "spelling_forms": ["şuşşaze", "şuşaze"], "senses": [{"text": "рассыпа́ть, разбра́сывать"}, {"text": "броди́ть, кочева́ть."}], "see_also": [{"target": "şuş", "kind": "compare"}, {"target": "şurşudize", "kind": "compare"}, {"target": "şurize", "kind": "compare"}, {"target": "şurşşaze", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "şvakize", "forms": ["şvakize"], "senses": [{"text": "протя́гивать."}], "source": "av-ru.1936"}
-{"word": "şvanţixx", "forms": ["şvanţixxal", "şunţxxul"], "spelling_forms": ["şvanţixx", "şanţixx", "şvantixx", "şantixx"], "senses": [{"text": "дýдка", "examples": [{"av": "şvanţixx pujze", "ru": "игрáть на дýдке."}]}], "source": "av-ru.1936"}
-{"word": "şvat", "forms": ["şvat", "şvatal"], "senses": [{"text": "шаг", "comment": "размáшистый", "examples": [{"av": "şvat baxize", "ru": "шагáть."}]}], "source": "av-ru.1936"}
-{"word": "şvaze", "forms": ["şvaze"], "senses": [{"text": "посыпáть"}, {"text": "обры́згивать", "examples": [{"av": "ⱬⱬan şvaze", "ru": "посыпáть сóлью, соли́ть."}]}], "source": "av-ru.1936"}
+{"word": "şvanţixx", "forms": ["şvanţixxal", "şunţxxul"], "spelling_forms": ["şvanţixx", "şanţixx", "şvantixx", "şantixx"], "senses": [{"text": "ду́дка", "examples": [{"av": "şvanţixx pujze", "ru": "игра́ть на ду́дке."}]}], "source": "av-ru.1936"}
+{"word": "şvat", "forms": ["şvat", "şvatal"], "senses": [{"text": "шаг", "comment": "разма́шистый", "examples": [{"av": "şvat baxize", "ru": "шага́ть."}]}], "source": "av-ru.1936"}
+{"word": "şvaze", "forms": ["şvaze"], "senses": [{"text": "посыпа́ть"}, {"text": "обры́згивать", "examples": [{"av": "ⱬⱬan şvaze", "ru": "посыпа́ть со́лью, соли́ть."}]}], "source": "av-ru.1936"}
 {"word": "şvaze", "forms": ["şvaze"], "see_also": [{"target": "şveze", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şvedav", "forms": ["şvedav"], "senses": [{"text": "швед", "examples": [{"av": "şvedazul maⱬⱬ", "ru": "швéдский язы́к."}]}], "source": "av-ru.1936"}
+{"word": "şvedav", "forms": ["şvedav"], "senses": [{"text": "швед", "examples": [{"av": "şvedazul maⱬⱬ", "ru": "шве́дский язы́к."}]}], "source": "av-ru.1936"}
 {"word": "şvej", "forms": ["şvej"], "senses": [{"text": "прибы́тие."}], "see_also": [{"target": "şveze", "kind": "compare"}], "source": "av-ru.1936"}
-{"word": "Şveşija", "forms": ["Şveşija"], "senses": [{"text": "Швéция."}], "source": "av-ru.1936"}
+{"word": "Şveşija", "forms": ["Şveşija"], "senses": [{"text": "Шве́ция."}], "source": "av-ru.1936"}
 {"word": "şveţan", "forms": ["şveţan"], "see_also": [{"target": "şetan", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "şveze", "forms": ["şveze", "şvana", "şun", "şva"], "senses": [{"text": "дости́гать"}, {"text": "приезжáть"}, {"text": "получáть", "examples": [{"av": "şveze h.", "ru": "доставля́ть"}, {"av": "ḩor şun bugo", "ru": "начáлся пáводок."}]}, {"labels": ["прошедшее время"], "forms": ["şvana"]}, {"labels": ["деепричастие"], "forms": ["şun"]}, {"labels": ["повелительная форма"], "forms": ["şva"]}], "source": "av-ru.1936"}
+{"word": "şveze", "forms": ["şveze", "şvana", "şun", "şva"], "senses": [{"text": "дости́гать"}, {"text": "приезжа́ть"}, {"text": "получа́ть", "examples": [{"av": "şveze h.", "ru": "доставля́ть"}, {"av": "ḩor şun bugo", "ru": "нача́лся па́водок."}]}, {"labels": ["прошедшее время"], "forms": ["şvana"]}, {"labels": ["деепричастие"], "forms": ["şun"]}, {"labels": ["повелительная форма"], "forms": ["şva"]}], "source": "av-ru.1936"}
 {"word": "tabo", "forms": ["tabo"], "senses": [{"labels": ["арабское происхождение"]}], "see_also": [{"target": "tavbo", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "tahi", "forms": ["tahi", "tahabi"], "see_also": [{"target": "taji", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "taħankize", "forms": ["taħankize"], "senses": [{"text": "па́дать, ру́хнуть."}], "source": "av-ru.1936"}
@@ -5762,7 +5762,7 @@
 {"word": "tonna", "forms": ["tonna", "tonnabi", "tonnal"], "senses": [{"text": "то́нна.", "labels": ["интернациональный термин"]}], "source": "av-ru.1936"}
 {"word": "top", "forms": ["top"], "senses": [{"labels": ["тюркское происхождение"]}], "see_also": [{"target": "ţup", "kind": "spelling"}], "source": "av-ru.1936"}
 {"word": "torba", "forms": ["torba", "torbabi"], "senses": [{"labels": ["русское происхождение"]}], "see_also": [{"target": "turba.", "kind": "spelling"}], "source": "av-ru.1936"}
-{"word": "torgal", "forms": ["torgal"], "senses": [{"text": "торгí.", "labels": ["множественное число", "русское происхождение"]}], "source": "av-ru.1936"}
+{"word": "torgal", "forms": ["torgal"], "senses": [{"text": "торги́.", "labels": ["множественное число", "русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "torḩo", "forms": ["torḩo", "tarḩal", "torḩisa"], "senses": [{"text": "мяч, мя́чик", "examples": [{"av": "torḩo h., torḩo qabize", "ru": "игра́ть в мя́чик."}]}, {"labels": ["эргативный падеж"], "forms": ["torḩisa"]}], "see_also": [{"target": "ţup", "kind": "compare"}], "source": "av-ru.1936"}
 {"word": "tovarişşestva", "forms": ["tovarişşestva", "tovarişşestvabi"], "senses": [{"text": "това́рищество.", "labels": ["русское происхождение"]}], "source": "av-ru.1936"}
 {"word": "toxum", "forms": ["toxumal"], "spelling_forms": ["toxum", "toxom"], "senses": [{"labels": ["тюркское происхождение"]}], "see_also": [{"target": "tuxum", "kind": "spelling"}], "source": "av-ru.1936"}
