@@ -764,6 +764,6 @@ def parse(html):
 
 if __name__ == "__main__":
     entries = parse((ROOT / "books" / SOURCE / f"{SOURCE}.html").read_text(encoding="utf-8"))
-    output = ROOT / "data" / f"{SOURCE}.jsonl"
+    output = ROOT / "data" / f"{SOURCE}.latin.jsonl"
     output.write_text("".join(json.dumps(entry, ensure_ascii=False) + "\n" for entry in entries), encoding="utf-8")
     print(f"{output}: {len(entries)} entries")

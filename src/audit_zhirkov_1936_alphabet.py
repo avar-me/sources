@@ -116,7 +116,7 @@ if __name__ == '__main__':
     parser.add_argument('--report', type=Path)
     parser.add_argument('--json', type=Path)
     args = parser.parse_args()
-    entries = [json.loads(s) for s in (ROOT / 'data/av-ru.1936.jsonl').read_text(encoding='utf-8').splitlines()]
+    entries = [json.loads(s) for s in (ROOT / 'data/av-ru.1936.latin.jsonl').read_text(encoding='utf-8').splitlines()]
     findings = audit(entries)
     source = articles((ROOT / 'books/av-ru.1936/av-ru.1936.html').read_text(encoding='utf-8'))
     assert len(source) == len(entries)
