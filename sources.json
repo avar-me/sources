@@ -445,6 +445,38 @@
       ]
     },
     {
+      "id": "av-ru.orosib",
+      "title": "Словарь неологизмов (orosib.wixsite.com/avar)",
+      "subtitle": "av → ru · неологизмы",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Новые слова аварского языка, придуманные для современных понятий («ЦӀиял рагӀаби», «Нусигьин»). 4026 статей. Собрано со страниц сайта orosib.wixsite.com/avar, не вычитано носителем; в части статей словоформы ещё не вынесены из заголовка в отдельное поле.",
+      "format": "jsonl",
+      "data_path": "data/av-ru.orosib.jsonl",
+      "site_path": "av-ru.orosib/",
+      "language_from": "av",
+      "language_to": "ru",
+      "based_on": "Материалы сайта orosib.wixsite.com/avar (автор сайта не установлен; сайт публичный, явной лицензии не заявлено). Извлечение и нормализация палочки — проект avar.me.",
+      "license": "см. based_on — republished with source attribution",
+      "consumers": []
+    },
+    {
+      "id": "ru-av.orosib",
+      "title": "Словарь неологизмов (orosib.wixsite.com/avar)",
+      "subtitle": "ru → av · неологизмы",
+      "kind": "dictionary",
+      "status": "test",
+      "description": "Тот же словарь неологизмов в обратную сторону, рус → авар. 2827 статей.",
+      "format": "jsonl",
+      "data_path": "data/ru-av.orosib.jsonl",
+      "site_path": "ru-av.orosib/",
+      "language_from": "ru",
+      "language_to": "av",
+      "based_on": "Материалы сайта orosib.wixsite.com/avar (автор сайта не установлен; сайт публичный, явной лицензии не заявлено). Извлечение и нормализация палочки — проект avar.me.",
+      "license": "см. based_on — republished with source attribution",
+      "consumers": []
+    },
+    {
       "id": "taras-bulba",
       "title": "Тарас Бульба",
       "subtitle": "ru ↔ av · повесть",
