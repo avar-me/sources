@@ -390,6 +390,39 @@ def _smart_join(parts):
     return out
 
 
+# A "(букв. ...)" aside -- established av-ru.jsonl convention: `comment`,
+# never a label (CLAUDE.md "Решённые вопросы"). Typeset three different
+# ways in this book (the parens and "букв." independently italic or
+# plain, in any combination) and not always at the end of the sentence
+# ("вчера мы получили (букв. к нам пришло) от сына письмо" continues
+# *after* the aside) -- so this runs on the final joined `ru` string,
+# where none of that typesetting variation matters any more, instead of
+# trying to track it through the run-by-run extraction above.
+_BUKV_PAREN_RE = re.compile(r"\(\s*букв\.?\s*([^()]*)\)", re.I)
+
+
+def _extract_bukv_comment(ru):
+    m = _BUKV_PAREN_RE.search(ru)
+    if m:
+        comment = ("букв. " + m[1].strip()).strip()
+        remaining = re.sub(r"\s+", " ", ru[: m.start()] + " " + ru[m.end():]).strip(" ;,.")
+        return remaining, comment
+    # No parens: "...; букв. X" with a real translation before it splits
+    # there (comment = "букв. X"); "букв. X" with nothing substantial
+    # before it means the book gives only the literal gloss, with no
+    # separate figurative translation to set it apart from -- nothing to
+    # move into `comment` without leaving `ru` empty, so just drop the
+    # now-redundant marker word and keep the gloss as `ru`.
+    bare = re.search(r"\bбукв\.?\s+", ru, re.I)
+    if not bare:
+        return ru, None
+    preceding = ru[: bare.start()].strip(" ;,.")
+    rest = ru[bare.end():].strip()
+    if preceding:
+        return preceding, ("букв. " + rest).strip()
+    return rest, None
+
+
 def extract_bold_examples(runs):
     """Pull (av, ru) example pairs out of one leaf's runs using bold-vs-
     plain typesetting: a bold run is that example's Avar phrase, and
@@ -450,26 +483,32 @@ def extract_bold_examples(runs):
             # <i>погов.</i> ...") classifies this specific example, rather
             # than being part of its Russian translation.
             ex_labels = []
-            while group and group[0][0] == "i" and group[0][1] in ABBR_LABELS:
-                ex_labels.append(ABBR_LABELS[group[0][1]])
-                group = group[1:]
+            while group and group[0][0] == "i":
+                content0 = group[0][1]
+                if content0 in ABBR_LABELS:
+                    ex_labels.append(ABBR_LABELS[content0])
+                    group = group[1:]
+                    continue
+                # A label and "букв." are sometimes typeset glued into one
+                # italic run with no parens at all ("<i>погов. букв.</i>
+                # любовь к парню — не вина"): extract the label and leave
+                # the bare "букв." in place for `_extract_bukv_comment`.
+                combo = re.match(r"^(" + "|".join(re.escape(k) for k in ABBR_LABELS) + r")\s*(букв\.?)$", content0, re.I)
+                if combo:
+                    ex_labels.append(ABBR_LABELS[combo[1]])
+                    group = [("i", combo[2])] + group[1:]
+                break
             # "букв." ("literally") introduces a literal-translation aside
-            # that belongs in `comment` (established convention), not
-            # folded into the translation itself.
-            ex_comment = None
-            for k, (gkind, gcontent) in enumerate(group):
-                if gkind == "i" and gcontent.rstrip(".") == "букв":
-                    preceding = _smart_join(c for _, c in group[:k])
-                    # Skip the split if "букв." sits inside an still-open
-                    # "(" from the preceding text (e.g. "...ума (букв.
-                    # ничего) не прибавится" -- the sentence continues
-                    # *after* that closing paren, back in `ru`, which a
-                    # simple cut-from-here split would lose).
-                    if preceding.count("(") <= preceding.count(")"):
-                        ex_comment = _smart_join(c for _, c in group[k:]).strip(" ;,.")
-                        group = group[:k]
-                    break
+            # that belongs in `comment`, with no label (established
+            # av-ru.jsonl convention, CLAUDE.md "Решённые вопросы"), not
+            # folded into the translation itself. Typeset several ways:
+            # the whole "(букв." italic, or only the opening "(букв."
+            # italic and the closing ")" its own, separate italic run, or
+            # no parens at all when the book gives no other, figurative
+            # translation to set the literal one apart from (see
+            # `_extract_bukv_comment`).
             ru = _smart_join(c for _, c in group).strip(" ;,.")
+            ru, ex_comment = _extract_bukv_comment(ru)
             if len(ru) > 2 and ru.lower() not in _CONNECTOR_WORDS and re.search(r"[а-яёА-ЯЁ]", ru):
                 pair = {"av": content, "ru": ru}
                 if ex_comment:
@@ -583,6 +622,9 @@ ABBR_LABELS = {
     "эрг. п.": "эргативный падеж",
     "местн. п.": "местный падеж",
 }
+# An idiom (◇) defaults to "поговорка", but not when the text already
+# names a more specific type of its own.
+_IDIOM_TYPE_LABELS = {"поговорка", "пословица"}
 LEADING_LABEL_RE = re.compile(
     # A label at the very end of a leaf (e.g. a "масд. понуд." note that
     # applies to all of the headword's numbered sub-senses, printed before
@@ -852,7 +894,15 @@ def build_senses(leaf_run_groups):
             idiom_sense, idiom_see_also = _build_one_sense(runs_to_text(idiom_leftover), idiom_examples)
             see_also.extend(idiom_see_also)
             if idiom_sense is not None:
-                idiom_sense["labels"] = ["поговорка"] + [l for l in idiom_sense.get("labels", []) if l != "поговорка"]
+                # Default to "поговорка" only when the text itself did not
+                # already supply a more specific classification (e.g.
+                # "посл." -> "пословица" on one of its examples) -- an
+                # idiom is not simultaneously both.
+                own_and_example_labels = set(idiom_sense.get("labels", [])) | {
+                    l for ex in idiom_sense.get("examples", []) or [] for l in ex.get("labels", []) or []
+                }
+                if not (own_and_example_labels & _IDIOM_TYPE_LABELS):
+                    idiom_sense["labels"] = ["поговорка"] + idiom_sense.get("labels", [])
                 senses.append(idiom_sense)
     return senses, see_also
 

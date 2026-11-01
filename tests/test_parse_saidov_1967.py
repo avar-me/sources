@@ -58,8 +58,8 @@ class ArticleBoundaryTests(unittest.TestCase):
     def test_phraseological_nest_stays_one_article(self):
         # A single printed article gathering many idioms under "чӀвазе";
         # a boundary-detection regression would split or merge this badly.
-        article = next(a for a in self.articles if a["word"] == "диб чӀвазе")
-        self.assertIn("хинкӀ чӀвазе", article["text"])
+        article = next(a for a in self.articles if a["word"] == "диб чӏвазе")
+        self.assertIn("хинкӏ чӏвазе", article["text"])
 
     def test_page_wrap_continuation_is_not_orphaned(self):
         by_word = {a["word"]: a for a in self.articles}
@@ -367,7 +367,7 @@ class FullEntryIntegrationTests(unittest.TestCase):
         entry = self.entries["буртина"][0]
         self.assertEqual(entry["forms"], ["буртина", "буртинадул", "буртаби"])
         self.assertEqual(len(entry["senses"]), 2)
-        self.assertEqual(entry["senses"][0]["examples"][0]["av"], "буртинадул тӀагъур")
+        self.assertEqual(entry["senses"][0]["examples"][0]["av"], "буртинадул тӏагъур")
 
     def test_abgo_idiom_is_its_own_sense_with_an_example(self):
         entry = self.entries["абго"][0]
@@ -398,10 +398,10 @@ class FullEntryIntegrationTests(unittest.TestCase):
         self.assertEqual(entry["gender_forms"], ["абадияб", "абадияв", "абадияй"])
 
     def test_phraseological_nest_still_has_senses(self):
-        entry = self.entries["диб чӀвазе"][0]
+        entry = self.entries["диб чӏвазе"][0]
         self.assertIn("senses", entry)
         examples = [ex for s in entry["senses"] for ex in s.get("examples", []) or []]
-        self.assertTrue(any("хинкӀ чӀвазе" in ex["av"] for ex in examples))
+        self.assertTrue(any("хинкӏ чӏвазе" in ex["av"] for ex in examples))
 
     def test_no_stray_html_tag_leaks_into_any_example(self):
         # Regression: a bold span hyphen-split across a page boundary used
