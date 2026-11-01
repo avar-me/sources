@@ -30,6 +30,15 @@ class TranslitWordTests(unittest.TestCase):
         self.assertEqual(translit_word("x̨aze"), "хьазе")
         self.assertEqual(translit_word("x̵izan"), "хъизан")
 
+    def test_l_with_palochka_is_distinct_from_laq(self):
+        # Confirmed directly against the print: ł is л with palochka (лӏ)
+        # everywhere, with no grammatical-form exception -- łar "horn" and
+        # ļar-spelled "лъар" "stream" are unrelated words that collide if
+        # ł is folded into лъ (2026-11-01 correction).
+        self.assertEqual(translit_word("łar"), "лӏар")
+        self.assertEqual(translit_word("nił"), "нилӏ")
+        self.assertNotEqual(translit_word("łar"), translit_word("ļar"))
+
     def test_geminate_shsh_becomes_shcha(self):
         # Confirmed against modern av-ru.jsonl cognates: bişşize == бищизе
         # "выбирать", başşad == бащад "равный" -- geminate şş is one

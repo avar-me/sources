@@ -43,7 +43,11 @@ MAPPING: dict[str, str] = {
     "ḩ": "гӏ",
     "ķ": "кӏ",
     "ļ": "лъ",
-    "ł": "лъ",
+    # Confirmed by the user directly against the 1936 print: ł is л with
+    # palochka (лӀ) everywhere, including in nił/niłer/nełer -- do not
+    # special-case grammatical forms by cross-referencing av-ru.jsonl
+    # cognates, that produces invented exceptions (2026-11-01 correction).
+    "ł": "лӏ",
     "ꝗ": "кь",
     "ꞩ": "ц",
     "ş": "ш",
