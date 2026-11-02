@@ -619,6 +619,7 @@ ABBR_LABELS = {
     "перен.": "в переносном значении",
     "разг.": "разговорное слово",
     "уст.": "устаревшее слово",
+    "ист.": "историческое слово",
     "прост.": "просторечное слово",
     "книжн.": "книжное",
     "бот.": "ботаника",
@@ -1017,6 +1018,21 @@ def build_entry(article):
                 body_html = body_html[close + 1:].lstrip()
             # kind == "unknown": leave body_html (bracket included) untouched
             body_html = strip_loose_homonym(body_html)
+
+    # A `(мн. X)` note right after the headword is the same kind of own-form
+    # list as a `[...]` bracket (`жен (мн. жу́ндул)`, `озде́н (мн. озде́нзаби)`),
+    # just typeset in parens instead of square brackets -- rare (2 entries)
+    # but handled the same way so the plural doesn't get misparsed as the
+    # start of an example.
+    if body_html.startswith("("):
+        close = body_html.find(")")
+        if close != -1:
+            bracket = parse_headword_bracket(plain(body_html[1:close]))
+            if bracket["kind"] == "forms" and bracket["forms"]:
+                entry["forms"] = [strip_stress(article["word"])] + bracket["forms"]
+                body_html = body_html[close + 1:].lstrip()
+                body_html = strip_loose_homonym(body_html)
+            # other kinds: leave body_html (parens included) untouched
 
     senses, see_also = build_senses(split_leaf_runs(tag_runs(body_html)))
 
