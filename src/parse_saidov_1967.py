@@ -649,7 +649,39 @@ ABBR_LABELS = {
     "род. п.": "родительный падеж",
     "эрг. п.": "эргативный падеж",
     "местн. п.": "местный падеж",
+    # Geographic-name type markers, from the dictionary's own key on
+    # p. 620 ("СПИСОК ГЕОГРАФИЧЕСКИХ НАЗВАНИЙ"): бчӏ. — бащдаб чӏинкӏиллъи,
+    # гӏ. — гӏор, пач. — пачалихъ, рс. — росу, хӏ. — хӏор, чӏ. — чӏинкӏиллъи,
+    # ш. — шагьар. Printed on the Avar headword side; GEO_RU_LABELS below
+    # covers the matching Russian-side marker after the translation.
+    "бчӏ.": "полуостров",
+    "гӏ.": "река",
+    "пач.": "государство",
+    "рс.": "село",
+    "хӏ.": "озеро",
+    "чӏ.": "остров",
+    "ш.": "город",
 }
+# The dictionary's own Russian-side marker key (same p. 620 list) --
+# appears after the Russian translation in a geographic entry
+# ("Карабудахкент с."); stripped once the Avar-side marker above has
+# already supplied the structured `labels` entry, so the meaning is not
+# duplicated as leftover text.
+GEO_RU_LABELS = {
+    "п-ов": "полуостров",
+    "р.": "река",
+    "гос-во": "государство",
+    "с.": "село",
+    "оз.": "озеро",
+    "о-в": "остров",
+    "г.": "город",
+}
+# Matches one of the Russian-side geo markers above at the very end of a
+# leaf, optionally followed by a closing period (the dictionary always
+# puts the marker last: "Карабудахкент с.").
+TRAILING_GEO_RE = re.compile(
+    r"\s+(" + "|".join(re.escape(k) for k in sorted(GEO_RU_LABELS, key=len, reverse=True)) + r")\.?$"
+)
 # An idiom (◇) defaults to "поговорка", but not when the text already
 # names a more specific type of its own.
 _IDIOM_TYPE_LABELS = {"поговорка", "пословица"}
@@ -884,6 +916,15 @@ def _build_one_sense(leaf_text, examples):
         pre_labels.append(ABBR_LABELS[m[1]])
         leaf_text = leaf_text[m.end():].strip()
         stub = try_stub(leaf_text) if leaf_text else None
+    if not stub and leaf_text:
+        m = TRAILING_GEO_RE.search(leaf_text)
+        if m and GEO_RU_LABELS[m[1]] in pre_labels:
+            # The dictionary prints the same geographic-type marker twice
+            # (Avar-side before the translation, Russian-side after it,
+            # e.g. "рс. Карабудахкент с."); the Avar-side one already
+            # became a `labels` entry above, so the trailing Russian-side
+            # one is dropped rather than duplicated as leftover text.
+            leaf_text = leaf_text[: m.start()].strip()
     see_also = list(leaf_see_also)
     if stub:
         sense, stub_see_also = stub
