@@ -106,6 +106,20 @@ def articles(html):
         # before the bold span (*<b>word</b>), sometimes inside it
         # (<b>*word</b>).
         bold = re.match(r"\s*(\*?)\s*<b>(.*?)</b>", fragment, re.S)
+        # A spelling variant is usually "||" inside one bold span
+        # (<b>слово||словво</b>), but a few headwords print it as two
+        # separate bold spans with "||" between them
+        # (<b>ИбнухІажар</b> || <b>Ин(н)ахІажар</b>) -- fold the second
+        # span into the same variant-spelling handling so it does not
+        # leak into the body as a bogus example.
+        second_bold_variant = None
+        if bold:
+            extra = re.match(r"\s*\|\|\s*<b>(.*?)</b>", fragment[bold.end():], re.S)
+            if extra:
+                second_bold_variant = extra[1]
+                bold_end = bold.end() + extra.end()
+            else:
+                bold_end = bold.end()
         # A long article is occasionally split across two <p> tags in the
         # source with no page break between them, and the second <p> opens
         # with a bare sub-sense number in bold ("<p><b>3)</b> перен. дать
@@ -116,6 +130,8 @@ def articles(html):
             raw_heading = plain(bold[2])
             star = bool(bold[1]) or raw_heading.startswith("*")
             raw_heading = raw_heading.lstrip("*")
+            if second_bold_variant is not None:
+                raw_heading = raw_heading + "||" + plain(second_bold_variant)
             heading = TRAILING_NUMBERING_RE.sub("", raw_heading).strip()
             heading = heading.split(",", 1)[0].split("||", 1)[0].strip()
             homonym = None
@@ -136,7 +152,7 @@ def articles(html):
             # <b>/<i> markup the book itself uses to distinguish Avar text
             # from Russian prose and grammatical labels (bold = Avar,
             # italic = label/comment, plain = Russian translation).
-            body_html = fragment[bold.end():]
+            body_html = fragment[bold_end:]
             entry = {"word": word, "text": text, "heading_prefix": heading_prefix, "body_html": body_html, "page": page}
             if stress is not None:
                 entry["stress"] = stress
@@ -151,11 +167,23 @@ def articles(html):
             if not result:
                 raise ValueError(f"Orphan continuation on page {page}: {text}")
             previous = result[-1]["text"]
-            if previous.endswith("-") and re.search(r"[а-яё]́?-$", previous) and re.match(r"[а-яё]", text):
+            is_hyphen_wrap = bool(
+                previous.endswith("-") and re.search(r"[а-яё]́?-$", previous) and re.match(r"[а-яё]", text)
+            )
+            if is_hyphen_wrap:
                 result[-1]["text"] = previous[:-1] + text
             else:
                 result[-1]["text"] += " " + text
-            result[-1]["body_html"] = result[-1].get("body_html", "") + " " + fragment
+            prev_body = result[-1].get("body_html", "")
+            if is_hyphen_wrap:
+                # The hyphen that word-wrapped across a page/column break
+                # lives in body_html too (possibly right before a closing
+                # tag, e.g. "бат-</b>"); drop it and join with no space so
+                # the rejoined word reads as one token, same as `text`.
+                dehyphenated = re.sub(r"-(\s*(?:</[a-zA-Z]+>\s*)*)$", r"\1", prev_body, count=1)
+                result[-1]["body_html"] = dehyphenated + fragment
+            else:
+                result[-1]["body_html"] = prev_body + " " + fragment
     return result
 
 
